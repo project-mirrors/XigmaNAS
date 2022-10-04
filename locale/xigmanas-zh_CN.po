@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
 "PO-Revision-Date: 2022-05-25 02:38+0000\n"
 "Last-Translator: Luke Luo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 "Language: zh_CN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -408,6 +408,9 @@ msgstr "继承ACL"
 msgid "ACL Mode"
 msgstr "ACL模式"
 
+msgid "ACL Type"
+msgstr ""
+
 msgid "ACL inherit"
 msgstr "ACL继承"
 
@@ -535,6 +538,9 @@ msgstr "添加磁盘"
 
 msgid "Add Encrypted Volume"
 msgstr "添加加密卷"
+
+msgid "Add Filesystem"
+msgstr ""
 
 msgid "Add Group"
 msgstr "新增群组"
@@ -1471,6 +1477,9 @@ msgstr "块大小"
 msgid "Blocksize"
 msgstr "数据块大小"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
 msgid "Boot Arguments"
 msgstr "启动参数"
 
@@ -1909,6 +1918,9 @@ msgstr "克隆"
 msgid "Clone Configuration"
 msgstr "克隆配置"
 
+msgid "Clones"
+msgstr ""
+
 msgid "Close"
 msgstr "关闭"
 
@@ -2003,6 +2015,9 @@ msgstr "在传输时压缩数据。"
 
 msgid "Compression"
 msgstr "资料压缩"
+
+msgid "Compression Ratio"
+msgstr ""
 
 msgid "Configuration"
 msgstr "配置"
@@ -2633,6 +2648,9 @@ msgstr "数据库目录"
 msgid "Dataset"
 msgstr "数据集"
 
+msgid "Dataset Name"
+msgstr ""
+
 msgid "Dataset Type"
 msgstr "数据集类型"
 
@@ -2722,6 +2740,9 @@ msgstr "DefaultTime2Retain"
 msgid "DefaultTime2Wait"
 msgstr "DefaultTime2Wait"
 
+msgid "Defer Destroy"
+msgstr ""
+
 msgid "Define directories/URL's that require authentication."
 msgstr "指定需要认证的目录/URL"
 
@@ -2790,6 +2811,9 @@ msgstr "删除选中的磁盘"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "删除选中的加密卷"
+
+msgid "Delete Selected Filesystems"
+msgstr ""
 
 msgid "Delete Selected Groups"
 msgstr "删除选中的组"
@@ -3389,6 +3413,9 @@ msgstr "磁盘相对于主轴的距离（通常由于冲击或温度）。 计�
 msgid "Distributed Hash Table"
 msgstr "分布式散列表"
 
+msgid "Dnode Size"
+msgstr ""
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr "一旦启动，请勿中止固件升级过程。"
 
@@ -3572,6 +3599,9 @@ msgstr "要删除选中的磁盘吗？"
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "您是否要删除选中的加密卷？"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
 msgid "Do you want to delete selected groups?"
 msgstr "要删除选中的群组吗？"
 
@@ -3695,6 +3725,9 @@ msgstr "你想禁用选定的认证组吗？"
 msgid "Do you want to disable selected commands?"
 msgstr "要禁用选中的命令吗？"
 
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
 msgid "Do you want to disable selected groups?"
 msgstr "要禁用所选组吗？"
 
@@ -3793,6 +3826,9 @@ msgstr "你想启用选定的认证组吗？"
 
 msgid "Do you want to enable selected commands?"
 msgstr "是否要启用选中的命令？"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr ""
 
 msgid "Do you want to enable selected groups?"
 msgstr "要启用选定的组吗？"
@@ -3901,6 +3937,9 @@ msgstr "你想切换选定的身份验证组吗？"
 
 msgid "Do you want to toggle selected commands?"
 msgstr "是否要切换选中的命令？"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr ""
 
 msgid "Do you want to toggle selected groups?"
 msgstr "你想切换选定的群组吗？"
@@ -4115,6 +4154,9 @@ msgstr "编辑磁盘"
 
 msgid "Edit Encrypted Volume"
 msgstr "编辑加密卷"
+
+msgid "Edit Filesystem"
+msgstr ""
 
 msgid "Edit Group"
 msgstr "编辑群组"
@@ -4732,6 +4774,9 @@ msgstr "加密管理"
 msgid "Encryption Password"
 msgstr "加密密码"
 
+msgid "Encryption Root"
+msgstr ""
+
 msgid "Encryption Settings"
 msgstr "加密设置"
 
@@ -4981,6 +5026,9 @@ msgstr "执行"
 msgid "Execute Command"
 msgstr "执行命令"
 
+msgid "Execute Processes"
+msgstr ""
+
 msgid "Execute now"
 msgstr "立刻执行"
 
@@ -5172,6 +5220,9 @@ msgstr "假地址"
 msgid "Fast"
 msgstr "快速"
 
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
 msgid "Fatal"
 msgstr "致命"
 
@@ -5263,6 +5314,24 @@ msgstr "文件名称"
 
 msgid "Filesystem"
 msgstr "文件系统"
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Filesystems"
+msgstr ""
 
 msgid "Filter"
 msgstr "过滤"
@@ -5473,8 +5542,14 @@ msgstr "GSSAPI身份验证"
 msgid "GUI"
 msgstr "用户图形界面"
 
+msgid "GUID"
+msgstr ""
+
 msgid "GZIP Archive"
 msgstr "GZIP压缩包"
+
+msgid "GZIP Compression Level"
+msgstr ""
 
 msgid "Gateway"
 msgstr "网关（Gateway）"
@@ -5554,6 +5629,9 @@ msgstr "图表每隔%d秒更新一次"
 
 msgid "Graphs Height"
 msgstr "图表高度"
+
+msgid "Graphs Width"
+msgstr ""
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr "第一次连接进入时向客户端显示问候语横幅。"
@@ -6442,11 +6520,20 @@ msgstr "内核文件（如 %s）。"
 msgid "Key"
 msgstr "密钥"
 
+msgid "Key Format"
+msgstr ""
+
 msgid "Key Length"
 msgstr "密钥长度"
 
+msgid "Key Location"
+msgstr ""
+
 msgid "Key Management Protocol"
 msgstr "密钥管理协议"
+
+msgid "Key Status"
+msgstr ""
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "键盘交互式身份验证"
@@ -6827,6 +6914,9 @@ msgstr "Logbias"
 msgid "Logical Block"
 msgstr "逻辑块"
 
+msgid "Logical Referenced"
+msgstr ""
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "逻辑单元控制器授权网络（默认为 %s）"
@@ -6844,6 +6934,9 @@ msgstr "逻辑单元控制器TCP 端口（默认为 %d）"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "映射到 LUN 的逻辑单元类型。"
+
+msgid "Logical Used"
+msgstr ""
 
 msgid "Login"
 msgstr "登录"
@@ -7326,11 +7419,17 @@ msgid ""
 "Mount the file system read-only (even the super-user may not write it)."
 msgstr "以只读模式挂载（即使超级用户也无法写入）。"
 
+msgid "Mounted"
+msgstr ""
+
 msgid "Mounting device."
 msgstr "设备挂载中。"
 
 msgid "Mounting..."
 msgstr "挂载中..."
+
+msgid "Mountpoint Type"
+msgstr ""
 
 msgid "Mounts"
 msgstr "挂载点"
@@ -7859,6 +7958,9 @@ msgstr "非关键"
 msgid "Non-Recoverable"
 msgstr "不可恢复"
 
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
 msgid "None"
 msgstr "无"
 
@@ -7959,6 +8061,9 @@ msgstr "仅OPT"
 
 msgid "OS Version Upgrades"
 msgstr "操作系统版本升级"
+
+msgid "Obj Set ID"
+msgstr ""
 
 msgid "Object name"
 msgstr "对象名称"
@@ -8109,6 +8214,9 @@ msgid ""
 "problem with the disk."
 msgstr "硬盘驱动器的总体（一般）吞吐量性能。 如果此属性的值减小，则磁盘有问题的概率很高。"
 
+msgid "Overlay Mount"
+msgstr ""
+
 msgid "Overload"
 msgstr "负载"
 
@@ -8132,6 +8240,9 @@ msgstr "拥有者"
 
 msgid "PAM authentication is selected."
 msgstr "已选择PAM认证。"
+
+msgid "PBKDF2 Iterations"
+msgstr ""
 
 msgid "PDF File"
 msgstr "PDF文件"
@@ -8472,6 +8583,9 @@ msgstr "池设备"
 
 msgid "Pool Information"
 msgstr "池信息"
+
+msgid "Pool Name"
+msgstr ""
 
 msgid "Pool Space Usage"
 msgstr "池空间使用率"
@@ -9230,6 +9344,9 @@ msgstr "强制重建选中设备"
 msgid "Receive Buffer"
 msgstr "接收缓冲区"
 
+msgid "Receive Resume Token"
+msgstr ""
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9240,6 +9357,9 @@ msgstr "记录信息"
 
 msgid "Record Maintenance"
 msgstr "记录维护"
+
+msgid "Record Size"
+msgstr ""
 
 msgid "Record Type"
 msgstr ""
@@ -9271,17 +9391,32 @@ msgstr ""
 msgid "Recycle Bin"
 msgstr "回收站"
 
+msgid "Redact Snaps"
+msgstr ""
+
 msgid "Redirect"
 msgstr "重定向"
 
 msgid "Redundant Metadata"
 msgstr "冗余元数据"
 
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
 msgid "Refquota"
 msgstr "Refquota"
 
+msgid "Refquota Type"
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr ""
 
 msgid "Refresh"
 msgstr "刷新"
@@ -9291,6 +9426,9 @@ msgstr "定期产品更新"
 
 msgid "Reject"
 msgstr "拒绝"
+
+msgid "Relatime"
+msgstr ""
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "相对湿度警报（启用/禁用）"
@@ -9444,6 +9582,9 @@ msgstr "重新扫描间隔"
 
 msgid "Reservation"
 msgstr "预留"
+
+msgid "Reservation Type"
+msgstr ""
 
 msgid "Reset"
 msgstr "重置"
@@ -10415,6 +10556,9 @@ msgstr "设置为“主要”或“次要”会覆盖HA群集中节点的默认�
 msgid "Settings"
 msgstr "设置"
 
+msgid "Setuid"
+msgstr ""
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -10432,8 +10576,20 @@ msgstr "分享区"
 msgid "Share Character Set"
 msgstr "共享的字符编码"
 
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
 msgid "Share Password"
 msgstr "共享密码"
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
 
 msgid "Share Settings"
 msgstr "共享设置"
@@ -10584,6 +10740,23 @@ msgstr "Snapdir"
 
 msgid "Snapshot"
 msgstr "快照"
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
 
 msgid "Snapshot Visibility"
 msgstr "快照能见度"
@@ -11005,6 +11178,9 @@ msgstr "同步时间"
 
 msgid "Synchronize"
 msgstr "同步"
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
 
 msgid "Syncthing"
 msgstr "Syncthing"
@@ -12550,6 +12726,9 @@ msgstr "这将支持流.jpg和.mp3文件到支持HMO的TiVo。"
 msgid "Threads"
 msgstr "线程"
 
+msgid "Threshold Small Block Size"
+msgstr ""
+
 msgid "Throughput"
 msgstr "吞吐量"
 
@@ -13046,6 +13225,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr "USB大容量存储设备"
 
+msgid "UTF-8 File Names"
+msgstr ""
+
 msgid "UTF-8 Only"
 msgstr "仅限UTF-8"
 
@@ -13326,6 +13508,18 @@ msgstr "已用空间"
 msgid "Used Threshold"
 msgstr "使用的阈值"
 
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -13381,6 +13575,9 @@ msgid "Username"
 msgstr "用户名"
 
 msgid "Username to log into the transmission web interface."
+msgstr ""
+
+msgid "Userrefs"
 msgstr ""
 
 msgid "Users"
@@ -13541,6 +13738,9 @@ msgstr "VirtualBox"
 
 msgid "Virtualization"
 msgstr "虚拟化"
+
+msgid "Virus Scan"
+msgstr ""
 
 msgid "Visible"
 msgstr "可见的"
@@ -13767,6 +13967,10 @@ msgstr "执行用户"
 msgid "Wide Links"
 msgstr "宽链接"
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr ""
+
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -13802,6 +14006,9 @@ msgstr "写入相同的最大LBA"
 
 msgid "Write only"
 msgstr "只写"
+
+msgid "Written"
+msgstr ""
 
 msgid "Wrong partition type or partition number."
 msgstr "错误的分区格式或分区编号。"
@@ -14043,6 +14250,9 @@ msgstr "ZIP压缩包"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr ""
 
 msgid "and"
 msgstr "and"

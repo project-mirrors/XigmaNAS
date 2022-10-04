@@ -2,20 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
-"PO-Revision-Date: 2022-09-15 19:12+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
+"PO-Revision-Date: 2022-10-03 06:30+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:24+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
-"X-Poedit-Country: FRANCE\n"
-"X-Poedit-Language: French\n"
-"Language: \n"
-"X-Poedit-Basepath: D:\\Fichiers\\freenas\\webgui\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:24+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: FRANCE\n"
+"Language: \n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Basepath: D:\\Fichiers\\freenas\\webgui\n"
 
 msgid " No private key"
 msgstr " Pas de clé privée"
@@ -458,6 +458,9 @@ msgstr "heritage des ACL"
 msgid "ACL Mode"
 msgstr "Mode ACL"
 
+msgid "ACL Type"
+msgstr "Type de ACL"
+
 msgid "ACL inherit"
 msgstr "ACL hérités"
 
@@ -588,6 +591,9 @@ msgstr "Ajouter un Disque"
 
 msgid "Add Encrypted Volume"
 msgstr "Ajouter du Volume Crypté"
+
+msgid "Add Filesystem"
+msgstr "Ajouter un Système de Fichiers"
 
 msgid "Add Group"
 msgstr "Ajouter un Groupe"
@@ -1604,6 +1610,9 @@ msgstr "Taille de bloc"
 msgid "Blocksize"
 msgstr "Taille de bloc"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr "Signet - Crée un signet d'un instantané donné."
+
 msgid "Boot Arguments"
 msgstr "Arguments de demarrage"
 
@@ -2072,6 +2081,9 @@ msgstr "Dupliquer"
 msgid "Clone Configuration"
 msgstr "Dupliquer la Configuration"
 
+msgid "Clones"
+msgstr "Clones"
+
 msgid "Close"
 msgstr "Fermer"
 
@@ -2171,6 +2183,9 @@ msgstr "Compression des données de fichiers pendant le transfert."
 
 msgid "Compression"
 msgstr "Compression"
+
+msgid "Compression Ratio"
+msgstr "Taux de compression"
 
 msgid "Configuration"
 msgstr "Configuration"
@@ -2886,6 +2901,9 @@ msgstr "Répertoire de base de données"
 msgid "Dataset"
 msgstr "Jeu de données"
 
+msgid "Dataset Name"
+msgstr "Nom du Jeu de Données"
+
 msgid "Dataset Type"
 msgstr "Type de jeu de données"
 
@@ -2981,6 +2999,9 @@ msgstr "DefaultTime2Retain"
 msgid "DefaultTime2Wait"
 msgstr "DefaultTime2Wait"
 
+msgid "Defer Destroy"
+msgstr "Reporter la Destruction"
+
 msgid "Define directories/URL's that require authentication."
 msgstr "Définir des répertoires/URL's qui requièrent une authentification."
 
@@ -3057,6 +3078,9 @@ msgstr "Supprimer les disques sélectionnés"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "Supprimer les volumes cryptés sélectionnés"
+
+msgid "Delete Selected Filesystems"
+msgstr "Supprimer les Systèmes de Fichiers Sélectionnés"
 
 msgid "Delete Selected Groups"
 msgstr "Supprimer les groupes sélectionnés"
@@ -3678,6 +3702,9 @@ msgstr ""
 msgid "Distributed Hash Table"
 msgstr "Table de hachage distribuée"
 
+msgid "Dnode Size"
+msgstr "Taille du Dnode"
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr ""
 "N'abandonnez pas le processus de mise à niveau du micrologiciel une fois "
@@ -3887,6 +3914,9 @@ msgstr "Voulez-vous supprimer les disques sélectionnés?"
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "Voulez-vous supprimer des volumes cryptés sélectionnés?"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr "Voulez-vous supprimer les systèmes de fichiers sélectionnés ?"
+
 msgid "Do you want to delete selected groups?"
 msgstr "Voulez-vous supprimer les comptes d'utilisateurs sélectionnés"
 
@@ -4013,6 +4043,9 @@ msgstr "Voulez-vous désactiver les groupes d'authentification sélectionnés?"
 msgid "Do you want to disable selected commands?"
 msgstr "Voulez-vous désactiver les commandes sélectionnées?"
 
+msgid "Do you want to disable selected filesystems?"
+msgstr "Voulez-vous désactiver les systèmes de fichiers sélectionnés ?"
+
 msgid "Do you want to disable selected groups?"
 msgstr "Voulez-vous désactiver les groupes sélectionnés?"
 
@@ -4113,6 +4146,9 @@ msgstr "Voulez-vous activer les groupes d'authentification sélectionnés?"
 
 msgid "Do you want to enable selected commands?"
 msgstr "Voulez-vous activer les commandes sélectionnées?"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr "Voulez-vous activer les systèmes de fichiers sélectionnés ?"
 
 msgid "Do you want to enable selected groups?"
 msgstr "Voulez-vous activer les groupes sélectionnés?"
@@ -4223,6 +4259,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Voulez-vous changer d'état les commandes sélectionnées?"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr "Voulez-vous changer d'état les systèmes de fichiers sélectionnés ?"
 
 msgid "Do you want to toggle selected groups?"
 msgstr "Voulez-vous changer d'état les groupes sélectionnés?"
@@ -4443,6 +4482,9 @@ msgstr "Modifier le disque"
 
 msgid "Edit Encrypted Volume"
 msgstr "Modifier le volume crypté"
+
+msgid "Edit Filesystem"
+msgstr "Modifier le système de fichiers"
 
 msgid "Edit Group"
 msgstr "Modifier le groupe"
@@ -5102,6 +5144,9 @@ msgstr "Gestion du chiffrement"
 msgid "Encryption Password"
 msgstr "Mot de Passe de chiffrement"
 
+msgid "Encryption Root"
+msgstr "Chiffrement du Root"
+
 msgid "Encryption Settings"
 msgstr "Paramètres de Chiffrement"
 
@@ -5380,6 +5425,9 @@ msgstr "Exécuter"
 msgid "Execute Command"
 msgstr "Exécuter la commande"
 
+msgid "Execute Processes"
+msgstr "Exécuter des processus"
+
 msgid "Execute now"
 msgstr "Exécuter maintenant"
 
@@ -5577,6 +5625,9 @@ msgstr "Fausse Adresse"
 msgid "Fast"
 msgstr "Rapide"
 
+msgid "Fast Zstandard Compression Level"
+msgstr "Rapidité du Niveau de Compression Zstandard"
+
 msgid "Fatal"
 msgstr "Fatale"
 
@@ -5675,6 +5726,24 @@ msgstr "Nom de fichier"
 
 msgid "Filesystem"
 msgstr "Système de fichier"
+
+msgid "Filesystem Count"
+msgstr "Nombre de Systèmes de Fichiers"
+
+msgid "Filesystem Limit"
+msgstr "Limite du Système de Fichiers"
+
+msgid "Filesystem is locked"
+msgstr "Le système de fichiers est verrouillé"
+
+msgid "Filesystem is marked for deletion"
+msgstr "Le système de fichiers est marqué pour suppression"
+
+msgid "Filesystem is unlocked"
+msgstr "Le système de fichiers est déverrouillé"
+
+msgid "Filesystems"
+msgstr "Systèmes de fichiers"
 
 msgid "Filter"
 msgstr "Filtre"
@@ -5899,8 +5968,14 @@ msgstr "Authentification GSSAPI"
 msgid "GUI"
 msgstr "Interface Graphique"
 
+msgid "GUID"
+msgstr "GUID (identifiant unique universel)"
+
 msgid "GZIP Archive"
 msgstr "Archive GZIP"
+
+msgid "GZIP Compression Level"
+msgstr "Niveau de Compression GZIP"
 
 msgid "Gateway"
 msgstr "Passerelle"
@@ -5984,6 +6059,9 @@ msgstr "Le graphique est mis à jour tous les %d secondes."
 
 msgid "Graphs Height"
 msgstr "Hauteur des Graphiques"
+
+msgid "Graphs Width"
+msgstr "Largeur des Graphiques"
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr "Bannière d'accueil affichée au client lors de la première connexion."
@@ -6970,11 +7048,20 @@ msgstr "Fichier Noyau (e.g. %s)."
 msgid "Key"
 msgstr "Clef"
 
+msgid "Key Format"
+msgstr "Format de Clé"
+
 msgid "Key Length"
 msgstr "Longueur de la Clé"
 
+msgid "Key Location"
+msgstr "Emplacement de la Clé"
+
 msgid "Key Management Protocol"
 msgstr "Protocole de gestion des clés"
+
+msgid "Key Status"
+msgstr "État de la Clé"
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "Authentification interactive au Clavier"
@@ -7388,6 +7475,9 @@ msgstr "Logbias"
 msgid "Logical Block"
 msgstr "Bloc Logique"
 
+msgid "Logical Referenced"
+msgstr "Référencé Logique"
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "Réseau autorisé pour le contrôleur d'unités logiques (%s par défaut)"
@@ -7405,6 +7495,9 @@ msgstr "Port TCP du contrôleur d'unités logiques (%d par défaut)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "Logical Unit Type attaché au LUN."
+
+msgid "Logical Used"
+msgstr "Logique utilisée"
 
 msgid "Login"
 msgstr "Se connecter"
@@ -7903,11 +7996,17 @@ msgstr ""
 "Monter le système de fichiers en lecture seule (même le super-utilisateur ne "
 "pourra pas y écrire)."
 
+msgid "Mounted"
+msgstr "Monté"
+
 msgid "Mounting device."
 msgstr "Périphérique en cours de montage."
 
 msgid "Mounting..."
 msgstr "Montage en cours..."
+
+msgid "Mountpoint Type"
+msgstr "Type de Point de Montage"
 
 msgid "Mounts"
 msgstr "Montages"
@@ -8452,6 +8551,9 @@ msgstr "Non critique"
 msgid "Non-Recoverable"
 msgstr "Non récupérable"
 
+msgid "Non-blocking Mandatory Locks"
+msgstr "Verrouillages Obligatoires Non Bloquants"
+
 msgid "None"
 msgstr "Aucun"
 
@@ -8562,6 +8664,9 @@ msgstr "OPT seulement"
 
 msgid "OS Version Upgrades"
 msgstr "Mise à Niveau de la Version du Micrologiciel"
+
+msgid "Obj Set ID"
+msgstr "ID de l'Ensemble d'Objets"
 
 msgid "Object name"
 msgstr "Nom de l'objet"
@@ -8717,6 +8822,9 @@ msgstr ""
 "Performance générale d'un disque dur. Si cette valeur diminue, il y a une "
 "forte probabilité de problème avec ce disque."
 
+msgid "Overlay Mount"
+msgstr "Montage de la Surcouche"
+
 msgid "Overload"
 msgstr "Surcharge"
 
@@ -8742,6 +8850,9 @@ msgstr "Propriétaire"
 
 msgid "PAM authentication is selected."
 msgstr "L'authentification PAM est sélectionnée."
+
+msgid "PBKDF2 Iterations"
+msgstr "Itérations PBKDF2"
 
 msgid "PDF File"
 msgstr "Fichier PDF"
@@ -9091,6 +9202,9 @@ msgstr "périphériques de pool"
 
 msgid "Pool Information"
 msgstr "Informations sur le Pool"
+
+msgid "Pool Name"
+msgstr "Nom du Pool"
 
 msgid "Pool Space Usage"
 msgstr "Utilisation de l'espace du pool"
@@ -9880,6 +9994,9 @@ msgstr "Reconstruisez de force le périphérique sélectionné."
 msgid "Receive Buffer"
 msgstr "Tampon de Réception"
 
+msgid "Receive Resume Token"
+msgstr "Recevoir un jeton de reprise"
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9892,6 +10009,9 @@ msgstr "Informations sur l'enregistrement"
 
 msgid "Record Maintenance"
 msgstr "Entretien des Enregistrements"
+
+msgid "Record Size"
+msgstr "Taille d'Enregistrement"
 
 msgid "Record Type"
 msgstr "Type d’Enregistrement"
@@ -9927,17 +10047,32 @@ msgstr ""
 msgid "Recycle Bin"
 msgstr "Corbeille"
 
+msgid "Redact Snaps"
+msgstr "Rédiger les SNAPS"
+
 msgid "Redirect"
 msgstr "Redirection"
 
 msgid "Redundant Metadata"
 msgstr "Métadonnées redondantes"
 
+msgid "Refcompressratio"
+msgstr "Refcompressratio (dataset)"
+
+msgid "Referenced"
+msgstr "Référencé"
+
 msgid "Refquota"
 msgstr "Quota de référence"
 
+msgid "Refquota Type"
+msgstr "Type de Quota ZFS"
+
 msgid "Refreservation"
 msgstr "Quota de réservation"
+
+msgid "Refreservation Type"
+msgstr "Type de Réservation ZFS"
 
 msgid "Refresh"
 msgstr "Actualiser"
@@ -9947,6 +10082,9 @@ msgstr "Mises à Jour Version Stable"
 
 msgid "Reject"
 msgstr "Rejeter"
+
+msgid "Relatime"
+msgstr "Relatime"
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "Alarme humidité relative (activée/désactivée)"
@@ -10111,6 +10249,9 @@ msgstr "Intervalle de balayage"
 
 msgid "Reservation"
 msgstr "Réservation"
+
+msgid "Reservation Type"
+msgstr "TYpe de réservation"
 
 msgid "Reset"
 msgstr "Réinitialiser"
@@ -11188,6 +11329,9 @@ msgstr ""
 msgid "Settings"
 msgstr "Réglages"
 
+msgid "Setuid"
+msgstr "Définir l'ID Utilisateur du Propriétaire"
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -11207,8 +11351,20 @@ msgstr "Partage"
 msgid "Share Character Set"
 msgstr "Encodage de caractères du partage"
 
+msgid "Share NFS Options"
+msgstr "Partager les Options NFS"
+
+msgid "Share NFS Type"
+msgstr "Partager le Type NFS"
+
 msgid "Share Password"
 msgstr "Mot de passe du partage"
+
+msgid "Share SMB Options"
+msgstr "Partager les Options SMB"
+
+msgid "Share SMB Type"
+msgstr "Partager le Type SMB"
 
 msgid "Share Settings"
 msgstr "Paramètres de partage"
@@ -11367,6 +11523,25 @@ msgstr "Répertoire Snap"
 
 msgid "Snapshot"
 msgstr "Instantané"
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+"Instantané - Une version en lecture seule d'un système de fichiers ou d'un "
+"volume à un moment donné."
+
+msgid "Snapshot Count"
+msgstr "Nombre d'Instantanés"
+
+msgid "Snapshot Device Visibility"
+msgstr "Visibilité de l'Instantané du Dispostif"
+
+msgid "Snapshot Folder Visibility"
+msgstr "Visibilité du Dossier d'Instantanés"
+
+msgid "Snapshot Limit"
+msgstr "Limite d'Instantané"
 
 msgid "Snapshot Visibility"
 msgstr "Visibilité de l'instantané"
@@ -11850,6 +12025,9 @@ msgstr "Heure de Synchronisation"
 
 msgid "Synchronize"
 msgstr "Synchroniser"
+
+msgid "Synchronous Requests Behaviour"
+msgstr "Comportement des Requêtes Synchrones"
 
 msgid "Syncthing"
 msgstr "Syncthing"
@@ -13695,6 +13873,9 @@ msgstr ""
 msgid "Threads"
 msgstr "Threads"
 
+msgid "Threshold Small Block Size"
+msgstr "Seuil de Petite Taille de Bloc"
+
 msgid "Throughput"
 msgstr "Débit"
 
@@ -14227,6 +14408,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr "Périphériques de stockage de masse USB"
 
+msgid "UTF-8 File Names"
+msgstr "Noms de fichiers UTF-8"
+
 msgid "UTF-8 Only"
 msgstr "UTF-8 Seulement"
 
@@ -14543,6 +14727,18 @@ msgstr "Utilisé"
 msgid "Used Threshold"
 msgstr "Seuil utilisé"
 
+msgid "Used by Children"
+msgstr "Utilisé par les Descendants"
+
+msgid "Used by Dataset"
+msgstr "Utilisé par l'Ensemble de Données"
+
+msgid "Used by Refreservation"
+msgstr "Utilisé par Refreservation"
+
+msgid "Used by Snapshots"
+msgstr "Utilisé par les Instantanés"
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -14604,6 +14800,9 @@ msgstr "Nom d’utilisateur"
 msgid "Username to log into the transmission web interface."
 msgstr ""
 "Nom d'utilisateur pour vous connecter à l'interface Web de transmission."
+
+msgid "Userrefs"
+msgstr "Références Utilisateur (Userrefs)"
 
 msgid "Users"
 msgstr "Utilisateurs"
@@ -14770,6 +14969,9 @@ msgstr "VirtualBox"
 
 msgid "Virtualization"
 msgstr "Virtualisation"
+
+msgid "Virus Scan"
+msgstr "Recherche de virus"
 
 msgid "Visible"
 msgstr "Visible"
@@ -15019,6 +15221,10 @@ msgstr "Utilisateur"
 msgid "Wide Links"
 msgstr "Liens Etendus"
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr "Largeur des graphiques. (par défaut %s pixels )"
+
 msgid "Wildcard Domain"
 msgstr "Domaine Générique"
 
@@ -15054,6 +15260,9 @@ msgstr "Maximum d'écriture identique LBA"
 
 msgid "Write only"
 msgstr "Écriture seule"
+
+msgid "Written"
+msgstr "Écrit"
 
 msgid "Wrong partition type or partition number."
 msgstr "Type de partition ou numéro de partition erroné"
@@ -15317,6 +15526,9 @@ msgstr "Archive ZIP"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr "Zstandard Niveau de Compression (1-22)"
 
 msgid "and"
 msgstr "et"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
 "PO-Revision-Date: 2021-11-18 14:32+0000\n"
 "Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:24+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:24+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -457,6 +457,9 @@ msgstr "Převzít ACL seznamy"
 msgid "ACL Mode"
 msgstr "Režim ACL seznamu"
 
+msgid "ACL Type"
+msgstr ""
+
 msgid "ACL inherit"
 msgstr "Přebírání ACL seznamů"
 
@@ -587,6 +590,9 @@ msgstr "Přidat jednotku datového úložiště"
 
 msgid "Add Encrypted Volume"
 msgstr "Přidat šifrovaný svazek"
+
+msgid "Add Filesystem"
+msgstr ""
 
 msgid "Add Group"
 msgstr "Přidat skupinu"
@@ -1593,6 +1599,9 @@ msgstr "Velikost bloku"
 msgid "Blocksize"
 msgstr "Velikost bloku"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
 msgid "Boot Arguments"
 msgstr "Parametry zavádění"
 
@@ -2057,6 +2066,9 @@ msgstr "Klonovat"
 msgid "Clone Configuration"
 msgstr "Klonovat nastavení"
 
+msgid "Clones"
+msgstr ""
+
 msgid "Close"
 msgstr "Zavřít"
 
@@ -2159,6 +2171,9 @@ msgstr "Přenášet data souboru komprimovaně."
 
 msgid "Compression"
 msgstr "Komprese"
+
+msgid "Compression Ratio"
+msgstr ""
 
 msgid "Configuration"
 msgstr "Nastavení"
@@ -2864,6 +2879,9 @@ msgstr "Složka s databází"
 msgid "Dataset"
 msgstr "Datové sada"
 
+msgid "Dataset Name"
+msgstr ""
+
 msgid "Dataset Type"
 msgstr "Typ datové sady"
 
@@ -2957,6 +2975,9 @@ msgstr "Výchozí doba podržení (DefaultTime2Retain)"
 msgid "DefaultTime2Wait"
 msgstr "Výchozí doba čekání (DefaultTime2Wait)"
 
+msgid "Defer Destroy"
+msgstr ""
+
 msgid "Define directories/URL's that require authentication."
 msgstr "Určuje složky / URL adresy, které vyžadují ověření."
 
@@ -3031,6 +3052,9 @@ msgstr "Smazat označené jednotky datového úložiště"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "Smazat označené šifrované svazky"
+
+msgid "Delete Selected Filesystems"
+msgstr ""
 
 msgid "Delete Selected Groups"
 msgstr "Smazat označené skupiny"
@@ -3648,6 +3672,9 @@ msgstr ""
 msgid "Distributed Hash Table"
 msgstr "Distribuovaná tabulka otisků"
 
+msgid "Dnode Size"
+msgstr ""
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr ""
 "Jakmile začne, přechod na novější verzi základního systému nepřerušujte."
@@ -3846,6 +3873,9 @@ msgstr "Opravdu smazat označené disky?"
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "Opravdu smazat označené šifrované svazky?"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
 msgid "Do you want to delete selected groups?"
 msgstr "Opravdu smazat označené skupiny?"
 
@@ -3973,6 +4003,9 @@ msgstr "Opravdu chcete vypnout označené skupiny ověřování?"
 msgid "Do you want to disable selected commands?"
 msgstr "Opravdu vypnout označené příkazy?"
 
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
 msgid "Do you want to disable selected groups?"
 msgstr ""
 
@@ -4074,6 +4107,9 @@ msgstr "Opravdu chcete zapnout označené skupiny ověřování?"
 
 msgid "Do you want to enable selected commands?"
 msgstr "Opravdu zapnout označené příkazy?"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr ""
 
 msgid "Do you want to enable selected groups?"
 msgstr ""
@@ -4186,6 +4222,9 @@ msgstr "Opravdu chcete přepnout označené skupiny ověřování?"
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Opravdu přepnout označené příkazy?"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr ""
 
 msgid "Do you want to toggle selected groups?"
 msgstr ""
@@ -4402,6 +4441,9 @@ msgstr "Upravit jednotku datového úložiště"
 
 msgid "Edit Encrypted Volume"
 msgstr "Upravit šifrovaný svazek"
+
+msgid "Edit Filesystem"
+msgstr ""
 
 msgid "Edit Group"
 msgstr "Upravit skupinu"
@@ -5041,6 +5083,9 @@ msgstr "Zpráva šifrování"
 msgid "Encryption Password"
 msgstr "Šifrovací heslo"
 
+msgid "Encryption Root"
+msgstr ""
+
 msgid "Encryption Settings"
 msgstr "Nastavení šifrování"
 
@@ -5310,6 +5355,9 @@ msgstr "Spustit"
 msgid "Execute Command"
 msgstr "Spustit příkaz"
 
+msgid "Execute Processes"
+msgstr ""
+
 msgid "Execute now"
 msgstr "Spustit nyní"
 
@@ -5505,6 +5553,9 @@ msgstr ""
 msgid "Fast"
 msgstr "Rychle"
 
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
 msgid "Fatal"
 msgstr "Fatální"
 
@@ -5604,6 +5655,24 @@ msgstr "Název souboru"
 
 msgid "Filesystem"
 msgstr "Souborový systém"
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Filesystems"
+msgstr ""
 
 msgid "Filter"
 msgstr "Filtr"
@@ -5816,8 +5885,14 @@ msgstr "GSSAPI ověřování"
 msgid "GUI"
 msgstr "Grafické uživatelské rozhraní"
 
+msgid "GUID"
+msgstr ""
+
 msgid "GZIP Archive"
 msgstr "GZIP archiv"
+
+msgid "GZIP Compression Level"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Brána"
@@ -5899,6 +5974,9 @@ msgstr "Graf je aktualizován každých %d sekund."
 
 msgid "Graphs Height"
 msgstr "Výška grafu"
+
+msgid "Graphs Width"
+msgstr ""
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr "Uvítací text zobrazený klientovi při prvním přihlášení."
@@ -6865,11 +6943,20 @@ msgstr "Soubor s jádrem systému (např. %s)."
 msgid "Key"
 msgstr "Klíč"
 
+msgid "Key Format"
+msgstr ""
+
 msgid "Key Length"
 msgstr "Délka klíče"
 
+msgid "Key Location"
+msgstr ""
+
 msgid "Key Management Protocol"
 msgstr "Protokol správy klíčů"
+
+msgid "Key Status"
+msgstr ""
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "Ověřování se prostřednictvím klávesnice"
@@ -7285,6 +7372,9 @@ msgstr "Logbias"
 msgid "Logical Block"
 msgstr "Logický blok"
 
+msgid "Logical Referenced"
+msgstr ""
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr ""
@@ -7304,6 +7394,9 @@ msgstr "TCP port řadiče logické jednotky (výchozí je %d)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "Typ logické jednotky mapované na LUN."
+
+msgid "Logical Used"
+msgstr ""
 
 msgid "Login"
 msgstr "Přihlásit"
@@ -7810,11 +7903,17 @@ msgstr ""
 "Připojit souborový systém pouze pro čtení (ani správce systému na něj nebude "
 "moci zapisovat)."
 
+msgid "Mounted"
+msgstr ""
+
 msgid "Mounting device."
 msgstr "Připojování zařízení."
 
 msgid "Mounting..."
 msgstr "Připojování…"
+
+msgid "Mountpoint Type"
+msgstr ""
 
 msgid "Mounts"
 msgstr "Připojení"
@@ -8358,6 +8457,9 @@ msgstr "Nekritické"
 msgid "Non-Recoverable"
 msgstr "Neopravitelné"
 
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
 msgid "None"
 msgstr "Žádné"
 
@@ -8467,6 +8569,9 @@ msgid "OPT Only"
 msgstr "Pouze OPT"
 
 msgid "OS Version Upgrades"
+msgstr ""
+
+msgid "Obj Set ID"
 msgstr ""
 
 msgid "Object name"
@@ -8624,6 +8729,9 @@ msgstr ""
 "Celková (obecná) datová propustnost pevného disku. V případě, že hodnota "
 "tohoto atributu klesá, má disk s nejvšší pravděpodobností nějaký problém."
 
+msgid "Overlay Mount"
+msgstr ""
+
 msgid "Overload"
 msgstr "Přetížení"
 
@@ -8648,6 +8756,9 @@ msgstr "Vlastník"
 
 msgid "PAM authentication is selected."
 msgstr "Je vybráno PAM ověřování."
+
+msgid "PBKDF2 Iterations"
+msgstr ""
 
 msgid "PDF File"
 msgstr ""
@@ -8994,6 +9105,9 @@ msgstr "Zařízení tvořící fond"
 
 msgid "Pool Information"
 msgstr "Informace o fondu"
+
+msgid "Pool Name"
+msgstr ""
 
 msgid "Pool Space Usage"
 msgstr ""
@@ -9776,6 +9890,9 @@ msgstr "Vynutit znovusestavení označeného zařízení."
 msgid "Receive Buffer"
 msgstr "Vyrovnávací paměť příjmu"
 
+msgid "Receive Resume Token"
+msgstr ""
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9786,6 +9903,9 @@ msgstr "Informace o záznamu"
 
 msgid "Record Maintenance"
 msgstr "Údržba záznamu"
+
+msgid "Record Size"
+msgstr ""
 
 msgid "Record Type"
 msgstr ""
@@ -9817,17 +9937,32 @@ msgstr ""
 msgid "Recycle Bin"
 msgstr "Koš"
 
+msgid "Redact Snaps"
+msgstr ""
+
 msgid "Redirect"
 msgstr "Přesměrovat"
 
 msgid "Redundant Metadata"
 msgstr "Záložní kopie metadat"
 
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
 msgid "Refquota"
 msgstr "Vztažná kvóta"
 
+msgid "Refquota Type"
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Vztažné vyhrazení"
+
+msgid "Refreservation Type"
+msgstr ""
 
 msgid "Refresh"
 msgstr "Načíst znovu"
@@ -9837,6 +9972,9 @@ msgstr ""
 
 msgid "Reject"
 msgstr "Odmítnout"
+
+msgid "Relatime"
+msgstr ""
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "Výstraha před vhlkostí (zapnuto/vypnuto)"
@@ -9999,6 +10137,9 @@ msgstr "Interval opakování zjišťování"
 
 msgid "Reservation"
 msgstr "Vyhrazení"
+
+msgid "Reservation Type"
+msgstr ""
 
 msgid "Reset"
 msgstr ""
@@ -11034,6 +11175,9 @@ msgstr ""
 msgid "Settings"
 msgstr "Nastavení"
 
+msgid "Setuid"
+msgstr ""
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -11051,8 +11195,20 @@ msgstr "Sdílení"
 msgid "Share Character Set"
 msgstr "Znaková sada, používaná pro názvy souborů a složek na sdílení."
 
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
 msgid "Share Password"
 msgstr "Heslo pro přístup na sdílení"
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
 
 msgid "Share Settings"
 msgstr "Nastavení sdílení"
@@ -11208,6 +11364,23 @@ msgstr "Složka se zachycenými stavy"
 
 msgid "Snapshot"
 msgstr "Zachycený stav"
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
 
 msgid "Snapshot Visibility"
 msgstr "Viditelnost zachyceného stavu"
@@ -11667,6 +11840,9 @@ msgstr "Okamžik synchronizace"
 
 msgid "Synchronize"
 msgstr "Synchronizovat"
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
 
 msgid "Syncthing"
 msgstr "Syncthing"
@@ -13464,6 +13640,9 @@ msgstr ""
 msgid "Threads"
 msgstr "Vlákna"
 
+msgid "Threshold Small Block Size"
+msgstr ""
+
 msgid "Throughput"
 msgstr "Propustnost"
 
@@ -13989,6 +14168,9 @@ msgstr "URL adresa"
 msgid "USB Mass Storage Devices"
 msgstr "USB jednotky pro ukládání dat"
 
+msgid "UTF-8 File Names"
+msgstr ""
+
 msgid "UTF-8 Only"
 msgstr "Pouze UTF-8"
 
@@ -14292,6 +14474,18 @@ msgstr "Použito"
 msgid "Used Threshold"
 msgstr "Použitá hranice"
 
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -14350,6 +14544,9 @@ msgid "Username"
 msgstr "Uživatelské jméno"
 
 msgid "Username to log into the transmission web interface."
+msgstr ""
+
+msgid "Userrefs"
 msgstr ""
 
 msgid "Users"
@@ -14515,6 +14712,9 @@ msgstr "VirtualBox"
 
 msgid "Virtualization"
 msgstr "Virtualizace"
+
+msgid "Virus Scan"
+msgstr ""
 
 msgid "Visible"
 msgstr "Viditelné"
@@ -14760,6 +14960,10 @@ msgstr "Spouštět jako"
 msgid "Wide Links"
 msgstr "Široké odkazy"
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr ""
+
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -14795,6 +14999,9 @@ msgstr "Zapsat stejné maximální LBA"
 
 msgid "Write only"
 msgstr "Pouze zápis"
+
+msgid "Written"
+msgstr ""
 
 msgid "Wrong partition type or partition number."
 msgstr "Chybný typ nebo číslo oddílu."
@@ -15057,6 +15264,9 @@ msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr ""
 
 msgid "and"
 msgstr "a"

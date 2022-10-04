@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
-"PO-Revision-Date: 2022-07-26 00:22+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
+"PO-Revision-Date: 2022-09-17 18:47+0000\n"
+"Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -448,6 +448,9 @@ msgstr "Успадкування ACL"
 msgid "ACL Mode"
 msgstr "ACL режим"
 
+msgid "ACL Type"
+msgstr ""
+
 msgid "ACL inherit"
 msgstr "Успадкування ACL"
 
@@ -577,6 +580,9 @@ msgstr "Додати диск"
 
 msgid "Add Encrypted Volume"
 msgstr "Додати зашифрований том"
+
+msgid "Add Filesystem"
+msgstr ""
 
 msgid "Add Group"
 msgstr "Додати групу"
@@ -1585,6 +1591,9 @@ msgstr "Розмір блоку"
 msgid "Blocksize"
 msgstr "Розмір блоку"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
 msgid "Boot Arguments"
 msgstr "Параметри завантаження"
 
@@ -2044,6 +2053,9 @@ msgstr "Клон"
 msgid "Clone Configuration"
 msgstr "Сконфігорувати копію"
 
+msgid "Clones"
+msgstr ""
+
 msgid "Close"
 msgstr "Закрити"
 
@@ -2142,6 +2154,9 @@ msgstr "Стискати файл в процесі передавання."
 
 msgid "Compression"
 msgstr "Стиснення"
+
+msgid "Compression Ratio"
+msgstr ""
 
 msgid "Configuration"
 msgstr "Конфігурація"
@@ -2626,7 +2641,7 @@ msgid "Creating filesystem"
 msgstr "Створення файлової системи"
 
 msgid "Creating filesystem with \"Soft Updates\""
-msgstr ""
+msgstr "Створення файлової системи з \"програмними оновленнями\""
 
 msgid "Creating partition"
 msgstr "Створення розділу"
@@ -2686,6 +2701,8 @@ msgid ""
 "Current system password is using a default password. You should choose a "
 "different password."
 msgstr ""
+"Поточний системний пароль використовує стандартний пароль. Вам слід вибрати "
+"інший пароль."
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "Поточне значення повної потужності (ВА)"
@@ -2846,6 +2863,9 @@ msgstr "Каталог бази даних"
 msgid "Dataset"
 msgstr "Набір даних"
 
+msgid "Dataset Name"
+msgstr ""
+
 msgid "Dataset Type"
 msgstr "Тип набору даних"
 
@@ -2942,6 +2962,9 @@ msgstr "Час зберігання за замовчуванням"
 msgid "DefaultTime2Wait"
 msgstr "Час очікування за замовчуванням"
 
+msgid "Defer Destroy"
+msgstr ""
+
 msgid "Define directories/URL's that require authentication."
 msgstr "Вкажіть каталоги та адреси URL, що потребують авторизації."
 
@@ -3018,6 +3041,9 @@ msgstr "Видалити обрані диски"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "Видалити обрані шифровані томи"
+
+msgid "Delete Selected Filesystems"
+msgstr ""
 
 msgid "Delete Selected Groups"
 msgstr "Видалити обрані групи"
@@ -3633,6 +3659,9 @@ msgstr ""
 msgid "Distributed Hash Table"
 msgstr "Розподілена хеш-таблиця DHT"
 
+msgid "Dnode Size"
+msgstr ""
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr "Не переривати процес оновлення прошивки після його початку."
 
@@ -3832,6 +3861,9 @@ msgstr "Ви підтверджуєте видалення обраних дис
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "Ви підтверджуєте видалення обраних шифровантх томів?"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
 msgid "Do you want to delete selected groups?"
 msgstr "Ви підтверджуєте видалення обраних груп?"
 
@@ -3955,6 +3987,9 @@ msgstr "Ви підтверджуєте вимкнення обраних гру
 msgid "Do you want to disable selected commands?"
 msgstr "Ви підтверджуєте вимкнення обраних команд?"
 
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
 msgid "Do you want to disable selected groups?"
 msgstr "Ви підтверджуєте вимкнення обраних груп?"
 
@@ -4053,6 +4088,9 @@ msgstr "Ви підтверджуєте увімкнення обраних гр
 
 msgid "Do you want to enable selected commands?"
 msgstr "Ви підтверджуєте увімкнення обраних команд?"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr ""
 
 msgid "Do you want to enable selected groups?"
 msgstr "Ви підтверджуєте увімкнення обраних груп?"
@@ -4161,6 +4199,9 @@ msgstr "Ви підтверджуєте перемикання обраних г
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Ви підтверджуєте перемикання обраних команд?"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr ""
 
 msgid "Do you want to toggle selected groups?"
 msgstr "Ви підтверджуєте перемикання обраних груп?"
@@ -4378,6 +4419,9 @@ msgstr "Редагувати Диск"
 
 msgid "Edit Encrypted Volume"
 msgstr "Редагувати зашифрований том"
+
+msgid "Edit Filesystem"
+msgstr ""
 
 msgid "Edit Group"
 msgstr "Змінити групу"
@@ -5029,6 +5073,9 @@ msgstr "Керування Шифруванням"
 msgid "Encryption Password"
 msgstr "Пароль шифрування"
 
+msgid "Encryption Root"
+msgstr ""
+
 msgid "Encryption Settings"
 msgstr "Налаштування Шифрування"
 
@@ -5305,6 +5352,9 @@ msgstr "Виконати"
 msgid "Execute Command"
 msgstr "Виконати команду"
 
+msgid "Execute Processes"
+msgstr ""
+
 msgid "Execute now"
 msgstr "Виконати зараз"
 
@@ -5501,6 +5551,9 @@ msgstr "Фальшива адреса"
 msgid "Fast"
 msgstr "Швидке"
 
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
 msgid "Fatal"
 msgstr "Критична помилка"
 
@@ -5600,6 +5653,24 @@ msgstr "Ім'я файла"
 
 msgid "Filesystem"
 msgstr "Файлова система"
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Filesystems"
+msgstr ""
 
 msgid "Filter"
 msgstr "Фільтр"
@@ -5812,8 +5883,14 @@ msgstr "Автентифікація GSSAPI"
 msgid "GUI"
 msgstr "Графічний інтерфейс"
 
+msgid "GUID"
+msgstr ""
+
 msgid "GZIP Archive"
 msgstr "Архів GZIP"
+
+msgid "GZIP Compression Level"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Шлюз"
@@ -5897,6 +5974,9 @@ msgstr "Графіки оновлюються кожні %d секунд."
 
 msgid "Graphs Height"
 msgstr "Висота графіків"
+
+msgid "Graphs Width"
+msgstr ""
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr ""
@@ -6558,7 +6638,7 @@ msgid "Initializing..."
 msgstr "Ініціалізація…"
 
 msgid "Initiate TRIM of free space in a pool"
-msgstr ""
+msgstr "Ініціює TRIM вільного місця в пулі"
 
 msgid "Initiator Group"
 msgstr "Група ініціаторів"
@@ -6870,11 +6950,20 @@ msgstr "Файл ядра (напр. <b>%s</b>)."
 msgid "Key"
 msgstr "Ключ"
 
+msgid "Key Format"
+msgstr ""
+
 msgid "Key Length"
 msgstr "Довжина ключа"
 
+msgid "Key Location"
+msgstr ""
+
 msgid "Key Management Protocol"
 msgstr "Протокол керування ключами"
+
+msgid "Key Status"
+msgstr ""
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "Автентифікація \"клавіатура-інтерактивно\""
@@ -7285,6 +7374,9 @@ msgstr "Logbias"
 msgid "Logical Block"
 msgstr "Логічні Блоки"
 
+msgid "Logical Referenced"
+msgstr ""
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "Авторизована мережа Logical Unit Controller (за замовчуванням %s)"
@@ -7302,6 +7394,9 @@ msgstr "TCP-порт Logical Unit Controller (за замовчуванням %d
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "Тип логічного пристрою, співставлений з LUN."
+
+msgid "Logical Used"
+msgstr ""
 
 msgid "Login"
 msgstr "Логін"
@@ -7797,11 +7892,17 @@ msgstr ""
 "Змонтувати файлову систему тільки для читання (навіть суперкористувач не "
 "зможе записувати)."
 
+msgid "Mounted"
+msgstr ""
+
 msgid "Mounting device."
 msgstr "Монтування пристрою."
 
 msgid "Mounting..."
 msgstr "Монтую..."
+
+msgid "Mountpoint Type"
+msgstr ""
 
 msgid "Mounts"
 msgstr "Примонтовані пристрої"
@@ -8347,6 +8448,9 @@ msgstr "Некритичне"
 msgid "Non-Recoverable"
 msgstr "Непоправне"
 
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
 msgid "None"
 msgstr "Немає"
 
@@ -8456,6 +8560,9 @@ msgstr "Тільки OPT"
 
 msgid "OS Version Upgrades"
 msgstr "Оновлення версії ОС"
+
+msgid "Obj Set ID"
+msgstr ""
 
 msgid "Object name"
 msgstr "Назва об'єкта"
@@ -8612,6 +8719,9 @@ msgstr ""
 "цього атрибута зменшується існує висока ймовірність того, що існує проблема "
 "з диском."
 
+msgid "Overlay Mount"
+msgstr ""
+
 msgid "Overload"
 msgstr "Перевантаження"
 
@@ -8636,6 +8746,9 @@ msgstr "Власник"
 
 msgid "PAM authentication is selected."
 msgstr "Обрана автентифікація модулем, що під'єднується (PAM)."
+
+msgid "PBKDF2 Iterations"
+msgstr ""
 
 msgid "PDF File"
 msgstr "Файл PDF"
@@ -8985,6 +9098,9 @@ msgstr "Пристрої пулу"
 msgid "Pool Information"
 msgstr "Інформація про пул"
 
+msgid "Pool Name"
+msgstr ""
+
 msgid "Pool Space Usage"
 msgstr "Використання простору пула"
 
@@ -9032,7 +9148,7 @@ msgid "Port Name"
 msgstr "Ім'я порту"
 
 msgid "Port number must be 514 or a number between 1024 and 65535."
-msgstr ""
+msgstr "Номер порту повинен бути 514 або мати номер від 1024 до 65535."
 
 #, php-format
 msgid "Port number must be in the range between %d and %d."
@@ -9766,16 +9882,24 @@ msgstr "Перебудувати обраний пристрій примусо�
 msgid "Receive Buffer"
 msgstr "Буфер Отримання"
 
+msgid "Receive Resume Token"
+msgstr ""
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
 msgstr ""
+"Послідовно перебудовує новий пристрій, щоб якомога швидше відновити "
+"резервування."
 
 msgid "Record Information"
 msgstr "Інформація про Запис"
 
 msgid "Record Maintenance"
 msgstr "Обслуговування Запису"
+
+msgid "Record Size"
+msgstr ""
 
 msgid "Record Type"
 msgstr "Тип запису"
@@ -9807,17 +9931,32 @@ msgstr "Рекурсивно знищує знімки всіх нащадков
 msgid "Recycle Bin"
 msgstr "Смітник"
 
+msgid "Redact Snaps"
+msgstr ""
+
 msgid "Redirect"
 msgstr "Переспрямувати"
 
 msgid "Redundant Metadata"
 msgstr "Надмірні метадані"
 
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
 msgid "Refquota"
 msgstr "Refquota"
 
+msgid "Refquota Type"
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr ""
 
 msgid "Refresh"
 msgstr "Оновити"
@@ -9827,6 +9966,9 @@ msgstr "Регулярні оновлення програми"
 
 msgid "Reject"
 msgstr "Відхилити"
+
+msgid "Relatime"
+msgstr ""
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "Сигналізація відносної вологості (увімкнено / вимкнено)"
@@ -9992,6 +10134,9 @@ msgstr "Інтервал пересканування"
 
 msgid "Reservation"
 msgstr "Резервування"
+
+msgid "Reservation Type"
+msgstr ""
 
 msgid "Reset"
 msgstr "Скинути"
@@ -11050,6 +11195,9 @@ msgstr ""
 msgid "Settings"
 msgstr "Налаштування"
 
+msgid "Setuid"
+msgstr ""
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -11069,8 +11217,20 @@ msgstr "Спільний доступ"
 msgid "Share Character Set"
 msgstr "Набір символів загального ресурсу"
 
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
 msgid "Share Password"
 msgstr "Пароль загального ресурса"
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
 
 msgid "Share Settings"
 msgstr "Налаштування загального ресурсу"
@@ -11228,6 +11388,23 @@ msgstr "Snapdir"
 msgid "Snapshot"
 msgstr "Знімок"
 
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
+
 msgid "Snapshot Visibility"
 msgstr "Видимість знімка"
 
@@ -11322,6 +11499,10 @@ msgid ""
 "attribute that trips once the drive detects that the internal environment is "
 "out of specification."
 msgstr ""
+"Спеціфічно для дисків MG07+ від Toshiba. Це значення вимірює нижчий рівень "
+"гелію в накопичувачі цього виробника. Це атрибут типу \"перед відмовою\", "
+"який спрацьовує, коли накопичувач виявляє, що внутрішнє середовище виходить "
+"за межі специфікації."
 
 msgid ""
 "Specific to MG07+ drives from Toshiba. This value measures the upper level "
@@ -11329,6 +11510,10 @@ msgid ""
 "attribute that trips once the drive detects that the internal environment is "
 "out of specification."
 msgstr ""
+"Спеціфічно для дисків MG07+ від Toshiba. Це значення вимірює верхній рівень "
+"гелію в накопичувачі цього виробника. Це атрибут типу \"перед відмовою\", "
+"який спрацьовує, коли накопичувач виявляє, що внутрішнє середовище виходить "
+"за межі специфікації."
 
 msgid "Specifies LUN EUI-64 identifier."
 msgstr "Визначає ідентифікатор LUN EUI-64."
@@ -11689,6 +11874,9 @@ msgstr "Сінхронізація Часу"
 
 msgid "Synchronize"
 msgstr "Синхронізування"
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
 
 msgid "Syncthing"
 msgstr "Синхронізація"
@@ -12051,11 +12239,11 @@ msgstr "Відповідні MIB-файли можуть бути знайден
 
 #, php-format
 msgid "The attribute %s must be in the range from %d to %d."
-msgstr ""
+msgstr "Атрибут %s повинен бути у діапазоні від %d до %d."
 
 #, php-format
 msgid "The attribute %s must be less than %s."
-msgstr ""
+msgstr "Атрибут %s повинен бути меншим за %s."
 
 #, php-format
 msgid "The attribute '%s' already exists."
@@ -13487,6 +13675,9 @@ msgstr ""
 msgid "Threads"
 msgstr "Потоки"
 
+msgid "Threshold Small Block Size"
+msgstr ""
+
 msgid "Throughput"
 msgstr "Throughput"
 
@@ -14013,6 +14204,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr "Пристрої USB Mass Storage"
 
+msgid "UTF-8 File Names"
+msgstr ""
+
 msgid "UTF-8 Only"
 msgstr "тільки UTF-8"
 
@@ -14330,6 +14524,18 @@ msgstr "Використано"
 msgid "Used Threshold"
 msgstr "Використаний порог"
 
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -14389,6 +14595,9 @@ msgstr "Ім'я користувача"
 
 msgid "Username to log into the transmission web interface."
 msgstr "І'мя користувача для доступа у web-інтерфейсі Transmission."
+
+msgid "Userrefs"
+msgstr ""
 
 msgid "Users"
 msgstr "Користувачі"
@@ -14555,6 +14764,9 @@ msgstr "VirtualBox"
 msgid "Virtualization"
 msgstr "Віртуалізація"
 
+msgid "Virus Scan"
+msgstr ""
+
 msgid "Visible"
 msgstr "Видимий"
 
@@ -14669,7 +14881,7 @@ msgid "Wait time"
 msgstr "Час очікування"
 
 msgid "Wait until resilvering has finished before returning."
-msgstr ""
+msgstr "Перш ніж повернутися, зачекайте, доки завершиться ресінхронізація."
 
 msgid "Wake On LAN"
 msgstr "Wake On LAN (WoL)"
@@ -14800,6 +15012,10 @@ msgstr "Хто"
 msgid "Wide Links"
 msgstr "Символічні посилання"
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr ""
+
 msgid "Wildcard Domain"
 msgstr "Знаки підстановки домена"
 
@@ -14835,6 +15051,9 @@ msgstr "Максимальний LBA WRITE SAME"
 
 msgid "Write only"
 msgstr "Лише запис"
+
+msgid "Written"
+msgstr ""
 
 msgid "Wrong partition type or partition number."
 msgstr "Невірний тип або номер розділу"
@@ -15097,6 +15316,9 @@ msgstr "Архів ZIP"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr ""
 
 msgid "and"
 msgstr "та"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:24+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -440,6 +440,9 @@ msgstr "ACL öröklődés"
 msgid "ACL Mode"
 msgstr "ACL mód"
 
+msgid "ACL Type"
+msgstr ""
+
 msgid "ACL inherit"
 msgstr "ACL öröklődés"
 
@@ -569,6 +572,9 @@ msgstr "Lemez hozzáadása"
 
 msgid "Add Encrypted Volume"
 msgstr "Titkosított kötet hozzáadása"
+
+msgid "Add Filesystem"
+msgstr ""
 
 msgid "Add Group"
 msgstr "Csoport hozzáadása"
@@ -1563,6 +1569,9 @@ msgstr "Blokkméret"
 msgid "Blocksize"
 msgstr "Blokkméret"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
 msgid "Boot Arguments"
 msgstr "Rendszerindító argumentumok"
 
@@ -2012,6 +2021,9 @@ msgstr "Klón"
 msgid "Clone Configuration"
 msgstr "Konfiguráció másolása"
 
+msgid "Clones"
+msgstr ""
+
 msgid "Close"
 msgstr ""
 
@@ -2107,6 +2119,9 @@ msgstr "Fájladat tömörítése átvitel közben."
 
 msgid "Compression"
 msgstr "Tömörítés"
+
+msgid "Compression Ratio"
+msgstr ""
 
 msgid "Configuration"
 msgstr "Beállítások"
@@ -2794,6 +2809,9 @@ msgstr "Adatbázismappa"
 msgid "Dataset"
 msgstr "Adattár"
 
+msgid "Dataset Name"
+msgstr ""
+
 msgid "Dataset Type"
 msgstr "Adattár típusa"
 
@@ -2889,6 +2907,9 @@ msgstr "DefaultTime2Retain"
 msgid "DefaultTime2Wait"
 msgstr "DefaultTime2Wait"
 
+msgid "Defer Destroy"
+msgstr ""
+
 msgid "Define directories/URL's that require authentication."
 msgstr "Hitelesítést igénylő mappák/URL-ek meghatározása."
 
@@ -2965,6 +2986,9 @@ msgstr "Kijelölt lemezek törlése"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "Kijelölt titkosított kötetek törlése"
+
+msgid "Delete Selected Filesystems"
+msgstr ""
 
 msgid "Delete Selected Groups"
 msgstr "Kiválasztott csoportok törlése"
@@ -3579,6 +3603,9 @@ msgstr ""
 msgid "Distributed Hash Table"
 msgstr "Elosztott hash tábla"
 
+msgid "Dnode Size"
+msgstr ""
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr "Miután már elindult a frissítési folyamat NE szakítsd meg."
 
@@ -3783,6 +3810,9 @@ msgstr "Biztos, hogy törlöd a kijelölt lemezeket?"
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "Biztos, hogy törlöd a kiválasztott titkosított köteteket?"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
 msgid "Do you want to delete selected groups?"
 msgstr "Biztos, hogy törli a kiválasztott csoportokat?"
 
@@ -3906,6 +3936,9 @@ msgstr "Biztos, hogy kikapcsolja a kiválasztott Hitelesítési csoportokat?"
 msgid "Do you want to disable selected commands?"
 msgstr "Biztos, hogy kikapcsolod a kijelölt parancsokat?"
 
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
 msgid "Do you want to disable selected groups?"
 msgstr "Biztos, hogy kikapcsolod a kiválasztott csoportokat?"
 
@@ -4005,6 +4038,9 @@ msgstr "Biztos, hogy bekapcsolja kiválasztott Hitelesítési csoportokat?"
 
 msgid "Do you want to enable selected commands?"
 msgstr "Biztos, hogy engedélyezed a kijelölt parancsokat?"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr ""
 
 msgid "Do you want to enable selected groups?"
 msgstr "Biztos, hogy bekapcsolod a kiválasztott csoportokat?"
@@ -4113,6 +4149,9 @@ msgstr "Biztos, hogy átkapcsolod a kiválasztott hitelesítési csoportokat?"
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Biztos, hogy engedélyezed a kijelölt parancsokat?"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr ""
 
 msgid "Do you want to toggle selected groups?"
 msgstr "Biztos, hogy ki-. bekapcsolod a kiválasztott csoportokat?"
@@ -4328,6 +4367,9 @@ msgstr "Lemez módosítása"
 
 msgid "Edit Encrypted Volume"
 msgstr "Titkosított kötet módosítása"
+
+msgid "Edit Filesystem"
+msgstr ""
 
 msgid "Edit Group"
 msgstr "Csoport módosítása"
@@ -4970,6 +5012,9 @@ msgstr "Titkosításkezelő"
 msgid "Encryption Password"
 msgstr "Jelszó titkosítása"
 
+msgid "Encryption Root"
+msgstr ""
+
 msgid "Encryption Settings"
 msgstr "Titkosítási beállítások"
 
@@ -5243,6 +5288,9 @@ msgstr "Futtatás"
 msgid "Execute Command"
 msgstr "Parancs végrehajtása"
 
+msgid "Execute Processes"
+msgstr ""
+
 msgid "Execute now"
 msgstr "Futtatás most"
 
@@ -5438,6 +5486,9 @@ msgstr ""
 msgid "Fast"
 msgstr "Gyors"
 
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
 msgid "Fatal"
 msgstr "Végzetes"
 
@@ -5533,6 +5584,24 @@ msgstr "Fájlnév"
 
 msgid "Filesystem"
 msgstr "Fájlrendszer"
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Filesystems"
+msgstr ""
 
 msgid "Filter"
 msgstr "Szűrő"
@@ -5745,7 +5814,13 @@ msgstr "GSSAPI hitelesítése"
 msgid "GUI"
 msgstr "Grafikus felület"
 
+msgid "GUID"
+msgstr ""
+
 msgid "GZIP Archive"
+msgstr ""
+
+msgid "GZIP Compression Level"
 msgstr ""
 
 msgid "Gateway"
@@ -5829,6 +5904,9 @@ msgstr "Grafikon frissítése %d másodpercenként."
 
 msgid "Graphs Height"
 msgstr "Diagramok magassága"
+
+msgid "Graphs Width"
+msgstr ""
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr "Az első bejövő kapcsolatnál megjelenő üdvözlő banner."
@@ -6786,11 +6864,20 @@ msgstr "Kernelfájl (pl. %s)."
 msgid "Key"
 msgstr "Kulcs"
 
+msgid "Key Format"
+msgstr ""
+
 msgid "Key Length"
 msgstr "Kulcshossz"
 
+msgid "Key Location"
+msgstr ""
+
 msgid "Key Management Protocol"
 msgstr "Kulcskezelő protokoll"
+
+msgid "Key Status"
+msgstr ""
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "Billentyűzet-interaktív hitelesítés"
@@ -7202,6 +7289,9 @@ msgstr "Logbias"
 msgid "Logical Block"
 msgstr "Logikai blokk"
 
+msgid "Logical Referenced"
+msgstr ""
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "Logikai Egység Vezérlő Hitelesített hálózata (%s alapértelmezetten)"
@@ -7219,6 +7309,9 @@ msgstr "Logikai Egység Vezérlő TCP portja (%d alapértelmezetten)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "Logikai Egység Típus LUN-en."
+
+msgid "Logical Used"
+msgstr ""
 
 msgid "Login"
 msgstr "Bejelentkezés"
@@ -7716,11 +7809,17 @@ msgid ""
 msgstr ""
 "Fájlrendszer csatolása csak olvashatóként (még a rendszergazda se írhat rá)."
 
+msgid "Mounted"
+msgstr ""
+
 msgid "Mounting device."
 msgstr "Eszköz csatolása."
 
 msgid "Mounting..."
 msgstr "Csatolás..."
+
+msgid "Mountpoint Type"
+msgstr ""
 
 msgid "Mounts"
 msgstr "Csatolások (mounts)"
@@ -8262,6 +8361,9 @@ msgstr "Nemkritikus"
 msgid "Non-Recoverable"
 msgstr "Nem visszaállítható"
 
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
 msgid "None"
 msgstr "Nincs"
 
@@ -8373,6 +8475,9 @@ msgstr "Csak OPT"
 
 msgid "OS Version Upgrades"
 msgstr "Operációs rendszer verzió frissítés"
+
+msgid "Obj Set ID"
+msgstr ""
 
 msgid "Object name"
 msgstr "Objektumnév"
@@ -8529,6 +8634,9 @@ msgstr ""
 "A meghajtó összesített (általános) átviteli teljesítménye. Ezen érték "
 "csökkenése lemezhibát valószínűsít."
 
+msgid "Overlay Mount"
+msgstr ""
+
 msgid "Overload"
 msgstr "Túltöltöttség"
 
@@ -8553,6 +8661,9 @@ msgstr "Tulajdonos"
 
 msgid "PAM authentication is selected."
 msgstr "PAM hitelesítést jelölted ki."
+
+msgid "PBKDF2 Iterations"
+msgstr ""
 
 msgid "PDF File"
 msgstr ""
@@ -8902,6 +9013,9 @@ msgstr "Tárolóeszközök"
 
 msgid "Pool Information"
 msgstr "Tárolóinformáció"
+
+msgid "Pool Name"
+msgstr ""
 
 msgid "Pool Space Usage"
 msgstr ""
@@ -9683,6 +9797,9 @@ msgstr "A kiválasztott eszközök kierőszakolt újraépítése."
 msgid "Receive Buffer"
 msgstr "Fogadó puffer"
 
+msgid "Receive Resume Token"
+msgstr ""
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9693,6 +9810,9 @@ msgstr "Bejegyzésinformáció"
 
 msgid "Record Maintenance"
 msgstr "Bejegyzéskarbantartás"
+
+msgid "Record Size"
+msgstr ""
 
 msgid "Record Type"
 msgstr ""
@@ -9724,17 +9844,32 @@ msgstr ""
 msgid "Recycle Bin"
 msgstr "Lomtár"
 
+msgid "Redact Snaps"
+msgstr ""
+
 msgid "Redirect"
 msgstr "Átirányítás"
 
 msgid "Redundant Metadata"
 msgstr "Redundáns metaadat"
 
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
 msgid "Refquota"
 msgstr "Hivatkozáskvóta"
 
+msgid "Refquota Type"
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Hivatkozásfoglalás"
+
+msgid "Refreservation Type"
+msgstr ""
 
 msgid "Refresh"
 msgstr "Frissítés"
@@ -9744,6 +9879,9 @@ msgstr ""
 
 msgid "Reject"
 msgstr "Elvetés"
+
+msgid "Relatime"
+msgstr ""
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "Relatív páratartalom riasztás (engedélyezve/letiltva)"
@@ -9908,6 +10046,9 @@ msgstr "Újrakeresési időköz"
 
 msgid "Reservation"
 msgstr "Foglalás"
+
+msgid "Reservation Type"
+msgstr ""
 
 msgid "Reset"
 msgstr ""
@@ -10954,6 +11095,9 @@ msgstr ""
 msgid "Settings"
 msgstr "Beállítások"
 
+msgid "Setuid"
+msgstr ""
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -10971,8 +11115,20 @@ msgstr "Megosztás"
 msgid "Share Character Set"
 msgstr "Megosztási karakterkészlet"
 
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
 msgid "Share Password"
 msgstr "Megosztási jelszó"
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
 
 msgid "Share Settings"
 msgstr "Megosztás beállításai"
@@ -11129,6 +11285,23 @@ msgstr "Pillanatkép-mappa"
 
 msgid "Snapshot"
 msgstr "Pillanatkép"
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
 
 msgid "Snapshot Visibility"
 msgstr "Pillanatkép láthatósága"
@@ -11593,6 +11766,9 @@ msgstr "Szinkronizálási idő"
 
 msgid "Synchronize"
 msgstr "Szinkronizálás"
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
 
 msgid "Syncthing"
 msgstr "Syncthing"
@@ -13354,6 +13530,9 @@ msgstr ""
 msgid "Threads"
 msgstr "Szálak"
 
+msgid "Threshold Small Block Size"
+msgstr ""
+
 msgid "Throughput"
 msgstr "Áteresztőképesség"
 
@@ -13872,6 +14051,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr "USB Mass tároló eszközö"
 
+msgid "UTF-8 File Names"
+msgstr ""
+
 msgid "UTF-8 Only"
 msgstr "Csak UTF-8"
 
@@ -14169,6 +14351,18 @@ msgstr "Felhasznált"
 msgid "Used Threshold"
 msgstr "Használt korlátja"
 
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -14227,6 +14421,9 @@ msgid "Username"
 msgstr "Felhasználónév"
 
 msgid "Username to log into the transmission web interface."
+msgstr ""
+
+msgid "Userrefs"
 msgstr ""
 
 msgid "Users"
@@ -14391,6 +14588,9 @@ msgstr "VirtualBox"
 
 msgid "Virtualization"
 msgstr "Virtualizáció"
+
+msgid "Virus Scan"
+msgstr ""
 
 msgid "Visible"
 msgstr "Látható"
@@ -14633,6 +14833,10 @@ msgstr "Felhasználó"
 msgid "Wide Links"
 msgstr "Széles linkek"
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr ""
+
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -14668,6 +14872,9 @@ msgstr "Write Same maximális LBA-ja"
 
 msgid "Write only"
 msgstr "Csak írás"
+
+msgid "Written"
+msgstr ""
 
 msgid "Wrong partition type or partition number."
 msgstr "Hibás a partíció típusa vagy a partíció száma."
@@ -14924,6 +15131,9 @@ msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr ""
 
 msgid "and"
 msgstr "és"

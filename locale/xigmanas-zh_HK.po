@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
 "PO-Revision-Date: 2018-07-06 10:59+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 
 msgid " No private key"
 msgstr ""
@@ -400,6 +400,9 @@ msgstr ""
 msgid "ACL Mode"
 msgstr ""
 
+msgid "ACL Type"
+msgstr ""
+
 msgid "ACL inherit"
 msgstr ""
 
@@ -526,6 +529,9 @@ msgid "Add Disk"
 msgstr ""
 
 msgid "Add Encrypted Volume"
+msgstr ""
+
+msgid "Add Filesystem"
 msgstr ""
 
 msgid "Add Group"
@@ -1460,6 +1466,9 @@ msgstr ""
 msgid "Blocksize"
 msgstr "塊大小"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
 msgid "Boot Arguments"
 msgstr ""
 
@@ -1898,6 +1907,9 @@ msgstr "克隆 (Clone)"
 msgid "Clone Configuration"
 msgstr ""
 
+msgid "Clones"
+msgstr ""
+
 msgid "Close"
 msgstr ""
 
@@ -1991,6 +2003,9 @@ msgstr "傳輸時壓縮檔案資料。"
 
 msgid "Compression"
 msgstr "壓縮"
+
+msgid "Compression Ratio"
+msgstr ""
 
 msgid "Configuration"
 msgstr "配置"
@@ -2604,6 +2619,9 @@ msgstr "數據庫目錄"
 msgid "Dataset"
 msgstr "文件系統 (Dataset)"
 
+msgid "Dataset Name"
+msgstr ""
+
 msgid "Dataset Type"
 msgstr ""
 
@@ -2691,6 +2709,9 @@ msgstr "DefaultTime2Retain"
 msgid "DefaultTime2Wait"
 msgstr "DefaultTime2Wait"
 
+msgid "Defer Destroy"
+msgstr ""
+
 msgid "Define directories/URL's that require authentication."
 msgstr "定義需要認證的目錄/URL"
 
@@ -2758,6 +2779,9 @@ msgid "Delete Selected Disks"
 msgstr ""
 
 msgid "Delete Selected Encrypted Volumes"
+msgstr ""
+
+msgid "Delete Selected Filesystems"
 msgstr ""
 
 msgid "Delete Selected Groups"
@@ -3358,6 +3382,9 @@ msgstr ""
 msgid "Distributed Hash Table"
 msgstr ""
 
+msgid "Dnode Size"
+msgstr ""
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr ""
 
@@ -3541,6 +3568,9 @@ msgstr ""
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr ""
 
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
 msgid "Do you want to delete selected groups?"
 msgstr ""
 
@@ -3664,6 +3694,9 @@ msgstr ""
 msgid "Do you want to disable selected commands?"
 msgstr ""
 
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
 msgid "Do you want to disable selected groups?"
 msgstr ""
 
@@ -3761,6 +3794,9 @@ msgid "Do you want to enable selected auth groups?"
 msgstr ""
 
 msgid "Do you want to enable selected commands?"
+msgstr ""
+
+msgid "Do you want to enable selected filesystems?"
 msgstr ""
 
 msgid "Do you want to enable selected groups?"
@@ -3869,6 +3905,9 @@ msgid "Do you want to toggle selected auth groups?"
 msgstr ""
 
 msgid "Do you want to toggle selected commands?"
+msgstr ""
+
+msgid "Do you want to toggle selected filesystems?"
 msgstr ""
 
 msgid "Do you want to toggle selected groups?"
@@ -4083,6 +4122,9 @@ msgid "Edit Disk"
 msgstr ""
 
 msgid "Edit Encrypted Volume"
+msgstr ""
+
+msgid "Edit Filesystem"
 msgstr ""
 
 msgid "Edit Group"
@@ -4703,6 +4745,9 @@ msgstr ""
 msgid "Encryption Password"
 msgstr ""
 
+msgid "Encryption Root"
+msgstr ""
+
 msgid "Encryption Settings"
 msgstr ""
 
@@ -4952,6 +4997,9 @@ msgstr "執行"
 msgid "Execute Command"
 msgstr ""
 
+msgid "Execute Processes"
+msgstr ""
+
 msgid "Execute now"
 msgstr "現在執行"
 
@@ -5143,6 +5191,9 @@ msgstr ""
 msgid "Fast"
 msgstr ""
 
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
 msgid "Fatal"
 msgstr ""
 
@@ -5233,6 +5284,24 @@ msgid "Filename"
 msgstr "檔案名稱"
 
 msgid "Filesystem"
+msgstr ""
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Filesystems"
 msgstr ""
 
 msgid "Filter"
@@ -5444,7 +5513,13 @@ msgstr ""
 msgid "GUI"
 msgstr ""
 
+msgid "GUID"
+msgstr ""
+
 msgid "GZIP Archive"
+msgstr ""
+
+msgid "GZIP Compression Level"
 msgstr ""
 
 msgid "Gateway"
@@ -5524,6 +5599,9 @@ msgid "Graph updates every %d seconds."
 msgstr ""
 
 msgid "Graphs Height"
+msgstr ""
+
+msgid "Graphs Width"
 msgstr ""
 
 msgid "Greeting banner displayed to client when first connection comes in."
@@ -6411,11 +6489,20 @@ msgstr ""
 msgid "Key"
 msgstr "密鑰"
 
+msgid "Key Format"
+msgstr ""
+
 msgid "Key Length"
+msgstr ""
+
+msgid "Key Location"
 msgstr ""
 
 msgid "Key Management Protocol"
 msgstr "密鑰管理協定"
+
+msgid "Key Status"
+msgstr ""
 
 msgid "Keyboard-Interactive Authentication"
 msgstr ""
@@ -6790,6 +6877,9 @@ msgstr ""
 msgid "Logical Block"
 msgstr ""
 
+msgid "Logical Referenced"
+msgstr ""
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "邏輯單元控制器授權網絡 (默認 %s)"
@@ -6807,6 +6897,9 @@ msgstr "邏輯單元控制器 TCP 連接埠 (默認為 %d)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "邏輯單元類型映射到 LUN。"
+
+msgid "Logical Used"
+msgstr ""
 
 msgid "Login"
 msgstr "登入"
@@ -7289,11 +7382,17 @@ msgid ""
 "Mount the file system read-only (even the super-user may not write it)."
 msgstr "以唯讀模式掛載 (連超級用戶也無法寫入)。"
 
+msgid "Mounted"
+msgstr ""
+
 msgid "Mounting device."
 msgstr "裝置掛載中。"
 
 msgid "Mounting..."
 msgstr "掛載中..."
+
+msgid "Mountpoint Type"
+msgstr ""
 
 msgid "Mounts"
 msgstr "掛載點"
@@ -7822,6 +7921,9 @@ msgstr ""
 msgid "Non-Recoverable"
 msgstr ""
 
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
 msgid "None"
 msgstr "無"
 
@@ -7921,6 +8023,9 @@ msgid "OPT Only"
 msgstr ""
 
 msgid "OS Version Upgrades"
+msgstr ""
+
+msgid "Obj Set ID"
 msgstr ""
 
 msgid "Object name"
@@ -8072,6 +8177,9 @@ msgid ""
 "problem with the disk."
 msgstr ""
 
+msgid "Overlay Mount"
+msgstr ""
+
 msgid "Overload"
 msgstr "負載"
 
@@ -8094,6 +8202,9 @@ msgid "Owner"
 msgstr "擁有者"
 
 msgid "PAM authentication is selected."
+msgstr ""
+
+msgid "PBKDF2 Iterations"
 msgstr ""
 
 msgid "PDF File"
@@ -8435,6 +8546,9 @@ msgid "Pool Devices"
 msgstr ""
 
 msgid "Pool Information"
+msgstr ""
+
+msgid "Pool Name"
 msgstr ""
 
 msgid "Pool Space Usage"
@@ -9191,6 +9305,9 @@ msgstr ""
 msgid "Receive Buffer"
 msgstr ""
 
+msgid "Receive Resume Token"
+msgstr ""
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9200,6 +9317,9 @@ msgid "Record Information"
 msgstr ""
 
 msgid "Record Maintenance"
+msgstr ""
+
+msgid "Record Size"
 msgstr ""
 
 msgid "Record Type"
@@ -9232,16 +9352,31 @@ msgstr ""
 msgid "Recycle Bin"
 msgstr ""
 
+msgid "Redact Snaps"
+msgstr ""
+
 msgid "Redirect"
 msgstr ""
 
 msgid "Redundant Metadata"
 msgstr ""
 
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
 msgid "Refquota"
 msgstr ""
 
+msgid "Refquota Type"
+msgstr ""
+
 msgid "Refreservation"
+msgstr ""
+
+msgid "Refreservation Type"
 msgstr ""
 
 msgid "Refresh"
@@ -9252,6 +9387,9 @@ msgstr ""
 
 msgid "Reject"
 msgstr "拒絕 (Reject)"
+
+msgid "Relatime"
+msgstr ""
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "相對濕度警報 (啟用/禁用)"
@@ -9405,6 +9543,9 @@ msgstr "重新掃描間隔"
 
 msgid "Reservation"
 msgstr "預留"
+
+msgid "Reservation Type"
+msgstr ""
 
 msgid "Reset"
 msgstr ""
@@ -10370,6 +10511,9 @@ msgstr ""
 msgid "Settings"
 msgstr "設定"
 
+msgid "Setuid"
+msgstr ""
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -10387,8 +10531,20 @@ msgstr "共享資源"
 msgid "Share Character Set"
 msgstr "共享資源字元編碼"
 
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
 msgid "Share Password"
 msgstr "共享資源密碼"
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
 
 msgid "Share Settings"
 msgstr ""
@@ -10539,6 +10695,23 @@ msgstr ""
 
 msgid "Snapshot"
 msgstr "快照 (Snapshot)"
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
 
 msgid "Snapshot Visibility"
 msgstr "快照能見度"
@@ -10958,6 +11131,9 @@ msgstr ""
 
 msgid "Synchronize"
 msgstr "同步"
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
 
 msgid "Syncthing"
 msgstr ""
@@ -12498,6 +12674,9 @@ msgstr ""
 msgid "Threads"
 msgstr ""
 
+msgid "Threshold Small Block Size"
+msgstr ""
+
 msgid "Throughput"
 msgstr ""
 
@@ -12992,6 +13171,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr ""
 
+msgid "UTF-8 File Names"
+msgstr ""
+
 msgid "UTF-8 Only"
 msgstr ""
 
@@ -13270,6 +13452,18 @@ msgstr "已用空間"
 msgid "Used Threshold"
 msgstr ""
 
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -13325,6 +13519,9 @@ msgid "Username"
 msgstr "用戶名"
 
 msgid "Username to log into the transmission web interface."
+msgstr ""
+
+msgid "Userrefs"
 msgstr ""
 
 msgid "Users"
@@ -13484,6 +13681,9 @@ msgid "VirtualBox"
 msgstr ""
 
 msgid "Virtualization"
+msgstr ""
+
+msgid "Virus Scan"
 msgstr ""
 
 msgid "Visible"
@@ -13711,6 +13911,10 @@ msgstr "執行用戶"
 msgid "Wide Links"
 msgstr ""
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr ""
+
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -13746,6 +13950,9 @@ msgstr ""
 
 msgid "Write only"
 msgstr "唯寫"
+
+msgid "Written"
+msgstr ""
 
 msgid "Wrong partition type or partition number."
 msgstr "錯誤的分區格式或分區編號。"
@@ -13987,6 +14194,9 @@ msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "零配置 (Zeroconf) /Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr ""
 
 msgid "and"
 msgstr ""

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -417,6 +417,9 @@ msgstr "ACL 상속"
 msgid "ACL Mode"
 msgstr "ACL 모드"
 
+msgid "ACL Type"
+msgstr ""
+
 msgid "ACL inherit"
 msgstr "ACL 상속"
 
@@ -546,6 +549,9 @@ msgstr "디스크 추가"
 
 msgid "Add Encrypted Volume"
 msgstr "암호화 볼륨 추가"
+
+msgid "Add Filesystem"
+msgstr ""
 
 msgid "Add Group"
 msgstr "그룹 추가"
@@ -1489,6 +1495,9 @@ msgstr "블록 크기"
 msgid "Blocksize"
 msgstr "블록 크기"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
 msgid "Boot Arguments"
 msgstr "시동 인자"
 
@@ -1928,6 +1937,9 @@ msgstr "복제"
 msgid "Clone Configuration"
 msgstr "복제 설정"
 
+msgid "Clones"
+msgstr ""
+
 msgid "Close"
 msgstr ""
 
@@ -2021,6 +2033,9 @@ msgstr "전송하는 동안 파일 데이터를 압축합니다."
 
 msgid "Compression"
 msgstr "압축"
+
+msgid "Compression Ratio"
+msgstr ""
 
 msgid "Configuration"
 msgstr "설정"
@@ -2667,6 +2682,9 @@ msgstr "데이터베이스 디렉터리"
 msgid "Dataset"
 msgstr "데이터셋"
 
+msgid "Dataset Name"
+msgstr ""
+
 msgid "Dataset Type"
 msgstr "데이터셋 형태"
 
@@ -2759,6 +2777,9 @@ msgstr "DefaultTime2Retain"
 msgid "DefaultTime2Wait"
 msgstr "DefaultTime2Wait"
 
+msgid "Defer Destroy"
+msgstr ""
+
 msgid "Define directories/URL's that require authentication."
 msgstr "인증을 필요로 하는 디렉터리/URL을 정의합니다."
 
@@ -2827,6 +2848,9 @@ msgstr "선택된 디스크들 삭제"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "선택된 암호화 볼륨들 삭제"
+
+msgid "Delete Selected Filesystems"
+msgstr ""
 
 msgid "Delete Selected Groups"
 msgstr "선택된 그룹들 삭제"
@@ -3430,6 +3454,9 @@ msgstr "(주로 충격이나 온도로 인해) 디스크가 회전축으로부�
 msgid "Distributed Hash Table"
 msgstr "분산 해시 테이블"
 
+msgid "Dnode Size"
+msgstr ""
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr "펌웨어 업그레이드가 시작되면 취소하지 마십시오."
 
@@ -3613,6 +3640,9 @@ msgstr "선택된 디스크들을 삭제하시겠습니까?"
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "선택된 암호화 볼륨들을 삭제하시겠습니까?"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
 msgid "Do you want to delete selected groups?"
 msgstr "선택된 그룹들을 삭제하시겠습니까?"
 
@@ -3736,6 +3766,9 @@ msgstr ""
 msgid "Do you want to disable selected commands?"
 msgstr "선택된 명령들을 사용하지 않으시겠습니까?"
 
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
 msgid "Do you want to disable selected groups?"
 msgstr ""
 
@@ -3834,6 +3867,9 @@ msgstr ""
 
 msgid "Do you want to enable selected commands?"
 msgstr "선택된 명령들을 사용하시겠습니까?"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr ""
 
 msgid "Do you want to enable selected groups?"
 msgstr ""
@@ -3942,6 +3978,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected commands?"
 msgstr "선택된 명령들을 전환하시겠습니까?"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr ""
 
 msgid "Do you want to toggle selected groups?"
 msgstr ""
@@ -4156,6 +4195,9 @@ msgstr "디스크 수정"
 
 msgid "Edit Encrypted Volume"
 msgstr "암호화 볼륨 수정"
+
+msgid "Edit Filesystem"
+msgstr ""
 
 msgid "Edit Group"
 msgstr "그룹 수정"
@@ -4776,6 +4818,9 @@ msgstr "암호화 관리"
 msgid "Encryption Password"
 msgstr "암호화 암호"
 
+msgid "Encryption Root"
+msgstr ""
+
 msgid "Encryption Settings"
 msgstr "암호화 설정"
 
@@ -5025,6 +5070,9 @@ msgstr "실행"
 msgid "Execute Command"
 msgstr "명령 실행"
 
+msgid "Execute Processes"
+msgstr ""
+
 msgid "Execute now"
 msgstr "지금 실행"
 
@@ -5218,6 +5266,9 @@ msgstr ""
 msgid "Fast"
 msgstr "빠름"
 
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
 msgid "Fatal"
 msgstr "치명적"
 
@@ -5309,6 +5360,24 @@ msgstr "파일 명"
 
 msgid "Filesystem"
 msgstr "파일시스템"
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Filesystems"
+msgstr ""
 
 msgid "Filter"
 msgstr "필터"
@@ -5519,7 +5588,13 @@ msgstr ""
 msgid "GUI"
 msgstr ""
 
+msgid "GUID"
+msgstr ""
+
 msgid "GZIP Archive"
+msgstr ""
+
+msgid "GZIP Compression Level"
 msgstr ""
 
 msgid "Gateway"
@@ -5600,6 +5675,9 @@ msgstr "그래프는 매 %d초 마다 갱신됩니다."
 
 msgid "Graphs Height"
 msgstr "그래프 높히"
+
+msgid "Graphs Width"
+msgstr ""
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr ""
@@ -6501,11 +6579,20 @@ msgstr "커널 파일(예: %s)."
 msgid "Key"
 msgstr "키"
 
+msgid "Key Format"
+msgstr ""
+
 msgid "Key Length"
 msgstr "키 길이"
 
+msgid "Key Location"
+msgstr ""
+
 msgid "Key Management Protocol"
 msgstr "키 관리 프로토콜"
+
+msgid "Key Status"
+msgstr ""
 
 msgid "Keyboard-Interactive Authentication"
 msgstr ""
@@ -6882,6 +6969,9 @@ msgstr "Logbias"
 msgid "Logical Block"
 msgstr "논리 블록"
 
+msgid "Logical Referenced"
+msgstr ""
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "논리적 유닛 컨트롤러 권한을 받은 네트워크(기본 값은 %s)"
@@ -6899,6 +6989,9 @@ msgstr "논리적 유닛 컨트롤러 TCP 포트(기본 값은 %d)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "LUN에 mapping 된 로지컬 유닛 타입"
+
+msgid "Logical Used"
+msgstr ""
 
 msgid "Login"
 msgstr "로그인"
@@ -7383,11 +7476,17 @@ msgid ""
 "Mount the file system read-only (even the super-user may not write it)."
 msgstr "읽기 전용으로 파일 시스템 탑재(최고 관리자도 기록할 수 없을 수 있음)."
 
+msgid "Mounted"
+msgstr ""
+
 msgid "Mounting device."
 msgstr "장치 탑재."
 
 msgid "Mounting..."
 msgstr "탑재 중..."
+
+msgid "Mountpoint Type"
+msgstr ""
 
 msgid "Mounts"
 msgstr "탑재"
@@ -7917,6 +8016,9 @@ msgstr "치명적이지 않은"
 msgid "Non-Recoverable"
 msgstr "복구 불가능한"
 
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
 msgid "None"
 msgstr "없음"
 
@@ -8019,6 +8121,9 @@ msgid "OPT Only"
 msgstr "OPT 전용"
 
 msgid "OS Version Upgrades"
+msgstr ""
+
+msgid "Obj Set ID"
 msgstr ""
 
 msgid "Object name"
@@ -8170,6 +8275,9 @@ msgid ""
 "problem with the disk."
 msgstr "하드 디스크 드라이브의 전반적인(일반적인) 처리 성능. 이 속성의 값이 감소하면 디스크에 문제가 있을 확률이 높습니다."
 
+msgid "Overlay Mount"
+msgstr ""
+
 msgid "Overload"
 msgstr "과부하"
 
@@ -8193,6 +8301,9 @@ msgstr "소유자"
 
 msgid "PAM authentication is selected."
 msgstr "PAM 인증이 선택되었습니다."
+
+msgid "PBKDF2 Iterations"
+msgstr ""
 
 msgid "PDF File"
 msgstr ""
@@ -8534,6 +8645,9 @@ msgid "Pool Devices"
 msgstr "풀 장치"
 
 msgid "Pool Information"
+msgstr ""
+
+msgid "Pool Name"
 msgstr ""
 
 msgid "Pool Space Usage"
@@ -9290,6 +9404,9 @@ msgstr ""
 msgid "Receive Buffer"
 msgstr "수신 버퍼"
 
+msgid "Receive Resume Token"
+msgstr ""
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9300,6 +9417,9 @@ msgstr "항목 정보"
 
 msgid "Record Maintenance"
 msgstr "항목 유지보수"
+
+msgid "Record Size"
+msgstr ""
 
 msgid "Record Type"
 msgstr ""
@@ -9331,17 +9451,32 @@ msgstr ""
 msgid "Recycle Bin"
 msgstr "휴지통"
 
+msgid "Redact Snaps"
+msgstr ""
+
 msgid "Redirect"
 msgstr ""
 
 msgid "Redundant Metadata"
 msgstr "중복 메타데이터"
 
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
 msgid "Refquota"
 msgstr "참조 쿼터"
 
+msgid "Refquota Type"
+msgstr ""
+
 msgid "Refreservation"
 msgstr "참조 예약"
+
+msgid "Refreservation Type"
+msgstr ""
 
 msgid "Refresh"
 msgstr "갱신"
@@ -9351,6 +9486,9 @@ msgstr ""
 
 msgid "Reject"
 msgstr "기각"
+
+msgid "Relatime"
+msgstr ""
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "상대 습도 알림(사용/사용 안 함)"
@@ -9504,6 +9642,9 @@ msgstr "재 스캔 간격"
 
 msgid "Reservation"
 msgstr "예약"
+
+msgid "Reservation Type"
+msgstr ""
 
 msgid "Reset"
 msgstr ""
@@ -10475,6 +10616,9 @@ msgstr ""
 msgid "Settings"
 msgstr "설정"
 
+msgid "Setuid"
+msgstr ""
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -10492,8 +10636,20 @@ msgstr "공유"
 msgid "Share Character Set"
 msgstr "공유 문자 세트"
 
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
 msgid "Share Password"
 msgstr "공유 암호"
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
 
 msgid "Share Settings"
 msgstr "공유 설정"
@@ -10644,6 +10800,23 @@ msgstr "Snapdir"
 
 msgid "Snapshot"
 msgstr "스냅샷"
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
 
 msgid "Snapshot Visibility"
 msgstr "스냅샷 보기"
@@ -11070,6 +11243,9 @@ msgstr "동기화 시간"
 
 msgid "Synchronize"
 msgstr "동기화"
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
 
 msgid "Syncthing"
 msgstr "Syncthing"
@@ -12635,6 +12811,9 @@ msgstr ""
 msgid "Threads"
 msgstr ""
 
+msgid "Threshold Small Block Size"
+msgstr ""
+
 msgid "Throughput"
 msgstr "처리량"
 
@@ -13131,6 +13310,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr "USB 대용량 저장소 장치"
 
+msgid "UTF-8 File Names"
+msgstr ""
+
 msgid "UTF-8 Only"
 msgstr "UTF-8 전용"
 
@@ -13411,6 +13593,18 @@ msgstr "사용량"
 msgid "Used Threshold"
 msgstr ""
 
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -13466,6 +13660,9 @@ msgid "Username"
 msgstr "사용자 이름"
 
 msgid "Username to log into the transmission web interface."
+msgstr ""
+
+msgid "Userrefs"
 msgstr ""
 
 msgid "Users"
@@ -13626,6 +13823,9 @@ msgstr "VirtualBox"
 
 msgid "Virtualization"
 msgstr "가상화"
+
+msgid "Virus Scan"
+msgstr ""
 
 msgid "Visible"
 msgstr "보임"
@@ -13855,6 +14055,10 @@ msgstr "수행자"
 msgid "Wide Links"
 msgstr ""
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr ""
+
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -13890,6 +14094,9 @@ msgstr ""
 
 msgid "Write only"
 msgstr "쓰기 전용"
+
+msgid "Written"
+msgstr ""
 
 msgid "Wrong partition type or partition number."
 msgstr "잘못된 분할 영역 형식이나 분할 영역 번호."
@@ -14131,6 +14338,9 @@ msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr ""
 
 msgid "and"
 msgstr "그리고"

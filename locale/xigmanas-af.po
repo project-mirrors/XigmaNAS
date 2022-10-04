@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
 "PO-Revision-Date: 2021-11-15 14:27+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:24+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:24+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 
 msgid " No private key"
 msgstr " Geen privaat sleutel"
@@ -449,6 +449,9 @@ msgstr "ACL Inherit"
 msgid "ACL Mode"
 msgstr "ACL Modus"
 
+msgid "ACL Type"
+msgstr ""
+
 msgid "ACL inherit"
 msgstr "ACL inherit"
 
@@ -578,6 +581,9 @@ msgstr "Voeg Skyf"
 
 msgid "Add Encrypted Volume"
 msgstr "Voeg Geënkripteerde Volume"
+
+msgid "Add Filesystem"
+msgstr ""
 
 msgid "Add Group"
 msgstr "Voeg Groep"
@@ -1582,6 +1588,9 @@ msgstr "Blok Grootte"
 msgid "Blocksize"
 msgstr "Blokgrootte"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
 msgid "Boot Arguments"
 msgstr "Stewel Argumente"
 
@@ -2037,6 +2046,9 @@ msgstr "Kloon"
 msgid "Clone Configuration"
 msgstr "Kloon Konfigurasie"
 
+msgid "Clones"
+msgstr ""
+
 msgid "Close"
 msgstr "Sluit"
 
@@ -2132,6 +2144,9 @@ msgstr "Druk lêerdata saam tydens die oordrag."
 
 msgid "Compression"
 msgstr "Kompressie"
+
+msgid "Compression Ratio"
+msgstr ""
 
 msgid "Configuration"
 msgstr "Konfigurasie"
@@ -2836,6 +2851,9 @@ msgstr "Databasisgids"
 msgid "Dataset"
 msgstr "Datastel"
 
+msgid "Dataset Name"
+msgstr ""
+
 msgid "Dataset Type"
 msgstr "Datastel Tipe"
 
@@ -2929,6 +2947,9 @@ msgstr "VerstekTyd2-Behou"
 msgid "DefaultTime2Wait"
 msgstr "VerstekTyd2-Wag"
 
+msgid "Defer Destroy"
+msgstr ""
+
 msgid "Define directories/URL's that require authentication."
 msgstr "Definieer gids/URL se daardie vereis ontentisering."
 
@@ -3003,6 +3024,9 @@ msgstr "Skrap Geselekteerde Skywe"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "Skrap Geselekteerde Geïnkripteer Volumes"
+
+msgid "Delete Selected Filesystems"
+msgstr ""
 
 msgid "Delete Selected Groups"
 msgstr "Skrap Geselekteerde Groepe"
@@ -3620,6 +3644,9 @@ msgstr ""
 msgid "Distributed Hash Table"
 msgstr "Verspreide Hash Tabel"
 
+msgid "Dnode Size"
+msgstr ""
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr ""
 "Moenie aborteer die firmware opgraderings proses sodra dit begin het."
@@ -3817,6 +3844,9 @@ msgstr "Wil jy geselekteerde skywe skrap?"
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "Wil jy geselekteerde geënkripteerde volumes skrap?"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
 msgid "Do you want to delete selected groups?"
 msgstr "Wil jy die geselekteerde groepe skrap?"
 
@@ -3940,6 +3970,9 @@ msgstr "Wil jy geselekteerde auth groepe deaktiveer?"
 msgid "Do you want to disable selected commands?"
 msgstr "Wil jy die geselekteerde bevelle deaktiveer?"
 
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
 msgid "Do you want to disable selected groups?"
 msgstr "Wil jy geselekteerde groepe deaktiveer?"
 
@@ -4038,6 +4071,9 @@ msgstr "Wil jy geselekteerde auth groepe inskakel?"
 
 msgid "Do you want to enable selected commands?"
 msgstr "Wil jy die geselekteerde bevelle aktiveer?"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr ""
 
 msgid "Do you want to enable selected groups?"
 msgstr "Wil jy geselekteerde groepe inskakel?"
@@ -4146,6 +4182,9 @@ msgstr "Doen jy wil geselekteerde auth groepe toggle?"
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Doen jy wil geselekteerde opdragte toggle?"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr ""
 
 msgid "Do you want to toggle selected groups?"
 msgstr "Doen jy wil geselekteerde groepe toggle?"
@@ -4362,6 +4401,9 @@ msgstr "Wysig Skyf"
 
 msgid "Edit Encrypted Volume"
 msgstr "Wysig geënkripteerde volume"
+
+msgid "Edit Filesystem"
+msgstr ""
 
 msgid "Edit Group"
 msgstr "Redigeer Groep"
@@ -5007,6 +5049,9 @@ msgstr "Enkripteer Bestuure"
 msgid "Encryption Password"
 msgstr "Enkripteer Wagwoord"
 
+msgid "Encryption Root"
+msgstr ""
+
 msgid "Encryption Settings"
 msgstr "Enkripteer Instellings"
 
@@ -5285,6 +5330,9 @@ msgstr "Teregstel"
 msgid "Execute Command"
 msgstr "Teregstel Bevel"
 
+msgid "Execute Processes"
+msgstr ""
+
 msgid "Execute now"
 msgstr "Teregstel nou"
 
@@ -5480,6 +5528,9 @@ msgstr ""
 msgid "Fast"
 msgstr "Vinnige"
 
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
 msgid "Fatal"
 msgstr "Fataal"
 
@@ -5575,6 +5626,24 @@ msgstr "Lêernaam"
 
 msgid "Filesystem"
 msgstr "Lêersisteem"
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Filesystems"
+msgstr ""
 
 msgid "Filter"
 msgstr "Filter"
@@ -5794,8 +5863,14 @@ msgstr "GSSAPI Ontentisering"
 msgid "GUI"
 msgstr "GUI"
 
+msgid "GUID"
+msgstr ""
+
 msgid "GZIP Archive"
 msgstr "GZIP Argief"
+
+msgid "GZIP Compression Level"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5880,6 +5955,9 @@ msgstr "Grafiek opdater elke %d sekonds."
 
 msgid "Graphs Height"
 msgstr "Grafiek Hoogte"
+
+msgid "Graphs Width"
+msgstr ""
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr ""
@@ -6847,11 +6925,20 @@ msgstr "Kernel lêer (bv. %s)"
 msgid "Key"
 msgstr "Sleutel"
 
+msgid "Key Format"
+msgstr ""
+
 msgid "Key Length"
 msgstr "Sleutel Lengte"
 
+msgid "Key Location"
+msgstr ""
+
 msgid "Key Management Protocol"
 msgstr "Sleutel Bestuur Protokol"
+
+msgid "Key Status"
+msgstr ""
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "Sleutelbord-Interaktiewe Ontentisering"
@@ -7255,6 +7342,9 @@ msgstr "Logbias"
 msgid "Logical Block"
 msgstr "Logiese Blok"
 
+msgid "Logical Referenced"
+msgstr ""
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "Logiese Eenheid Kontroleerder Gemagtige netwerk (%s by verstek)"
@@ -7272,6 +7362,9 @@ msgstr "Logiese Eenheid Kontroleerder TCP poort (%d by verstek)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "Logiese Eenheid Tipe gekarteer om LUN."
+
+msgid "Logical Used"
+msgstr ""
 
 msgid "Login"
 msgstr "Login"
@@ -7767,11 +7860,17 @@ msgstr ""
 "Monteer die lêer sisteem lees-slegs (selfs al sal die super-gebruiker dit "
 "dalk nie skryf nie)."
 
+msgid "Mounted"
+msgstr ""
+
 msgid "Mounting device."
 msgstr "Gemonteering toestel."
 
 msgid "Mounting..."
 msgstr "Gemonteering..."
+
+msgid "Mountpoint Type"
+msgstr ""
 
 msgid "Mounts"
 msgstr "Monteer"
@@ -8312,6 +8411,9 @@ msgstr "Nie-Krities"
 msgid "Non-Recoverable"
 msgstr "Nie-Verhaalbaar"
 
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
 msgid "None"
 msgstr "Geeneen"
 
@@ -8420,6 +8522,9 @@ msgstr "OPT Alleenlik"
 
 msgid "OS Version Upgrades"
 msgstr "OS Weergawe Opgraderings"
+
+msgid "Obj Set ID"
+msgstr ""
 
 msgid "Object name"
 msgstr "Objek naam"
@@ -8576,6 +8681,9 @@ msgstr ""
 "hierdie eienskap daal is daar 'n hoë waarskynlikheid dat daar 'n probleem "
 "met die skyf is."
 
+msgid "Overlay Mount"
+msgstr ""
+
 msgid "Overload"
 msgstr "Oorlaai"
 
@@ -8600,6 +8708,9 @@ msgstr "Eienaar"
 
 msgid "PAM authentication is selected."
 msgstr "PAM ontentisering geselekteerde."
+
+msgid "PBKDF2 Iterations"
+msgstr ""
 
 msgid "PDF File"
 msgstr "PDF Lêer"
@@ -8950,6 +9061,9 @@ msgstr "Poel Toestelle"
 
 msgid "Pool Information"
 msgstr "Poel Inligting"
+
+msgid "Pool Name"
+msgstr ""
 
 msgid "Pool Space Usage"
 msgstr "Poel Ruimte Gebruik"
@@ -9731,6 +9845,9 @@ msgstr "Herbou die geselekteerde toestel gedwing."
 msgid "Receive Buffer"
 msgstr "Ontvang Buffer"
 
+msgid "Receive Resume Token"
+msgstr ""
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9741,6 +9858,9 @@ msgstr "Rekord Inligting"
 
 msgid "Record Maintenance"
 msgstr "Rekord Onderhoud"
+
+msgid "Record Size"
+msgstr ""
 
 msgid "Record Type"
 msgstr ""
@@ -9772,17 +9892,32 @@ msgstr ""
 msgid "Recycle Bin"
 msgstr "Herwin Bin"
 
+msgid "Redact Snaps"
+msgstr ""
+
 msgid "Redirect"
 msgstr "Redirect"
 
 msgid "Redundant Metadata"
 msgstr "Oorbodige Metadata"
 
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
 msgid "Refquota"
 msgstr "Refquota"
 
+msgid "Refquota Type"
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr ""
 
 msgid "Refresh"
 msgstr "Herfris"
@@ -9792,6 +9927,9 @@ msgstr "Gereelde Produk Opdaterings"
 
 msgid "Reject"
 msgstr "Weier"
+
+msgid "Relatime"
+msgstr ""
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "Relatiewe humiditeit alarm (geaktiveer/gedeaktiveer)"
@@ -9956,6 +10094,9 @@ msgstr "Herskandeer interval"
 
 msgid "Reservation"
 msgstr "Bespreking"
+
+msgid "Reservation Type"
+msgstr ""
 
 msgid "Reset"
 msgstr "Herstel"
@@ -11001,6 +11142,9 @@ msgstr ""
 msgid "Settings"
 msgstr "Verstellings"
 
+msgid "Setuid"
+msgstr ""
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -11020,8 +11164,20 @@ msgstr "Deel"
 msgid "Share Character Set"
 msgstr "Deel Karakter Stel"
 
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
 msgid "Share Password"
 msgstr "Deel wagwoord"
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
 
 msgid "Share Settings"
 msgstr "Deel Instellings"
@@ -11177,6 +11333,23 @@ msgstr "Snapdir"
 
 msgid "Snapshot"
 msgstr "Foto"
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
 
 msgid "Snapshot Visibility"
 msgstr "Foto Sigbaarheid"
@@ -11646,6 +11819,9 @@ msgstr "Sinchronisasie Tyd"
 
 msgid "Synchronize"
 msgstr "Sinchroniseer"
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
 
 msgid "Syncthing"
 msgstr "Syncthing"
@@ -13463,6 +13639,9 @@ msgstr ""
 msgid "Threads"
 msgstr "Threads"
 
+msgid "Threshold Small Block Size"
+msgstr ""
+
 msgid "Throughput"
 msgstr "Deurset"
 
@@ -13986,6 +14165,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr "USB Massa Stoor Toestelle"
 
+msgid "UTF-8 File Names"
+msgstr ""
+
 msgid "UTF-8 Only"
 msgstr "UTF-8 Enigste"
 
@@ -14289,6 +14471,18 @@ msgstr "Gebruik"
 msgid "Used Threshold"
 msgstr "Gebruikde Drumpel"
 
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -14347,6 +14541,9 @@ msgid "Username"
 msgstr "Gebruikernaam"
 
 msgid "Username to log into the transmission web interface."
+msgstr ""
+
+msgid "Userrefs"
 msgstr ""
 
 msgid "Users"
@@ -14512,6 +14709,9 @@ msgstr "VirtualBox"
 
 msgid "Virtualization"
 msgstr "Virtualisering"
+
+msgid "Virus Scan"
+msgstr ""
 
 msgid "Visible"
 msgstr "Sigbaar"
@@ -14759,6 +14959,10 @@ msgstr "Who"
 msgid "Wide Links"
 msgstr "Wye Skakels"
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr ""
+
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -14794,6 +14998,9 @@ msgstr "Skryf Selfde Maksimum LBA"
 
 msgid "Write only"
 msgstr "Skryf aleenlik"
+
+msgid "Written"
+msgstr ""
 
 msgid "Wrong partition type or partition number."
 msgstr "Verkeerde verdeling tipe of verdeling nommer."
@@ -15056,6 +15263,9 @@ msgstr "Zip Argief"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr ""
 
 msgid "and"
 msgstr "en"

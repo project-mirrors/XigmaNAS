@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
-"PO-Revision-Date: 2022-09-17 00:11+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
+"PO-Revision-Date: 2022-10-04 01:47+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
-"X-Poedit-Country: Netherlands\n"
-"X-Poedit-Language: Dutch\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: Netherlands\n"
+"Language: \n"
+"X-Poedit-Language: Dutch\n"
 
 msgid " No private key"
 msgstr " Geen prive sleutel"
@@ -462,6 +462,9 @@ msgstr "ACL Overnemen"
 msgid "ACL Mode"
 msgstr "ACL Modus"
 
+msgid "ACL Type"
+msgstr "ACL Type"
+
 msgid "ACL inherit"
 msgstr "ACL overnemen"
 
@@ -593,6 +596,9 @@ msgstr "Schijf Toevoegen"
 msgid "Add Encrypted Volume"
 msgstr "Gecodeerd Volume Toevoegen"
 
+msgid "Add Filesystem"
+msgstr "Bestandssysteem Toevoegen"
+
 msgid "Add Group"
 msgstr "Groep Toevoegen"
 
@@ -681,7 +687,7 @@ msgid "Add Share"
 msgstr "Deling Toevoegen"
 
 msgid "Add Snapshot"
-msgstr "Snapshot Toevoegen"
+msgstr "Momentopname Toevoegen"
 
 msgid "Add Target"
 msgstr "Doel Toevoegen"
@@ -729,7 +735,7 @@ msgid "Add auth group"
 msgstr "Auth groep toevoegen"
 
 msgid "Add auto snapshot"
-msgstr "Auto snaphot toevoegen"
+msgstr "Auto Momentopname toevoegen"
 
 msgid "Add extent"
 msgstr "Extent toevoegen"
@@ -1380,10 +1386,10 @@ msgid "Auto"
 msgstr "Automatisch"
 
 msgid "Auto Snapshot"
-msgstr "Auto Snapshots"
+msgstr "Auto Momentopname"
 
 msgid "Auto Snapshot Settings"
-msgstr "Auto Snapshot Instellingen"
+msgstr "Auto Momentopname Settings"
 
 msgid "Auto page refresh."
 msgstr "Automatische pagina verversing."
@@ -1606,6 +1612,9 @@ msgstr "Blokgrootte"
 
 msgid "Blocksize"
 msgstr "Blokgrootte"
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr "Bladwijzer - Maakt een bladwijzer van een bepaalde momentopname."
 
 msgid "Boot Arguments"
 msgstr "Opstart Argumenten"
@@ -2074,6 +2083,9 @@ msgstr "Kloon"
 msgid "Clone Configuration"
 msgstr "Kloon Configuratie"
 
+msgid "Clones"
+msgstr "Klonen"
+
 msgid "Close"
 msgstr "Sluiten"
 
@@ -2173,6 +2185,9 @@ msgstr "Comprimeer bestandsdata gedurende de overdracht."
 
 msgid "Compression"
 msgstr "Compressie"
+
+msgid "Compression Ratio"
+msgstr "Compressieverhouding"
 
 msgid "Configuration"
 msgstr "Configuratie"
@@ -2614,7 +2629,7 @@ msgid "Create Permission"
 msgstr "Toestemming Creëren"
 
 msgid "Create Snapshot"
-msgstr "Creëer Snapshot"
+msgstr "Creëer Momentopname"
 
 msgid "Create Work Directory"
 msgstr "Werkmap Maken"
@@ -2656,7 +2671,7 @@ msgid "Create and initialize RAID."
 msgstr "Creëer en initialiseer de RAID."
 
 msgid "Create recursive snapshot."
-msgstr "Creëer recursieve snapshot."
+msgstr "Creëer recursieve momentopname."
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Werkmap maken als deze nog niet bestaat."
@@ -2893,6 +2908,9 @@ msgstr "Database map"
 msgid "Dataset"
 msgstr "Dataset"
 
+msgid "Dataset Name"
+msgstr "Dataset Naam"
+
 msgid "Dataset Type"
 msgstr "Dataset Type"
 
@@ -2988,6 +3006,9 @@ msgstr "DefaultTime2Retain"
 msgid "DefaultTime2Wait"
 msgstr "DefaultTime2Wait"
 
+msgid "Defer Destroy"
+msgstr "Vernietigen Uitstellen"
+
 msgid "Define directories/URL's that require authentication."
 msgstr "Defineer mappen/URL'S die verificatie vereisen."
 
@@ -3062,6 +3083,9 @@ msgstr "Geselecteerde Schijven Verwijderen"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "Geselecteerde Gecodeerde Volumes Verwijderen"
+
+msgid "Delete Selected Filesystems"
+msgstr "Geselecteerde Bestandssystemen Verwijderen"
 
 msgid "Delete Selected Groups"
 msgstr "Geselecteerde Groepen Verwijderen"
@@ -3154,7 +3178,7 @@ msgid "Delete Selected Shares"
 msgstr "Geselecteerde Delingen Verwijderen"
 
 msgid "Delete Selected Snapshots"
-msgstr "Geselecteerde Snapshots Verwijderen"
+msgstr "Geselecteerde Momentopnamen Verwijderen"
 
 msgid "Delete Selected Sysctl Settings"
 msgstr "Geselecteerde Sysctl Instellingen Verwijderen"
@@ -3202,7 +3226,7 @@ msgid "Delete auth group"
 msgstr "Auth groep verwijderen"
 
 msgid "Delete auto snapshot"
-msgstr "Auto snapshot verwijderen"
+msgstr "Auto momentopname verwijderen"
 
 msgid "Delete clone"
 msgstr "Kloon verwijderen"
@@ -3239,7 +3263,7 @@ msgid "Delete target"
 msgstr "Doel verwijderen"
 
 msgid "Deletes the recursive snapshot."
-msgstr "Verwijdert het recursieve snapshot."
+msgstr "Verwijdert de recursieve momentopname."
 
 msgid "Deleting"
 msgstr "Aan het verwijderen"
@@ -3300,7 +3324,7 @@ msgid "Destroy"
 msgstr "Vernietigen"
 
 msgid "Destroy Snapshot"
-msgstr "Snapshot Vernietigen"
+msgstr "Momentopname Vernietigen"
 
 msgid "Destroy a pool"
 msgstr "Vernietig een pool"
@@ -3308,7 +3332,8 @@ msgstr "Vernietig een pool"
 msgid ""
 "Destroy any snapshots and bookmarks more recent than the one specified."
 msgstr ""
-"Vernietig alle snapshots en verwijzingen die recenter zijn dan opgegeven."
+"Vernietig alle momentopnamen en bladwijzers die recenter zijn dan de "
+"gespecificeerde."
 
 msgid "Destroyed"
 msgstr "Vernietigd"
@@ -3682,6 +3707,9 @@ msgstr ""
 msgid "Distributed Hash Table"
 msgstr "Gedistribueerde Hashtabel"
 
+msgid "Dnode Size"
+msgstr "Dnode Grootte"
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr "Breek de firmware upgrade procedure niet af nadat deze is gestart."
 
@@ -3728,7 +3756,7 @@ msgid "Do you really want to delete this auth group?"
 msgstr "Weet u zeker dat u deze auth groep wilt verwijderen?"
 
 msgid "Do you really want to delete this auto snapshot?"
-msgstr "Weet u zeker dat u dit automatische snapshot wilt verwijderen?"
+msgstr "Weet u zeker dat u dit automatische momentopname wilt verwijderen?"
 
 msgid "Do you really want to delete this clone?"
 msgstr "Weet u zeker dat u deze kloon wilt verwijderen?"
@@ -3883,6 +3911,9 @@ msgstr "Wilt u de geselecteerde disks verwijderen?"
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "Wilt u de geselecteerde gecodeerde volumes verwijderen?"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr "Wilt u de geselecteerde bestandssystemen verwijderen?"
+
 msgid "Do you want to delete selected groups?"
 msgstr "Wilt u de geselecteerde groepen verwijderen?"
 
@@ -3956,7 +3987,7 @@ msgid "Do you want to delete selected shares?"
 msgstr "Wilt u de geselecteerde delingen verwijderen?"
 
 msgid "Do you want to delete selected snapshots?"
-msgstr "Wilt u de geselecteerde snapshots verwijderen?"
+msgstr "Wilt u de geselecteerde momentopnamen verwijderen?"
 
 msgid "Do you want to delete selected sysctl settings?"
 msgstr "Wilt u de geselecteerde sysctl instellingen verwijderen?"
@@ -4005,6 +4036,9 @@ msgstr "Wilt u de geselecteerde autorisatiegroepen uitschakelen?"
 
 msgid "Do you want to disable selected commands?"
 msgstr "Wilt u geselecteerde opdrachten uitschakelen?"
+
+msgid "Do you want to disable selected filesystems?"
+msgstr "Wilt u de geselecteerde bestandssystemen uitschakelen?"
 
 msgid "Do you want to disable selected groups?"
 msgstr "Wilt u de geselecteerde groepen uitschakelen?"
@@ -4104,6 +4138,9 @@ msgstr "Wilt u de geselecteerde autorisatiegroepen inschakelen?"
 
 msgid "Do you want to enable selected commands?"
 msgstr "Wilt u de geselecteerde opdrachten inschakelen?"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr "Wilt u de geselecteerde bestandssystemen inschakelen?"
 
 msgid "Do you want to enable selected groups?"
 msgstr "Wilt u de geselecteerde groepen inschakelen?"
@@ -4212,6 +4249,9 @@ msgstr "Wilt u de geselecteerde autorisatiegroepen omschakelen?"
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Wilt u de geselecteerde opdrachten omschakelen?"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr "Wilt u de geselecteerde bestandssystemen omschakelen?"
 
 msgid "Do you want to toggle selected groups?"
 msgstr "Wilt u de geselecteerde groepen omschakelen?"
@@ -4432,6 +4472,9 @@ msgstr "Schijf Bewerken"
 msgid "Edit Encrypted Volume"
 msgstr "Gecodeerde Volumes Bewerken"
 
+msgid "Edit Filesystem"
+msgstr "Bestandssystemen Bewerken"
+
 msgid "Edit Group"
 msgstr "Groep Bewerken"
 
@@ -4520,7 +4563,7 @@ msgid "Edit Share"
 msgstr "Delingen Bewerken"
 
 msgid "Edit Snapshot"
-msgstr "Snapshot Bewerken"
+msgstr "Momentopname Bewerken"
 
 msgid "Edit Target"
 msgstr "Doel Bewerken"
@@ -4553,7 +4596,7 @@ msgid "Edit auth group"
 msgstr "Auth groep bewerken"
 
 msgid "Edit auto snapshot"
-msgstr "Bewerk automatisch snapshot"
+msgstr "Bewerk automatisch momentopname"
 
 msgid "Edit extent"
 msgstr "Extent bewerken"
@@ -5086,6 +5129,9 @@ msgstr "Encryptie Management"
 msgid "Encryption Password"
 msgstr "Encryptie Wachtwoord"
 
+msgid "Encryption Root"
+msgstr "Encryptie Root"
+
 msgid "Encryption Settings"
 msgstr "Encryptie Instellingen"
 
@@ -5365,6 +5411,9 @@ msgstr "Uitvoeren"
 msgid "Execute Command"
 msgstr "Commando Uitvoeren"
 
+msgid "Execute Processes"
+msgstr "Processen Uitvoeren"
+
 msgid "Execute now"
 msgstr "Nu uitvoeren"
 
@@ -5560,6 +5609,9 @@ msgstr "Nep adres"
 msgid "Fast"
 msgstr "Snel"
 
+msgid "Fast Zstandard Compression Level"
+msgstr "Fast Zstandard Compressieniveau"
+
 msgid "Fatal"
 msgstr "Fataal"
 
@@ -5657,6 +5709,24 @@ msgstr "bestandsnaam"
 
 msgid "Filesystem"
 msgstr "Bestandssysteem"
+
+msgid "Filesystem Count"
+msgstr "Aantal Bestandssystemen"
+
+msgid "Filesystem Limit"
+msgstr "Bestandssysteemlimiet"
+
+msgid "Filesystem is locked"
+msgstr "Bestandssysteem is vergrendeld"
+
+msgid "Filesystem is marked for deletion"
+msgstr "Bestandssysteem is gemarkeerd voor verwijdering"
+
+msgid "Filesystem is unlocked"
+msgstr "Bestandssysteem is ontgrendeld"
+
+msgid "Filesystems"
+msgstr "Bestandssystemen"
 
 msgid "Filter"
 msgstr "Filter"
@@ -5879,8 +5949,14 @@ msgstr "GSSAPI Verificatie"
 msgid "GUI"
 msgstr "GUI"
 
+msgid "GUID"
+msgstr "GUID"
+
 msgid "GZIP Archive"
 msgstr "GZIP Archief"
+
+msgid "GZIP Compression Level"
+msgstr "GZIP Compressieniveau"
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5965,6 +6041,9 @@ msgstr "Grafiek wordt elke %d seconden bijgewerkt."
 
 msgid "Graphs Height"
 msgstr "Grafiek Hoogte"
+
+msgid "Graphs Width"
+msgstr "Grafiek Breedte"
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr ""
@@ -6453,8 +6532,8 @@ msgstr ""
 msgid ""
 "If this property is enabled, the snapshots are displayed into .zfs directory."
 msgstr ""
-"Als deze optie is ingeschakeld, worden de snapshots weergegeven in de .zfs "
-"map."
+"Als deze optie is ingeschakeld, worden de momentopnamen weergegeven in de "
+".zfs map."
 
 msgid "If this property is set to off, the file system cannot be mounted."
 msgstr ""
@@ -6943,11 +7022,20 @@ msgstr "Kernel bestand (bijv. %s)."
 msgid "Key"
 msgstr "Sleutel"
 
+msgid "Key Format"
+msgstr "Sleutelformaat"
+
 msgid "Key Length"
 msgstr "Sleutellengte"
 
+msgid "Key Location"
+msgstr "Sleutellocatie"
+
 msgid "Key Management Protocol"
 msgstr "Sleutel Beheer Protocol"
+
+msgid "Key Status"
+msgstr "Sleutelstatus"
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "Keyboard-Interactive Verificatie"
@@ -7104,10 +7192,10 @@ msgid "Latency"
 msgstr "Latentie"
 
 msgid "Leave already configured auto snapshots."
-msgstr "Laat reeds geconfigureerde snapshots bestaan."
+msgstr "Laat reeds geconfigureerde momentopnamen bestaan."
 
 msgid "Leave auto snapshot configuration"
-msgstr "Laat automatische snapshots bestaan."
+msgstr "Laat automatische momentopnamen bestaan."
 
 msgid "Level"
 msgstr "Niveau"
@@ -7360,6 +7448,9 @@ msgstr "Logbias"
 msgid "Logical Block"
 msgstr "Logical Block"
 
+msgid "Logical Referenced"
+msgstr "Logisch Verwezen"
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "Logical Unit Controller Geautoriseerd netwerk (standaard %s)"
@@ -7377,6 +7468,9 @@ msgstr "TCP-poort Logical Unit Controller (standaard %d)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "Logical Unit Type in kaart gebracht aan LUN."
+
+msgid "Logical Used"
+msgstr "Logisch Gebruikt"
 
 msgid "Login"
 msgstr "Aanmelden"
@@ -7877,11 +7971,17 @@ msgstr ""
 "Het bestandsysteem aankoppelen als alleen-lezen (zelfs super-gebruikers "
 "mogen het niet beschrijven)."
 
+msgid "Mounted"
+msgstr "Aangekoppeld"
+
 msgid "Mounting device."
 msgstr "Aankoppelen apparaat."
 
 msgid "Mounting..."
 msgstr "Bezig met aankoppelen..."
+
+msgid "Mountpoint Type"
+msgstr "Koppelpunt Type"
 
 msgid "Mounts"
 msgstr "Koppelpunten"
@@ -8345,7 +8445,7 @@ msgid "No results available."
 msgstr "Geen resultaten beschikbaar."
 
 msgid "No snapshot information available."
-msgstr "Geen snapshot informatie beschikbaar."
+msgstr "Geen momentopname informatie beschikbaar."
 
 msgid "No softraid-formatted disks available."
 msgstr "Er zijn geen softraid-geformatteerde schijven beschikbaar."
@@ -8424,6 +8524,9 @@ msgstr "Niet-kritiek"
 
 msgid "Non-Recoverable"
 msgstr "Niet-Herstelbaar"
+
+msgid "Non-blocking Mandatory Locks"
+msgstr "Niet-blokkerende Verplichte Sloten"
 
 msgid "None"
 msgstr "Geen"
@@ -8536,6 +8639,9 @@ msgstr "Alleen OPT"
 
 msgid "OS Version Upgrades"
 msgstr "OS Versie Upgrades"
+
+msgid "Obj Set ID"
+msgstr "Obj Set ID"
 
 msgid "Object name"
 msgstr "Object naam"
@@ -8692,6 +8798,9 @@ msgstr ""
 "Algemene doorvoer prestaties van een harde schijf. Als de waarde van dit "
 "attribuut afneemt is er zeer waarschijnlijkheid een probleem met de schijf."
 
+msgid "Overlay Mount"
+msgstr "Overlap Koppelpunt"
+
 msgid "Overload"
 msgstr "Overbelasting"
 
@@ -8717,6 +8826,9 @@ msgstr "Eigenaar"
 
 msgid "PAM authentication is selected."
 msgstr "PAM verificatie is geselecteerd."
+
+msgid "PBKDF2 Iterations"
+msgstr "PBKDF2 iteraties"
 
 msgid "PDF File"
 msgstr "PDF Bestand"
@@ -9068,6 +9180,9 @@ msgstr "Pool Schijven"
 
 msgid "Pool Information"
 msgstr "Pool Informatie"
+
+msgid "Pool Name"
+msgstr "Pool Naam"
 
 msgid "Pool Space Usage"
 msgstr "Pool Ruimtegebruik"
@@ -9853,6 +9968,9 @@ msgstr "Herbouw de geselecteerde schijf geforceerd."
 msgid "Receive Buffer"
 msgstr "Ontvangst Buffer"
 
+msgid "Receive Resume Token"
+msgstr "Ontvang Hervat Token"
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9865,6 +9983,9 @@ msgstr "Item Informatie"
 
 msgid "Record Maintenance"
 msgstr "Item Onderhoud"
+
+msgid "Record Size"
+msgstr "Item Grootte"
 
 msgid "Record Type"
 msgstr "Record Type"
@@ -9888,13 +10009,16 @@ msgid "Recursive"
 msgstr "Recursief"
 
 msgid "Recursively create snapshots of all descendent datasets."
-msgstr "Creëer recursief snapshots van alle afstammende datasets."
+msgstr "Maak recursief momentopnamen van alle afstammende datasets."
 
 msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr "Vernietig recursief snapshots van alle afstammende datasets."
+msgstr "Vernietig recursief momentopnamen van alle afstammende datasets."
 
 msgid "Recycle Bin"
 msgstr "Prullenbak"
+
+msgid "Redact Snaps"
+msgstr "Redigeren Snaps"
 
 msgid "Redirect"
 msgstr "Redirect"
@@ -9902,11 +10026,23 @@ msgstr "Redirect"
 msgid "Redundant Metadata"
 msgstr "Redundante Metadata"
 
+msgid "Refcompressratio"
+msgstr "Refcompressratio"
+
+msgid "Referenced"
+msgstr "Verwijzingen"
+
 msgid "Refquota"
 msgstr "Refquota"
 
+msgid "Refquota Type"
+msgstr "Refquota Type"
+
 msgid "Refreservation"
 msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr "Refreservation Type"
 
 msgid "Refresh"
 msgstr "Verversen"
@@ -9916,6 +10052,9 @@ msgstr "Regelmatige Product Updates"
 
 msgid "Reject"
 msgstr "Afwijzen"
+
+msgid "Relatime"
+msgstr "Relatime"
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "Relatieve vochtigheid alarm (ingeschakeld/uitgeschakeld)"
@@ -10080,6 +10219,9 @@ msgstr "Opnieuw scannen interval"
 
 msgid "Reservation"
 msgstr "Reservering"
+
+msgid "Reservation Type"
+msgstr "Reservation Type"
 
 msgid "Reset"
 msgstr "Reset"
@@ -11151,6 +11293,9 @@ msgstr ""
 msgid "Settings"
 msgstr "Instellingen"
 
+msgid "Setuid"
+msgstr "Setuid"
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -11170,8 +11315,20 @@ msgstr "Deling"
 msgid "Share Character Set"
 msgstr "Deling Karakter Set"
 
+msgid "Share NFS Options"
+msgstr "Deel NFS Opties"
+
+msgid "Share NFS Type"
+msgstr "Deel NFS Type"
+
 msgid "Share Password"
 msgstr "Deling Wachtwoord"
+
+msgid "Share SMB Options"
+msgstr "Deel SMB Opties"
+
+msgid "Share SMB Type"
+msgstr "Deel SMB Type"
 
 msgid "Share Settings"
 msgstr "Deel Instellingen"
@@ -11329,22 +11486,41 @@ msgid "Snapdir"
 msgstr "Snapmap"
 
 msgid "Snapshot"
-msgstr "Snapshot"
+msgstr "Momentopname"
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+"Momentopname - Een alleen-lezen versie van een bestandssysteem of volume op "
+"een bepaald moment."
+
+msgid "Snapshot Count"
+msgstr "Momentopnamen Aantal"
+
+msgid "Snapshot Device Visibility"
+msgstr "Momentopname Schijf Zichtbaarheid"
+
+msgid "Snapshot Folder Visibility"
+msgstr "Momentopname Map Zichtbaarheid"
+
+msgid "Snapshot Limit"
+msgstr "Momentopname Limiet"
 
 msgid "Snapshot Visibility"
-msgstr "Snapshot zichtbaarheid"
+msgstr "Momentopname Zichtbaarheid"
 
 msgid "Snapshot is locked"
-msgstr "Snapshot is vergrendeld"
+msgstr "Momentopname is vergrendeld"
 
 msgid "Snapshot is marked for deletion"
-msgstr "Snapshot is gemarkeerd voor verwijdering"
+msgstr "Momentopname is gemarkeerd voor verwijdering"
 
 msgid "Snapshot is unlocked"
-msgstr "Snapshot is ontgrendeld"
+msgstr "Momentopname is ontgrendeld"
 
 msgid "Snapshots"
-msgstr "Snapshots"
+msgstr "Momentopnamen"
 
 msgid "Sockets"
 msgstr "Sockets"
@@ -11813,6 +11989,9 @@ msgstr "Synchronisatietijd"
 
 msgid "Synchronize"
 msgstr "Synchronisatie"
+
+msgid "Synchronous Requests Behaviour"
+msgstr "Synchrone Aanvraag Gedrag"
 
 msgid "Syncthing"
 msgstr "Syncthing"
@@ -12481,9 +12660,9 @@ msgid ""
 "The custom format of the snapshot for shadow copy service can be specified. "
 "The default format is %s used for ZFS auto snapshot."
 msgstr ""
-"Het aangepaste formaat van de snapshot voor schaduw kopie service kan "
-"gespecificeerd worden. Het standaard formaat, %s wordt gebruikt voor ZFS "
-"automatische snapshots."
+"Het aangepaste formaat van de  momentopname voor de schaduwkopieservice kan "
+"worden gespecificeerd. Het standaard formaat is %s gebruikt voor ZFS auto "
+"momentopnamen."
 
 msgid "The debug verbosity level. The default is 0."
 msgstr "Het debug verbosity niveau. De standaardwaarde is 0."
@@ -13643,8 +13822,8 @@ msgstr "Dit zorgt voor ZFS ACL ondersteuning. (alleen ZFS)."
 
 msgid "This will provide shadow copy created by auto snapshot. (ZFS only)."
 msgstr ""
-"Dit zorgt voor schaduw kopie ondersteuning, gecreëerd door auto snapshot. "
-"(alleen ZFS)."
+"Dit zorgt voor schaduw kopie ondersteuning, gecreëerd door auto "
+"momentopname. (alleen ZFS)."
 
 msgid ""
 "This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
@@ -13654,6 +13833,9 @@ msgstr ""
 
 msgid "Threads"
 msgstr "Threads"
+
+msgid "Threshold Small Block Size"
+msgstr "Drempel Kleine Blokgrootte"
 
 msgid "Throughput"
 msgstr "Doorvoer"
@@ -14182,6 +14364,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr "USB Mass Storage Apparaten"
 
+msgid "UTF-8 File Names"
+msgstr "UTF-8 Bestandsnamen"
+
 msgid "UTF-8 Only"
 msgstr "Alleen UTF-8"
 
@@ -14493,6 +14678,18 @@ msgstr "Gebruikt"
 msgid "Used Threshold"
 msgstr "Gebruikte Drempel"
 
+msgid "Used by Children"
+msgstr "Gebruikt door kinderen"
+
+msgid "Used by Dataset"
+msgstr "Gebruikt door  Dataset"
+
+msgid "Used by Refreservation"
+msgstr "Gebruikt door Refreservation"
+
+msgid "Used by Snapshots"
+msgstr "Gebruikt door Momentopnamen"
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -14552,6 +14749,9 @@ msgstr "Gebruikersnaam"
 
 msgid "Username to log into the transmission web interface."
 msgstr "Gebruikersnaam om in te loggen op de transmission webpagina."
+
+msgid "Userrefs"
+msgstr "Userrefs"
 
 msgid "Users"
 msgstr "Gebruikers"
@@ -14718,6 +14918,9 @@ msgstr "VirtualBox"
 
 msgid "Virtualization"
 msgstr "Virtualisatie"
+
+msgid "Virus Scan"
+msgstr "Virusscan"
 
 msgid "Visible"
 msgstr "Zichtbaar"
@@ -14968,6 +15171,10 @@ msgstr "Wie"
 msgid "Wide Links"
 msgstr "Wide Links"
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr "Breedte van de grafiek. (standaard %s pixels)"
+
 msgid "Wildcard Domain"
 msgstr "Wildcard Domein"
 
@@ -15003,6 +15210,9 @@ msgstr "Schrijven van dezelfde maximale LBA"
 
 msgid "Write only"
 msgstr "Alleen schrijven"
+
+msgid "Written"
+msgstr "Geschreven"
 
 msgid "Wrong partition type or partition number."
 msgstr "Fout partitie type of partitie nummer."
@@ -15219,10 +15429,10 @@ msgid "ZFS Settings"
 msgstr "ZFS Instellingen"
 
 msgid "ZFS Snapshot Information & Status"
-msgstr "ZFS Snapshot Informatie & Status"
+msgstr "ZFS Momentopname Informatie & Status"
 
 msgid "ZFS Snapshot Properties"
-msgstr "ZFS Snapshot Eigenschappen"
+msgstr "ZFS Momentopname Eigenschappen"
 
 msgid "ZFS Storage Pool"
 msgstr "ZFS Storage Pool"
@@ -15270,6 +15480,9 @@ msgstr "ZIP Archief"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr "Zstandaard Compressieniveau"
 
 msgid "and"
 msgstr "en"

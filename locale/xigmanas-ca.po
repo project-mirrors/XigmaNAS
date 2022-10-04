@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
-"PO-Revision-Date: 2022-08-06 00:47+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
+"PO-Revision-Date: 2022-09-22 13:35+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:24+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:24+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -453,6 +453,9 @@ msgstr "ACL Heretat"
 msgid "ACL Mode"
 msgstr "Mode ACL"
 
+msgid "ACL Type"
+msgstr ""
+
 msgid "ACL inherit"
 msgstr "ACL heretat"
 
@@ -583,6 +586,9 @@ msgstr "Afegir disc"
 
 msgid "Add Encrypted Volume"
 msgstr "Afegir volum xifrat"
+
+msgid "Add Filesystem"
+msgstr ""
 
 msgid "Add Group"
 msgstr "Afegeix grup"
@@ -1599,6 +1605,9 @@ msgstr "Mida de bloc"
 msgid "Blocksize"
 msgstr "Tamany de bloc"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
 msgid "Boot Arguments"
 msgstr "Arguments d'arrencada"
 
@@ -2063,6 +2072,9 @@ msgstr "Clonar"
 msgid "Clone Configuration"
 msgstr "Configuració clon"
 
+msgid "Clones"
+msgstr ""
+
 msgid "Close"
 msgstr "Tancar"
 
@@ -2162,6 +2174,9 @@ msgstr "Comprimeix arxiu de dades durant la transferència."
 
 msgid "Compression"
 msgstr "Compressió"
+
+msgid "Compression Ratio"
+msgstr ""
 
 msgid "Configuration"
 msgstr "Configuració"
@@ -2720,6 +2735,8 @@ msgid ""
 "Current system password is using a default password. You should choose a "
 "different password."
 msgstr ""
+"La contrasenya actual del sistema utilitza una contrasenya predeterminada. "
+"Hauríeu de triar una contrasenya diferent."
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "Valor actual de potencia aparent (Volt-Amps)"
@@ -2880,6 +2897,9 @@ msgstr "Directori de la base de dades"
 msgid "Dataset"
 msgstr "Conjunt de dades"
 
+msgid "Dataset Name"
+msgstr ""
+
 msgid "Dataset Type"
 msgstr "Tipus de conjunt de dades"
 
@@ -2973,6 +2993,9 @@ msgstr "Temps per defecte a retindre"
 msgid "DefaultTime2Wait"
 msgstr "Temps per defecte d'espera"
 
+msgid "Defer Destroy"
+msgstr ""
+
 msgid "Define directories/URL's that require authentication."
 msgstr "Definir directoris/URL que requereixen autenticació"
 
@@ -3049,6 +3072,9 @@ msgstr "Esborra els discs sleccionats."
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "Eliminar volums xifrats seleccionats"
+
+msgid "Delete Selected Filesystems"
+msgstr ""
 
 msgid "Delete Selected Groups"
 msgstr "Suprimeix grups seleccionats"
@@ -3671,6 +3697,9 @@ msgstr ""
 msgid "Distributed Hash Table"
 msgstr "Tabla hash distribuida"
 
+msgid "Dnode Size"
+msgstr ""
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr ""
 "No interrompre el procés d'actualització del microprogramari una vegada que "
@@ -3871,6 +3900,9 @@ msgstr "Vols esborrar els discs seleccionats?"
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "Voleu eliminar els volums xifrats seleccionats?"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
 msgid "Do you want to delete selected groups?"
 msgstr "Vols eliminar grups seleccionats?"
 
@@ -3994,6 +4026,9 @@ msgstr "Voleu desactivar els grups de autenticació seleccionats?"
 msgid "Do you want to disable selected commands?"
 msgstr "Vols desactivar les ordres seleccionades?"
 
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
 msgid "Do you want to disable selected groups?"
 msgstr "Voleu desactivar els grups seleccionats?"
 
@@ -4092,6 +4127,9 @@ msgstr "Voleu activar els grups de autenticació seleccionats?"
 
 msgid "Do you want to enable selected commands?"
 msgstr "Vols activar les ordres seleccionades?"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr ""
 
 msgid "Do you want to enable selected groups?"
 msgstr "Voleu habilitar els grups seleccionats?"
@@ -4200,6 +4238,9 @@ msgstr "Voleu canviar els grups d'autenticació seleccionats?"
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Vols canviar les ordres seleccionats?"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr ""
 
 msgid "Do you want to toggle selected groups?"
 msgstr "Voleu canviar els grups seleccionats?"
@@ -4417,6 +4458,9 @@ msgstr "Edita disc"
 
 msgid "Edit Encrypted Volume"
 msgstr "Edita volum xifrat"
+
+msgid "Edit Filesystem"
+msgstr ""
 
 msgid "Edit Group"
 msgstr "Edita grup"
@@ -5075,6 +5119,9 @@ msgstr "Gestió del xifrat"
 msgid "Encryption Password"
 msgstr "Xifrar contrasenya"
 
+msgid "Encryption Root"
+msgstr ""
+
 msgid "Encryption Settings"
 msgstr "Ajustos del Xifrat"
 
@@ -5354,6 +5401,9 @@ msgstr "Executar"
 msgid "Execute Command"
 msgstr "Executa ordre"
 
+msgid "Execute Processes"
+msgstr ""
+
 msgid "Execute now"
 msgstr "Executar ara"
 
@@ -5551,6 +5601,9 @@ msgstr "Adreça falsa"
 msgid "Fast"
 msgstr "Ràpid"
 
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
 msgid "Fatal"
 msgstr "Fatal"
 
@@ -5650,6 +5703,24 @@ msgstr "Nom de fitxer"
 
 msgid "Filesystem"
 msgstr "Sistema de fitxers"
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Filesystems"
+msgstr ""
 
 msgid "Filter"
 msgstr "Filtre"
@@ -5875,8 +5946,14 @@ msgstr "Autenticació GSSAPI"
 msgid "GUI"
 msgstr "Interfície gràfica"
 
+msgid "GUID"
+msgstr ""
+
 msgid "GZIP Archive"
 msgstr "Fitxer GZIP"
+
+msgid "GZIP Compression Level"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Porta d'enllaç"
@@ -5961,6 +6038,9 @@ msgstr "Actualització de gràfics cada %d secons."
 
 msgid "Graphs Height"
 msgstr "Alçada dels gràfics"
+
+msgid "Graphs Width"
+msgstr ""
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr ""
@@ -6943,11 +7023,20 @@ msgstr "Arxiu del nucli (per exemple,%s)."
 msgid "Key"
 msgstr "Clau"
 
+msgid "Key Format"
+msgstr ""
+
 msgid "Key Length"
 msgstr "Longitud de la clau"
 
+msgid "Key Location"
+msgstr ""
+
 msgid "Key Management Protocol"
 msgstr "Protocol de gestió de claus"
+
+msgid "Key Status"
+msgstr ""
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "Teclat-Autenticació interactiva"
@@ -7357,6 +7446,9 @@ msgstr "Logbias"
 msgid "Logical Block"
 msgstr "Bloc lògic"
 
+msgid "Logical Referenced"
+msgstr ""
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "Controlador d'unitat lògica de xarxa autoritzat (%s per defecte)"
@@ -7374,6 +7466,9 @@ msgstr "Unitat lògica Port controlador TCP (%d per defecte)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "Tipus d'unitat lògica mapejada a LUN"
+
+msgid "Logical Used"
+msgstr ""
 
 msgid "Login"
 msgstr "Login"
@@ -7872,11 +7967,17 @@ msgstr ""
 "Monta el sistema d'arxius de només lectura (fins i tot el superusuari pot no "
 "escriure)."
 
+msgid "Mounted"
+msgstr ""
+
 msgid "Mounting device."
 msgstr "Dispositiu de muntatge."
 
 msgid "Mounting..."
 msgstr "Muntant..."
+
+msgid "Mountpoint Type"
+msgstr ""
 
 msgid "Mounts"
 msgstr "Muntatges"
@@ -8423,6 +8524,9 @@ msgstr "No crític"
 msgid "Non-Recoverable"
 msgstr "No recuperable"
 
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
 msgid "None"
 msgstr "Cap"
 
@@ -8533,6 +8637,9 @@ msgstr "Només OPT"
 
 msgid "OS Version Upgrades"
 msgstr "Actualitzacions de la versió del sistema operatiu"
+
+msgid "Obj Set ID"
+msgstr ""
 
 msgid "Object name"
 msgstr "Nom d'objecte"
@@ -8690,6 +8797,9 @@ msgstr ""
 "d'aquest atribut és decreixent hi ha una alta probabilitat que hi hagi un "
 "problema amb el disc."
 
+msgid "Overlay Mount"
+msgstr ""
+
 msgid "Overload"
 msgstr "Sobrecàrrega"
 
@@ -8715,6 +8825,9 @@ msgstr "Propietari"
 
 msgid "PAM authentication is selected."
 msgstr "Es selecciona l'autenticació PAM"
+
+msgid "PBKDF2 Iterations"
+msgstr ""
 
 msgid "PDF File"
 msgstr "Fitxer PDF"
@@ -9065,6 +9178,9 @@ msgstr "Dispositius de la piscina"
 
 msgid "Pool Information"
 msgstr "Informació sobre la piscina"
+
+msgid "Pool Name"
+msgstr ""
 
 msgid "Pool Space Usage"
 msgstr "Ús de l’espai de la piscina"
@@ -9853,6 +9969,9 @@ msgstr "Reconstrueix el dispositiu seleccionat forçadament."
 msgid "Receive Buffer"
 msgstr "Buffer de recepció"
 
+msgid "Receive Resume Token"
+msgstr ""
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9865,6 +9984,9 @@ msgstr "Informació registre"
 
 msgid "Record Maintenance"
 msgstr "Manyeniment de registre"
+
+msgid "Record Size"
+msgstr ""
 
 msgid "Record Type"
 msgstr "Tipus de registre"
@@ -9899,17 +10021,32 @@ msgstr ""
 msgid "Recycle Bin"
 msgstr "Paperera de reciclatge"
 
+msgid "Redact Snaps"
+msgstr ""
+
 msgid "Redirect"
 msgstr "Redirecciona"
 
 msgid "Redundant Metadata"
 msgstr "Metadades redundants"
 
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
 msgid "Refquota"
 msgstr "Refquota"
 
+msgid "Refquota Type"
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr ""
 
 msgid "Refresh"
 msgstr "Actualitza"
@@ -9919,6 +10056,9 @@ msgstr "Actualitzacions periòdiques de software"
 
 msgid "Reject"
 msgstr "Rebutja"
+
+msgid "Relatime"
+msgstr ""
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "Navegar recursivament en els directoris."
@@ -10082,6 +10222,9 @@ msgstr "Interval del anàlisi"
 
 msgid "Reservation"
 msgstr "Reserva"
+
+msgid "Reservation Type"
+msgstr ""
 
 msgid "Reset"
 msgstr "Restableix"
@@ -11158,6 +11301,9 @@ msgstr ""
 msgid "Settings"
 msgstr "Configuracions"
 
+msgid "Setuid"
+msgstr ""
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -11177,8 +11323,20 @@ msgstr "Recurs compartit"
 msgid "Share Character Set"
 msgstr "Compartir joc de caràcters"
 
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
 msgid "Share Password"
 msgstr "Compartir contrasenya"
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
 
 msgid "Share Settings"
 msgstr "Ajustos d'ús compartit"
@@ -11338,6 +11496,23 @@ msgstr "Snapdir"
 msgid "Snapshot"
 msgstr "Instantània"
 
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
+
 msgid "Snapshot Visibility"
 msgstr "Visibilitat instantània"
 
@@ -11431,6 +11606,10 @@ msgid ""
 "attribute that trips once the drive detects that the internal environment is "
 "out of specification."
 msgstr ""
+"Específic per a les unitats MG07+ de Toshiba. Aquest valor mesura el nivell "
+"més baix d'heli dins de la unitat específica d'aquest fabricant. És un "
+"atribut previ a la fallada que es dispara un cop la unitat detecta que "
+"l'entorn intern està fora d'especificació."
 
 msgid ""
 "Specific to MG07+ drives from Toshiba. This value measures the upper level "
@@ -11438,6 +11617,10 @@ msgid ""
 "attribute that trips once the drive detects that the internal environment is "
 "out of specification."
 msgstr ""
+"Específic per a les unitats MG07+ de Toshiba. Aquest valor mesura l'heli de "
+"nivell superior dins de la unitat específica d'aquest fabricant. És un "
+"atribut previ a la fallada que es dispara un cop la unitat detecta que "
+"l'entorn intern està fora d'especificació."
 
 msgid "Specifies LUN EUI-64 identifier."
 msgstr "Especifica l'identificador LUN EUI-64."
@@ -11811,6 +11994,9 @@ msgstr "Temps de sincronització"
 msgid "Synchronize"
 msgstr "Sincronitza"
 
+msgid "Synchronous Requests Behaviour"
+msgstr ""
+
 msgid "Syncthing"
 msgstr "Sincronitzant"
 
@@ -12177,11 +12363,11 @@ msgstr "Els arxius MIB associades es poden trobar a%s."
 
 #, php-format
 msgid "The attribute %s must be in the range from %d to %d."
-msgstr ""
+msgstr "L'atribut %s ha d'estar en l'interval de %d a %d."
 
 #, php-format
 msgid "The attribute %s must be less than %s."
-msgstr ""
+msgstr "L'atribut %s ha de ser inferior a %s."
 
 #, php-format
 msgid "The attribute '%s' already exists."
@@ -13641,6 +13827,9 @@ msgstr ""
 msgid "Threads"
 msgstr "Fils"
 
+msgid "Threshold Small Block Size"
+msgstr ""
+
 msgid "Throughput"
 msgstr "Rendiment"
 
@@ -14170,6 +14359,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr "Dispositius d'emmagatzematge massiu USB"
 
+msgid "UTF-8 File Names"
+msgstr ""
+
 msgid "UTF-8 Only"
 msgstr "UTF-8 només"
 
@@ -14486,6 +14678,18 @@ msgstr "Utilitzat"
 msgid "Used Threshold"
 msgstr "Llindar utilitzat"
 
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -14547,6 +14751,9 @@ msgstr "Nom d'usuari"
 msgid "Username to log into the transmission web interface."
 msgstr ""
 "Nom d'usuari per iniciar la sessió a la interfície web de transmision."
+
+msgid "Userrefs"
+msgstr ""
 
 msgid "Users"
 msgstr "Usuaris"
@@ -14712,6 +14919,9 @@ msgstr "VirtualBox"
 
 msgid "Virtualization"
 msgstr "Virtualització"
+
+msgid "Virus Scan"
+msgstr ""
 
 msgid "Visible"
 msgstr "Visible"
@@ -14959,6 +15169,10 @@ msgstr "Quí"
 msgid "Wide Links"
 msgstr "Enllaços amplis."
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr ""
+
 msgid "Wildcard Domain"
 msgstr "Domini comodí"
 
@@ -14994,6 +15208,9 @@ msgstr "Escriviu el mateix LBA màxim"
 
 msgid "Write only"
 msgstr "Només escriptura"
+
+msgid "Written"
+msgstr ""
 
 msgid "Wrong partition type or partition number."
 msgstr "Tipus o nombre de partició equivocada."
@@ -15251,6 +15468,9 @@ msgstr "Fitxer ZIP"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr ""
 
 msgid "and"
 msgstr "i"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"POT-Creation-Date: 2022-10-03 04:58+0000\n"
 "PO-Revision-Date: 2022-07-19 09:46+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
-"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
+"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
+"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -457,6 +457,9 @@ msgstr "Moștenire ACL"
 msgid "ACL Mode"
 msgstr "Mod ACL"
 
+msgid "ACL Type"
+msgstr ""
+
 msgid "ACL inherit"
 msgstr "ACL moștenit"
 
@@ -587,6 +590,9 @@ msgstr "Adăugare disc"
 
 msgid "Add Encrypted Volume"
 msgstr "Adăugare volum criptat"
+
+msgid "Add Filesystem"
+msgstr ""
 
 msgid "Add Group"
 msgstr "Adăugare grup"
@@ -1596,6 +1602,9 @@ msgstr "Dimensiune bloc"
 msgid "Blocksize"
 msgstr "Dimensiune Bloc"
 
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
 msgid "Boot Arguments"
 msgstr "Parametri boot"
 
@@ -2055,6 +2064,9 @@ msgstr "Clonare"
 msgid "Clone Configuration"
 msgstr "Clonare configurație"
 
+msgid "Clones"
+msgstr ""
+
 msgid "Close"
 msgstr "Închide"
 
@@ -2153,6 +2165,9 @@ msgstr "Comprimă datele în timpul transferului."
 
 msgid "Compression"
 msgstr "Compresie"
+
+msgid "Compression Ratio"
+msgstr ""
 
 msgid "Configuration"
 msgstr "Configurație"
@@ -2876,6 +2891,9 @@ msgstr "Director bază de date"
 msgid "Dataset"
 msgstr "Set de date"
 
+msgid "Dataset Name"
+msgstr ""
+
 msgid "Dataset Type"
 msgstr "Tip set de date"
 
@@ -2971,6 +2989,9 @@ msgstr "Time2Retain implicit"
 msgid "DefaultTime2Wait"
 msgstr "Time2Wait implicit"
 
+msgid "Defer Destroy"
+msgstr ""
+
 msgid "Define directories/URL's that require authentication."
 msgstr "Definiți directoarele/URL-urile care necesită autentificare."
 
@@ -3047,6 +3068,9 @@ msgstr "Ștergere discuri selectate"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr "Ștergere volume criptate selectate"
+
+msgid "Delete Selected Filesystems"
+msgstr ""
 
 msgid "Delete Selected Groups"
 msgstr "Ștergere grupuri selectate"
@@ -3663,6 +3687,9 @@ msgstr ""
 msgid "Distributed Hash Table"
 msgstr "Tabelă Hash distribuită"
 
+msgid "Dnode Size"
+msgstr ""
+
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr "Nu opriți procesul de actualizare firmware odată lansat."
 
@@ -3863,6 +3890,9 @@ msgstr "Doriți să ștergeți discurile selectate?"
 msgid "Do you want to delete selected encrypted volumes?"
 msgstr "Doriți să ștergeți volumele criptate selectate?"
 
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
 msgid "Do you want to delete selected groups?"
 msgstr "Doriți să ștergeți grupurile selectate?"
 
@@ -3986,6 +4016,9 @@ msgstr "Doriți să dezactivați grupurile autorizate selectate?"
 msgid "Do you want to disable selected commands?"
 msgstr "Doriți să dezactivați comenzile selectate?"
 
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
 msgid "Do you want to disable selected groups?"
 msgstr "Doriți să dezactivați grupurile selectate?"
 
@@ -4084,6 +4117,9 @@ msgstr "Doriți să activați grupurile auth selectate?"
 
 msgid "Do you want to enable selected commands?"
 msgstr "Doriți să activați comenzile selectate?"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr ""
 
 msgid "Do you want to enable selected groups?"
 msgstr "Doriți să activați grupurile selectate?"
@@ -4192,6 +4228,9 @@ msgstr "Doriți să inversați grupurile auth selectate?"
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Doriți să schimbați starea comenzilor selectate?"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr ""
 
 msgid "Do you want to toggle selected groups?"
 msgstr "Doriți să inversați grupurile selectate?"
@@ -4410,6 +4449,9 @@ msgstr "Editare disc"
 
 msgid "Edit Encrypted Volume"
 msgstr "Editare volum criptat"
+
+msgid "Edit Filesystem"
+msgstr ""
 
 msgid "Edit Group"
 msgstr "Editare grup"
@@ -5065,6 +5107,9 @@ msgstr "Management criptare"
 msgid "Encryption Password"
 msgstr "Parolă criptare"
 
+msgid "Encryption Root"
+msgstr ""
+
 msgid "Encryption Settings"
 msgstr "Setări criptare"
 
@@ -5344,6 +5389,9 @@ msgstr "Executare"
 msgid "Execute Command"
 msgstr "Executare comandă"
 
+msgid "Execute Processes"
+msgstr ""
+
 msgid "Execute now"
 msgstr "Execută acum"
 
@@ -5540,6 +5588,9 @@ msgstr "Adresă falsă"
 msgid "Fast"
 msgstr "Rapid"
 
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
 msgid "Fatal"
 msgstr "Eroare fatală"
 
@@ -5636,6 +5687,24 @@ msgstr "Nume fișier"
 
 msgid "Filesystem"
 msgstr "Sistem de fișiere"
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Filesystems"
+msgstr ""
 
 msgid "Filter"
 msgstr "Filtru"
@@ -5851,8 +5920,14 @@ msgstr "Autentificare GSSAPI"
 msgid "GUI"
 msgstr "Interfaţă Grafică Utilizator"
 
+msgid "GUID"
+msgstr ""
+
 msgid "GZIP Archive"
 msgstr "Arhivă GZIP"
+
+msgid "GZIP Compression Level"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5936,6 +6011,9 @@ msgstr "Graficul se va actualiza la fiecare %d secunde."
 
 msgid "Graphs Height"
 msgstr "Înălțime grafice"
+
+msgid "Graphs Width"
+msgstr ""
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr "Mesajul tip banner de afișat la prima conectare a unui utilizator."
@@ -6918,11 +6996,20 @@ msgstr "Fișier kernel (ex. %s)."
 msgid "Key"
 msgstr "Cheie"
 
+msgid "Key Format"
+msgstr ""
+
 msgid "Key Length"
 msgstr "Lungime cheie"
 
+msgid "Key Location"
+msgstr ""
+
 msgid "Key Management Protocol"
 msgstr "Protocol Management Chei"
+
+msgid "Key Status"
+msgstr ""
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "Autentificare cu tastatură interactivă"
@@ -7331,6 +7418,9 @@ msgstr "Deviație"
 msgid "Logical Block"
 msgstr "Bloc logic"
 
+msgid "Logical Referenced"
+msgstr ""
+
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
 msgstr "Unitate Controler Logic Autorizat rețea (implicit %s)"
@@ -7348,6 +7438,9 @@ msgstr "Port TCP Unitate Controler Logic (implicit %d)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "Tip Unitate Logică mapat în LUN."
+
+msgid "Logical Used"
+msgstr ""
 
 msgid "Login"
 msgstr "Autentificare"
@@ -7845,11 +7938,17 @@ msgstr ""
 "Montare sistem de fișiere în modul Doar Citire (nici super-utilizatorii nu "
 "pot scrie)."
 
+msgid "Mounted"
+msgstr ""
+
 msgid "Mounting device."
 msgstr "Montare dispozitiv."
 
 msgid "Mounting..."
 msgstr "Montare..."
+
+msgid "Mountpoint Type"
+msgstr ""
 
 msgid "Mounts"
 msgstr "Montări"
@@ -8393,6 +8492,9 @@ msgstr "Non-Critic"
 msgid "Non-Recoverable"
 msgstr "Ne-recuperabil"
 
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
 msgid "None"
 msgstr "Niciunul (niciuna)"
 
@@ -8502,6 +8604,9 @@ msgstr "Doar OPT"
 
 msgid "OS Version Upgrades"
 msgstr "Upgrade versiune OS"
+
+msgid "Obj Set ID"
+msgstr ""
 
 msgid "Object name"
 msgstr "Nume obiect"
@@ -8659,6 +8764,9 @@ msgstr ""
 "descrește în timp există o probabilitate ridicată ca hard discul să aibă "
 "probleme de funcționare."
 
+msgid "Overlay Mount"
+msgstr ""
+
 msgid "Overload"
 msgstr "Supraîncărcare"
 
@@ -8683,6 +8791,9 @@ msgstr "Proprietar"
 
 msgid "PAM authentication is selected."
 msgstr "Autentificarea PAM este selectată."
+
+msgid "PBKDF2 Iterations"
+msgstr ""
 
 msgid "PDF File"
 msgstr "Fișier PDF"
@@ -9035,6 +9146,9 @@ msgstr "Dispozitiv pool"
 
 msgid "Pool Information"
 msgstr "Informații pool"
+
+msgid "Pool Name"
+msgstr ""
 
 msgid "Pool Space Usage"
 msgstr "Utilizare spațiu pool"
@@ -9829,6 +9943,9 @@ msgstr "Reconstrucție forțată a dispozitivului selectat."
 msgid "Receive Buffer"
 msgstr "Bufer recepție"
 
+msgid "Receive Resume Token"
+msgstr ""
+
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
@@ -9841,6 +9958,9 @@ msgstr "Informații înregistrare"
 
 msgid "Record Maintenance"
 msgstr "Înregistrare mentenanță"
+
+msgid "Record Size"
+msgstr ""
 
 msgid "Record Type"
 msgstr "Tip înregistrare"
@@ -9875,17 +9995,32 @@ msgstr ""
 msgid "Recycle Bin"
 msgstr "Cos de gunoi"
 
+msgid "Redact Snaps"
+msgstr ""
+
 msgid "Redirect"
 msgstr "Redirecționare"
 
 msgid "Redundant Metadata"
 msgstr "Metadate redundante"
 
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
 msgid "Refquota"
 msgstr "Refquota"
 
+msgid "Refquota Type"
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr ""
 
 msgid "Refresh"
 msgstr "Reactualizare"
@@ -9895,6 +10030,9 @@ msgstr "Actualizări regulate produs"
 
 msgid "Reject"
 msgstr "Respingere"
+
+msgid "Relatime"
+msgstr ""
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "Alarmă umiditate relativă (activat/dezactivat)"
@@ -10060,6 +10198,9 @@ msgstr "Interval rescanare"
 
 msgid "Reservation"
 msgstr "Rezervare"
+
+msgid "Reservation Type"
+msgstr ""
 
 msgid "Reset"
 msgstr "Resetare"
@@ -11131,6 +11272,9 @@ msgstr ""
 msgid "Settings"
 msgstr "Setări"
 
+msgid "Setuid"
+msgstr ""
+
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
@@ -11150,8 +11294,20 @@ msgstr "Partajare"
 msgid "Share Character Set"
 msgstr "Partajare Set Caractere"
 
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
 msgid "Share Password"
 msgstr "Partajare parolă"
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
 
 msgid "Share Settings"
 msgstr "Setări partajare"
@@ -11309,6 +11465,23 @@ msgstr "Snapdir"
 
 msgid "Snapshot"
 msgstr "Imagine sistem"
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
 
 msgid "Snapshot Visibility"
 msgstr "Vizibilitate Imagine Sistem"
@@ -11778,6 +11951,9 @@ msgstr "Timp sincronizare"
 
 msgid "Synchronize"
 msgstr "Sincronizare"
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
 
 msgid "Syncthing"
 msgstr "Syncthing"
@@ -13586,6 +13762,9 @@ msgstr ""
 msgid "Threads"
 msgstr "Fire de execuție"
 
+msgid "Threshold Small Block Size"
+msgstr ""
+
 msgid "Throughput"
 msgstr "Rată transfer"
 
@@ -14113,6 +14292,9 @@ msgstr "URL"
 msgid "USB Mass Storage Devices"
 msgstr "Dispozitiv de stocare USB"
 
+msgid "UTF-8 File Names"
+msgstr ""
+
 msgid "UTF-8 Only"
 msgstr "Doar UTF-8"
 
@@ -14430,6 +14612,18 @@ msgstr "Utilizat"
 msgid "Used Threshold"
 msgstr "Prag utilizat"
 
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
@@ -14490,6 +14684,9 @@ msgstr "Nume utilizator"
 
 msgid "Username to log into the transmission web interface."
 msgstr "Numele de utilizator pentru logarea în interfața web de transmisie."
+
+msgid "Userrefs"
+msgstr ""
 
 msgid "Users"
 msgstr "Utilizatori"
@@ -14653,6 +14850,9 @@ msgstr "VirtualBox"
 
 msgid "Virtualization"
 msgstr "Virtualizare"
+
+msgid "Virus Scan"
+msgstr ""
 
 msgid "Visible"
 msgstr "Vizibil"
@@ -14899,6 +15099,10 @@ msgstr "Utilizator"
 msgid "Wide Links"
 msgstr "Linkuri Wide"
 
+#, php-format
+msgid "Width of the graphs. (default %s pixels)"
+msgstr ""
+
 msgid "Wildcard Domain"
 msgstr "Domeniu În alb"
 
@@ -14934,6 +15138,9 @@ msgstr "Scrie aceași valoare maximă LBA"
 
 msgid "Write only"
 msgstr "Doar scriere"
+
+msgid "Written"
+msgstr ""
 
 msgid "Wrong partition type or partition number."
 msgstr "Tip partiție sau număr partiție eronat."
@@ -15197,6 +15404,9 @@ msgstr "Arhivă ZFS"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
+
+msgid "Zstandard Compression Level"
+msgstr ""
 
 msgid "and"
 msgstr "și"
