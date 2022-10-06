@@ -31,7 +31,7 @@ GELIINTER="256"
 GELISECTOR="4096"
 GELIBACKUP="/var/backups"
 
-tmpfile=/tmp/zfsinstall.$$
+tmpfile=$(mktemp -q -t zfsinstall)
 trap "rm -f ${tmpfile}" 0 1 2 5 15
 
 # Notify message on error and exit.
@@ -127,11 +127,13 @@ cleandisk_init()
 	# We need this section to try to deal with problematic disk metadata.
 
 	# Destroy existing geom mirror/swap.
-	if kldstat | grep -q geom_mirror; then
+	if kldstat -qn geom_mirror; then
 		if gmirror status | grep -q "mirror/swap"; then
+			echo "Destroying previous swap mirror provider..."
 			gmirror forget swap
 			gmirror destroy -f swap
 		fi
+		gmirror clear ${DISK} > /dev/null 2>&1
 	fi
 
 	DISKS=${DEVICE_LIST}
@@ -142,18 +144,21 @@ cleandisk_init()
 		echo "Cleaning disk ${DISK}"
 
 		# Destroy previous geli providers.
-		# Detach pervious geli providers for glabel.
-		if geli status | grep -qw gpt/sysdisk${NUM}; then
-			geli detach -f /dev/gpt/sysdisk${NUM} > /dev/null 2>&1
+		if kldstat -qn geom_eli; then
+			# Detach pervious geli providers for glabel.
+			if geli status | grep -qw gpt/sysdisk${NUM}; then
+				echo "Detaching previous geli provider on sysdisk${NUM}..."
+				geli detach -f /dev/gpt/sysdisk${NUM} > /dev/null 2>&1
+			fi
+
+			# Detach pervious geli providers for diskid.
+			if geli status | grep -q ${DISK}; then
+				echo "Detaching previous geli provider on ${DISK}..."
+				GELIDEV=$(geli status | grep ${DISK} | awk '{print $3}')
+				geli detach -f /dev/${GELIDEV} > /dev/null 2>&1
+			fi
 		fi
 
-		# Detach pervious geli providers for diskid.
-		if geli status | grep -q ${DISK}; then
-			GELIDEV=$(geli status | grep ${DISK} | awk '{print $3}')
-			geli detach -f /dev/${GELIDEV} > /dev/null 2>&1
-		fi
-
-		gmirror clear ${DISK} > /dev/null 2>&1
 		zpool labelclear -f /dev/gpt/sysdisk${NUM} > /dev/null 2>&1
 		zpool labelclear -f /dev/${DISK} > /dev/null 2>&1
 		gpart destroy -F ${DISK} > /dev/null 2>&1
@@ -175,37 +180,30 @@ cleandisk_init()
 	done
 }
 
-load_kmods()
+load_geli_kmod()
 {
-#	Required kernel modules.
-#	Load geom_mirror/eli kernel modules.
-	if ! kldstat | grep -q geom_eli; then
+	# Load geom_eli kernel module.
+	if ! kldstat -qn geom_eli; then
 		if [ -f "/boot/kernel/geom_eli.ko" ]; then
 			kldload /boot/kernel/geom_eli.ko
-		else
-			# Mount cd-rom and search for the missing kmod.
-			if [ "${CDMOUNTED}" != 1 ]; then
-				mount_cdrom
-				CDMOUNTED=1
-			fi
-			if [ -f "/var/tmp/cdrom/boot/kernel/geom_eli.ko" ]; then
-				kldload /var/tmp/cdrom/boot/kernel/geom_eli.ko
-			fi
 		fi
 	fi
+}
 
+load_gmirror_kmod()
+{
+	# Load geom_mirror kernel module.
 	if ! kldstat | grep -q geom_mirror; then
 		kldload /boot/kernel/geom_mirror.ko
 	fi
-
 }
 
 # Create GPT/Partition on disk.
 gptpart_init()
 {
 	DISKS=${DEVICE_LIST}
-	swapdevlist=/tmp/swapdevlist.$$
-	gelidevlist=/tmp/gelidevlist.$$
+	swapdevlist=$(mktemp -q -t swapdevlist)
+	gelidevlist=$(mktemp -q -t gelidevlist)
 	cat /dev/null > ${tmpfile}
 	NUM="0"
 	for DISK in ${DISKS}
@@ -242,6 +240,7 @@ gptpart_init()
 		ZROOT_DEVLIST=$(cat ${gelidevlist})
 		rm -f ${gelidevlist}
 	else
+		rm -f ${gelidevlist}
 		ZROOT_DEVLIST=$(cat ${tmpfile})
 	fi
 
@@ -260,9 +259,9 @@ gptpart_init()
 mbrpart_init()
 {
 	DISKS=${DEVICE_LIST}
-	swapdevlist=/tmp/swapdevlist.$$
-	gelidevlist=/tmp/gelidevlist.$$
-	bootdevlist=/tmp/bootdevlist.$$
+	swapdevlist=$(mktemp -q -t swapdevlist)
+	gelidevlist=$(mktemp -q -t gelidevlist)
+	bootdevlist=$(mktemp -q -t bootdevlist)
 	cat /dev/null > ${tmpfile}
 	#NUM="0"
 	for DISK in ${DISKS}
@@ -278,7 +277,7 @@ mbrpart_init()
 
 		# Create zfs boot partition.
 		gpart create -s BSD "${DISK}s1" > /dev/null
-		gpart add  -i 1 -t freebsd-zfs -s 2147483648b "${DISK}s1" > /dev/null
+		gpart add -i 1 -t freebsd-zfs -s 2048M "${DISK}s1" > /dev/null
 
 		if [ ! -z "${SWAP_SIZE}" ]; then
 			# Add swap partition to selected drives.
@@ -288,7 +287,7 @@ mbrpart_init()
 		fi
 
 		# Create zfs os partition.
-		gpart add -a 4k ${ZROOT_SIZE} -i 4 -t freebsd-zfs "${DISK}s1" > /dev/null
+		gpart add -a 4m ${ZROOT_SIZE} -i 4 -t freebsd-zfs "${DISK}s1" > /dev/null
 
 		# Write bootcode for ZFS on BIOS
 		dd if="/boot/zfsboot" of="/dev/${DISK}s1" count=1 > /dev/null 2>&1
@@ -312,10 +311,12 @@ mbrpart_init()
 		ZROOT_DEVLIST=$(cat ${gelidevlist})
 		rm -f ${gelidevlist}
 	else
+		rm -f ${gelidevlist}
 		ZROOT_DEVLIST=$(cat ${tmpfile})
 	fi
 
 	BOOTPOOL_DEVLIST=$(cat ${bootdevlist})
+	rm -f ${bootdevlist}
 
 	if [ ! -z "${SWAP_SIZE}" ]; then
 		SWAP_DEVLIST=$(cat ${swapdevlist})
@@ -326,6 +327,7 @@ mbrpart_init()
 # Initialize encryption.
 geom_geli_init()
 {
+	load_geli_kmod
 	DISKS=${GELI_DEVLIST}
 	for DISK in ${DISKS}
 	do
@@ -512,6 +514,7 @@ zroot_init()
 				cp /boot/loader.efi /tmp/zfsinstall_etc/esp/efi/freebsd/loader.efi
 				umount /tmp/zfsinstall_etc/esp
 				gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 2 ${DISK}
+				rm -r /tmp/zfsinstall_etc
 			fi
 		else
 			gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${DISK}
@@ -549,10 +552,8 @@ zroot_init()
 	# Creating/adding the fixed swap devices.
 	if [ ! -z "${SWAP_SIZE}" ]; then
 		if [ "${SWAPMODE}" = 1 ]; then
+			load_gmirror_kmod
 			echo "Creating/adding swap mirror..."
-			if ! kldstat | grep -q geom_mirror; then
-				kldload /boot/kernel/geom_mirror.ko
-			fi
 			gmirror label -b ${GMIRRORBAL} swap ${SWAP_DEVLIST}
 			# Add swap mirror to fstab.
 			if echo ${GELI_MODE} | grep -qw "SWAP+GELI"; then
@@ -604,6 +605,7 @@ zroot_init()
 	# Final message.
 	if [ $? -eq 0 ]; then
 		cdialog --msgbox "${PRDNAME} ${APPNAME} Successfully Installed!" 6 60
+		[ -f "${tmpfile}" ] && rm -f ${tmpfile}
 		exit 0
 	else
 		error_exit "Error: A problem has occurred during the installation."
@@ -775,6 +777,7 @@ upgrade_init()
 	# Final message.
 	if [ $? -eq 0 ]; then
 		cdialog --msgbox "${PRDNAME} ${APPNAME} Successfully Upgraded!" 6 60
+		[ -f "${tmpfile}" ] && rm -f ${tmpfile}
 		exit 0
 	else
 		error_exit "Error: A problem has occurred during the upgrade."
@@ -1046,7 +1049,7 @@ bootpool_check()
 	fi
 }
 
-install_yesno()
+install_confirm()
 {
 	DISKS=$(echo ${disklist})
 	cdialog --title "Proceed with ${PRDNAME} ${APPNAME} Install" \
@@ -1057,7 +1060,7 @@ install_yesno()
 	fi
 }
 
-upgrade_yesno()
+upgrade_confirm()
 {
 	cdialog --title "Proceed with ${PRDNAME} ${APPNAME} Upgrade" \
 	--backtitle "${PRDNAME} ${APPNAME} Installer" \
@@ -1070,6 +1073,7 @@ upgrade_yesno()
 
 menu_poolname()
 {
+		pool_name=
 		cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Pool Name" \
 		--form "Enter a desired pool name, default is ${ZROOT}." 0 0 0 \
 		"Enter pool name:" 1 1 "${ZROOT}" 1 25 25 25 \
@@ -1090,6 +1094,7 @@ menu_poolname()
 
 menu_swap()
 {
+	swap_size=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize Swap size" \
 	--form "Enter a desired SWAP size, default size is 2G, leave empty for none." 0 0 0 \
 	"Enter swap size:" 1 1 "2G" 1 25 25 25 \
@@ -1109,6 +1114,7 @@ menu_swap()
 		fi
 
 		SWAP_SIZE="${swap_size}"
+
 		if [ "${choice}" -ge 2 ]; then
 			cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "System Swap Mode" \
 			--radiolist "Select system Swap mode, (default mirrored)." 10 50 4 \
@@ -1125,6 +1131,7 @@ menu_swap()
 
 menu_zrootsize()
 {
+	root_size=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize zroot pool partition" \
 	--radiolist "Would you like to customize the ${ZROOT} partition size?" 10 60 4 \
 	1 "Yes, I want to customize." off \
@@ -1161,6 +1168,7 @@ menu_zrootsize()
 
 menu_dataset()
 {
+	dataset_name=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Create user Dataset" \
 	--radiolist "Would you like to create a ZFS Dataset for data store?" 10 60 4 \
 	1 "Yes, I want a Dataset." off \
@@ -1240,6 +1248,8 @@ menu_bootmode()
 
 menu_encryption()
 {
+	PASS1=
+	PASS2=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Encryption option menu" \
 	--checklist "Select the desired items to be encrypted (optional), if you're inexperienced with GELI/Encryption, please disregard this and press Enter to continue." 12 55 8 \
 	"DISK+GELI" "Encrypt Disks?" off \
@@ -1252,8 +1262,8 @@ menu_encryption()
 	GELI_MODE=$(cat ${tmpfile})
 
 	if echo ${GELI_MODE} | grep -qw "DISK+GELI"; then
-		GELIPASS1="/tmp/gelipass1.$$"
-		GELIPASS2="/tmp/gelipass2.$$"
+		GELIPASS1=$(mktemp -q -t gelipass1)
+		GELIPASS2=$(mktemp -q -t gelipass2)
 		trap "rm -f ${GELIPASS1} ${GELIPASS2}" 0 1 2 5 15
 
 		# Ask for a password.
@@ -1278,7 +1288,6 @@ menu_encryption()
 
 menu_zroot_create()
 {
-	load_kmods
 	menu_install
 	menu_poolname
 	menu_swap
@@ -1286,7 +1295,7 @@ menu_zroot_create()
 	menu_dataset
 	menu_bootmode
 	menu_encryption
-	install_yesno
+	install_confirm
 	zroot_init
 }
 
@@ -1296,7 +1305,7 @@ menu_zroot_update()
 	update_zroot_check
 	menu_beselect
 	update_bootpool_check
-	upgrade_yesno
+	upgrade_confirm
 	upgrade_init
 }
 
@@ -1352,7 +1361,7 @@ get_media_desc()
 
 menu_install()
 {
-	tmplist=/tmp/zfsinstall.$$
+	tmplist=$(mktemp -q -t zfsinstall)
 	get_disklist
 	disklist="${VAL}"
 	list=""
