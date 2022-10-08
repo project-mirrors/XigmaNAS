@@ -47,12 +47,12 @@ function render_scheduler(array $pconfig,bool $with_minutes = true): void {
 
 	$matrix = [];
 	if($with_minutes):
-		$matrix['minutes' ] = ['header' => \gettext('Minutes' ),'all' => 'all_mins'    ,'sel' => 'minute' ,'val_min' => 0,'val_steps' => 60,'val_break' => 15];
+		$matrix['minutes' ] = ['header' => gettext('Minutes' ),'all' => 'all_mins' ,'sel' => 'minute' ,'val_min' => 0,'val_steps' => 60,'val_break' => 15];
 	endif;
-	$matrix['hours'   ] = ['header' => \gettext('Hours'   ),'all' => 'all_hours'   ,'sel' => 'hour'   ,'val_min' => 0,'val_steps' => 24,'val_break' =>  6];
-	$matrix['days'    ] = ['header' => \gettext('Days'    ),'all' => 'all_days'    ,'sel' => 'day'    ,'val_min' => 1,'val_steps' => 31,'val_break' =>  7];
-	$matrix['months'  ] = ['header' => \gettext('Months'  ),'all' => 'all_months'  ,'sel' => 'month'];
-	$matrix['weekdays'] = ['header' => \gettext('Weekdays'),'all' => 'all_weekdays','sel' => 'weekday'];
+	$matrix['hours' ] = ['header' => gettext('Hours' ),'all' => 'all_hours' ,'sel' => 'hour' ,'val_min' => 0,'val_steps' => 24,'val_break' => 6];
+	$matrix['days' ] = ['header' => gettext('Days' ),'all' => 'all_days' ,'sel' => 'day' ,'val_min' => 1,'val_steps' => 31,'val_break' => 7];
+	$matrix['months' ] = ['header' => gettext('Months' ),'all' => 'all_months' ,'sel' => 'month'];
+	$matrix['weekdays'] = ['header' => gettext('Weekdays'),'all' => 'all_weekdays','sel' => 'weekday'];
 	$document = new gui\document();
 	$div = $document->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
 	foreach($matrix as $matrix_key => $control):
@@ -68,15 +68,15 @@ function render_scheduler(array $pconfig,bool $with_minutes = true): void {
 				insDIV(['class' => 'lhebl'],$control['header'])->
 				addDIV(['class' => 'lcebl'])->
 					push()->
-					addDIV(['class' => 'rlbo'])->
+					addDIV(['class' => 'rblo'])->
 						addElement('label')->
 							insINPUT($attributes_1)->
-							insSPAN(['class' => 'rblo'],\gettext('All'))->
+							insSPAN(['class' => 'rblo'],gettext('All'))->
 					pop()->
-					addDIV(['class' => 'rlbo'])->
+					addDIV(['class' => 'rblo'])->
 						addElement('label')->
 							insINPUT($attributes_2)->
-							insSPAN(['class' => 'rblo'],\gettext('Selected...'))->
+							insSPAN(['class' => 'rblo'],gettext('Selected...'))->
 							addTABLE()->
 								addTBODY(['class' => 'donothighlight'])->
 									addTR();
@@ -88,7 +88,7 @@ function render_scheduler(array $pconfig,bool $with_minutes = true): void {
 				$val_count = $control['val_steps'];
 				$val_max = $val_min + $val_count - 1;
 				$val_break = $control['val_break'];
-				$outer_max = \ceil($val_count / $val_break) - 1;
+				$outer_max = ceil($val_count / $val_break) - 1;
 				$inner_max = $val_min + $val_break - 1;
 				for($outer = 0;$outer <= $outer_max;$outer++):
 					$td = $hook->addTDwC('lcefl');
@@ -98,17 +98,17 @@ function render_scheduler(array $pconfig,bool $with_minutes = true): void {
 								'type' => 'checkbox',
 								'class' => 'cblo',
 								'name' => $control['sel'] . '[]',
-								'onchange' => \sprintf('set_selected("%s")',$control['all']),
+								'onchange' => sprintf('set_selected("%s")',$control['all']),
 								'value' => $key
 							];
-							if(isset($pconfig[$control['sel']]) && \is_array($pconfig[$control['sel']]) && \in_array((string)$key,$pconfig[$control['sel']])):
+							if(isset($pconfig[$control['sel']]) && is_array($pconfig[$control['sel']]) && in_array((string)$key,$pconfig[$control['sel']])):
 								$attributes_3['checked'] = 'checked';
 							endif;
 							$td->
 								addDIV(['class' => 'cblo'])->
 									addElement('label')->
 										insINPUT($attributes_3)->
-										insSPAN(['class' => 'cblo'],\sprintf('%02d',$key));
+										insSPAN(['class' => 'cblo'],sprintf('%02d',$key));
 						else:
 							break;
 						endif;
@@ -123,10 +123,10 @@ function render_scheduler(array $pconfig,bool $with_minutes = true): void {
 						'type' => 'checkbox',
 						'class' => 'cblo',
 						'name' => $control['sel'] . '[]',
-						'onchange' => \sprintf('set_selected("%s")',$control['all']),
+						'onchange' => sprintf('set_selected("%s")',$control['all']),
 						'value' => $key
 					];
-					if(isset($pconfig[$control['sel']]) && \is_array($pconfig[$control['sel']]) && \in_array((string)$key,$pconfig[$control['sel']])):
+					if(isset($pconfig[$control['sel']]) && is_array($pconfig[$control['sel']]) && in_array((string)$key,$pconfig[$control['sel']])):
 						$attributes_3['checked'] = 'checked';
 					endif;
 					$td->
@@ -143,15 +143,15 @@ function render_scheduler(array $pconfig,bool $with_minutes = true): void {
 						'type' => 'checkbox',
 						'class' => 'cblo',
 						'name' => $control['sel'] . '[]',
-						'onchange' => \sprintf('set_selected("%s")',$control['all']),
+						'onchange' => sprintf('set_selected("%s")',$control['all']),
 						'value' => $key
 					];
-					if(isset($pconfig[$control['sel']]) && \is_array($pconfig[$control['sel']])):
-						if(\in_array((string)$key,$pconfig[$control['sel']])):
+					if(isset($pconfig[$control['sel']]) && is_array($pconfig[$control['sel']])):
+						if(in_array((string)$key,$pconfig[$control['sel']])):
 							$attributes_3['checked'] = 'checked';
 						elseif($key == 7):
 //							compatibility for non-ISO day of week 0 for Sunday
-							if(\in_array('0',$pconfig[$control['sel']])):
+							if(in_array('0',$pconfig[$control['sel']])):
 								$attributes_3['checked'] = 'checked';
 							endif;
 						endif;
