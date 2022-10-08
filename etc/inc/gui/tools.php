@@ -1319,12 +1319,12 @@ EOJ;
 					insDIV(attributes: ['class' => 'lhebl'],value: $sel_title)->
 					addDIV(attributes: ['class' => 'lcebl'])->
 						push()->
-						addDIV(attributes: ['class' => 'rlbo'])->
+						addDIV(attributes: ['class' => 'rblo'])->
 							insINPUT(attributes: $attr_all)->
 							addElement(name: 'label',attributes: ['for' => sprintf('%s1',$all_id)])->
 								insSPAN(attributes: ['class' => 'rblo'],value: gettext('All'))->
 						pop()->
-						addDIV(attributes: ['class' => 'rlbo'])->
+						addDIV(attributes: ['class' => 'rblo'])->
 							push()->
 							insINPUT(attributes: $attr_sel)->
 								addElement(name: 'label',attributes: ['for' => sprintf('%s0',$all_id)])->
