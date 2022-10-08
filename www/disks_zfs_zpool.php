@@ -77,14 +77,14 @@ function zfspool_process_updatenotification($mode,$data) {
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
 			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
-			if(false !== $sphere->row_id):
+			if($sphere->row_id !== false):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
 			endif;
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
 			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
-			if(false !== $sphere->row_id):
+			if($sphere->row_id !== false):
 				$sphere->row = $sphere->grid[$sphere->row_id];
 //				check if pool exists
 				$a_pools = [];
@@ -135,7 +135,8 @@ if($_POST):
 			case $sphere->get_cbm_button_val_delete():
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 						switch($mode_updatenotify):
 							case UPDATENOTIFY_MODE_NEW:
@@ -273,7 +274,7 @@ $document->render();
 						$used = format_bytes($sphere_addon_row['alloc'],2,false,$use_si);
 						$avail = format_bytes($sphere_addon_row['free'],2,false,$use_si);
 					endif;
-					$frag = $sphere_addon_row['frag'];
+					$frag = sprintf('%d%%',$sphere_addon_row['frag']);
 					$cap = sprintf('%d%%',$sphere_addon_row['cap']);
 					$dedup = $sphere_addon_row['dedup'];
 					$health = $sphere_addon_row['health'];
