@@ -36,6 +36,11 @@ ZFS feature flags upgrade warning:
 ==================================
 Enabling all supported feature flags on a pool can make the pool inaccessible on systems that do not support these feature flags.
 
+Status Monitoring note:
+=======================
+Rev 9366 or lower Users that has enabled and setup System > Advanced > Monitoring Setup, They need to press there the button "Save & Restart" again after the upgrade.
+That will make the new changes active for rrdtool and will provide the broken graphs again on Status Monitoring.
+
 CIFS/SMB note:
 ==============
 From Samba 4.5.0 onwards, the "ntlm auth" option has been disabled by default.
