@@ -20,6 +20,7 @@ Changes:
 - Upgrade nut to v2022.09.26.
 - Upgrade zoneinfo to 2022d.
 - Upgrade php to v8.1.11.
+- Upgrade pecl-APCu to v5.1.22.
 
 Fixes:
 - fix bring up lighttpd at all times.
