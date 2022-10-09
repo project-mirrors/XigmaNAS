@@ -37,6 +37,7 @@ namespace filemanager;
 use function gtext;
 
 trait fm_down {
+	use fm_archive;
 	use fm_debug;
 	use fm_error;
 	use fm_extra;
