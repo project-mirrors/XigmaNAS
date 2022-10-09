@@ -119,7 +119,6 @@ Changes:
 - Upgrade rrdtool to v1.8.0.
 - Upgrade proftpd to v1.3.7e.
 - Upgrade rsync to v3.2.5.
-- Upgrade zoneinfo to 2022c.
 - Upgrade msmtp to v1.8.22.
 - Upgrade lighttpd to v1.4.67.
 - Upgrade php to v8.1.10.
@@ -128,6 +127,7 @@ Changes:
 - Upgrade arcconf to vB25335.
 - Upgrade devcpu-data-amd to v20221002.
 - Upgrade nut to v2022.09.26.
+- Upgrade zoneinfo to 2022d.
 
 Fixes:
 - fix bring up lighttpd at all times.
