@@ -10,6 +10,7 @@ PATCHFILES+=	0becaf749e83.patch:-p1 # https://github.com/LibVNC/libvncserver/pul
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Provide an easy API to a custom vnc server
+WWW: http://libvnc.github.io/
 
 LICENSE=	GPLv2
 
