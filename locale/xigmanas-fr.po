@@ -2,20 +2,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-03 04:58+0000\n"
-"PO-Revision-Date: 2022-10-03 06:30+0000\n"
+"POT-Creation-Date: 2022-10-04 22:38+0000\n"
+"PO-Revision-Date: 2022-10-05 04:04+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-10-04 02:24+0000\n"
-"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: FRANCE\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2022-10-09 00:16+0000\n"
+"X-Generator: Launchpad (build 762fb15a975e8b23af6a1f86e44e46bfd0451459)\n"
 "X-Poedit-Language: French\n"
+"X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: D:\\Fichiers\\freenas\\webgui\n"
+"Language: \n"
+"X-Poedit-Country: FRANCE\n"
+
+msgid ""
+" Controls whether device nodes can be opened on this file system. The "
+"default value is on. The values on and off are equivalent to the dev and "
+"nodev mount options."
+msgstr ""
+" Contrôle si les arborescences de périphérique peuvent être ouverts sur ce "
+"système de fichiers. La valeur par défaut est activée. Les valeurs on et off "
+"sont équivalentes aux options de montage dev et nodev."
 
 msgid " No private key"
 msgstr " Pas de clé privée"
@@ -231,6 +240,9 @@ msgstr ""
 msgid "1"
 msgstr "1"
 
+msgid "1 - one copy"
+msgstr "1 - un exemplaire"
+
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr ""
 "1 ou plusieurs disques sont nécessaires pour construire un volume JBOD."
@@ -248,17 +260,38 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "128K"
+msgstr "128K"
+
 msgid "16 KiB"
 msgstr "16 Kio"
 
 msgid "16384"
 msgstr "16384"
 
+msgid "16K"
+msgstr "16K"
+
+msgid "16k"
+msgstr "16k"
+
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
+msgid "1K"
+msgstr "1K"
+
+msgid "1M"
+msgstr "1M"
+
+msgid "1k"
+msgstr "1k"
+
 msgid "2"
 msgstr "2"
+
+msgid "2 - two copies"
+msgstr "2 -  exemplaires"
 
 msgid "2 KiB"
 msgstr "2 Kio"
@@ -277,8 +310,20 @@ msgstr "2.5\""
 msgid "22"
 msgstr "22"
 
+msgid "256K"
+msgstr "256K"
+
+msgid "2K"
+msgstr "2K"
+
+msgid "2k"
+msgstr "2k"
+
 msgid "3"
 msgstr "3"
+
+msgid "3 - three copies - not applicable when encryption is enabled"
+msgstr "3 - exemplaires - non applicable lorsque le chiffrement est activé"
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr ""
@@ -293,11 +338,20 @@ msgstr "300"
 msgid "32 KiB"
 msgstr "32 Kio"
 
+msgid "32K"
+msgstr "32K"
+
 msgid "4 KiB"
 msgstr "4 Kio"
 
+msgid "4K"
+msgstr "4K"
+
 msgid "4KB wrapper"
 msgstr "wrapper de 4 Ko"
+
+msgid "4k"
+msgstr "4k"
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -305,11 +359,23 @@ msgstr "5.25\""
 msgid "512 Bytes"
 msgstr "512 Octets"
 
+msgid "512 bytes"
+msgstr "512 bytes"
+
+msgid "512B"
+msgstr "512B"
+
+msgid "512K"
+msgstr "512K"
+
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
 msgstr "64 Kio"
+
+msgid "64K"
+msgstr "64K"
 
 msgid "69"
 msgstr "69"
@@ -322,6 +388,12 @@ msgstr "802.1Q VLAN tag (entre 1 et 4094)."
 
 msgid "8200"
 msgstr "8200"
+
+msgid "8K"
+msgstr "8K"
+
+msgid "8k"
+msgstr "8k"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -811,6 +883,9 @@ msgstr "Mot de passe de l'administrateur"
 msgid "Admin access"
 msgstr "Accès administrateur"
 
+msgid "Admin controlled mount"
+msgstr "Montage contrôlé par l'administrateur"
+
 msgid "Administrative WebGUI"
 msgstr "Interface Web d'administration"
 
@@ -986,6 +1061,13 @@ msgstr "Autoriser la lecture / écriture consécutive  en parallèle"
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "Autoriser l'authentification interactive au clavier."
+
+msgid ""
+"Allow mounting on a busy directory or a directory which already contains "
+"files or directories."
+msgstr ""
+"Autoriser le montage sur un répertoire occupé ou un répertoire qui contient "
+"déjà des fichiers ou des répertoires."
 
 msgid "Allow new files to be created."
 msgstr "Autoriser la création de nouveaux fichiers."
@@ -1385,6 +1467,9 @@ msgstr "Capture Instantanée Automatique"
 
 msgid "Auto Snapshot Settings"
 msgstr "Paramètres d'instantané automatique"
+
+msgid "Auto mount"
+msgstr "Montage automatique"
 
 msgid "Auto page refresh."
 msgstr "Rafraîchissement automatique de la page."
@@ -2187,6 +2272,102 @@ msgstr "Compression"
 msgid "Compression Ratio"
 msgstr "Taux de compression"
 
+msgid "Compression level 1 - best compression ratio"
+msgstr "Niveau de compression 1 - meilleur taux de compression"
+
+msgid "Compression level 1 - fastest compression"
+msgstr "Niveau de compression 1 - compression la plus rapide"
+
+msgid "Compression level 10"
+msgstr "Niveau de compression 10"
+
+msgid "Compression level 100"
+msgstr "Niveau de compression 100"
+
+msgid "Compression level 1000 - fastest compression"
+msgstr "Niveau de compression 1000 - compression la plus rapide"
+
+msgid "Compression level 11"
+msgstr "Niveau de compression 11"
+
+msgid "Compression level 12"
+msgstr "Niveau de compression 12"
+
+msgid "Compression level 13"
+msgstr "Niveau de compression 13"
+
+msgid "Compression level 14"
+msgstr "Niveau de compression 14"
+
+msgid "Compression level 15"
+msgstr "Niveau de compression 15"
+
+msgid "Compression level 16"
+msgstr "Niveau de compression 16"
+
+msgid "Compression level 17"
+msgstr "Niveau de compression 17"
+
+msgid "Compression level 18"
+msgstr "Niveau de compression 18"
+
+msgid "Compression level 19 - best compression ratio"
+msgstr "Niveau de compression 19 - meilleur taux de compression"
+
+msgid "Compression level 2"
+msgstr "Niveau de compression 2"
+
+msgid "Compression level 20"
+msgstr "Niveau de compression 20"
+
+msgid "Compression level 3"
+msgstr "Niveau de compression 3"
+
+msgid "Compression level 30"
+msgstr "Niveau de compression 30"
+
+msgid "Compression level 4"
+msgstr "Niveau de compression 4"
+
+msgid "Compression level 40"
+msgstr "Niveau de compression 40"
+
+msgid "Compression level 5"
+msgstr "Niveau de compression 5"
+
+msgid "Compression level 50"
+msgstr "Niveau de compression 50"
+
+msgid "Compression level 500"
+msgstr "Niveau de compression 500"
+
+msgid "Compression level 6"
+msgstr "Niveau de compression 6"
+
+msgid "Compression level 60"
+msgstr "Niveau de compression 60"
+
+msgid "Compression level 7"
+msgstr "Niveau de compression 7"
+
+msgid "Compression level 70"
+msgstr "Niveau de compression 70"
+
+msgid "Compression level 8"
+msgstr "Niveau de compression 8"
+
+msgid "Compression level 80"
+msgstr "Niveau de compression 80"
+
+msgid "Compression level 9"
+msgstr "Niveau de compression 9"
+
+msgid "Compression level 9 - best compression ratio"
+msgstr "Niveau de compression 9 - meilleur taux de compression"
+
+msgid "Compression level 90"
+msgstr "Niveau de compression 90"
+
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -2345,8 +2526,41 @@ msgstr ""
 "rapide) à 9 (meilleur taux de compression). Actuellement, 'GZIP' équivaut à "
 "'GZIP-6'."
 
+msgid ""
+"Controls the compression algorithm. LZ4 is the recommended compression "
+"algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
+"the feature flag lz4_compress is active, otherwise LZJB is used."
+msgstr ""
+"Contrôle l'algorithme de compression. LZ4 est l'algorithme de compression "
+"recommandé. Régler la compression sur 'On' utilise l'algorithme de "
+"compression LZ4 si l'indicateur de fonctionnalité lz4_compress est actif, "
+"sinon LZJB est utilisé."
+
 msgid "Controls the dedup method."
 msgstr "Contrôle la méthode dedup."
+
+msgid ""
+"Controls the encryption cipher suite (block cipher, key length, and mode) "
+"used for this dataset."
+msgstr ""
+"Contrôle la suite de chiffrement cipher ( bloc cipher , longueur de clé et "
+"mode) utilisée pour cet ensemble de données."
+
+msgid "Controls the format of the provided encryption key."
+msgstr "Contrôle le format de la clé de chiffrement fournie."
+
+msgid "Controls the level of the Fast Zstandard compression level"
+msgstr "Contrôle le niveau de compression Fast Zstandard"
+
+msgid "Controls the level of the Zstandard compression level"
+msgstr "Contrôle le niveau de compression Zstandard"
+
+msgid "Controls the level of the gzip compression algorithm"
+msgstr "Contrôle le niveau de l'algorithme de compression gzip"
+
+msgid "Controls the mount point type used for this file system."
+msgstr ""
+"Contrôle le type de point de montage utilisé pour ce système de fichiers."
 
 msgid "Controls the number of copies of data stored for this dataset."
 msgstr ""
@@ -2374,11 +2588,40 @@ msgstr "Contrôle où le flux de métadonnées OS X est stocké."
 msgid "Controls where the OS X resource fork is stored."
 msgstr "Contrôle où l'arbre de ressources OS X est stocké."
 
+msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
+msgstr ""
+"Contrôle si les ACL sont activées et, le cas échéant, quel type d'ACL "
+"utiliser."
+
+msgid ""
+"Controls whether extended attributes are enabled for this file system."
+msgstr ""
+"Contrôle si les attributs étendus sont activés pour ce système de fichiers."
+
 msgid ""
 "Controls whether processes can be executed from within this file system."
 msgstr ""
 "Contrôle si les processus peuvent être exécutés à partir de ce système de "
 "fichiers."
+
+msgid ""
+"Controls whether processes can be executed from within this file system. The "
+"default value is on. The values on and off are equivalent to the exec and "
+"noexec mount options."
+msgstr ""
+"Contrôle si les processus peuvent être exécutés à partir de ce système de "
+"fichiers. La valeur par défaut est activée. Les valeurs on et off sont "
+"équivalentes aux options de montage exec et noexec."
+
+msgid ""
+"Controls whether regular files should be scanned for viruses when a file is "
+"opened and closed. In addition to enabling this property, the virus scan "
+"service must also be enabled for virus scanning to occur."
+msgstr ""
+"Contrôle si les fichiers normaux doivent être analysés à la recherche de "
+"virus lorsqu'un fichier est ouvert et fermé. Outre l'activation de cette "
+"propriété, le service d'analyse antivirus doit également être activé pour "
+"que l'analyse antivirus ait lieu."
 
 msgid ""
 "Controls whether the .zfs directory is hidden or visible in the root of the "
@@ -2406,8 +2649,28 @@ msgstr ""
 msgid "Controls whether the dataset is managed from a jail."
 msgstr "Contrôle si l'ensemble de données est géré depuis une prison."
 
+msgid "Controls whether the file system is shared via NFS."
+msgstr "Contrôle si le système de fichiers est partagé via NFS."
+
+msgid "Controls whether the file system is shared via SMB."
+msgstr "Contrôle si le système de fichiers est partagé via SMB."
+
+msgid ""
+"Controls whether the file system should be mounted with non-blocking "
+"mandatory locks."
+msgstr ""
+"Contrôle si le système de fichiers doit être monté avec des verrous "
+"obligatoires non bloquants."
+
 msgid "Controls whether the set-UID bit is respected for the file system."
 msgstr "Contrôle si le bit set-UID est respecté pour le système de fichiers."
+
+msgid ""
+"Controls whether the volume snapshot devices under /dev/zvol/<pool> are "
+"hidden or visible."
+msgstr ""
+"Contrôle si les périphériques d'instantané de volume sous /dev/zvol/<pool> "
+"sont masqués ou visibles."
 
 msgid "Controls whether this dataset can be modified."
 msgstr "Controle si ce jeu de données peut être modifié."
@@ -2990,6 +3253,9 @@ msgstr "Paramètres par défaut du dispositif"
 msgid "Default Root"
 msgstr "Root par défaut"
 
+msgid "Default compression level"
+msgstr "Niveau de compression par défaut"
+
 msgid "Default user name is 'admin'."
 msgstr "Le nom d'utilisateur par défaut est 'admin'."
 
@@ -3019,6 +3285,11 @@ msgstr ""
 
 msgid "Defines the checksum algorithm."
 msgstr "Définit l'algorithme de somme de contrôle."
+
+msgid ""
+"Defines the minimum amount of space guaranteed to a dataset, not including "
+"its descendents."
+msgstr "Niveau de compression par défaut"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Définit quand l'arrêt du système est déclenché."
@@ -3599,8 +3870,14 @@ msgstr "Désactivé"
 msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr "Les noms de variables désactivés seront supprimés de /etc/rc.conf."
 
+msgid "Discard - Discard ACEs"
+msgstr "Ignorer - Ignorer les ACEs"
+
 msgid "Discard - Discard ACL"
 msgstr "Désactivé - Désactive les ACL"
+
+msgid "Discard - Do not inherit any ACEs"
+msgstr "Ignorer - Ne pas hériter d'ACEs"
 
 msgid "Discard - Do not inherit entries"
 msgstr "Désactivé - Ne pas hériter les entrées"
@@ -3727,6 +4004,12 @@ msgid ""
 msgstr ""
 "Ne laissez pas le  serveur chercher de nouvelles versions de micrologiciel "
 "lorsque la page de  %s se charge."
+
+msgid "Do not mount"
+msgstr "Ne pas monter"
+
+msgid "Do not use ACLs"
+msgstr "Ne pas utiliser les ACLs"
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -4645,6 +4928,9 @@ msgstr "Modifier les paramètres sysctl"
 msgid "Edit target"
 msgstr "Editer cible"
 
+msgid "Edon-R, Verify"
+msgstr "Edon-R, Vérifier"
+
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
 msgstr ""
@@ -5270,6 +5556,9 @@ msgstr "Entrez des options supplémentaires"
 msgid "Enter facility name"
 msgstr "Entrez le nom de la structure"
 
+msgid "Enter filesystem name"
+msgstr "Entrez le nom du système de fichiers"
+
 msgid "Enter group name."
 msgstr "Entrez le nom du groupe."
 
@@ -5625,6 +5914,9 @@ msgstr "Fausse Adresse"
 msgid "Fast"
 msgstr "Rapide"
 
+msgid "Fast Zstandard Compression"
+msgstr "Compression Zstandard Rapide"
+
 msgid "Fast Zstandard Compression Level"
 msgstr "Rapidité du Niveau de Compression Zstandard"
 
@@ -5732,6 +6024,9 @@ msgstr "Nombre de Systèmes de Fichiers"
 
 msgid "Filesystem Limit"
 msgstr "Limite du Système de Fichiers"
+
+msgid "Filesystem Name"
+msgstr "Nom du Système de Fichiers"
 
 msgid "Filesystem is locked"
 msgstr "Le système de fichiers est verrouillé"
@@ -6096,6 +6391,9 @@ msgstr "Le groupe est protégé"
 msgid "Group is unlocked"
 msgstr "Le groupe est déverrouillé"
 
+msgid "Groupmask - Mask ACL with group permissions"
+msgstr "Groupmask - Masque ACL avec les autorisations de groupe"
+
 msgid "Groupmask - Mask ACL with mode"
 msgstr ""
 "Masque de groupe - Masquer la liste de contrôle d'accès (ACL) avec mode"
@@ -6213,6 +6511,9 @@ msgstr "Hauteur des graphiques.(defaut %s pixels)"
 
 msgid "Help"
 msgstr "Aide"
+
+msgid "Hex"
+msgstr "Hex"
 
 msgid "Hiadaptive (High Performance)"
 msgstr "Adaptive (Haute Performance)"
@@ -7223,6 +7524,9 @@ msgstr "Laisser les instantanés automatiques déjà configurés"
 msgid "Leave auto snapshot configuration"
 msgstr "Laisser la configuration des instantanés automatiques"
 
+msgid "Legacy"
+msgstr "Ancien"
+
 msgid "Level"
 msgstr "Niveau"
 
@@ -7533,7 +7837,7 @@ msgid ""
 "Lowest value is higher priority. For master node, use 0 or 1. If preempt is "
 "enabled, it is adjusted to 240 on failure."
 msgstr ""
-"La plus petite valeur est la priorité la plus grande. Pour le nœud "
+"La plus petite valeur est la priorité la plus grande. Pour le Node "
 "principal, utilisez 0 ou 1. Si la préemption est autorisée, elle est réglée "
 "en cas d'erreur."
 
@@ -8108,6 +8412,9 @@ msgstr "La racine NFS est marquée pour suppression"
 msgid "NFS Root is unlocked"
 msgstr "La racine NFS est déverrouillée"
 
+msgid "NFS sharing"
+msgstr "Partage NFS"
+
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8494,29 +8801,34 @@ msgstr "Aucun périphérique virtuel n'a été sélectionné"
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Ne pas hériter des entrées refusées"
 
+msgid "Noallow - Only inherit inheritable ACEs that specify deny permissions"
+msgstr ""
+"Noallow - N'hérite que des ACE héritables qui spécifient des autorisations "
+"de refus"
+
 msgid "Noauto"
 msgstr "Pas d'auto"
 
 msgid "Node A IP address"
-msgstr "Node A adresse ip"
+msgstr "Adresse ip du Node A"
 
 msgid "Node A Settings"
-msgstr "Paramètres du nœud A"
+msgstr "Parramètres du Node A"
 
 msgid "Node B IP address"
-msgstr "Node B adresse IP"
+msgstr "Adresse ip du Node B"
 
 msgid "Node B Settings"
-msgstr "Paramètres du nœud B"
+msgstr "Paramètre du Node B"
 
 msgid "Node Base"
 msgstr "Node Base"
 
 msgid "Node ID"
-msgstr "ID du nœud"
+msgstr "ID du Node"
 
 msgid "Node Name"
-msgstr "Nom du noeud"
+msgstr "Nom du Node"
 
 msgid "Nominal battery voltage"
 msgstr "Tension nominale de la batterie"
@@ -8565,6 +8877,24 @@ msgstr "Normal"
 
 msgid "Normalization"
 msgstr "Normalisation"
+
+msgid ""
+"Normalization Form C (NFC) - Canonical Decomposition, followed by Canonical "
+"Composition"
+msgstr ""
+"Forme de Normalisation C (NFC) - Décomposition Canonique, suivie d'une "
+"Composition Canonique"
+
+msgid "Normalization Form D (NFD) - Canonical Decomposition"
+msgstr "Forme de normalisation D (NFD) - Décomposition canonique"
+
+msgid ""
+"Normalization Form KC (NFKC) - Compatibility Decomposition, followed by "
+"Canonical Composition"
+msgstr "Forme de Normalisation D (NFD) - Décomposition Canonique"
+
+msgid "Normalization Form KD (NFKD) - Compatibility Decomposition"
+msgstr "Forme de Normalisation KD (NFKD) - Décomposition de Compatibilité"
 
 msgid ""
 "Normally this option should not be set as the automatic negotiation phase in "
@@ -8982,11 +9312,21 @@ msgstr "Passthrough - Ne pas changer la liste de contrôle d'accès (ACL)"
 msgid "Passthrough - Inherit all entries"
 msgstr "Passthrough - Hériter de toutes les entrées"
 
+msgid "Passthrough - Inherit all inheritable ACEs without any modifications"
+msgstr ""
+"Passthrough - Hériter de tous les ACEs héritables sans aucune modification"
+
 msgid "Passthrough Address"
 msgstr "Adresse du Relais"
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
 msgstr "Passthrough-X - Hériter tout mais \"exécuter\" lorsque non spécifié"
+
+msgid ""
+"Passthrough-X - Inherit all except execute permission when not specified"
+msgstr ""
+"Passthrough-X - Hériter de tout sauf de l'autorisation d'exécution lorsqu'il "
+"n'est pas spécifié"
 
 msgid "Password"
 msgstr "Mot de passe"
@@ -9886,6 +10226,9 @@ msgstr "Log RSYNC"
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
+msgid "Raw"
+msgstr "Raw"
+
 msgid "Raw Value"
 msgstr "Valeur Raw"
 
@@ -10068,11 +10411,17 @@ msgstr "Quota de référence"
 msgid "Refquota Type"
 msgstr "Type de Quota ZFS"
 
+msgid "Refquota type."
+msgstr "Type de Refquota."
+
 msgid "Refreservation"
 msgstr "Quota de réservation"
 
 msgid "Refreservation Type"
 msgstr "Type de Réservation ZFS"
+
+msgid "Refreservation type."
+msgstr "Type de Refréservation."
 
 msgid "Refresh"
 msgstr "Actualiser"
@@ -10253,6 +10602,9 @@ msgstr "Réservation"
 msgid "Reservation Type"
 msgstr "TYpe de réservation"
 
+msgid "Reservation type."
+msgstr "Type de réservation."
+
 msgid "Reset"
 msgstr "Réinitialiser"
 
@@ -10310,6 +10662,13 @@ msgstr "Limiter le dossier à un type de support spécifique."
 
 msgid "Restricted"
 msgstr "Restreint"
+
+msgid ""
+"Restricted - Inherit ACEs except \"write ACL\" and \"write owner\" "
+"permissions"
+msgstr ""
+"Restreint - Hériter des ACE, sauf les autorisations \"écrire ACL\" et "
+"\"écrire le propriétaire\""
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr ""
@@ -10545,6 +10904,9 @@ msgstr "Le Partage Samba est marqué pour suppression"
 
 msgid "Samba Share is unlocked"
 msgstr "Le Partage Samba est déverrouillé"
+
+msgid "Samba sharing"
+msgstr "Partage Samba"
 
 #, php-format
 msgid ""
@@ -11324,7 +11686,7 @@ msgid ""
 "in HA cluster."
 msgstr ""
 "La définition de \"primaire\" ou \"secondaire\" remplace le rôle par défaut "
-"du noeud dans le cluster HA."
+"du node dans le cluster HA."
 
 msgid "Settings"
 msgstr "Réglages"
@@ -11357,6 +11719,9 @@ msgstr "Partager les Options NFS"
 msgid "Share NFS Type"
 msgstr "Partager le Type NFS"
 
+msgid "Share NFS options."
+msgstr "Partager les options NFS."
+
 msgid "Share Password"
 msgstr "Mot de passe du partage"
 
@@ -11365,6 +11730,9 @@ msgstr "Partager les Options SMB"
 
 msgid "Share SMB Type"
 msgstr "Partager le Type SMB"
+
+msgid "Share SMB options."
+msgstr "Partagez les options SMB."
 
 msgid "Share Settings"
 msgstr "Paramètres de partage"
@@ -11555,6 +11923,9 @@ msgstr "L'instantané est marqué pour la suppression"
 msgid "Snapshot is unlocked"
 msgstr "L'instantané est dévérouillé"
 
+msgid "Snapshot limit"
+msgstr "Limite d'Instantané"
+
 msgid "Snapshots"
 msgstr "Instantanés"
 
@@ -11675,6 +12046,23 @@ msgstr "Spécifie le nom de la révision LUN jusqu'à 4 caractères."
 
 msgid "Specifies LUN vendor string up to 8 chars."
 msgstr "Spécifie le nom du fournisseur de LUN jusqu'à 8 caractères."
+
+msgid ""
+"Specifies a compatibility mode or literal value for the size of dnodes in "
+"the file system."
+msgstr ""
+"Spécifie un mode de compatibilité ou une valeur littérale pour la taille des "
+"dnodes dans le système de fichiers."
+
+msgid ""
+"Specifies a suggested block size for files in the file system. This property "
+"is designed solely for use with database workloads that access files in "
+"fixed-size records."
+msgstr ""
+"Spécifie une taille de bloc suggérée pour les fichiers dans le système de "
+"fichiers. Cette propriété est conçue uniquement pour être utilisée avec des "
+"charges de travail de base de données qui accèdent à des fichiers dans des "
+"enregistrements de taille fixe."
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -12101,6 +12489,9 @@ msgstr "Temps de fonctionnement du système"
 msgid "System User"
 msgstr "Utilisateur Système"
 
+msgid "System attribute based xattrs"
+msgstr "Xattrs basés sur les attributs système"
+
 msgid "System info"
 msgstr "Informations système"
 
@@ -12309,7 +12700,7 @@ msgstr "L'arrière-plan CTL à utiliser pour un LUN donné."
 
 msgid "The HAST volumes can not be accessed until HAST node becomes Primary."
 msgstr ""
-"Les volumes HAST resteront inaccessibles tant que le nœud HAST ne sera pas "
+"Les volumes HAST resteront inaccessibles tant que le node HAST ne sera pas "
 "Primaire."
 
 msgid "The IP address of the UPS master."
@@ -12970,6 +13361,9 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr "Le nom du pool ZFS."
 
+msgid "The name of the filesystem."
+msgstr "Le nom du système de fichiers."
+
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
@@ -13044,8 +13438,8 @@ msgstr "Le chemin '%s' n'est pas un répertoire."
 msgid ""
 "The path to the file, device node, or zfs volume used to back the LUN."
 msgstr ""
-"Le chemin d'accès au fichier, au nœud de périphérique ou au volume zfs "
-"utilisé pour sauvegarder le LUN."
+"Le chemin d'accès au fichier, au node périphérique ou au volume zfs utilisé "
+"pour sauvegarder le LUN."
 
 #, php-format
 msgid ""
@@ -13828,6 +14222,13 @@ msgstr "Le tag est utilisé."
 msgid "This user already exists."
 msgstr "Cet utilisateur existe déjà."
 
+msgid ""
+"This value represents the threshold block size for including small file "
+"blocks into the special allocation class."
+msgstr ""
+"Cette valeur représente la taille de bloc seuil pour l'inclusion de petits "
+"blocs de fichiers dans la classe d'allocation spéciale."
+
 msgid "This virtual device name already exists."
 msgstr "Ce nom de périphérique virtuel existe déjà."
 
@@ -14252,6 +14653,14 @@ msgstr "Mardi"
 msgid "Turn the monitor to standby after N seconds."
 msgstr "Mettre le moniteur en mode veille après N secondes."
 
+msgid ""
+"Turning this property on causes the access time to be updated relative to "
+"the modify or change time. The default value is off"
+msgstr ""
+"L'activation de cette propriété entraîne la mise à jour de l'heure d'accès "
+"par rapport à l'heure de modification ou de changement. La valeur par défaut "
+"est off"
+
 msgid "Type"
 msgstr "Type"
 
@@ -14583,8 +14992,14 @@ msgstr ""
 "la mise à jour de l'enregistrement DNS. La valeur par défaut est d'utiliser "
 "HTTPS."
 
+msgid "Use NFSv4-style ZFS ACLs"
+msgstr "Utiliser des ACL ZFS de style NFSv4"
+
 msgid "Use PAM for user authentication."
 msgstr "Utilisez PAM pour l'authentification des utilisateurs."
+
+msgid "Use POSIX ACLs"
+msgstr "Utiliser les ACL POSIX"
 
 msgid "Use Sqlite"
 msgstr "Utilisez Sqlite"
@@ -14790,6 +15205,21 @@ msgstr "Le compte d'utilisateur est déverrouillé"
 
 msgid "User agent string"
 msgstr "Chaîne de l'agent utilisateur"
+
+msgid "User defined limit"
+msgstr "Limite définie par l'utilisateur"
+
+msgid "User defined mount point"
+msgstr "Point de montage défini par l'utilisateur"
+
+msgid "User defined refquota"
+msgstr "Refquota défini par l'utilisateur"
+
+msgid "User defined refreservation"
+msgstr "Refreservation défini par l'utilisateur"
+
+msgid "User defined reservation"
+msgstr "Réservation définie par l'utilisateur"
 
 msgid "User portal permission."
 msgstr "Autorisation du portail utilisateur."
@@ -15527,6 +15957,9 @@ msgstr "Archive ZIP"
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
 
+msgid "Zstandard Compression"
+msgstr "Compression Zstandard"
+
 msgid "Zstandard Compression Level"
 msgstr "Zstandard Niveau de Compression (1-22)"
 
@@ -15555,6 +15988,9 @@ msgstr ""
 "à décoder comme : octet 0-1-2 = nombre de blocs valides (big endian) et "
 "octet 3-4 = nombre de blocs système libres"
 
+msgid "dev"
+msgstr "dev"
+
 #, php-format
 msgid "e.g. %s"
 msgstr "e.g. %s"
@@ -15564,6 +16000,9 @@ msgstr "example.com"
 
 msgid "filechooser"
 msgstr "Sélectionneur de fichier"
+
+msgid "full"
+msgstr "plein"
 
 msgid "get target info failed."
 msgstr "Echec de récupération d'information sur la cible."

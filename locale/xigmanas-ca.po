@@ -7,16 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-10-03 04:58+0000\n"
+"POT-Creation-Date: 2022-10-04 22:38+0000\n"
 "PO-Revision-Date: 2022-09-22 13:35+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-10-04 02:24+0000\n"
-"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
+"X-Launchpad-Export-Date: 2022-10-09 00:16+0000\n"
+"X-Generator: Launchpad (build 762fb15a975e8b23af6a1f86e44e46bfd0451459)\n"
 "Language: ca_ES\n"
+
+msgid ""
+" Controls whether device nodes can be opened on this file system. The "
+"default value is on. The values on and off are equivalent to the dev and "
+"nodev mount options."
+msgstr ""
 
 msgid " No private key"
 msgstr " Sense clau privada"
@@ -234,6 +240,9 @@ msgstr ""
 msgid "1"
 msgstr "1"
 
+msgid "1 - one copy"
+msgstr ""
+
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr "Es requereix 1 o més discos per crear un volum JBOD."
 
@@ -249,17 +258,38 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "128K"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 KiB"
 
 msgid "16384"
 msgstr "16384"
 
+msgid "16K"
+msgstr ""
+
+msgid "16k"
+msgstr ""
+
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
+msgid "1K"
+msgstr ""
+
+msgid "1M"
+msgstr ""
+
+msgid "1k"
+msgstr ""
+
 msgid "2"
 msgstr "2"
+
+msgid "2 - two copies"
+msgstr ""
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -276,8 +306,20 @@ msgstr "2.5\""
 msgid "22"
 msgstr "22"
 
+msgid "256K"
+msgstr ""
+
+msgid "2K"
+msgstr ""
+
+msgid "2k"
+msgstr ""
+
 msgid "3"
 msgstr "3"
+
+msgid "3 - three copies - not applicable when encryption is enabled"
+msgstr ""
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "Es requereix 3 o més discos per crear un volum RAID-5."
@@ -291,11 +333,20 @@ msgstr "300"
 msgid "32 KiB"
 msgstr "32 KiB"
 
+msgid "32K"
+msgstr ""
+
 msgid "4 KiB"
 msgstr "4 KiB"
 
+msgid "4K"
+msgstr ""
+
 msgid "4KB wrapper"
 msgstr "Embolcall 4KB"
+
+msgid "4k"
+msgstr ""
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -303,11 +354,23 @@ msgstr "5.25\""
 msgid "512 Bytes"
 msgstr "512 Bytes"
 
+msgid "512 bytes"
+msgstr ""
+
+msgid "512B"
+msgstr ""
+
+msgid "512K"
+msgstr ""
+
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
 msgstr "64 KiB"
+
+msgid "64K"
+msgstr ""
 
 msgid "69"
 msgstr "69"
@@ -320,6 +383,12 @@ msgstr "802.1Q etiqueta VLAN (des 1 fins a 4094)."
 
 msgid "8200"
 msgstr "8200"
+
+msgid "8K"
+msgstr ""
+
+msgid "8k"
+msgstr ""
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -807,6 +876,9 @@ msgstr "Contrasenya d'administrador"
 msgid "Admin access"
 msgstr "Accés d'administrador"
 
+msgid "Admin controlled mount"
+msgstr ""
+
 msgid "Administrative WebGUI"
 msgstr "WebGUI administratiu"
 
@@ -984,6 +1056,11 @@ msgstr "Permetre la lectura / escriptura consecutiva en paral·lel"
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "Permet autenticació interactiva amb el teclat."
+
+msgid ""
+"Allow mounting on a busy directory or a directory which already contains "
+"files or directories."
+msgstr ""
 
 msgid "Allow new files to be created."
 msgstr "Permet que nous arxius pugin ser creats"
@@ -1384,6 +1461,9 @@ msgstr "Captura automàtica"
 
 msgid "Auto Snapshot Settings"
 msgstr "Configuració de les instantànies"
+
+msgid "Auto mount"
+msgstr ""
 
 msgid "Auto page refresh."
 msgstr "Pàgina d'actualització automàtica."
@@ -2178,6 +2258,102 @@ msgstr "Compressió"
 msgid "Compression Ratio"
 msgstr ""
 
+msgid "Compression level 1 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 1 - fastest compression"
+msgstr ""
+
+msgid "Compression level 10"
+msgstr ""
+
+msgid "Compression level 100"
+msgstr ""
+
+msgid "Compression level 1000 - fastest compression"
+msgstr ""
+
+msgid "Compression level 11"
+msgstr ""
+
+msgid "Compression level 12"
+msgstr ""
+
+msgid "Compression level 13"
+msgstr ""
+
+msgid "Compression level 14"
+msgstr ""
+
+msgid "Compression level 15"
+msgstr ""
+
+msgid "Compression level 16"
+msgstr ""
+
+msgid "Compression level 17"
+msgstr ""
+
+msgid "Compression level 18"
+msgstr ""
+
+msgid "Compression level 19 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 2"
+msgstr ""
+
+msgid "Compression level 20"
+msgstr ""
+
+msgid "Compression level 3"
+msgstr ""
+
+msgid "Compression level 30"
+msgstr ""
+
+msgid "Compression level 4"
+msgstr ""
+
+msgid "Compression level 40"
+msgstr ""
+
+msgid "Compression level 5"
+msgstr ""
+
+msgid "Compression level 50"
+msgstr ""
+
+msgid "Compression level 500"
+msgstr ""
+
+msgid "Compression level 6"
+msgstr ""
+
+msgid "Compression level 60"
+msgstr ""
+
+msgid "Compression level 7"
+msgstr ""
+
+msgid "Compression level 70"
+msgstr ""
+
+msgid "Compression level 8"
+msgstr ""
+
+msgid "Compression level 80"
+msgstr ""
+
+msgid "Compression level 9"
+msgstr ""
+
+msgid "Compression level 9 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 90"
+msgstr ""
+
 msgid "Configuration"
 msgstr "Configuració"
 
@@ -2334,8 +2510,34 @@ msgstr ""
 "'GZIP-N', on N és un nombre enter d'1 (la més ràpida) a 9 (millor relació de "
 "compressió). En l'actualitat, 'GZIP' és equivalent a 'GZIP-6'."
 
+msgid ""
+"Controls the compression algorithm. LZ4 is the recommended compression "
+"algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
+"the feature flag lz4_compress is active, otherwise LZJB is used."
+msgstr ""
+
 msgid "Controls the dedup method."
 msgstr "Controla el mètode dedup"
+
+msgid ""
+"Controls the encryption cipher suite (block cipher, key length, and mode) "
+"used for this dataset."
+msgstr ""
+
+msgid "Controls the format of the provided encryption key."
+msgstr ""
+
+msgid "Controls the level of the Fast Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the gzip compression algorithm"
+msgstr ""
+
+msgid "Controls the mount point type used for this file system."
+msgstr ""
 
 msgid "Controls the number of copies of data stored for this dataset."
 msgstr ""
@@ -2365,11 +2567,30 @@ msgstr ""
 "Controls en què s'emmagatzema la forquilla de recursos del sistema operatiu "
 "OS X."
 
+msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
+msgstr ""
+
+msgid ""
+"Controls whether extended attributes are enabled for this file system."
+msgstr ""
+
 msgid ""
 "Controls whether processes can be executed from within this file system."
 msgstr ""
 "Controla si els processos es poden executar des de dins d'aquest sistema "
 "d'arxius."
+
+msgid ""
+"Controls whether processes can be executed from within this file system. The "
+"default value is on. The values on and off are equivalent to the exec and "
+"noexec mount options."
+msgstr ""
+
+msgid ""
+"Controls whether regular files should be scanned for viruses when a file is "
+"opened and closed. In addition to enabling this property, the virus scan "
+"service must also be enabled for virus scanning to occur."
+msgstr ""
 
 msgid ""
 "Controls whether the .zfs directory is hidden or visible in the root of the "
@@ -2396,8 +2617,24 @@ msgstr ""
 msgid "Controls whether the dataset is managed from a jail."
 msgstr "Controla si el conjunt de dades es gestiona des de un 'jail'"
 
+msgid "Controls whether the file system is shared via NFS."
+msgstr ""
+
+msgid "Controls whether the file system is shared via SMB."
+msgstr ""
+
+msgid ""
+"Controls whether the file system should be mounted with non-blocking "
+"mandatory locks."
+msgstr ""
+
 msgid "Controls whether the set-UID bit is respected for the file system."
 msgstr "Controla si el bit set-UID és respectat pel sistema d'arxius."
+
+msgid ""
+"Controls whether the volume snapshot devices under /dev/zvol/<pool> are "
+"hidden or visible."
+msgstr ""
 
 msgid "Controls whether this dataset can be modified."
 msgstr "Controla si el conjunt de dades pot ser modificat"
@@ -2984,6 +3221,9 @@ msgstr "Configuració del dispositiu per defecte"
 msgid "Default Root"
 msgstr "Arrel predeterminat"
 
+msgid "Default compression level"
+msgstr ""
+
 msgid "Default user name is 'admin'."
 msgstr "Nom d'usuari per defecte es 'admin'"
 
@@ -3013,6 +3253,11 @@ msgstr ""
 
 msgid "Defines the checksum algorithm."
 msgstr "Defineix l'algoritme de control."
+
+msgid ""
+"Defines the minimum amount of space guaranteed to a dataset, not including "
+"its descendents."
+msgstr ""
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Defineix quand el tancament s'inicia"
@@ -3594,8 +3839,14 @@ msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr ""
 "Els noms de les variables deshabilitats s’eliminaran del fitxer /etc/rc.conf."
 
+msgid "Discard - Discard ACEs"
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr "Descarta - Descartar ACL"
+
+msgid "Discard - Do not inherit any ACEs"
+msgstr ""
 
 msgid "Discard - Do not inherit entries"
 msgstr "Descarta - No hereten les entrades"
@@ -3721,6 +3972,12 @@ msgid ""
 msgstr ""
 "No permeti que el servidor verifiqui si hi han noves versions de firmware "
 "quan la pàgina %s es carrega."
+
+msgid "Do not mount"
+msgstr ""
+
+msgid "Do not use ACLs"
+msgstr ""
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -4621,6 +4878,9 @@ msgstr "Edita la configuració de sysctl"
 msgid "Edit target"
 msgstr "Editar objetiu"
 
+msgid "Edon-R, Verify"
+msgstr ""
+
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
 msgstr ""
@@ -5246,6 +5506,9 @@ msgstr "Introduïu opcions adicionals"
 msgid "Enter facility name"
 msgstr "Introduïu el nom de la ubicació"
 
+msgid "Enter filesystem name"
+msgstr ""
+
 msgid "Enter group name."
 msgstr "Introduïu nom de grup"
 
@@ -5601,6 +5864,9 @@ msgstr "Adreça falsa"
 msgid "Fast"
 msgstr "Ràpid"
 
+msgid "Fast Zstandard Compression"
+msgstr ""
+
 msgid "Fast Zstandard Compression Level"
 msgstr ""
 
@@ -5708,6 +5974,9 @@ msgid "Filesystem Count"
 msgstr ""
 
 msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem Name"
 msgstr ""
 
 msgid "Filesystem is locked"
@@ -6076,6 +6345,9 @@ msgstr "Grup està protegit"
 msgid "Group is unlocked"
 msgstr "Grup està desbloquejat"
 
+msgid "Groupmask - Mask ACL with group permissions"
+msgstr ""
+
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Máscara de grup - Màscara de l'LCA amb mode"
 
@@ -6195,6 +6467,9 @@ msgstr "Alçada dels gràfics. (defecte %s pixels)"
 
 msgid "Help"
 msgstr "Ajuda"
+
+msgid "Hex"
+msgstr ""
 
 msgid "Hiadaptive (High Performance)"
 msgstr "Hiadaptive (alt rendiment)"
@@ -7198,6 +7473,9 @@ msgstr "Deixa les instantànies ja configurades."
 msgid "Leave auto snapshot configuration"
 msgstr "Deixa configuració instantània automàtica"
 
+msgid "Legacy"
+msgstr ""
+
 msgid "Level"
 msgstr "Nivell"
 
@@ -8079,6 +8357,9 @@ msgstr "NFS Root està marcat per a la supressió"
 msgid "NFS Root is unlocked"
 msgstr "NFS root està desbloquejat"
 
+msgid "NFS sharing"
+msgstr ""
+
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8467,6 +8748,9 @@ msgstr "No s'han seleccionat dispositius virtuals"
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Només heretar entrades negades"
 
+msgid "Noallow - Only inherit inheritable ACEs that specify deny permissions"
+msgstr ""
+
 msgid "Noauto"
 msgstr "No auto"
 
@@ -8538,6 +8822,22 @@ msgstr "Normal"
 
 msgid "Normalization"
 msgstr "Normalització"
+
+msgid ""
+"Normalization Form C (NFC) - Canonical Decomposition, followed by Canonical "
+"Composition"
+msgstr ""
+
+msgid "Normalization Form D (NFD) - Canonical Decomposition"
+msgstr ""
+
+msgid ""
+"Normalization Form KC (NFKC) - Compatibility Decomposition, followed by "
+"Canonical Composition"
+msgstr ""
+
+msgid "Normalization Form KD (NFKD) - Compatibility Decomposition"
+msgstr ""
 
 msgid ""
 "Normally this option should not be set as the automatic negotiation phase in "
@@ -8958,11 +9258,18 @@ msgstr "Pass directe - No canvieu ACL"
 msgid "Passthrough - Inherit all entries"
 msgstr "Pass directe - Heretarà totes les entrades"
 
+msgid "Passthrough - Inherit all inheritable ACEs without any modifications"
+msgstr ""
+
 msgid "Passthrough Address"
 msgstr "Adreça de pas"
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
 msgstr "Pass directe - Hereta tots menys \"executar\" quan no s'especifica"
+
+msgid ""
+"Passthrough-X - Inherit all except execute permission when not specified"
+msgstr ""
 
 msgid "Password"
 msgstr "Contrasenya"
@@ -9861,6 +10168,9 @@ msgstr "Registre RSYNC"
 msgid "Ramdisk"
 msgstr "Disc RAM"
 
+msgid "Raw"
+msgstr ""
+
 msgid "Raw Value"
 msgstr "Valor en brut"
 
@@ -10042,10 +10352,16 @@ msgstr "Refquota"
 msgid "Refquota Type"
 msgstr ""
 
+msgid "Refquota type."
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Refreservation"
 
 msgid "Refreservation Type"
+msgstr ""
+
+msgid "Refreservation type."
 msgstr ""
 
 msgid "Refresh"
@@ -10226,6 +10542,9 @@ msgstr "Reserva"
 msgid "Reservation Type"
 msgstr ""
 
+msgid "Reservation type."
+msgstr ""
+
 msgid "Reset"
 msgstr "Restableix"
 
@@ -10284,6 +10603,11 @@ msgstr "Restringiu la carpeta a un tipus de suport específic."
 
 msgid "Restricted"
 msgstr "Restringit"
+
+msgid ""
+"Restricted - Inherit ACEs except \"write ACL\" and \"write owner\" "
+"permissions"
+msgstr ""
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr ""
@@ -10518,6 +10842,9 @@ msgstr "El recurs Samba està marcat per esborrar"
 
 msgid "Samba Share is unlocked"
 msgstr "El recurs Samba està desbloquejat"
+
+msgid "Samba sharing"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -11329,6 +11656,9 @@ msgstr ""
 msgid "Share NFS Type"
 msgstr ""
 
+msgid "Share NFS options."
+msgstr ""
+
 msgid "Share Password"
 msgstr "Compartir contrasenya"
 
@@ -11336,6 +11666,9 @@ msgid "Share SMB Options"
 msgstr ""
 
 msgid "Share SMB Type"
+msgstr ""
+
+msgid "Share SMB options."
 msgstr ""
 
 msgid "Share Settings"
@@ -11525,6 +11858,9 @@ msgstr "Instantània està marcat per ser esborrat"
 msgid "Snapshot is unlocked"
 msgstr "Instantània està desbloquejat"
 
+msgid "Snapshot limit"
+msgstr ""
+
 msgid "Snapshots"
 msgstr "Instantànies"
 
@@ -11642,6 +11978,17 @@ msgstr "Especifica la cadena de revisió LUN de fins a 4 caràcters."
 
 msgid "Specifies LUN vendor string up to 8 chars."
 msgstr "Especifica la cadena de proveïdor LUN de fins a 8 caràcters."
+
+msgid ""
+"Specifies a compatibility mode or literal value for the size of dnodes in "
+"the file system."
+msgstr ""
+
+msgid ""
+"Specifies a suggested block size for files in the file system. This property "
+"is designed solely for use with database workloads that access files in "
+"fixed-size records."
+msgstr ""
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -12069,6 +12416,9 @@ msgstr "Temps d'activitat del sistema"
 
 msgid "System User"
 msgstr "Usuari de sistema"
+
+msgid "System attribute based xattrs"
+msgstr ""
 
 msgid "System info"
 msgstr "Informació del sistema"
@@ -12925,6 +13275,9 @@ msgstr ""
 
 msgid "The name of the ZFS pool."
 msgstr "El nom del grup ZFS."
+
+msgid "The name of the filesystem."
+msgstr ""
 
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
@@ -13783,6 +14136,11 @@ msgstr "Aquesta etiqueta ja s'utilitza."
 msgid "This user already exists."
 msgstr "Aquest usuari ja existeix."
 
+msgid ""
+"This value represents the threshold block size for including small file "
+"blocks into the special allocation class."
+msgstr ""
+
 msgid "This virtual device name already exists."
 msgstr "Aquest nom de dispositiu virtual ja existeix."
 
@@ -14203,6 +14561,11 @@ msgstr "Dimarts"
 msgid "Turn the monitor to standby after N seconds."
 msgstr "Posa el monitor en mode d'espera després de N segons"
 
+msgid ""
+"Turning this property on causes the access time to be updated relative to "
+"the modify or change time. The default value is off"
+msgstr ""
+
 msgid "Type"
 msgstr "Tipus"
 
@@ -14534,8 +14897,14 @@ msgstr ""
 "Utilitzeu HTTPS, tant per comprovar si hi ha canvis d’IP com per actualitzar "
 "el registre DNS. El valor predeterminat és utilitzar HTTPS."
 
+msgid "Use NFSv4-style ZFS ACLs"
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr "Utilitza PAM per a l'autenticació d'usuari."
+
+msgid "Use POSIX ACLs"
+msgstr ""
 
 msgid "Use Sqlite"
 msgstr "Utilitzeu Sqlite"
@@ -14741,6 +15110,21 @@ msgstr "El compte d'usuari està desbloquejat"
 
 msgid "User agent string"
 msgstr "Cadena d'agent d'usuari"
+
+msgid "User defined limit"
+msgstr ""
+
+msgid "User defined mount point"
+msgstr ""
+
+msgid "User defined refquota"
+msgstr ""
+
+msgid "User defined refreservation"
+msgstr ""
+
+msgid "User defined reservation"
+msgstr ""
 
 msgid "User portal permission."
 msgstr "Permís del portal d’usuaris."
@@ -15469,6 +15853,9 @@ msgstr "Fitxer ZIP"
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
 
+msgid "Zstandard Compression"
+msgstr ""
+
 msgid "Zstandard Compression Level"
 msgstr ""
 
@@ -15497,6 +15884,9 @@ msgstr ""
 "Descodificat com: Byte 0-1-2 = recompte bloc bo (big endian) i el byte = 3-4 "
 "sistema(lliure) recompte de blocs."
 
+msgid "dev"
+msgstr ""
+
 #, php-format
 msgid "e.g. %s"
 msgstr "e.x. %s"
@@ -15506,6 +15896,9 @@ msgstr "example.com"
 
 msgid "filechooser"
 msgstr "selector de fitxers"
+
+msgid "full"
+msgstr ""
 
 msgid "get target info failed."
 msgstr "obtenir informació del objectiu ha fallat."

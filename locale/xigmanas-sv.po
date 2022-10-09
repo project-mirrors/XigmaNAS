@@ -2,19 +2,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-03 04:58+0000\n"
-"PO-Revision-Date: 2022-10-03 18:02+0000\n"
+"POT-Creation-Date: 2022-10-04 22:38+0000\n"
+"PO-Revision-Date: 2022-10-05 16:01+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
-"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: SWEDEN\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2022-10-09 00:17+0000\n"
+"X-Generator: Launchpad (build 762fb15a975e8b23af6a1f86e44e46bfd0451459)\n"
 "X-Poedit-Language: Swedish\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
+"X-Poedit-Country: SWEDEN\n"
+
+msgid ""
+" Controls whether device nodes can be opened on this file system. The "
+"default value is on. The values on and off are equivalent to the dev and "
+"nodev mount options."
+msgstr ""
+" Styr om enhetsnoder kan öppnas i detta filsystem. Standardvärde är på. "
+"Värdena på och av motsvarar monteringsoptionerna dev och nodev."
 
 msgid " No private key"
 msgstr " Ingen privat nyckel"
@@ -225,6 +233,9 @@ msgstr "0=Avstängd, 1-255= Kommandokö med angivet djup"
 msgid "1"
 msgstr "1"
 
+msgid "1 - one copy"
+msgstr "1 - en kopia"
+
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr "1 eller fler diskar behövs för att skapa en JBOD volym."
 
@@ -240,17 +251,38 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "128K"
+msgstr "128K"
+
 msgid "16 KiB"
 msgstr "16 KiB"
 
 msgid "16384"
 msgstr "16384"
 
+msgid "16K"
+msgstr "16K"
+
+msgid "16k"
+msgstr "16k"
+
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
+msgid "1K"
+msgstr "1K"
+
+msgid "1M"
+msgstr "1M"
+
+msgid "1k"
+msgstr "1k"
+
 msgid "2"
 msgstr "2"
+
+msgid "2 - two copies"
+msgstr "2 - två kopior"
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -267,8 +299,20 @@ msgstr "2.5\""
 msgid "22"
 msgstr "22"
 
+msgid "256K"
+msgstr "256K"
+
+msgid "2K"
+msgstr "2K"
+
+msgid "2k"
+msgstr "2k"
+
 msgid "3"
 msgstr "3"
+
+msgid "3 - three copies - not applicable when encryption is enabled"
+msgstr "3 - tre kopior - inte tillämpbart när kryptering är aktiverad"
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "3 eller fler diskar behövs för att skapa en RAID-5 volym."
@@ -282,11 +326,20 @@ msgstr "300"
 msgid "32 KiB"
 msgstr "32 KiB"
 
+msgid "32K"
+msgstr "32K"
+
 msgid "4 KiB"
 msgstr "4 KiB"
 
+msgid "4K"
+msgstr "4K"
+
 msgid "4KB wrapper"
 msgstr "4KB paket"
+
+msgid "4k"
+msgstr "4k"
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -294,11 +347,23 @@ msgstr "5.25\""
 msgid "512 Bytes"
 msgstr "512 Byte"
 
+msgid "512 bytes"
+msgstr "512 byte"
+
+msgid "512B"
+msgstr "512B"
+
+msgid "512K"
+msgstr "512K"
+
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
 msgstr "64 KiB"
+
+msgid "64K"
+msgstr "64K"
 
 msgid "69"
 msgstr "69"
@@ -311,6 +376,12 @@ msgstr "802.1Q VLAN etikett (mellan 1 och 4094)."
 
 msgid "8200"
 msgstr "8200"
+
+msgid "8K"
+msgstr "8K"
+
+msgid "8k"
+msgstr "8k"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -792,6 +863,9 @@ msgstr "Administratörslösenord"
 msgid "Admin access"
 msgstr "Administratörsåtkomst"
 
+msgid "Admin controlled mount"
+msgstr "Administratörskontrollerad montering"
+
 msgid "Administrative WebGUI"
 msgstr "Administrativt webbgränssnitt"
 
@@ -965,6 +1039,13 @@ msgstr ""
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "Tillåt autentisering via tangentbord."
+
+msgid ""
+"Allow mounting on a busy directory or a directory which already contains "
+"files or directories."
+msgstr ""
+"Tillåt montering på en aktiv katalog eller en katalog som redan innehåller "
+"filer eller kataloger."
 
 msgid "Allow new files to be created."
 msgstr "Tillåt att nya filer att skapas."
@@ -1358,6 +1439,9 @@ msgstr "Automatisk avbildning"
 
 msgid "Auto Snapshot Settings"
 msgstr "Intällningar automatiskögonblicksbild"
+
+msgid "Auto mount"
+msgstr "Automontering"
 
 msgid "Auto page refresh."
 msgstr "Automatisk siduppdatering."
@@ -2133,6 +2217,102 @@ msgstr "Komprimering"
 msgid "Compression Ratio"
 msgstr "Komprimeringsförhållande"
 
+msgid "Compression level 1 - best compression ratio"
+msgstr "Kompressionsnivå 1 - bästa komprimeringsgrad"
+
+msgid "Compression level 1 - fastest compression"
+msgstr "Kompressionsnivå 1 - snabbaste komprimering"
+
+msgid "Compression level 10"
+msgstr "Kompressionsnivå 10"
+
+msgid "Compression level 100"
+msgstr "Kompressionsnivå 100"
+
+msgid "Compression level 1000 - fastest compression"
+msgstr "Kompressionsnivå 1000 - snabbaste komprimering"
+
+msgid "Compression level 11"
+msgstr "Kompressionsnivå 11"
+
+msgid "Compression level 12"
+msgstr "Kompressionsnivå 12"
+
+msgid "Compression level 13"
+msgstr "Kompressionsnivå 13"
+
+msgid "Compression level 14"
+msgstr "Kompressionsnivå 14"
+
+msgid "Compression level 15"
+msgstr "Kompressionsnivå 15"
+
+msgid "Compression level 16"
+msgstr "Kompressionsnivå 16"
+
+msgid "Compression level 17"
+msgstr "Kompressionsnivå 17"
+
+msgid "Compression level 18"
+msgstr "Kompressionsnivå 18"
+
+msgid "Compression level 19 - best compression ratio"
+msgstr "Kompressionsnivå 19 - bästa komprimeringsgrad"
+
+msgid "Compression level 2"
+msgstr "Kompressionsnivå 2"
+
+msgid "Compression level 20"
+msgstr "Kompressionsnivå 20"
+
+msgid "Compression level 3"
+msgstr "Kompressionsnivå 3"
+
+msgid "Compression level 30"
+msgstr "Kompressionsnivå 30"
+
+msgid "Compression level 4"
+msgstr "Kompressionsnivå 4"
+
+msgid "Compression level 40"
+msgstr "Kompressionsnivå 40"
+
+msgid "Compression level 5"
+msgstr "Kompressionsnivå 5"
+
+msgid "Compression level 50"
+msgstr "Kompressionsnivå 50"
+
+msgid "Compression level 500"
+msgstr "Kompressionsnivå 500"
+
+msgid "Compression level 6"
+msgstr "Kompressionsnivå 6"
+
+msgid "Compression level 60"
+msgstr "Kompressionsnivå 60"
+
+msgid "Compression level 7"
+msgstr "Kompressionsnivå 7"
+
+msgid "Compression level 70"
+msgstr "Kompressionsnivå 70"
+
+msgid "Compression level 8"
+msgstr "Kompressionsnivå 8"
+
+msgid "Compression level 80"
+msgstr "Kompressionsnivå 80"
+
+msgid "Compression level 9"
+msgstr "Kompressionsnivå 9"
+
+msgid "Compression level 9 - best compression ratio"
+msgstr "Kompressionsnivå 9 - bästa komprimeringsgrad"
+
+msgid "Compression level 90"
+msgstr "Kompressionsnivå 90"
+
 msgid "Configuration"
 msgstr "Konfiguration"
 
@@ -2288,8 +2468,39 @@ msgstr ""
 "heltal mellan 1 (snabbast) och 9 (bäst kompression). För närvarande "
 "motsvarar 'GZIP' 'GZIP-6'."
 
+msgid ""
+"Controls the compression algorithm. LZ4 is the recommended compression "
+"algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
+"the feature flag lz4_compress is active, otherwise LZJB is used."
+msgstr ""
+"Styr komprimeringsalgoritm. LZ4 är den rekommenderade "
+"kompressionsalgoritmen. Att sätta kompression till 'På' använder LZ4 "
+"kompression om flaggan lz4_compress är aktiv annars används LZJB."
+
 msgid "Controls the dedup method."
 msgstr "Kontrollerar \"dedup\" metoden."
+
+msgid ""
+"Controls the encryption cipher suite (block cipher, key length, and mode) "
+"used for this dataset."
+msgstr ""
+"Styr krypterings chiffer (block, nyckellängd, och mod) som används för detta "
+"dataset."
+
+msgid "Controls the format of the provided encryption key."
+msgstr "Styr formatet på den tillhandahållna krypteringsnyckeln."
+
+msgid "Controls the level of the Fast Zstandard compression level"
+msgstr "Styr nivån på Snabb Zstandard kompressionsnivå"
+
+msgid "Controls the level of the Zstandard compression level"
+msgstr "Styr nivån på Zstandard kompressionsnivå"
+
+msgid "Controls the level of the gzip compression algorithm"
+msgstr "Styr nivån på gzip kompressionsalgoritm"
+
+msgid "Controls the mount point type used for this file system."
+msgstr "Styr monteringspunkttyp som används för detta filsystem."
 
 msgid "Controls the number of copies of data stored for this dataset."
 msgstr "Styr antalet kopior på data som sparas för detta dataset."
@@ -2317,9 +2528,34 @@ msgstr "Kontrollerar var OS X metadataströmmen sparas."
 msgid "Controls where the OS X resource fork is stored."
 msgstr "Kontrollerar var OS X resursträd sparas."
 
+msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
+msgstr ""
+"Styr om ACLs är aktiverade och om så vilken typ av ACL som skall användas."
+
+msgid ""
+"Controls whether extended attributes are enabled for this file system."
+msgstr "Styr om utökande attribut är aktiverade för detta filsystem."
+
 msgid ""
 "Controls whether processes can be executed from within this file system."
 msgstr "Styr huruvida processer kan köras inifrån detta filsystem."
+
+msgid ""
+"Controls whether processes can be executed from within this file system. The "
+"default value is on. The values on and off are equivalent to the exec and "
+"noexec mount options."
+msgstr ""
+"Styr om processer kan köras inifrån detta filsystem. Standard är på. Värdena "
+"på och av motsvarar monteringsoptionerna exec och noexec."
+
+msgid ""
+"Controls whether regular files should be scanned for viruses when a file is "
+"opened and closed. In addition to enabling this property, the virus scan "
+"service must also be enabled for virus scanning to occur."
+msgstr ""
+"Styr om vanliga filer skall virusscannade när filen öppnas och stängs. "
+"Förutom att aktivera detta alternativ måste virusscantjänsten aktiveras för "
+"att en genomsökning skall ske."
 
 msgid ""
 "Controls whether the .zfs directory is hidden or visible in the root of the "
@@ -2343,8 +2579,27 @@ msgstr ""
 msgid "Controls whether the dataset is managed from a jail."
 msgstr "Styr huruvida datasetet hanteras från ett jail."
 
+msgid "Controls whether the file system is shared via NFS."
+msgstr "Styr om filsystemet delas via NFS."
+
+msgid "Controls whether the file system is shared via SMB."
+msgstr "Styr om filsuystemet delas via SMB."
+
+msgid ""
+"Controls whether the file system should be mounted with non-blocking "
+"mandatory locks."
+msgstr ""
+"Styr om filsystemet skall monteras med icke-blockerande nödvändiga lås."
+
 msgid "Controls whether the set-UID bit is respected for the file system."
 msgstr "Styr huruvida sätt-UID biten respekteras för filsystemet."
+
+msgid ""
+"Controls whether the volume snapshot devices under /dev/zvol/<pool> are "
+"hidden or visible."
+msgstr ""
+"Styr om volym ögonblicksbildsenheten under /dev/zvol/<pool> är dold eller "
+"synlig."
 
 msgid "Controls whether this dataset can be modified."
 msgstr "Kontrollerar huruvida detta Dataset kan modifieras"
@@ -2912,6 +3167,9 @@ msgstr "Standardinställningar"
 msgid "Default Root"
 msgstr "Standard Root"
 
+msgid "Default compression level"
+msgstr "Standard kompressionsnivå"
+
 msgid "Default user name is 'admin'."
 msgstr "Standardanvändarnamn är 'admin'."
 
@@ -2939,6 +3197,13 @@ msgstr "Definiera iSCSI hårdvaruavlastningsdriver. Standard är \"Ingen\"."
 
 msgid "Defines the checksum algorithm."
 msgstr "Styr kontrollsummealgoritmen,"
+
+msgid ""
+"Defines the minimum amount of space guaranteed to a dataset, not including "
+"its descendents."
+msgstr ""
+"Definierar den minsta mängd utrymme som ett dataset garanteras, inte "
+"inklusive dess efterföljare."
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Definera när avstängning initieras"
@@ -3515,8 +3780,14 @@ msgstr "Inaktiverad"
 msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr "Inaktiverade variabelnamn kommer tas bort från /etc/rc.conf."
 
+msgid "Discard - Discard ACEs"
+msgstr "Kasta bort - Kasta bort ACEer"
+
 msgid "Discard - Discard ACL"
 msgstr "Discard - Förkasta ACL"
+
+msgid "Discard - Do not inherit any ACEs"
+msgstr "Kasta bort - Ärv inga ACEer"
 
 msgid "Discard - Do not inherit entries"
 msgstr "Discard - Ärv inte egenskaper"
@@ -3637,6 +3908,12 @@ msgid ""
 "gets loaded."
 msgstr ""
 "Låt inte servern leta efter nyare systemmjukvara när %s sidan laddas."
+
+msgid "Do not mount"
+msgstr "Montera inte"
+
+msgid "Do not use ACLs"
+msgstr "Använd inte ACLer"
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -4529,6 +4806,9 @@ msgstr "Åndra sysctl inställning"
 msgid "Edit target"
 msgstr "Redigera mål"
 
+msgid "Edon-R, Verify"
+msgstr "Edon-R, Verifiera"
+
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
 msgstr "Verkningsgrad på UPS (Utgående ström i förhållande till inkommande)."
@@ -5143,6 +5423,9 @@ msgstr "Mata in extra parametrar"
 msgid "Enter facility name"
 msgstr "Mata in anläggningsnamn"
 
+msgid "Enter filesystem name"
+msgstr "Mata in filsystemsnamn"
+
 msgid "Enter group name."
 msgstr "Mata in gruppnamn."
 
@@ -5495,6 +5778,9 @@ msgstr "Bluffadress"
 msgid "Fast"
 msgstr "Snabb"
 
+msgid "Fast Zstandard Compression"
+msgstr "Snabb Zstandard kompression"
+
 msgid "Fast Zstandard Compression Level"
 msgstr "Snabb Zstandard Kompressionsnivå"
 
@@ -5600,6 +5886,9 @@ msgstr "Filsystem Räknare"
 
 msgid "Filesystem Limit"
 msgstr "Filsystem Gräns"
+
+msgid "Filesystem Name"
+msgstr "Filsystemsnamn"
 
 msgid "Filesystem is locked"
 msgstr "Filsystemet är låst"
@@ -5952,6 +6241,9 @@ msgstr "Gruppen är skyddad"
 msgid "Group is unlocked"
 msgstr "Gruppen är olåst"
 
+msgid "Groupmask - Mask ACL with group permissions"
+msgstr "Gruppmask - Maskera ACL med grupprättigheter"
+
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask - Maska ACL med mod"
 
@@ -6066,6 +6358,9 @@ msgstr "Höjden på grafer. (standard %s pixlar)"
 
 msgid "Help"
 msgstr "Hjälp"
+
+msgid "Hex"
+msgstr "Hex"
 
 msgid "Hiadaptive (High Performance)"
 msgstr "Högadaptiv (Hög prestanda)"
@@ -7045,6 +7340,9 @@ msgstr "Lämna redan konfigurerade automatiska avbilder."
 msgid "Leave auto snapshot configuration"
 msgstr "Lämna konfigurering av automatiska avbild."
 
+msgid "Legacy"
+msgstr "Äldre"
+
 msgid "Level"
 msgstr "Nivå"
 
@@ -7913,6 +8211,9 @@ msgstr "NFS Root är markerad för borttagning"
 msgid "NFS Root is unlocked"
 msgstr "NFS Root är olåst"
 
+msgid "NFS sharing"
+msgstr "NFS delning"
+
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8294,6 +8595,10 @@ msgstr "Inga virtuella enheter har valts"
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Ärv bara nekande egenskaper"
 
+msgid "Noallow - Only inherit inheritable ACEs that specify deny permissions"
+msgstr ""
+"Noallow - Ärv endast ärvbara ACEer som specificerar nekande rättigheter"
+
 msgid "Noauto"
 msgstr "Ingen automatik"
 
@@ -8365,6 +8670,26 @@ msgstr "Normal"
 
 msgid "Normalization"
 msgstr "Normalisering"
+
+msgid ""
+"Normalization Form C (NFC) - Canonical Decomposition, followed by Canonical "
+"Composition"
+msgstr ""
+"Normaliserings Form C (NFC) - Canonical Decomposition, som följs av "
+"Canonical Composition"
+
+msgid "Normalization Form D (NFD) - Canonical Decomposition"
+msgstr "Normaliseings Form C (NFD) - Canonical Decomposition"
+
+msgid ""
+"Normalization Form KC (NFKC) - Compatibility Decomposition, followed by "
+"Canonical Composition"
+msgstr ""
+"Normaliserings Form KC (NFKC) - Kompatibilitets Decomposition, som följs av "
+"Canonical Composition"
+
+msgid "Normalization Form KD (NFKD) - Compatibility Decomposition"
+msgstr "Normaliserings Form KD (NFKD) - Kompatibilitets Decomposition"
 
 msgid ""
 "Normally this option should not be set as the automatic negotiation phase in "
@@ -8777,12 +9102,20 @@ msgstr "Passthrough - Ändra inte ACL"
 msgid "Passthrough - Inherit all entries"
 msgstr "Passthrougth - Ärv alla egenskaper"
 
+msgid "Passthrough - Inherit all inheritable ACEs without any modifications"
+msgstr "Vidareför - Ärv alla ärvbara ECEer utan ändringar"
+
 msgid "Passthrough Address"
 msgstr "\"passthrough\"-adress"
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
 msgstr ""
 "Passthrougth - Ärv alla egenskaper utom \"kör\" när inget annat anges"
+
+msgid ""
+"Passthrough-X - Inherit all except execute permission when not specified"
+msgstr ""
+"Vidareför-X - Ärv alla utom körrättingheter när inte dessa specificerats"
 
 msgid "Password"
 msgstr "Lösenord"
@@ -9672,6 +10005,9 @@ msgstr "RSYNC logg"
 msgid "Ramdisk"
 msgstr "Minnesdisk"
 
+msgid "Raw"
+msgstr "Rå"
+
 msgid "Raw Value"
 msgstr "Råvärde"
 
@@ -9848,11 +10184,17 @@ msgstr "Refkvot"
 msgid "Refquota Type"
 msgstr "Refquota Typ"
 
+msgid "Refquota type."
+msgstr "Refquota typ."
+
 msgid "Refreservation"
 msgstr "Refreservation"
 
 msgid "Refreservation Type"
 msgstr "Refreservation Typ"
+
+msgid "Refreservation type."
+msgstr "Refreservation typ."
 
 msgid "Refresh"
 msgstr "Uppdatera"
@@ -10031,6 +10373,9 @@ msgstr "Reservation"
 msgid "Reservation Type"
 msgstr "Reservations Typ"
 
+msgid "Reservation type."
+msgstr "Reservation typ."
+
 msgid "Reset"
 msgstr "Återställ"
 
@@ -10087,6 +10432,12 @@ msgstr "Reservera katalogen för en specifik mediatyp."
 
 msgid "Restricted"
 msgstr "Begränsad"
+
+msgid ""
+"Restricted - Inherit ACEs except \"write ACL\" and \"write owner\" "
+"permissions"
+msgstr ""
+"Begränsad - Ärv ECEer utom \"skriv ACL\" och \"skriv ägare\" rättogheter"
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr ""
@@ -10320,6 +10671,9 @@ msgstr "Sambautdelning är markerad för borttagning"
 
 msgid "Samba Share is unlocked"
 msgstr "Sambautdelning är olåst"
+
+msgid "Samba sharing"
+msgstr "Sambadelning"
 
 #, php-format
 msgid ""
@@ -11103,6 +11457,9 @@ msgstr "Dela NFS Optioner"
 msgid "Share NFS Type"
 msgstr "Dela NFS Typ"
 
+msgid "Share NFS options."
+msgstr "Dela NFS optioner."
+
 msgid "Share Password"
 msgstr "Lösenord för utdelning"
 
@@ -11111,6 +11468,9 @@ msgstr "Dela SMB Optioner"
 
 msgid "Share SMB Type"
 msgstr "Dela SMB Typ"
+
+msgid "Share SMB options."
+msgstr "Dela SMB optioner."
 
 msgid "Share Settings"
 msgstr "Delningsinställningar"
@@ -11300,6 +11660,9 @@ msgstr "Ögonblicksbilden är markerad för borttagning"
 msgid "Snapshot is unlocked"
 msgstr "Ögonblicksbilden är olåst"
 
+msgid "Snapshot limit"
+msgstr "Ögomblicksbildsgräns"
+
 msgid "Snapshots"
 msgstr "Avbilder"
 
@@ -11416,6 +11779,22 @@ msgstr "Anger LUN revisionssträng upp till 4 tecken."
 
 msgid "Specifies LUN vendor string up to 8 chars."
 msgstr "Anger LUN tillverkarsträng upp till 8 tecken."
+
+msgid ""
+"Specifies a compatibility mode or literal value for the size of dnodes in "
+"the file system."
+msgstr ""
+"Specificerar en kompatibilitetsmod eller ett värde på storleken på dnoder i "
+"filsystemet."
+
+msgid ""
+"Specifies a suggested block size for files in the file system. This property "
+"is designed solely for use with database workloads that access files in "
+"fixed-size records."
+msgstr ""
+"Specificerar en föreslagen blockstorlek för filer i filsystemet. Denna "
+"egenskap är designad enbart för användning med databaslaster som accessar "
+"filer i poster med fast storlek."
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -11834,6 +12213,9 @@ msgstr "Systemets drifttid"
 
 msgid "System User"
 msgstr "Systemanvändare"
+
+msgid "System attribute based xattrs"
+msgstr "Systemattribut baserade xattrs"
 
 msgid "System info"
 msgstr "Systeminfo"
@@ -12671,6 +13053,9 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr "Namnet på ZFS poolen."
 
+msgid "The name of the filesystem."
+msgstr "Namnet på filsystemet."
+
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
@@ -13502,6 +13887,13 @@ msgstr "Etiketten används redan."
 msgid "This user already exists."
 msgstr "Den här användaren finns redan."
 
+msgid ""
+"This value represents the threshold block size for including small file "
+"blocks into the special allocation class."
+msgstr ""
+"Detta värde representerar gränsvärdet på storleken för att inkludera små "
+"filblock i specialallokationsklassen."
+
 msgid "This virtual device name already exists."
 msgstr "Namnet på den virtuella enheten finns redan."
 
@@ -13915,6 +14307,13 @@ msgstr "tisdag"
 msgid "Turn the monitor to standby after N seconds."
 msgstr "Sätter monitorn i väntläge efter N sekunder."
 
+msgid ""
+"Turning this property on causes the access time to be updated relative to "
+"the modify or change time. The default value is off"
+msgstr ""
+"Att slå på denna egenskap orsakar att accesstid uppdateras relativt till "
+"ändringstiden. Standard är av"
+
 msgid "Type"
 msgstr "Typ"
 
@@ -14243,8 +14642,14 @@ msgstr ""
 "Använd HTTPS, både vid kontroll av IP förändringar och uppdatering av DNS. "
 "Standard är att använda HTTPS."
 
+msgid "Use NFSv4-style ZFS ACLs"
+msgstr "Använd NFSv4-style ZFS ACLs"
+
 msgid "Use PAM for user authentication."
 msgstr "Använd PAM för användarautentisering."
+
+msgid "Use POSIX ACLs"
+msgstr "Använd POSIX ACLs"
 
 msgid "Use Sqlite"
 msgstr "Använd Sqlite"
@@ -14446,6 +14851,21 @@ msgstr "Användarkontot är olåst"
 
 msgid "User agent string"
 msgstr "Sträng för användaragent"
+
+msgid "User defined limit"
+msgstr "Användardefinierad gräns"
+
+msgid "User defined mount point"
+msgstr "Användardefinierad monteringspunkt"
+
+msgid "User defined refquota"
+msgstr "Användardefinierad refquota"
+
+msgid "User defined refreservation"
+msgstr "Användardefinierad refreservation"
+
+msgid "User defined reservation"
+msgstr "Användardefinierad reservation"
 
 msgid "User portal permission."
 msgstr "Användarportalrättigheter"
@@ -15166,6 +15586,9 @@ msgstr "ZIP Arkiv"
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
 
+msgid "Zstandard Compression"
+msgstr "Zstandard Kompression"
+
 msgid "Zstandard Compression Level"
 msgstr "Zstandard Kompressionsnivå"
 
@@ -15194,6 +15617,9 @@ msgstr ""
 "kodat som: byte 0-1-2 = antal bra block (big endian) och byte 3-4 = antal "
 "systemblock (lediga)."
 
+msgid "dev"
+msgstr "dev"
+
 #, php-format
 msgid "e.g. %s"
 msgstr "t.ex. %s"
@@ -15203,6 +15629,9 @@ msgstr "example.com"
 
 msgid "filechooser"
 msgstr "filväljare"
+
+msgid "full"
+msgstr "full"
 
 msgid "get target info failed."
 msgstr "hämtning av målinfo misslyckades."

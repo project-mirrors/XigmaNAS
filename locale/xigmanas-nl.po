@@ -2,19 +2,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-03 04:58+0000\n"
-"PO-Revision-Date: 2022-10-04 01:47+0000\n"
+"POT-Creation-Date: 2022-10-04 22:38+0000\n"
+"PO-Revision-Date: 2022-10-09 00:12+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
-"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: Netherlands\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2022-10-09 00:17+0000\n"
+"X-Generator: Launchpad (build 762fb15a975e8b23af6a1f86e44e46bfd0451459)\n"
 "X-Poedit-Language: Dutch\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
+"X-Poedit-Country: Netherlands\n"
+
+msgid ""
+" Controls whether device nodes can be opened on this file system. The "
+"default value is on. The values on and off are equivalent to the dev and "
+"nodev mount options."
+msgstr ""
+" Bepaalt of schijfknooppunten kunnen worden geopend op dit bestandssysteem. "
+"De standaardwaarde is ingeschakeld. De waarden aan en uit zijn gelijk aan de "
+"dev en nodev aankoppel opties."
 
 msgid " No private key"
 msgstr " Geen prive sleutel"
@@ -233,6 +242,9 @@ msgstr ""
 msgid "1"
 msgstr "1"
 
+msgid "1 - one copy"
+msgstr "1 - één kopie"
+
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr ""
 "1 of meer schijven zijn vereist voor het creëren van een JBOD volume."
@@ -250,17 +262,38 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "128K"
+msgstr "128K"
+
 msgid "16 KiB"
 msgstr "16 KiB"
 
 msgid "16384"
 msgstr "16384"
 
+msgid "16K"
+msgstr "16K"
+
+msgid "16k"
+msgstr "16k"
+
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
+msgid "1K"
+msgstr "1K"
+
+msgid "1M"
+msgstr "1M"
+
+msgid "1k"
+msgstr "1k"
+
 msgid "2"
 msgstr "2"
+
+msgid "2 - two copies"
+msgstr "2 - twee kopieën"
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -279,8 +312,21 @@ msgstr "2.5\""
 msgid "22"
 msgstr "22"
 
+msgid "256K"
+msgstr "256K"
+
+msgid "2K"
+msgstr "2K"
+
+msgid "2k"
+msgstr "2k"
+
 msgid "3"
 msgstr "3"
+
+msgid "3 - three copies - not applicable when encryption is enabled"
+msgstr ""
+"3 - drie kopieën - niet van toepassing wanneer codering is ingeschakeld"
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr ""
@@ -295,11 +341,20 @@ msgstr "300"
 msgid "32 KiB"
 msgstr "32 KiB"
 
+msgid "32K"
+msgstr "32K"
+
 msgid "4 KiB"
 msgstr "4 KiB"
 
+msgid "4K"
+msgstr "4K"
+
 msgid "4KB wrapper"
 msgstr "4KB wrapper"
+
+msgid "4k"
+msgstr "4k"
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -307,11 +362,23 @@ msgstr "5.25\""
 msgid "512 Bytes"
 msgstr "512 Bytes"
 
+msgid "512 bytes"
+msgstr "512 bytes"
+
+msgid "512B"
+msgstr "512B"
+
+msgid "512K"
+msgstr "512K"
+
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
 msgstr "64 KiB"
+
+msgid "64K"
+msgstr "64K"
 
 msgid "69"
 msgstr "69"
@@ -324,6 +391,12 @@ msgstr "802.1Q VLAN markering (tussen 1 en 4094)."
 
 msgid "8200"
 msgstr "8200"
+
+msgid "8K"
+msgstr "8K"
+
+msgid "8k"
+msgstr "8k"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -817,6 +890,9 @@ msgstr "Admin Wachtwoord"
 msgid "Admin access"
 msgstr "Admin toegang"
 
+msgid "Admin controlled mount"
+msgstr "Admin beheerde koppeling"
+
 msgid "Administrative WebGUI"
 msgstr "Administratie WebGUI"
 
@@ -993,6 +1069,13 @@ msgstr ""
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "Keyboard-interactive verificatie toestaan."
+
+msgid ""
+"Allow mounting on a busy directory or a directory which already contains "
+"files or directories."
+msgstr ""
+"Sta aankoppelen toe op een drukke map of een map die al bestanden of mappen "
+"bevat."
 
 msgid "Allow new files to be created."
 msgstr "Sta toe dat nieuwe bestanden kunnen worden aangemaakt."
@@ -1390,6 +1473,9 @@ msgstr "Auto Momentopname"
 
 msgid "Auto Snapshot Settings"
 msgstr "Auto Momentopname Settings"
+
+msgid "Auto mount"
+msgstr "Auto koppeling"
 
 msgid "Auto page refresh."
 msgstr "Automatische pagina verversing."
@@ -2189,6 +2275,102 @@ msgstr "Compressie"
 msgid "Compression Ratio"
 msgstr "Compressieverhouding"
 
+msgid "Compression level 1 - best compression ratio"
+msgstr "Compressieniveau 1 - beste compressieverhouding"
+
+msgid "Compression level 1 - fastest compression"
+msgstr "Compressieniveau 1 - snelste compressie"
+
+msgid "Compression level 10"
+msgstr "Compressieniveau 10"
+
+msgid "Compression level 100"
+msgstr "Compressieniveau 100"
+
+msgid "Compression level 1000 - fastest compression"
+msgstr "Compressieniveau 1000 - snelste compressie"
+
+msgid "Compression level 11"
+msgstr "Compressieniveau 11"
+
+msgid "Compression level 12"
+msgstr "Compressieniveau 12"
+
+msgid "Compression level 13"
+msgstr "Compressieniveau 13"
+
+msgid "Compression level 14"
+msgstr "Compressieniveau 14"
+
+msgid "Compression level 15"
+msgstr "Compressieniveau 15"
+
+msgid "Compression level 16"
+msgstr "Compressieniveau 16"
+
+msgid "Compression level 17"
+msgstr "Compressieniveau 17"
+
+msgid "Compression level 18"
+msgstr "Compressieniveau 18"
+
+msgid "Compression level 19 - best compression ratio"
+msgstr "Compressieniveau 19 - beste compressieverhouding"
+
+msgid "Compression level 2"
+msgstr "Compressieniveau 2"
+
+msgid "Compression level 20"
+msgstr "Compressieniveau 20"
+
+msgid "Compression level 3"
+msgstr "Compressieniveau 3"
+
+msgid "Compression level 30"
+msgstr "Compressieniveau 30"
+
+msgid "Compression level 4"
+msgstr "Compressieniveau 4"
+
+msgid "Compression level 40"
+msgstr "Compressieniveau 40"
+
+msgid "Compression level 5"
+msgstr "Compressieniveau 5"
+
+msgid "Compression level 50"
+msgstr "Compressieniveau 50"
+
+msgid "Compression level 500"
+msgstr "Compressieniveau 500"
+
+msgid "Compression level 6"
+msgstr "Compressieniveau 6"
+
+msgid "Compression level 60"
+msgstr "Compressieniveau 60"
+
+msgid "Compression level 7"
+msgstr "Compressieniveau 7"
+
+msgid "Compression level 70"
+msgstr "Compressieniveau 70"
+
+msgid "Compression level 8"
+msgstr "Compressieniveau 8"
+
+msgid "Compression level 80"
+msgstr "Compressieniveau 80"
+
+msgid "Compression level 9"
+msgstr "Compressieniveau 9"
+
+msgid "Compression level 9 - best compression ratio"
+msgstr "Compressieniveau 9 - beste compressieverhouding"
+
+msgid "Compression level 90"
+msgstr "Compressieniveau 90"
+
 msgid "Configuration"
 msgstr "Configuratie"
 
@@ -2346,8 +2528,40 @@ msgstr ""
 "beste compressieverhouding) is. Momenteel is 'GZIP' gelijkwaardig aan 'GZIP-"
 "6'."
 
+msgid ""
+"Controls the compression algorithm. LZ4 is the recommended compression "
+"algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
+"the feature flag lz4_compress is active, otherwise LZJB is used."
+msgstr ""
+"Bepaal het compressiealgoritme. LZ4 is het aanbevolen compressiealgoritme. "
+"Als u compressie op 'Aan' zet, wordt het LZ4-compressiealgoritme gebruikt "
+"als de functievlag lz4_compress actief is, anders wordt LZJB gebruikt."
+
 msgid "Controls the dedup method."
 msgstr "Hiermee bepaalt u de dedup methode."
+
+msgid ""
+"Controls the encryption cipher suite (block cipher, key length, and mode) "
+"used for this dataset."
+msgstr ""
+"Bepaal de encryptie coderingssuite (blokcodering, sleutellengte en modus) "
+"die voor deze dataset wordt gebruikt."
+
+msgid "Controls the format of the provided encryption key."
+msgstr "Bepaalt het formaat van de verstrekte coderingssleutel."
+
+msgid "Controls the level of the Fast Zstandard compression level"
+msgstr "Bepaalt het niveau van het Snel Zstandaard compressieniveau"
+
+msgid "Controls the level of the Zstandard compression level"
+msgstr "Bepaalt het niveau van het Zstandaard compressieniveau"
+
+msgid "Controls the level of the gzip compression algorithm"
+msgstr "Bepaalt het niveau van het gzip compressiealgoritme"
+
+msgid "Controls the mount point type used for this file system."
+msgstr ""
+"Bepaalt het type aankoppelpunt dat voor dit bestandssysteem wordt gebruikt."
 
 msgid "Controls the number of copies of data stored for this dataset."
 msgstr ""
@@ -2376,10 +2590,39 @@ msgstr "Bepaal waar de OS X metagegevensstroom wordt opgeslagen."
 msgid "Controls where the OS X resource fork is stored."
 msgstr "Bepaal waar de OS X resourcevork wordt opgeslagen."
 
+msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
+msgstr ""
+"Bepaalt of ACLs zijn ingeschakeld en zo ja, welk type ACL moet worden "
+"gebruikt."
+
+msgid ""
+"Controls whether extended attributes are enabled for this file system."
+msgstr ""
+"Bepaalt of uitgebreide attributen zijn ingeschakeld voor dit bestandssysteem."
+
 msgid ""
 "Controls whether processes can be executed from within this file system."
 msgstr ""
 "Bepaalt of processen vanuit dit bestandssysteem kunnen worden uitgevoerd."
+
+msgid ""
+"Controls whether processes can be executed from within this file system. The "
+"default value is on. The values on and off are equivalent to the exec and "
+"noexec mount options."
+msgstr ""
+"Bepaalt of processen vanuit dit bestandssysteem kunnen worden uitgevoerd. De "
+"standaardwaarde is aan. De waarden aan en uit zijn gelijk aan de exec en "
+"noexec koppel opties."
+
+msgid ""
+"Controls whether regular files should be scanned for viruses when a file is "
+"opened and closed. In addition to enabling this property, the virus scan "
+"service must also be enabled for virus scanning to occur."
+msgstr ""
+"Bepaalt of gewone bestanden moeten worden gescand op virussen wanneer een "
+"bestand wordt geopend en gesloten. Naast het inschakelen van deze "
+"eigenschap, moet de virusscanservice ook zijn ingeschakeld om virusscan te "
+"laten plaatsvinden."
 
 msgid ""
 "Controls whether the .zfs directory is hidden or visible in the root of the "
@@ -2391,29 +2634,48 @@ msgstr ""
 msgid ""
 "Controls whether the access time for files is updated when they are read."
 msgstr ""
-"Bepaalt of de toegangstijd voor bestanden wordt bijgewerkt wanneer deze "
-"worden gelezen."
+"Bepaalt of de toegangstijd voor bestanden wordt bijgewerkt wanneer ze worden "
+"gelezen."
 
 msgid ""
 "Controls whether the access time for files is updated when they are read. "
 "Turning this Off avoids producing write traffic when reading files and can "
 "result in significant performance gains."
 msgstr ""
-"Hiermee bepaalt u of de toegangstijd voor bestanden wordt bijgewerkt wanneer "
-"deze worden gelezen. Door dit Uit te laten vermijdt u schrijf verkeer "
-"tijdens het lezen van de bestanden en kan dit tot aanzienlijke "
-"prestatieverhogingen leiden."
+"Bepaalt of de toegangstijd voor bestanden wordt bijgewerkt wanneer ze worden "
+"gelezen. Als u dit Uitschakelt, wordt er geen schrijfverkeer gegenereerd bij "
+"het lezen van bestanden en dit kan leiden tot aanzienlijke "
+"prestatieverbeteringen."
 
 msgid "Controls whether the dataset is managed from a jail."
 msgstr "Bepaalt of de dataset vanuit een jail wordt beheerd."
+
+msgid "Controls whether the file system is shared via NFS."
+msgstr "Bepaalt of het bestandssysteem wordt gedeeld via NFS."
+
+msgid "Controls whether the file system is shared via SMB."
+msgstr "Bepaalt of het bestandssysteem wordt gedeeld via SMB."
+
+msgid ""
+"Controls whether the file system should be mounted with non-blocking "
+"mandatory locks."
+msgstr ""
+"Bepaalt of het bestandssysteem moet worden aangekoppeld met niet-blokkerende "
+"verplichte vergrendelingen."
 
 msgid "Controls whether the set-UID bit is respected for the file system."
 msgstr ""
 "Bepaalt of het set-UID-bit wordt gerespecteerd voor het bestandssysteem."
 
-msgid "Controls whether this dataset can be modified."
+msgid ""
+"Controls whether the volume snapshot devices under /dev/zvol/<pool> are "
+"hidden or visible."
 msgstr ""
-"Als deze optie is ingeschakeld, kan deze dataset niet worden aangepast."
+"Bepaalt of de volume momentopname schijven onder /dev/zvol/<pool> verborgen "
+"of zichtbaar zijn."
+
+msgid "Controls whether this dataset can be modified."
+msgstr "Bepaalt of deze dataset kan worden gewijzigd."
 
 msgid ""
 "Convert DOS attributes to UNIX execution bits when Store DOS attributes is "
@@ -2997,6 +3259,9 @@ msgstr "Standaard Schijf Instellingen"
 msgid "Default Root"
 msgstr "Standaard Root"
 
+msgid "Default compression level"
+msgstr "Standaard compressieniveau"
+
 msgid "Default user name is 'admin'."
 msgstr "De standaard gebruikersnaam is 'admin'."
 
@@ -3024,6 +3289,13 @@ msgstr "Definieer iSCSI hardware offload driver. De standaard is \"Geen\"."
 
 msgid "Defines the checksum algorithm."
 msgstr "Definieert het controlesom algoritme"
+
+msgid ""
+"Defines the minimum amount of space guaranteed to a dataset, not including "
+"its descendents."
+msgstr ""
+"Definieert de minimale hoeveelheid ruimte die gegarandeerd is voor een "
+"dataset, exclusief de afstammelingen."
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Geef aan wanneer het afsluitproces in werking moet treden."
@@ -3605,8 +3877,14 @@ msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr ""
 "Uitgeschakelde variabele namen zullen worden verwijderd uit /etc/rc.conf."
 
+msgid "Discard - Discard ACEs"
+msgstr "Weggooien - Weggooien ACEs"
+
 msgid "Discard - Discard ACL"
 msgstr "Discard - Negeer ACL"
+
+msgid "Discard - Do not inherit any ACEs"
+msgstr "Weggooien - Erf geen ACEs"
 
 msgid "Discard - Do not inherit entries"
 msgstr "Discard - Entries niet overnemen"
@@ -3728,6 +4006,12 @@ msgid ""
 "gets loaded."
 msgstr ""
 "Niet op nieuwere firmware versies controleren wanneer u de pagina %s bezoekt."
+
+msgid "Do not mount"
+msgstr "Niet aangekoppelen"
+
+msgid "Do not use ACLs"
+msgstr "Gebruik geen ACLs"
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -4634,6 +4918,9 @@ msgstr "sysctl instelling bewerken"
 msgid "Edit target"
 msgstr "Doel bewerken"
 
+msgid "Edon-R, Verify"
+msgstr "Edon-R, verifiëren"
+
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
 msgstr ""
@@ -5255,6 +5542,9 @@ msgstr "Geef extra opties"
 msgid "Enter facility name"
 msgstr "Geef faciliteit naam"
 
+msgid "Enter filesystem name"
+msgstr "Opgeven bestandssysteem naam"
+
 msgid "Enter group name."
 msgstr "Geef groepnaam."
 
@@ -5271,7 +5561,7 @@ msgid "Enter mutual user name."
 msgstr "Voeg een wederzijdse gebruikersnaam toe"
 
 msgid "Enter passthrough device address bus:path:lun"
-msgstr "Geef het doorvoer schijf adres bus op:pad:lun"
+msgstr "Geef het adres van het passthrough schijf op bus:path:lun"
 
 msgid "Enter secret."
 msgstr "Geef  wachtwoord."
@@ -5609,6 +5899,9 @@ msgstr "Nep adres"
 msgid "Fast"
 msgstr "Snel"
 
+msgid "Fast Zstandard Compression"
+msgstr "Snel Zstandaard compressie"
+
 msgid "Fast Zstandard Compression Level"
 msgstr "Fast Zstandard Compressieniveau"
 
@@ -5715,6 +6008,9 @@ msgstr "Aantal Bestandssystemen"
 
 msgid "Filesystem Limit"
 msgstr "Bestandssysteemlimiet"
+
+msgid "Filesystem Name"
+msgstr "Bestandssysteem Naam"
 
 msgid "Filesystem is locked"
 msgstr "Bestandssysteem is vergrendeld"
@@ -6080,6 +6376,9 @@ msgstr "Groep is beschermd"
 msgid "Group is unlocked"
 msgstr "Groep is ontgrendeld"
 
+msgid "Groupmask - Mask ACL with group permissions"
+msgstr "Groupmask - Masker ACL met groepsrechten"
+
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask - Markeer ACL met modus"
 
@@ -6197,6 +6496,9 @@ msgstr "Hoogte van de grafieken. (standaard %s pixels)"
 
 msgid "Help"
 msgstr "Help"
+
+msgid "Hex"
+msgstr "Hex"
 
 msgid "Hiadaptive (High Performance)"
 msgstr "Hiadaptief"
@@ -7197,6 +7499,9 @@ msgstr "Laat reeds geconfigureerde momentopnamen bestaan."
 msgid "Leave auto snapshot configuration"
 msgstr "Laat automatische momentopnamen bestaan."
 
+msgid "Legacy"
+msgstr "Verouderd"
+
 msgid "Level"
 msgstr "Niveau"
 
@@ -8083,6 +8388,9 @@ msgstr "NFS Root is gemarkeerd voor verwijdering"
 msgid "NFS Root is unlocked"
 msgstr "NFS Root is ontgrendeld"
 
+msgid "NFS sharing"
+msgstr "NFS deling"
+
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8468,6 +8776,11 @@ msgstr "Er zijn geen virtuele schijven geselecteerd"
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Alleen erven wijger entries"
 
+msgid "Noallow - Only inherit inheritable ACEs that specify deny permissions"
+msgstr ""
+"Noallow - Neem alleen overneembare ACEs over die machtigingen voor weigeren "
+"specificeren"
+
 msgid "Noauto"
 msgstr "Geenauto"
 
@@ -8539,6 +8852,26 @@ msgstr "Normaal"
 
 msgid "Normalization"
 msgstr "Normaliseren"
+
+msgid ""
+"Normalization Form C (NFC) - Canonical Decomposition, followed by Canonical "
+"Composition"
+msgstr ""
+"Normalisatieformulier C (NFC) - Canonical Decomposition, gevolgd door "
+"Canonical Composition"
+
+msgid "Normalization Form D (NFD) - Canonical Decomposition"
+msgstr "Normalisatieformulier D (NFD) - Canonieke ontbinding"
+
+msgid ""
+"Normalization Form KC (NFKC) - Compatibility Decomposition, followed by "
+"Canonical Composition"
+msgstr ""
+"Normalisatieformulier KC (NFKC) - Compatibiliteit Decompositie, gevolgd door "
+"Canoniek Samenstelling"
+
+msgid "Normalization Form KD (NFKD) - Compatibility Decomposition"
+msgstr "Normalisatieformulier KD (NFKD) - Compatibiliteit Decompositie"
 
 msgid ""
 "Normally this option should not be set as the automatic negotiation phase in "
@@ -8959,13 +9292,21 @@ msgstr "Passthrough - ACL niet wijzigen"
 msgid "Passthrough - Inherit all entries"
 msgstr "Passthrough - Overnemen van alle entries"
 
+msgid "Passthrough - Inherit all inheritable ACEs without any modifications"
+msgstr "Passthrough - Erf alle overerfbare ACEs zonder enige aanpassingen"
+
 msgid "Passthrough Address"
 msgstr "Passthrough adres"
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
 msgstr ""
-"Passthrough-X - Alles overnemen behalve \"uitvoeren\" wanneer niet "
-"gespecificeerd"
+"Passthrough-X - Erven alles behalve \"uitvoeren\" wanneer niet gespecificeerd"
+
+msgid ""
+"Passthrough-X - Inherit all except execute permission when not specified"
+msgstr ""
+"Passthrough-X - Alles overnemen behalve uitvoermachtigingen indien niet "
+"opgegeven"
 
 msgid "Password"
 msgstr "Wachtwoord"
@@ -9861,6 +10202,9 @@ msgstr "RSYNC log"
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
+msgid "Raw"
+msgstr "Raw"
+
 msgid "Raw Value"
 msgstr "Ruwe Waarde"
 
@@ -10038,11 +10382,17 @@ msgstr "Refquota"
 msgid "Refquota Type"
 msgstr "Refquota Type"
 
+msgid "Refquota type."
+msgstr "Refquota type."
+
 msgid "Refreservation"
 msgstr "Refreservation"
 
 msgid "Refreservation Type"
 msgstr "Refreservation Type"
+
+msgid "Refreservation type."
+msgstr "Refreservation type."
 
 msgid "Refresh"
 msgstr "Verversen"
@@ -10223,6 +10573,9 @@ msgstr "Reservering"
 msgid "Reservation Type"
 msgstr "Reservation Type"
 
+msgid "Reservation type."
+msgstr "Reservation type."
+
 msgid "Reset"
 msgstr "Reset"
 
@@ -10281,6 +10634,13 @@ msgstr "Beperk de folder tot een specifieke media type."
 
 msgid "Restricted"
 msgstr "Beperkt"
+
+msgid ""
+"Restricted - Inherit ACEs except \"write ACL\" and \"write owner\" "
+"permissions"
+msgstr ""
+"Restricted - Neem ACEs over, behalve de \"schrijf ACL\" en \"eigenaar "
+"schrijven\" machtigingen"
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr ""
@@ -10515,6 +10875,9 @@ msgstr "Samba Deling is gemarkeerd voor verwijdering"
 
 msgid "Samba Share is unlocked"
 msgstr "Samba Deling is ontgrendeld"
+
+msgid "Samba sharing"
+msgstr "Samba delingen"
 
 #, php-format
 msgid ""
@@ -11321,6 +11684,9 @@ msgstr "Deel NFS Opties"
 msgid "Share NFS Type"
 msgstr "Deel NFS Type"
 
+msgid "Share NFS options."
+msgstr "NFS deel opties."
+
 msgid "Share Password"
 msgstr "Deling Wachtwoord"
 
@@ -11329,6 +11695,9 @@ msgstr "Deel SMB Opties"
 
 msgid "Share SMB Type"
 msgstr "Deel SMB Type"
+
+msgid "Share SMB options."
+msgstr "SMB deel opties."
 
 msgid "Share Settings"
 msgstr "Deel Instellingen"
@@ -11519,6 +11888,9 @@ msgstr "Momentopname is gemarkeerd voor verwijdering"
 msgid "Snapshot is unlocked"
 msgstr "Momentopname is ontgrendeld"
 
+msgid "Snapshot limit"
+msgstr "Momentopnamelimiet"
+
 msgid "Snapshots"
 msgstr "Momentopnamen"
 
@@ -11638,6 +12010,23 @@ msgstr "Specificeert LUN revisie tekenreeks tot 4 tekens."
 
 msgid "Specifies LUN vendor string up to 8 chars."
 msgstr "Specificeert de LUN leverancier tekenreeks tot 8 tekens."
+
+msgid ""
+"Specifies a compatibility mode or literal value for the size of dnodes in "
+"the file system."
+msgstr ""
+"Specificeert een compatibiliteitsmodus of letterlijke waarde voor de grootte "
+"van dnodes in het bestandssysteem."
+
+msgid ""
+"Specifies a suggested block size for files in the file system. This property "
+"is designed solely for use with database workloads that access files in "
+"fixed-size records."
+msgstr ""
+"Specificeert een voorgestelde blokgrootte voor bestanden in het "
+"bestandssysteem. Deze eigenschap is uitsluitend bedoeld voor gebruik met "
+"database werkbelastingen die toegang hebben naar bestanden in records met "
+"een vaste-grootte."
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -12064,6 +12453,9 @@ msgstr "Systeem Bedrijfstijd"
 
 msgid "System User"
 msgstr "Systeemgebruiker"
+
+msgid "System attribute based xattrs"
+msgstr "Systeemkenmerken gebaseerde xattrs"
 
 msgid "System info"
 msgstr "Systeem info"
@@ -12924,6 +13316,9 @@ msgstr ""
 
 msgid "The name of the ZFS pool."
 msgstr "De naam van de ZFS pool."
+
+msgid "The name of the filesystem."
+msgstr "De naam van het bestandssysteem."
 
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
@@ -13789,6 +14184,13 @@ msgstr "Deze markering is gebruikt."
 msgid "This user already exists."
 msgstr "Deze gebruiker bestaat reeds."
 
+msgid ""
+"This value represents the threshold block size for including small file "
+"blocks into the special allocation class."
+msgstr ""
+"Deze waarde vertegenwoordigt de drempelwaarde voor het opnemen van kleine "
+"bestandsblokken in de speciale toewijzingsklasse."
+
 msgid "This virtual device name already exists."
 msgstr "Deze virtuele schijfnaam bestaat reeds."
 
@@ -14207,6 +14609,13 @@ msgstr "Dinsdag"
 msgid "Turn the monitor to standby after N seconds."
 msgstr "Schakelt de monitor in de stand-by stand na X seconden."
 
+msgid ""
+"Turning this property on causes the access time to be updated relative to "
+"the modify or change time. The default value is off"
+msgstr ""
+"Als u deze eigenschap inschakelt, wordt de toegangstijd bijgewerkt ten "
+"opzichte van de wijziging of wijzigingstijd. De standaardwaarde is uit"
+
 msgid "Type"
 msgstr "Type"
 
@@ -14538,8 +14947,14 @@ msgstr ""
 "Gebruik HTTPS, zowel bij het controleren op IP wijzigingen als het bijwerken "
 "van de DNS record. Standaard wordt HTTPS gebruikt."
 
+msgid "Use NFSv4-style ZFS ACLs"
+msgstr "Gebruik NFSv4-style ZFS ACLs"
+
 msgid "Use PAM for user authentication."
 msgstr "Gebruik PAM voor gebruiker verificatie."
+
+msgid "Use POSIX ACLs"
+msgstr "Gebruik POSIX ACLs"
 
 msgid "Use Sqlite"
 msgstr "Gebruik Sqlite"
@@ -14740,6 +15155,21 @@ msgstr "Gebruikersaccount is ontgrendeld"
 
 msgid "User agent string"
 msgstr "User agent tekenreeks"
+
+msgid "User defined limit"
+msgstr "Gebruiker gedefinieerde limiet"
+
+msgid "User defined mount point"
+msgstr "Gebruiker gedefinieerd koppelpunt"
+
+msgid "User defined refquota"
+msgstr "Gebruiker gedefinieerde refquota"
+
+msgid "User defined refreservation"
+msgstr "Gebruiker gedefinieerde refreservation"
+
+msgid "User defined reservation"
+msgstr "Gebruiker gedefinieerde reservation"
 
 msgid "User portal permission."
 msgstr "Gebruikersportaal toestemming."
@@ -15481,6 +15911,9 @@ msgstr "ZIP Archief"
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
 
+msgid "Zstandard Compression"
+msgstr "Zstandaard Compressie"
+
 msgid "Zstandard Compression Level"
 msgstr "Zstandaard Compressieniveau"
 
@@ -15509,6 +15942,9 @@ msgstr ""
 "gedecodeerd als: byte 0-1-2 = goede blok telling (big endian) en byte 3-4 = "
 "systeem(vrij) blok telling."
 
+msgid "dev"
+msgstr "dev"
+
 #, php-format
 msgid "e.g. %s"
 msgstr "bijv. %s"
@@ -15518,6 +15954,9 @@ msgstr "voorbeeld.com"
 
 msgid "filechooser"
 msgstr "bestandsselector"
+
+msgid "full"
+msgstr "volledig"
 
 msgid "get target info failed."
 msgstr "doel info opvragen is mislukt."

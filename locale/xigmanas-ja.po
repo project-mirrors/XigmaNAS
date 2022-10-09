@@ -2,19 +2,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-03 04:58+0000\n"
+"POT-Creation-Date: 2022-10-04 22:38+0000\n"
 "PO-Revision-Date: 2022-01-28 07:38+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
-"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: JAPAN\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2022-10-09 00:17+0000\n"
+"X-Generator: Launchpad (build 762fb15a975e8b23af6a1f86e44e46bfd0451459)\n"
 "X-Poedit-Language: Japanese\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
+"X-Poedit-Country: JAPAN\n"
+
+msgid ""
+" Controls whether device nodes can be opened on this file system. The "
+"default value is on. The values on and off are equivalent to the dev and "
+"nodev mount options."
+msgstr ""
 
 msgid " No private key"
 msgstr " 秘密鍵なし"
@@ -215,6 +221,9 @@ msgstr "0=無効、1-255=指定サイズでキューイングを有効。"
 msgid "1"
 msgstr "1"
 
+msgid "1 - one copy"
+msgstr ""
+
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr "JBODボリュームを作成するには1個以上のディスクが必要です。"
 
@@ -230,17 +239,38 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "128K"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 KiB"
 
 msgid "16384"
 msgstr "16384"
 
+msgid "16K"
+msgstr ""
+
+msgid "16k"
+msgstr ""
+
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
+msgid "1K"
+msgstr ""
+
+msgid "1M"
+msgstr ""
+
+msgid "1k"
+msgstr ""
+
 msgid "2"
 msgstr "2"
+
+msgid "2 - two copies"
+msgstr ""
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -257,8 +287,20 @@ msgstr "2.5\""
 msgid "22"
 msgstr "22"
 
+msgid "256K"
+msgstr ""
+
+msgid "2K"
+msgstr ""
+
+msgid "2k"
+msgstr ""
+
 msgid "3"
 msgstr "3"
+
+msgid "3 - three copies - not applicable when encryption is enabled"
+msgstr ""
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "RAID-5のボリュームを構成するには、3台かそれ以上の台数のハードディスクが必要です。"
@@ -272,11 +314,20 @@ msgstr "300"
 msgid "32 KiB"
 msgstr "32 KiB"
 
+msgid "32K"
+msgstr ""
+
 msgid "4 KiB"
 msgstr "4 KiB"
 
+msgid "4K"
+msgstr ""
+
 msgid "4KB wrapper"
 msgstr "4KBラッパー"
+
+msgid "4k"
+msgstr ""
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -284,11 +335,23 @@ msgstr "5.25\""
 msgid "512 Bytes"
 msgstr "512 Bytes"
 
+msgid "512 bytes"
+msgstr ""
+
+msgid "512B"
+msgstr ""
+
+msgid "512K"
+msgstr ""
+
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
 msgstr "64 KiB"
+
+msgid "64K"
+msgstr ""
 
 msgid "69"
 msgstr "69"
@@ -301,6 +364,12 @@ msgstr "802.1Q VLAN タグ (1 から 4094 まで)。"
 
 msgid "8200"
 msgstr "8200"
+
+msgid "8K"
+msgstr ""
+
+msgid "8k"
+msgstr ""
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -769,6 +838,9 @@ msgstr "管理者パスワード"
 msgid "Admin access"
 msgstr "管理者としてアクセス"
 
+msgid "Admin controlled mount"
+msgstr ""
+
 msgid "Administrative WebGUI"
 msgstr "管理用 Web 画面"
 
@@ -930,6 +1002,11 @@ msgstr ""
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "キーボードインタラクティブ認証を許可"
+
+msgid ""
+"Allow mounting on a busy directory or a directory which already contains "
+"files or directories."
+msgstr ""
 
 msgid "Allow new files to be created."
 msgstr "新しいファイルの作成を許可します。"
@@ -1284,6 +1361,9 @@ msgstr "自動スナップショット"
 
 msgid "Auto Snapshot Settings"
 msgstr "自動スナップショットの設定"
+
+msgid "Auto mount"
+msgstr ""
 
 msgid "Auto page refresh."
 msgstr "自動ページ更新。"
@@ -2034,6 +2114,102 @@ msgstr "圧縮"
 msgid "Compression Ratio"
 msgstr ""
 
+msgid "Compression level 1 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 1 - fastest compression"
+msgstr ""
+
+msgid "Compression level 10"
+msgstr ""
+
+msgid "Compression level 100"
+msgstr ""
+
+msgid "Compression level 1000 - fastest compression"
+msgstr ""
+
+msgid "Compression level 11"
+msgstr ""
+
+msgid "Compression level 12"
+msgstr ""
+
+msgid "Compression level 13"
+msgstr ""
+
+msgid "Compression level 14"
+msgstr ""
+
+msgid "Compression level 15"
+msgstr ""
+
+msgid "Compression level 16"
+msgstr ""
+
+msgid "Compression level 17"
+msgstr ""
+
+msgid "Compression level 18"
+msgstr ""
+
+msgid "Compression level 19 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 2"
+msgstr ""
+
+msgid "Compression level 20"
+msgstr ""
+
+msgid "Compression level 3"
+msgstr ""
+
+msgid "Compression level 30"
+msgstr ""
+
+msgid "Compression level 4"
+msgstr ""
+
+msgid "Compression level 40"
+msgstr ""
+
+msgid "Compression level 5"
+msgstr ""
+
+msgid "Compression level 50"
+msgstr ""
+
+msgid "Compression level 500"
+msgstr ""
+
+msgid "Compression level 6"
+msgstr ""
+
+msgid "Compression level 60"
+msgstr ""
+
+msgid "Compression level 7"
+msgstr ""
+
+msgid "Compression level 70"
+msgstr ""
+
+msgid "Compression level 8"
+msgstr ""
+
+msgid "Compression level 80"
+msgstr ""
+
+msgid "Compression level 9"
+msgstr ""
+
+msgid "Compression level 9 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 90"
+msgstr ""
+
 msgid "Configuration"
 msgstr "設定"
 
@@ -2174,8 +2350,34 @@ msgstr ""
 "'LZ4' 圧縮アルゴリズムを使用します。そうでない場合は 'lzjb' を使用します。'gzip-N' で 'gzip' "
 "の圧縮レベルを指定できます。N は数値で、1 (最速) から 9 (最高圧縮率) です。現在、'gzip' は 'gzip-6' の指定と同じです。"
 
+msgid ""
+"Controls the compression algorithm. LZ4 is the recommended compression "
+"algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
+"the feature flag lz4_compress is active, otherwise LZJB is used."
+msgstr ""
+
 msgid "Controls the dedup method."
 msgstr "重複排除で使用される方法を制御します。"
+
+msgid ""
+"Controls the encryption cipher suite (block cipher, key length, and mode) "
+"used for this dataset."
+msgstr ""
+
+msgid "Controls the format of the provided encryption key."
+msgstr ""
+
+msgid "Controls the level of the Fast Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the gzip compression algorithm"
+msgstr ""
+
+msgid "Controls the mount point type used for this file system."
+msgstr ""
 
 msgid "Controls the number of copies of data stored for this dataset."
 msgstr "データセットに保存するコピー数を制御します。"
@@ -2201,9 +2403,28 @@ msgstr ""
 msgid "Controls where the OS X resource fork is stored."
 msgstr ""
 
+msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
+msgstr ""
+
+msgid ""
+"Controls whether extended attributes are enabled for this file system."
+msgstr ""
+
 msgid ""
 "Controls whether processes can be executed from within this file system."
 msgstr "このファイルシステムからプロセスが実行されるかを制御します。"
+
+msgid ""
+"Controls whether processes can be executed from within this file system. The "
+"default value is on. The values on and off are equivalent to the exec and "
+"noexec mount options."
+msgstr ""
+
+msgid ""
+"Controls whether regular files should be scanned for viruses when a file is "
+"opened and closed. In addition to enabling this property, the virus scan "
+"service must also be enabled for virus scanning to occur."
+msgstr ""
 
 msgid ""
 "Controls whether the .zfs directory is hidden or visible in the root of the "
@@ -2225,8 +2446,24 @@ msgstr ""
 msgid "Controls whether the dataset is managed from a jail."
 msgstr "データセットがjailから管理できるか制御します。"
 
+msgid "Controls whether the file system is shared via NFS."
+msgstr ""
+
+msgid "Controls whether the file system is shared via SMB."
+msgstr ""
+
+msgid ""
+"Controls whether the file system should be mounted with non-blocking "
+"mandatory locks."
+msgstr ""
+
 msgid "Controls whether the set-UID bit is respected for the file system."
 msgstr "ファイルシステムに対してsetuidビットが尊重されるか制御します。"
+
+msgid ""
+"Controls whether the volume snapshot devices under /dev/zvol/<pool> are "
+"hidden or visible."
+msgstr ""
 
 msgid "Controls whether this dataset can be modified."
 msgstr "このデータセットが修正可能かどうか制御します。"
@@ -2749,6 +2986,9 @@ msgstr ""
 msgid "Default Root"
 msgstr "デフォルトルート"
 
+msgid "Default compression level"
+msgstr ""
+
 msgid "Default user name is 'admin'."
 msgstr "初期ユーザ名は「admin」です"
 
@@ -2773,6 +3013,11 @@ msgid "Define iSCSI hardware offload driver. The default is \"None\"."
 msgstr ""
 
 msgid "Defines the checksum algorithm."
+msgstr ""
+
+msgid ""
+"Defines the minimum amount of space guaranteed to a dataset, not including "
+"its descendents."
 msgstr ""
 
 msgid "Defines when the shutdown is initiated."
@@ -3339,7 +3584,13 @@ msgstr "無効"
 msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr ""
 
+msgid "Discard - Discard ACEs"
+msgstr ""
+
 msgid "Discard - Discard ACL"
+msgstr ""
+
+msgid "Discard - Do not inherit any ACEs"
 msgstr ""
 
 msgid "Discard - Do not inherit entries"
@@ -3449,6 +3700,12 @@ msgid ""
 "Do not let the server check for newer firmware versions when the %s page "
 "gets loaded."
 msgstr "%s ページがロードされた際、より新しいファームウェアがあるか確認しないようにする。"
+
+msgid "Do not mount"
+msgstr ""
+
+msgid "Do not use ACLs"
+msgstr ""
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -4335,6 +4592,9 @@ msgstr ""
 msgid "Edit target"
 msgstr "ターゲットを編集"
 
+msgid "Edon-R, Verify"
+msgstr ""
+
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
 msgstr "UPS効率(入出力電流の比率)"
@@ -4907,6 +5167,9 @@ msgstr ""
 msgid "Enter facility name"
 msgstr ""
 
+msgid "Enter filesystem name"
+msgstr ""
+
 msgid "Enter group name."
 msgstr ""
 
@@ -5241,6 +5504,9 @@ msgstr ""
 msgid "Fast"
 msgstr ""
 
+msgid "Fast Zstandard Compression"
+msgstr ""
+
 msgid "Fast Zstandard Compression Level"
 msgstr ""
 
@@ -5340,6 +5606,9 @@ msgid "Filesystem Count"
 msgstr ""
 
 msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem Name"
 msgstr ""
 
 msgid "Filesystem is locked"
@@ -5687,6 +5956,9 @@ msgstr ""
 msgid "Group is unlocked"
 msgstr ""
 
+msgid "Groupmask - Mask ACL with group permissions"
+msgstr ""
+
 msgid "Groupmask - Mask ACL with mode"
 msgstr ""
 
@@ -5796,6 +6068,9 @@ msgstr ""
 
 msgid "Help"
 msgstr "ヘルプ"
+
+msgid "Hex"
+msgstr ""
 
 msgid "Hiadaptive (High Performance)"
 msgstr ""
@@ -6717,6 +6992,9 @@ msgstr "既存の自動スナップショットを残します。"
 msgid "Leave auto snapshot configuration"
 msgstr "自動スナップショットの保存"
 
+msgid "Legacy"
+msgstr ""
+
 msgid "Level"
 msgstr ""
 
@@ -7563,6 +7841,9 @@ msgstr ""
 msgid "NFS Root is unlocked"
 msgstr ""
 
+msgid "NFS sharing"
+msgstr ""
+
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -7935,6 +8216,9 @@ msgstr ""
 msgid "Noallow - Only inherit deny entries"
 msgstr ""
 
+msgid "Noallow - Only inherit inheritable ACEs that specify deny permissions"
+msgstr ""
+
 msgid "Noauto"
 msgstr ""
 
@@ -8005,6 +8289,22 @@ msgid "Normal"
 msgstr "ノーマル"
 
 msgid "Normalization"
+msgstr ""
+
+msgid ""
+"Normalization Form C (NFC) - Canonical Decomposition, followed by Canonical "
+"Composition"
+msgstr ""
+
+msgid "Normalization Form D (NFD) - Canonical Decomposition"
+msgstr ""
+
+msgid ""
+"Normalization Form KC (NFKC) - Compatibility Decomposition, followed by "
+"Canonical Composition"
+msgstr ""
+
+msgid "Normalization Form KD (NFKD) - Compatibility Decomposition"
 msgstr ""
 
 msgid ""
@@ -8403,10 +8703,17 @@ msgstr ""
 msgid "Passthrough - Inherit all entries"
 msgstr ""
 
+msgid "Passthrough - Inherit all inheritable ACEs without any modifications"
+msgstr ""
+
 msgid "Passthrough Address"
 msgstr ""
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
+msgstr ""
+
+msgid ""
+"Passthrough-X - Inherit all except execute permission when not specified"
 msgstr ""
 
 msgid "Password"
@@ -9276,6 +9583,9 @@ msgstr "RSYNC のログ"
 msgid "Ramdisk"
 msgstr "RAMディスク"
 
+msgid "Raw"
+msgstr ""
+
 msgid "Raw Value"
 msgstr ""
 
@@ -9445,10 +9755,16 @@ msgstr ""
 msgid "Refquota Type"
 msgstr ""
 
+msgid "Refquota type."
+msgstr ""
+
 msgid "Refreservation"
 msgstr ""
 
 msgid "Refreservation Type"
+msgstr ""
+
+msgid "Refreservation type."
 msgstr ""
 
 msgid "Refresh"
@@ -9619,6 +9935,9 @@ msgstr "予約"
 msgid "Reservation Type"
 msgstr ""
 
+msgid "Reservation type."
+msgstr ""
+
 msgid "Reset"
 msgstr ""
 
@@ -9674,6 +9993,11 @@ msgid "Restrict folder to a specific media type."
 msgstr ""
 
 msgid "Restricted"
+msgstr ""
+
+msgid ""
+"Restricted - Inherit ACEs except \"write ACL\" and \"write owner\" "
+"permissions"
 msgstr ""
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
@@ -9904,6 +10228,9 @@ msgid "Samba Share is marked for deletion"
 msgstr ""
 
 msgid "Samba Share is unlocked"
+msgstr ""
+
+msgid "Samba sharing"
 msgstr ""
 
 #, php-format
@@ -10615,6 +10942,9 @@ msgstr ""
 msgid "Share NFS Type"
 msgstr ""
 
+msgid "Share NFS options."
+msgstr ""
+
 msgid "Share Password"
 msgstr "共有パスワード"
 
@@ -10622,6 +10952,9 @@ msgid "Share SMB Options"
 msgstr ""
 
 msgid "Share SMB Type"
+msgstr ""
+
+msgid "Share SMB options."
 msgstr ""
 
 msgid "Share Settings"
@@ -10803,6 +11136,9 @@ msgstr ""
 msgid "Snapshot is unlocked"
 msgstr ""
 
+msgid "Snapshot limit"
+msgstr ""
+
 msgid "Snapshots"
 msgstr "スナップショット"
 
@@ -10905,6 +11241,17 @@ msgid "Specifies LUN revision string up to 4 chars."
 msgstr ""
 
 msgid "Specifies LUN vendor string up to 8 chars."
+msgstr ""
+
+msgid ""
+"Specifies a compatibility mode or literal value for the size of dnodes in "
+"the file system."
+msgstr ""
+
+msgid ""
+"Specifies a suggested block size for files in the file system. This property "
+"is designed solely for use with database workloads that access files in "
+"fixed-size records."
 msgstr ""
 
 msgid ""
@@ -11286,6 +11633,9 @@ msgid "System Uptime"
 msgstr "システム稼働時間"
 
 msgid "System User"
+msgstr ""
+
+msgid "System attribute based xattrs"
 msgstr ""
 
 msgid "System info"
@@ -12035,6 +12385,9 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr ""
 
+msgid "The name of the filesystem."
+msgstr ""
+
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
@@ -12745,6 +13098,11 @@ msgstr "このタグは使用されています。"
 msgid "This user already exists."
 msgstr "このユーザは既に存在しています。"
 
+msgid ""
+"This value represents the threshold block size for including small file "
+"blocks into the special allocation class."
+msgstr ""
+
 msgid "This virtual device name already exists."
 msgstr "この仮想デバイス名は既に存在しています。"
 
@@ -13126,6 +13484,11 @@ msgstr "火曜日"
 msgid "Turn the monitor to standby after N seconds."
 msgstr "モニターを N 秒後にスタンバイ状態にする。"
 
+msgid ""
+"Turning this property on causes the access time to be updated relative to "
+"the modify or change time. The default value is off"
+msgstr ""
+
 msgid "Type"
 msgstr "タイプ"
 
@@ -13446,8 +13809,14 @@ msgid ""
 "Default is to use HTTPS."
 msgstr ""
 
+msgid "Use NFSv4-style ZFS ACLs"
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr "ユーザの認証にPAM (Pluggable Authentication Module) を使う"
+
+msgid "Use POSIX ACLs"
+msgstr ""
 
 msgid "Use Sqlite"
 msgstr ""
@@ -13621,6 +13990,21 @@ msgid "User account is unlocked"
 msgstr ""
 
 msgid "User agent string"
+msgstr ""
+
+msgid "User defined limit"
+msgstr ""
+
+msgid "User defined mount point"
+msgstr ""
+
+msgid "User defined refquota"
+msgstr ""
+
+msgid "User defined refreservation"
+msgstr ""
+
+msgid "User defined reservation"
 msgstr ""
 
 msgid "User portal permission."
@@ -14308,6 +14692,9 @@ msgstr ""
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
 
+msgid "Zstandard Compression"
+msgstr ""
+
 msgid "Zstandard Compression Level"
 msgstr ""
 
@@ -14334,6 +14721,9 @@ msgid ""
 "system(free) block count."
 msgstr "バイト0-1-2=正常ブロック数(ビッグエンディアン)とバイト3-4=システム(フリー)ブロック数としてデコード。"
 
+msgid "dev"
+msgstr ""
+
 #, php-format
 msgid "e.g. %s"
 msgstr "例) %s"
@@ -14343,6 +14733,9 @@ msgstr ""
 
 msgid "filechooser"
 msgstr "ファイル選択"
+
+msgid "full"
+msgstr ""
 
 msgid "get target info failed."
 msgstr "ターゲット情報の取得に失敗しました。"

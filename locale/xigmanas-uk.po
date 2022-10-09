@@ -2,18 +2,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-03 04:58+0000\n"
+"POT-Creation-Date: 2022-10-04 22:38+0000\n"
 "PO-Revision-Date: 2022-09-17 18:47+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
-"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
-"X-Poedit-Country: Ukrainian\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2022-10-09 00:17+0000\n"
+"X-Generator: Launchpad (build 762fb15a975e8b23af6a1f86e44e46bfd0451459)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"Language: \n"
+"X-Poedit-Country: Ukrainian\n"
+
+msgid ""
+" Controls whether device nodes can be opened on this file system. The "
+"default value is on. The values on and off are equivalent to the dev and "
+"nodev mount options."
+msgstr ""
 
 msgid " No private key"
 msgstr " Приватного ключа немає"
@@ -230,6 +236,9 @@ msgstr "0=вимкнено, 1-255=увімкнено чергу команд і�
 msgid "1"
 msgstr "1"
 
+msgid "1 - one copy"
+msgstr ""
+
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr "Для побудови JBOD потрібно 1 чи більше дисків."
 
@@ -245,17 +254,38 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "128K"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 КіБ"
 
 msgid "16384"
 msgstr "16384"
 
+msgid "16K"
+msgstr ""
+
+msgid "16k"
+msgstr ""
+
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
+msgid "1K"
+msgstr ""
+
+msgid "1M"
+msgstr ""
+
+msgid "1k"
+msgstr ""
+
 msgid "2"
 msgstr "2"
+
+msgid "2 - two copies"
+msgstr ""
 
 msgid "2 KiB"
 msgstr "2 КіБ"
@@ -272,8 +302,20 @@ msgstr "2.5\""
 msgid "22"
 msgstr "22"
 
+msgid "256K"
+msgstr ""
+
+msgid "2K"
+msgstr ""
+
+msgid "2k"
+msgstr ""
+
 msgid "3"
 msgstr "3"
+
+msgid "3 - three copies - not applicable when encryption is enabled"
+msgstr ""
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "Для побудови RAID-5 потрібно 3 чи більше дисків."
@@ -287,11 +329,20 @@ msgstr "300"
 msgid "32 KiB"
 msgstr "32 КіБ"
 
+msgid "32K"
+msgstr ""
+
 msgid "4 KiB"
 msgstr "4 КіБ"
 
+msgid "4K"
+msgstr ""
+
 msgid "4KB wrapper"
 msgstr "4KB оболонка"
+
+msgid "4k"
+msgstr ""
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -299,11 +350,23 @@ msgstr "5.25\""
 msgid "512 Bytes"
 msgstr "512 байт"
 
+msgid "512 bytes"
+msgstr ""
+
+msgid "512B"
+msgstr ""
+
+msgid "512K"
+msgstr ""
+
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
 msgstr "64 КіБ"
+
+msgid "64K"
+msgstr ""
 
 msgid "69"
 msgstr "69"
@@ -316,6 +379,12 @@ msgstr "802.1Q VLAN тег (між 1 і 4094)."
 
 msgid "8200"
 msgstr "8200"
+
+msgid "8K"
+msgstr ""
+
+msgid "8k"
+msgstr ""
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -800,6 +869,9 @@ msgstr "Пароль адміністратора"
 msgid "Admin access"
 msgstr "Доступ адміністратора"
 
+msgid "Admin controlled mount"
+msgstr ""
+
 msgid "Administrative WebGUI"
 msgstr "Веб інтерфейс адміністрування"
 
@@ -976,6 +1048,11 @@ msgstr "Дозволити здійснювати послідовність ч�
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "Дозволити автентифікацію \"клавіатура-інтерактивно\"."
+
+msgid ""
+"Allow mounting on a busy directory or a directory which already contains "
+"files or directories."
+msgstr ""
 
 msgid "Allow new files to be created."
 msgstr "Дозволити створення нових файлів."
@@ -1373,6 +1450,9 @@ msgstr "Автоматичний знімок"
 
 msgid "Auto Snapshot Settings"
 msgstr "Налаштування автоматичного знімка"
+
+msgid "Auto mount"
+msgstr ""
 
 msgid "Auto page refresh."
 msgstr "Авто оновлення сторінки."
@@ -2158,6 +2238,102 @@ msgstr "Стиснення"
 msgid "Compression Ratio"
 msgstr ""
 
+msgid "Compression level 1 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 1 - fastest compression"
+msgstr ""
+
+msgid "Compression level 10"
+msgstr ""
+
+msgid "Compression level 100"
+msgstr ""
+
+msgid "Compression level 1000 - fastest compression"
+msgstr ""
+
+msgid "Compression level 11"
+msgstr ""
+
+msgid "Compression level 12"
+msgstr ""
+
+msgid "Compression level 13"
+msgstr ""
+
+msgid "Compression level 14"
+msgstr ""
+
+msgid "Compression level 15"
+msgstr ""
+
+msgid "Compression level 16"
+msgstr ""
+
+msgid "Compression level 17"
+msgstr ""
+
+msgid "Compression level 18"
+msgstr ""
+
+msgid "Compression level 19 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 2"
+msgstr ""
+
+msgid "Compression level 20"
+msgstr ""
+
+msgid "Compression level 3"
+msgstr ""
+
+msgid "Compression level 30"
+msgstr ""
+
+msgid "Compression level 4"
+msgstr ""
+
+msgid "Compression level 40"
+msgstr ""
+
+msgid "Compression level 5"
+msgstr ""
+
+msgid "Compression level 50"
+msgstr ""
+
+msgid "Compression level 500"
+msgstr ""
+
+msgid "Compression level 6"
+msgstr ""
+
+msgid "Compression level 60"
+msgstr ""
+
+msgid "Compression level 7"
+msgstr ""
+
+msgid "Compression level 70"
+msgstr ""
+
+msgid "Compression level 8"
+msgstr ""
+
+msgid "Compression level 80"
+msgstr ""
+
+msgid "Compression level 9"
+msgstr ""
+
+msgid "Compression level 9 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 90"
+msgstr ""
+
 msgid "Configuration"
 msgstr "Конфігурація"
 
@@ -2315,8 +2491,34 @@ msgstr ""
 "стиснення) до 9 (найбільше стиснення). В даний час 'GZIP' еквівалентний "
 "'GZIP-6'."
 
+msgid ""
+"Controls the compression algorithm. LZ4 is the recommended compression "
+"algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
+"the feature flag lz4_compress is active, otherwise LZJB is used."
+msgstr ""
+
 msgid "Controls the dedup method."
 msgstr "Управляє методом dedup."
+
+msgid ""
+"Controls the encryption cipher suite (block cipher, key length, and mode) "
+"used for this dataset."
+msgstr ""
+
+msgid "Controls the format of the provided encryption key."
+msgstr ""
+
+msgid "Controls the level of the Fast Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the gzip compression algorithm"
+msgstr ""
+
+msgid "Controls the mount point type used for this file system."
+msgstr ""
 
 msgid "Controls the number of copies of data stored for this dataset."
 msgstr ""
@@ -2343,10 +2545,29 @@ msgstr "Контролює, де зберігається потік метад�
 msgid "Controls where the OS X resource fork is stored."
 msgstr "Контролює, де зберігається відгалуження ресурсу OS X."
 
+msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
+msgstr ""
+
+msgid ""
+"Controls whether extended attributes are enabled for this file system."
+msgstr ""
+
 msgid ""
 "Controls whether processes can be executed from within this file system."
 msgstr ""
 "Управляє тим, які процеси можуть бути виконані з цієї файлової системи."
+
+msgid ""
+"Controls whether processes can be executed from within this file system. The "
+"default value is on. The values on and off are equivalent to the exec and "
+"noexec mount options."
+msgstr ""
+
+msgid ""
+"Controls whether regular files should be scanned for viruses when a file is "
+"opened and closed. In addition to enabling this property, the virus scan "
+"service must also be enabled for virus scanning to occur."
+msgstr ""
 
 msgid ""
 "Controls whether the .zfs directory is hidden or visible in the root of the "
@@ -2370,8 +2591,24 @@ msgstr ""
 msgid "Controls whether the dataset is managed from a jail."
 msgstr "Управляє тим, чи керується набір даних з джейлу."
 
+msgid "Controls whether the file system is shared via NFS."
+msgstr ""
+
+msgid "Controls whether the file system is shared via SMB."
+msgstr ""
+
+msgid ""
+"Controls whether the file system should be mounted with non-blocking "
+"mandatory locks."
+msgstr ""
+
 msgid "Controls whether the set-UID bit is respected for the file system."
 msgstr "Управляє тим, чи дотримується біт set-UID для файлової системи."
+
+msgid ""
+"Controls whether the volume snapshot devices under /dev/zvol/<pool> are "
+"hidden or visible."
+msgstr ""
 
 msgid "Controls whether this dataset can be modified."
 msgstr "Контролює, чи можна змінити цей набір даних."
@@ -2953,6 +3190,9 @@ msgstr "Налаштування пристрою за замовчування�
 msgid "Default Root"
 msgstr "Root за замовчуванням"
 
+msgid "Default compression level"
+msgstr ""
+
 msgid "Default user name is 'admin'."
 msgstr "За замовчуванням ім'я користувача 'admin'."
 
@@ -2982,6 +3222,11 @@ msgstr ""
 
 msgid "Defines the checksum algorithm."
 msgstr "Визначає алгоритм контрольної суми."
+
+msgid ""
+"Defines the minimum amount of space guaranteed to a dataset, not including "
+"its descendents."
+msgstr ""
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Визначає, коли починається відключення."
@@ -3559,8 +3804,14 @@ msgstr "Вимкнено"
 msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr "Вимкнені імена змінних будуть видалені з /etc/rc.conf."
 
+msgid "Discard - Discard ACEs"
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr "Discard - не наслідувати ACL"
+
+msgid "Discard - Do not inherit any ACEs"
+msgstr ""
 
 msgid "Discard - Do not inherit entries"
 msgstr "Discard - не наслідувати записи"
@@ -3680,6 +3931,12 @@ msgid ""
 msgstr ""
 "Не дозволяти серверу перевірку новіших версій прошивки, коли сторінка "
 "<b>%s</b> завантажується."
+
+msgid "Do not mount"
+msgstr ""
+
+msgid "Do not use ACLs"
+msgstr ""
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -4582,6 +4839,9 @@ msgstr "Змінити налаштування sysctl"
 msgid "Edit target"
 msgstr "Редагувати ціль"
 
+msgid "Edon-R, Verify"
+msgstr ""
+
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
 msgstr "Ефективність ДБЖ (Співвідношення вихідного струму до вхідного)"
@@ -5199,6 +5459,9 @@ msgstr "Введіть додаткові параметри"
 msgid "Enter facility name"
 msgstr "Введіть назву обладнання"
 
+msgid "Enter filesystem name"
+msgstr ""
+
 msgid "Enter group name."
 msgstr "Введіть ім'я групи."
 
@@ -5551,6 +5814,9 @@ msgstr "Фальшива адреса"
 msgid "Fast"
 msgstr "Швидке"
 
+msgid "Fast Zstandard Compression"
+msgstr ""
+
 msgid "Fast Zstandard Compression Level"
 msgstr ""
 
@@ -5658,6 +5924,9 @@ msgid "Filesystem Count"
 msgstr ""
 
 msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem Name"
 msgstr ""
 
 msgid "Filesystem is locked"
@@ -6012,6 +6281,9 @@ msgstr "Група захищена"
 msgid "Group is unlocked"
 msgstr "Група разблокована"
 
+msgid "Groupmask - Mask ACL with group permissions"
+msgstr ""
+
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask - Маска ACL з режимом"
 
@@ -6129,6 +6401,9 @@ msgstr "Висота графіків (за замовчуванням %s пик
 
 msgid "Help"
 msgstr "Допомога"
+
+msgid "Hex"
+msgstr ""
 
 msgid "Hiadaptive (High Performance)"
 msgstr "Hiadaptive (висока ефективність)"
@@ -7125,6 +7400,9 @@ msgstr "Залишити вже сконфігуровані знімки."
 msgid "Leave auto snapshot configuration"
 msgstr "Залишити автоматичну конфігурацію знімків"
 
+msgid "Legacy"
+msgstr ""
+
 msgid "Level"
 msgstr "Рівень"
 
@@ -8004,6 +8282,9 @@ msgstr "Корінь NFS позначений для видалення"
 msgid "NFS Root is unlocked"
 msgstr "Корінь NFS розблокований"
 
+msgid "NFS sharing"
+msgstr ""
+
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8391,6 +8672,9 @@ msgstr "Немає обраних віртуальних пристроїв"
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Успадковувати тільки заборону запису"
 
+msgid "Noallow - Only inherit inheritable ACEs that specify deny permissions"
+msgstr ""
+
 msgid "Noauto"
 msgstr "Noauto"
 
@@ -8462,6 +8746,22 @@ msgstr "Нормальний"
 
 msgid "Normalization"
 msgstr "Нормалізація"
+
+msgid ""
+"Normalization Form C (NFC) - Canonical Decomposition, followed by Canonical "
+"Composition"
+msgstr ""
+
+msgid "Normalization Form D (NFD) - Canonical Decomposition"
+msgstr ""
+
+msgid ""
+"Normalization Form KC (NFKC) - Compatibility Decomposition, followed by "
+"Canonical Composition"
+msgstr ""
+
+msgid "Normalization Form KD (NFKD) - Compatibility Decomposition"
+msgstr ""
 
 msgid ""
 "Normally this option should not be set as the automatic negotiation phase in "
@@ -8878,11 +9178,18 @@ msgstr "Passthrough - Не змінювати ACL"
 msgid "Passthrough - Inherit all entries"
 msgstr "Passthrough - Успадковувати всі записи"
 
+msgid "Passthrough - Inherit all inheritable ACEs without any modifications"
+msgstr ""
+
 msgid "Passthrough Address"
 msgstr "Транзитна адреса"
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
 msgstr "Passthrough-X - Успадковувати все, але \"виконати\", коли не вказано"
+
+msgid ""
+"Passthrough-X - Inherit all except execute permission when not specified"
+msgstr ""
 
 msgid "Password"
 msgstr "Пароль"
@@ -9775,6 +10082,9 @@ msgstr "Журнал RSYNC"
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
+msgid "Raw"
+msgstr ""
+
 msgid "Raw Value"
 msgstr "Необроблене значення"
 
@@ -9952,10 +10262,16 @@ msgstr "Refquota"
 msgid "Refquota Type"
 msgstr ""
 
+msgid "Refquota type."
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Refreservation"
 
 msgid "Refreservation Type"
+msgstr ""
+
+msgid "Refreservation type."
 msgstr ""
 
 msgid "Refresh"
@@ -10138,6 +10454,9 @@ msgstr "Резервування"
 msgid "Reservation Type"
 msgstr ""
 
+msgid "Reservation type."
+msgstr ""
+
 msgid "Reset"
 msgstr "Скинути"
 
@@ -10194,6 +10513,11 @@ msgstr "Обмежити каталог певним типом медіа."
 
 msgid "Restricted"
 msgstr "Restricted"
+
+msgid ""
+"Restricted - Inherit ACEs except \"write ACL\" and \"write owner\" "
+"permissions"
+msgstr ""
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr ""
@@ -10428,6 +10752,9 @@ msgstr "Загальний ресурс Samba позначений для вид
 
 msgid "Samba Share is unlocked"
 msgstr "Загальний ресурс Samba розблокований"
+
+msgid "Samba sharing"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -11223,6 +11550,9 @@ msgstr ""
 msgid "Share NFS Type"
 msgstr ""
 
+msgid "Share NFS options."
+msgstr ""
+
 msgid "Share Password"
 msgstr "Пароль загального ресурса"
 
@@ -11230,6 +11560,9 @@ msgid "Share SMB Options"
 msgstr ""
 
 msgid "Share SMB Type"
+msgstr ""
+
+msgid "Share SMB options."
 msgstr ""
 
 msgid "Share Settings"
@@ -11417,6 +11750,9 @@ msgstr "Знімок позначений для видалення"
 msgid "Snapshot is unlocked"
 msgstr "Знімок розблоковано"
 
+msgid "Snapshot limit"
+msgstr ""
+
 msgid "Snapshots"
 msgstr "Знімки"
 
@@ -11535,6 +11871,17 @@ msgstr "Визначає рядок версії LUN довжиною до 4 с�
 
 msgid "Specifies LUN vendor string up to 8 chars."
 msgstr "Визначає рядок виробника LUN довжиною до 8 символів."
+
+msgid ""
+"Specifies a compatibility mode or literal value for the size of dnodes in "
+"the file system."
+msgstr ""
+
+msgid ""
+"Specifies a suggested block size for files in the file system. This property "
+"is designed solely for use with database workloads that access files in "
+"fixed-size records."
+msgstr ""
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -11949,6 +12296,9 @@ msgstr "Час роботи системи"
 
 msgid "System User"
 msgstr "Системний користувач"
+
+msgid "System attribute based xattrs"
+msgstr ""
 
 msgid "System info"
 msgstr "Відомості про систему"
@@ -12796,6 +13146,9 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr "Ім'я пулу ZFS."
 
+msgid "The name of the filesystem."
+msgstr ""
+
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
@@ -13630,6 +13983,11 @@ msgstr "Ця мітка не використувується"
 msgid "This user already exists."
 msgstr "Такий користувач вже існує."
 
+msgid ""
+"This value represents the threshold block size for including small file "
+"blocks into the special allocation class."
+msgstr ""
+
 msgid "This virtual device name already exists."
 msgstr "Таке ім'я віртуального пристрою вже існує."
 
@@ -14048,6 +14406,11 @@ msgstr "Вівторок"
 msgid "Turn the monitor to standby after N seconds."
 msgstr "Переводити монітор в стан очікування через N секунд."
 
+msgid ""
+"Turning this property on causes the access time to be updated relative to "
+"the modify or change time. The default value is off"
+msgstr ""
+
 msgid "Type"
 msgstr "Тип"
 
@@ -14378,10 +14741,16 @@ msgstr ""
 "Використовуйте HTTPS як під час перевірки змін IP, так і при оновленні "
 "запису DNS. За замовчуванням використовується HTTPS."
 
+msgid "Use NFSv4-style ZFS ACLs"
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr ""
 "Використовувати для автентифікації користувача модуль, що під'єднується "
 "(PAM)."
+
+msgid "Use POSIX ACLs"
+msgstr ""
 
 msgid "Use Sqlite"
 msgstr "Використання Sqlite"
@@ -14586,6 +14955,21 @@ msgstr "Обліковий запис користувача розблоков�
 
 msgid "User agent string"
 msgstr "Користувацький рядок агента"
+
+msgid "User defined limit"
+msgstr ""
+
+msgid "User defined mount point"
+msgstr ""
+
+msgid "User defined refquota"
+msgstr ""
+
+msgid "User defined refreservation"
+msgstr ""
+
+msgid "User defined reservation"
+msgstr ""
 
 msgid "User portal permission."
 msgstr "Дозволи порталу користувача."
@@ -15317,6 +15701,9 @@ msgstr "Архів ZIP"
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
 
+msgid "Zstandard Compression"
+msgstr ""
+
 msgid "Zstandard Compression Level"
 msgstr ""
 
@@ -15345,6 +15732,9 @@ msgstr ""
 "розшифровується так: байт = 0-1-2 = кількість хороших блоків (Big Endian) і "
 "байт = 3-4 = кількість системних (вільних) блоків."
 
+msgid "dev"
+msgstr ""
+
 #, php-format
 msgid "e.g. %s"
 msgstr "наприклад %s"
@@ -15354,6 +15744,9 @@ msgstr "example.com"
 
 msgid "filechooser"
 msgstr "Вибір файлу"
+
+msgid "full"
+msgstr ""
 
 msgid "get target info failed."
 msgstr "відмова отримання інформації про об'єкт."

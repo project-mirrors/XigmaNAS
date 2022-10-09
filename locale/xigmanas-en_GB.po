@@ -7,16 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: comunio\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-10-03 04:58+0000\n"
+"POT-Creation-Date: 2022-10-04 22:38+0000\n"
 "PO-Revision-Date: 2022-09-17 00:11+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
-"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
+"X-Launchpad-Export-Date: 2022-10-09 00:17+0000\n"
+"X-Generator: Launchpad (build 762fb15a975e8b23af6a1f86e44e46bfd0451459)\n"
 "Language: en_GB\n"
+
+msgid ""
+" Controls whether device nodes can be opened on this file system. The "
+"default value is on. The values on and off are equivalent to the dev and "
+"nodev mount options."
+msgstr ""
 
 msgid " No private key"
 msgstr " No private key"
@@ -230,6 +236,9 @@ msgstr "0=disabled, 1-255=enabled command queuing with specified depth."
 msgid "1"
 msgstr "1"
 
+msgid "1 - one copy"
+msgstr ""
+
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr "1 or more disks are required to build a JBOD volume."
 
@@ -245,17 +254,38 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "128K"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 KiB"
 
 msgid "16384"
 msgstr "16384"
 
+msgid "16K"
+msgstr ""
+
+msgid "16k"
+msgstr ""
+
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
+msgid "1K"
+msgstr ""
+
+msgid "1M"
+msgstr ""
+
+msgid "1k"
+msgstr ""
+
 msgid "2"
 msgstr "2"
+
+msgid "2 - two copies"
+msgstr ""
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -272,8 +302,20 @@ msgstr "2.5\""
 msgid "22"
 msgstr "22"
 
+msgid "256K"
+msgstr ""
+
+msgid "2K"
+msgstr ""
+
+msgid "2k"
+msgstr ""
+
 msgid "3"
 msgstr "3"
+
+msgid "3 - three copies - not applicable when encryption is enabled"
+msgstr ""
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "3 or more disks are required to build a RAID-5 volume."
@@ -287,11 +329,20 @@ msgstr "300"
 msgid "32 KiB"
 msgstr "32 KiB"
 
+msgid "32K"
+msgstr ""
+
 msgid "4 KiB"
 msgstr "4 KiB"
 
+msgid "4K"
+msgstr ""
+
 msgid "4KB wrapper"
 msgstr "4KB wrapper"
+
+msgid "4k"
+msgstr ""
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -299,11 +350,23 @@ msgstr "5.25\""
 msgid "512 Bytes"
 msgstr "512 Bytes"
 
+msgid "512 bytes"
+msgstr ""
+
+msgid "512B"
+msgstr ""
+
+msgid "512K"
+msgstr ""
+
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
 msgstr "64 KiB"
+
+msgid "64K"
+msgstr ""
 
 msgid "69"
 msgstr "69"
@@ -316,6 +379,12 @@ msgstr "802.1Q VLAN tag (between 1 and 4094)."
 
 msgid "8200"
 msgstr "8200"
+
+msgid "8K"
+msgstr ""
+
+msgid "8k"
+msgstr ""
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -798,6 +867,9 @@ msgstr "Admin Password"
 msgid "Admin access"
 msgstr "Admin access"
 
+msgid "Admin controlled mount"
+msgstr ""
+
 msgid "Administrative WebGUI"
 msgstr "Administrative WebGUI"
 
@@ -970,6 +1042,11 @@ msgstr "Allow consecutive read/writes to be issued in parallel"
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "Allow keyboard-interactive authentication."
+
+msgid ""
+"Allow mounting on a busy directory or a directory which already contains "
+"files or directories."
+msgstr ""
 
 msgid "Allow new files to be created."
 msgstr "Allow new files to be created."
@@ -1358,6 +1435,9 @@ msgstr "Auto Snapshot"
 
 msgid "Auto Snapshot Settings"
 msgstr "Auto Snapshot Settings"
+
+msgid "Auto mount"
+msgstr ""
 
 msgid "Auto page refresh."
 msgstr "Auto page refresh."
@@ -2142,6 +2222,102 @@ msgstr "Compression"
 msgid "Compression Ratio"
 msgstr ""
 
+msgid "Compression level 1 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 1 - fastest compression"
+msgstr ""
+
+msgid "Compression level 10"
+msgstr ""
+
+msgid "Compression level 100"
+msgstr ""
+
+msgid "Compression level 1000 - fastest compression"
+msgstr ""
+
+msgid "Compression level 11"
+msgstr ""
+
+msgid "Compression level 12"
+msgstr ""
+
+msgid "Compression level 13"
+msgstr ""
+
+msgid "Compression level 14"
+msgstr ""
+
+msgid "Compression level 15"
+msgstr ""
+
+msgid "Compression level 16"
+msgstr ""
+
+msgid "Compression level 17"
+msgstr ""
+
+msgid "Compression level 18"
+msgstr ""
+
+msgid "Compression level 19 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 2"
+msgstr ""
+
+msgid "Compression level 20"
+msgstr ""
+
+msgid "Compression level 3"
+msgstr ""
+
+msgid "Compression level 30"
+msgstr ""
+
+msgid "Compression level 4"
+msgstr ""
+
+msgid "Compression level 40"
+msgstr ""
+
+msgid "Compression level 5"
+msgstr ""
+
+msgid "Compression level 50"
+msgstr ""
+
+msgid "Compression level 500"
+msgstr ""
+
+msgid "Compression level 6"
+msgstr ""
+
+msgid "Compression level 60"
+msgstr ""
+
+msgid "Compression level 7"
+msgstr ""
+
+msgid "Compression level 70"
+msgstr ""
+
+msgid "Compression level 8"
+msgstr ""
+
+msgid "Compression level 80"
+msgstr ""
+
+msgid "Compression level 9"
+msgstr ""
+
+msgid "Compression level 9 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 90"
+msgstr ""
+
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -2297,8 +2473,34 @@ msgstr ""
 "from 1 (fastest) to 9 (best compression ratio). Currently, 'GZIP' is "
 "equivalent to 'GZIP-6'."
 
+msgid ""
+"Controls the compression algorithm. LZ4 is the recommended compression "
+"algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
+"the feature flag lz4_compress is active, otherwise LZJB is used."
+msgstr ""
+
 msgid "Controls the dedup method."
 msgstr "Controls the dedup method."
+
+msgid ""
+"Controls the encryption cipher suite (block cipher, key length, and mode) "
+"used for this dataset."
+msgstr ""
+
+msgid "Controls the format of the provided encryption key."
+msgstr ""
+
+msgid "Controls the level of the Fast Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the gzip compression algorithm"
+msgstr ""
+
+msgid "Controls the mount point type used for this file system."
+msgstr ""
 
 msgid "Controls the number of copies of data stored for this dataset."
 msgstr "Controls the number of copies of data stored for this dataset."
@@ -2324,10 +2526,29 @@ msgstr "Controls where the OS X metadata stream is stored."
 msgid "Controls where the OS X resource fork is stored."
 msgstr "Controls where the OS X resource fork is stored."
 
+msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
+msgstr ""
+
+msgid ""
+"Controls whether extended attributes are enabled for this file system."
+msgstr ""
+
 msgid ""
 "Controls whether processes can be executed from within this file system."
 msgstr ""
 "Controls whether processes can be executed from within this file system."
+
+msgid ""
+"Controls whether processes can be executed from within this file system. The "
+"default value is on. The values on and off are equivalent to the exec and "
+"noexec mount options."
+msgstr ""
+
+msgid ""
+"Controls whether regular files should be scanned for viruses when a file is "
+"opened and closed. In addition to enabling this property, the virus scan "
+"service must also be enabled for virus scanning to occur."
+msgstr ""
 
 msgid ""
 "Controls whether the .zfs directory is hidden or visible in the root of the "
@@ -2353,8 +2574,24 @@ msgstr ""
 msgid "Controls whether the dataset is managed from a jail."
 msgstr "Controls whether the dataset is managed from a jail."
 
+msgid "Controls whether the file system is shared via NFS."
+msgstr ""
+
+msgid "Controls whether the file system is shared via SMB."
+msgstr ""
+
+msgid ""
+"Controls whether the file system should be mounted with non-blocking "
+"mandatory locks."
+msgstr ""
+
 msgid "Controls whether the set-UID bit is respected for the file system."
 msgstr "Controls whether the set-UID bit is respected for the file system."
+
+msgid ""
+"Controls whether the volume snapshot devices under /dev/zvol/<pool> are "
+"hidden or visible."
+msgstr ""
 
 msgid "Controls whether this dataset can be modified."
 msgstr "Controls whether this dataset can be modified."
@@ -2927,6 +3164,9 @@ msgstr "Default Device Settings"
 msgid "Default Root"
 msgstr "Default Root"
 
+msgid "Default compression level"
+msgstr ""
+
 msgid "Default user name is 'admin'."
 msgstr "Default user name is 'admin'."
 
@@ -2954,6 +3194,11 @@ msgstr "Define iSCSI hardware offload driver. The default is \"None\"."
 
 msgid "Defines the checksum algorithm."
 msgstr "Defines the checksum algorithm."
+
+msgid ""
+"Defines the minimum amount of space guaranteed to a dataset, not including "
+"its descendents."
+msgstr ""
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Defines when the shutdown is initiated."
@@ -3528,8 +3773,14 @@ msgstr "Disabled"
 msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr "Disabled variable names will be removed from /etc/rc.conf."
 
+msgid "Discard - Discard ACEs"
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr "Discard - Discard ACL"
+
+msgid "Discard - Do not inherit any ACEs"
+msgstr ""
 
 msgid "Discard - Do not inherit entries"
 msgstr "Discard - Do not inherit entries"
@@ -3649,6 +3900,12 @@ msgid ""
 msgstr ""
 "Do not let the server check for newer firmware versions when the %s page "
 "gets loaded."
+
+msgid "Do not mount"
+msgstr ""
+
+msgid "Do not use ACLs"
+msgstr ""
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -4541,6 +4798,9 @@ msgstr "Edit sysctl setting"
 msgid "Edit target"
 msgstr "Edit target"
 
+msgid "Edon-R, Verify"
+msgstr ""
+
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
 msgstr ""
@@ -5149,6 +5409,9 @@ msgstr "Enter extra options"
 msgid "Enter facility name"
 msgstr "Enter facility name"
 
+msgid "Enter filesystem name"
+msgstr ""
+
 msgid "Enter group name."
 msgstr "Enter group name."
 
@@ -5500,6 +5763,9 @@ msgstr "Fake Address"
 msgid "Fast"
 msgstr "Fast"
 
+msgid "Fast Zstandard Compression"
+msgstr ""
+
 msgid "Fast Zstandard Compression Level"
 msgstr ""
 
@@ -5602,6 +5868,9 @@ msgid "Filesystem Count"
 msgstr ""
 
 msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem Name"
 msgstr ""
 
 msgid "Filesystem is locked"
@@ -5954,6 +6223,9 @@ msgstr "Group is protected"
 msgid "Group is unlocked"
 msgstr "Group is unlocked"
 
+msgid "Groupmask - Mask ACL with group permissions"
+msgstr ""
+
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask - Mask ACL with mode"
 
@@ -6070,6 +6342,9 @@ msgstr "Height of the graphs. (default %s pixels)"
 
 msgid "Help"
 msgstr "Help"
+
+msgid "Hex"
+msgstr ""
 
 msgid "Hiadaptive (High Performance)"
 msgstr "Hiadaptive (High Performance)"
@@ -7053,6 +7328,9 @@ msgstr "Leave already configured auto snapshots."
 msgid "Leave auto snapshot configuration"
 msgstr "Leave auto snapshot configuration"
 
+msgid "Legacy"
+msgstr ""
+
 msgid "Level"
 msgstr "Level"
 
@@ -7923,6 +8201,9 @@ msgstr "NFS Root is marked for deletion"
 msgid "NFS Root is unlocked"
 msgstr "NFS Root is unlocked"
 
+msgid "NFS sharing"
+msgstr ""
+
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8303,6 +8584,9 @@ msgstr "No virtual devices have been selected"
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Only inherit deny entries"
 
+msgid "Noallow - Only inherit inheritable ACEs that specify deny permissions"
+msgstr ""
+
 msgid "Noauto"
 msgstr "Noauto"
 
@@ -8374,6 +8658,22 @@ msgstr "Normal"
 
 msgid "Normalization"
 msgstr "Normalisation"
+
+msgid ""
+"Normalization Form C (NFC) - Canonical Decomposition, followed by Canonical "
+"Composition"
+msgstr ""
+
+msgid "Normalization Form D (NFD) - Canonical Decomposition"
+msgstr ""
+
+msgid ""
+"Normalization Form KC (NFKC) - Compatibility Decomposition, followed by "
+"Canonical Composition"
+msgstr ""
+
+msgid "Normalization Form KD (NFKD) - Compatibility Decomposition"
+msgstr ""
 
 msgid ""
 "Normally this option should not be set as the automatic negotiation phase in "
@@ -8785,11 +9085,18 @@ msgstr "Passthrough - Do not change ACL"
 msgid "Passthrough - Inherit all entries"
 msgstr "Passthrough - Inherit all entries"
 
+msgid "Passthrough - Inherit all inheritable ACEs without any modifications"
+msgstr ""
+
 msgid "Passthrough Address"
 msgstr "Passthrough Address"
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
 msgstr "Passthrough-X - Inherit all but \"execute\" when not specified"
+
+msgid ""
+"Passthrough-X - Inherit all except execute permission when not specified"
+msgstr ""
 
 msgid "Password"
 msgstr "Password"
@@ -9679,6 +9986,9 @@ msgstr "RSYNC log"
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
+msgid "Raw"
+msgstr ""
+
 msgid "Raw Value"
 msgstr "Raw Value"
 
@@ -9855,10 +10165,16 @@ msgstr "Refquota"
 msgid "Refquota Type"
 msgstr ""
 
+msgid "Refquota type."
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Refreservation"
 
 msgid "Refreservation Type"
+msgstr ""
+
+msgid "Refreservation type."
 msgstr ""
 
 msgid "Refresh"
@@ -10037,6 +10353,9 @@ msgstr "Reservation"
 msgid "Reservation Type"
 msgstr ""
 
+msgid "Reservation type."
+msgstr ""
+
 msgid "Reset"
 msgstr "Reset"
 
@@ -10093,6 +10412,11 @@ msgstr "Restrict folder to a specific media type."
 
 msgid "Restricted"
 msgstr "Restricted"
+
+msgid ""
+"Restricted - Inherit ACEs except \"write ACL\" and \"write owner\" "
+"permissions"
+msgstr ""
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr "Restricted - Inherit all but \"write ACL\" and \"change owner\""
@@ -10325,6 +10649,9 @@ msgstr "Samba Share is marked for deletion"
 
 msgid "Samba Share is unlocked"
 msgstr "Samba Share is unlocked"
+
+msgid "Samba sharing"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -11106,6 +11433,9 @@ msgstr ""
 msgid "Share NFS Type"
 msgstr ""
 
+msgid "Share NFS options."
+msgstr ""
+
 msgid "Share Password"
 msgstr "Share Password"
 
@@ -11113,6 +11443,9 @@ msgid "Share SMB Options"
 msgstr ""
 
 msgid "Share SMB Type"
+msgstr ""
+
+msgid "Share SMB options."
 msgstr ""
 
 msgid "Share Settings"
@@ -11300,6 +11633,9 @@ msgstr "Snapshot is marked for deletion"
 msgid "Snapshot is unlocked"
 msgstr "Snapshot is unlocked"
 
+msgid "Snapshot limit"
+msgstr ""
+
 msgid "Snapshots"
 msgstr "Snapshots"
 
@@ -11415,6 +11751,17 @@ msgstr "Specifies LUN revision string up to 4 chars."
 
 msgid "Specifies LUN vendor string up to 8 chars."
 msgstr "Specifies LUN vendor string up to 8 chars."
+
+msgid ""
+"Specifies a compatibility mode or literal value for the size of dnodes in "
+"the file system."
+msgstr ""
+
+msgid ""
+"Specifies a suggested block size for files in the file system. This property "
+"is designed solely for use with database workloads that access files in "
+"fixed-size records."
+msgstr ""
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -11827,6 +12174,9 @@ msgstr "System Uptime"
 
 msgid "System User"
 msgstr "System User"
+
+msgid "System attribute based xattrs"
+msgstr ""
 
 msgid "System info"
 msgstr "System info"
@@ -12669,6 +13019,9 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr "The name of the ZFS pool."
 
+msgid "The name of the filesystem."
+msgstr ""
+
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
@@ -13498,6 +13851,11 @@ msgstr "This tag is used."
 msgid "This user already exists."
 msgstr "This user already exists."
 
+msgid ""
+"This value represents the threshold block size for including small file "
+"blocks into the special allocation class."
+msgstr ""
+
 msgid "This virtual device name already exists."
 msgstr "This virtual device name already exists."
 
@@ -13910,6 +14268,11 @@ msgstr "Tuesday"
 msgid "Turn the monitor to standby after N seconds."
 msgstr "Turn the monitor to standby after N seconds."
 
+msgid ""
+"Turning this property on causes the access time to be updated relative to "
+"the modify or change time. The default value is off"
+msgstr ""
+
 msgid "Type"
 msgstr "Type"
 
@@ -14237,8 +14600,14 @@ msgstr ""
 "Use HTTPS, both when checking for IP changes and updating the DNS record. "
 "Default is to use HTTPS."
 
+msgid "Use NFSv4-style ZFS ACLs"
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr "Use PAM for user authentication."
+
+msgid "Use POSIX ACLs"
+msgstr ""
 
 msgid "Use Sqlite"
 msgstr "Use Sqlite"
@@ -14433,6 +14802,21 @@ msgstr "User account is unlocked"
 
 msgid "User agent string"
 msgstr "User agent string"
+
+msgid "User defined limit"
+msgstr ""
+
+msgid "User defined mount point"
+msgstr ""
+
+msgid "User defined refquota"
+msgstr ""
+
+msgid "User defined refreservation"
+msgstr ""
+
+msgid "User defined reservation"
+msgstr ""
 
 msgid "User portal permission."
 msgstr "User portal permission."
@@ -15148,6 +15532,9 @@ msgstr "ZIP Archive"
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
 
+msgid "Zstandard Compression"
+msgstr ""
+
 msgid "Zstandard Compression Level"
 msgstr ""
 
@@ -15176,6 +15563,9 @@ msgstr ""
 "decoded as: byte 0-1-2 = good block count (big endian) and byte 3-4 = "
 "system(free) block count."
 
+msgid "dev"
+msgstr ""
+
 #, php-format
 msgid "e.g. %s"
 msgstr "e.g. %s"
@@ -15185,6 +15575,9 @@ msgstr "example.com"
 
 msgid "filechooser"
 msgstr "filechooser"
+
+msgid "full"
+msgstr ""
 
 msgid "get target info failed."
 msgstr "get target info failed."

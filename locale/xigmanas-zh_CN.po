@@ -2,18 +2,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-03 04:58+0000\n"
+"POT-Creation-Date: 2022-10-04 22:38+0000\n"
 "PO-Revision-Date: 2022-05-25 02:38+0000\n"
 "Last-Translator: Luke Luo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-10-04 02:25+0000\n"
-"X-Generator: Launchpad (build 0078fd632317f6337eeb71a063cc7795217204ba)\n"
-"Language: zh_CN\n"
+"X-Launchpad-Export-Date: 2022-10-09 00:17+0000\n"
+"X-Generator: Launchpad (build 762fb15a975e8b23af6a1f86e44e46bfd0451459)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
+
+msgid ""
+" Controls whether device nodes can be opened on this file system. The "
+"default value is on. The values on and off are equivalent to the dev and "
+"nodev mount options."
+msgstr ""
 
 msgid " No private key"
 msgstr " 没有私钥"
@@ -210,6 +216,9 @@ msgstr "0=禁用, 1-255=指令排序的深度。"
 msgid "1"
 msgstr "1"
 
+msgid "1 - one copy"
+msgstr ""
+
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr "一个或更多磁盘需要建立为JBOD卷"
 
@@ -225,17 +234,38 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "128K"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 KiB"
 
 msgid "16384"
 msgstr "16384"
 
+msgid "16K"
+msgstr ""
+
+msgid "16k"
+msgstr ""
+
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
+msgid "1K"
+msgstr ""
+
+msgid "1M"
+msgstr ""
+
+msgid "1k"
+msgstr ""
+
 msgid "2"
 msgstr "2"
+
+msgid "2 - two copies"
+msgstr ""
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -252,8 +282,20 @@ msgstr "2.5\""
 msgid "22"
 msgstr "22"
 
+msgid "256K"
+msgstr ""
+
+msgid "2K"
+msgstr ""
+
+msgid "2k"
+msgstr ""
+
 msgid "3"
 msgstr "3"
+
+msgid "3 - three copies - not applicable when encryption is enabled"
+msgstr ""
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "创建一个Raid-5 卷需要3个或更多的磁盘。"
@@ -267,11 +309,20 @@ msgstr "300"
 msgid "32 KiB"
 msgstr "32 KiB"
 
+msgid "32K"
+msgstr ""
+
 msgid "4 KiB"
 msgstr "4 KiB"
 
+msgid "4K"
+msgstr ""
+
 msgid "4KB wrapper"
 msgstr "4KB封套"
+
+msgid "4k"
+msgstr ""
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -279,11 +330,23 @@ msgstr "5.25\""
 msgid "512 Bytes"
 msgstr "512字节"
 
+msgid "512 bytes"
+msgstr ""
+
+msgid "512B"
+msgstr ""
+
+msgid "512K"
+msgstr ""
+
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
 msgstr "64 KiB"
+
+msgid "64K"
+msgstr ""
 
 msgid "69"
 msgstr "69"
@@ -296,6 +359,12 @@ msgstr "802.1Q VLAN 标签 （介于1和4094之间）。"
 
 msgid "8200"
 msgstr "8200"
+
+msgid "8K"
+msgstr ""
+
+msgid "8k"
+msgstr ""
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -758,6 +827,9 @@ msgstr "管理密码"
 msgid "Admin access"
 msgstr "管理员权限"
 
+msgid "Admin controlled mount"
+msgstr ""
+
 msgid "Administrative WebGUI"
 msgstr "Web管理界面"
 
@@ -918,6 +990,11 @@ msgstr "允许并行发出连续的读/写操作"
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "允许键盘交互式身份验证。"
+
+msgid ""
+"Allow mounting on a busy directory or a directory which already contains "
+"files or directories."
+msgstr ""
 
 msgid "Allow new files to be created."
 msgstr "允许创建新文件。"
@@ -1270,6 +1347,9 @@ msgstr "自动快照"
 
 msgid "Auto Snapshot Settings"
 msgstr "自动快照设置"
+
+msgid "Auto mount"
+msgstr ""
 
 msgid "Auto page refresh."
 msgstr "页面自动刷新。"
@@ -2019,6 +2099,102 @@ msgstr "资料压缩"
 msgid "Compression Ratio"
 msgstr ""
 
+msgid "Compression level 1 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 1 - fastest compression"
+msgstr ""
+
+msgid "Compression level 10"
+msgstr ""
+
+msgid "Compression level 100"
+msgstr ""
+
+msgid "Compression level 1000 - fastest compression"
+msgstr ""
+
+msgid "Compression level 11"
+msgstr ""
+
+msgid "Compression level 12"
+msgstr ""
+
+msgid "Compression level 13"
+msgstr ""
+
+msgid "Compression level 14"
+msgstr ""
+
+msgid "Compression level 15"
+msgstr ""
+
+msgid "Compression level 16"
+msgstr ""
+
+msgid "Compression level 17"
+msgstr ""
+
+msgid "Compression level 18"
+msgstr ""
+
+msgid "Compression level 19 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 2"
+msgstr ""
+
+msgid "Compression level 20"
+msgstr ""
+
+msgid "Compression level 3"
+msgstr ""
+
+msgid "Compression level 30"
+msgstr ""
+
+msgid "Compression level 4"
+msgstr ""
+
+msgid "Compression level 40"
+msgstr ""
+
+msgid "Compression level 5"
+msgstr ""
+
+msgid "Compression level 50"
+msgstr ""
+
+msgid "Compression level 500"
+msgstr ""
+
+msgid "Compression level 6"
+msgstr ""
+
+msgid "Compression level 60"
+msgstr ""
+
+msgid "Compression level 7"
+msgstr ""
+
+msgid "Compression level 70"
+msgstr ""
+
+msgid "Compression level 8"
+msgstr ""
+
+msgid "Compression level 80"
+msgstr ""
+
+msgid "Compression level 9"
+msgstr ""
+
+msgid "Compression level 9 - best compression ratio"
+msgstr ""
+
+msgid "Compression level 90"
+msgstr ""
+
 msgid "Configuration"
 msgstr "配置"
 
@@ -2155,8 +2331,34 @@ msgstr ""
 "如果功能标志lz4_compress处于活动状态，则将压缩设置为“开”，使用LZ4压缩算法，否则使用LZJB。 你可以使用值“GZIP-"
 "N”来指定“GZIP”级别，其中N是从1（最快）到9（最佳压缩比）的整数。 目前，“GZIP”相当于“GZIP-6”。"
 
+msgid ""
+"Controls the compression algorithm. LZ4 is the recommended compression "
+"algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
+"the feature flag lz4_compress is active, otherwise LZJB is used."
+msgstr ""
+
 msgid "Controls the dedup method."
 msgstr "控制重复数据删除方法。"
+
+msgid ""
+"Controls the encryption cipher suite (block cipher, key length, and mode) "
+"used for this dataset."
+msgstr ""
+
+msgid "Controls the format of the provided encryption key."
+msgstr ""
+
+msgid "Controls the level of the Fast Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the Zstandard compression level"
+msgstr ""
+
+msgid "Controls the level of the gzip compression algorithm"
+msgstr ""
+
+msgid "Controls the mount point type used for this file system."
+msgstr ""
 
 msgid "Controls the number of copies of data stored for this dataset."
 msgstr "控制为此数据集存储的数据的副本数。"
@@ -2182,9 +2384,28 @@ msgstr "控制OS X元数据流的存储位置。"
 msgid "Controls where the OS X resource fork is stored."
 msgstr "控制OS X资源分叉的存储位置。"
 
+msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
+msgstr ""
+
+msgid ""
+"Controls whether extended attributes are enabled for this file system."
+msgstr ""
+
 msgid ""
 "Controls whether processes can be executed from within this file system."
 msgstr "控制是否可以在该文件系统内执行进程。"
+
+msgid ""
+"Controls whether processes can be executed from within this file system. The "
+"default value is on. The values on and off are equivalent to the exec and "
+"noexec mount options."
+msgstr ""
+
+msgid ""
+"Controls whether regular files should be scanned for viruses when a file is "
+"opened and closed. In addition to enabling this property, the virus scan "
+"service must also be enabled for virus scanning to occur."
+msgstr ""
 
 msgid ""
 "Controls whether the .zfs directory is hidden or visible in the root of the "
@@ -2204,8 +2425,24 @@ msgstr "控制文件的访问时间是否在读取时更新。 关闭此功能�
 msgid "Controls whether the dataset is managed from a jail."
 msgstr "控制数据集是否从jail管理。"
 
+msgid "Controls whether the file system is shared via NFS."
+msgstr ""
+
+msgid "Controls whether the file system is shared via SMB."
+msgstr ""
+
+msgid ""
+"Controls whether the file system should be mounted with non-blocking "
+"mandatory locks."
+msgstr ""
+
 msgid "Controls whether the set-UID bit is respected for the file system."
 msgstr "控制文件系统是否符合set-UID位。"
+
+msgid ""
+"Controls whether the volume snapshot devices under /dev/zvol/<pool> are "
+"hidden or visible."
+msgstr ""
 
 msgid "Controls whether this dataset can be modified."
 msgstr "控制此数据集能否被修改。"
@@ -2731,6 +2968,9 @@ msgstr "默认设备设置"
 msgid "Default Root"
 msgstr "默认Root"
 
+msgid "Default compression level"
+msgstr ""
+
 msgid "Default user name is 'admin'."
 msgstr "默认用户名是 'admin'。"
 
@@ -2756,6 +2996,11 @@ msgstr "定义iSCSI硬件卸载驱动。 默认值为“无”。"
 
 msgid "Defines the checksum algorithm."
 msgstr "定义校验算法。"
+
+msgid ""
+"Defines the minimum amount of space guaranteed to a dataset, not including "
+"its descendents."
+msgstr ""
 
 msgid "Defines when the shutdown is initiated."
 msgstr "设定何时关机。"
@@ -3321,8 +3566,14 @@ msgstr "关闭"
 msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr "禁用的变量名将从/etc/rc.conf中删除。"
 
+msgid "Discard - Discard ACEs"
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr "丢弃 - 丢弃ACL"
+
+msgid "Discard - Do not inherit any ACEs"
+msgstr ""
 
 msgid "Discard - Do not inherit entries"
 msgstr "丢弃 - 不继承条目"
@@ -3431,6 +3682,12 @@ msgid ""
 "Do not let the server check for newer firmware versions when the %s page "
 "gets loaded."
 msgstr "在加载 %s 页面时，不要让服务器检查较新的固件版本。"
+
+msgid "Do not mount"
+msgstr ""
+
+msgid "Do not use ACLs"
+msgstr ""
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -4317,6 +4574,9 @@ msgstr "编辑sysctl设置"
 msgid "Edit target"
 msgstr "编辑目标"
 
+msgid "Edon-R, Verify"
+msgstr ""
+
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
 msgstr "UPS的效率（输入电流的输出电流的对比率）"
@@ -4888,6 +5148,9 @@ msgstr "输入额外的选项"
 msgid "Enter facility name"
 msgstr "输入设备名称"
 
+msgid "Enter filesystem name"
+msgstr ""
+
 msgid "Enter group name."
 msgstr "输入组名"
 
@@ -5220,6 +5483,9 @@ msgstr "假地址"
 msgid "Fast"
 msgstr "快速"
 
+msgid "Fast Zstandard Compression"
+msgstr ""
+
 msgid "Fast Zstandard Compression Level"
 msgstr ""
 
@@ -5319,6 +5585,9 @@ msgid "Filesystem Count"
 msgstr ""
 
 msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Filesystem Name"
 msgstr ""
 
 msgid "Filesystem is locked"
@@ -5666,6 +5935,9 @@ msgstr "群组被保护"
 msgid "Group is unlocked"
 msgstr "群组已解锁"
 
+msgid "Groupmask - Mask ACL with group permissions"
+msgstr ""
+
 msgid "Groupmask - Mask ACL with mode"
 msgstr "组掩码 - 掩码模式的ACL"
 
@@ -5775,6 +6047,9 @@ msgstr "图表的高度。 （默认为%s像素）"
 
 msgid "Help"
 msgstr "说明"
+
+msgid "Hex"
+msgstr ""
 
 msgid "Hiadaptive (High Performance)"
 msgstr "Hiadaptive（高性能）"
@@ -6687,6 +6962,9 @@ msgstr "保留已经配置的自动快照。"
 msgid "Leave auto snapshot configuration"
 msgstr "保留自动快照的配置"
 
+msgid "Legacy"
+msgstr ""
+
 msgid "Level"
 msgstr "级别"
 
@@ -7531,6 +7809,9 @@ msgstr "NFS Root被标记为删除"
 msgid "NFS Root is unlocked"
 msgstr "NFS Root已解锁"
 
+msgid "NFS sharing"
+msgstr ""
+
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -7901,6 +8182,9 @@ msgstr "未选择任何虚拟设备"
 msgid "Noallow - Only inherit deny entries"
 msgstr "不允许 - 仅继承拒绝条目"
 
+msgid "Noallow - Only inherit inheritable ACEs that specify deny permissions"
+msgstr ""
+
 msgid "Noauto"
 msgstr "Noauto"
 
@@ -7972,6 +8256,22 @@ msgstr "正常"
 
 msgid "Normalization"
 msgstr "正常化"
+
+msgid ""
+"Normalization Form C (NFC) - Canonical Decomposition, followed by Canonical "
+"Composition"
+msgstr ""
+
+msgid "Normalization Form D (NFD) - Canonical Decomposition"
+msgstr ""
+
+msgid ""
+"Normalization Form KC (NFKC) - Compatibility Decomposition, followed by "
+"Canonical Composition"
+msgstr ""
+
+msgid "Normalization Form KD (NFKD) - Compatibility Decomposition"
+msgstr ""
 
 msgid ""
 "Normally this option should not be set as the automatic negotiation phase in "
@@ -8367,11 +8667,18 @@ msgstr "直通- 不要更改ACL"
 msgid "Passthrough - Inherit all entries"
 msgstr "直通 - 继承所有条目"
 
+msgid "Passthrough - Inherit all inheritable ACEs without any modifications"
+msgstr ""
+
 msgid "Passthrough Address"
 msgstr "直通地址"
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
 msgstr "直通-X - 在未指定情况下继承除了“执行”以外的所有"
+
+msgid ""
+"Passthrough-X - Inherit all except execute permission when not specified"
+msgstr ""
 
 msgid "Password"
 msgstr "密码"
@@ -9243,6 +9550,9 @@ msgstr "RSYNC 记录"
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
+msgid "Raw"
+msgstr ""
+
 msgid "Raw Value"
 msgstr "原始值"
 
@@ -9412,10 +9722,16 @@ msgstr "Refquota"
 msgid "Refquota Type"
 msgstr ""
 
+msgid "Refquota type."
+msgstr ""
+
 msgid "Refreservation"
 msgstr "Refreservation"
 
 msgid "Refreservation Type"
+msgstr ""
+
+msgid "Refreservation type."
 msgstr ""
 
 msgid "Refresh"
@@ -9586,6 +9902,9 @@ msgstr "预留"
 msgid "Reservation Type"
 msgstr ""
 
+msgid "Reservation type."
+msgstr ""
+
 msgid "Reset"
 msgstr "重置"
 
@@ -9642,6 +9961,11 @@ msgstr "将文件夹限制为特定媒体类型。"
 
 msgid "Restricted"
 msgstr "受限"
+
+msgid ""
+"Restricted - Inherit ACEs except \"write ACL\" and \"write owner\" "
+"permissions"
+msgstr ""
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr "受限 - 继承所有，除了“写入ACL”和“更改所有者”"
@@ -9872,6 +10196,9 @@ msgstr "Samba共享标记为删除"
 
 msgid "Samba Share is unlocked"
 msgstr "Samba共享已解锁"
+
+msgid "Samba sharing"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -10582,6 +10909,9 @@ msgstr ""
 msgid "Share NFS Type"
 msgstr ""
 
+msgid "Share NFS options."
+msgstr ""
+
 msgid "Share Password"
 msgstr "共享密码"
 
@@ -10589,6 +10919,9 @@ msgid "Share SMB Options"
 msgstr ""
 
 msgid "Share SMB Type"
+msgstr ""
+
+msgid "Share SMB options."
 msgstr ""
 
 msgid "Share Settings"
@@ -10770,6 +11103,9 @@ msgstr "快照被标记为删除"
 msgid "Snapshot is unlocked"
 msgstr "快照已解锁"
 
+msgid "Snapshot limit"
+msgstr ""
+
 msgid "Snapshots"
 msgstr "快照（Snapshots）"
 
@@ -10873,6 +11209,17 @@ msgstr "指定最多4个字符的LUN修订字符串。"
 
 msgid "Specifies LUN vendor string up to 8 chars."
 msgstr "指定最多8个字符的LUN供应商字符串。"
+
+msgid ""
+"Specifies a compatibility mode or literal value for the size of dnodes in "
+"the file system."
+msgstr ""
+
+msgid ""
+"Specifies a suggested block size for files in the file system. This property "
+"is designed solely for use with database workloads that access files in "
+"fixed-size records."
+msgstr ""
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -11252,6 +11599,9 @@ msgstr "系统运行时间"
 
 msgid "System User"
 msgstr "系统用户"
+
+msgid "System attribute based xattrs"
+msgstr ""
 
 msgid "System info"
 msgstr "系统信息"
@@ -11994,6 +12344,9 @@ msgstr "TLS信任文件的名称。 该文件必须是包含一个或多个可�
 msgid "The name of the ZFS pool."
 msgstr "ZFS池的名称。"
 
+msgid "The name of the filesystem."
+msgstr ""
+
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
@@ -12691,6 +13044,11 @@ msgstr "此标签在使用中。"
 msgid "This user already exists."
 msgstr "此用户已经存在。"
 
+msgid ""
+"This value represents the threshold block size for including small file "
+"blocks into the special allocation class."
+msgstr ""
+
 msgid "This virtual device name already exists."
 msgstr "此虚拟设备的名称已经存在。"
 
@@ -13072,6 +13430,11 @@ msgstr "周二"
 msgid "Turn the monitor to standby after N seconds."
 msgstr "N 秒后，显示器进入待机。"
 
+msgid ""
+"Turning this property on causes the access time to be updated relative to "
+"the modify or change time. The default value is off"
+msgstr ""
+
 msgid "Type"
 msgstr "类型"
 
@@ -13392,8 +13755,14 @@ msgid ""
 "Default is to use HTTPS."
 msgstr ""
 
+msgid "Use NFSv4-style ZFS ACLs"
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr "使用PAM进行用户认证。"
+
+msgid "Use POSIX ACLs"
+msgstr ""
 
 msgid "Use Sqlite"
 msgstr "使用Sqlite"
@@ -13566,6 +13935,21 @@ msgid "User account is unlocked"
 msgstr "用户账号已解锁"
 
 msgid "User agent string"
+msgstr ""
+
+msgid "User defined limit"
+msgstr ""
+
+msgid "User defined mount point"
+msgstr ""
+
+msgid "User defined refquota"
+msgstr ""
+
+msgid "User defined refreservation"
+msgstr ""
+
+msgid "User defined reservation"
 msgstr ""
 
 msgid "User portal permission."
@@ -14251,6 +14635,9 @@ msgstr "ZIP压缩包"
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
 
+msgid "Zstandard Compression"
+msgstr ""
+
 msgid "Zstandard Compression Level"
 msgstr ""
 
@@ -14277,6 +14664,9 @@ msgid ""
 "system(free) block count."
 msgstr "解码为：字节0-1-2 =好的块数量（大端）和字节3-4 =系统（空闲）块数量。"
 
+msgid "dev"
+msgstr ""
+
 #, php-format
 msgid "e.g. %s"
 msgstr "例如：%s"
@@ -14286,6 +14676,9 @@ msgstr ""
 
 msgid "filechooser"
 msgstr "filechooser"
+
+msgid "full"
+msgstr ""
 
 msgid "get target info failed."
 msgstr "获取目标信息失败。"
