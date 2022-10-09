@@ -21,6 +21,7 @@ Changes:
 - Upgrade zoneinfo to 2022d.
 - Upgrade php to v8.1.11.
 - Upgrade pecl-APCu to v5.1.22.
+- Upgrade jquery to v3.6.1.
 
 Fixes:
 - fix bring up lighttpd at all times.
