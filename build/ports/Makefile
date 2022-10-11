@@ -11,7 +11,7 @@
     SUBDIR += devcpu-data-amd
     SUBDIR += devcpu-data-intel
     SUBDIR += dmidecode
-    SUBDIR += e2fsprogs
+    SUBDIR += e2fsprogs-core
     SUBDIR += fdisk
     SUBDIR += firefly
     SUBDIR += fuppes

@@ -1,19 +1,17 @@
 PORTNAME=	e2fsprogs
 PORTVERSION=	1.46.5
-PORTREVISION?=	1
+PORTREVISION?=	5
 CATEGORIES?=	sysutils
 MASTER_SITES=	KERNEL_ORG/linux/kernel/people/tytso/${PORTNAME}/v${PORTVERSION}
 
 MAINTAINER?=	zoon01@xigmanas.com
 COMMENT?=	Utilities & library to manipulate ext2/3/4 filesystems
+WWW=		http://e2fsprogs.sourceforge.net/
 
 # XigmaNAS® contains license files
 NO_LICENSES_INSTALL=	yes
 NO_LICENSES_DIALOGS=	yes
-
-.if !defined(MASTERDIR)
-BROKEN_aarch64=		fails to link: missing sbrk
-.endif
+LICENSE=		GPLv2+
 
 USES=		cpe gmake makeinfo pkgconfig tar:xz
 CPE_VENDOR=	e2fsprogs_project
@@ -25,7 +23,6 @@ USE_CSTD=	gnu99
 USE_LDCONFIG=	${PREFIX}/lib/e2fsprogs
 .endif
 GNU_CONFIGURE=	yes
-#LLD_UNSAFE=	yes
 
 # while we use the system blkid, we need to --enable-libblkid
 # so that the tools get built:
@@ -35,24 +32,26 @@ CONFIGURE_ARGS?=--disable-fsck \
 		--disable-uuidd \
 		--enable-libblkid \
 		--enable-elf-shlibs \
+		--libdir='${PREFIX}/lib/e2fsprogs/' \
 		--with-root-prefix='${PREFIX}' \
+		DD=${LOCALBASE}/bin/gdd \
 		LDFLAGS='${LDFLAGS} -L${LOCALBASE}/lib -Wl,--rpath -Wl,${LOCALBASE}/lib/e2fsprogs'
 CONFIGURE_ENV?=	LIBS='-Wl,--as-needed ${LIBS} -lexecinfo -lelf'
 # apparently HAVE_PTHREAD_H checks go missing if the FUSEFS option is unset, force it:
-CPPFLAGS+=      -I${WRKSRC}/lib -I${LOCALBASE}/include # -D_EXT2_USE_C_VERSIONS
+CPPFLAGS+=	-I${WRKSRC}/lib -I${LOCALBASE}/include # -D_EXT2_USE_C_VERSIONS
 MAKE_ARGS+=	pkgconfigdir='${PREFIX}/libdata/pkgconfig'
 MAKE_ENV+=	CHECK_CMD=@true
 
-CONFLICTS_INSTALL=	e2fsprogs e2fsprogs-nobootfsck e2fsprogs-roothardlinks
+CONFLICTS_INSTALL=	e2fsprogs-nobootfsck e2fsprogs-roothardlinks
 
-PORTSCOUT=	ignore	# cannot handle the version in the directory
+PORTSCOUT=	ignore:1	# cannot handle the version in the directory
 
 .if !defined(MASTERDIR)
 CPPFLAGS+=	-D__GNUC_PREREQ\(a,b\)=1
 
 INSTALL_TARGET=		install install-libs
 
-OPTIONS_DEFINE=         DOCS NLS FUSEFS PARALLELTESTS SLOWTESTS BASHTESTS LIBUNWIND
+OPTIONS_DEFINE=		DOCS NLS FUSEFS PARALLELTESTS SLOWTESTS BASHTESTS LIBUNWIND
 OPTIONS_EXCLUDE+=	EXAMPLES
 OPTIONS_SUB=		yes
 
@@ -65,21 +64,25 @@ NOTESTS_DESC=	Do not run any self-tests (Tier-1, DISCOURAGED)
 SMALLTESTS_DESC=Run tests that need <500 MB disk space (DEFAULT)
 ALLTESTS_DESC=	Run most self-tests (needs more RAM/disk space)
 PARALLELTESTS_DESC=	Parallelize self-tests (needs more disk space)
-SLOWTESTS_DESC= Enable slow tests that are skipped by default
-BASHTESTS_DESC= Enable tests that require the GNU bash shell
-LIBUNWIND_DESC= Backtrace with libunwind (do set WITH_DEBUG=yes!)
+SLOWTESTS_DESC=	Enable slow tests that are skipped by default
+BASHTESTS_DESC=	Enable tests that require the GNU bash shell
+LIBUNWIND_DESC=	Backtrace with libunwind (do set WITH_DEBUG_PORTS+=${PKGORIGIN}!)
 
 FUSEFS_CONFIGURE_ENABLE=	fuse2fs
+FUSEFS_USES=		fuse
+
+NLS_USES=		gettext iconv:build
 
 BUILD_DEPENDS+=	gdd:sysutils/coreutils
-BASHTEST_BUILD_DEPENDS= bash:shells/bash
+BASHTESTS_BUILD_DEPENDS=	${BASH_CMD}:shells/bash
+BASH_CMD=	${LOCALBASE}/bin/bash
 
 LIB_DEPENDS+=	libblkid.so:misc/e2fsprogs-libblkid
 LIB_DEPENDS+=	libuuid.so:misc/e2fsprogs-libuuid
 
-LIBUNWIND_LIB_DEPENDS=  libunwind.so:devel/libunwind
-LIBUNWIND_LIBS+=        -L${LOCALBASE}/lib -lunwind
-LIBUNWIND_LDFLAGS+=     -rdynamic
+LIBUNWIND_LIB_DEPENDS=	libunwind.so:devel/libunwind
+LIBUNWIND_LIBS+=	-L${LOCALBASE}/lib -lunwind
+LIBUNWIND_LDFLAGS+=	-rdynamic
 LIBUNWIND_EXTRA_PATCHES=${FILESDIR}/extrapatch-e2fsck_sigcatcher.c
 
 PORTDOCS=	NOTICE README RELEASE-NOTES SUBMITTING-PATCHES
@@ -91,7 +94,7 @@ PORTDOCS=	NOTICE README RELEASE-NOTES SUBMITTING-PATCHES
 # a "warn if nothing was edited by one command" would be acceptable,
 # but until we have that in the framework, just
 # avoid Tools/scripts/sed_checked altogether:
-REINPLACE_CMD=  ${SED} ${REINPLACE_ARGS}
+REINPLACE_CMD=	${SED} ${REINPLACE_ARGS}
 
 PKGDEINSTALL=	${PKGINSTALL}
 
@@ -99,20 +102,16 @@ MAKE_ARGS+=	V=1
 
 .include <bsd.port.options.mk>
 
+.if ${MASTERDIR} == ${.CURDIR}
+PKGNAMESUFFIX=	-core
+.endif
+
 . if ! empty(ARCH:Mpowerpc*)
 # Fix powerpc64/powerpc SIGSEGV,
 # see https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231570 (ppc64)
 # see https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=242798 (ppc32 - untested)
 USES+=		compiler:c11
 . endif
-
-.if ${PORT_OPTIONS:MFUSEFS}
-USES+=		fuse
-.endif
-
-.if ${PORT_OPTIONS:MNLS}
-USES+=		gettext iconv:build
-.endif
 
 .if empty(PORT_OPTIONS:MNOTESTS) && ${MASTERDIR} == ${.CURDIR}
 USES+=		perl5
@@ -132,16 +131,22 @@ CONFIGURE_ARGS+=--disable-nls
 libintl=
 .endif
 
+.if ${MASTERDIR} == ${.CURDIR} && (${ARCH} == "aarch64" || ${ARCH} == "riscv64")
+EXTRA_PATCHES+=	${FILESDIR}/extrapatch-no-sbrk
+.endif
+
 # d_fallocate_blkmap appears to fail on some systems for unknown reasons.
+# m_offset sometimes failes, a make clean and re-build usually fixes this. Reason unknown.
 post-patch::
+.if !empty(DISTFILES)
 	@${REINPLACE_CMD} -E -e 's/md5sum ([^ ]*)/printf "%s  %s\\n" $$(md5 -q \1) \1/' \
 	    -e "s/ == 0/ = 0/" -e "s/tar x$$/tar xf -/" -e "s/\<dd\>/gdd/" \
 	    ${WRKSRC}/tests/[a-z]_*/script
 	@${REINPLACE_CMD} -e 's/<malloc\.h>/<stdlib.h>/' ${WRKSRC}/*/*.c
 	@${REINPLACE_CMD} -e 's,/etc/blkid.tab,${ETCDIR}/blkid.tab,' ${WRKSRC}/misc/blkid* ${WRKSRC}/lib/blkid/blkidP.h
 	@${REINPLACE_CMD} -E -e 's/__GNUC_PREREQ\>/__GNUC_PREREQ__/' ${WRKSRC}/*/*/*.[ch] ${WRKSRC}/*/*.c
-.if empty(PORT_OPTIONS:MALLTESTS)
-.for i in \
+. if empty(PORT_OPTIONS:MALLTESTS)
+.  for i in \
 		d_fallocate_blkmap \
 		f_baddir \
 		f_bbfile \
@@ -178,14 +183,15 @@ post-patch::
 		u_dryrun \
 		u_mke2fs_opt_offset
 	@${MV} ${WRKSRC}/tests/${i} ${WRKSRC}/tests/disabled_test-${i}
-. endfor
-.endif
-.if ${PORT_OPTIONS:MBASHTESTS}
+.  endfor
+. endif
+. if ${PORT_OPTIONS:MBASHTESTS}
 	${REINPLACE_CMD} -e 's}^SHELL *=.*}SHELL = ${_CHECK_SHELL}}' ${WRKSRC}/MCONFIG.in
-.else
-. for i in f_large_dir
+. else
+.  for i in f_large_dir
 	@${MV} ${WRKSRC}/tests/${i} ${WRKSRC}/tests/disabled_test-${i}
-. endfor
+.  endfor
+. endif
 .endif
 
 ##############################################################
@@ -194,7 +200,7 @@ post-patch::
 .if ${MASTERDIR} == ${.CURDIR}
 # NOTE: The previous .if block goes all the way to the end of the file.
 
-.if !empty(PORT_OPTIONS:MNOTESTS) && (${OPSYS} == FreeBSD) && (${OSVERSION} >= 1200000 || ((${ARCH} != i386) && (${ARCH} != amd64)))
+.if !empty(PORT_OPTIONS:MNOTESTS) && (${OPSYS} == FreeBSD) && (${OSVERSION} >= 1400000 || ((${ARCH} != i386) && (${ARCH} != amd64)))
 BROKEN=	it was not tested on your system by the maintainer; you must run self-tests
 .endif
 
@@ -231,17 +237,17 @@ _check_target=check
 _check_timeout=180
 .endif
 
-.if ${PORT_OPTIONS:MLIBUNWIND} 
-_staticlibs+=${LOCALBASE}/lib/libunwind.a /usr/lib/liblzma.a /usr/lib/libmd.a 
-.endif 
+.if ${PORT_OPTIONS:MLIBUNWIND}
+_staticlibs+=${LOCALBASE}/lib/libunwind.a /usr/lib/liblzma.a /usr/lib/libmd.a
+.endif
 
 post-build:
 # Relink e2fsck statically - We need to make sure that tools for the root file
 # system are statically linked against anything that is outside the root fs,
 # else we're in trouble if e2fsck is needed for boot:
 # (we don't use e2fsck.static, since we can link libc.so dynamically)
-# NOTE: we need to link libgcc statically, it might be under /usr/local! 
-# => do not add a -Bdynamic - but instead list the dynamic libraries 
+# NOTE: we need to link libgcc statically, it might be under /usr/local!
+# => do not add a -Bdynamic - but instead list the dynamic libraries
 # before the -Bstatic
 	cd ${WRKSRC}/e2fsck && ${RM} -f e2fsck \
 		&& ${MAKE_CMD} e2fsck V=1 \
@@ -288,24 +294,10 @@ post-build:
 .endif
 
 post-install:
-	# pkg workaround time again;
-	# the whole purpose of this dance is to move the necessities for
-	# /etc/fstab fsck'ing into /sbin, and symlink to these guys
-	# in the regular hierarchy, normally $PREFIX/sbin. Hard links may
-	# crash the install if /usr[/local] is a separate file system from /,
-	# and pkg 1.15.4 can't automatically unroll or install relative symlinks.
-#	${MKDIR} ${STAGEDIR}/sbin
-#	${MV} -f ${STAGEDIR}${PREFIX}/sbin/e2fsck ${STAGEDIR}/sbin/ # from INSTALL_TARGET
-#	${INSTALL_PROGRAM} ${WRKSRC}/fsck_ext2fs ${STAGEDIR}/sbin/  # from port
-	# according to TPH 6.1.1 Handling Symbolic Links, these are to be absolute,
-	# yet stage-qa warns about these on 2020-09-16:
-#	${LN} -fs /sbin/fsck_ext2fs ${STAGEDIR}${PREFIX}/sbin/
-#	${LN} -fs /sbin/e2fsck      ${STAGEDIR}${PREFIX}/sbin/
-	# these are made hardlinks to symlinks - -P avoids following them to /sbin:
-#	${LN} -fP ${STAGEDIR}${PREFIX}/sbin/e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext2
-#	${LN} -fP ${STAGEDIR}${PREFIX}/sbin/e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext3
-#	${LN} -fP ${STAGEDIR}${PREFIX}/sbin/e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext4
 	${INSTALL_PROGRAM} ${WRKSRC}/fsck_ext2fs ${STAGEDIR}${PREFIX}/sbin/
+#	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext2
+#	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext3
+#	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext4
 	# now the remainder of the usual post-install jobs:
 	${INSTALL_MAN} ${FILESDIR}/fsck_ext2fs.8 ${STAGEDIR}${PREFIX}/man/man8/
 .if ${PORT_OPTIONS:MDOCS}
@@ -330,9 +322,10 @@ do-install:
 	@${LN} -s -f -v /usr/local/sbin/e2fsck ${XIGMANAS_ROOTFS}/sbin/e2fsck
 	@${LN} -s -f -v /usr/local/sbin/fsck_ext2fs ${XIGMANAS_ROOTFS}/sbin/fsck_ext2fs
 # lib
-	@${CP} -Rpv ${WRKSRC}/lib/libe2p.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${CP} -Rpv ${WRKSRC}/lib/libext2fs.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${CP} -Rpv ${WRKSRC}/lib/libcom_err.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${MKDIR} -v ${XIGMANAS_ROOTFS}/${PREFIX}/lib/${PORTNAME}
+	@${CP} -Rpv ${WRKSRC}/lib/libe2p.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib/e2fsprogs
+	@${CP} -Rpv ${WRKSRC}/lib/libext2fs.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib/e2fsprogs
+	@${CP} -Rpv ${WRKSRC}/lib/libcom_err.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib/e2fsprogs
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
