@@ -1,5 +1,5 @@
 PORTNAME=	virtualbox-ose
-PORTVERSION=	6.1.36
+PORTVERSION=	6.1.38
 PORTREVISION=	0
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.virtualbox.org/virtualbox/${PORTVERSION}/
@@ -163,7 +163,7 @@ CONFIGURE_ARGS+=	--enable-qt5
 PLIST_SUB+=	QT=""
 USES+=		gl qmake:no_env qt:5 xorg
 USE_GL=		gl glu
-USE_QT=		buildtools_build core dbus gui linguisttools_build opengl
+USE_QT=		buildtools:build core dbus gui linguisttools:build opengl
 USE_QT+=	printsupport widgets x11extras
 USE_XORG=	xcb
 VBOX_PROGS+=	VirtualBox VirtualBoxVM

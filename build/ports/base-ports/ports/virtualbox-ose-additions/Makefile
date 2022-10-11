@@ -1,5 +1,5 @@
 PORTNAME=	virtualbox-ose
-PORTVERSION=	6.1.36
+PORTVERSION=	6.1.38
 PORTREVISION=	0
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.virtualbox.org/virtualbox/${PORTVERSION}/
