@@ -1,12 +1,8 @@
 PORTNAME=		bash
-PORTVERSION=		5.1.${PATCHLEVEL:S/^0//g}
-PORTREVISION?=		0
-PATCHLEVEL=		16
+PATCHLEVEL=		2
+PORTVERSION=		5.2.${PATCHLEVEL:S/^0//g}
+PORTREVISION=		1
 CATEGORIES=		shells
-
-COMMENT=		GNU Project's Bourne Again SHell
-MAINTAINER=		zoon01@xigmanas.com
-
 MASTER_SITES=		GNU
 DISTNAME=		${PORTNAME}-${PORTVERSION:R}
 DIST_SUBDIR=		${PORTNAME}
@@ -17,46 +13,83 @@ PATCHFILES!=		/usr/bin/jot -s " " -w \
 			${PORTNAME}${PORTVERSION:R:S/.//g}-%03d \
 			${PATCHLEVEL} 1 ${PATCHLEVEL}
 
-OPTIONS_DEFINE=         HELP NLS
-HELP_DESC=		Enable builtin help
-PORTS_READLINE_DESC=    libreadline from ports instead of bundled one
+MAINTAINER=		zoon01@xigmanas.com
+COMMENT=		GNU Project's Bourne Again SHell
+WWW=			https://www.gnu.org/software/bash/
 
-PORTS_READLINE_CONFIGURE_WITH=  installed-readline
-PORTS_READLINE_USES=    readline
+LICENSE=		GPLv3+
+LICENSE_FILE=		${WRKSRC}/COPYING
 
-GNU_CONFIGURE=  yes
+USES=			bison cpe iconv makeinfo pathfix localbase
+CPE_VENDOR=		gnu
+GNU_CONFIGURE=		yes
 NO_PKG_REGISTER=yes
-USES=		  bison
-USE_GETTEXT=	  yes
-CONFIGURE_ARGS=			--without-bash-malloc \
-					--disable-rpath \
-					--enable-disabled-builtins \
-					--with-libiconv-prefix=${ICONV_PREFIX} \
-					--disable-help-builtin \
-					--disable-static-link
+CONFIGURE_ARGS+=	--without-bash-malloc \
+			--disable-rpath \
+			--enable-disabled-builtins \
+			--with-libiconv-prefix=${ICONV_PREFIX}
 
-MAKE_ARGS+=     TERMCAP_LIB=-lncursesw
+MAKE_ARGS+=		TERMCAP_LIB=-ltinfow
 
-CPPFLAGS+=	${PTHREAD_CFLAGS} \
-					-I${LOCALBASE}/include
-LDFLAGS+=				-L${LOCALBASE}/lib
-CONFIGURE_ENV=	CPPFLAGS="${CPPFLAGS}" \
-					LDFLAGS="${LDFLAGS}" \
-					YACC="bison"
+INFO=			bash
+PORTDOCS=		FAQ INTRO CHANGES COMPAT NEWS POSIX RBASH README \
+			bash.html bashref.html
 
-.include <bsd.port.pre.mk>
+OPTIONS_DEFINE=		FDESCFS PORTS_READLINE HELP NLS STATIC SYSBASHRC \
+			SYSLOG DOCS
+OPTIONS_DEFAULT=	HELP
+OPTIONS_SUB=		yes
+
+FDESCFS_DESC=		Enable use of /dev/fd
+HELP_DESC=		Enable builtin help
+PORTS_READLINE_DESC=	libreadline from ports instead of bundled one
+SYSBASHRC_DESC=		Enable system-wide rc files
+
+FDESCFS_CONFIGURE_ENV_OFF=	bash_cv_dev_fd=absent
+FDESCFS_SUB_FILES=	pkg-message
+
+HELP_CONFIGURE_ENABLE=	help-builtin
+NLS_USES=		gettext
+NLS_CONFIGURE_ENABLE=	nls
+
+PORTS_READLINE_CONFIGURE_WITH=	installed-readline
+#PORTS_READLINE_BROKEN=	needs a newer version of devel/readline, disable PORTS_READLINE and retry
+PORTS_READLINE_USES=	readline
+#PORTS_READLINE_CONFIGURE_WITH=	installed-readline
+
+.if empty(PKGNAMESUFFIX)
+CONFLICTS+=	bash-static bash52-static
+.else
+CONFLICTS+=	bash bash52
+.endif
+CONFLICTS+=	bashc
+
+.include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MSTATIC} || defined(NO_DYNAMICROOT) || (defined(NOSHARED) && ${NOSHARED:tl} != "no")
+CONFIGURE_ARGS+=	--enable-static-link
+LLD_UNSAFE=		yes
+.else
+CONFIGURE_ARGS+=	--disable-static-link
+# Bash symbols must be exported in order to link runtime plugins, i.e.,
+# "enable -f". (Plugins are not supported for bash-static.)
+LDFLAGS+=		-Wl,-export-dynamic
+.endif
+STANDARD_PATH=		/sbin:/bin:/usr/sbin:/usr/bin
+CPPFLAGS+=		-DDEFAULT_PATH_VALUE='\"${STANDARD_PATH}:${LOCALBASE}/sbin:${LOCALBASE}/bin\"' \
+			-DSTANDARD_UTILS_PATH='\"${STANDARD_PATH}\"'
 
 post-patch:
-	@${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/doc/bash.1
+# Ensure y.tab.c is regenerated
+	${TOUCH} ${WRKSRC}/parse.y
+	${RM} ${WRKSRC}/y.tab.c
+	@${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" -e "s|%%LOCALBASE%%|${LOCALBASE}|g" \
+		${WRKSRC}/doc/bash.1
 	@${REINPLACE_CMD} -e "s|\(/etc/profile\)|${LOCALBASE}\1|" \
 		${WRKSRC}/pathnames.h.in
 	@${REINPLACE_CMD} -e "s|/etc/[iI]nputrc|${LOCALBASE}/etc/inputrc|g" \
 		${WRKSRC}/doc/*.info ${WRKSRC}/doc/*.html ${WRKSRC}/doc/*.1 \
 		${WRKSRC}/lib/readline/rlconf.h
-post-configure:
-	@${FIND} ${WRKSRC} -name Makefile -print0 | ${XARGS} -0 \
-	${REINPLACE_CMD} -e "s|^DESTDIR *=|& ${DESTDIR}|"
-
 pre-build:
 	@${ECHO_CMD} $$((${PORTREVISION}-1)) > ${WRKSRC}/.build
 
@@ -68,12 +101,14 @@ do-install:
 	@${LN} -fsv /usr/local/bin/bash ${XIGMANAS_ROOTFS}/bin/bash
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
+
 regress: build
 	cd ${WRKSRC}; ${SETENV} ${MAKE_ENV} ${MAKE} ${MAKE_ARGS} test
 
 ckp:
 	${MAKE} -DPATCH_DEBUG clean patch
 
+# requires ftp/ncftp3
 cklatest:
 	@${ECHO} -n "Currently at: "
 	@${MAKE} -V PATCHLEVEL
@@ -81,4 +116,4 @@ cklatest:
 		${PATCH_SITES:Mftp*:Ox:[1]} \
 		| fgrep -v .sig | ${SORT} | ${TAIL}
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

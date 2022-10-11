@@ -130,6 +130,7 @@ Changes:
 - Upgrade php to v8.1.11.
 - Upgrade pecl-APCu to v5.1.22.
 - Upgrade jquery to v3.6.1.
+- Upgrade bash to v5.2p2.
 
 Fixes:
 - fix bring up lighttpd at all times.
