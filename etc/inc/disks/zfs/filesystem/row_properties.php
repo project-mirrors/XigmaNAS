@@ -761,17 +761,20 @@ class row_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_sharenfs_type(): myp\property_list_offon {
+	public function init_sharenfs_type(): myp\property_list {
 		$description = gettext('Controls whether the file system is shared via NFS.');
 		$options = [
-			'options' => gettext('NFS sharing')
+			'off' => gettext('Off - do not share'),
+			'on' => gettext('On - share with default permissions'),
+			'custom' => gettext('Custom sharing')
 		];
 		$property = parent::init_sharenfs_type();
 		$property->
 			set_id('sharenfs_type')->
 			set_description($description)->
 			set_defaultvalue('off')->
-			upsert_options($options);
+			set_options($options)->
+			filter_use_default();
 		return $property;
 	}
 	public function init_sharesmb(): myp\property_text {

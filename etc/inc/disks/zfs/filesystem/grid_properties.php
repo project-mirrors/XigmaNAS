@@ -960,14 +960,14 @@ class grid_properties extends myp\container_row {
 		return $this->x_sharenfs ?? $this->init_sharenfs();
 	}
 	protected $x_sharenfs_type;
-	public function init_sharenfs_type(): myp\property_list_offon {
-		$property = $this->x_sharenfs_type = new myp\property_list_offon($this);
+	public function init_sharenfs_type(): myp\property_list {
+		$property = $this->x_sharenfs_type = new myp\property_list($this);
 		$property->
 			set_name('sharenfs_type')->
 			set_title(gettext('Share NFS Type'));
 		return $property;
 	}
-	final public function get_sharenfs_type(): myp\property_list_offon {
+	final public function get_sharenfs_type(): myp\property_list {
 		return $this->x_sharenfs_type ?? $this->init_sharenfs_type();
 	}
 	protected $x_sharesmb;
