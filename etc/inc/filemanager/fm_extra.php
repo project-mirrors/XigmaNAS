@@ -302,28 +302,50 @@ trait fm_extra {
 		endif;
 		return true;
 	}
-//	copy dir
-	public function copy_dir($source,$dest) {
+/**
+ *	copy dir
+ *	@param string $src
+ *	@param string $dst
+ *	@return boolean
+ */
+	public function copy_dir($src,$dst) {
 		$ok = true;
-		if(!@mkdir($dest,0777)):
-			return false;
-		endif;
-		if(($handle = @opendir( $source ) ) === false):
-			$this->show_error($source . 'xx:' . basename($source) . 'xx : ' . gtext('Unable to open directory.'));
-		endif;
-		while(($file = readdir($handle)) !== false):
-			if(($file == '..' || $file == '.')):
-				continue;
-			endif;
-			$new_source = $source . '/' . $file;
-			$new_dest = $dest . '/' . $file;
-			if(@is_dir($new_source)):
-				$ok = $this->copy_dir($new_source,$new_dest);
+		if(!@mkdir($dst,0777)):
+			$ok = false;
+		else:
+			$handle_dir = @opendir($src);
+			if($handle_dir === false):
+				$ok = false;
+				$this->show_error($src . 'xx:' . basename($src) . 'xx : ' . gtext('Unable to open source directory.'));
 			else:
-				$ok = @copy($new_source,$new_dest);
+				while(($file = readdir($handle_dir)) !== false):
+					if(($file == '..') || ($file == '.')):
+						continue;
+					else:
+						$new_src = $src . '/' . $file;
+						$new_dst = $dst . '/' . $file;
+						if(@is_dir($new_src)):
+							$ok = $this->copy_dir($new_src,$new_dst);
+						else:
+							$handle_src = @fopen($new_src,'rb');
+							if($handle_src !== false):
+								$handle_dst = @fopen($new_dst,'w+b');
+								if($handle_dst !== false):
+									$ok = stream_copy_to_stream($handle_src,$handle_dst) !== false;
+									fclose($handle_dst);
+								else:
+									$ok = false;
+								endif;
+								fclose($handle_src);
+							else:
+								$ok = false;
+							endif;
+						endif;
+					endif;
+				endwhile;
+				closedir($handle_dir);
 			endif;
-		endwhile;
-		closedir($handle);
+		endif;
 		return $ok;
 	}
 /**
@@ -334,7 +356,8 @@ trait fm_extra {
 		if(@is_link($item) || @is_file($item)):
 			$ok = @unlink($item);
 		elseif(@is_dir($item)):
-			if(($handle=@opendir($item)) === false):
+			$handle = @opendir($item);
+			if($handle === false):
 				$this->show_error($item . ':' . basename($item) . ': ' . gtext('Unable to open directory.'));
 			endif;
 			while(($file = readdir($handle)) !== false):
