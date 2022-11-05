@@ -304,8 +304,19 @@ function Execute() {
 //			Copy / Move
 			if($this->action == 'copy'):
 				if(@is_link($abs_item) || @is_file($abs_item)):
-//					check file-exists to avoid error with 0-size files (PHP 4.3.0)
-					$ok = @copy($abs_item,$abs_new_item); //||@file_exists($abs_new_item);
+					$handle_src = @fopen($abs_item,'rb');
+					if($handle_src !== false):
+						$handle_dst = @fopen($abs_new_item,'w+b');
+						if($handle_dst !== false):
+							$ok = stream_copy_to_stream($handle_src,$handle_dst) !== false;
+							fclose($handle_dst);
+						else:
+							$ok = false;
+						endif;
+						fclose($handle_src);
+					else:
+						$ok = false;
+					endif;
 				elseif(@is_dir($abs_item)):
 					$ok = $this->copy_dir($abs_item,$abs_new_item);
 				endif;
