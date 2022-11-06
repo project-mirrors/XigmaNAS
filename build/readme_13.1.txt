@@ -128,8 +128,8 @@ Changes:
 - Upgrade python to v3.9.14.
 - Upgrade bash to v5.2p2.
 - Upgrade syncthing to v1.22.0.
-- Upgrade virtualbox-ose to v6.1.38.
 - Upgrade zoneinfo to 2022f.
+- Upgrade virtualbox-ose to v6.1.40.
 
 Fixes:
 - fix bring up lighttpd at all times.
