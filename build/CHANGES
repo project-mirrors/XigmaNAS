@@ -17,13 +17,13 @@ Changes:
 - Upgrade jquery to v3.6.1.
 - Upgrade python to v3.9.14.
 - Upgrade bash to v5.2p2.
-- Upgrade syncthing to v1.22.0.
 - Upgrade zoneinfo to 2022f.
 - Upgrade virtualbox-ose to v6.1.40.
 - Upgrade sudo to v1.9.12p1.
 - Upgrade nut to v2022.10.21.
 - Upgrade php to v8.1.12.
 - Upgrade iperf3 to v3.12.
+- Upgrade syncthing to v1.22.1.
 
 Fixes:
 - fix bring up lighttpd at all times.
