@@ -13,7 +13,6 @@ Changes:
 - Upgrade devcpu-data-intel to v20220809.
 - Upgrade arcconf to vB25335.
 - Upgrade devcpu-data-amd to v20221002.
-- Upgrade nut to v2022.09.26.
 - Upgrade php to v8.1.11.
 - Upgrade pecl-APCu to v5.1.22.
 - Upgrade jquery to v3.6.1.
@@ -23,6 +22,7 @@ Changes:
 - Upgrade zoneinfo to 2022f.
 - Upgrade virtualbox-ose to v6.1.40.
 - Upgrade sudo to v1.9.12p1.
+- Upgrade nut to v2022.10.21.
 
 Fixes:
 - fix bring up lighttpd at all times.
