@@ -110,7 +110,6 @@ BUILD 13.1.0.5.xxxx
 Changes:
 - Upgrade to FreeBSD 13.1-RELEASE P3.
 - Upgrade tmux to v3.3a.
-- Upgrade sudo to v1.9.11p3.
 - Upgrade nano to v6.4.
 - Upgrade cdialog to v1.3-20220728.
 - Upgrade rrdtool to v1.8.0.
@@ -130,6 +129,7 @@ Changes:
 - Upgrade syncthing to v1.22.0.
 - Upgrade zoneinfo to 2022f.
 - Upgrade virtualbox-ose to v6.1.40.
+- Upgrade sudo to v1.9.12p1.
 
 Fixes:
 - fix bring up lighttpd at all times.
