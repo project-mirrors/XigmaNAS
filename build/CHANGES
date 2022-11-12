@@ -7,7 +7,6 @@ Changes:
 - Upgrade cdialog to v1.3-20220728.
 - Upgrade rrdtool to v1.8.0.
 - Upgrade proftpd to v1.3.7e.
-- Upgrade rsync to v3.2.5.
 - Upgrade msmtp to v1.8.22.
 - Upgrade lighttpd to v1.4.67.
 - Upgrade arcconf to vB25335.
@@ -24,6 +23,7 @@ Changes:
 - Upgrade iperf3 to v3.12.
 - Upgrade syncthing to v1.22.1.
 - Upgrade devcpu-data-intel to v20221108.
+- Upgrade rsync to v3.2.6.
 
 Fixes:
 - fix bring up lighttpd at all times.

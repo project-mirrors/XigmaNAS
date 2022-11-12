@@ -1,9 +1,10 @@
 PORTNAME=		rsync
-PORTVERSION=	3.2.5
+PORTVERSION=	3.2.6
 PORTREVISION=	0
 CATEGORIES=		net
-COMMENT=		A network file distribution/sync utility
 MAINTAINER=		zoon01@xigmanas.com
+COMMENT=		A network file distribution/sync utility
+WWW: 			http://rsync.samba.org/
 
 MASTER_SITES=		https://rsync.samba.org/ftp/%SUBDIR%/ \
 							ftp://ftp.fu-berlin.de/pub/unix/network/%SUBDIR%/ \
