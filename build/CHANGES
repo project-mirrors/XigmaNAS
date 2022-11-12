@@ -1,7 +1,7 @@
 XigmaNAS® 13.1.0.5 - Glowpanel
 -------------------------
 Changes:
-- Upgrade to FreeBSD 13.1-RELEASE P2.
+- Upgrade to FreeBSD 13.1-RELEASE P3.
 - Upgrade tmux to v3.3a.
 - Upgrade sudo to v1.9.11p3.
 - Upgrade nano to v6.4.
