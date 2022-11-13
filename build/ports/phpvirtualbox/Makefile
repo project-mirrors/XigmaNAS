@@ -1,10 +1,11 @@
 PORTNAME=		phpvirtualbox
 DISTVERSION=	6.1
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	www
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Web Interface for VirtualBox
+WWW=		https://sourceforge.net/projects/phpvirtualbox/
 
 # XigmaNAS® contains license files
 #LICENSE=	GPLv3
@@ -37,6 +38,8 @@ do-install:
 	${RM} -f ${STAGEDIR}${WWWDIR}/*.txt
 	${RM} -f ${STAGEDIR}${WWWDIR}/*.bak
 	${CP} -Rpv ${STAGEDIR}${WWWDIR} ${XIGMANAS_ROOTFS}${PREFIX}/www
+	# XigmaNAS patch-js_utils.js add icon
+	@${INSTALL_DATA} -v ${FILESDIR}/os_win11_64.png ${XIGMANAS_ROOTFS}/usr/local/www/phpvirtualbox/images/vbox
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
