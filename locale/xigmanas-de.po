@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2022-10-04 22:38+0000\n"
-"PO-Revision-Date: 2022-10-07 04:47+0000\n"
+"PO-Revision-Date: 2022-10-26 08:43+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-10-09 00:16+0000\n"
-"X-Generator: Launchpad (build 762fb15a975e8b23af6a1f86e44e46bfd0451459)\n"
+"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
+"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: de\n"
 
@@ -6237,7 +6237,7 @@ msgid "GZIP Archive"
 msgstr "GZIP Archiv"
 
 msgid "GZIP Compression Level"
-msgstr ""
+msgstr "GZIP Komprimierungsstufe"
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -6325,7 +6325,7 @@ msgid "Graphs Height"
 msgstr "Diagramm Höhe"
 
 msgid "Graphs Width"
-msgstr ""
+msgstr "Diagrammbreite"
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr ""
@@ -6363,7 +6363,7 @@ msgid "Group is unlocked"
 msgstr "Gruppe ist entsperrt"
 
 msgid "Groupmask - Mask ACL with group permissions"
-msgstr ""
+msgstr "Gruppenmaske - ACL mit Gruppenberechtigungen maskieren"
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask - Maskiere ACL mit dem Mode"
@@ -7318,19 +7318,19 @@ msgid "Key"
 msgstr "Schlüssel"
 
 msgid "Key Format"
-msgstr ""
+msgstr "Schlüsselformat"
 
 msgid "Key Length"
 msgstr "Schlüssellänge"
 
 msgid "Key Location"
-msgstr ""
+msgstr "Schlüsselposition"
 
 msgid "Key Management Protocol"
 msgstr "Key Management Protocol"
 
 msgid "Key Status"
-msgstr ""
+msgstr "Schlüsselstatus"
 
 msgid "Keyboard-Interactive Authentication"
 msgstr "Tastatureingabe Authentifizierung"
@@ -7753,7 +7753,7 @@ msgid "Logical Block"
 msgstr "Logischer Block"
 
 msgid "Logical Referenced"
-msgstr ""
+msgstr "Logisch referenziert"
 
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
@@ -7774,7 +7774,7 @@ msgid "Logical Unit Type mapped to LUN."
 msgstr "Logical Unit Type zugewiesen zur LUN."
 
 msgid "Logical Used"
-msgstr ""
+msgstr "Logisch verwendet"
 
 msgid "Login"
 msgstr "Anmelden"
@@ -8284,7 +8284,7 @@ msgid "Mounting..."
 msgstr "Einhängen läuft …"
 
 msgid "Mountpoint Type"
-msgstr ""
+msgstr "Typ des Einhängepunktes"
 
 msgid "Mounts"
 msgstr "Einhängepunkte"
@@ -8387,7 +8387,7 @@ msgid "NFS Root is unlocked"
 msgstr "NFS Root ist entsperrt"
 
 msgid "NFS sharing"
-msgstr ""
+msgstr "NFS-Freigabe"
 
 msgid "NFSv4"
 msgstr "NFSv4"
@@ -8773,6 +8773,8 @@ msgstr "Noallow - Nur vererbte Verbotseinträge"
 
 msgid "Noallow - Only inherit inheritable ACEs that specify deny permissions"
 msgstr ""
+"Nicht erlaubt – Nur vererbbare ACEs erben, die Verweigerungsberechtigungen "
+"angeben"
 
 msgid "Noauto"
 msgstr "Noauto"
@@ -8832,7 +8834,7 @@ msgid "Non-Recoverable"
 msgstr "Nichtwiederherstellbar"
 
 msgid "Non-blocking Mandatory Locks"
-msgstr ""
+msgstr "Nicht blockierende obligatorische Sperren"
 
 msgid "None"
 msgstr "Keine"
@@ -8850,17 +8852,21 @@ msgid ""
 "Normalization Form C (NFC) - Canonical Decomposition, followed by Canonical "
 "Composition"
 msgstr ""
+"Normalisierungsform C (NFC) - Kanonische Zerlegung, gefolgt von kanonischer "
+"Zusammensetzung"
 
 msgid "Normalization Form D (NFD) - Canonical Decomposition"
-msgstr ""
+msgstr "Normalisierungsform D (NFD) - Kanonische Zerlegung"
 
 msgid ""
 "Normalization Form KC (NFKC) - Compatibility Decomposition, followed by "
 "Canonical Composition"
 msgstr ""
+"Normalisierungsform KC (NFKC) - Kompatibilitätszerlegung, gefolgt von "
+"kanonischer Zusammensetzung"
 
 msgid "Normalization Form KD (NFKD) - Compatibility Decomposition"
-msgstr ""
+msgstr "Normalisierungsform KD (NFKD) - Kompatibilitätszerlegung"
 
 msgid ""
 "Normally this option should not be set as the automatic negotiation phase in "
@@ -8962,7 +8968,7 @@ msgid "OS Version Upgrades"
 msgstr "Betriebssystemversions-Upgrades"
 
 msgid "Obj Set ID"
-msgstr ""
+msgstr "Obj Set ID"
 
 msgid "Object name"
 msgstr "Objektname"
@@ -9118,7 +9124,7 @@ msgid ""
 msgstr "Durchsatz Performance der Festplatte"
 
 msgid "Overlay Mount"
-msgstr ""
+msgstr "Überlagertes Einhängen"
 
 msgid "Overload"
 msgstr "Überlast"
@@ -9147,7 +9153,7 @@ msgid "PAM authentication is selected."
 msgstr "PAM Authentifizierung ist ausgewählt"
 
 msgid "PBKDF2 Iterations"
-msgstr ""
+msgstr "PBKDF2-Iterationen"
 
 msgid "PDF File"
 msgstr "PDF Datei"
@@ -9281,6 +9287,7 @@ msgstr "Passthrough - Vererbe alle Einträge"
 
 msgid "Passthrough - Inherit all inheritable ACEs without any modifications"
 msgstr ""
+"Durchreichen (Passthrough) – Vererben aller vererbbaren ACEs ohne Änderungen"
 
 msgid "Passthrough Address"
 msgstr "Passthrough"
@@ -9292,6 +9299,8 @@ msgstr ""
 msgid ""
 "Passthrough-X - Inherit all except execute permission when not specified"
 msgstr ""
+"Durchreichen-X (Passthrough-X) - Alles Vererben außer der "
+"Ausführungsberechtigung (execute), wenn nicht angegeben"
 
 msgid "Password"
 msgstr "Passwort"
@@ -9511,7 +9520,7 @@ msgid "Pool Information"
 msgstr "Pool-Information"
 
 msgid "Pool Name"
-msgstr ""
+msgstr "Poolname"
 
 msgid "Pool Space Usage"
 msgstr "Pool-Speicherplatzbelegung"
@@ -10302,7 +10311,7 @@ msgid "Receive Buffer"
 msgstr "Empfangs-Puffergröße"
 
 msgid "Receive Resume Token"
-msgstr ""
+msgstr "Resume-Token erhalten"
 
 msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
@@ -10318,7 +10327,7 @@ msgid "Record Maintenance"
 msgstr "Wartung Aufnehmen"
 
 msgid "Record Size"
-msgstr ""
+msgstr "Datensatzgröße"
 
 msgid "Record Type"
 msgstr "Eintragstyp"
@@ -10351,7 +10360,7 @@ msgid "Recycle Bin"
 msgstr "Papierkorb"
 
 msgid "Redact Snaps"
-msgstr ""
+msgstr "Schnappschüsse redigieren"
 
 msgid "Redirect"
 msgstr "Umleiten"
@@ -10360,7 +10369,7 @@ msgid "Redundant Metadata"
 msgstr "Redundante Metadaten"
 
 msgid "Refcompressratio"
-msgstr ""
+msgstr "Ref-Kompressionsverhältnis (Refcompressratio)"
 
 msgid "Referenced"
 msgstr "Referenziert"
@@ -10369,19 +10378,19 @@ msgid "Refquota"
 msgstr "Bezugskontingent (Refqouta)"
 
 msgid "Refquota Type"
-msgstr ""
+msgstr "Refquota-Typ"
 
 msgid "Refquota type."
-msgstr ""
+msgstr "Refquota-Typ."
 
 msgid "Refreservation"
 msgstr "Bezugsreservierung (Refreservation)"
 
 msgid "Refreservation Type"
-msgstr ""
+msgstr "Ref. Reservierungstyp"
 
 msgid "Refreservation type."
-msgstr ""
+msgstr "Ref. Reservierungstyp."
 
 msgid "Refresh"
 msgstr "Aktualisieren"
@@ -10393,7 +10402,7 @@ msgid "Reject"
 msgstr "Zurückweisen"
 
 msgid "Relatime"
-msgstr ""
+msgstr "Relatime"
 
 msgid "Relative humidity alarm (enabled/disabled)"
 msgstr "Alarm für Luftfeuchtigkeit (aktiviert/deaktiviert)"
@@ -10561,10 +10570,10 @@ msgid "Reservation"
 msgstr "Reservierung"
 
 msgid "Reservation Type"
-msgstr ""
+msgstr "Reservierungstyp"
 
 msgid "Reservation type."
-msgstr ""
+msgstr "Reservierungstyp."
 
 msgid "Reset"
 msgstr "Zurücksetzen"
@@ -10629,6 +10638,8 @@ msgid ""
 "Restricted - Inherit ACEs except \"write ACL\" and \"write owner\" "
 "permissions"
 msgstr ""
+"Eingeschränkt – Vererbt ACEs außer den Berechtigungen „ACL schreiben“ und "
+"„Eigentümer schreiben“."
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr "Restricted - Vererbe alles außer  \"write ACL\" und \"change owner\""
@@ -10863,7 +10874,7 @@ msgid "Samba Share is unlocked"
 msgstr "Samba Freigabe ist entsperrt"
 
 msgid "Samba sharing"
-msgstr ""
+msgstr "Samba teilen"
 
 #, php-format
 msgid ""
@@ -11662,7 +11673,7 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 msgid "Setuid"
-msgstr ""
+msgstr "Setuid"
 
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
@@ -11684,25 +11695,25 @@ msgid "Share Character Set"
 msgstr "Zeichencodierung der Freigabe"
 
 msgid "Share NFS Options"
-msgstr ""
+msgstr "NFS-Optionen teilen"
 
 msgid "Share NFS Type"
-msgstr ""
+msgstr "NFS-Typ teilen"
 
 msgid "Share NFS options."
-msgstr ""
+msgstr "NFS-Optionen teilen."
 
 msgid "Share Password"
 msgstr "Passwort für die Freigabe"
 
 msgid "Share SMB Options"
-msgstr ""
+msgstr "SMB-Optionen teilen"
 
 msgid "Share SMB Type"
-msgstr ""
+msgstr "SMB-Typ teilen"
 
 msgid "Share SMB options."
-msgstr ""
+msgstr "SMB-Typ teilen."
 
 msgid "Share Settings"
 msgstr "Teile Einstellungen"
@@ -11874,13 +11885,13 @@ msgid "Snapshot Count"
 msgstr "Snapshot-Zähler"
 
 msgid "Snapshot Device Visibility"
-msgstr ""
+msgstr "Sichtbarkeit des Snapshot-Gerätes"
 
 msgid "Snapshot Folder Visibility"
-msgstr ""
+msgstr "Sichtbarkeit des Snapshot-Ordners"
 
 msgid "Snapshot Limit"
-msgstr ""
+msgstr "Snapshot-Limit"
 
 msgid "Snapshot Visibility"
 msgstr "Schnappschusssichtbarkeit"
@@ -11895,7 +11906,7 @@ msgid "Snapshot is unlocked"
 msgstr "Schnappschuss ist entsperrt"
 
 msgid "Snapshot limit"
-msgstr ""
+msgstr "Snapshot-Limit"
 
 msgid "Snapshots"
 msgstr "Schnappschüsse"
@@ -12017,12 +12028,17 @@ msgid ""
 "Specifies a compatibility mode or literal value for the size of dnodes in "
 "the file system."
 msgstr ""
+"Gibt einen Kompatibilitätsmodus oder Literalwert für die Größe von dnodes im "
+"Dateisystem an."
 
 msgid ""
 "Specifies a suggested block size for files in the file system. This property "
 "is designed solely for use with database workloads that access files in "
 "fixed-size records."
 msgstr ""
+"Gibt eine vorgeschlagene Blockgröße für Dateien im Dateisystem an. Diese "
+"Eigenschaft ist ausschließlich für die Verwendung mit Datenbank-Workloads "
+"konzipiert, die auf Dateien in Datensätzen mit fester Größe zugreifen."
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -12377,7 +12393,7 @@ msgid "Synchronize"
 msgstr "Synchronisierung"
 
 msgid "Synchronous Requests Behaviour"
-msgstr ""
+msgstr "Verhalten bei synchronen Anfragen"
 
 msgid "Syncthing"
 msgstr "Synchronisation"
@@ -12452,7 +12468,7 @@ msgid "System User"
 msgstr "Systembenutzer"
 
 msgid "System attribute based xattrs"
-msgstr ""
+msgstr "Systemattributbasierte xattrs"
 
 msgid "System info"
 msgstr "Systeminformation"
@@ -13329,7 +13345,7 @@ msgid "The name of the ZFS pool."
 msgstr "Der Name des ZFS Pools."
 
 msgid "The name of the filesystem."
-msgstr ""
+msgstr "Der Name des Dateisystems."
 
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
@@ -14215,6 +14231,8 @@ msgid ""
 "This value represents the threshold block size for including small file "
 "blocks into the special allocation class."
 msgstr ""
+"Dieser Wert stellt die Schwellenblockgröße für das Einschließen kleiner "
+"Dateiblöcke in die spezielle Zuordnungsklasse dar."
 
 msgid "This virtual device name already exists."
 msgstr "Der virtuelle Gerätename existiert bereits."
@@ -14263,7 +14281,7 @@ msgid "Threads"
 msgstr "Threads"
 
 msgid "Threshold Small Block Size"
-msgstr ""
+msgstr "Schwellenwert kleine Blockgröße"
 
 msgid "Throughput"
 msgstr "Durchsatz"
@@ -14640,6 +14658,8 @@ msgid ""
 "Turning this property on causes the access time to be updated relative to "
 "the modify or change time. The default value is off"
 msgstr ""
+"Wenn Sie diese Eigenschaft aktivieren, wird die Zugriffszeit relativ zur "
+"Änderungs- oder Änderungszeit aktualisiert. Der Standardwert ist aus"
 
 msgid "Type"
 msgstr "Typ"
@@ -14800,7 +14820,7 @@ msgid "USB Mass Storage Devices"
 msgstr "USB Massenspeichergerät"
 
 msgid "UTF-8 File Names"
-msgstr ""
+msgstr "UTF-8-Dateinamen"
 
 msgid "UTF-8 Only"
 msgstr "Nur UTF-8"
@@ -14974,13 +14994,13 @@ msgstr ""
 "Aktualisieren des DNS-Eintrags. Voreingestellt wird HTTPS verwendet."
 
 msgid "Use NFSv4-style ZFS ACLs"
-msgstr ""
+msgstr "Verwenden von ZFS-ACLs im NFSv4-Stil"
 
 msgid "Use PAM for user authentication."
 msgstr "Benutze PAM für Benutzerauthentifizierung"
 
 msgid "Use POSIX ACLs"
-msgstr ""
+msgstr "Verwenden von POSIX-ACLs"
 
 msgid "Use Sqlite"
 msgstr "Verwende Sqlite"
@@ -15127,16 +15147,16 @@ msgid "Used Threshold"
 msgstr "Verwendeter Schwellwert"
 
 msgid "Used by Children"
-msgstr ""
+msgstr "Wird von Kindern verwendet"
 
 msgid "Used by Dataset"
-msgstr ""
+msgstr "Wird von Datensatz verwendet"
 
 msgid "Used by Refreservation"
-msgstr ""
+msgstr "Verwendet von Refreservation"
 
 msgid "Used by Snapshots"
-msgstr ""
+msgstr "Wird von Schnappschüssen verwendet"
 
 msgid ""
 "Used/Avail lists storage information after all redundancy is taken into "
@@ -15191,19 +15211,19 @@ msgid "User agent string"
 msgstr "User-Agent-Identifikation"
 
 msgid "User defined limit"
-msgstr ""
+msgstr "Benutzerdefinierte Grenze"
 
 msgid "User defined mount point"
-msgstr ""
+msgstr "Benutzerdefinierter Einhängepunkt"
 
 msgid "User defined refquota"
-msgstr ""
+msgstr "Benutzerdefinierte Refquote"
 
 msgid "User defined refreservation"
-msgstr ""
+msgstr "Benutzerdefinierte Refreservierung"
 
 msgid "User defined reservation"
-msgstr ""
+msgstr "Benutzerdefinierte Reservierung"
 
 msgid "User portal permission."
 msgstr "Benutzerportal-Berechtigung."
@@ -15215,7 +15235,7 @@ msgid "Username to log into the transmission web interface."
 msgstr "Benutzername zur Anmeldung an der Webschnittstelle der Übertragung."
 
 msgid "Userrefs"
-msgstr ""
+msgstr "Userrefs"
 
 msgid "Users"
 msgstr "Benutzer"
@@ -15633,7 +15653,7 @@ msgstr "Erweiterte Links"
 
 #, php-format
 msgid "Width of the graphs. (default %s pixels)"
-msgstr ""
+msgstr "Breite der Graphen. (%s Pixel voreingestellt)"
 
 msgid "Wildcard Domain"
 msgstr "Wildcard Domäne"
@@ -15945,10 +15965,10 @@ msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
 
 msgid "Zstandard Compression"
-msgstr ""
+msgstr "Zstandard Kompression"
 
 msgid "Zstandard Compression Level"
-msgstr ""
+msgstr "ZStandard-Komprimierungsstufe"
 
 msgid "and"
 msgstr "und"
@@ -15976,7 +15996,7 @@ msgstr ""
 "Bytes 3-4 = Anzahl der Systemblöcke (frei)."
 
 msgid "dev"
-msgstr ""
+msgstr "dev"
 
 #, php-format
 msgid "e.g. %s"
@@ -15989,7 +16009,7 @@ msgid "filechooser"
 msgstr "Dateiauswahlfenster"
 
 msgid "full"
-msgstr ""
+msgstr "voll"
 
 msgid "get target info failed."
 msgstr "Keine Info über Ziel erhalten"
