@@ -1,5 +1,5 @@
 PORTNAME=		bash
-PATCHLEVEL=		12
+PATCHLEVEL=		9
 PORTVERSION=		5.2.${PATCHLEVEL:S/^0//g}
 CATEGORIES=		shells
 MASTER_SITES=		GNU
@@ -12,7 +12,7 @@ PATCHFILES!=		/usr/bin/jot -s " " -w \
 			${PORTNAME}${PORTVERSION:R:S/.//g}-%03d \
 			${PATCHLEVEL} 1 ${PATCHLEVEL}
 
-MAINTAINER=		ehaupt@FreeBSD.org
+MAINTAINER=		zoon01@xigmanas.com
 COMMENT=		GNU Project's Bourne Again SHell
 WWW=			https://www.gnu.org/software/bash/
 
@@ -22,6 +22,7 @@ LICENSE_FILE=		${WRKSRC}/COPYING
 USES=			bison cpe iconv makeinfo pathfix localbase
 CPE_VENDOR=		gnu
 GNU_CONFIGURE=		yes
+NO_PKG_REGISTER=yes
 CONFIGURE_ARGS+=	--without-bash-malloc \
 			--disable-rpath \
 			--enable-disabled-builtins \
@@ -82,34 +83,22 @@ post-patch:
 	${RM} ${WRKSRC}/y.tab.c
 	@${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" -e "s|%%LOCALBASE%%|${LOCALBASE}|g" \
 		${WRKSRC}/doc/bash.1
-.if ${PORT_OPTIONS:MSYSLOG}
-	@${REINPLACE_CMD} \
-	    -e "s|/\*.*#define SYSLOG_HISTORY .*\*/|#define SYSLOG_HISTORY|g" \
-	    -e "s|/\*.*#define SYSLOG_SHOPT .*\*/|#define SYSLOG_SHOPT 1|g" \
-	    ${WRKSRC}/config-top.h
-.endif
 	@${REINPLACE_CMD} -e "s|\(/etc/profile\)|${LOCALBASE}\1|" \
 		${WRKSRC}/pathnames.h.in
 	@${REINPLACE_CMD} -e "s|/etc/[iI]nputrc|${LOCALBASE}/etc/inputrc|g" \
 		${WRKSRC}/doc/*.info ${WRKSRC}/doc/*.html ${WRKSRC}/doc/*.1 \
 		${WRKSRC}/lib/readline/rlconf.h
-
-post-patch-SYSBASHRC-on:
-	@${REINPLACE_CMD} \
-		-e "s|.*\(#define SYS_BASH.*\)\(/etc/.*\"\).*|\1${PREFIX}\2|" \
-		${WRKSRC}/config-top.h
-
 pre-build:
 	@${ECHO_CMD} $$((${PORTREVISION}-1)) > ${WRKSRC}/.build
 
-post-install:
-	${LN} -sf bash ${STAGEDIR}${PREFIX}/bin/rbash
-	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	${INSTALL_DATA} ${WRKSRC}/doc/FAQ \
-		${WRKSRC}/doc/INTRO ${STAGEDIR}${DOCSDIR}
-	for d in ${PORTDOCS:NFAQ:NINTRO:N*html}; do \
-		${INSTALL_DATA} ${WRKSRC}/$${d} ${STAGEDIR}${DOCSDIR}; \
-	done
+do-install:
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/bash ${XIGMANAS_ROOTFS}/usr/local/bin
+	@${LN} -fsv /usr/local/bin/bash ${XIGMANAS_ROOTFS}/usr/local/bin/rbash
+	@${LN} -fsv /usr/local/bin/bash ${XIGMANAS_ROOTFS}/bin/bash
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 regress: build
 	cd ${WRKSRC}; ${SETENV} ${MAKE_ENV} ${MAKE} ${MAKE_ARGS} test
