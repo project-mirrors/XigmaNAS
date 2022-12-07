@@ -1388,7 +1388,12 @@ $document->render();
 									endswitch;
 								endforeach;
 								$a_param[] = escapeshellarg($sphere_array['pool'][0]);
-								$a_param[] = escapeshellarg($sphere_array['pooldev'][0]);
+//								online subcommand does not support GUID
+								if(array_key_exists($sphere_array['pooldev'][0],$a_pool_device_for_online_data)):
+									$a_param[] = escapeshellarg($a_pool_device_for_online_data[$sphere_array['pooldev'][0]]['device.path'] ?? $sphere_array['pooldev'][0]);
+								else:
+									$a_param[] = escapeshellarg($sphere_array['pooldev'][0]);
+								endif;
 								$result |= render_command_and_execute($subcommand,$a_param,$b_exec);
 							endif;
 							render_command_result($result);
