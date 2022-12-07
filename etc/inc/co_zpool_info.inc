@@ -182,7 +182,7 @@ class co_zpool_info {
 				$a_device = $r_pool->xpath($x_device);
 				if($a_device !== false):
 					foreach($a_device as $r_device):
-						$this->devicevdev_info_to_array($r_device,$ret);
+						$this->devicevdev_info_to_array($r_device,$r_ret);
 						$this->device_info_to_array($r_device,$r_ret);
 						$a_ret[(string)$r_device->guid] = $r_ret;
 					endforeach;
@@ -288,7 +288,7 @@ class co_zpool_info {
 				$a_device = $r_pool->xpath($x_device);
 				if($a_device !== false):
 					foreach($a_device as $r_device):
-						$this->devicevdev_info_to_array($r_device,$ret);
+						$this->devicevdev_info_to_array($r_device,$r_ret);
 						$this->device_info_to_array($r_device,$r_ret);
 						$a_ret[(string)$r_device->guid] = $r_ret;
 					endforeach;
@@ -316,7 +316,7 @@ class co_zpool_info {
 				$a_vdev = $r_pool->xpath($x_vdev);
 				if($a_vdev !== false):
 					foreach($a_vdev as $r_vdev):
-						$this->devicevdev_info_to_array($r_device,$ret);
+						$this->devicevdev_info_to_array($r_vdev,$r_ret);
 						$a_device = $r_vdev->xpath($x_device);
 						if($a_device !== false):
 							foreach($a_device as $r_device):
@@ -352,7 +352,7 @@ class co_zpool_info {
 				$a_device = $r_pool->xpath($x_device);
 				if($a_device !== false):
 					foreach($a_device as $r_device):
-						$this->devicevdev_info_to_array($r_device,$ret);
+						$this->devicevdev_info_to_array($r_device,$r_ret);
 						$this->device_info_to_array($r_device,$r_ret);
 						$a_ret[(string)$r_device->guid] = $r_ret;
 					endforeach;
@@ -383,7 +383,7 @@ class co_zpool_info {
 				$a_device = $r_pool->xpath($x_device);
 				if($a_device !== false):
 					foreach($a_device as $r_device):
-						$this->devicevdev_info_to_array($r_device,$ret);
+						$this->devicevdev_info_to_array($r_device,$r_ret);
 						$this->device_info_to_array($r_device,$r_ret);
 						$a_ret[(string)$r_device->guid] = $r_ret;
 					endforeach;
@@ -559,7 +559,11 @@ class co_zpool_info {
 		$tag = '';
 		$value = '';
 		$a_ret = [];
-
+		$a_brackets = null;
+		$a_prop = null;
+		$a_split = null;
+		$a_tag = null;
+		$a_tagval = null;
 		if(preg_match('~\A(\s*)(.+)\z~',$row,$a_split)): // split string into leading blanks and rest of string, ignore empty strings
 			$indent = strlen($a_split[1]);
 			if(preg_match('~\A(\S+):\s(.*)\z~',$a_split[2],$a_tagval)): // search for tag with val
