@@ -110,7 +110,6 @@ BUILD 13.1.0.5.9414
 Changes:
 - Upgrade to FreeBSD 13.1-RELEASE P5.
 - Upgrade tmux to v3.3a.
-- Upgrade nano to v6.4.
 - Upgrade cdialog to v1.3-20220728.
 - Upgrade rrdtool to v1.8.0.
 - Upgrade proftpd to v1.3.7e.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20221108.
 - Upgrade rsync to v3.2.6.
 - Upgrade bash to v5.2p12.
+- Upgrade nano to v7.0.
 
 Fixes:
 - fix bring up lighttpd at all times.
