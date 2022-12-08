@@ -123,7 +123,6 @@ Changes:
 - Upgrade python to v3.9.15.
 - Upgrade virtualbox-ose to v6.1.40.
 - Upgrade sudo to v1.9.12p1.
-- Upgrade nut to v2022.10.21.
 - Upgrade iperf3 to v3.12.
 - Upgrade syncthing to v1.22.1.
 - Upgrade devcpu-data-intel to v20221108.
@@ -132,6 +131,7 @@ Changes:
 - Upgrade nano to v7.0.
 - Upgrade php to v8.1.13.
 - Upgrade mDNSResponder to v1790.40.31.
+- Upgrade nut to v2022.11.16.
 
 Fixes:
 - fix bring up lighttpd at all times.
