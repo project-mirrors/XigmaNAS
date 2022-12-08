@@ -131,6 +131,7 @@ Changes:
 - Upgrade bash to v5.2p12.
 - Upgrade nano to v7.0.
 - Upgrade php to v8.1.13.
+- Upgrade mDNSResponder to v1790.40.31.
 
 Fixes:
 - fix bring up lighttpd at all times.
