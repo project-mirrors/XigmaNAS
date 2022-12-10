@@ -1,6 +1,6 @@
 PORTNAME=		transmission
 PORTVERSION=	3.00
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES?=	net-p2p
 COMMENT=	Fast and lightweight CLI BitTorrent client
 MAINTAINER=	zoon01@xigmanas.com
@@ -13,7 +13,7 @@ LIB_DEPENDS=	libcurl.so:ftp/curl \
 			libb64.so:converters/libb64 \
 			libevent.so:devel/libevent \
 			libnatpmp.so:net/libnatpmp \
-			libutp.so:net/libutp \
+			libutp.so:net-p2p/libutp \
 			libminiupnpc.so:net/miniupnpc
 
 GEN_RUN_DEPENDS=${LOCALBASE}/share/transmission/web/index.html:www/transmission-web
