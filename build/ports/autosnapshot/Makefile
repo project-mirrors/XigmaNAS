@@ -3,7 +3,7 @@ PORTVERSION=	1.0
 PORTREVISION=	0
 CATEGORIES=		sysutils
 COMMENT=		Auto Snapshot tool
-MAINTAINER=		aoyama@peach.ne.jp
+MAINTAINER=		zoon01@xigmanas.com
 
 NO_PKG_REGISTER=yes
 
