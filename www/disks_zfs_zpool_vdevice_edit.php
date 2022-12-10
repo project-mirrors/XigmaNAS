@@ -37,8 +37,9 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_geom_info.inc';
 
-use gui\document;
 use common\arr;
+use common\uuid;
+use gui\document;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_header = 'Location: '.$sphere_scriptname;
@@ -52,13 +53,18 @@ $checkbox_member_record = [];
 $gt_confirm_single = gtext('Do you want to create a virtual device from selected disk?');
 $gt_confirm_stripe = gtext('Do you want to create a striped virtual device from selected disks?');
 $gt_confirm_mirror = gtext('Do you want to create a mirrored virtual device from selected disks?');
-$gt_confirm_raidz1 = gtext('Do you want to create a RAID-Z1 from selected disks?');
-$gt_confirm_raidz2 = gtext('Do you want to create a RAID-Z2 from selected disks?');
-$gt_confirm_raidz3 = gtext('Do you want to create a RAID-Z3 from selected disks?');
+$gt_confirm_raidz1 = gtext('Do you want to create a RAIDZ1 from selected disks?');
+$gt_confirm_raidz2 = gtext('Do you want to create a RAIDZ2 from selected disks?');
+$gt_confirm_raidz3 = gtext('Do you want to create a RAIDZ3 from selected disks?');
+$gt_confirm_draid1 = gtext('Do you want to create a DRAID1 device from selected disk?');
+$gt_confirm_draid2 = gtext('Do you want to create a DRAID2 device from selected disk?');
+$gt_confirm_draid3 = gtext('Do you want to create a DRAID3 device from selected disk?');
 $gt_confirm_spare = gtext('Do you want to create a hot spare device from selected disk?');
 $gt_confirm_cache = gtext('Do you want to create a cache device from selected disks?');
 $gt_confirm_log = gtext('Do you want to create a log device from selected disk?');
 $gt_confirm_logmir = gtext('Do you want to create a mirrored log device from selected disks?');
+$gt_confirm_dedup = gtext('Do you want to create a dedup device from selected disks?');
+$gt_confirm_logmir = gtext('Do you want to create a special allocation device from selected disks?');
 $gt_record_loc = gtext('Virtual device is already in use.');
 $gt_record_opn = gtext('Virtual device can be removed.');
 $prerequisites_ok = true;
@@ -71,37 +77,40 @@ $img_path = [
 	'mai' => 'images/maintain.png',
 	'inf' => 'images/info.png'
 ];
-
-$mode_page = ($_POST) ? PAGE_MODE_POST : (($_GET) ? PAGE_MODE_EDIT : PAGE_MODE_ADD); // detect page mode
-if(PAGE_MODE_POST == $mode_page): // POST is Cancel
+//	detect page mode
+$mode_page = ($_POST) ? PAGE_MODE_POST : (($_GET) ? PAGE_MODE_EDIT : PAGE_MODE_ADD);
+if($mode_page == PAGE_MODE_POST):
+//	POST is Cancel
 	if((isset($_POST['cancel']) && $_POST['cancel'])):
 		header($sphere_header_parent);
 		exit;
 	endif;
 endif;
-
-if((PAGE_MODE_POST == $mode_page) && isset($_POST['uuid']) && is_uuid_v4($_POST['uuid'])):
+if(($mode_page == PAGE_MODE_POST) && isset($_POST['uuid']) && uuid::is_v4($_POST['uuid'])):
 	$sphere_record['uuid'] = $_POST['uuid'];
 else:
-	if((PAGE_MODE_EDIT == $mode_page) && isset($_GET['uuid']) && is_uuid_v4($_GET['uuid'])):
+	if(($mode_page == PAGE_MODE_EDIT) && isset($_GET['uuid']) && uuid::is_v4($_GET['uuid'])):
 		$sphere_record['uuid'] = $_GET['uuid'];
 	else:
-		$mode_page = PAGE_MODE_ADD; // Force ADD
-		$sphere_record['uuid'] = uuid();
+//		Force ADD
+		$mode_page = PAGE_MODE_ADD;
+		$sphere_record['uuid'] = uuid::create_v4();
 	endif;
 endif;
-
 $sphere_array = &arr::make_branch($config,'zfs','vdevices','vdevice');
 if(empty($sphere_array)):
 else:
 	arr::sort_key($sphere_array,'name');
 endif;
-
-$index = arr::search_ex($sphere_record['uuid'],$sphere_array,'uuid'); // find index of uuid
-$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_record['uuid']); // get updatenotify mode for uuid
+//	find index of uuid
+$index = arr::search_ex($sphere_record['uuid'],$sphere_array,'uuid');
+//	get updatenotify mode for uuid
+$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_record['uuid']);
 $mode_record = RECORD_ERROR;
-if(false !== $index): // uuid found
-	if((PAGE_MODE_POST == $mode_page || (PAGE_MODE_EDIT == $mode_page))): // POST or EDIT
+if($index !== false):
+//	uuid found
+	if(($mode_page == PAGE_MODE_POST) || ($mode_page == PAGE_MODE_EDIT)):
+//		POST or EDIT
 		switch ($mode_updatenotify):
 			case UPDATENOTIFY_MODE_NEW:
 				$mode_record = RECORD_NEW_MODIFY;
@@ -112,8 +121,9 @@ if(false !== $index): // uuid found
 				break;
 		endswitch;
 	endif;
-else: // uuid not found
-	if((PAGE_MODE_POST == $mode_page) || (PAGE_MODE_ADD == $mode_page)): // POST or ADD
+else:
+//	uuid not found
+	if(($mode_page == PAGE_MODE_POST) || ($mode_page == PAGE_MODE_ADD)):
 		switch($mode_updatenotify):
 			case UPDATENOTIFY_MODE_UNKNOWN:
 				$mode_record = RECORD_NEW;
@@ -121,16 +131,17 @@ else: // uuid not found
 		endswitch;
 	endif;
 endif;
-if(RECORD_ERROR == $mode_record): // oops, someone tries to cheat, over and out
+//	oops, something isn't right, over and out
+if($mode_record == RECORD_ERROR):
 	header($sphere_header_parent);
 	exit;
 endif;
-$isrecordnew = (RECORD_NEW === $mode_record);
-$isrecordnewmodify = (RECORD_NEW_MODIFY == $mode_record);
-$isrecordmodify = (RECORD_MODIFY === $mode_record);
+$isrecordnew = ($mode_record === RECORD_NEW);
+$isrecordnewmodify = ($mode_record == RECORD_NEW_MODIFY);
+$isrecordmodify = ($mode_record === RECORD_MODIFY);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 $a_disk = get_conf_disks_filtered_ex('fstype','zfs');
-if($isrecordnewornewmodify && (empty($a_disk)) && (empty($a_encrypteddisk))):
+if($isrecordnewornewmodify && empty($a_disk) && empty($a_encrypteddisk)):
 	$errormsg = gtext('No disks available.')
 		. ' '
 		. '<a href="' . 'disks_manage.php' . '">'
@@ -142,28 +153,30 @@ $a_device = [];
 foreach($a_disk as $r_disk):
 	$helpinghand = $r_disk['devicespecialfile'] . (isset($r_disk['zfsgpt']) ? $r_disk['zfsgpt'] : '');
 	$a_device[$helpinghand] = [
-		'name' => $r_disk['name'],
-		'uuid' => $r_disk['uuid'],
-		'model' => $r_disk['model'],
-		'devicespecialfile' => $helpinghand,
+		'name' => $r_disk['name'] ?? '',
+		'uuid' => $r_disk['uuid'] ?? '',
+		'model' => $r_disk['model'] ?? '',
+		'devicespecialfile' => $helpinghand ?? '',
 		'partition' => ((isset($r_disk['zfsgpt']) && (!empty($r_disk['zfsgpt'])))? $r_disk['zfsgpt'] : gtext('Entire Device')),
-		'controller' => $r_disk['controller'] . $r_disk['controller_id'] . ' (' . $r_disk['controller_desc'].')',
-		'size' => $r_disk['size'],
-		'serial' => $r_disk['serial'],
-		'desc' => $r_disk['desc']
+		'controller' => sprintf('%s%s (%s)',$r_disk['controller'] ?? '',$r_disk['controller_id'] ?? '',$r_disk['controller_desc'] ?? ''),
+		'size' => $r_disk['size'] ?? '',
+		'serial' => $r_disk['serial'] ?? '',
+		'desc' => $r_disk['desc'] ?? ''
 	];
 endforeach;
 $o_geom = new co_geom_info();
 $a_provider = $o_geom->get_provider();
-if(PAGE_MODE_POST === $mode_page):
+if($mode_page === PAGE_MODE_POST):
 	unset($input_errors);
-	if(isset($_POST['submit']) && $_POST['submit']): // Submit is coming from Save button which is only shown when an existing vdevice is modified (RECORD_MODIFY)
+	if(isset($_POST['submit']) && $_POST['submit']):
+//		Submit is coming from Save button which is only shown when an existing vdevice is modified (RECORD_MODIFY)
 		$sphere_record['name'] = $sphere_array[$index]['name'];
 		$sphere_record['type'] = $sphere_array[$index]['type'];
 		$sphere_record['device'] = $sphere_array[$index]['device'];
 		$sphere_record['aft4k'] = isset($sphere_array[$index]['aft4k']);
 		$sphere_record['desc'] = $_POST['desc'];
-	elseif(isset($_POST['action']) && $_POST['action']): // RECORD_NEW or RECORD_NEW_MODIFY
+	elseif(isset($_POST['action']) && $_POST['action']):
+//		RECORD_NEW or RECORD_NEW_MODIFY
 		$sphere_record['name'] = $_POST['name'];
 		$sphere_record['type'] = $_POST['action'];
 		$sphere_record['device'] = $_POST[$checkbox_member_name] ?? [];
@@ -179,27 +192,31 @@ if(PAGE_MODE_POST === $mode_page):
 //	Check for duplicate name
 	if($prerequisites_ok && empty($input_errors)):
 		switch ($mode_record):
-			case RECORD_NEW: // Error if name is found in the list of vdevice names
-				if(false !== arr::search_ex($sphere_record['name'],$sphere_array,'name')):
+			case RECORD_NEW:
+//				Error if name is found in the list of vdevice names
+				if(arr::search_ex($sphere_record['name'],$sphere_array,'name') !== false):
 					$input_errors[] = gtext('This virtual device name already exists.');
 				endif;
 				break;
-			case RECORD_NEW_MODIFY: // Error if modified name is found in the list of vdevice names
+			case RECORD_NEW_MODIFY:
+//				Error if modified name is found in the list of vdevice names
 				if($sphere_record['name'] !== $sphere_array[$index]['name']):
-					if(false !== arr::search_ex($sphere_record['name'],$sphere_array,'name')):
+					if(arr::search_ex($sphere_record['name'],$sphere_array,'name') !== false):
 						$input_errors[] = gtext('This virtual device name already exists.');
 					endif;
 				endif;
 				break;
-			case RECORD_MODIFY: // Error if name is changed, this error should never occur, just to cover all options
+			case RECORD_MODIFY:
+//				Error if name is changed, this error should never occur, just to cover all options
 				if($sphere_record['name'] !== $sphere_array[$index]['name']):
 					$input_errors[] = gtext('The name of this virtual device cannot be changed.');
 				endif;
 				break;
 		endswitch;
 	endif;
+//	RECORD_NEW or RECORD_NEW_MODIFY
 	if($prerequisites_ok && empty($input_errors)):
-		if(isset($_POST['action'])): // RECORD_NEW or RECORD_NEW_MODIFY
+		if(isset($_POST['action'])):
 			switch($_POST['action']):
 				case 'log-mirror':
 				case 'mirror':
@@ -245,7 +262,8 @@ if(PAGE_MODE_POST === $mode_page):
 		header($sphere_header_parent);
 		exit;
 	endif;
-else: // EDIT / ADD
+else:
+//	EDIT / ADD
 	switch ($mode_record):
 		case RECORD_NEW:
 			$sphere_record['name'] = '';
@@ -267,7 +285,7 @@ endif;
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Pools'),gtext('Virtual Device'),(!$isrecordnew) ? gtext('Edit') : gtext('Add')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	$("input[name='<?=$checkbox_member_name;?>[]']").click(function() {
@@ -282,10 +300,15 @@ $(window).on("load", function() {
 	$("#button_raidz1").click(function () { return confirm('<?=$gt_confirm_raidz1;?>'); });
 	$("#button_raidz2").click(function () { return confirm('<?=$gt_confirm_raidz2;?>'); });
 	$("#button_raidz3").click(function () { return confirm('<?=$gt_confirm_raidz3;?>'); });
+//	$("#button_draid1").click(function () { return confirm('<?=$gt_confirm_draid1;?>'); });
+//	$("#button_draid2").click(function () { return confirm('<?=$gt_confirm_draid2;?>'); });
+//	$("#button_draid3").click(function () { return confirm('<?=$gt_confirm_draid3;?>'); });
 	$("#button_spare").click(function () { return confirm('<?=$gt_confirm_spare;?>'); });
 	$("#button_cache").click(function () { return confirm('<?=$gt_confirm_cache;?>'); });
 	$("#button_log").click(function () { return confirm('<?=$gt_confirm_log;?>'); });
 	$("#button_logmir").click(function () { return confirm('<?=$gt_confirm_logmir;?>'); });
+//	$("#button_dedup").click(function () { return confirm('<?=$gt_confirm_dedup;?>'); });
+//	$("#button_sac").click(function () { return confirm('<?=$gt_confirm_sac;?>'); });
 	controlactionbuttons(this,'<?=$checkbox_member_name;?>[]');
 	// Init spinner onsubmit()
 	$("#iform").submit(function() { spinner(); });
@@ -295,13 +318,13 @@ function disableactionbuttons(n) {
 	var ab_element;
 	var ab_disable = [];
 	if (typeof(n) !== 'number') { n = 0; }
-	switch (n) { //            single, stripe, mirror, raidz1, raidz2, raidz3, hotspa, cache , log   , logmir
-		case  0: ab_disable = [true  , true  , true  , true  , true  , true  , true  , true  , true  , true  ]; break;
-		case  1: ab_disable = [false , false , true  , true  , true  , true  , false , false , false , true  ]; break;
-		case  2: ab_disable = [true  , false , false , true  , true  , true  , true  , true  , true  , false ]; break;
-		case  3: ab_disable = [true  , false , false , false , true  , true  , true  , true  , true  , false ]; break;
-		case  4: ab_disable = [true  , false , false , false , false , true  , true  , true  , true  , false ]; break;
-		default: ab_disable = [true  , false , false , false , false , false , true  , true  , true  , false ]; break; // setting for 5 or more disks
+	switch (n) { //            single, stripe, mirror, raidz1, raidz2, raidz3, hotspa, cache , log   , logmir , dedup , sac
+		case  0: ab_disable = [true  , true  , true  , true  , true  , true  , true  , true  , true  , true   , true  , true ]; break;
+		case  1: ab_disable = [false , false , true  , true  , true  , true  , false , false , false , true   , false , false]; break;
+		case  2: ab_disable = [true  , false , false , true  , true  , true  , true  , true  , true  , false  , false , false]; break;
+		case  3: ab_disable = [true  , false , false , false , true  , true  , true  , true  , true  , false  , false , false]; break;
+		case  4: ab_disable = [true  , false , false , false , false , true  , true  , true  , true  , false  , false , false]; break;
+		default: ab_disable = [true  , false , false , false , false , false , true  , true  , true  , false  , false , false]; break; // setting for 5 or more disks
 	}
 	ab_element = document.getElementById('button_single'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[0])) { ab_element.disabled = ab_disable[0]; }
 	ab_element = document.getElementById('button_stripe'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[1])) { ab_element.disabled = ab_disable[1]; }
@@ -309,10 +332,15 @@ function disableactionbuttons(n) {
 	ab_element = document.getElementById('button_raidz1'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[3])) { ab_element.disabled = ab_disable[3]; }
 	ab_element = document.getElementById('button_raidz2'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[4])) { ab_element.disabled = ab_disable[4]; }
 	ab_element = document.getElementById('button_raidz3'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[5])) { ab_element.disabled = ab_disable[5]; }
-	ab_element = document.getElementById('button_spare') ; if ((ab_element !== null) && (ab_element.disabled !== ab_disable[6])) { ab_element.disabled = ab_disable[6]; }
-	ab_element = document.getElementById('button_cache') ; if ((ab_element !== null) && (ab_element.disabled !== ab_disable[7])) { ab_element.disabled = ab_disable[7]; }
-	ab_element = document.getElementById('button_log')   ; if ((ab_element !== null) && (ab_element.disabled !== ab_disable[8])) { ab_element.disabled = ab_disable[8]; }
+//	ab_element = document.getElementById('button_draid1'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[3])) { ab_element.disabled = ab_disable[3]; }
+//	ab_element = document.getElementById('button_draid2'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[4])) { ab_element.disabled = ab_disable[4]; }
+//	ab_element = document.getElementById('button_draid3'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[5])) { ab_element.disabled = ab_disable[5]; }
+	ab_element = document.getElementById('button_spare'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[6])) { ab_element.disabled = ab_disable[6]; }
+	ab_element = document.getElementById('button_cache'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[7])) { ab_element.disabled = ab_disable[7]; }
+	ab_element = document.getElementById('button_log'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[8])) { ab_element.disabled = ab_disable[8]; }
 	ab_element = document.getElementById('button_logmir'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[9])) { ab_element.disabled = ab_disable[9]; }
+//	ab_element = document.getElementById('button_dedup'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[10])) { ab_element.disabled = ab_disable[10]; }
+//	ab_element = document.getElementById('button_sac'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[11])) { ab_element.disabled = ab_disable[11]; }
 }
 function controlactionbuttons(ego, triggerbyname) {
 	var a_trigger = document.getElementsByName(triggerbyname);
@@ -386,10 +414,19 @@ $document->render();
 			<button name="action" id="button_raidz1" type="submit" class="formbtn" value="raidz1" title="<?=gtext('Create a virtual device which tolerates a single device failure');?>"><?=gtext('RAID-Z1');?></button>
 			<button name="action" id="button_raidz2" type="submit" class="formbtn" value="raidz2" title="<?=gtext('Create a virtual device which tolerates 2 device failures');?>"><?=gtext('RAID-Z2');?></button>
 			<button name="action" id="button_raidz3" type="submit" class="formbtn" value="raidz3" title="<?=gtext('Create a virtual device which tolerates 3 device failures');?>"><?=gtext('RAID-Z3');?></button>
+<!--
+			<button name="action" id="button_draid1" type="submit" class="formbtn" value="draid1" title="<?=gtext('Create a virtual device which tolerates a single device failure');?>"><?=gtext('DRAID-1');?></button>
+			<button name="action" id="button_draid2" type="submit" class="formbtn" value="draid2" title="<?=gtext('Create a virtual device which tolerates 2 device failures');?>"><?=gtext('DRAID-2');?></button>
+			<button name="action" id="button_draid3" type="submit" class="formbtn" value="draid3" title="<?=gtext('Create a virtual device which tolerates 3 device failures');?>"><?=gtext('DRAID-3');?></button>
+-->
 			<button name="action" id="button_spare"  type="submit" class="formbtn" value="spare" title="<?=gtext('Create a spare device');?>"><?=gtext('HOT SPARE');?></button>
 			<button name="action" id="button_cache"  type="submit" class="formbtn" value="cache" title="<?=gtext('Create a L2ARC device for ARC');?>"><?=gtext('CACHE');?></button>
 			<button name="action" id="button_log"    type="submit" class="formbtn" value="log" title="<?=gtext('Create a SLOG device for ZIL');?>"><?=gtext('LOG');?></button>
 			<button name="action" id="button_logmir" type="submit" class="formbtn" value="log-mirror" title="<?=gtext('Create a mirrored SLOG device for ZIL');?>"><?=gtext('LOG (Mirror)');?></button>
+<!--
+			<button name="action" id="button_dedup" type="submit" class="formbtn" value="dedup" title="<?=gtext('Create a dedup device');?>"><?=gtext('DEDUP');?></button>
+			<button name="action" id="button_sac" type="submit" class="formbtn" value="sac" title="<?=gtext('Create a special allocation device');?>"><?=gtext('SPECIAL');?></button>
+-->
 		</div>
 <?php
 	endif;
@@ -410,7 +447,7 @@ $document->render();
 			if($isrecordmodify):
 				html_inputbox2('type',gettext('Type'),$sphere_record['type'],'',true,20,$isrecordmodify);
 			endif;
-			html_checkbox2('aft4k',gettext('4KB wrapper'),!empty($sphere_record['aft4k']) ? true : false,gettext('Create 4KB wrapper (nop device).'),'',false,$isrecordmodify);
+			html_checkbox2('aft4k',gettext('4KB wrapper'),!empty($sphere_record['aft4k']),gettext('Create 4KB wrapper (nop device).'),'',false,$isrecordmodify);
 			html_inputbox2('desc',gettext('Description'),$sphere_record['desc'],gettext('You may enter a description here for your reference.'),false,40);
 ?>
 		</tbody>
@@ -462,7 +499,7 @@ $document->render();
 <?php
 			if($isrecordnewornewmodify):
 				foreach($a_device as $r_device):
-					$isnotmemberofavdev = (false === arr::search_ex($r_device['devicespecialfile'],$sphere_array,'device'));
+					$isnotmemberofavdev = (arr::search_ex($r_device['devicespecialfile'],$sphere_array,'device') === false);
 					$ismemberofthisvdev = (isset($sphere_record['device']) && is_array($sphere_record['device']) && in_array($r_device['devicespecialfile'],$sphere_record['device']));
 					if($isnotmemberofavdev || $ismemberofthisvdev):
 ?>
@@ -541,13 +578,13 @@ $document->render();
 						<td class="lcelcd">
 							<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" checked="checked" disabled="disabled"/>
 						</td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['name']);?></td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['partition']);?></td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['model']);?></td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['serial']);?></td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['size']);?></td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['controller']);?></td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['desc']);?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['name'] ?? '');?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['partition'] ?? '');?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['model'] ?? '');?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['serial'] ?? '');?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['size'] ?? '');?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['controller'] ?? '');?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['desc'] ?? '');?></td>
 						<td class="lcebld">
 							<img src="<?=$img_path['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>"/>
 						</td>
