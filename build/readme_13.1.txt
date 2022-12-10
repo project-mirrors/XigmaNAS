@@ -119,7 +119,6 @@ Changes:
 - Upgrade devcpu-data-amd to v20221002.
 - Upgrade pecl-APCu to v5.1.22.
 - Upgrade jquery to v3.6.1.
-- Upgrade zoneinfo to 2022f.
 - Upgrade python to v3.9.15.
 - Upgrade virtualbox-ose to v6.1.40.
 - Upgrade sudo to v1.9.12p1.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade php to v8.1.13.
 - Upgrade nut to v2022.11.16.
 - Upgrade syncthing to v1.22.2.
+- Upgrade zoneinfo to 2022g.
 
 Fixes:
 - fix bring up lighttpd at all times.
