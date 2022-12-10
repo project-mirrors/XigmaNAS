@@ -131,6 +131,7 @@ Changes:
 - Upgrade zoneinfo to 2022g.
 - Upgrade proftpd to v1.3.7f.
 - Upgrade arcconf to vB25611.
+- Upgrade lcdproc to v2021.12.20.
 
 Fixes:
 - fix bring up lighttpd at all times.

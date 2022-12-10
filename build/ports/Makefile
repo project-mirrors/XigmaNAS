@@ -27,7 +27,7 @@
     SUBDIR += isboot
     SUBDIR += istgt
     SUBDIR += lighttpd
-    SUBDIR += lcdproc
+    SUBDIR += lcdproc-devel
     SUBDIR += locale
     SUBDIR += mariadb105
     SUBDIR += mDNSResponder

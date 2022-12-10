@@ -51,7 +51,7 @@ LCDd_mkconf()
 		-o 'ReportLevel=2' -n \
 		-o 'User=nobody' -n \
 		-o 'Hello="    Welcome to"' -n \
-		-o 'Hello=" XigmaNAS® LCDproc!"' -n \
+		-o 'Hello=" XigmaNAS Server"' -n \
 		-v "concat('WaitTime=', //lcdproc/waittime)" -n \
 		-v "concat('TitleSpeed=', //lcdproc/titlespeed)" -n \
 		-o 'ToggleRotateKey=Enter' -n \
@@ -59,8 +59,8 @@ LCDd_mkconf()
 		-o 'NextScreenKey=Right' -n \
 		-o '#ScrollUpKey=Up' -n \
 		-o '#ScrollDownKey=Down' -n \
-		-o 'GoodBye=" Thanks for using"' -n \
-		-o 'GoodBye=" XigmaNAS LCDproc!"' -n \
+		-o 'GoodBye=" Thank You for using"' -n \
+		-o 'GoodBye="      XigmaNAS"' -n \
 		-m "//xigmanas/lcdproc/auxparam" \
 			-v "." -n \
 		-b \
