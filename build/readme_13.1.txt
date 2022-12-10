@@ -112,10 +112,8 @@ Changes:
 - Upgrade tmux to v3.3a.
 - Upgrade cdialog to v1.3-20220728.
 - Upgrade rrdtool to v1.8.0.
-- Upgrade proftpd to v1.3.7e.
 - Upgrade msmtp to v1.8.22.
 - Upgrade lighttpd to v1.4.67.
-- Upgrade arcconf to vB25335.
 - Upgrade devcpu-data-amd to v20221002.
 - Upgrade pecl-APCu to v5.1.22.
 - Upgrade jquery to v3.6.1.
@@ -132,6 +130,7 @@ Changes:
 - Upgrade syncthing to v1.22.2.
 - Upgrade zoneinfo to 2022g.
 - Upgrade proftpd to v1.3.7f.
+- Upgrade arcconf to vB25611.
 
 Fixes:
 - fix bring up lighttpd at all times.
