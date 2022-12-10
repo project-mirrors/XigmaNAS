@@ -128,7 +128,7 @@ $software = [
 	]],
 	['jQuery',[
 		'A fast, small, and feature-rich JavaScript library (<a href="https://jquery.com" target="_blank" rel="noreferrer">https://jquery.com</a>).',
-		'Copyright © 2021 jQuery Foundation. All Rights Reserved.'
+		'Copyright © 2022 jQuery Foundation. All Rights Reserved.'
 	]],
 	['LCDproc',[
 		'A client/server suite for LCD devices (<a href="http://lcdproc.org" target="_blank" rel="noreferrer">http://lcdproc.org</a>).',
@@ -193,7 +193,7 @@ $software = [
 	]],
 	['ProFTPD',[
 		'A highly configurable FTP server (<a href="http://www.proftpd.org" target="_blank" rel="noreferrer">http://www.proftpd.org</a>).',
-		'Copyright © 1999, 2000-2020 The ProFTPD Project. All Rights Reserved.'
+		'Copyright © 1999, 2000-2022 The ProFTPD Project. All Rights Reserved.'
 	]],
 	['Python',[
 		'A programming language (<a href="https://www.python.org" target="_blank" rel="noreferrer">https://www.python.org</a>).',
