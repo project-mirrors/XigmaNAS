@@ -131,6 +131,7 @@ Changes:
 - Upgrade nut to v2022.11.16.
 - Upgrade syncthing to v1.22.2.
 - Upgrade zoneinfo to 2022g.
+- Upgrade proftpd to v1.3.7f.
 
 Fixes:
 - fix bring up lighttpd at all times.
