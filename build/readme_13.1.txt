@@ -124,7 +124,6 @@ Changes:
 - Upgrade devcpu-data-intel to v20221108.
 - Upgrade rsync to v3.2.6.
 - Upgrade bash to v5.2p12.
-- Upgrade nano to v7.0.
 - Upgrade php to v8.1.13.
 - Upgrade nut to v2022.11.16.
 - Upgrade syncthing to v1.22.2.
@@ -132,6 +131,7 @@ Changes:
 - Upgrade proftpd to v1.3.7f.
 - Upgrade arcconf to vB25611.
 - Upgrade lcdproc to v2021.12.20.
+- Upgrade nano to v7.1.
 
 Fixes:
 - fix bring up lighttpd at all times.
