@@ -116,7 +116,6 @@ Changes:
 - Upgrade lighttpd to v1.4.67.
 - Upgrade devcpu-data-amd to v20221002.
 - Upgrade pecl-APCu to v5.1.22.
-- Upgrade jquery to v3.6.1.
 - Upgrade python to v3.9.15.
 - Upgrade virtualbox-ose to v6.1.40.
 - Upgrade sudo to v1.9.12p1.
@@ -132,6 +131,7 @@ Changes:
 - Upgrade arcconf to vB25611.
 - Upgrade lcdproc to v2021.12.20.
 - Upgrade nano to v7.1.
+- Upgrade jquery to v3.6.3.
 
 Fixes:
 - fix bring up lighttpd at all times.
