@@ -132,6 +132,7 @@ Changes:
 - Upgrade lcdproc to v2021.12.20.
 - Upgrade nano to v7.1.
 - Upgrade jquery to v3.6.3.
+- Upgrade nut to v2022.12.20.
 
 Fixes:
 - fix bring up lighttpd at all times.
