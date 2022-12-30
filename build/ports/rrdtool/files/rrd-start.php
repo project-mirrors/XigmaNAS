@@ -57,7 +57,7 @@ if(isset($config['rrdgraphs']['enable'])):
 	fwrite($rrdconfig,sprintf("LATENCY_INTERFACE_IP=%s\n",escapeshellarg(get_ipaddr($config['rrdgraphs']['lan_if']) ?? '')));
 	fwrite($rrdconfig,sprintf("LATENCY_COUNT=%s\n",escapeshellarg($config['rrdgraphs']['latency_count'] ?? '')));
 	fwrite($rrdconfig,sprintf("LATENCY_PARAMETERS=%s\n",escapeshellarg($config['rrdgraphs']['latency_parameters'] ?? '')));
-	fwrite($rrdconfig,sprintf("UPS_AT=%s\n",escapeshellarg($config['rrdgraphs']['ups_at'])));
+	fwrite($rrdconfig,sprintf("UPS_AT=%s\n",escapeshellarg($config['rrdgraphs']['ups_at'] ?? '')));
 	fwrite($rrdconfig,sprintf("RUN_FRQ=%u\n",isset($config['rrdgraphs']['cpu_frequency']) ? 1 : 0));
 	fwrite($rrdconfig,sprintf("RUN_TMP=%u\n",isset($config['rrdgraphs']['cpu_temperature']) ? 1 : 0));
 	fwrite($rrdconfig,sprintf("RUN_CPU=%u\n",isset($config['rrdgraphs']['cpu']) ? 1 : 0));
