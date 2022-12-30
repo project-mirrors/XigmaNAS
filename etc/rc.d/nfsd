@@ -6,7 +6,7 @@
 #
 # Remote NFS server
 #
-# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/nfsd		Revision r346910
+# XigmaNAS® Checked: libexec/rc/rc.d/nfsd		commit/2cd26a286a9e6339a3c6782a7101cbbd5d166666
 # XigmaNAS® Changes: modified for XigmaNAS®, removed REQUIRE: gssd
 #
 
@@ -43,7 +43,7 @@ nfsd_precmd()
 
 	# Load the modules now, so that the vfs.nfsd sysctl
 	# oids are available.
-	load_kld nfsd
+	load_kld nfsd || return 1
 
 	if [ -n "${nfs_server_maxio}" ]; then
 		if ! sysctl vfs.nfsd.srvmaxio=${nfs_server_maxio} >/dev/null; then
