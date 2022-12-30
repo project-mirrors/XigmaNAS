@@ -6,7 +6,7 @@
 #
 # Service remote NFS mount requests
 #
-# XigmaNAS® Checked: 13.1/libexec/rc/rc.d/mountd		commit/85ad49367
+# XigmaNAS® Checked: 13.1/libexec/rc/rc.d/mountd		commit/1cf8e6339e9add47107a6c9988a0f509225b7ef6
 # XigmaNAS® Changes: - Remove nfsserver quota
 # 		     - Add mkconf command
 #
@@ -146,7 +146,9 @@ mountd_precmd()
 	mountd_mkconf
 	if ! checkyesno rpcbind_enable  && ! /etc/rc.d/rpcbind forcestatus 1>/dev/null 2>&1; then
 		force_depend rpcbind || return 1
-		if ! checkyesno nfsv4_server_enable; then
+		if checkyesno nfsv4_server_enable; then
+			sysctl vfs.nfsd.server_max_nfsvers=4 > /dev/null
+		else
 			sysctl vfs.nfsd.server_max_nfsvers=3 > /dev/null
 		fi
 	fi
