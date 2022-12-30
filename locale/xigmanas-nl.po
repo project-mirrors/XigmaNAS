@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
-"PO-Revision-Date: 2022-10-09 15:21+0000\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"PO-Revision-Date: 2022-12-10 23:57+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
-"X-Poedit-Country: Netherlands\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Launchpad-Export-Date: 2022-12-14 16:04+0000\n"
+"X-Generator: Launchpad (build c3f9a3a8c5fffd8b8763824e1f305083a4e9705e)\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: Netherlands\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2870,13 +2870,13 @@ msgstr ""
 "gewist bij het afsluiten systeem."
 
 msgid "Create"
-msgstr "Nieuw"
+msgstr "Creëer"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "Creëer 4KB wrapper (nop schijf)."
 
 msgid "Create Date"
-msgstr "Creër Datum"
+msgstr "Creëer Datum"
 
 msgid "Create HVM Guest"
 msgstr "Creëer HVM Gast"
@@ -2888,13 +2888,13 @@ msgid "Create PV Guest"
 msgstr "Creëer PV Gast"
 
 msgid "Create Permission"
-msgstr "Toestemming Creëren"
+msgstr "Creëer Toestemming"
 
 msgid "Create Snapshot"
 msgstr "Creëer Momentopname"
 
 msgid "Create Work Directory"
-msgstr "Werkmap Maken"
+msgstr "Creëer Werkmap"
 
 msgid "Create ZFS on a GPT partition."
 msgstr "Creëer ZFS op een GPT partitie."
@@ -2905,17 +2905,23 @@ msgstr "Creëer een L2ARC schijf voor ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Creëer een SLOG schijf voor ZIL"
 
+msgid "Create a dedup device"
+msgstr "Creëer een dedup schijf"
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Creëer een gespiegelde SLOG schijf voor ZIL"
 
 msgid "Create a spare device"
-msgstr "Creëer een spare schijf"
+msgstr "Creëer een reserve-schijf"
+
+msgid "Create a special allocation device"
+msgstr "Creëer een speciaal allocatie schijf"
 
 msgid "Create a virtual device containing a single device"
-msgstr "Maak een virtueel apparaat met een enkel apparaat"
+msgstr "Creëer een virtueel schijf met een enkel schijf"
 
 msgid "Create a virtual device containing concatenated devices"
-msgstr "Maak een virtueel apparaat met aaneengeschakelde apparaten"
+msgstr "Creëer een virtueel schijf met aaneengeschakelde schijven"
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "Creëer een virtuele schijf met gespiegelde schijven"
@@ -2939,7 +2945,7 @@ msgid "Create work directory if it doesn't exist."
 msgstr "Werkmap maken als deze nog niet bestaat."
 
 msgid "Created UFS file system:"
-msgstr "UFS filesysteem aangemaakt"
+msgstr "Gecreëerd UFS filesysteem:"
 
 msgid "Creates the pool with an alternate root."
 msgstr "Creëer de pool met een alternatieve root."
@@ -3041,6 +3047,9 @@ msgstr "Er is een aangepast script nodig."
 msgid "Custom script not found."
 msgstr "Er is geen aangepast script gevonden."
 
+msgid "Custom sharing"
+msgstr "Aangepast delen"
+
 msgid "DDNS server name, not the full URL."
 msgstr "DDNS servernaam, niet de volledige URL."
 
@@ -3068,6 +3077,9 @@ msgstr "DEBUG2 - log gedetailleerde foutopsporing informatie"
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - log alle foutopsporing informatie"
+
+msgid "DEDUP"
+msgstr "DEDUP"
 
 msgid "DELETE"
 msgstr "VERWIJDEREN"
@@ -3124,6 +3136,15 @@ msgstr ""
 
 msgid "DOWNLOAD"
 msgstr "DOWNLOAD"
+
+msgid "DRAID-1"
+msgstr "DRAID-1"
+
+msgid "DRAID-2"
+msgstr "DRAID-2"
+
+msgid "DRAID-3"
+msgstr "DRAID-3"
 
 msgid "DTS Audio File"
 msgstr "DTS Audio Bestand"
@@ -4089,54 +4110,67 @@ msgstr "Weet u zeker dat u dit pakket wilt deïnstalleren?"
 msgid "Do you want to apply these settings?"
 msgstr "Wilt u deze instellingen toepassen?"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr "Wilt u een DRAID1 schijf creëren van de geselecteerde schijf?"
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr "Wilt u een DRAID2 schijf creëren van de geselecteerde schijf?"
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr "Wilt u een DRAID3 schijf creëren van de geselecteerde schijf?"
+
 msgid "Do you want to create a JBOD from selected disks?"
-msgstr "Wilt u een JBOD maken op basis van de geselecteerde schijven?"
+msgstr "Wilt u een JBOD creëren van geselecteerde schijven?"
 
 msgid "Do you want to create a RAID-0 from selected disks?"
-msgstr "Wilt u een RAID-0 van geselecteerde schijven maken?"
+msgstr "Wilt u een RAID-0 creëren van geselecteerde schijven?"
 
 msgid "Do you want to create a RAID-1 from selected disks?"
-msgstr "Wilt u een RAID-1 maken op basis van de geselecteerde schijven?"
+msgstr "Wilt u een RAID-1 creëren van geselecteerde schijven?"
 
 msgid "Do you want to create a RAID-5 from selected disks?"
-msgstr "Wilt u een RAID-5 maken op basis van de geselecteerde schijven?"
+msgstr "Wilt u een RAID-5 creëren van geselecteerde schijven?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Wilt u een RAID-Z1 maken op basis van de geselecteerde schijven?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr "Wilt u een RAIDZ1 creëren van geselecteerde schijven?"
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Wilt u een RAID-Z2 maken op basis van de geselecteerde schijven?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr "Wilt u een RAIDZ2 creëren van geselecteerde schijven?"
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Wilt u een RAID-Z3 maken op basis van de geselecteerde schijven?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr "Wilt u een RAIDZ3 creëren van geselecteerde schijven?"
 
 msgid "Do you want to create a cache device from selected disks?"
-msgstr "Wilt u een cache maken op basis van de geselecteerde schijven?"
+msgstr "Wilt u een cache schijf creëren van de geselecteerde schijven?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr "Wilt u een dedup schijf creëren van de geselecteerde schijven?"
 
 msgid "Do you want to create a hot spare device from selected disk?"
-msgstr ""
-"Wilt u een hot spare schijf maken op basis van de geselecteerde schijf?"
+msgstr "Wilt u een hot spare schijf creëren van de geselecteerde schijf?"
 
 msgid "Do you want to create a log device from selected disk?"
-msgstr "Wilt u een log schijf maken op basis van de geselecteerde schijven?"
+msgstr "Wilt u een log schijf creëren van de geselecteerde schijven?"
 
 msgid "Do you want to create a mirrored log device from selected disks?"
 msgstr ""
-"Wilt u een gespiegelde log schijf maken op basis van de geselecteerde "
-"schijven?"
+"Wilt u een gespiegelde log schijf creëren van de geselecteerde schijven?"
 
 msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr ""
-"Wilt u een gespiegelde virtuele schijf maken op basis van de geselecteerde "
-"schijven?"
+"Wilt u een gespiegelde virtuele schijf creëren van de geselecteerde schijven?"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
+"Wilt u een speciaal allocation schijf creëren van de geselecteerde schijven?"
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
-"Wilt u een striped virtuele schijf maken op basis van de geselecteerde "
-"schijven?"
+"Wilt u een striped virtuele schijf creëren van de geselecteerde schijven?"
 
 msgid "Do you want to create a virtual device from selected disk?"
-msgstr "Wilt u een virtueel apparaat maken van de geselecteerde schijf?"
+msgstr "Wilt u een virtueel schijf creëren van de geselecteerde schijf?"
 
 msgid "Do you want to delete selected CARPs?"
 msgstr "Wilt u de geselecteerde CARPs verwijderen?"
@@ -6824,7 +6858,7 @@ msgid ""
 "share."
 msgstr ""
 "Wanneer deze parameter is geactiveerd, kunnen gebruikers geen bestanden "
-"maken of aanpassen in de deling."
+"creëren of aanpassen in de deling."
 
 msgid "If this property is disabled, the file system cannot be mounted."
 msgstr ""
@@ -6893,7 +6927,7 @@ msgid "In slave mode it is the UPS name (Identifier) at the UPS master."
 msgstr "In slave mode is het de UPS naam (identificator) op de UPS master."
 
 msgid "In this directory, the configuration file 'my.cnf' will be created."
-msgstr "In deze folder wordt het configuratiebestand 'my.cnf' aangemaakt."
+msgstr "In deze folder wordt het configuratiebestand 'my.cnf' gecreëerd."
 
 msgid "In/Out Errors"
 msgstr "In/Uit Fouten"
@@ -8388,9 +8422,6 @@ msgstr "NFS Root is gemarkeerd voor verwijdering"
 msgid "NFS Root is unlocked"
 msgstr "NFS Root is ontgrendeld"
 
-msgid "NFS sharing"
-msgstr "NFS deling"
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8991,6 +9022,9 @@ msgstr "Oktober"
 msgid "Off"
 msgstr "Uit"
 
+msgid "Off - do not share"
+msgstr "Uit - niet delen"
+
 msgid "Offline Immediate Test"
 msgstr "Offline Onmiddellijke Test"
 
@@ -9020,6 +9054,9 @@ msgstr "Ouder dan gisteren"
 
 msgid "On"
 msgstr "Aan"
+
+msgid "On - share with default permissions"
+msgstr "Aan - delen met standaardmachtigingen"
 
 msgid "On-Disk Configuration"
 msgstr "Op-schijf Configuratie"
@@ -10353,7 +10390,7 @@ msgid "Recursive"
 msgstr "Recursief"
 
 msgid "Recursively create snapshots of all descendent datasets."
-msgstr "Maak recursief momentopnamen van alle afstammende datasets."
+msgstr "Creëer recursief momentopnamen van alle onderliggende datasets."
 
 msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr "Vernietig recursief momentopnamen van alle afstammende datasets."
@@ -10843,6 +10880,9 @@ msgstr "SNMP"
 msgid "SNMP Modules"
 msgstr "SNMP Modules"
 
+msgid "SPECIAL"
+msgstr "SPECIAAL"
+
 msgid "SQL File"
 msgstr "SQL Bestand"
 
@@ -11070,7 +11110,7 @@ msgstr "Beveiligingswaarschuwing"
 msgid ""
 "See ZFS datasets & deduplication wiki article BEFORE using this feature."
 msgstr ""
-"Bekijk het ZFS datasets & deduplication wiki artikel VOOR u gebruik gaat "
+"Bekijk het ZFS datasets & deduplicatie wiki artikel VOOR u gebruik gaat "
 "maken van deze mogelijkheid."
 
 msgid "See attribute E8."
@@ -11194,7 +11234,7 @@ msgstr ""
 
 msgid "Select mount point where to create the swap file."
 msgstr ""
-"Selecteer het koppelpunt waar het wisselbestand op aangemaakt gaat worden."
+"Selecteer het koppelpunt waar het wisselbestand op gecreëerd gaat worden."
 
 msgid "Select number of ICMP ECHO REQUEST packets."
 msgstr "Selecteer het aantal ICMP ECHO REQUEST pakketten."
@@ -12047,7 +12087,7 @@ msgid ""
 "Specifies how many servers to create. There should be enough to handle the "
 "maximum level of concurrency from its clients, typically four to six."
 msgstr ""
-"Geeft op hoeveel servers moeten worden gemaakt. Er dienen genoeg servers "
+"Geeft op hoeveel servers moeten worden gecreëerd. Er dienen genoeg servers "
 "opgegeven te zijn om het maximum aantal processen van de cliënten af te "
 "handelen, doorgaans vier tot zes."
 
@@ -13777,8 +13817,8 @@ msgid ""
 "This attribute controls the ACL behavior when a file is created or whenever "
 "the mode of a file or a directory is modified."
 msgstr ""
-"Dit kenmerk bepaalt het gedrag van de ACL wanneer een bestand wordt gemaakt "
-"of als de modus van een bestand of map wordt gewijzigd."
+"Dit kenmerk bepaalt het gedrag van de ACL wanneer een bestand wordt "
+"gecreëerd of als de modus van een bestand of map wordt gewijzigd."
 
 msgid ""
 "This attribute determines the behavior of Access Control List inheritance."
@@ -14023,8 +14063,7 @@ msgstr "Deze pagina is alleen voor onderhoud."
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
 msgstr ""
-"Deze pagina weergeeft de configuratie die is gemaakt door middel van de "
-"WebGUI."
+"Deze pagina geeft de configuratie weer die is gecreëerd met de WebGUI."
 
 msgid ""
 "This page reflects the current system configuration. It may be different to "
@@ -14788,6 +14827,9 @@ msgstr "Umask"
 msgid "Unable to open directory."
 msgstr "Kan de folder niet openen."
 
+msgid "Unable to open source directory."
+msgstr "Kan de bronmap niet openen."
+
 msgid "Unable to read directory."
 msgstr "Kan de folder niet lezen."
 
@@ -15110,9 +15152,9 @@ msgid ""
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
 "lists the raw storage information of a pool."
 msgstr ""
-"Gebruikt/beschikbaar bevat opslaginformatie nadat alle redundantie in "
-"aanmerking is genomen maar wordt beïnvloed door compressie, deduplication en "
-"quota's. Alloc/Vrij bevat de ruwe opslaginformatie van een pool."
+"Gebruikt/Beschikbaar geeft opslaginformatie weer nadat alle redundantie in "
+"aanmerking is genomen, maar wordt beïnvloed door compressie, deduplicatie en "
+"quota's. Toegewezen/Vrij bevat de ruwe opslaginformatie van een pool."
 
 msgid "User"
 msgstr "Gebruiker"
