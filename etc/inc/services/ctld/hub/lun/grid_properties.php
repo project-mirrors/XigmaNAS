@@ -127,7 +127,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_serial;
 	public function init_serial(): myp\property_text {
-		$property = $this->x_ = new myp\property_text($this);
+		$property = $this->x_serial = new myp\property_text($this);
 		$property->
 			set_name('serial')->
 			set_title(gettext('Serial Number'));
