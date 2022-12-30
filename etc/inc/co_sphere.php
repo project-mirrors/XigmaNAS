@@ -141,6 +141,7 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 }
 class co_sphere_level2 extends co_sphere_level1 { // for row and grid
 	protected $x_notifier = null;
+	protected $x_notifier_processor = null;
 	public $row_id = null;
 	protected $x_row_identifier = null;
 	protected $x_lock = false;
@@ -246,7 +247,6 @@ class co_sphere_grid extends co_sphere_level2 {
 	public $maintain = null; // maintenance
 	public $inform = null; // information
 //	transaction manager
-	protected $x_notifier_processor = null;
 	protected $x_cbm_suffix = '';
 //	checkbox member array
 	protected $x_cbm_name = 'cbm_grid';
