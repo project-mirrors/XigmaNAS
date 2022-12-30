@@ -121,8 +121,6 @@ Changes:
 - Upgrade sudo to v1.9.12p1.
 - Upgrade iperf3 to v3.12.
 - Upgrade devcpu-data-intel to v20221108.
-- Upgrade rsync to v3.2.6.
-- Upgrade php to v8.1.13.
 - Upgrade nut to v2022.11.16.
 - Upgrade syncthing to v1.22.2.
 - Upgrade zoneinfo to 2022g.
@@ -133,6 +131,8 @@ Changes:
 - Upgrade jquery to v3.6.3.
 - Upgrade nut to v2022.12.20.
 - Upgrade bash to v5.2p15.
+- Upgrade php to v8.2.0.
+- Upgrade rsync to v3.2.7.
 
 Fixes:
 - fix bring up lighttpd at all times.
