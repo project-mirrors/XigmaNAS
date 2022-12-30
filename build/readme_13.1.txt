@@ -110,7 +110,6 @@ BUILD 13.1.0.5.9447
 Changes:
 - Upgrade to FreeBSD 13.1-RELEASE P5.
 - Upgrade tmux to v3.3a.
-- Upgrade cdialog to v1.3-20220728.
 - Upgrade rrdtool to v1.8.0.
 - Upgrade msmtp to v1.8.22.
 - Upgrade lighttpd to v1.4.67.
@@ -133,6 +132,7 @@ Changes:
 - Upgrade bash to v5.2p15.
 - Upgrade php to v8.2.0.
 - Upgrade rsync to v3.2.7.
+- Upgrade cdialog to v1.3-20221229.
 
 Fixes:
 - fix bring up lighttpd at all times.
