@@ -56,7 +56,7 @@ class filemanager {
 	protected string $home_dir;
 	protected string $home_url;
 	protected bool $show_hidden = false;
-	protected bool $no_access;
+	protected bool $no_access_pattern;
 	protected string $site_name;
 	protected string $img_root;
 	protected array $baricons;
