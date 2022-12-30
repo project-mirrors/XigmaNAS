@@ -177,3 +177,7 @@ etc/inc/fm_session.php
 etc/inc/fm_str.php
 etc/inc/fm_unzip.php
 etc/inc/fm_user.php
+# 9463
+usr/local/lib/php/extensions/no-debug-non-zts-20210902/apcu.so
+usr/local/lib/php/extensions/no-debug-non-zts-20210902/opcache.so
+usr/local/lib/php/extensions/no-debug-non-zts-20210902
