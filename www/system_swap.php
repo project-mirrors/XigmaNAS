@@ -32,12 +32,12 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use gui\document;
 use common\arr;
+use gui\document;
 
 arr::make_branch($config,'system','swap');
 $pconfig['enable'] = isset($config['system']['swap']['enable']);
@@ -74,7 +74,7 @@ if($_POST):
 		do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
 	endif;
 	if(empty($input_errors)):
-		$config['system']['swap']['enable'] = isset($_POST['enable']) ? true : false;
+		$config['system']['swap']['enable'] = isset($_POST['enable']);
 		$config['system']['swap']['type'] = $_POST['type'];
 		$config['system']['swap']['mountpoint'] = $_POST['mountpoint'];
 		$config['system']['swap']['devicespecialfile'] = $_POST['devicespecialfile'];
@@ -97,7 +97,7 @@ endif;
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Swap')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 function enable_change(enable_change) {
 	var endis = !(document.iform.enable.checked || enable_change);
@@ -141,7 +141,7 @@ $document->
 			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
 $document->render();
 ?>
-<form action="system_swap.php" method="post" name="iform" id="iform" onsubmit="spinner()"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="system_swap.php" method="post" name="iform" id="iform" onsubmit="spinner()" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
@@ -160,7 +160,7 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_titleline_checkbox2('enable',gettext('Swap Memory'),!empty($pconfig['enable']) ? true : false,gettext('Enable'),'enable_change(false)');
+			html_titleline_checkbox2('enable',gettext('Swap Memory'),!empty($pconfig['enable']),gettext('Enable'),'enable_change(false)');
 ?>
 		</thead>
 		<tbody>
@@ -173,7 +173,7 @@ $document->render();
 					<td class="celldata">
 						<table width="100%" border="0" cellspacing="10" cellpadding="1">
 <?php
-							array_sort_key($swapinfo,'device');
+							arr::sort_key($swapinfo,'device');
 							$ctrlid = 0;
 							foreach ($swapinfo as $swapk => $swapv):
 								$ctrlid++;
@@ -222,8 +222,8 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
-<script type="text/javascript">
+</div><div class="area_data_pot"></div></form>
+<script>
 //<![CDATA[
 enable_change(false);
 type_change(false);
