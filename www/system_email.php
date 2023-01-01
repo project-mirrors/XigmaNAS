@@ -31,10 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
-require_once 'autoload.php';
 
 use gui\document;
 use common\arr;
@@ -90,7 +91,7 @@ if($_POST):
 		$config['system']['email']['security'] = isset($_POST['security']);
 		$config['system']['email']['starttls'] = isset($_POST['starttls']);
 		$config['system']['email']['tls_certcheck'] = isset($_POST['tls_certcheck']);
-		$config['system']['email']['tls_use_default_trust_file'] = isset($_POST['tls_use_default_trust_file']) ? true : false;
+		$config['system']['email']['tls_use_default_trust_file'] = isset($_POST['tls_use_default_trust_file']);
 		$config['system']['email']['tls_trust_file'] = $_POST['tls_trust_file'] ?? '';
 		$config['system']['email']['tls_fingerprint'] = $_POST['tls_fingerprint'] ?? '';
 		$config['system']['email']['tls_crl_file'] = $_POST['tls_crl_file'] ?? '';
@@ -100,7 +101,7 @@ if($_POST):
 		$config['system']['email']['password'] = $_POST['password'];
 		write_config();
 		$retval = 0;
-		if (!file_exists($d_sysrebootreqd_path)):
+		if(!file_exists($d_sysrebootreqd_path)):
 			config_lock();
 			$retval |= rc_exec_service('msmtp');
 			config_unlock();
@@ -129,20 +130,20 @@ if($_POST):
 	endif;
 endif;
 $l_authmethod = [
-	'plain' => gtext('Plain-text'),
+	'plain' => gettext('Plain-text'),
 	'scram-sha-1' => 'SCRAM-SHA-1',
 	'cram-md5' => 'CRAM-MD5',
 	'digest-md5' => 'Digest-MD5',
 //	'gssapi' => 'GSSAPI',
 	'external' => 'External',
-	'login' => gtext('Login'),
+	'login' => gettext('Login'),
 	'ntlm' => 'NTLM',
-	'on' => gtext('Best available')
+	'on' => gettext('Best available')
 ];
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Email Setup')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	// Init spinner onsubmit()
@@ -236,7 +237,7 @@ $document->
 			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
 $document->render();
 ?>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
@@ -274,13 +275,12 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('SMTP Authentication'));
 ?>
 		</thead>
 		<tbody>
 <?php
-			html_checkbox2('auth',gettext('Authentication'),!empty($pconfig['auth']) ? true : false,gettext('Enable SMTP authentication.'));
+			html_checkbox2('auth',gettext('Authentication'),!empty($pconfig['auth']),gettext('Enable SMTP authentication.'));
 			html_inputbox2('username',gettext('Username'),$pconfig['username'],'',true,40);
 			html_passwordconfbox2('password','passwordconf',gettext('Password'),$pconfig['password'],$pconfig['passwordconf'],'',true);
 			html_combobox2('authmethod',gettext('Authentication Method'),$pconfig['authmethod'],$l_authmethod,'',true);
@@ -294,7 +294,6 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('Transport Layer Security (TLS)'));
 ?>
 		</thead>
@@ -321,6 +320,6 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
