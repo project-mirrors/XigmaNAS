@@ -89,6 +89,15 @@ echo '<!DOCTYPE html>',"\n";
 			display_headermenu();
 ?>
 			<div id="gapheader"></div>
+<?php
+			if(!isset($pgtitle_omit) || !$pgtitle_omit):
+?>
+			<div id="pgtitle">
+				<p class="pgtitle"><?=gentitle($pgtitle);?></p>
+			</div>
+<?php
+			endif;
+?>
 		</header>
 <script>
 //<![CDATA[
@@ -97,11 +106,5 @@ $(window).on("load", function() {
 });
 //]]>
 </script>
-		<main id="g4m">
+		<main id="g4m2">
 			<div id="pagecontent">
-<?php
-			if(!isset($pgtitle_omit) || !$pgtitle_omit):
-?>
-				<p class="pgtitle"><?=gentitle($pgtitle);?></p>
-<?php
-			endif;
