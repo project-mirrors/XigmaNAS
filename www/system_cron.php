@@ -32,12 +32,13 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once('autoload.php');
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once('autoload.php');
 
-use gui\document;
+
 use common\arr;
+use gui\document;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_scriptname_child = 'system_cron_edit.php';
@@ -314,7 +315,7 @@ $document->
 			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
 $document->render();
 ?>
-<form action="<?=$sphere_scriptname;?>" method="post" id="iframe" name="iframe"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($savemsg)):
 		print_info_box($savemsg);
@@ -442,6 +443,6 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
