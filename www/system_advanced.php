@@ -291,7 +291,7 @@ $document->
 			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
 $document->render();
 ?>
-<form action="system_advanced.php" method="post" id="iform" name="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere->get_scriptname();?>"method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
@@ -331,7 +331,6 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('Platform and Performance Settings'));
 ?>
 		</thead>
@@ -366,7 +365,6 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('Console Settings'));
 ?>
 		</thead>
@@ -394,7 +392,7 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <script type="text/javascript">
 //<![CDATA[
 <?php
