@@ -39,8 +39,8 @@ require_once 'zfs.inc';
 require_once 'co_sphere.php';
 require_once 'properties_zfs_dataset.php';
 
-use gui\document;
 use common\arr;
+use gui\document;
 
 function get_volblocksize($pool,$name) {
 	$cmd = sprintf('zfs get -H -o value volblocksize %s 2>&1',escapeshellarg(sprintf('%s/%s',$pool,$name)));
@@ -401,7 +401,7 @@ $document->
 			ins_tabnav_record('disks_zfs_volume_info.php',gettext('Information'));
 $document->render();
 ?>
-<form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($errormsg)):
 		print_error_box($errormsg);
@@ -463,6 +463,6 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
