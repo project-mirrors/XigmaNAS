@@ -3,7 +3,7 @@
 # This script does Modify the file permissions.
 #
 # Part of XigmaNAS® (https://www.xigmanas.com).
-# Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
+# Copyright © 2018-2023 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 
