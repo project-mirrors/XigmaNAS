@@ -804,6 +804,7 @@ td#area_data_frame
 	background-color: #EEEEEE;
 	background-color: var(--bgc-area-data);
 }
+
 div#area_data_frame > table.area_data_selection > thead,
 div#area_data_frame > table.area_data_settings > thead,
 div#area_data_frame > table > thead tr:last-child th[class^="lhe"],
@@ -1031,8 +1032,14 @@ main#g4m
 	-webkit-flex: 1 1 0em;
 	-ms-flex: 1 1 0em;
 	flex: 1 1 0em;
-	overflow-y: auto;
 	background-color: transparent;
+}
+
+main#g4m2,
+main#g4m,
+form.pagecontent
+{
+	overflow-y: auto;
 }
 
 main#g4m2
@@ -1106,7 +1113,8 @@ div#pagecontent
 	height: 100%;
 }
 
-main#g4m2 > div#pagecontent
+main#g4m2 > div#pagecontent,
+form.pagecontent
 {
 	flex: 1 1 auto;
     display: flex;
@@ -1521,14 +1529,17 @@ meter::-webkit-meter-bar {
     background-image: linear-gradient(to bottom, #DDDDDD,#EEEEEE 20%,#CCCCCC 45%,#CCCCCC 55%,#DDDDDD);
 	background-image: var(--bgi-meter-bar);
 }
+
 meter::-webkit-meter-optimum-value {
     background-image: linear-gradient(to bottom, #AADD77,#CCEEAA 20%,#77AA33 45%,#77AA33 55%,#AADD77);
 	background-image: var(--bgi-meter-opt);
 }
+
 meter::-webkit-meter-suboptimum-value {
     background-image: linear-gradient(to bottom, #FFEE77,#FFFFCC 20%,#DDBB33 45%,#DDBB33 55%,#FFEE77);
 	background-image: var(--bgi-meter-sub);
 }
+
 meter::-webkit-meter-even-less-good-value {
     background-image: linear-gradient(to bottom, #FF7777,#FFCCCC 20%,#DD4444 45%,#DD4444 55%,#FF7777);
 	background-image: var(--bgi-meter-elg);
