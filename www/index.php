@@ -700,7 +700,8 @@ $(document).ready(function(){
 		print_error_box($errormsg);
 	endif;
 ?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
+<div class="area_data_top">
+</div><div id="area_data_frame">
 	<table class="area_data_settings">
 		<colgroup>
 			<col class="area_data_settings_col_tag">
@@ -898,6 +899,7 @@ $(document).ready(function(){
 ?>
 		</tbody>
 	</table>
-</td></tr></tbody></table>
+</div>
+<div class="area_data_pot"></div>
 <?php
 include 'fend.inc';
