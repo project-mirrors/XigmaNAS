@@ -172,7 +172,7 @@ $document->
 			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
 $document->render();
 ?>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
@@ -223,6 +223,6 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</form></td></tr></tbody></table>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
