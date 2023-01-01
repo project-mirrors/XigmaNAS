@@ -77,7 +77,7 @@ echo '<!DOCTYPE html>',"\n";
 				<div id="header">
 					<div id="headerrlogo"></div>
 					<div id="headerlogo">
-						<a title="www.<?=get_product_url();?>" href="https://www.<?=get_product_url();?>" target="_blank" rel="noreferrer"><img src="/images/header_logo.png" alt="logo" /></a>
+						<a title="www.<?=get_product_url();?>" href="https://www.<?=get_product_url();?>" target="_blank" rel="noreferrer"><img src="/images/header_logo.png" alt="logo"></a>
 					</div>
 				</div>
 			</header>
