@@ -501,7 +501,7 @@ $document->
 			ins_tabnav_record('disks_zfs_dataset_info.php',gettext('Information'));
 $document->render();
 ?>
-<form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($errormsg)):
 		print_error_box($errormsg);
@@ -554,8 +554,21 @@ $document->render();
 			html_inputbox2('reservation',gettext('Reservation'),$sphere->row['reservation'],gettext("The minimum amount of space guaranteed to a dataset (usually empty). To specify the size use the following human-readable suffixes (for example, 'k', 'KB', 'M', 'Gb', etc.)."),false,10);
 			html_inputbox2('quota',gettext('Quota'),$sphere->row['quota'],gettext("Limits the amount of space a dataset and its descendants can consume. This property enforces a hard limit on the amount of space used. This includes all space consumed by descendants, including file systems and snapshots. To specify the size use the following human-readable suffixes (for example, 'k', 'KB', 'M', 'Gb', etc.)."),false,10);
 			html_inputbox2('desc',gettext('Description'),$sphere->row['desc'],gettext('You may enter a description here for your reference.'),false,40,false,false,40,gettext('Enter a description'));
-			html_separator2();
+?>
+		</tbody>
+	</table>
+	<table class="area_data_settings">
+		<colgroup>
+			<col class="area_data_settings_col_tag">
+			<col class="area_data_settings_col_data">
+		</colgroup>
+		<thead>
+<?php
 			html_titleline2(gettext('Access Restrictions'));
+?>
+		</thead>
+		<tbody>
+<?php
 			html_combobox2('owner',gettext('Owner'),$sphere->row['accessrestrictions']['owner'],$l_users,'',false);
 			html_combobox2('group',gettext('Group'),$sphere->row['accessrestrictions']['group'],$l_groups,'',false);
 ?>
@@ -615,6 +628,6 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
