@@ -32,12 +32,12 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
 require_once 'report.inc';
 require_once 'cs_scheduletime.php';
-require_once 'autoload.php';
 
 use gui\document;
 use common\arr;
@@ -83,7 +83,7 @@ if($_POST):
 		endif;
 	endif;
 	if(empty($input_errors)):
-		$config['statusreport']['enable'] = isset($_POST['enable']) ? true : false;
+		$config['statusreport']['enable'] = isset($_POST['enable']);
 		$config['statusreport']['to'] = $_POST['to'];
 		$config['statusreport']['subject'] = $_POST['subject'];
 		$config['statusreport']['report'] = $_POST['report'];
@@ -119,20 +119,20 @@ if($_POST):
 	endif;
 endif;
 $l_report = [
-	'systeminfo' => gtext('System info'),
-	'dmesg' => gtext('System message buffer'),
-	'systemlog' => gtext('System log'),
-	'ftplog' => gtext('FTP log'),
-	'rsynclog' => gtext('RSYNC log'),
-	'sshdlog' => gtext('SSHD log'),
-	'smartdlog' => gtext('S.M.A.R.T. log'),
-	'daemonlog' => gtext('Daemon log'),
-	'script' => gtext('Custom script')
+	'systeminfo' => gettext('System info'),
+	'dmesg' => gettext('System message buffer'),
+	'systemlog' => gettext('System log'),
+	'ftplog' => gettext('FTP log'),
+	'rsynclog' => gettext('RSYNC log'),
+	'sshdlog' => gettext('SSHD log'),
+	'smartdlog' => gettext('S.M.A.R.T. log'),
+	'daemonlog' => gettext('Daemon log'),
+	'script' => gettext('Custom script')
 ];
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Email Reports Setup')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 <?php // Init spinner.?>
@@ -162,9 +162,9 @@ $document->
 			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
 $document->render();
 ?>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
-	if(0 !== email_validate_settings()):
+	if(email_validate_settings() != 0):
 		$helpinghand = '<a href="system_email.php">' . gtext('Your current email settings are either incomplete or insecure.') . '</a>';
 		print_error_box($helpinghand);
 	endif;
@@ -185,7 +185,7 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_titleline_checkbox2('enable',gettext('System Email Report Settings'),!empty($pconfig['enable']) ? true : false,gettext('Enable'));
+			html_titleline_checkbox2('enable',gettext('System Email Report Settings'),!empty($pconfig['enable']),gettext('Enable'));
 ?>
 		</thead>
 		<tbody>
@@ -214,6 +214,6 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
