@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use gui\document;
 use common\arr;
+use gui\document;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_notifier = 'rrdgraphs';
@@ -383,7 +383,7 @@ $document->
 			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
 $document->render();
 ?>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform">
+<form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($savemsg)):
 		print_info_box($savemsg);
@@ -416,8 +416,21 @@ $document->render();
 			html_inputbox2('graph_w',gettext('Graphs Width'),$pconfig['graph_w'],sprintf(gettext('Width of the graphs. (default %s pixels)'),600),false,5);
 			html_checkbox2('autoscale',gettext('Autoscale'),$pconfig['autoscale'],gettext('Autoscale for graphs.'),'',false);
 			html_checkbox2('background_white',gettext('Background'),$pconfig['background_white'],gettext('Enable white background graphs. (black as default)'),'',false);
-			html_separator2();
+?>
+		</tbody>
+	</table>
+	<table class="area_data_settings">
+		<colgroup>
+			<col class="area_data_settings_col_tag">
+			<col class="area_data_settings_col_data">
+		</colgroup>
+		<thead>
+<?php
 			html_titleline2(gettext('Available Graphs'));
+?>
+		</thead>
+		<tbody>
+<?php
 			html_checkbox2('cpu_frequency',gettext('CPU Frequency'),$pconfig['cpu_frequency'],gettext('Enable collecting CPU frequency statistics.'),'',false);
 			html_checkbox2('cpu_temperature',gettext('CPU Temperature'),$pconfig['cpu_temperature'],gettext('Enable collecting CPU temperature statistics.'),'',false);
 			html_checkbox2('cpu',gettext('CPU Usage'),$pconfig['cpu'],gettext('Enable collecting CPU usage statistics.'),'',false);
@@ -482,7 +495,7 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</form></td></tr></tbody></table>
+</div><div class="area_data_pot"></div></form>
 <script>
 //<![CDATA[
 lan_change();
