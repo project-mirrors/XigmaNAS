@@ -125,9 +125,7 @@ $(window).on("load", function() {
 });
 //]]>
 </script>
-<form action="system_edit.php" method="post" name="iform" id="iform">
-	<div class="area_data_top"></div>
-	<div id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 		if(!empty($savemsg)):
 			print_info_box($savemsg);
