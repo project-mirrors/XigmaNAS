@@ -37,4 +37,4 @@ require_once 'autoload.php';
 use common\session;
 
 ?>
-<input name="authtoken" type="hidden" value="<?=session::get_authtoken();?>" />
+<input name="authtoken" type="hidden" value="<?=session::get_authtoken();?>">
