@@ -35,9 +35,6 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-/*------------------------------------------------------------------------------
-			QuiXplorer v2.5.8 Modified for XigmaNAS
-------------------------------------------------------------------------------*/
 $pgperm['allowuser'] = true;
 
 require_once 'autoload.php';
