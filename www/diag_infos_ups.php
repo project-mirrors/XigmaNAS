@@ -169,7 +169,8 @@ $document->
 			ins_tabnav_record('diag_infos_ups.php',gettext('UPS'),gettext('Reload page'),true);
 $document->render();
 ?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
+<div class="area_data_top">	
+</div><div id="area_data_frame">
 <?php
 	if(!isset($config['ups']['enable'])):
 ?>
@@ -484,7 +485,8 @@ $document->render();
 <?php
 	endif;
 ?>
-</td></tr></tbody></table>
+</div>
+<div class="area_data_pot"></div>
 <script type="text/javascript">
 //<![CDATA[
 upsc_enable_change();
