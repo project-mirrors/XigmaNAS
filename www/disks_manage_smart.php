@@ -348,8 +348,20 @@ $document->render();
 					<span class="vexpl"><?=gtext("Add additional scheduled self-test.");?></span>
 				</td>
 			</tr>
+ 		</tbody>
+ </table>
+ 	<table class="area_data_settings">
+ 		<colgroup>
+ 			<col class="area_data_settings_col_tag">
+ 			<col class="area_data_settings_col_data">
+ 		</colgroup>
+ 		<thead>
 <?php
 			html_titleline_checkbox2('email_enable',gettext('Email Report'),!empty($pconfig['email_enable']) ? true : false,gettext('Activate'),'enable_change(this)');
+?>
+ 		</thead>
+ 		<tbody>
+<?php
 			html_inputbox2('email_to',gettext('To Email Address'),!empty($pconfig['email_to']) ? $pconfig['email_to'] : '',sprintf('%s %s',gettext('Destination email address.'),gettext('Separate email addresses by semi-colon.')),true,60);
 			html_checkbox2('email_testemail',gettext('Test Email'),!empty($pconfig['email_testemail']) ? true : false,gettext('Send a TEST warning email on startup.'));
 ?>
