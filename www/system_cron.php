@@ -214,7 +214,7 @@ $enabletogglemode = calc_enabletogglemode();
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Cron')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 <?php
