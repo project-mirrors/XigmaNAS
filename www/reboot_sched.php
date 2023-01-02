@@ -115,7 +115,7 @@ function set_selected(name) {
 		</colgroup>
 		<thead>
 <?php
-			html_titleline_checkbox2('enable',gettext('Scheduled Reboot'),!empty($pconfig['enable']) ? true : false,gettext('Enable'));
+			html_titleline_checkbox2('enable',gettext('Scheduled Reboot'),!empty($pconfig['enable']),gettext('Enable'));
 ?>
 		</thead>
 		<tbody>
