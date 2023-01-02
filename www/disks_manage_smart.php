@@ -186,7 +186,7 @@ $document->
 			ins_tabnav_record('smartmontools_umass.php',gettext('USB Mass Storage Devices'));
 $document->render();
 ?>
-<form action="disks_manage_smart.php" method="post" name="iform" id="iform" onsubmit="spinner()"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($pconfig['enable']) && !empty($pconfig['email_enable']) && (0 !== email_validate_settings())):
 		$helpinghand = '<a href="'
@@ -237,18 +237,47 @@ $document->render();
 				'idle' => gettext('Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the IDLE state, most disks are still spinning, so this is probably not what you want.')
 			];
 			html_radiobox2('powermode',gettext('Power Mode'),$pconfig['powermode'],$l_powermode,'',false,false);
-			html_separator2();
-			html_titleline2(gettext('Default Device Settings'));
+?>
+	<table class="area_data_settings">
+		<colgroup>
+			<col class="area_data_settings_col_tag">
+			<col class="area_data_settings_col_data">
+		</colgroup>
+		<thead>
+<?php
+			html_titleline2(gettext('Default Device Settings'));?>
+		</thead>
+		<tbody>
+<?php
 			html_checkbox2('enablesmartmonondevice',gettext('S.M.A.R.T. Monitoring'),!empty($pconfig['enablesmartmonondevice']) ? true : false,gettext('Enable S.M.A.R.T. monitoring of S.M.A.R.T. capable devices when they are added to the configuration.'));
-			html_separator2();
-			html_titleline2(gettext('Temperature Monitoring'));
+?>
+	<table class="area_data_settings">
+		<colgroup>
+			<col class="area_data_settings_col_tag">
+			<col class="area_data_settings_col_data">
+		</colgroup>
+		<thead>
+<?php
+			html_titleline2(gettext('Temperature Monitoring'));?>
+		</thead>
+		<tbody>
+<?php
 			html_inputbox2('temp_diff',gettext('Difference'),$pconfig['temp_diff'],gettext('Report if the temperature had changed by at least N degrees Celsius since last report. Set to 0 to disable this report.'),true,5);
 			html_inputbox2('temp_info',gettext('Informal'),$pconfig['temp_info'],gettext('Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.'),true,5);
 			html_inputbox2('temp_crit',gettext('Critical'),$pconfig['temp_crit'],gettext('Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.'),true,5);
-			html_separator2();
-			html_titleline2(gettext('Self-Test Schedules'));
 ?>
-			<tr>
+	<table class="area_data_settings">
+		<colgroup>
+			<col class="area_data_settings_col_tag">
+			<col class="area_data_settings_col_data">
+		</colgroup>
+		<thead>
+<?php
+			html_titleline2(gettext('Self-Test Schedules'));?>
+		</thead>
+		<tbody>
+<?php
+?>			<tr>
 				<td class="celltag"><?=gtext('Scheduled Tests');?></td>
 				<td class="celldata">
 					<table class="area_data_selection">
@@ -316,7 +345,6 @@ $document->render();
 				</td>
 			</tr>
 <?php
-			html_separator2();
 			html_titleline_checkbox2('email_enable',gettext('Email Report'),!empty($pconfig['email_enable']) ? true : false,gettext('Activate'),'enable_change(this)');
 			html_inputbox2('email_to',gettext('To Email Address'),!empty($pconfig['email_to']) ? $pconfig['email_to'] : '',sprintf('%s %s',gettext('Destination email address.'),gettext('Separate email addresses by semi-colon.')),true,60);
 			html_checkbox2('email_testemail',gettext('Test Email'),!empty($pconfig['email_testemail']) ? true : false,gettext('Send a TEST warning email on startup.'));
@@ -334,7 +362,8 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div>
+<div class="area_data_pot"></div>
 <script>
 //<![CDATA[
 enable_change(false);
