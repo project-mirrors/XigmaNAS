@@ -70,8 +70,8 @@ $pconfig['disableextensionmenu'] = isset($config['system']['disableextensionmenu
 $pconfig['zeroconf'] = isset($config['system']['zeroconf']);
 $pconfig['powerd'] = isset($config['system']['powerd']);
 $pconfig['pwmode'] = $config['system']['pwmode'];
-$pconfig['pwmax'] = !empty($config['system']['pwmax']) ? $config['system']['pwmax'] : "";
-$pconfig['pwmin'] = !empty($config['system']['pwmin']) ? $config['system']['pwmin'] : "";
+$pconfig['pwmax'] = !empty($config['system']['pwmax']) ? $config['system']['pwmax'] : '';
+$pconfig['pwmin'] = !empty($config['system']['pwmin']) ? $config['system']['pwmin'] : '';
 $pconfig['motd'] = str_replace(chr(27),'&#27;',base64_decode($config['system']['motd'] ?? ''));
 if($is_sc):
 	$pconfig['sysconsaver'] = isset($config['system']['sysconsaver']['enable']);
@@ -291,7 +291,7 @@ $document->
 			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
 $document->render();
 ?>
-<form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
+<form action="<?=$sphere->get_scriptname();?>" method="post" id="iform" name="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
