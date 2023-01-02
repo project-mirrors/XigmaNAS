@@ -241,8 +241,7 @@ endif;
 ?>
 //]]>
 </script>
-<form action="interfaces_lan.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-	<table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?> "method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame" onsubmit="spinner()">
 <?php
 		if(!empty($input_errors)):
 			print_input_errors($input_errors);
@@ -276,7 +275,6 @@ endif;
 			</colgroup>
 			<thead>
 <?php
-				html_separator2();
 				html_titleline_checkbox2('ipv6_enable',gettext('IPv6 Settings'),!empty($pconfig['ipv6_enable']),gettext('Activate'),'enable_change(this)');
 ?>
 			</thead>
@@ -296,7 +294,6 @@ endif;
 			</colgroup>
 			<thead>
 <?php
-				html_separator2();
 				html_titleline2(gettext('Advanced Settings'));
 ?>
 			</thead>
@@ -337,7 +334,7 @@ endif;
 			html_remark2('warning',gettext('Warning'),$helpinghand);
 ?>
 		</div>
-	</td></tr></tbody></table>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'formend.inc';
 ?>
