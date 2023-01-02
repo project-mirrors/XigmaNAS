@@ -395,7 +395,8 @@ endswitch;
 $pgtitle = [gtext('System'),gtext('Firmware Update')];
 include 'fbegin.inc';
 ?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
+<div class="area_data_top">
+</div><div id="area_data_frame">
 <?php
 	if(!empty($errormsg)):
 		print_error_box($errormsg);
@@ -437,7 +438,6 @@ include 'fbegin.inc';
 				</colgroup>
 				<thead>
 <?php
-					html_separator2();
 					html_titleline2(gettext('Online Information'));
 ?>
 				</thead>
@@ -536,6 +536,7 @@ include 'fbegin.inc';
 			break;
 	endswitch;
 ?>
-</td></tr></tbody></table>
+</div>
+<div class="area_data_pot"></div>
 <?php
 include 'fend.inc';
