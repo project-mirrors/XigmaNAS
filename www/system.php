@@ -339,8 +339,7 @@ $document->
 			ins_tabnav_record('system_password.php',gettext('Password'));
 $document->render();
 ?>
-<form action="system.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame"><?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
 	endif;
@@ -388,7 +387,6 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('Time'));
 ?>
 		</thead>
@@ -420,7 +418,6 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('Hostname'));
 ?>
 		</thead>
@@ -438,7 +435,6 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('DNS'));
 ?>
 		</thead>
@@ -473,7 +469,7 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <script>
 //<![CDATA[
 ntp_change();
