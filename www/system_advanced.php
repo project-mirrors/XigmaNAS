@@ -393,7 +393,7 @@ $document->render();
 	include 'formend.inc';
 ?>
 </div><div class="area_data_pot"></div></form>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 <?php
 if($is_sc):
