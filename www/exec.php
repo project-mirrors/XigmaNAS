@@ -203,8 +203,7 @@ endif;
 	}
 //]]>
 </script>
-<form action="<?=$sphere->scriptname;?>" method="post" enctype="multipart/form-data" name="frmExecPlus" id="frmExecPlus" onsubmit="return frmExecPlus_onSubmit(this);">
-	<table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere->scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame"enctype="multipart/form-data" name="frmExecPlus" id="frmExecPlus" onsubmit="return frmExecPlus_onSubmit(this);">
 <?php
 		foreach($a_message as $r_message):
 			print_info_box($r_message);
@@ -243,7 +242,6 @@ endif;
 			</colgroup>
 			<thead>
 <?php
-				html_separator2();
 				html_titleline2(gettext('Upload Script'));
 ?>
 			</thead>
@@ -271,7 +269,6 @@ endif;
 			</colgroup>
 			<thead>
 <?php
-				html_separator2();
 				html_titleline2(gettext('PHP Command'));
 ?>
 			</thead>
@@ -298,7 +295,6 @@ endif;
 				</colgroup>
 				<thead>
 <?php
-					html_separator2();
 					html_titleline2(gettext('Command Output'));
 ?>
 				</thead>
@@ -329,7 +325,6 @@ endif;
 				</colgroup>
 				<thead>
 <?php
-					html_separator2();
 					html_titleline2(gettext('PHP Command Output'));
 ?>
 				</thead>
@@ -354,9 +349,8 @@ endif;
 			echo '</pre>','</div>';
 		endif;
 ?>
-	</td></tr></tbody></table>
-<?php
-	include 'formend.inc';
+</div><div class="area_data_pot"></div></form><?php
+include 'formend.inc';
 ?>
 </form>
 <script>
