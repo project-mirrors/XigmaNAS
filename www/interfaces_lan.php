@@ -32,9 +32,11 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
+$sphere_scriptname = basename(__FILE__);
 $lancfg = &$config['interfaces']['lan'];
 $optcfg = &$config['interfaces']['lan']; // Required for WLAN.
 
@@ -241,7 +243,9 @@ endif;
 ?>
 //]]>
 </script>
-<form action="<?=$sphere_scriptname;?> "method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame" onsubmit="spinner()">
+<form action="<?=$sphere_scriptname;?> "method="post" name="iform" id="iform" onsubmit="spinner()" class="pagecontent">
+	<div class="area_data_top"></div>
+	<div id="area_data_frame">
 <?php
 		if(!empty($input_errors)):
 			print_input_errors($input_errors);
@@ -334,9 +338,10 @@ endif;
 			html_remark2('warning',gettext('Warning'),$helpinghand);
 ?>
 		</div>
-</div><div class="area_data_pot"></div></form>
+	</div>
+	<div class="area_data_pot"></div>
 <?php
-include 'formend.inc';
+	include 'formend.inc';
 ?>
 </form>
 <script>
