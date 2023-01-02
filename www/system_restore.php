@@ -39,6 +39,8 @@ require_once 'guiconfig.inc';
 use common\arr;
 use gui\document;
 
+$sphere_scriptname = basename(__FILE__);
+$sphere_header = 'Location: '.$sphere_scriptname;
 //	omit no-cache headers because it confuses IE with file downloads
 $omit_nocacheheaders = true;
 $cmd_system_reboot = false;
@@ -48,7 +50,7 @@ if($_POST):
 			case 'restore':
 				break;
 			default:
-				header('Location: system_restore.php');
+				header($sphere_header);
 				exit;
 				break;
 		endswitch;
