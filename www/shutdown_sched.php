@@ -57,7 +57,7 @@ if($_POST):
 		do_input_validate_synctime($_POST,$input_errors);
 	endif;
 	if(empty($input_errors)):
-		$config['shutdown']['enable'] = isset($_POST['enable']) ? true : false;
+		$config['shutdown']['enable'] = isset($_POST['enable']);
 		$config['shutdown']['minute'] = !empty($_POST['minute']) ? $_POST['minute'] : null;
 		$config['shutdown']['hour'] = !empty($_POST['hour']) ? $_POST['hour'] : null;
 		$config['shutdown']['day'] = !empty($_POST['day']) ? $_POST['day'] : null;
@@ -81,7 +81,7 @@ endif;
 $pgtitle = [gtext('System'),gtext('Shutdown'),gtext('Scheduled')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 <?php // Init spinner.?>
@@ -99,7 +99,7 @@ function set_selected(name) {
 		<li class="tabact"><a href="shutdown_sched.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Scheduled');?></span></a></li>
 	</ul></td></tr>
 </table>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
@@ -132,6 +132,6 @@ function set_selected(name) {
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
