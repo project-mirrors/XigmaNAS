@@ -107,7 +107,7 @@ $document->
 			ins_tabnav_record('diag_log_settings_remote.php',gettext('Remote Syslog Server'));
 $document->render();
 ?>
-<form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 	<table class="area_data_selection">
 		<colgroup>
 			<col style="width:100%">
@@ -115,7 +115,6 @@ $document->render();
 		<thead>
 <?php
 			html_titleline2(gettext('Log Filter'),1);
-			html_separator2(1);
 ?>
 		</thead>
 		<tbody class="donothighlight"><tr><td>
@@ -211,6 +210,6 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
