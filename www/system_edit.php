@@ -32,9 +32,11 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
+$sphere_scriptname = basename(__FILE__);
 $savetopath = (isset($_POST['savetopath'])) ? htmlspecialchars($_POST['savetopath']) : '';
 $hlm_enabled = (isset($_POST['hlm'])) ? ($_POST['hlm'] == 'enabled') : false;
 $rows = (isset($_POST['rows']) && $_POST['rows'] > 16) ? $_POST['rows'] : 30;
@@ -125,7 +127,9 @@ $(window).on("load", function() {
 });
 //]]>
 </script>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent">
+	<div class="area_data_top"></div>
+	<div id="area_data_frame">
 <?php
 		if(!empty($savemsg)):
 			print_info_box($savemsg);
