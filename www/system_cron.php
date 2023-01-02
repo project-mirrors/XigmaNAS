@@ -32,17 +32,16 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-require_once('autoload.php');
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-
 
 use common\arr;
 use gui\document;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_scriptname_child = 'system_cron_edit.php';
-$sphere_header = 'Location: '.$sphere_scriptname;
+$sphere_header = 'Location: ' . $sphere_scriptname;
 $sphere_header_parent = $sphere_header;
 $sphere_notifier = 'cronjob';
 $sphere_array = [];
@@ -104,7 +103,7 @@ if($_POST):
 					$sphere_array[$index]['enable'] = true;
 					$updateconfigfile = true;
 					$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
-					if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+					if($mode_updatenotify == UPDATENOTIFY_MODE_UNKNOWN):
 						updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_MODIFIED,$sphere_array[$index]['uuid']);
 					endif;
 				endif;
@@ -127,7 +126,7 @@ if($_POST):
 					unset($sphere_array[$index]['enable']);
 					$updateconfigfile = true;
 					$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
-					if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+					if($mode_updatenotify == UPDATENOTIFY_MODE_UNKNOWN):
 						updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_MODIFIED,$sphere_array[$index]['uuid']);
 					endif;
 				endif;
@@ -153,7 +152,7 @@ if($_POST):
 				endif;
 				$updateconfigfile = true;
 				$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
-				if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+				if($mode_updatenotify == UPDATENOTIFY_MODE_UNKNOWN):
 					updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_MODIFIED,$sphere_array[$index]['uuid']);
 				endif;
 			endif;
@@ -199,9 +198,9 @@ function cronjob_process_updatenotification($mode,$data) {
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			array_make_branch($config,'cron','job');
-			$index = array_search_ex($data,$config['cron']['job'],'uuid');
-			if(false !== $index):
+			arr::make_branch($config,'cron','job');
+			$index = arr::search_ex($data,$config['cron']['job'],'uuid');
+			if($index !== false):
 				unset($config['cron']['job'][$index]);
 				write_config();
 			endif;
@@ -209,7 +208,6 @@ function cronjob_process_updatenotification($mode,$data) {
 	endswitch;
 	return $retval;
 }
-
 $enabletogglemode = calc_enabletogglemode();
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Cron')];
 include 'fbegin.inc';
