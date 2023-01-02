@@ -544,7 +544,7 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 		<li class="tabinact"><a href="disks_manage_iscsi.php"><span><?=gtext('iSCSI Initiator');?></span></a></li>
 	</ul></td></tr>
 </tbody></table>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
@@ -762,6 +762,6 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 	endif;
 	include 'formend.inc';
 ?>
-</form></td></tr></tbody></table>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
