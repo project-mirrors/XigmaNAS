@@ -31,17 +31,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_header = 'Location: '.$sphere_scriptname;
 $sphere_header_parent = 'Location: index.php';
 $savemsg = '';
-
-array_make_branch($config,'system');
-array_make_branch($config,'websrv','authentication');
-
+arr::make_branch($config,'system');
+arr::make_branch($config,'websrv','authentication');
 $mode_page = ($_POST) ? PAGE_MODE_POST : PAGE_MODE_EDIT; // detect page mode
 if(PAGE_MODE_POST === $mode_page): // POST is Cancel or not Submit => cleanup
 	if(isset($_POST['submit'])):
@@ -71,21 +73,19 @@ switch($mode_page):
 		$reqdfieldst = ['password','password'];
 		do_input_validation($sphere_record,$reqdfields,$reqdfieldsn,$input_errors);
 		do_input_validation_type($sphere_record,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
-		//	Validate current password.
+//		Validate current password.
 		if(!password_verify($sphere_record['password_old'],$config['system']['password'])):
 			$input_errors[] = gtext('Current password is incorrectly entered.');
 		endif;
-		//	Validate new password.
+//		Validate new password.
 		if($sphere_record['password_new'] !== $sphere_record['password_confirm']):
 			$input_errors[] = gtext('New Password does not match the confirmation password. Please ensure both passwords are the same.');
 		endif;
-		//	Check Webserver document root if auth is required
-		if(isset($config['websrv']['enable']) &&
-				isset($config['websrv']['authentication']['enable']) &&
-				!is_dir($config['websrv']['documentroot'])):
+//		Check Webserver document root if auth is required
+		if(isset($config['websrv']['enable']) && isset($config['websrv']['authentication']['enable']) && !is_dir($config['websrv']['documentroot'])):
 			$input_errors[] = gtext('Webserver document root is missing.');
 		endif;
-		//	apply settings, no errors found
+//		apply settings, no errors found
 		if(empty($input_errors)):
 			$config['system']['password'] = mkpasswd($sphere_record['password_new']);
 			write_config();
@@ -159,9 +159,9 @@ $(window).on("load",function() {
 	<div id="remarks">
 <?php
 		$helpinghand = '<div id="enumeration"><ul>' .
-				'<li>' . gettext('This password is required to access the admin web interface.') . '</li>' .
-				'<li>' . gettext('This password is the root password of the system.') . '</li>' .
-				'</ul></div>';
+			'<li>' . gettext('This password is required to access the admin web interface.') . '</li>' .
+			'<li>' . gettext('This password is the root password of the system.') . '</li>' .
+			'</ul></div>';
 		html_remark2('note',gettext('Note'),$helpinghand);
 ?>
 	</div>
