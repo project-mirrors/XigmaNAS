@@ -700,8 +700,8 @@ $(document).ready(function(){
 		print_error_box($errormsg);
 	endif;
 ?>
-<div class="area_data_top">
-</div><div id="area_data_frame">
+<div class="area_data_top"></div>
+<div id="area_data_frame">
 	<table class="area_data_settings">
 		<colgroup>
 			<col class="area_data_settings_col_tag">
