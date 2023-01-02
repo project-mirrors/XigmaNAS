@@ -238,6 +238,8 @@ $document->render();
 			];
 			html_radiobox2('powermode',gettext('Power Mode'),$pconfig['powermode'],$l_powermode,'',false,false);
 ?>
+		</tbody>
+	</table>
 	<table class="area_data_settings">
 		<colgroup>
 			<col class="area_data_settings_col_tag">
@@ -266,6 +268,8 @@ $document->render();
 			html_inputbox2('temp_info',gettext('Informal'),$pconfig['temp_info'],gettext('Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.'),true,5);
 			html_inputbox2('temp_crit',gettext('Critical'),$pconfig['temp_crit'],gettext('Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.'),true,5);
 ?>
+		</tbody>
+</table>
 	<table class="area_data_settings">
 		<colgroup>
 			<col class="area_data_settings_col_tag">
@@ -363,7 +367,7 @@ $document->render();
 	include 'formend.inc';
 ?>
 </div>
-<div class="area_data_pot"></div>
+<div class="area_data_pot"></div></form>
 <script>
 //<![CDATA[
 enable_change(false);
