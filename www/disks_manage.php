@@ -175,7 +175,7 @@ $pgtitle = [gtext('Disks'),gtext('Management'),gtext('HDD Management')];
 include 'fbegin.inc';
 echo $sphere->doj();
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	$("#button_import").click(function () {
@@ -195,7 +195,7 @@ $(window).on("load", function() {
 		<li class="tabinact"><a href="disks_manage_iscsi.php"><span><?=gtext('iSCSI Initiator');?></span></a></li>
   	</ul></td></tr>
 </tbody></table>
-<form action="<?=$sphere->get_scriptname();?>" method="post" id="iform" name="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($savemsg)):
 		print_info_box($savemsg);
@@ -360,7 +360,6 @@ $(window).on("load", function() {
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('Import Disks'));
 ?>
 		</thead>
@@ -381,7 +380,6 @@ $(window).on("load", function() {
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('Import Software RAID Disks'));
 ?>
 		<tbody>
@@ -396,7 +394,7 @@ $(window).on("load", function() {
 	</div>
 <?php
 	include 'formend.inc';
-?>
-</td></tr></tbody></table></form>
+?>	
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
