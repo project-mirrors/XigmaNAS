@@ -37,9 +37,11 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
 
-use common\arr,
-	gui\document;
+use common\arr;
+use gui\document;
 
+$sphere_scriptname = basename(__FILE__);
+$sphere_header = 'Location: ' . $sphere_scriptname;
 $pgtitle = [gtext('Disks'),gtext('Management'),gtext('S.M.A.R.T.')];
 
 $pconfig['enable'] = isset($config['smartd']['enable']);
@@ -115,7 +117,7 @@ if(isset($_GET['act']) && $_GET['act'] === "del"):
 	else:
 		updatenotify_set('smartssd',UPDATENOTIFY_MODE_DIRTY,$_GET['uuid']);
 	endif;
-	header('Location: disks_manage_smart.php');
+	header($sphere_header);
 	exit;
 endif;
 
@@ -269,7 +271,7 @@ $document->render();
 			html_inputbox2('temp_crit',gettext('Critical'),$pconfig['temp_crit'],gettext('Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.'),true,5);
 ?>
 		</tbody>
-</table>
+	</table>
 	<table class="area_data_settings">
 		<colgroup>
 			<col class="area_data_settings_col_tag">
@@ -280,8 +282,7 @@ $document->render();
 			html_titleline2(gettext('Self-Test Schedules'));?>
 		</thead>
 		<tbody>
-<?php
-?>			<tr>
+			<tr>
 				<td class="celltag"><?=gtext('Scheduled Tests');?></td>
 				<td class="celldata">
 					<table class="area_data_selection">
@@ -349,7 +350,7 @@ $document->render();
 				</td>
 			</tr>
  		</tbody>
- </table>
+	</table>
  	<table class="area_data_settings">
  		<colgroup>
  			<col class="area_data_settings_col_tag">
