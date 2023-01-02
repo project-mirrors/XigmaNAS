@@ -159,7 +159,6 @@ $document->render();
 			$column_header = [];
 			if(is_array($loginfo[$log])):
 				$columns = count($loginfo[$log]['columns']);
-				echo '<tr><th class="gap" colspan="',$columns,'"></th></tr>',"\n";
 				html_titleline2(gettext('Log'),$columns);
 				echo '<tr>',"\n";
 				foreach($loginfo[$log]['columns'] as $column_key => $column_val):
@@ -167,7 +166,6 @@ $document->render();
 				endforeach;
 				echo '</tr>',"\n";
 			else:
-				echo '<th class="gap"></th>',"\n";
 				html_titleline2(gettext('Log'),1);
 			endif;
 ?>
