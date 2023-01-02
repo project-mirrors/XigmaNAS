@@ -40,6 +40,8 @@ require_once 'services.inc';
 use common\arr;
 use gui\document;
 
+$sphere_scriptname = basename(__FILE__);
+$sphere_header = 'Location: ' . $sphere_scriptname;
 //	init arrays
 arr::make_branch($config,'system');
 arr::make_branch($config['system'],'dnsserver');
@@ -281,7 +283,7 @@ if($_POST):
 //		Update DNS server controls.
 		[$pconfig['dns1'],$pconfig['dns2']] = get_ipv4dnsserver();
 		[$pconfig['ipv6dns1'],$pconfig['ipv6dns2']] = get_ipv6dnsserver();
-		header('Location: system.php');
+		header($sphere_header);
 		exit;
 	endif;
 endif;
@@ -339,7 +341,8 @@ $document->
 			ins_tabnav_record('system_password.php',gettext('Password'));
 $document->render();
 ?>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame"><?php
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
+<?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
 	endif;
