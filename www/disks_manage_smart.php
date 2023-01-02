@@ -249,12 +249,15 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_titleline2(gettext('Default Device Settings'));?>
+			html_titleline2(gettext('Default Device Settings'));
+?>
 		</thead>
 		<tbody>
 <?php
-			html_checkbox2('enablesmartmonondevice',gettext('S.M.A.R.T. Monitoring'),!empty($pconfig['enablesmartmonondevice']) ? true : false,gettext('Enable S.M.A.R.T. monitoring of S.M.A.R.T. capable devices when they are added to the configuration.'));
+			html_checkbox2('enablesmartmonondevice',gettext('S.M.A.R.T. Monitoring'),!empty($pconfig['enablesmartmonondevice']),gettext('Enable S.M.A.R.T. monitoring of S.M.A.R.T. capable devices when they are added to the configuration.'));
 ?>
+		</tbody>
+	</table>
 	<table class="area_data_settings">
 		<colgroup>
 			<col class="area_data_settings_col_tag">
@@ -262,7 +265,8 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_titleline2(gettext('Temperature Monitoring'));?>
+			html_titleline2(gettext('Temperature Monitoring'));
+?>
 		</thead>
 		<tbody>
 <?php
@@ -279,7 +283,8 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_titleline2(gettext('Self-Test Schedules'));?>
+			html_titleline2(gettext('Self-Test Schedules'));
+?>
 		</thead>
 		<tbody>
 			<tr>
@@ -358,7 +363,7 @@ $document->render();
  		</colgroup>
  		<thead>
 <?php
-			html_titleline_checkbox2('email_enable',gettext('Email Report'),!empty($pconfig['email_enable']) ? true : false,gettext('Activate'),'enable_change(this)');
+			html_titleline_checkbox2('email_enable',gettext('Email Report'),!empty($pconfig['email_enable']),gettext('Activate'),'enable_change(this)');
 ?>
  		</thead>
  		<tbody>
@@ -379,8 +384,7 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</div>
-<div class="area_data_pot"></div></form>
+</div><div class="area_data_pot"></div></form>
 <script>
 //<![CDATA[
 enable_change(false);
