@@ -31,9 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+
+use common\arr;
 
 function disks_manage_get_sphere() {
 	global $config;
@@ -52,7 +56,7 @@ function disks_manage_get_sphere() {
 		setmsg_sym_unl(gettext('Disk is unlocked'))->
 		setmsg_cbm_delete(gettext('Delete Selected Disks'))->
 		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected disks?') . '\n' . gettext('Any service using these disks might become invalid or inaccessible!'));
-	$sphere->grid = &array_make_branch($config,'disks','disk');
+	$sphere->grid = &arr::make_branch($config,'disks','disk');
 	return $sphere;
 }
 function device_process_updatenotification($mode,$data) {
@@ -66,7 +70,7 @@ function device_process_updatenotification($mode,$data) {
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
 		case UPDATENOTIFY_MODE_DIRTY:
-			$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 			if($sphere->row_id !== false):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
@@ -76,7 +80,7 @@ function device_process_updatenotification($mode,$data) {
 	return $retval;
 }
 $sphere = disks_manage_get_sphere();
-array_sort_key($sphere->grid,'name');
+arr::sort_key($sphere->grid,'name');
 $gt_import_confirm = gettext('Do you want to import disks?') . '\n' . gettext('The existing configuration may be overwritten.');
 $gt_importswraid_confirm = gettext('Do you want to import software RAID disks?') . '\n' . gettext('The existing configuration may be overwritten.');
 if($_POST) {
@@ -140,7 +144,8 @@ if($_POST) {
 			case $sphere->get_cbm_button_val_delete():
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 						switch ($mode_updatenotify):
 							case UPDATENOTIFY_MODE_NEW:
@@ -195,7 +200,7 @@ $(window).on("load", function() {
 		<li class="tabinact"><a href="disks_manage_iscsi.php"><span><?=gtext('iSCSI Initiator');?></span></a></li>
   	</ul></td></tr>
 </tbody></table>
-<form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
+<form action="<?=$sphere->get_scriptname();?>" method="post" id="iform" name="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($savemsg)):
 		print_info_box($savemsg);
@@ -262,7 +267,7 @@ $(window).on("load", function() {
 						break;
 					default:
 						if($sphere->row['type'] == 'HAST'):
-							if(\array_key_exists($sphere->row['name'],$a_phy_disk)):
+							if(array_key_exists($sphere->row['name'],$a_phy_disk)):
 								$role = $a_phy_disk[$sphere->row['name']]['role'];
 								$sphere->row['size'] = $a_phy_disk[$sphere->row['name']]['size'];
 							else:
@@ -394,7 +399,7 @@ $(window).on("load", function() {
 	</div>
 <?php
 	include 'formend.inc';
-?>	
+?>
 </div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
