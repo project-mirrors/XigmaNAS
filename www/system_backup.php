@@ -38,6 +38,8 @@ require_once 'guiconfig.inc';
 
 use gui\document;
 
+$sphere_scriptname = basename(__FILE__);
+$sphere_header = 'Location: ' . $sphere_scriptname;
 //	omit no-cache headers because it confuses IE with file downloads
 $omit_nocacheheaders = true;
 
@@ -47,7 +49,7 @@ if($_POST):
 			case 'download':
 				break;
 			default:
-				header('Location: system_backup.php');
+				header($sphere_header);
 				exit;
 				break;
 		endswitch;
