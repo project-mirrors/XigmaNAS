@@ -32,12 +32,15 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'cs_scheduletime.php';
 
+use common\arr;
+
 $sphere_scriptname = basename(__FILE__);
-array_make_branch($config,'shutdown');
+arr::make_branch($config,'shutdown');
 $pconfig['enable'] = isset($config['shutdown']['enable']);
 $pconfig['minute'] = $config['shutdown']['minute'];
 $pconfig['hour'] = $config['shutdown']['hour'];
@@ -112,7 +115,7 @@ function set_selected(name) {
 		</colgroup>
 		<thead>
 <?php
-			html_titleline_checkbox2('enable',gettext('Scheduled Shutdown'),!empty($pconfig['enable']) ? true : false,gettext('Enable'));
+			html_titleline_checkbox2('enable',gettext('Scheduled Shutdown'),!empty($pconfig['enable']),gettext('Enable'));
 ?>
 		</thead>
 		<tbody>
