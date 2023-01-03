@@ -288,7 +288,7 @@ if($_POST):
 	endif;
 endif;
 $pglocalheader = <<< EOD
-<link rel="stylesheet" type="text/css" href="js/datechooser.css" />
+<link rel="stylesheet" type="text/css" href="js/datechooser.css">
 <script src="js/datechooser.js"></script>
 EOD;
 $pgtitle = [gtext('System'),gtext('General Setup')];
@@ -367,7 +367,7 @@ $document->render();
 			html_inputbox2('webguiport',gettext('Port'),$pconfig['webguiport'],gettext('Enter a custom port number for the WebGUI if you want to override the default (80 for HTTP, 443 for HTTPS).'),true,6);
 			html_inputbox2('webguihostsallow',gettext('Hosts Allow'),$pconfig['webguihostsallow'],gettext('Space delimited set of IP or CIDR notation that permitted to access the WebGUI. (empty is the same network of LAN interface)'),false,60);
 			$caption = gettext('Enable this option to allow any IP address to access the WebGUI.');
-			$desc = '<strong><font color="red">' . gettext('Security Warning') . '!</font> ' . gettext('Enabling this option may expose your system to additional security risk!') . '</strong>';
+			$desc = '<strong><span class="red">' . gettext('Security Warning') . '!</span><span> ' . gettext('Enabling this option may expose your system to additional security risk!') . '</span></strong>';
 			html_checkbox2('webguihostsallow_disable',gettext('Ignore Hosts Allow'),!empty($pconfig['webguihostsallow_disable']),$caption,$desc);
 			html_textarea2('certificate',gettext('Certificate'),$pconfig['certificate'],gettext('Paste a signed certificate in X.509 PEM format here.'),true,65,7,false,false);
 			html_textarea2('privatekey',gettext('Private Key'),$pconfig['privatekey'],gettext('Paste a private key in PEM format here.'),true,65,7,false,false);
@@ -401,9 +401,9 @@ $document->render();
 			<tr>
 				<td class="celltag"><?=gtext('System Time');?></td>
 				<td class="celldata">
-					<input id="systime" size="20" maxlength="20" name="systime" type="text" value=""/>
-					<img src="images/cal.gif" onclick="showChooser(this, 'systime', 'chooserSpan', 2000, 2050, Date.patterns.Default,true);" alt=""/>
-					<div id="chooserSpan" class="dateChooser select-free" style="display: none; visibility: hidden; width:160px;"></div><br/>
+					<input id="systime" size="20" maxlength="20" name="systime" type="text" value="">
+					<img src="images/cal.gif" onclick="showChooser(this, 'systime', 'chooserSpan', 2000, 2050, Date.patterns.Default,true);" alt="">
+					<div id="chooserSpan" class="dateChooser select-free" style="display: none; visibility: hidden; width:160px;"></div><br>
 					<span class="vexpl"><?=gtext('Enter desired system time directly (format mm/dd/yyyy hh:mm) or use icon to select it.');?></span>
 				</td>
 			</tr>
