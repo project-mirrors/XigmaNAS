@@ -228,11 +228,11 @@ endif;
 				<tr>
 					<td class="celltag"><?=gtext('Control');?></td>
 					<td class="celldata">
-						<input type="hidden" name="txtRecallBuffer" value="<?=!empty($_POST['txtRecallBuffer']) ? $_POST['txtRecallBuffer'] : '';?>"/>
-						<input type="button" class="formbtn" name="btnRecallPrev" value="&lt;" onclick="btnRecall_onClick( this.form, -1 );"/>
-						<input type="submit" class="formbtn" value="<?=gtext('Execute');?>"/>
-						<input type="button" class="formbtn" name="btnRecallNext" value="&gt;" onclick="btnRecall_onClick( this.form,  1 );"/>
-						<input type="button" class="formbtn" value="<?=gtext('Clear');?>" onclick="return Reset_onClick( this.form );"/>
+						<input type="hidden" name="txtRecallBuffer" value="<?=!empty($_POST['txtRecallBuffer']) ? $_POST['txtRecallBuffer'] : '';?>">
+						<input type="button" class="formbtn" name="btnRecallPrev" value="&lt;" onclick="btnRecall_onClick( this.form, -1 );">
+						<input type="submit" class="formbtn" value="<?=gtext('Execute');?>">
+						<input type="button" class="formbtn" name="btnRecallNext" value="&gt;" onclick="btnRecall_onClick( this.form,  1 );">
+						<input type="button" class="formbtn" value="<?=gtext('Clear');?>" onclick="return Reset_onClick( this.form );">
 					</td>
 				</tr>
 			</tbody>
@@ -251,7 +251,7 @@ endif;
 				<tr>
 					<td class="celltag"><?=gtext('Script');?></td>
 					<td class="celldata">
-						<input name="ulfile" type="file" class="formbtn" id="ulfile"/>
+						<input name="ulfile" type="file" class="formbtn" id="ulfile">
 					</td>
 				</tr>
 				<tr>
@@ -282,7 +282,7 @@ endif;
 				<tr>
 					<td class="celltag"><?=gtext('Control');?></td>
 					<td class="celldata">
-						<input type="submit" class="formbtn" value="<?=gtext('Execute');?>" />
+						<input type="submit" class="formbtn" value="<?=gtext('Execute');?>">
 					</td>
 				</tr>
 			</tbody>
