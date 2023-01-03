@@ -318,14 +318,14 @@ $document->render();
 									if(UPDATENOTIFY_MODE_DIRTY != $notificationmode):
 ?>
 										<td valign="middle" nowrap="nowrap" class="lcebl">
-											<a href="disks_manage_smart_edit.php?uuid=<?=$selftest['uuid'];?>"><img src="images/edit.png" title="<?=gtext("Edit self-test");?>" border="0" alt="<?=gtext('Edit self-test');?>" /></a>
-											<a href="disks_manage_smart.php?act=del&amp;uuid=<?=$selftest['uuid'];?>" onclick="return confirm('<?=gtext('Do you really want to delete this scheduled self-test?');?>')"><img src="images/delete.png" title="<?=gtext('Delete self-test');?>" border="0" alt="<?=gtext('Delete self-test');?>" /></a>
+											<a href="disks_manage_smart_edit.php?uuid=<?=$selftest['uuid'];?>"><img src="images/edit.png" title="<?=gtext("Edit self-test");?>" alt="<?=gtext('Edit self-test');?>"></a>
+											<a href="disks_manage_smart.php?act=del&amp;uuid=<?=$selftest['uuid'];?>" onclick="return confirm('<?=gtext('Do you really want to delete this scheduled self-test?');?>')"><img src="images/delete.png" title="<?=gtext('Delete self-test');?>" alt="<?=gtext('Delete self-test');?>"></a>
 										</td>
 <?php
 									else:
 ?>
 										<td valign="middle" nowrap="nowrap" class="lcebl">
-											<img src="images/delete.png" border="0" alt="" />
+											<img src="images/delete.png" alt="">
 										</td>
 <?php
 									endif;
@@ -339,11 +339,11 @@ $document->render();
 							<tr>
 								<th class="lcenl" colspan="3"></th>
 								<th class="lceadd">
-									<a href="disks_manage_smart_edit.php"><img src="images/add.png" title="<?=gtext('Add self-test');?>" border="0" alt="<?=gtext('Add self-test');?>" /></a>
+									<a href="disks_manage_smart_edit.php"><img src="images/add.png" title="<?=gtext('Add self-test');?>" alt="<?=gtext('Add self-test');?>"></a>
 <?php
 									if(!empty($a_selftest)):
 ?>
-										<a href="disks_manage_smart.php?act=del&amp;uuid=all" onclick="return confirm('<?=gtext('Do you really want to delete all scheduled self-tests?');?>')"><img src="images/delete.png" title="<?=gtext('Delete all self-tests');?>" border="0" alt="<?=gtext('Delete all self-tests');?>" /></a>
+										<a href="disks_manage_smart.php?act=del&amp;uuid=all" onclick="return confirm('<?=gtext('Do you really want to delete all scheduled self-tests?');?>')"><img src="images/delete.png" title="<?=gtext('Delete all self-tests');?>" alt="<?=gtext('Delete all self-tests');?>"></a>
 <?php
 									endif;
 ?>
@@ -374,7 +374,7 @@ $document->render();
 		</tbody>
 	</table>
 	<div id="submit">
-		<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save and Restart');?>" onclick="enable_change(true)" />
+		<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save and Restart');?>" onclick="enable_change(true)">
 	</div>
 	<div id="remarks">
 <?php
