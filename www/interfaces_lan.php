@@ -243,7 +243,7 @@ endif;
 ?>
 //]]>
 </script>
-<form action="<?=$sphere_scriptname;?> "method="post" name="iform" id="iform" onsubmit="spinner()" class="pagecontent">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" onsubmit="spinner()" class="pagecontent">
 	<div class="area_data_top"></div>
 	<div id="area_data_frame">
 <?php
@@ -326,7 +326,7 @@ endif;
 			</tbody>
 		</table>
 		<div id="submit">
-			<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save');?>" onclick="enable_change(true)" />
+			<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save');?>" onclick="enable_change(true)">
 		</div>
 		<div id="remarks">
 <?php
