@@ -35,8 +35,11 @@
 //	for guiconfig.inc, true means not to execute command header('system_firmware.php') when file_exists($d_firmwarelock_path);
 $d_running_system_firmware_page = true;
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use common\arr;
 
 /**
  *	Checks with /etc/firm.url to see if a newer firmware version is available online
@@ -92,9 +95,11 @@ function check_firmware_version($locale) {
  *	@return bool or string
  */
 function simplexml_load_file_from_url($url,$timeout = 5) {
+	global $config;
+
 	$ch = curl_init($url);
 	if($ch !== false):
-		curl_setopt_array($ch,[
+		$curl_cfgopt = [
 			CURLOPT_HEADER => false,
 			CURLOPT_FOLLOWLOCATION => true, // follow location
 			CURLOPT_RETURNTRANSFER => true, // return content
@@ -102,18 +107,42 @@ function simplexml_load_file_from_url($url,$timeout = 5) {
 			CURLOPT_CAPATH => '/etc/ssl', // certificate directory
 			CURLOPT_CAINFO => '/etc/ssl/cert.pem', // root certificates from the Mozilla project
 			CURLOPT_CONNECTTIMEOUT => (int)$timeout // set connection and read timeout
-		]);
-		$data = curl_exec($ch);
-		if(curl_errno($ch)):
-			write_log('CURL error: ' . curl_error($ch)); // write error to log
-		else:
-			curl_close($ch);
-			if($data !== false):
-				$previous_value = libxml_use_internal_errors(true);
-				$xml_data = simplexml_load_string($data); // get xml structure
-				libxml_clear_errors();
-				libxml_use_internal_errors($previous_value); // revert to previous setting
-				return $xml_data;
+		];
+		$proxy_cfg = arr::make_branch($config,'system','proxy','http');
+		$test = $proxy_cfg['enable'] ?? false;
+		$is_proxy_enabled = is_bool($test) ? $test : true;
+		unset($test);
+		if($is_proxy_enabled):
+//			$curl_cfgopt[CURLOPT_PROXYTYPE] = CURLPROXY_HTTP;
+			$curl_cfgopt[CURLOPT_PROXY] = $proxy_cfg['address'] ?? '';
+			$curl_cfgopt[CURLOPT_PROXYPORT] = $proxy_cfg['port'] ?? '';
+			$test = $proxy_cfg['auth'] ?? false;
+			$is_auth_enabled = is_bool($test) ? $test : true;
+			unset($test);
+			if($is_auth_enabled):
+//				$curl_cfgopt[CURLOPT_HTTPAUTH] = CURLAUTH_BASIC;
+				$curl_cfgopt[CURLOPT_PROXYUSERPWD] = sprintf('%s:%s',$proxy_cfg['username'] ?? '',$proxy_cfg['password'] ?? '');
+			endif;
+		endif;
+		if(curl_setopt_array($ch,$curl_cfgopt)):
+			$data = curl_exec($ch);
+			$curl_err_code = curl_errno($ch);
+			if($curl_err_code):
+//				write error to log
+				write_log(sprintf('cURL error %d: %s',$curl_err_code,curl_strerror($curl_err_code) ?? 'Unknown error'));
+				unset($ch);
+			else:
+				unset($ch);
+				if($data !== false):
+//					save error setting
+					$previous_value = libxml_use_internal_errors(true);
+//					get xml structure
+					$xml_data = simplexml_load_string($data);
+					libxml_clear_errors();
+//					revert to previous error setting
+					libxml_use_internal_errors($previous_value);
+					return $xml_data;
+				endif;
 			endif;
 		endif;
 	endif;
@@ -231,14 +260,12 @@ function check_firmware_version_rss($locale) {
 	endforeach;
 	return $retval;
 }
-
 $fwupplatforms = ['embedded','full']; // platforms that support firmware updating
 $page_mode = 'default';
 $input_errors = [];
 $errormsg = '';
 $savemsg = '';
 $locale = $config['system']['language'] ?? 'en_US';
-
 //	check boot partition
 $part1size = $g_install['part1size_embedded'];
 $cfdevice = trim(file_get_contents(sprintf('%s/cfdevice',$g['etc_path'])));
@@ -395,8 +422,8 @@ endswitch;
 $pgtitle = [gtext('System'),gtext('Firmware Update')];
 include 'fbegin.inc';
 ?>
-<div class="area_data_top">
-</div><div id="area_data_frame">
+<div class="area_data_top"></div>
+<div id="area_data_frame">
 <?php
 	if(!empty($errormsg)):
 		print_error_box($errormsg);
