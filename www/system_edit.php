@@ -149,8 +149,8 @@ $(window).on("load", function() {
 				<tr>
 					<td class="celltag"><?=gtext('File Path');?></td>
 					<td class="celldata">
-						<input size="42" id="savetopath" name="savetopath" value="<?=$savetopath;?>" />
-						<input name="browse" type="button" class="formbtn" id="Browse" onclick='ifield = form.savetopath; filechooser = window.open("filechooser.php?p="+encodeURIComponent(ifield.value),"filechooser","scrollbars=yes,toolbar=no,menubar=no,statusbar=no,width=550,height=300"); filechooser.ifield = ifield; window.ifield = ifield;' value="..." />
+						<input size="42" id="savetopath" name="savetopath" value="<?=$savetopath;?>">
+						<input name="browse" type="button" class="formbtn" id="Browse" onclick='ifield = form.savetopath; filechooser = window.open("filechooser.php?p="+encodeURIComponent(ifield.value),"filechooser","scrollbars=yes,toolbar=no,menubar=no,statusbar=no,width=550,height=300"); filechooser.ifield = ifield; window.ifield = ifield;' value="...">
 						<button name="submit" type="submit" class="formbtn" id="open" value="open"><?=gtext('Open File');?></button>
 <?php
 						if($hlm_available && $hlm_enabled):
@@ -168,10 +168,10 @@ $(window).on("load", function() {
 					<tr>
 						<td class="celltag"><?=gtext('Size');?></td>
 						<td class="celldata">
-							<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>"/>
-							<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>"/>
+							<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>">
+							<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>">
 							<button type="submit" name="submit" class="formbtn" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
-							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
+							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>">
 						</td>
 					</tr>
 <?php
@@ -181,9 +181,9 @@ $(window).on("load", function() {
 						<td class="celltag"><?=gtext('Highlight View');?></td>
 						<td class="celldata">
 							<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightdis"><?=gtext('Disable');?></button>
-							<input type="hidden" name="rows" value="<?=$rows;?>"/>
-							<input type="hidden" name="cols" value="<?=$cols;?>"/>
-							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
+							<input type="hidden" name="rows" value="<?=$rows;?>">
+							<input type="hidden" name="cols" value="<?=$cols;?>">
+							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>">
 						</td>
 					</tr>
 <?php
@@ -192,8 +192,8 @@ $(window).on("load", function() {
 					<tr>
 						<td class="celltag"><?=gtext('Size');?></td>
 						<td class="celldata">
-							<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>"/>
-							<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>"/>
+							<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>">
+							<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>">
 							<button type="submit" name="submit" class="formbtn" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
 						</td>
 					</tr>
@@ -201,7 +201,7 @@ $(window).on("load", function() {
 						<td class="celltag"><?=gtext('Highlight View');?></td>
 						<td class="celldata">
 							<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightena"><?=gtext('Enable');?></button>
-							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
+							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>">
 						</td>
 					</tr>
 <?php
