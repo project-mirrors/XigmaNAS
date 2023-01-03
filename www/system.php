@@ -289,7 +289,7 @@ if($_POST):
 endif;
 $pglocalheader = <<< EOD
 <link rel="stylesheet" type="text/css" href="js/datechooser.css" />
-<script type="text/javascript" src="js/datechooser.js"></script>
+<script src="js/datechooser.js"></script>
 EOD;
 $pgtitle = [gtext('System'),gtext('General Setup')];
 include 'fbegin.inc';
@@ -448,9 +448,9 @@ $document->render();
 <?php
 					$readonly = ('dhcp' === $config['interfaces']['lan']['ipaddr']) ? 'readonly="readonly"' : '';
 ?>
-					<input name="dns1" type="text" class="formfld" id="dns1" size="20" value="<?=htmlspecialchars($pconfig['dns1']);?>" <?=$readonly;?>/><br />
-					<input name="dns2" type="text" class="formfld" id="dns2" size="20" value="<?=htmlspecialchars($pconfig['dns2']);?>" <?=$readonly;?>/><br />
-					<span class="vexpl"><?=gtext('IPv4 addresses');?></span><br />
+					<input name="dns1" type="text" class="formfld" id="dns1" size="20" value="<?=htmlspecialchars($pconfig['dns1']);?>" <?=$readonly;?>><br>
+					<input name="dns2" type="text" class="formfld" id="dns2" size="20" value="<?=htmlspecialchars($pconfig['dns2']);?>" <?=$readonly;?>><br>
+					<span class="vexpl"><?=gtext('IPv4 addresses');?></span><br>
 				</td>
 			</tr>
 			<tr>
@@ -459,15 +459,15 @@ $document->render();
 <?php
 					$readonly = (!isset($config['interfaces']['lan']['ipv6_enable']) || ("auto" === $config['interfaces']['lan']['ipv6addr'])) ? 'readonly="readonly"' : '';
 ?>
-					<input name="ipv6dns1" type="text" class="formfld" id="ipv6dns1" size="20" value="<?=htmlspecialchars($pconfig['ipv6dns1']);?>" <?=$readonly;?> /><br />
-					<input name="ipv6dns2" type="text" class="formfld" id="ipv6dns2" size="20" value="<?=htmlspecialchars($pconfig['ipv6dns2']);?>" <?=$readonly;?> /><br />
-					<span class="vexpl"><?=gtext('IPv6 addresses');?></span><br />
+					<input name="ipv6dns1" type="text" class="formfld" id="ipv6dns1" size="20" value="<?=htmlspecialchars($pconfig['ipv6dns1']);?>" <?=$readonly;?>><br>
+					<input name="ipv6dns2" type="text" class="formfld" id="ipv6dns2" size="20" value="<?=htmlspecialchars($pconfig['ipv6dns2']);?>" <?=$readonly;?>><br>
+					<span class="vexpl"><?=gtext('IPv6 addresses');?></span><br>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<div id="submit">
-		<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save');?>" />
+		<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save');?>">
 	</div>
 <?php
 	include 'formend.inc';
