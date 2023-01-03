@@ -203,7 +203,9 @@ endif;
 	}
 //]]>
 </script>
-<form action="<?=$sphere->scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame"enctype="multipart/form-data" name="frmExecPlus" id="frmExecPlus" onsubmit="return frmExecPlus_onSubmit(this);">
+<form action="<?=$sphere->scriptname;?>" method="post" enctype="multipart/form-data" name="frmExecPlus" id="frmExecPlus" onsubmit="return frmExecPlus_onSubmit(this);" class="pagecontent">
+	<div class="area_data_top"></div>
+	<div id="area_data_frame">
 <?php
 		foreach($a_message as $r_message):
 			print_info_box($r_message);
@@ -349,8 +351,10 @@ endif;
 			echo '</pre>','</div>';
 		endif;
 ?>
-</div><div class="area_data_pot"></div></form><?php
-include 'formend.inc';
+	</div>
+	<div class="area_data_pot"></div>
+<?php
+	include 'formend.inc';
 ?>
 </form>
 <script>
