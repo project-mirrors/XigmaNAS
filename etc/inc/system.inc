@@ -1187,7 +1187,7 @@ function get_pool_usage() {
 			$row = [];
 			$row['id'] = $r_poolinfo['guid'];
 			$row['name'] = $r_poolinfo['name'];
-			$row['pu'] = $r_poolinfo['cap'];
+			$row['pu'] = round($r_poolinfo['cap'],0,PHP_ROUND_HALF_UP);
 			$row['pf'] = 100 - $row['pu'];
 			$row['puh'] = sprintf('%u%%',$row['pu']);
 			$row['pfh'] = sprintf('%u%%',$row['pf']);
@@ -1315,7 +1315,7 @@ function system_get_sysinfo() {
 			$a_cpu_u = [$cpu_u];
 		endif;
 		$row = [];
-		$row['pu'] = $cpu_u;
+		$row['pu'] = round($cpu_u,0,PHP_ROUND_HALF_UP);
 		$row['pf'] = 100 - $row['pu'];
 		$row['puh'] = sprintf('%u%%',$row['pu']);
 		$row['pfh'] = sprintf('%u%%',$row['pf']);
@@ -1327,7 +1327,7 @@ function system_get_sysinfo() {
 		$sysinfo['cpuusage2'] = [];
 		foreach($a_cpu_u as $r_cpu_u):
 			$row = [];
-			$row['pu'] = $r_cpu_u;
+			$row['pu'] = round($r_cpu_u,0,PHP_ROUND_HALF_UP);
 			$row['pf'] = 100 - $row['pu'];
 			$row['puh'] = sprintf('%u%%',$row['pu']);
 			$row['pfh'] = sprintf('%u%%',$row['pf']);
