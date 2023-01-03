@@ -97,60 +97,63 @@ function render_cpuusage2() {
 		$sphere = $sysinfo['cpuusage2'];
 		if($sysinfo['cpus'] > 1 && $show_max_cpus > 0):
 			$cpus = min($sysinfo['cpus'],$show_max_cpus);
-			echo '<tr>';
-				echo '<td class="celltag">',gtext('CPU Core Usage'),'</td>';
-				echo '<td class="celldata">';
-					echo '<table class="area_data_settings" style="table-layout:auto;white-space:nowrap;"><tbody>';
-						if($cpus > 4):
-							$col_max = 2; // set max number of columns for high number of CPUs
-						else:
-							$col_max = 1; // set max number of columns for low number of CPUs
+			echo
+				'<tr>',"\n",
+					'<td class="celltag">',gtext('CPU Core Usage'),'</td>',"\n",
+					'<td class="celldata">',"\n",
+						'<table class="area_data_settings" style="table-layout:auto;white-space:nowrap;">',"\n",
+							'<tbody>',"\n";
+			if($cpus > 4):
+				$col_max = 2; // set max number of columns for high number of CPUs
+			else:
+				$col_max = 1; // set max number of columns for low number of CPUs
+			endif;
+			$tr_count = intdiv($cpus + $col_max - 1,$col_max);
+			$cpu_index = 0;
+			for($tr_counter = 0;$tr_counter < $tr_count;$tr_counter++):
+				echo			'<tr>',"\n";
+				for($td_counter = 0;$td_counter < $col_max;$td_counter++):
+					if($cpu_index < $cpus):
+//						action
+						$row = $sphere[$cpu_index];
+						echo		'<td class="nopad">',"\n";
+						if($use_meter_tag):
+							echo		'<meter id="cpuusagev',$cpu_index,'" class="cpuusage" min="0" max="100" optimum="45" low="90" high="95" value="',$row['pu'],'" title="',$row['tu'],'">';
 						endif;
-						$tr_count = intdiv($cpus + $col_max - 1,$col_max);
-						$cpu_index = 0;
-						for($tr_counter = 0;$tr_counter < $tr_count;$tr_counter++):
-							echo '<tr>';
-							for($td_counter = 0;$td_counter < $col_max;$td_counter++):
-								if($cpu_index < $cpus):
-//									action
-									$row = $sphere[$cpu_index];
-									echo '<td class="nopad">';
-									if($use_meter_tag):
-										echo '<meter id="cpuusagev',$cpu_index,'" class="cpuusage" min="0" max="100" optimum="45" low="90" high="95" value="',$row['pu'],'" title="',$row['tu'],'">';
-									endif;
-									echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
-										'<img src="images/bar_blue.gif" id="cpuusageu',$cpu_index,'" width="',$row['pu'],'" class="progbarcf" alt="" title="',$row['tu'],'"/>',
-										'<img src="images/bar_gray.gif" id="cpuusagef',$cpu_index,'" width="',$row['pf'],'" class="progbarc" alt="" title="',$row['tf'],'"/>',
-										'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
-									if($use_meter_tag):
-										echo '</meter>';
-									endif;
-									echo '</td>';
-									echo '<td class="padr03">',htmlspecialchars(sprintf('%s %u:',gettext('Core'),$cpu_index)),'</td>';
-									echo '<td class="padr1" style="text-align:right;" id="',sprintf('cpuusagep%s',$cpu_index),'">',$row['tt'],'</td>';
-									if(!empty($sysinfo['cputemp2'][$cpu_index])):
-										echo '<td class="padr03">',htmlspecialchars(sprintf('%s:',gettext('Temp'))),'</td>';
-										echo '<td class="padr1" style="text-align:right;" id="',sprintf('cputemp%s',$cpu_index),'">',$sysinfo['cputemp2'][$cpu_index]['vuh'],'</td>';
-									else:
-										echo '<td class="padr03"></td>';
-										echo '<td class="padr1"></td>';
-									endif;
-									$cpu_index++;
-								else:
-//									fill empty space
-									echo '<td class="nopad"></td>';
-									echo '<td class="padr03"></td>';
-									echo '<td class="padr1"></td>';
-									echo '<td class="padr03"></td>';
-									echo '<td class="padr1"></td>';
-								endif;
-							endfor;
-							echo '<td class="nopad100"></td>';
-							echo '</tr>';
-						endfor;
-					echo '</tbody></table>';
-				echo '</td>';
-			echo '</tr>';
+						echo				'<img src="images/bar_left.gif" class="progbarl" alt="">',
+											'<img src="images/bar_blue.gif" id="cpuusageu',$cpu_index,'" width="',$row['pu'],'" class="progbarcf" alt="" title="',$row['tu'],'">',
+											'<img src="images/bar_gray.gif" id="cpuusagef',$cpu_index,'" width="',$row['pf'],'" class="progbarc" alt="" title="',$row['tf'],'">',
+											'<img src="images/bar_right.gif" class="progbarr meter" alt="">';
+						if($use_meter_tag):
+							echo		'</meter>';
+						endif;
+						echo		'</td>',"\n",
+									'<td class="padr03">',htmlspecialchars(sprintf('%s %u:',gettext('Core'),$cpu_index)),'</td>',"\n",
+									'<td class="padr1" style="text-align:right;" id="',sprintf('cpuusagep%s',$cpu_index),'">',$row['tt'],'</td>',"\n";
+						if(!empty($sysinfo['cputemp2'][$cpu_index])):
+							echo	'<td class="padr03">',htmlspecialchars(sprintf('%s:',gettext('Temp'))),'</td>',"\n",
+									'<td class="padr1" style="text-align:right;" id="',sprintf('cputemp%s',$cpu_index),'">',$sysinfo['cputemp2'][$cpu_index]['vuh'],'</td>',"\n";
+						else:
+							echo	'<td class="padr03"></td>',"\n",
+									'<td class="padr1"></td>',"\n";
+						endif;
+						$cpu_index++;
+					else:
+//						fill empty space
+						echo		'<td class="nopad"></td>',"\n",
+									'<td class="padr03"></td>',"\n",
+									'<td class="padr1"></td>',"\n",
+									'<td class="padr03"></td>',"\n",
+									'<td class="padr1"></td>',"\n";
+					endif;
+				endfor;
+				echo				'<td class="nopad100"></td>',"\n",
+								'</tr>',"\n";
+			endfor;
+			echo			'</tbody>',"\n",
+						'</table>',"\n",
+					'</td>',"\n",
+				'</tr>',"\n";
 		endif;
 	endif;
 }
@@ -192,32 +195,48 @@ function render_swapusage() {
 		$sphere = $sysinfo['swapusage'];
 		$sphere_elements = count($sphere);
 		if($sphere_elements > 0):
-			echo '<tr>','<td class="celltag">',gtext('Swap Usage'),'</td>','<td class="celldata">','<table class="area_data_settings">','<tbody>';
+			echo
+				'<tr>',"\n",
+					'<td class="celltag">',gtext('Swap Usage'),'</td>',"\n",
+					'<td class="celldata">',"\n",
+						'<table class="area_data_settings">',"\n",
+							'<tbody>',"\n";
 			$index = 0;
 			foreach($sphere as $row):
 				$ctrlid = sprintf('swapusage_%s',$row['id']);
-				echo '<tr><td class="nopad"><div id="',$ctrlid,'">';
-				echo '<span id="',$ctrlid,'_name" class="name">',$row['name'],'</span>';
-				echo '<br />';
+				echo			'<tr>',"\n",
+									'<td class="nopad">',"\n",
+										'<div id="',$ctrlid,'">',
+											'<span id="',$ctrlid,'_name" class="name">',$row['name'],'</span>',
+											'<br>';
 				if($use_meter_tag):
-					echo '<meter id="',$ctrlid,'_v" class="swapusage" min="0" max="100" high="95" value="',$row['pu'],'" title="',$row['tu'],'">';
+					echo					'<meter id="',$ctrlid,'_v" class="swapusage" min="0" max="100" high="95" value="',$row['pu'],'" title="',$row['tu'],'">';
 				endif;
-				echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
-					'<img src="images/bar_blue.gif" id="',$ctrlid,'_bar_used" width="',$row['pu'],'" class="progbarcf" alt="" title="',$row['tu'],'"/>',
-					'<img src="images/bar_gray.gif" id="',$ctrlid,'_bar_free" width="',$row['pf'],'" class="progbarc" alt="" title="',$row['tf'],'"/>',
-					'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+				echo
+												'<img src="images/bar_left.gif" class="progbarl" alt="">',
+												'<img src="images/bar_blue.gif" id="',$ctrlid,'_bar_used" width="',$row['pu'],'" class="progbarcf" alt="" title="',$row['tu'],'">',
+												'<img src="images/bar_gray.gif" id="',$ctrlid,'_bar_free" width="',$row['pf'],'" class="progbarc" alt="" title="',$row['tf'],'">',
+												'<img src="images/bar_right.gif" class="progbarr meter" alt="">';
 				if($use_meter_tag):
-					echo '</meter>';
+					echo					'</meter>';
 				endif;
-				echo '<br />';
-				echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>';
-				echo '</div></td></tr>';
+				echo						'<br>',
+											'<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>',
+										'</div>',
+									'</td>',"\n",
+								'</tr>',"\n";
 				$index++;
 				if($index < $sphere_elements):
-					echo '<tr><td class="nopad"><hr /></td></tr>';
+					echo		'<tr>',"\n",
+									'<td class="nopad"><hr></td>',"\n",
+								'</tr>',"\n";
 				endif;
 			endforeach;
-			echo '</tbody>','</table>','</td>','</tr>';
+			echo
+							'</tbody>',"\n",
+						'</table>',"\n",
+					'</td>',"\n",
+				'</tr>',"\n";
 		endif;
 	endif;
 }
@@ -229,16 +248,21 @@ function render_load_averages() {
 	global $sysinfo;
 
 	if(session::is_admin()):
-		echo '<tr>';
-			echo '<td class="celltag">',gtext('Load Averages'),'</td>';
-			echo '<td class="celldata">';
-				echo '<table class="area_data_settings" style="table-layout:auto;white-space:nowrap;"><tbody><tr>';
-					echo '<td class="padr1"><span id="loadaverage">',$sysinfo['loadaverage'],'</span></td>';
-					echo '<td class="nopad"><a href="status_process.php">',gtext('Show Process Information'),'</a></td>';
-					echo '<td class="nopad100"></td>';
-				echo '</tr></tbody></table>';
-			echo '</td>';
-		echo '</tr>';
+		echo
+			'<tr>',"\n",
+				'<td class="celltag">',gtext('Load Averages'),'</td>',"\n",
+				'<td class="celldata">',"\n",
+					'<table class="area_data_settings" style="table-layout:auto;white-space:nowrap;">',"\n",
+						'<tbody>',"\n",
+							'<tr>',"\n",
+								'<td class="padr1"><span id="loadaverage">',$sysinfo['loadaverage'],'</span></td>',"\n",
+								'<td class="nopad"><a href="status_process.php">',gtext('Show Process Information'),'</a></td>',"\n",
+								'<td class="nopad100"></td>',"\n",
+							'</tr>',"\n",
+						'</tbody>',"\n",
+					'</table>',"\n",
+				'</td>',"\n",
+			'</tr>',"\n";
 	endif;
 }
 /**
@@ -253,32 +277,46 @@ function render_diskusage() {
 		$sphere = $sysinfo['diskusage'];
 		$sphere_elements = count($sphere);
 		if($sphere_elements > 0):
-			echo '<tr>','<td class="celltag">',gtext('Disk Space Usage'),'</td>','<td class="celldata">','<table class="area_data_settings">','<tbody>';
+			echo
+				'<tr>',"\n",
+					'<td class="celltag">',gtext('Disk Space Usage'),'</td>',"\n",
+					'<td class="celldata">',"\n",
+						'<table class="area_data_settings">',"\n",
+							'<tbody>',"\n";
 			$index = 0;
 			foreach($sphere as $row):
 				$ctrlid = sprintf('diskusage_%s',$row['id']);
-				echo '<tr><td class="nopad"><div id="',$ctrlid,'">';
-				echo '<span id="',$ctrlid,'_name" class="name">',$row['name'],'</span>';
-				echo '<br />';
+				echo			'<tr>',"\n",
+									'<td class="nopad">',"\n",
+										'<div id="',$ctrlid,'">',
+											'<span id="',$ctrlid,'_name" class="name">',$row['name'],'</span>',
+											'<br>';
 				if($use_meter_tag):
-					echo '<meter id="',$ctrlid,'_v" class="diskusage" min="0" max="100" value="',$row['pu'],'" title="',$row['tu'],'">';
+					echo					'<meter id="',$ctrlid,'_v" class="diskusage" min="0" max="100" value="',$row['pu'],'" title="',$row['tu'],'">';
 				endif;
-				echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
-					'<img src="images/bar_blue.gif" id="',$ctrlid,'_bar_used" width="',$row['pu'],'" class="progbarcf" title="',$row['tu'],'" alt="" />',
-					'<img src="images/bar_gray.gif" id="',$ctrlid,'_bar_free" width="',$row['pf'],'" class="progbarc" title="',$row['tf'],'" alt=""/>',
-					'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+				echo							'<img src="images/bar_left.gif" class="progbarl" alt="">',
+												'<img src="images/bar_blue.gif" id="',$ctrlid,'_bar_used" width="',$row['pu'],'" class="progbarcf" title="',$row['tu'],'" alt="">',
+												'<img src="images/bar_gray.gif" id="',$ctrlid,'_bar_free" width="',$row['pf'],'" class="progbarc" title="',$row['tf'],'" alt="">',
+												'<img src="images/bar_right.gif" class="progbarr meter" alt="">';
 				if($use_meter_tag):
-					echo '</meter>';
+					echo					'</meter>';
 				endif;
-				echo '<br />';
-				echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>';
-				echo '</div></td></tr>';
+				echo						'<br>',
+											'<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>',
+										'</div>',
+									'</td>',"\n",
+								'</tr>',"\n";
 				$index++;
 				if($index < $sphere_elements):
-					echo '<tr><td class="nopad"><hr /></td></tr>';
+					echo		'<tr>',"\n",
+									'<td class="nopad"><hr></td>',"\n",
+								'</tr>',"\n";
 				endif;
 			endforeach;
-			echo '</tbody>','</table>','</td>','</tr>';
+			echo			'</tbody>',"\n",
+						'</table>',"\n",
+					'</td>',"\n",
+				'</tr>',"\n";
 		endif;
 	endif;
 }
@@ -295,7 +333,12 @@ function render_poolusage() {
 		$sphere = $sysinfo['poolusage'];
 		$sphere_elements = count($sphere);
 		if($sphere_elements > 0):
-			echo '<tr>','<td class="celltag">',gtext('Pool Space Usage'),'</td>','<td class="celldata">','<table class="area_data_settings">','<tbody>';
+			echo
+				'<tr>',"\n",
+					'<td class="celltag">',gtext('Pool Space Usage'),'</td>',"\n",
+					'<td class="celldata">',"\n",
+						'<table class="area_data_settings">',"\n",
+							'<tbody>',"\n";
 			$index = 0;
 			$zfs_settings = &arr::make_branch($config,'zfs','settings');
 			if(array_key_exists('capacity_warning',$zfs_settings)):
@@ -312,35 +355,43 @@ function render_poolusage() {
 				$ctrlid = sprintf('poolusage_%s',$row['id']);
 				switch($row['health']):
 					case 'ONLINE':
-						echo '<tr id="',$ctrlid,'_tr">';
+						echo	'<tr id="',$ctrlid,'_tr">',"\n";
 						break;
 					default:
-						echo '<tr id="',$ctrlid,'_tr" class="error">';
+						echo	'<tr id="',$ctrlid,'_tr" class="error">',"\n";
 						break;
 				endswitch;
-				echo '<td class="nopad"><div id="',$ctrlid,'">';
-				echo '<span id="',$ctrlid,'_name" class="name">',$row['name'],'</span>';
-				echo '<br />';
+				echo				'<td class="nopad">',"\n",
+										'<div id="',$ctrlid,'">',
+											'<span id="',$ctrlid,'_name" class="name">',$row['name'],'</span>',
+											'<br>';
 				if($use_meter_tag):
-					echo '<meter id="',$ctrlid,'_v" class="poolusage" min="0" max="100" optimum="40" low="',$zfs_warning,'" high="',$zfs_critical,'" value="',$row['pu'],'" title="',$row['tu'],'">';
+					echo					'<meter id="',$ctrlid,'_v" class="poolusage" min="0" max="100" optimum="40" low="',$zfs_warning,'" high="',$zfs_critical,'" value="',$row['pu'],'" title="',$row['tu'],'">';
 				endif;
-				echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
-					'<img src="images/bar_blue.gif" id="',$ctrlid,'_bar_used" width="',$row['pu'],'" class="progbarcf" title="',$row['tu'],'" alt=""/>',
-					'<img src="images/bar_gray.gif" id="',$ctrlid,'_bar_free" width="',$row['pf'],'" class="progbarc" title="',$row['tf'],'" alt=""/>',
-					'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+				echo							'<img src="images/bar_left.gif" class="progbarl" alt="">',
+												'<img src="images/bar_blue.gif" id="',$ctrlid,'_bar_used" width="',$row['pu'],'" class="progbarcf" title="',$row['tu'],'" alt="">',
+												'<img src="images/bar_gray.gif" id="',$ctrlid,'_bar_free" width="',$row['pf'],'" class="progbarc" title="',$row['tf'],'" alt="">',
+												'<img src="images/bar_right.gif" class="progbarr meter" alt="">';
 				if($use_meter_tag):
-					echo '</meter>';
+					echo					'</meter>';
 				endif;
-				echo '<br />';
-				echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>';
-				echo '<span>',gtext(' | State: '),'</span>',sprintf('<span id="%s_state" class="state"><a href="disks_zfs_zpool_info.php?%s">%s</a></span>',$ctrlid,http_build_query(['pool' => $row['name']],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986),$row['health']);
-				echo '</div></td></tr>';
+				echo						'<br>',
+											'<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>',
+											'<span>',gtext(' | State: '),'</span>',sprintf('<span id="%s_state" class="state"><a href="disks_zfs_zpool_info.php?%s">%s</a></span>',$ctrlid,http_build_query(['pool' => $row['name']],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986),$row['health']),
+										'</div>',
+									'</td>',"\n",
+								'</tr>',"\n";
 				$index++;
 				if($index < $sphere_elements):
-					echo '<tr><td class="nopad"><hr /></td></tr>';
+					echo		'<tr>',"\n",
+									'<td class="nopad"><hr></td>',"\n",
+								'</tr>',"\n";
 				endif;
 			endforeach;
-			echo '</tbody>','</table>','</td>','</tr>';
+			echo			'</tbody>',"\n",
+						'</table>',"\n",
+					'</td>',"\n",
+				'</tr>',"\n";
 		endif;
 	endif;
 }
@@ -355,78 +406,86 @@ function render_upsinfo() {
 		$sphere = $sysinfo['upsinfo'];
 		$sphere_elements = count($sphere);
 		if($sphere_elements > 0):
-			echo '<tr>',
-				'<td class="celltag">',gtext('UPS Status'),'</td>',
-				'<td class="celldata">','<table class="area_data_settings" style="table-layout:auto;white-space:nowrap;">','<tbody>';
+			echo
+				'<tr>',"\n",
+					'<td class="celltag">',gtext('UPS Status'),'</td>',"\n",
+					'<td class="celldata">',"\n",
+						'<table class="area_data_settings" style="table-layout:auto;white-space:nowrap;">',"\n",
+							'<tbody>',"\n";
 			$index = 0;
 			foreach($sphere as $ui):
 				$id = sprintf('ups_status_%s_',$ui['id']);
-				echo '<tr>',
-					'<td class="padr03">',gtext('Identifier:'),'</td>',
-					'<td class="padr1" id="',$id,'name">',htmlspecialchars($ui['name']),'</td>',
-					'<td class="nopad"><a href="diag_infos_ups.php">',gtext('Show UPS Information'),'</a></td>',
-					'<td class="nopad100"></td>',
-					'</tr>';
-				echo '<tr>';
-				echo '<td class="padr03">',gtext('Status:'),'</td>',
-					'<td class="nopad" colspan="2" id="',$id,'disp_status">',$ui['disp_status'],'</td>',
-					'<td class="nopad100"></td>';
-					'</tr>';
+				echo			'<tr>',"\n",
+									'<td class="padr03">',gtext('Identifier:'),'</td>',"\n",
+									'<td class="padr1" id="',$id,'name">',htmlspecialchars($ui['name']),'</td>',"\n",
+									'<td class="nopad"><a href="diag_infos_ups.php">',gtext('Show UPS Information'),'</a></td>',"\n",
+									'<td class="nopad100"></td>',"\n",
+								'</tr>',"\n";
+				echo			'<tr>',"\n",
+									'<td class="padr03">',gtext('Status:'),'</td>',"\n",
+									'<td class="nopad" colspan="2" id="',$id,'disp_status">',$ui['disp_status'],'</td>',"\n",
+									'<td class="nopad100"></td>',"\n",
+								'</tr>',"\n";
 //				load
 				$idl = $id . 'load_';
 				$uil = $ui['load'];
-				echo '<tr>';
-				echo '<td class="padr03">',gtext('Load:'),'</td>';
-				echo '<td class="nopad">';
+				echo			'<tr>',"\n",
+									'<td class="padr03">',gtext('Load:'),'</td>',"\n",
+									'<td class="nopad">',"\n";
 				if($use_meter_tag):
-					echo '<meter id="',$idl,'v" class="upsusage" min="0" optimum="30" low="60" high="80" max="100" value="',$uil['pu'],'" title="',$uil['tu'],'">';
+					echo				'<meter id="',$idl,'v" class="upsusage" min="0" optimum="30" low="60" high="80" max="100" value="',$uil['pu'],'" title="',$uil['tu'],'">';
 				endif;
-				echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
-					'<img src="images/bar_blue.gif" id="',$idl,'bar_used" width="',$uil['pu'],'" class="progbarcf" title="',$uil['tu'],'" alt=""/>',
-					'<img src="images/bar_gray.gif" id="',$idl,'bar_free" width="',$uil['pf'],'" class="progbarc" title="',$uil['tf'],'" alt=""/>',
-					'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+				echo						'<img src="images/bar_left.gif" class="progbarl" alt="">',
+											'<img src="images/bar_blue.gif" id="',$idl,'bar_used" width="',$uil['pu'],'" class="progbarcf" title="',$uil['tu'],'" alt="">',
+											'<img src="images/bar_gray.gif" id="',$idl,'bar_free" width="',$uil['pf'],'" class="progbarc" title="',$uil['tf'],'" alt="">',
+											'<img src="images/bar_right.gif" class="progbarr meter" alt="">';
 				if($use_meter_tag):
-					echo '</meter>';
+					echo				'</meter>';
 				endif;
-				echo '</td>';
-				echo '<td class="nopad">',
-					'<span id="',$idl,'used" class="capacity">',$uil['pu'],'%</span>',
-					'</td>';
-				echo '<td class="nopad100"></td>';
-				echo '</tr>';
+				echo				'</td>',"\n",
+									'<td class="nopad">',"\n",
+										'<span id="',$idl,'used" class="capacity">',$uil['pu'],'%</span>',
+									'</td>',"\n",
+									'<td class="nopad100"></td>',"\n",
+								'</tr>',"\n";
 //				battery charge level
 				$idb = $id . 'battery_';
 				$uib = $ui['battery'];
-				echo '<tr>';
-				echo '<td class="padr03">',gtext('Battery Level:'),'</td>';
-				echo '<td class="nopad">';
+				echo			'<tr>',"\n",
+									'<td class="padr03">',gtext('Battery Level:'),'</td>',"\n",
+									'<td class="nopad">',"\n";
 				if($use_meter_tag):
-					echo '<meter id="',$idb,'v" class="upsusage" min="0" low="30" high="80" optimum="90" max="100" value="',$uib['pu'],'" title="',$uib['tu'],'">';
+					echo				'<meter id="',$idb,'v" class="upsusage" min="0" low="30" high="80" optimum="90" max="100" value="',$uib['pu'],'" title="',$uib['tu'],'">';
 				endif;
-				echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
-					'<img src="images/bar_blue.gif" id="',$idb,'bar_used" width="',$uib['pu'],'" class="progbarcf" title="',$uib['tu'],'" alt=""/>',
-					'<img src="images/bar_gray.gif" id="',$idb,'bar_free" width="',$uib['pf'],'" class="progbarc" title="',$uib['tf'],'" alt=""/>',
-					'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+				echo						'<img src="images/bar_left.gif" class="progbarl" alt="">',
+											'<img src="images/bar_blue.gif" id="',$idb,'bar_used" width="',$uib['pu'],'" class="progbarcf" title="',$uib['tu'],'" alt="">',
+											'<img src="images/bar_gray.gif" id="',$idb,'bar_free" width="',$uib['pf'],'" class="progbarc" title="',$uib['tf'],'" alt="">',
+											'<img src="images/bar_right.gif" class="progbarr meter" alt="">';
 				if($use_meter_tag):
-					echo '</meter>';
+					echo				'</meter>';
 				endif;
-				echo '</td>';
-				echo '<td class="nopad">',
-					'<span id="',$idb,'used" class="capacity">',$uib['pu'],'%</span>',
-					'</td>';
-				echo '<td class="nopad100"></td>';
-				echo '</tr>';
-				echo '<tr>';
-				echo '<td class="padr03">',gtext('Remaining:'),'</td>',
-					'<td class="nopad" colspan="2" id="',$id,'juice_left">',$ui['juice_left'],'</td>',
-					'<td class="nopad100"></td>';
-				echo '</tr>';
+				echo				'</td>',"\n",
+									'<td class="nopad">',"\n",
+										'<span id="',$idb,'used" class="capacity">',$uib['pu'],'%</span>',
+									'</td>',"\n",
+									'<td class="nopad100"></td>',"\n",
+								'</tr>',"\n",
+								'<tr>',"\n",
+									'<td class="padr03">',gtext('Remaining:'),'</td>',"\n",
+									'<td class="nopad" colspan="2" id="',$id,'juice_left">',$ui['juice_left'],'</td>',"\n",
+									'<td class="nopad100"></td>',"\n",
+								'</tr>',"\n";
 				$index++;
 				if($index < $sphere_elements):
-					echo '<tr><td class="nopad" colspan="4"><hr /></td></tr>';
+					echo		'<tr>',"\n",
+									'<td class="nopad" colspan="4"><hr></td>',"\n",
+								'</tr>',"\n";
 				endif;
 			endforeach;
-			echo '</tbody>','</table>','</td>','</tr>';
+			echo			'</tbody>',"\n",
+						'</table>',"\n",
+					'</td>',"\n",
+				'</tr>',"\n";
 		endif;
 	endif;
 }
@@ -645,12 +704,12 @@ $(document).ready(function(){
 	$perms = fileperms('/tmp');
 	if(($perms & 01777) != 01777):
 		$errormsg .= sprintf(gtext('Wrong permission on %s.'),'/tmp');
-		$errormsg .= "<br />\n";
+		$errormsg .= "<br>\n";
 	endif;
 	$perms = fileperms('/var/tmp');
 	if(($perms & 01777) != 01777):
 		$errormsg .= sprintf(gtext('Wrong permission on %s.'),'/var/tmp');
-		$errormsg .= "<br />\n";
+		$errormsg .= "<br>\n";
 	endif;
 //	check DNS
 	[$v4dns1,$v4dns2] = get_ipv4dnsserver();
@@ -659,7 +718,7 @@ $(document).ready(function(){
 //		needed by service/firmware check?
 		if(!isset($config['system']['disablefirmwarecheck']) || isset($config['ftpd']['enable'])):
 			$errormsg .= gtext('No DNS setting found.');
-			$errormsg .= "<br />\n";
+			$errormsg .= "<br>\n";
 		endif;
 	endif;
 	if(session::is_admin()):
@@ -684,15 +743,15 @@ $(document).ready(function(){
 		switch($lastconfigbackupstate):
 			case 1:
 				$errormsg .= gtext('Backup configuration reminder. The last configuration backup is older than the configured interval.');
-				$errormsg .= '<br />';
+				$errormsg .= '<br>';
 				break;
 			case 2:
 				$errormsg .= gtext('Backup configuration. The date of the last configuration backup is invalid.');
-				$errormsg .= '<br />';
+				$errormsg .= '<br>';
 				break;
 			case 3:
 				$errormsg .= gtext('Backup configuration. The date of the last configuration backup cannot be found.');
-				$errormsg .= '<br />';
+				$errormsg .= '<br>';
 				break;
 		endswitch;
 	endif;
@@ -791,7 +850,7 @@ $(document).ready(function(){
 									echo htmlspecialchars("$vmtype: $vm ($vram MiB)");
 									echo '</div></td></tr>';
 									if(++$index < count($vmlist)):
-										echo '<tr><td class="nopad"><hr /></td></tr>';
+										echo '<tr><td class="nopad"><hr></td></tr>';
 									endif;
 								endforeach;
 								$vmtype = 'VBox';
@@ -816,7 +875,7 @@ $(document).ready(function(){
 									endif;
 									echo '</td></tr>',"\n";
 									if(++$index < count($vmlist2)):
-										echo '<tr><td class="nopad"><hr /></td></tr>';
+										echo '<tr><td class="nopad"><hr></td></tr>';
 									endif;
 								endforeach;
 								$vmtype = 'Xen';
@@ -886,7 +945,7 @@ $(document).ready(function(){
 									endif;
 									echo '</div></td></tr>';
 									if(++$index < count($vmlist3)):
-										echo '<tr><td class="nopad"><hr /></td></tr>';
+										echo '<tr><td class="nopad"><hr></td></tr>';
 									endif;
 								endforeach;
 ?>
