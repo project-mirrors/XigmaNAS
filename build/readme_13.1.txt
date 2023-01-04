@@ -112,7 +112,6 @@ Changes:
 - Upgrade tmux to v3.3a.
 - Upgrade rrdtool to v1.8.0.
 - Upgrade msmtp to v1.8.22.
-- Upgrade lighttpd to v1.4.67.
 - Upgrade devcpu-data-amd to v20221002.
 - Upgrade pecl-APCu to v5.1.22.
 - Upgrade python to v3.9.15.
@@ -133,6 +132,7 @@ Changes:
 - Upgrade php to v8.2.0.
 - Upgrade rsync to v3.2.7.
 - Upgrade cdialog to v1.3-20221229.
+- Upgrade lighttpd to v1.4.68.
 
 Fixes:
 - fix bring up lighttpd at all times.
