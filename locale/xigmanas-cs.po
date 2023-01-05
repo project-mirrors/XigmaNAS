@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
-"PO-Revision-Date: 2021-11-18 14:32+0000\n"
-"Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"PO-Revision-Date: 2022-12-30 16:05+0000\n"
+"Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:56+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "Language: cs_CZ\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -257,7 +257,7 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "128K"
-msgstr ""
+msgstr "128K"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -266,22 +266,22 @@ msgid "16384"
 msgstr "16384"
 
 msgid "16K"
-msgstr ""
+msgstr "16K"
 
 msgid "16k"
-msgstr ""
+msgstr "16k"
 
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
 msgid "1K"
-msgstr ""
+msgstr "1K"
 
 msgid "1M"
-msgstr ""
+msgstr "1M"
 
 msgid "1k"
-msgstr ""
+msgstr "1k"
 
 msgid "2"
 msgstr "2"
@@ -2852,11 +2852,17 @@ msgstr "Vytvořít L2ARC zařízení pro ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Vytvořit SLOG zařízení pro ZIL"
 
+msgid "Create a dedup device"
+msgstr ""
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Vytvořit zrcadlené SLOG zařízení pro ZIL"
 
 msgid "Create a spare device"
 msgstr "Vytvořit zařízení pro pohotovostní náhradu"
+
+msgid "Create a special allocation device"
+msgstr ""
 
 msgid "Create a virtual device containing a single device"
 msgstr ""
@@ -2989,6 +2995,9 @@ msgstr "Vlastní skript je vyžadován."
 msgid "Custom script not found."
 msgstr "Vlastní skript nebyl nalezen."
 
+msgid "Custom sharing"
+msgstr ""
+
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -3014,6 +3023,9 @@ msgstr "DEBUG - logování detailních ladících zpráv"
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - logování všech ladících zpráv"
+
+msgid "DEDUP"
+msgstr ""
 
 msgid "DELETE"
 msgstr "DELETE"
@@ -3069,6 +3081,15 @@ msgid ""
 msgstr ""
 
 msgid "DOWNLOAD"
+msgstr ""
+
+msgid "DRAID-1"
+msgstr ""
+
+msgid "DRAID-2"
+msgstr ""
+
+msgid "DRAID-3"
 msgstr ""
 
 msgid "DTS Audio File"
@@ -4028,6 +4049,15 @@ msgstr "Opravdu odinstalovat tento balíček?"
 msgid "Do you want to apply these settings?"
 msgstr "Opravdu použít tato nastavení?"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Opravdu vytvořit JBOD z vybranných disků?"
 
@@ -4040,17 +4070,20 @@ msgstr "Opravdu vytvořit RAID-1 z vybranných disků?"
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Opravdu vytvořit RAID-5 z vybranných disků?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Opravdu vytvořit RAID-Z1 z vybranných disků?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Opravdu vytvořit RAID-Z2 z vybranných disků?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Opravdu vytvořit RAID-Z3 z vybranných disků?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Opravdu označené disky použít jako mezipaměť?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr "Opravdu označený disk použít jako pohotovostní náhradu (spare)?"
@@ -4064,6 +4097,10 @@ msgstr ""
 
 msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr "Opravdu z označených disků vytvořit zrcadlené virtuální zařízení?"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -8295,9 +8332,6 @@ msgstr ""
 msgid "NFS Root is unlocked"
 msgstr ""
 
-msgid "NFS sharing"
-msgstr ""
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8889,6 +8923,9 @@ msgstr "říjen"
 msgid "Off"
 msgstr "Vypnuto"
 
+msgid "Off - do not share"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Okamžitý test při vypnutí"
 
@@ -8918,6 +8955,9 @@ msgstr ""
 
 msgid "On"
 msgstr "Zapnuto"
+
+msgid "On - share with default permissions"
+msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "Nastavení na disku"
@@ -10722,6 +10762,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP moduly"
+
+msgid "SPECIAL"
+msgstr ""
 
 msgid "SQL File"
 msgstr ""
@@ -14544,6 +14587,9 @@ msgid "Umask"
 msgstr "Umask"
 
 msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to open source directory."
 msgstr ""
 
 msgid "Unable to read directory."

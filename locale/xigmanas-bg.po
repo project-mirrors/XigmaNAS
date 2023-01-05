@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
 "PO-Revision-Date: 2022-01-07 19:30+0000\n"
 "Last-Translator: elsof <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:56+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "X-Poedit-Country: BULGARIA\n"
-"X-Poedit-SourceCharset: utf-8\n"
 "Language: \n"
 "X-Poedit-Language: Bulgarian\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2732,10 +2732,16 @@ msgstr ""
 msgid "Create a SLOG device for ZIL"
 msgstr ""
 
+msgid "Create a dedup device"
+msgstr ""
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr ""
 
 msgid "Create a spare device"
+msgstr ""
+
+msgid "Create a special allocation device"
 msgstr ""
 
 msgid "Create a virtual device containing a single device"
@@ -2866,6 +2872,9 @@ msgstr "Изисква се потребителски скрипт."
 msgid "Custom script not found."
 msgstr ""
 
+msgid "Custom sharing"
+msgstr ""
+
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -2890,6 +2899,9 @@ msgid "DEBUG2 - log detailed debugging information"
 msgstr ""
 
 msgid "DEBUG3 - log all debugging information"
+msgstr ""
+
+msgid "DEDUP"
 msgstr ""
 
 msgid "DELETE"
@@ -2943,6 +2955,15 @@ msgid ""
 msgstr ""
 
 msgid "DOWNLOAD"
+msgstr ""
+
+msgid "DRAID-1"
+msgstr ""
+
+msgid "DRAID-2"
+msgstr ""
+
+msgid "DRAID-3"
 msgstr ""
 
 msgid "DTS Audio File"
@@ -3864,6 +3885,15 @@ msgstr "Наистина ли искате да деинсталирате та�
 msgid "Do you want to apply these settings?"
 msgstr ""
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Искате ли да създадете JBOD от избраните дискове?"
 
@@ -3876,17 +3906,20 @@ msgstr "Искате ли да създадете RAID-1 от избраните
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Искате ли да създадете RAID-5 от избраните дискове?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Искате ли да създадете RAID-Z1 от избраните дискове?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Искате ли да създадете RAID-Z2 от избраните дискове?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Искате ли да създадете RAID-Z3 от избраните дискове?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Искате ли да създадете кеш устройство от избраните дискове?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr ""
@@ -3899,6 +3932,10 @@ msgstr ""
 "Искате ли да създадете огледално лог устройство от избраните дискове?"
 
 msgid "Do you want to create a mirrored virtual device from selected disks?"
+msgstr ""
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
 msgstr ""
 
 msgid "Do you want to create a striped virtual device from selected disks?"
@@ -7904,9 +7941,6 @@ msgstr ""
 msgid "NFS Root is unlocked"
 msgstr ""
 
-msgid "NFS sharing"
-msgstr ""
-
 msgid "NFSv4"
 msgstr ""
 
@@ -8473,6 +8507,9 @@ msgstr ""
 msgid "Off"
 msgstr ""
 
+msgid "Off - do not share"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr ""
 
@@ -8501,6 +8538,9 @@ msgid "Older than yesterday"
 msgstr ""
 
 msgid "On"
+msgstr ""
+
+msgid "On - share with default permissions"
 msgstr ""
 
 msgid "On-Disk Configuration"
@@ -10250,6 +10290,9 @@ msgid "SNMP"
 msgstr ""
 
 msgid "SNMP Modules"
+msgstr ""
+
+msgid "SPECIAL"
 msgstr ""
 
 msgid "SQL File"
@@ -13654,6 +13697,9 @@ msgid "Umask"
 msgstr ""
 
 msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to open source directory."
 msgstr ""
 
 msgid "Unable to read directory."

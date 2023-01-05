@@ -2,20 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
-"PO-Revision-Date: 2022-10-09 02:58+0000\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"PO-Revision-Date: 2022-12-11 05:11+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:56+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "X-Poedit-Country: FRANCE\n"
-"X-Poedit-Basepath: D:\\Fichiers\\freenas\\webgui\n"
-"X-Poedit-SourceCharset: utf-8\n"
 "Language: \n"
+"X-Poedit-Basepath: D:\\Fichiers\\freenas\\webgui\n"
 "X-Poedit-Language: French\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2898,11 +2898,17 @@ msgstr "Créer un périphérique L2ARC pour ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Créer un périphérique SLOG pour ZIL"
 
+msgid "Create a dedup device"
+msgstr "Créer un périphérique de déduplication"
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Créer un périphérique SLOG en miroir pour ZIL"
 
 msgid "Create a spare device"
 msgstr "Créer un périphérique de rechange"
+
+msgid "Create a special allocation device"
+msgstr "Créer un périphérique d'allocation spécial"
 
 msgid "Create a virtual device containing a single device"
 msgstr "Créer un périphérique virtuel contenant un seul périphérique"
@@ -3035,6 +3041,9 @@ msgstr "Le script personnalisé est requis."
 msgid "Custom script not found."
 msgstr "Script personnalisé non trouvé."
 
+msgid "Custom sharing"
+msgstr "Partage personnalisé"
+
 msgid "DDNS server name, not the full URL."
 msgstr "Nom du serveur DDNS, pas l'URL complète."
 
@@ -3062,6 +3071,9 @@ msgstr "DEBUG2 - journal des informations détaillées de débogage"
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - journal de toutes les informations  de débogage"
+
+msgid "DEDUP"
+msgstr "DEDUPLICATION"
 
 msgid "DELETE"
 msgstr "SUPPRIMER"
@@ -3118,6 +3130,15 @@ msgstr ""
 
 msgid "DOWNLOAD"
 msgstr "TÉLÉCHARGER"
+
+msgid "DRAID-1"
+msgstr "DRAID-1"
+
+msgid "DRAID-2"
+msgstr "DRAID-2"
+
+msgid "DRAID-3"
+msgstr "DRAID-3"
 
 msgid "DTS Audio File"
 msgstr "Fichier Audio DTS"
@@ -4087,6 +4108,18 @@ msgstr "Voulez-vous vraiment désinstaller ce paquet?"
 msgid "Do you want to apply these settings?"
 msgstr "Voulez-vous appliquer ces paramètres?"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+"Voulez-vous créer un périphérique DRAID1 à partir du disque sélectionné ?"
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+"Voulez-vous créer un périphérique DRAID2 à partir du disque sélectionné ?"
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+"Voulez-vous créer un périphérique DRAID3 à partir du disque sélectionné ?"
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Voulez-vous créer un JBOD avec les disques sélectionnés?"
 
@@ -4099,17 +4132,22 @@ msgstr "Voulez-vous créer un RAID-1 avec les disques sélectionnés?"
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Voulez-vous créer unRAID-5 avec les disques sélectionnés?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Voulez-vous créer unRAID-Z1 avec les disques sélectionnés?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr "Voulez-vous créer un RAIDZ1 à partir des disques sélectionnés ?"
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Voulez-vous créer unRAID-Z2 avec les disques sélectionnés?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr "Voulez-vous créer un RAIDZ2 à partir des disques sélectionnés ?"
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Voulez-vous créer unRAID-Z3 avec les disques sélectionnés?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr "Voulez-vous créer un RAIDZ3 à partir des disques sélectionnés ?"
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Voulez-vous créer un cache avec les disques sélectionnés?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
+"Voulez-vous créer un périphérique de déduplication à partir des disques "
+"sélectionnés ?"
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr ""
@@ -4130,6 +4168,12 @@ msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr ""
 "Voulez vous créer un périphérique virtuel mirroré depuis le disque "
 "sélectionné."
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
+"Voulez-vous créer un périphérique d'allocation spécial à partir des disques "
+"sélectionnés ?"
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -8412,9 +8456,6 @@ msgstr "La racine NFS est marquée pour suppression"
 msgid "NFS Root is unlocked"
 msgstr "La racine NFS est déverrouillée"
 
-msgid "NFS sharing"
-msgstr "Partage NFS"
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -9013,6 +9054,9 @@ msgstr "Octobre"
 msgid "Off"
 msgstr "Désactivé"
 
+msgid "Off - do not share"
+msgstr "Désactivé - ne pas partager"
+
 msgid "Offline Immediate Test"
 msgstr "Test immédiat hors ligne"
 
@@ -9042,6 +9086,9 @@ msgstr "Avant hier"
 
 msgid "On"
 msgstr "Activé"
+
+msgid "On - share with default permissions"
+msgstr "Activé - partager avec les autorisations par défaut"
 
 msgid "On-Disk Configuration"
 msgstr "Configuration sur disque"
@@ -10871,6 +10918,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Modules SNMP"
+
+msgid "SPECIAL"
+msgstr "SPÉCIAL"
 
 msgid "SQL File"
 msgstr "Fichier SQL"
@@ -14831,6 +14881,9 @@ msgstr "Masque d'autorisations"
 
 msgid "Unable to open directory."
 msgstr "Impossible d'ouvrir le répertoire."
+
+msgid "Unable to open source directory."
+msgstr "Impossible d'ouvrir le répertoire source."
 
 msgid "Unable to read directory."
 msgstr "Impossible de lire le répertoire."

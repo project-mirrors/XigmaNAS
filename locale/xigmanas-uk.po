@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
-"PO-Revision-Date: 2022-11-12 09:03+0000\n"
-"Last-Translator: uniss <uniss@ua.fm>\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"PO-Revision-Date: 2022-12-30 16:02+0000\n"
+"Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:17+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:56+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "X-Poedit-Country: Ukrainian\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "Language: \n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2859,11 +2859,17 @@ msgstr "Створити пристрій L2ARC для ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Створити пристрій SLOG для ZIL"
 
+msgid "Create a dedup device"
+msgstr ""
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Створити дзеркальний пристрій SLOG для ZIL"
 
 msgid "Create a spare device"
 msgstr "Створити запасний пристрій"
+
+msgid "Create a special allocation device"
+msgstr ""
 
 msgid "Create a virtual device containing a single device"
 msgstr "Створити віртуальний пристрій, що містить один пристрій"
@@ -2995,6 +3001,9 @@ msgstr "Потрібен довільний сценарій."
 msgid "Custom script not found."
 msgstr "Користувацький скрипт не знайдений."
 
+msgid "Custom sharing"
+msgstr ""
+
 msgid "DDNS server name, not the full URL."
 msgstr "Ім'я сервера DDNS, не повна URL-адреса."
 
@@ -3022,6 +3031,9 @@ msgstr "DEBUG2 - реєструвати деталізовану інформа�
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - реєструвати всю інформацію про налагодження"
+
+msgid "DEDUP"
+msgstr "DEDUP"
 
 msgid "DELETE"
 msgstr "ВИДАЛИТИ"
@@ -3078,6 +3090,15 @@ msgstr ""
 
 msgid "DOWNLOAD"
 msgstr "ЗАВАНТАЖИТИ"
+
+msgid "DRAID-1"
+msgstr "DRAID-1"
+
+msgid "DRAID-2"
+msgstr "DRAID-2"
+
+msgid "DRAID-3"
+msgstr "DRAID-3"
 
 msgid "DTS Audio File"
 msgstr "Аудіофайл DTS"
@@ -4038,6 +4059,15 @@ msgstr "Ви підтверджуєте деінсталяцію цього па
 msgid "Do you want to apply these settings?"
 msgstr "Ви підтверджуєте застосування ціх налаштуваннь?"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Ви підтверджуєте створення JBOD з обраних дисків?"
 
@@ -4050,17 +4080,20 @@ msgstr "Ви підтверджуєте створення RAID-1 з обран�
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Ви підтверджуєте створення RAID-5 з обраних дисків?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Ви підтверджуєте створення RAID-Z1 з обраних дисків?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Ви підтверджуєте створення RAID-Z2 з обраних дисків?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Ви підтверджуєте створення RAID-Z3 з обраних дисків?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Ви підтверджуєте створення кешу з обраних дисків?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr ""
@@ -4078,6 +4111,10 @@ msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr ""
 "Ви підтверджуєте створення зеркальованого віртуального пристрою з обраних "
 "дисків?"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -8308,9 +8345,6 @@ msgstr "Корінь NFS позначений для видалення"
 msgid "NFS Root is unlocked"
 msgstr "Корінь NFS розблокований"
 
-msgid "NFS sharing"
-msgstr "Спільний ресурс NFS"
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8911,6 +8945,9 @@ msgstr "Жовтень"
 msgid "Off"
 msgstr "Вимкнено"
 
+msgid "Off - do not share"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Офлайновий негайний тест"
 
@@ -8940,6 +8977,9 @@ msgstr "Старіше за вчора"
 
 msgid "On"
 msgstr "Увімкнено"
+
+msgid "On - share with default permissions"
+msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "Дискова конфігурація"
@@ -10753,6 +10793,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Модулі SNMP"
+
+msgid "SPECIAL"
+msgstr ""
 
 msgid "SQL File"
 msgstr "Файл SQL"
@@ -14626,6 +14669,9 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "Неможливо відкрити каталог."
+
+msgid "Unable to open source directory."
+msgstr ""
 
 msgid "Unable to read directory."
 msgstr "Неможливо зчитати каталог."

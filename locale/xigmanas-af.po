@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
 "PO-Revision-Date: 2021-11-15 14:27+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:57+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2827,11 +2827,17 @@ msgstr "Skep 'n L2ARC toestel vir ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Skep 'n SLOG toestel vir ZIL"
 
+msgid "Create a dedup device"
+msgstr ""
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Skep 'n spieëled SLOG toestel vir ZIL"
 
 msgid "Create a spare device"
 msgstr "Skep 'n spare toestel"
+
+msgid "Create a special allocation device"
+msgstr ""
 
 msgid "Create a virtual device containing a single device"
 msgstr ""
@@ -2961,6 +2967,9 @@ msgstr "Doelgemaakte skrif word benodig"
 msgid "Custom script not found."
 msgstr "Gepasmaakte skrip nie gevind."
 
+msgid "Custom sharing"
+msgstr ""
+
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -2986,6 +2995,9 @@ msgstr "DEBUG2 - log gedetailleerde ontfouting inligting"
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - logs alle ontfouting inligting"
+
+msgid "DEDUP"
+msgstr ""
 
 msgid "DELETE"
 msgstr "SKRAP"
@@ -3042,6 +3054,15 @@ msgstr ""
 
 msgid "DOWNLOAD"
 msgstr "AFLAAI"
+
+msgid "DRAID-1"
+msgstr ""
+
+msgid "DRAID-2"
+msgstr ""
+
+msgid "DRAID-3"
+msgstr ""
 
 msgid "DTS Audio File"
 msgstr "DTS Oudio Lêer"
@@ -4000,6 +4021,15 @@ msgstr "Wil jy regtig hierdie paket oninstalleer?"
 msgid "Do you want to apply these settings?"
 msgstr "Doen jy wil hierdie instellings toe te pas?"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Wil jy 'n JBOD skep van die geselekteerde harde skywe?"
 
@@ -4012,17 +4042,20 @@ msgstr "Wil jy 'n RAID-1 vanaf geselekteerde skywe skep?"
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Wil jy met die geselekteerde skywe 'n RAID-5 skep?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Wil jy 'n RAID-Z1 vanaf geselekteerde skywe skep?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Wil jy 'n RAID-Z2 skep van geselekteerde skywe?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Wil jy 'n RAID-Z3 skep van geselekteerde skywe?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Wil jy 'n kas toestel uit geselekteerde skywe te skep?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr "Wil jy 'n warm spare toestel uit geselekteerde skyf te skep?"
@@ -4036,6 +4069,10 @@ msgstr "Wil jy 'n spieëlde log toestel uit geselekteerde skywe te skep?"
 msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr ""
 "Wil jy 'n spieëlbeeld virtuele toestel uit geselekteerde skywe te skep?"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -8250,9 +8287,6 @@ msgstr "NFS Wortel is gemerk vir skrap"
 msgid "NFS Root is unlocked"
 msgstr "NFS Wortel is ongeslot"
 
-msgid "NFS sharing"
-msgstr ""
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8841,6 +8875,9 @@ msgstr "Oktober"
 msgid "Off"
 msgstr "Af"
 
+msgid "Off - do not share"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Aflyn Onmiddellike Toets"
 
@@ -8870,6 +8907,9 @@ msgstr "Ouer as gister"
 
 msgid "On"
 msgstr "Aan"
+
+msgid "On - share with default permissions"
+msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "Op Skyf Konfigurasie"
@@ -10679,6 +10719,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP Modules"
+
+msgid "SPECIAL"
+msgstr ""
 
 msgid "SQL File"
 msgstr "SQL Lêer"
@@ -14542,6 +14585,9 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "Kan die gids nie oopmaak nie."
+
+msgid "Unable to open source directory."
+msgstr ""
 
 msgid "Unable to read directory."
 msgstr "Kan die gids nie lees nie."

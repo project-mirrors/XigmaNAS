@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
-"PO-Revision-Date: 2022-10-17 07:49+0000\n"
-"Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"PO-Revision-Date: 2022-12-30 16:02+0000\n"
+"Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:56+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "X-Poedit-Country: Greece\n"
-"X-Poedit-SourceCharset: utf-8\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2932,11 +2932,17 @@ msgstr "Δημιουργία συσκευής L2ARC για ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Δημιουργία συσκευής SLOG για ZIL"
 
+msgid "Create a dedup device"
+msgstr ""
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Δημιουργία μιας συσκευής mirrored SLOG για ZIL"
 
 msgid "Create a spare device"
 msgstr "Δημιουργία μιας συσκευής spare"
+
+msgid "Create a special allocation device"
+msgstr ""
 
 msgid "Create a virtual device containing a single device"
 msgstr "Δημιουργία εικονικής συσκευής με χρήση μιας μόνο συσκευής"
@@ -3073,6 +3079,9 @@ msgstr "Απαιτείται προσαρμοσμένο αρχείο εντολ�
 msgid "Custom script not found."
 msgstr "Δεν βρέθηκε προσαρμοσμένο αρχείο εντολών"
 
+msgid "Custom sharing"
+msgstr ""
+
 msgid "DDNS server name, not the full URL."
 msgstr "Όνομα διακομιστή DDNS, όχι το πλήρες URL."
 
@@ -3100,6 +3109,9 @@ msgstr "DEBUG2 - καταγραφή λεπτομερών πληροφοριών 
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - καταγραφή όλων των πληροφοριών αποσφαλμάτωσης"
+
+msgid "DEDUP"
+msgstr "DEDUP"
 
 msgid "DELETE"
 msgstr "ΔΙΑΓΡΑΦΗ"
@@ -3156,6 +3168,15 @@ msgstr ""
 
 msgid "DOWNLOAD"
 msgstr "ΛΗΨΗ"
+
+msgid "DRAID-1"
+msgstr "DRAID-1"
+
+msgid "DRAID-2"
+msgstr "DRAID-2"
+
+msgid "DRAID-3"
+msgstr "DRAID-3"
 
 msgid "DTS Audio File"
 msgstr "Αρχείο ήχου DTS"
@@ -4129,6 +4150,15 @@ msgstr "Θέλετε σίγουρα να απεγκαταστήσετε αυτό
 msgid "Do you want to apply these settings?"
 msgstr "Θέλετε να εφαρμόσετε αυτές τις ρυθμίσεις;"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Θέλετε να δημιουργήσετε ένα JBOD με τους επιλεγμένους δίσκους;"
 
@@ -4141,18 +4171,21 @@ msgstr "Θέλετε να δημιουργήσετε ένα RAID-1 με τους
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Θέλετε να δημιουργήσετε ένα RAID-5 με τους επιλεγμένους δίσκους;"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Θέλετε να δημιουργήσετε ένα RAID-Z1 με τους επιλεγμένους δίσκους;"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Θέλετε να δημιουργήσετε ένα RAID-Z2 με τους επιλεγμένους δίσκους;"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Θέλετε να δημιουργήσετε ένα RAID-Z3 με τους επιλεγμένους δίσκους;"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr ""
 "Θέλετε να δημιουργήσετε μια συσκευή cache με τους επιλεγμένους δίσκους;"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr ""
@@ -4171,6 +4204,10 @@ msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr ""
 "Θέλετε να δημιουργήσετε μια mirrored εικονική συσκευή με τους επιλεγμένους "
 "δίσκους;"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -8475,9 +8512,6 @@ msgstr "Το Ριζικός Φάκελος NFS έχει σημειωθεί πρ�
 msgid "NFS Root is unlocked"
 msgstr "Ο Ριζικός Φάκελος NFS είναι ξεκλείδωτος"
 
-msgid "NFS sharing"
-msgstr "Κοινή χρήση NFS"
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -9080,6 +9114,9 @@ msgstr "Οκτώβριος"
 msgid "Off"
 msgstr "Ανενεργό"
 
+msgid "Off - do not share"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Offline Immediate Test"
 
@@ -9109,6 +9146,9 @@ msgstr "Παλιότερα από εχθές"
 
 msgid "On"
 msgstr "Ενεργό"
+
+msgid "On - share with default permissions"
+msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "Ρυθμίσεις που βρίσκονται στο δίσκο"
@@ -10946,6 +10986,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Αρθρώματα SNMP"
+
+msgid "SPECIAL"
+msgstr ""
 
 msgid "SQL File"
 msgstr "Αρχείο SQL"
@@ -14963,6 +15006,9 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "Αποτυχία ανοίγματος φακέλου."
+
+msgid "Unable to open source directory."
+msgstr ""
 
 msgid "Unable to read directory."
 msgstr "Αποτυχία νάγνωσης φακέλου."

@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
-"PO-Revision-Date: 2022-11-14 15:16+0000\n"
-"Last-Translator: Vicente Soriano <victek@gmail.com>\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"PO-Revision-Date: 2022-12-30 16:03+0000\n"
+"Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:56+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "Language: es_ES\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2891,11 +2891,17 @@ msgstr "Crear un dispositivo L2ARC para ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Crear un dispositivo SLOG para ZIL"
 
+msgid "Create a dedup device"
+msgstr ""
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Crear un dispositivo en espejo SLOG para ZIL"
 
 msgid "Create a spare device"
 msgstr "Crear un dispositivo en \"espera\""
+
+msgid "Create a special allocation device"
+msgstr ""
 
 msgid "Create a virtual device containing a single device"
 msgstr "Crea un dispositivo virtual de un único dispositivo"
@@ -3031,6 +3037,9 @@ msgstr "Es necesario un Script personalizado"
 msgid "Custom script not found."
 msgstr "Script personalizado no encontrado"
 
+msgid "Custom sharing"
+msgstr ""
+
 msgid "DDNS server name, not the full URL."
 msgstr "Nombre servidor DDNS, No la URL completa"
 
@@ -3058,6 +3067,9 @@ msgstr "DEBUG2 - información detallada del registro de depuración"
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - registrar toda la información de depuración"
+
+msgid "DEDUP"
+msgstr "DEDUP"
 
 msgid "DELETE"
 msgstr "BORRAR"
@@ -3115,6 +3127,15 @@ msgstr ""
 
 msgid "DOWNLOAD"
 msgstr "DESCARGAR"
+
+msgid "DRAID-1"
+msgstr "DRAID-1"
+
+msgid "DRAID-2"
+msgstr "DRAID-2"
+
+msgid "DRAID-3"
+msgstr "DRAID-3"
 
 msgid "DTS Audio File"
 msgstr "Archivo de audio DTS"
@@ -4074,6 +4095,15 @@ msgstr "¿Realmente quiere eliminar este paquete?"
 msgid "Do you want to apply these settings?"
 msgstr "Quiere aplicar estos ajustes?"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "¿Desea crear un JOBD con los discos seleccionados?"
 
@@ -4086,17 +4116,20 @@ msgstr "Desea crear un RAID-1 desde los discos seleccionados?"
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Desea crear un RAID-5 desde los discos seleccionados?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Desea crear un RAID-Z1 desde los discos seleccionados?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Desea crear un RAID-Z2 desde los discos seleccionados?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Desea crear un RAID-Z3 desde los discos seleccionados?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Desea crearn un dispositivo cache desde los discos seleccionados?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr ""
@@ -4113,6 +4146,10 @@ msgstr ""
 msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr ""
 "Desea crear un dispositivo virtual espejo desde los discos seleccionados?"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -8362,9 +8399,6 @@ msgstr "NFS Root marcado para borrado"
 msgid "NFS Root is unlocked"
 msgstr "NFS Root desbloqueado"
 
-msgid "NFS sharing"
-msgstr "Compartiendo NFS"
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8955,6 +8989,9 @@ msgstr "Octubre"
 msgid "Off"
 msgstr "Apagado"
 
+msgid "Off - do not share"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Test offline inmediato"
 
@@ -8984,6 +9021,9 @@ msgstr "Más antiguo de ayer"
 
 msgid "On"
 msgstr "Encendido"
+
+msgid "On - share with default permissions"
+msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "Configuración del Disco"
@@ -9489,7 +9529,7 @@ msgid "Pool Information"
 msgstr "Información sobre la agrupación de dispositivos(pool)"
 
 msgid "Pool Name"
-msgstr "Nombre la pisicina"
+msgstr "Nombre la piscina"
 
 msgid "Pool Space Usage"
 msgstr "Espacio usado en la agrupación de dispositivos(pool)"
@@ -10813,6 +10853,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Módulos SNMP"
+
+msgid "SPECIAL"
+msgstr ""
 
 msgid "SQL File"
 msgstr "Archivo SQL"
@@ -14730,6 +14773,9 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "No se puede abrir directorio."
+
+msgid "Unable to open source directory."
+msgstr ""
 
 msgid "Unable to read directory."
 msgstr "No se puede leer directorio."

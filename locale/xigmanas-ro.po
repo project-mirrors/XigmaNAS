@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
 "PO-Revision-Date: 2022-07-19 09:46+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:17+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:56+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "Language: ro_RO\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2861,11 +2861,17 @@ msgstr "Creare dispozitiv L2ARC pentru ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Creare dispozitiv SLOG pentru ZIL"
 
+msgid "Create a dedup device"
+msgstr ""
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Creare dispozitiv oglindă SLOG pentru ZIL"
 
 msgid "Create a spare device"
 msgstr "Creare dispozitiv rezervă (spare)"
+
+msgid "Create a special allocation device"
+msgstr ""
 
 msgid "Create a virtual device containing a single device"
 msgstr "Crează un dispozitiv virtual care conține un singur dispozitiv"
@@ -2999,6 +3005,9 @@ msgstr "Scriptul personalizat este necesar."
 msgid "Custom script not found."
 msgstr "Scriptul utilizator nu a fost găsit."
 
+msgid "Custom sharing"
+msgstr ""
+
 msgid "DDNS server name, not the full URL."
 msgstr "Nume server DNS, fără URL."
 
@@ -3026,6 +3035,9 @@ msgstr "DEBUG2 - logarea detaliată a tuturor informațiilor de depanare"
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - jurnalizarea tuturor informațiilor de depanare"
+
+msgid "DEDUP"
+msgstr ""
 
 msgid "DELETE"
 msgstr "ȘTERGERE"
@@ -3082,6 +3094,15 @@ msgstr ""
 
 msgid "DOWNLOAD"
 msgstr "DESCĂRCARE"
+
+msgid "DRAID-1"
+msgstr ""
+
+msgid "DRAID-2"
+msgstr ""
+
+msgid "DRAID-3"
+msgstr ""
 
 msgid "DTS Audio File"
 msgstr "Fișier audio DTS"
@@ -4041,6 +4062,15 @@ msgstr "Doriți să ștergeți acest pachet?"
 msgid "Do you want to apply these settings?"
 msgstr "Aplicați aceste setări?"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Creați un disc JBOD din discurile selectate?"
 
@@ -4053,17 +4083,20 @@ msgstr "Creați un RAID-1 din discurile selectate?"
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Creați un RAID-5 din discurile selectate?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Creați un RAID-Z1 din discurile selectate?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Creați un RAID-Z2 din discurile selectate?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Creați un RAID-Z3 din discurile selectate?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Creați un disc cache din discurile selectate?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr ""
@@ -4081,6 +4114,10 @@ msgstr ""
 msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr ""
 "Doriți să creați un dispozitiv virtual oglindă folosind discurile selectate?"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -8328,9 +8365,6 @@ msgstr "NFS Root este marcat pentru ștergere"
 msgid "NFS Root is unlocked"
 msgstr "NFS Root este deblocat"
 
-msgid "NFS sharing"
-msgstr ""
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8923,6 +8957,9 @@ msgstr "Octombrie"
 msgid "Off"
 msgstr "Oprit"
 
+msgid "Off - do not share"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Test offline imediat"
 
@@ -8952,6 +8989,9 @@ msgstr "Mai vechi de o zi"
 
 msgid "On"
 msgstr "Pornit"
+
+msgid "On - share with default permissions"
+msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "Configurație pe disc"
@@ -10784,6 +10824,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Module SNMP"
+
+msgid "SPECIAL"
+msgstr ""
 
 msgid "SQL File"
 msgstr "Fișier SQL"
@@ -14669,6 +14712,9 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "Directorul nu poate fi deschis."
+
+msgid "Unable to open source directory."
+msgstr ""
 
 msgid "Unable to read directory."
 msgstr "Directorul nu poate fi citit."

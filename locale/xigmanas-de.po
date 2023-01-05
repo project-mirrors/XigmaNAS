@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
-"PO-Revision-Date: 2022-10-26 08:43+0000\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"PO-Revision-Date: 2022-12-30 15:58+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:57+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "Language: de\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2881,11 +2881,17 @@ msgstr "Erzeuge ein L2ARC Gerät für ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Erzeuge ein SLOG Gerät für ZIL"
 
+msgid "Create a dedup device"
+msgstr "Erstelle ein Deduplizierungsgerät"
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Erzeuge ein gespiegeltes SLOG Gerät für ZIL"
 
 msgid "Create a spare device"
 msgstr "Erzeuge ein Reservegerät (spare device)"
+
+msgid "Create a special allocation device"
+msgstr "Erstelle ein spezielles Zuordnungsgerät"
 
 msgid "Create a virtual device containing a single device"
 msgstr "Erstellen Sie ein virtuelles Gerät, das ein einzelnes Gerät enthält"
@@ -3018,6 +3024,9 @@ msgstr "Ein Befehlsscript des Anwenders ist erforderlich"
 msgid "Custom script not found."
 msgstr "Das benutzerdefinierte Skript wurde nicht gefunden."
 
+msgid "Custom sharing"
+msgstr "Benutzerdefiniertes Teilen"
+
 msgid "DDNS server name, not the full URL."
 msgstr "DDNS-Servername, nicht die vollständige URL."
 
@@ -3045,6 +3054,9 @@ msgstr "DEBUG2 - Detaillierte Debugging-Informationen"
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - Sämtliche Informationen zur Fehlersuche (Debugging)"
+
+msgid "DEDUP"
+msgstr "DEDUP"
 
 msgid "DELETE"
 msgstr "LÖSCHEN"
@@ -3101,6 +3113,15 @@ msgstr ""
 
 msgid "DOWNLOAD"
 msgstr "HERUNTERLADEN"
+
+msgid "DRAID-1"
+msgstr "DRAID-1"
+
+msgid "DRAID-2"
+msgstr "DRAID-2"
+
+msgid "DRAID-3"
+msgstr "DRAID-3"
 
 msgid "DTS Audio File"
 msgstr "DTS Audio Datei"
@@ -4070,6 +4091,18 @@ msgstr "Möchten Sie das Paket wirklich deinstallieren?"
 msgid "Do you want to apply these settings?"
 msgstr "Möchten Sie die Einstellungen anwenden?"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+"Möchten Sie ein DRAID1-Gerät von der ausgewählten Festplatte erstellen?"
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+"Möchten Sie ein DRAID2-Gerät von der ausgewählten Festplatte erstellen?"
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+"Möchten Sie ein DRAID3-Gerät von der ausgewählten Festplatte erstellen?"
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr ""
 "Möchten Sie eine JBOD-Konfiguration aus den ausgewählten Festplatten "
@@ -4084,17 +4117,22 @@ msgstr "Möchten Sie ein Raid 1 aus den gewählten Festplatten bilden?"
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Möchten Sie ein Raid 5 aus den gewählten Festplatten bilden?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Möchten Sie ein Raid-Z1 aus den gewählten Festplatten bilden?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr "Möchten Sie ein RAIDZ1 aus den ausgewählten Festplatten erstellen?"
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Möchten Sie ein Raid-Z2 aus den gewählten Festplatten bilden?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr "Möchten Sie ein RAIDZ2 aus den ausgewählten Festplatten erstellen?"
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Möchten Sie ein Raid-Z3 aus den gewählten Festplatten bilden?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr "Möchten Sie ein RAIDZ3 aus den ausgewählten Festplatten erstellen?"
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Möchten Sie einen Cache aus den gewählten Festplatten bilden?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
+"Möchten Sie ein Deduplizierungsgerät von den ausgewählten Laufwerken "
+"erstellen?"
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr "Möchten Sie die gewählte Festplatte als hot-spare konfigurieren?"
@@ -4110,6 +4148,12 @@ msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr ""
 "Möchten Sie die gewählten Festplatten als virtuelles gespiegeltes Log "
 "konfigurieren ?"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
+"Möchten Sie aus den ausgewählten Datenträgern ein spezielles Zuordnungsgerät "
+"erstellen?"
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -6763,8 +6807,8 @@ msgid ""
 "If only specific statistics needs to be reset, clear all other check boxes "
 "before performing '%s'."
 msgstr ""
-"Falls nur einzelne Statistiken zurückgesetzt werden müssen, lösche alle "
-"anderen Chekc-Boxen vor der Ausführung von  '%s'."
+"Falls nur einzelne Statistiken zurückgesetzt werden müssen, löschen Sie alle "
+"anderen Check-Boxen vor der Ausführung von '%s'."
 
 msgid ""
 "If the server is behind a proxy set these parameters to give local services "
@@ -8386,9 +8430,6 @@ msgstr "NFS Root ist zum Löschen vorgemerkt"
 msgid "NFS Root is unlocked"
 msgstr "NFS Root ist entsperrt"
 
-msgid "NFS sharing"
-msgstr "NFS-Freigabe"
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8985,6 +9026,9 @@ msgstr "Oktober"
 msgid "Off"
 msgstr "Deaktiviert"
 
+msgid "Off - do not share"
+msgstr "Aus - nicht teilen"
+
 msgid "Offline Immediate Test"
 msgstr "Sofortiger Offline Test"
 
@@ -9014,6 +9058,9 @@ msgstr "Älter als gestern"
 
 msgid "On"
 msgstr "Aktiviert"
+
+msgid "On - share with default permissions"
+msgstr "Ein – mit Standardberechtigungen teilen"
 
 msgid "On-Disk Configuration"
 msgstr "\"On Disk\"-Konfiguration"
@@ -10840,6 +10887,9 @@ msgstr "SNMP"
 msgid "SNMP Modules"
 msgstr "SNMP Module"
 
+msgid "SPECIAL"
+msgstr "SPECIAL"
+
 msgid "SQL File"
 msgstr "SQL Datei"
 
@@ -12210,9 +12260,9 @@ msgid ""
 "modes most disks are not spinning, so if you want to prevent a laptop disk "
 "from spinning up each poll, this is probably what you want."
 msgstr ""
-"Bereitsschaftmodus - die Einheit überprüfen, solange diese sich nicht im "
-"Ruhe- oder Bereitschaftsmodus befindet. In diesen Modi drehen die Laufwerke "
-"nicht, wenn Sie also sicherstellen wollen, dass bei einem Mobilrechner die "
+"Bereitsschaftmodus - das Gerät nur überprüfen, solange es sich nicht im Ruhe-"
+" (SLEEP) oder Bereitschaftsmodus (STANDBY) befindet. In diesen Modi drehen "
+"die Laufwerke nicht. Wenn Sie also verhindern wollen, dass Laptop-"
 "Festplatten bei jeden Zugriff hochdrehen, dann ist das wahrscheinlich dies, "
 "was Sie haben wollen."
 
@@ -14834,6 +14884,9 @@ msgstr "Unmaskieren (Unix)"
 msgid "Unable to open directory."
 msgstr "Verzeichnis kann nicht geöffnet werden."
 
+msgid "Unable to open source directory."
+msgstr "Quellverzeichnis kann nicht geöffnet werden."
+
 msgid "Unable to read directory."
 msgstr "Verzeichnis kann nicht gelesen werden."
 
@@ -15748,7 +15801,7 @@ msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
 msgstr ""
-"Du kannst ein Softwarepaket per SSH, oder über die Konsole mit dem pkg "
+"Sie können ein Softwarepaket auch über SSH oder die Konsole mit dem pkg "
 "install Kommando installieren."
 
 #, php-format
@@ -15773,7 +15826,7 @@ msgstr ""
 #, php-format
 msgid "You have to activate %s to advertise this service to clients."
 msgstr ""
-"Du musst %s einschalten um diesen Dienst den Clients bekannt zu machen "
+"Sie müssen %s einschalten, um diesen Dienst den Clients bekannt zu machen "
 "(advertise)."
 
 msgid "You have to reboot the system for the changes to take effect."

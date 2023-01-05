@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
 "PO-Revision-Date: 2022-05-25 02:38+0000\n"
 "Last-Translator: Luke Luo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:17+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"Language: zh_CN\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:56+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
+"Language: zh_CN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -2627,11 +2627,17 @@ msgstr "为ARC创建一个L2ARC设备"
 msgid "Create a SLOG device for ZIL"
 msgstr "为ZIL创建一个SLOG设备"
 
+msgid "Create a dedup device"
+msgstr ""
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "为ZIL创建镜像的SLOG设备"
 
 msgid "Create a spare device"
 msgstr "创建一个备用设备"
+
+msgid "Create a special allocation device"
+msgstr ""
 
 msgid "Create a virtual device containing a single device"
 msgstr "创建包含单个设备的虚拟设备"
@@ -2761,6 +2767,9 @@ msgstr "必需有自定义脚本。"
 msgid "Custom script not found."
 msgstr "自定义脚本未找到。"
 
+msgid "Custom sharing"
+msgstr ""
+
 msgid "DDNS server name, not the full URL."
 msgstr "DDNS 服务器名称，而不是完整的 URL。"
 
@@ -2786,6 +2795,9 @@ msgstr "DEBUG2  - 记录详细的调试信息"
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3  - 记录所有调试信息"
+
+msgid "DEDUP"
+msgstr ""
 
 msgid "DELETE"
 msgstr "删除"
@@ -2839,6 +2851,15 @@ msgstr "DOS SMB客户端假定服务器具有与它们相同的字符集。 此�
 
 msgid "DOWNLOAD"
 msgstr "下载"
+
+msgid "DRAID-1"
+msgstr ""
+
+msgid "DRAID-2"
+msgstr ""
+
+msgid "DRAID-3"
+msgstr ""
 
 msgid "DTS Audio File"
 msgstr "DTS音频文件"
@@ -3757,6 +3778,15 @@ msgstr "你确定要卸载这个套件吗？"
 msgid "Do you want to apply these settings?"
 msgstr "要应用这些设置吗？"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr ""
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr ""
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "是否从选中的磁盘创建JBOD？"
 
@@ -3769,17 +3799,20 @@ msgstr "是否要从选中的磁盘创建RAID-1？"
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "是否要从选中的磁盘创建RAID-5？"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "是否要从选中的磁盘创建RAID-Z1？"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "是否要从选中的磁盘创建RAID-Z2？"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr ""
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "您是否要从选中的磁盘创建RAID-Z3？"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "是否要从选中的磁盘创建缓存设备？"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr "您要从选中的磁盘创建热备份设备吗？"
@@ -3792,6 +3825,10 @@ msgstr "是否要从选中的磁盘创建镜像日志设备？"
 
 msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr "是否要从选中的磁盘创建镜像虚拟设备？"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr "是否要从选中的磁盘创建条带化虚拟设备？"
@@ -7809,9 +7846,6 @@ msgstr "NFS Root被标记为删除"
 msgid "NFS Root is unlocked"
 msgstr "NFS Root已解锁"
 
-msgid "NFS sharing"
-msgstr ""
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8380,6 +8414,9 @@ msgstr "10 月"
 msgid "Off"
 msgstr "关闭"
 
+msgid "Off - do not share"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "离线即时测试"
 
@@ -8409,6 +8446,9 @@ msgstr "早于昨天"
 
 msgid "On"
 msgstr "开"
+
+msgid "On - share with default permissions"
+msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "磁盘配置"
@@ -10163,6 +10203,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP 模组"
+
+msgid "SPECIAL"
+msgstr ""
 
 msgid "SQL File"
 msgstr "SQL文件"
@@ -13602,6 +13645,9 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "不能打开目录。"
+
+msgid "Unable to open source directory."
+msgstr ""
 
 msgid "Unable to read directory."
 msgstr "不能读取目录。"

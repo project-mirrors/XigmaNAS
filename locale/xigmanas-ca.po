@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-10-04 22:38+0000\n"
-"PO-Revision-Date: 2022-10-12 21:41+0000\n"
+"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"PO-Revision-Date: 2022-12-15 14:59+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-11-14 23:16+0000\n"
-"X-Generator: Launchpad (build 4aa98eaf126085b55af0d971d6a0af9b44589768)\n"
+"X-Launchpad-Export-Date: 2023-01-04 21:56+0000\n"
+"X-Generator: Launchpad (build 31c78762a8046acf7ab47372e5d588ebb3759d2e)\n"
 "Language: ca_ES\n"
 
 msgid ""
@@ -2896,11 +2896,17 @@ msgstr "Creeu un dispositiu L2ARC per ARC"
 msgid "Create a SLOG device for ZIL"
 msgstr "Creeu un dispositiu SLOG per a ZIL"
 
+msgid "Create a dedup device"
+msgstr "Creeu un dispositiu de desduplicació"
+
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Creeu un dispositiu SLOG reflectit per a ZIL"
 
 msgid "Create a spare device"
 msgstr "Crea un dispositiu de recanvi"
+
+msgid "Create a special allocation device"
+msgstr "Creeu un dispositiu d'assignació especial"
 
 msgid "Create a virtual device containing a single device"
 msgstr "Creeu un dispositiu virtual que contingui un sol dispositiu"
@@ -3033,6 +3039,9 @@ msgstr "Es requereix script personalitzat."
 msgid "Custom script not found."
 msgstr "Script personalitzat no trobat."
 
+msgid "Custom sharing"
+msgstr "Compartició personalitzada"
+
 msgid "DDNS server name, not the full URL."
 msgstr "Nom del servidor DDNS, no l’URL complet."
 
@@ -3060,6 +3069,9 @@ msgstr "DEBUG2: registra informació detallada de depuració"
 
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG2: registra tota l'informació de depuració"
+
+msgid "DEDUP"
+msgstr "DEDUP"
 
 msgid "DELETE"
 msgstr "ELIMINA"
@@ -3116,6 +3128,15 @@ msgstr ""
 
 msgid "DOWNLOAD"
 msgstr "DESCARREGA"
+
+msgid "DRAID-1"
+msgstr "DRAID-1"
+
+msgid "DRAID-2"
+msgstr "DRAID-2"
+
+msgid "DRAID-3"
+msgstr "DRAID-3"
 
 msgid "DTS Audio File"
 msgstr "Fitxer d'àudio DTS"
@@ -4083,6 +4104,15 @@ msgstr "Realment vol desinstal·lar aquest paquet?"
 msgid "Do you want to apply these settings?"
 msgstr "Vols aplicar aquests ajustos?"
 
+msgid "Do you want to create a DRAID1 device from selected disk?"
+msgstr "Voleu crear un dispositiu DRAID1 des del disc seleccionat?"
+
+msgid "Do you want to create a DRAID2 device from selected disk?"
+msgstr "Voleu crear un dispositiu DRAID2 des del disc seleccionat?"
+
+msgid "Do you want to create a DRAID3 device from selected disk?"
+msgstr "Voleu crear un dispositiu DRAID3 des del disc seleccionat?"
+
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Vols crear un JBOD des de els discos seleccionats?"
 
@@ -4095,17 +4125,20 @@ msgstr "Vols crear un RAID-1 des de els discos seleccionats?"
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Vols crear un RAID-5 des dels discos seleccionats?"
 
-msgid "Do you want to create a RAID-Z1 from selected disks?"
-msgstr "Vols crear un RAID-Z1 des dels discos seleccionats?"
+msgid "Do you want to create a RAIDZ1 from selected disks?"
+msgstr "Voleu crear un RAIDZ1 a partir dels discs seleccionats?"
 
-msgid "Do you want to create a RAID-Z2 from selected disks?"
-msgstr "Vols crear un RAID-Z2 des dels discos seleccionats?"
+msgid "Do you want to create a RAIDZ2 from selected disks?"
+msgstr "Voleu crear un RAIDZ2 a partir dels discs seleccionats?"
 
-msgid "Do you want to create a RAID-Z3 from selected disks?"
-msgstr "Vols crear un RAID-Z3 des dels discos seleccionats?"
+msgid "Do you want to create a RAIDZ3 from selected disks?"
+msgstr "Voleu crear un RAIDZ3 a partir dels discs seleccionats?"
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Vols crear un dispositiu cachè des de els discos seleccionats?"
+
+msgid "Do you want to create a dedup device from selected disks?"
+msgstr "Voleu crear un dispositiu de desduplicació dels discs seleccionats?"
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr "Vols crear un disc de recanvi en calent des de el disc seleccionat?"
@@ -4122,6 +4155,12 @@ msgstr ""
 msgid "Do you want to create a mirrored virtual device from selected disks?"
 msgstr ""
 "Vols crear un dispositiu virtual almirallat des de els discs seleccionats?"
+
+msgid ""
+"Do you want to create a special allocation device from selected disks?"
+msgstr ""
+"Voleu crear un dispositiu d'assignació especial a partir dels discs "
+"seleccionats?"
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -8387,9 +8426,6 @@ msgstr "NFS Root està marcat per a la supressió"
 msgid "NFS Root is unlocked"
 msgstr "NFS root està desbloquejat"
 
-msgid "NFS sharing"
-msgstr "Compartició NFS"
-
 msgid "NFSv4"
 msgstr "NFSv4"
 
@@ -8992,6 +9028,9 @@ msgstr "Octubre"
 msgid "Off"
 msgstr "OFF"
 
+msgid "Off - do not share"
+msgstr "Apagat: no compartiu"
+
 msgid "Offline Immediate Test"
 msgstr "Prova immediata de desconexió"
 
@@ -9021,6 +9060,9 @@ msgstr "Més antic que ahir"
 
 msgid "On"
 msgstr "ON"
+
+msgid "On - share with default permissions"
+msgstr "Activat: comparteix amb els permisos predeterminats"
 
 msgid "On-Disk Configuration"
 msgstr "Configuració en disc"
@@ -10848,6 +10890,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Mòduls SNMP"
+
+msgid "SPECIAL"
+msgstr "ESPECIAL"
 
 msgid "SQL File"
 msgstr "Arxiu SQL"
@@ -14788,6 +14833,9 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "No es pot obrir el directori."
+
+msgid "Unable to open source directory."
+msgstr "No es pot obrir el directori font."
 
 msgid "Unable to read directory."
 msgstr "No es pot llegir el directori."
