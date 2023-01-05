@@ -120,7 +120,6 @@ Changes:
 - Upgrade iperf3 to v3.12.
 - Upgrade devcpu-data-intel to v20221108.
 - Upgrade nut to v2022.11.16.
-- Upgrade syncthing to v1.22.2.
 - Upgrade zoneinfo to 2022g.
 - Upgrade proftpd to v1.3.7f.
 - Upgrade arcconf to vB25611.
@@ -133,6 +132,7 @@ Changes:
 - Upgrade rsync to v3.2.7.
 - Upgrade cdialog to v1.3-20221229.
 - Upgrade lighttpd to v1.4.68.
+- Upgrade syncthing to v1.23.0.
 
 Fixes:
 - fix bring up lighttpd at all times.
