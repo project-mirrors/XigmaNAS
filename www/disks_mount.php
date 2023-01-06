@@ -31,197 +31,213 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
+use common\arr;
+use gui\document;
+
 $pgtitle = [gtext('Disks'),gtext('Mount Point'),gtext('Management')];
-
-if ($_POST) {
+if($_POST):
 	$pconfig = $_POST;
-
-	if (isset($_POST['apply']) && $_POST['apply']) {
+	if(isset($_POST['apply']) && $_POST['apply']):
 		$retval = 0;
-		if (!file_exists($d_sysrebootreqd_path)) {
-			// Process notifications
-			updatenotify_process("mountpoint", "mountmanagement_process_updatenotification");
-
-			// Restart services
+		if(!file_exists($d_sysrebootreqd_path)):
+//			process notifications
+			updatenotify_process('mountpoint','mountmanagement_process_updatenotification');
+//			restart services
 			config_lock();
-			$retval |= rc_update_service("samba");
-			$retval |= rc_update_service("rsyncd");
-			$retval |= rc_update_service("netatalk");
-			$retval |= rc_update_service("rpcbind"); // !!! Do
-			$retval |= rc_update_service("mountd");  // !!! not
-			$retval |= rc_update_service("nfsd");    // !!! change
-			$retval |= rc_update_service("statd");   // !!! this
-			$retval |= rc_update_service("lockd");   // !!! order
+			$retval |= rc_update_service('samba');
+			$retval |= rc_update_service('rsyncd');
+			$retval |= rc_update_service('netatalk');
+			$retval |= rc_update_service('rpcbind'); // !!! Do
+			$retval |= rc_update_service('mountd');  // !!! not
+			$retval |= rc_update_service('nfsd');    // !!! change
+			$retval |= rc_update_service('statd');   // !!! this
+			$retval |= rc_update_service('lockd');   // !!! order
 			config_unlock();
-		}
+		endif;
 		$savemsg = get_std_save_message($retval);
-		if ($retval == 0) {
-			updatenotify_delete("mountpoint");
-		}
-		header("Location: disks_mount.php");
+		if($retval == 0):
+			updatenotify_delete('mountpoint');
+		endif;
+		header('Location: disks_mount.php');
 		exit;
-	}
-}
-$a_mount = &array_make_branch($config,'mounts','mount');
+	endif;
+endif;
+$a_mount = &arr::make_branch($config,'mounts','mount');
 if(empty($a_mount)):
 else:
-	array_sort_key($a_mount,'devicespecialfile');
+	arr::sort_key($a_mount,'devicespecialfile');
 endif;
-if (isset($_GET['act']) && $_GET['act'] === "del") {
-	$index = array_search_ex($_GET['uuid'], $config['mounts']['mount'], "uuid");
-	if (false !== $index) {
-		// MUST check if mount point is used by swap.
-		if ((isset($config['system']['swap']['enable'])) &&
-			($config['system']['swap']['type'] === "file") &&
-			($config['system']['swap']['mountpoint'] === $_GET['uuid'])) {
-			$errormsg[] = gtext(sprintf("A swap file is located on the mounted device %s.",
-				$config['mounts']['mount'][$index]['devicespecialfile']));
-		} else {
-			updatenotify_set("mountpoint", UPDATENOTIFY_MODE_DIRTY, $_GET['uuid']);
-			header("Location: disks_mount.php");
+if(isset($_GET['act']) && $_GET['act'] === 'del'):
+	$index = arr::search_ex($_GET['uuid'],$config['mounts']['mount'],'uuid');
+	if($index !== false) {
+//		MUST check if mount point is used by swap.
+		if((isset($config['system']['swap']['enable'])) && ($config['system']['swap']['type'] === 'file') && ($config['system']['swap']['mountpoint'] === $_GET['uuid'])):
+			$errormsg[] = gtext(sprintf('A swap file is located on the mounted device %s.',$config['mounts']['mount'][$index]['devicespecialfile']));
+		else:
+			updatenotify_set('mountpoint',UPDATENOTIFY_MODE_DIRTY,$_GET['uuid']);
+			header('Location: disks_mount.php');
 			exit;
-		}
+		endif;
 	}
-}
-
-if (isset($_GET['act']) && $_GET['act'] === "retry") {
-	$index = array_search_ex($_GET['uuid'], $config['mounts']['mount'], "uuid");
-	if (false !== $index) {
-		if (0 == disks_mount($config['mounts']['mount'][$index])) {
-			rc_update_service("samba");
-			rc_update_service("rsyncd");
-			rc_update_service("netatalk");
-			rc_update_service("rpcbind"); // !!! Do
-			rc_update_service("mountd");  // !!! not
-			rc_update_service("nfsd");    // !!! change
-			rc_update_service("statd");   // !!! this
-			rc_update_service("lockd");   // !!! order
-		}
-		header("Location: disks_mount.php");
+endif;
+if(isset($_GET['act']) && $_GET['act'] === 'retry'):
+	$index = arr::search_ex($_GET['uuid'],$config['mounts']['mount'],'uuid');
+	if($index !== false):
+		if(disks_mount($config['mounts']['mount'][$index]) == 0):
+			rc_update_service('samba');
+			rc_update_service('rsyncd');
+			rc_update_service('netatalk');
+			rc_update_service('rpcbind'); // !!! Do
+			rc_update_service('mountd');  // !!! not
+			rc_update_service('nfsd');    // !!! change
+			rc_update_service('statd');   // !!! this
+			rc_update_service('lockd');   // !!! order
+		endif;
+		header('Location: disks_mount.php');
 		exit;
-	}
-}
-
-function mountmanagement_process_updatenotification($mode, $data) {
+	endif;
+endif;
+function mountmanagement_process_updatenotification($mode,$data) {
 	global $config;
 
-	if (empty($config['mounts']['mount']) || !is_array($config['mounts']['mount']))
+	if (empty($config['mounts']['mount']) || !is_array($config['mounts']['mount'])):
 		return 1;
-
-	$index = array_search_ex($data, $config['mounts']['mount'], "uuid");
-	if (false === $index)
+	endif;
+	$index = arr::search_ex($data,$config['mounts']['mount'],'uuid');
+	if($index === false):
 		return 1;
-
-	switch ($mode) {
+	endif;
+	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 			disks_mount($config['mounts']['mount'][$index]);
 			break;
-
 		case UPDATENOTIFY_MODE_MODIFIED:
 			disks_umount_ex($config['mounts']['mount'][$index]);
 			disks_mount($config['mounts']['mount'][$index]);
 			break;
-
 		case UPDATENOTIFY_MODE_DIRTY:
 			disks_umount($config['mounts']['mount'][$index]);
 			unset($config['mounts']['mount'][$index]);
 			write_config();
 			break;
-	}
+	endswitch;
 }
 include 'fbegin.inc';
-if(!empty($errormsg)):
-	print_input_errors($errormsg);
-endif;
+$document = new document();
+$document->
+	add_area_tabnav()->
+		add_tabnav_upper()->
+			ins_tabnav_record('disks_mount.php',gettext('Management'),gettext('Reload page'),true)->
+			ins_tabnav_record('disks_mount_tools.php',gettext('Tools'))->
+			ins_tabnav_record('disks_mount_fsck.php',gettext('Fsck'));
+$document->render();
 ?>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabact"><a href="disks_mount.php" title="<?=gtext('Reload page');?>"><span><?=gtext("Management");?></span></a></li>
-		<li class="tabinact"><a href="disks_mount_tools.php"><span><?=gtext("Tools");?></span></a></li>
-		<li class="tabinact"><a href="disks_mount_fsck.php"><span><?=gtext("Fsck");?></span></a></li>
-	</ul></td></tr>
-	<tr><td class="tabcont"><form action="disks_mount.php" method="post">
+<form action="disks_mount.php" method="post" id="iform" name="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
-		if($savemsg):
-			print_info_box($savemsg);
-		endif;
-		if(updatenotify_exists("mountpoint")):
-			print_config_change_box();
-		endif;
+	if(file_exists($d_sysrebootreqd_path)):
+		print_info_box(get_std_save_message(0));
+	endif;
+	if(!empty($errormsg)):
+		print_error_box($errormsg);
+	endif;
+	if(!empty($savemsg)):
+		print_info_box($savemsg);
+	endif;
+	if(updatenotify_exists('mountpoint')):
+		print_config_change_box();
+	endif;
+	if(!empty($input_errors)):
+		print_input_errors($input_errors);
+	endif;
 ?>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<table class="area_data_selection">
+		<colgroup>
+			<col style="width:30%">
+			<col style="width:15%">
+			<col style="width:15%">
+			<col style="width:20%">
+			<col style="width:13%">
+			<col style="width:7%">
+		</colgroup>
+		<thead>
+
 <?php
-			html_titleline2(gettext('Mount Point Management'), 6);
+			html_titleline2(gettext('Mount Point Management'),6);
 ?>
 			<tr>
-				<td width="30%" class="listhdrlr"><?=gtext('Disk');?></td>
-				<td width="15%" class="listhdrr"><?=gtext('File System');?></td>
-				<td width="15%" class="listhdrr"><?=gtext('Name');?></td>
-				<td width="20%" class="listhdrr"><?=gtext('Description');?></td>
-				<td width="13%" class="listhdrr"><?=gtext('Status');?></td>
-				<td width="7%" class="list"></td>
+				<th class="lhell"><?=gtext('Disk');?></td>
+				<th class="lhell"><?=gtext('File System');?></td>
+				<th class="lhell"><?=gtext('Name');?></td>
+				<th class="lhell"><?=gtext('Description');?></td>
+				<th class="lhell"><?=gtext('Status');?></td>
+				<th class="lhebl"></td>
 			</tr>
+		</thead>
+		<tbody>
+
 <?php
 			foreach($a_mount as $mount):
-				$notificationmode = updatenotify_get_mode("mountpoint", $mount['uuid']);
+				$notificationmode = updatenotify_get_mode('mountpoint',$mount['uuid']);
 				switch($notificationmode):
 					case UPDATENOTIFY_MODE_NEW:
-						$status = gtext("Initializing");
+						$status = gtext('Initializing');
 						break;
 					case UPDATENOTIFY_MODE_MODIFIED:
-						$status = gtext("Modifying");
+						$status = gtext('Modifying');
 						break;
 					case UPDATENOTIFY_MODE_DIRTY:
-						$status = gtext("Deleting");
+						$status = gtext('Deleting');
 						break;
 					default:
-						if(disks_ismounted_ex($mount['sharename'],"sharename")):
-							$status = gtext("OK");
+						if(disks_ismounted_ex($mount['sharename'],'sharename')):
+							$status = gtext('OK');
 						else:
-							$status = gtext("Error") . " - <a href=\"disks_mount.php?act=retry&uuid={$mount['uuid']}\">" . gtext("Retry") . "</a>";
+							$status = gtext('Error') . " - <a href=\"disks_mount.php?act=retry&uuid={$mount['uuid']}\">" . gtext('Retry') . "</a>";
 						endif;
 						break;
 				endswitch;
 ?>
 				<tr>
 <?php
-					if('disk' === $mount['type']):
+					if($mount['type'] === 'disk'):
 ?>
-						<td class="listlr"><?=htmlspecialchars($mount['devicespecialfile']);?>&nbsp;<?php if ($mount['fstype'] == "ufs" && preg_match('/^\/dev\/(.+)$/', $mount['mdisk'], $match)) { echo "({$match[1]}{$mount['partition']})"; } ?></td>
+						<td class="lcell"><?=htmlspecialchars($mount['devicespecialfile']);?>&nbsp;<?php if($mount['fstype'] == 'ufs' && preg_match('/^\/dev\/(.+)$/',$mount['mdisk'],$match)): echo "({$match[1]}{$mount['partition']})";endif;?></td>
 <?php
-					elseif('hvol' === $mount['type']):
+					elseif($mount['type'] === 'hvol'):
 ?>
-						<td class="listlr"><?=htmlspecialchars($mount['devicespecialfile']);?>&nbsp;<?php if ($mount['fstype'] == "ufs" && preg_match('/^\/dev\/(.+)$/', $mount['mdisk'], $match)) { echo "({$match[1]}{$mount['partition']})"; } ?></td>
+						<td class="lcell"><?=htmlspecialchars($mount['devicespecialfile']);?>&nbsp;<?php if($mount['fstype'] == 'ufs' && preg_match('/^\/dev\/(.+)$/',$mount['mdisk'],$match)): echo "({$match[1]}{$mount['partition']})";endif;?></td>
 <?php
-					elseif ("custom" === $mount['type']):
+					elseif ($mount['type'] === 'custom'):
 ?>
-						<td class="listlr"><?=htmlspecialchars($mount['devicespecialfile']);?>&nbsp;</td>
+						<td class="lcell"><?=htmlspecialchars($mount['devicespecialfile']);?>&nbsp;</td>
 <?php
 					else:
 ?>
-						<td class="listlr"><?=htmlspecialchars($mount['filename']);?>&nbsp;</td>
+						<td class="lcell"><?=htmlspecialchars($mount['filename']);?>&nbsp;</td>
 <?php
 					endif;
 ?>
-					<td class="listr"><?=htmlspecialchars($mount['fstype']);?>&nbsp;</td>
-					<td class="listr"><?=htmlspecialchars($mount['sharename']);?>&nbsp;</td>
-					<td class="listr"><?=htmlspecialchars($mount['desc']);?>&nbsp;</td>
-					<td class="listbg"><?=$status;?>&nbsp;</td>
+					<td class="lcell"><?=htmlspecialchars($mount['fstype']);?>&nbsp;</td>
+					<td class="lcell"><?=htmlspecialchars($mount['sharename']);?>&nbsp;</td>
+					<td class="lcell"><?=htmlspecialchars($mount['desc']);?>&nbsp;</td>
+					<td class="lcell"><?=$status;?>&nbsp;</td>
 <?php
-					if(UPDATENOTIFY_MODE_DIRTY != $notificationmode):
+					if($notificationmode != UPDATENOTIFY_MODE_DIRTY):
 ?>
 						<td valign="middle" nowrap="nowrap" class="list">
-							<a href="disks_mount_edit.php?uuid=<?=$mount['uuid'];?>"><img src="images/edit.png" title="<?=gtext("Edit mount point");?>" border="0" alt="<?=gtext("Edit mount point");?>" /></a>&nbsp;
+							<a href="disks_mount_edit.php?uuid=<?=$mount['uuid'];?>"><img src="images/edit.png" title="<?=gtext("Edit mount point");?>" alt="<?=gtext("Edit mount point");?>" /></a>&nbsp;
 							<a href="disks_mount.php?act=del&amp;uuid=<?=$mount['uuid'];?>" onclick="return confirm('<?=gtext("Do you really want to delete this mount point? All elements that still use it will become invalid (e.g. share)!");?>')"><img src="images/delete.png" title="<?=gtext("Delete mount point");?>" border="0" alt="<?=gtext("Delete mount point");?>" /></a>
 						</td>
 <?php
 					else:
 ?>
 						<td valign="middle" nowrap="nowrap" class="list">
-							<img src="images/delete.png" border="0" alt="" />
+							<img src="images/delete.png" alt="" />
 						</td>
 <?php
 					endif;
@@ -230,20 +246,22 @@ endif;
 <?php
 			endforeach;
 ?>
+		</tbody>
+		<tfoot>
 			<tr>
-				<td class="list" colspan="5"></td>
-				<td class="list"><a href="disks_mount_edit.php"><img src="images/add.png" title="<?=gtext("Add mount point");?>" border="0" alt="<?=gtext("Add mount point");?>" /></a></td>
+				<th class="lcenl" colspan="5"></td>
+				<th class="lceadd"><a href="disks_mount_edit.php"><img src="images/add.png" title="<?=gtext('Add mount point');?>" border="0" alt="<?=gtext('Add mount point');?>" /></a></td>
 			</tr>
-		</table>
-        <div id="remarks">
+		</tfoot>
+	</table>
+	<div id="remarks">
 <?php
-			html_remark("Warning", gtext("Warning"), sprintf(gtext("UFS and ZFS are NATIVE filesystems of %s. Attempting to use other filesystems such as EXT2, EXT3, EXT4, FAT, FAT32, or NTFS can result in unpredictable results, file corruption and the loss of data!"), get_product_name()));
+		html_remark2('Warning',gettext('Warning'),sprintf(gettext('UFS and ZFS are NATIVE filesystems of %s. Attempting to use other filesystems such as EXT2, EXT3, EXT4, FAT, FAT32, or NTFS can result in unpredictable results, file corruption and the loss of data!'),get_product_name()));
 ?>
-        </div>
+	</div>
 <?php
-		include 'formend.inc';
+	include 'formend.inc';
 ?>
-	</form></td></tr>
-</table>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
