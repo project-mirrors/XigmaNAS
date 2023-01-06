@@ -321,17 +321,17 @@ function controlactionbuttons(ego, triggerbyname) {
 			</colgroup>
 			<thead>
 <?php
-					html_separator2();
-					html_titleline2(gettext('Message Board'));
+				html_separator2();
+				html_titleline2(gettext('Message Board'));
 ?>
 			</thead>
 			<tbody>
 <?php
-					html_textinfo2('info',gettext('Info'),sprintf(gettext('%1$s is used to create %2$s volumes.'),'GEOM Vinum','RAID'));
-					$link = sprintf('<a href="%1$s">%2$s</a>','disks_mount.php',gettext('mount point'));
-					$helpinghand = gettext('A mounted RAID volume cannot be deleted.') . ' ' . gettext('Remove the %s first before proceeding.');
-					$helpinghand = sprintf($helpinghand,$link);
-					html_textinfo2('warning',gettext('Warning'),$helpinghand);
+				html_textinfo2('info',gettext('Info'),sprintf(gettext('%1$s is used to create %2$s volumes.'),'GEOM Vinum','RAID'));
+				$link = sprintf('<a href="%1$s">%2$s</a>','disks_mount.php',gettext('mount point'));
+				$helpinghand = gettext('A mounted RAID volume cannot be deleted.') . ' ' . gettext('Remove the %s first before proceeding.');
+				$helpinghand = sprintf($helpinghand,$link);
+				html_textinfo2('warning',gettext('Warning'),$helpinghand);
 ?>
 			</tbody>
 		</table>
