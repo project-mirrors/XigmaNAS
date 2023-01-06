@@ -365,6 +365,7 @@ $(window).on("load", function() {
 		</colgroup>
 		<thead>
 <?php
+			html_separator2();
 			html_titleline2(gettext('Import Disks'));
 ?>
 		</thead>
@@ -385,6 +386,7 @@ $(window).on("load", function() {
 		</colgroup>
 		<thead>
 <?php
+			html_separator2();
 			html_titleline2(gettext('Import Software RAID Disks'));
 ?>
 		<tbody>
