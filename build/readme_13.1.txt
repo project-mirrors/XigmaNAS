@@ -128,11 +128,11 @@ Changes:
 - Upgrade jquery to v3.6.3.
 - Upgrade nut to v2022.12.20.
 - Upgrade bash to v5.2p15.
-- Upgrade php to v8.2.0.
 - Upgrade rsync to v3.2.7.
 - Upgrade cdialog to v1.3-20221229.
 - Upgrade lighttpd to v1.4.68.
 - Upgrade syncthing to v1.23.0.
+- Upgrade php to v8.2.1.
 
 Fixes:
 - fix bring up lighttpd at all times.
