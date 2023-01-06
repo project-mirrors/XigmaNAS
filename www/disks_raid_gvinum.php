@@ -185,9 +185,7 @@ function controlactionbuttons(ego, triggerbyname) {
 		<li class="tabinact"><a href="disks_raid_gvinum_info.php"><span><?=gtext('Information'); ?></span></a></li>
 	</ul></td></tr>
 </tbody></table>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform">
-	<table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
+<form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame"><?php
 		if(!empty($errormsg)):
 			print_error_box($errormsg);
 		endif;
@@ -337,10 +335,9 @@ function controlactionbuttons(ego, triggerbyname) {
 ?>
 			</tbody>
 		</table>
-	</td></tr></tbody></table>
 <?php
 	include 'formend.inc';
 ?>
-</form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
