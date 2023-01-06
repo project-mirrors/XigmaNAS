@@ -243,7 +243,7 @@ $document->
 			ins_tabnav_record('disks_crypt_tools.php',gettext('Tools'));
 $document->render();
 ?>
-<form action="disks_crypt.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere->get_scriptname();?>" method="post" id="iform" name="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(file_exists($d_sysrebootreqd_path)):
 		print_info_box(get_std_save_message(0));
@@ -363,6 +363,6 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
