@@ -170,12 +170,12 @@ $document->render();
 			html_titleline2(gettext('Mount Point Management'),6);
 ?>
 			<tr>
-				<th class="lhell"><?=gtext('Disk');?></td>
-				<th class="lhell"><?=gtext('File System');?></td>
-				<th class="lhell"><?=gtext('Name');?></td>
-				<th class="lhell"><?=gtext('Description');?></td>
-				<th class="lhell"><?=gtext('Status');?></td>
-				<th class="lhebl"></td>
+				<th class="lhell"><?=gtext('Disk');?></th>
+				<th class="lhell"><?=gtext('File System');?></th>
+				<th class="lhell"><?=gtext('Name');?></th>
+				<th class="lhell"><?=gtext('Description');?></th>
+				<th class="lhell"><?=gtext('Status');?></th>
+				<th class="lhebl"></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -229,15 +229,15 @@ $document->render();
 <?php
 					if($notificationmode != UPDATENOTIFY_MODE_DIRTY):
 ?>
-						<td valign="middle" nowrap="nowrap" class="list">
-							<a href="disks_mount_edit.php?uuid=<?=$mount['uuid'];?>"><img src="images/edit.png" title="<?=gtext("Edit mount point");?>" alt="<?=gtext("Edit mount point");?>" /></a>&nbsp;
-							<a href="disks_mount.php?act=del&amp;uuid=<?=$mount['uuid'];?>" onclick="return confirm('<?=gtext("Do you really want to delete this mount point? All elements that still use it will become invalid (e.g. share)!");?>')"><img src="images/delete.png" title="<?=gtext("Delete mount point");?>" border="0" alt="<?=gtext("Delete mount point");?>" /></a>
+						<td class="lcebl">
+							<a href="disks_mount_edit.php?uuid=<?=$mount['uuid'];?>"><img src="images/edit.png" title="<?=gtext('Edit mount point');?>" alt="<?=gtext('Edit mount point');?>"></a>&nbsp;
+							<a href="disks_mount.php?act=del&amp;uuid=<?=$mount['uuid'];?>" onclick="return confirm('<?=gtext('Do you really want to delete this mount point? All elements that still use it will become invalid (e.g. share)!');?>')"><img src="images/delete.png" title="<?=gtext('Delete mount point');?>" alt="<?=gtext('Delete mount point');?>"></a>
 						</td>
 <?php
 					else:
 ?>
-						<td valign="middle" nowrap="nowrap" class="list">
-							<img src="images/delete.png" alt="" />
+						<td class="lcebl">
+							<img src="images/delete.png" alt="">
 						</td>
 <?php
 					endif;
@@ -249,8 +249,8 @@ $document->render();
 		</tbody>
 		<tfoot>
 			<tr>
-				<th class="lcenl" colspan="5"></td>
-				<th class="lceadd"><a href="disks_mount_edit.php"><img src="images/add.png" title="<?=gtext('Add mount point');?>" border="0" alt="<?=gtext('Add mount point');?>" /></a></td>
+				<th class="lcenl" colspan="5"></th>
+				<th class="lceadd"><a href="disks_mount_edit.php"><img src="images/add.png" title="<?=gtext('Add mount point');?>" alt="<?=gtext('Add mount point');?>"></a></th>
 			</tr>
 		</tfoot>
 	</table>
