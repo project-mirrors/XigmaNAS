@@ -203,8 +203,7 @@ function controlactionbuttons(ego, triggerbyname) {
 		<li class="tabact"><a href="<?=$sphere_scriptname;?>" title="<?=gtext('Reload page');?>" ><span><?=gtext('Management');?></span></a></li>
 	</ul></td></tr>
 </tbody></table>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform">
-	<table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 		if(!empty($errormsg)):
 			print_error_box($errormsg);
@@ -365,10 +364,9 @@ function controlactionbuttons(ego, triggerbyname) {
 ?>
 			</tbody>
 		</table>
-	</td></tr></tbody></table>
 <?php
 	include 'formend.inc';
 ?>
-</form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
