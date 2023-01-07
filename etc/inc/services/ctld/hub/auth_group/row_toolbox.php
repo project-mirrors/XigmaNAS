@@ -72,6 +72,14 @@ class row_toolbox extends myt\row_toolbox {
 		return myr\rmo_row_templates::rmo_with_clone();
 	}
 /**
+ *	Create the properties object
+ *	@return row_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new row_properties();
+		return $cop;
+	}
+/**
  *	Collects information from subordinate
  *	@param string $needle
  *	@param object $cop
@@ -192,6 +200,16 @@ class row_toolbox extends myt\row_toolbox {
 		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
 		return $retval;
 	}
+/**
+ *	Render the page
+ *	@global array $input_errors
+ *	@global string|array $errormsg
+ *	@global string|array $savemsg
+ *	@param row_properties $cop
+ *	@param mys\row $sphere
+ *	@param int $record_mode
+ *	@param bool $prerequisites_ok
+ */
 	public static function render(row_properties $cop,mys\row $sphere,int $record_mode,bool $prerequisites_ok) {
 		global $input_errors;
 		global $errormsg;
