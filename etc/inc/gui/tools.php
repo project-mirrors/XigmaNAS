@@ -2087,13 +2087,13 @@ EOJ;
 					addDIV(attributes: ['id' => 'header']);
 			$id_header_right = $id_header->addDIV(attributes: ['id' => 'headerrlogo']);
 			if(!isset($config['system']['hideannouncements'])):
-				if('1216' < date('md')):
+				if(date('md') >= '1216'):
 					$id_header_right->
 						addDIV(attributes: ['class' => 'announcement'])->
 							insIMG(attributes: ['src' => '/images/announcement12.gif','alt' => '','title' => 'Merry Christmas!']);
 				endif;
 			endif;
-			$id_header_left = $id_header->
+			/* $id_header_left = */ $id_header->
 				addDIV(attributes: ['id' => 'headerlogo'])->
 					addA(attributes: $a_attributes)->
 						insIMG(attributes: $img_attributes);
