@@ -83,4 +83,12 @@ class setting_toolbox extends myt\setting_toolbox {
 		endif;
 		return $rmo;
 	}
+/**
+ *	Create the properties object
+ *	@return setting_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new setting_properties();
+		return $cop;
+	}
 }
