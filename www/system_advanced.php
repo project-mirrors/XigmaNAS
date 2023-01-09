@@ -148,7 +148,6 @@ if($_POST):
 		endif;
 		$config['system']['disablefm'] = $helpinghand;
 		$config['system']['disablefirmwarecheck'] = $cop->get_disablefirmwarecheck()->validate_input();
-		$_SESSION['g']['shrinkpageheader'] = $cop->get_shrinkpageheader()->validate_input();
 		$helpinghand = $cop->get_disableextensionmenu()->validate_input();
 		if(isset($config['system']['disableextensionmenu']) !== $helpinghand):
 			//	reset header menu
@@ -318,7 +317,6 @@ $document->render();
 			if($g['zroot'] || ('full' !== $g['platform'])):
 				$node->c2($cop->get_disablefirmwarecheck(),!empty($pconfig['disablefirmwarecheck']));
 			endif;
-			$node->c2($cop->get_shrinkpageheader(),$_SESSION['g']['shrinkpageheader']);
 			$node->c2($cop->get_disableextensionmenu(),!empty($pconfig['disableextensionmenu']));
 			$node->render();
 ?>
