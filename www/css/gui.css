@@ -1012,6 +1012,7 @@ header#g4h
 
 header#g4l
 {
+	display: none;
 	min-width: inherit;
 	-webkit-box-flex: 0;
 	-moz-box-flex: 0;
