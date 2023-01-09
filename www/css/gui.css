@@ -951,68 +951,8 @@ div#warningbox div.message
 	flex: 1 1 auto;
 }
 
-div#header
-{
-	width: 100%;
-	background-color: #171717;
-	background-image: url("/images/header_bg.png");
-	background-position: top left;
-	background-repeat: no-repeat;
-	display: flex;
-	flex-flow: row-reverse nowrap;
-	justify-content: space-between;
-	align-items: stretch;
-}
-
-div#headerlogo
-{
-	flex: 0 0 auto;
-}
-
-div#headerlogo a
-{
-	display: inline-block;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-	margin-left: 2em;
-}
-
-div#headerrlogo
-{
-	width: 350px;
-	background-image: url("/images/header_rlogo.png");
-	margin-left: -350px;
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: flex-end;
-	flex: 0 0 auto;
-}
-
-div#headerrlogo .hostname,
-div#headerrlogo .announcement
-{
-	flex: 0 0 auto;
-	font-size: 1em;
-	color: #FFFFFF;
-	text-align: right;
-	margin-right: 2em;
-}
-
 header#g4h
 {
-	min-width: inherit;
-	-webkit-box-flex: 0;
-	-moz-box-flex: 0;
-	width: 100%;
-	-webkit-flex: 0 0 auto;
-    -ms-flex: 0 0 auto;
-	flex: 0 0 auto;
-	background-color: transparent;
-}
-
-header#g4l
-{
-	display: none;
 	min-width: inherit;
 	-webkit-box-flex: 0;
 	-moz-box-flex: 0;

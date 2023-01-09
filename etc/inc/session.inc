@@ -42,7 +42,6 @@ class Session {
 		$_SESSION['authtoken'] = bin2hex(random_bytes(32));
 		$_SESSION['ts'] = time();
 		$_SESSION['g'] = [
-			'shrinkpageheader' => false,
 			'headermenu' => []
 		];
 	}

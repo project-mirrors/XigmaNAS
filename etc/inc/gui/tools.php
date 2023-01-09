@@ -43,7 +43,6 @@ use DOMNode;
 use function calc_adddivsubmittodataframe;
 use function get_headermenu;
 use function get_product_copyright;
-use function get_product_url;
 use function make_headermenu_extensions;
 use function system_get_hostname;
 use function system_get_language_codeset;
@@ -2030,7 +2029,6 @@ EOJ;
 		if($is_login):
 			$flexcontainer->ins_header_login();
 		else:
-			$flexcontainer->ins_header_logo();
 			$flexcontainer->ins_header(page_title: $page_title);
 		endif;
 		$flexcontainer->ins_main();
@@ -2065,38 +2063,6 @@ $(".area_data_selection").tablesorter({
 });
 EOJ;
 			$this->add_js_document_ready(jcode: $jdata);
-		endif;
-		return $this;
-	}
-	public function ins_header_logo() {
-		global $config;
-
-		if(!$_SESSION['g']['shrinkpageheader']):
-			$a_attributes = [
-				'title' => sprintf('www.%s',get_product_url()),
-				'href' => sprintf('https://www.%s',get_product_url()),
-				'target' => '_blank',
-				'rel' => 'noreferrer'
-			];
-			$img_attributes = [
-				'src' => '/images/header_logo.png',
-				'alt' => 'logo'
-			];
-			$id_header = $this->
-				addElement(name: 'header',attributes: ['id' => 'g4l'])->
-					addDIV(attributes: ['id' => 'header']);
-			$id_header_right = $id_header->addDIV(attributes: ['id' => 'headerrlogo']);
-			if(!isset($config['system']['hideannouncements'])):
-				if(date('md') >= '1216'):
-					$id_header_right->
-						addDIV(attributes: ['class' => 'announcement'])->
-							insIMG(attributes: ['src' => '/images/announcement12.gif','alt' => '','title' => 'Merry Christmas!']);
-				endif;
-			endif;
-			/* $id_header_left = */ $id_header->
-				addDIV(attributes: ['id' => 'headerlogo'])->
-					addA(attributes: $a_attributes)->
-						insIMG(attributes: $img_attributes);
 		endif;
 		return $this;
 	}

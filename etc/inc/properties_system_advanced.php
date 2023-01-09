@@ -257,23 +257,6 @@ class properties_system_advanced extends myp\container {
 	final public function get_motd() {
 		return $this->x_motd ?? $this->init_motd();
 	}
-	protected $x_shrinkpageheader;
-	public function init_shrinkpageheader() {
-		$property = $this->x_shrinkpageheader = new myp\property_bool($this);
-		$property->
-			set_name('shrinkpageheader')->
-			set_title(gettext('Shrink Page Header'));
-		$property->
-			set_id('shrinkpageheader')->
-			set_caption(gettext('Enable this option to reduce the height of the page header to a minimum for the duration of this session.'))->
-			set_description('')->
-			set_defaultvalue(false)->
-			filter_use_default();
-		return $property;
-	}
-	final public function get_shrinkpageheader() {
-		return $this->x_shrinkpageheader ?? $this->init_shrinkpageheader();
-	}
 	protected $x_sysconsaver;
 	public function init_sysconsaver() {
 		$property = $this->x_sysconsaver = new myp\property_bool($this);

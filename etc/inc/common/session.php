@@ -57,7 +57,6 @@ namespace common;
 	filter_time_id ----------> string  Filter for snapshot overview in disks_zfs_snapshot.php
 	g -----------------------> array   Global array containing session related information
 		headermenu ----------> array   Cache for header menu
-		shrinkpageheader ----> boolean Set this to true to suppress the header
 	kern.cp_times.{id} ------> system_get_cpu_usage
 	kern.cp_times.{id} ------> system_get_smp_cpu_usage
 	{scriptname} ------------> int     Return value of 'Apply' action
@@ -134,7 +133,6 @@ class session {
 				$_SESSION['uname'] = $uname;
 				$_SESSION['tz'] = $timezone;
 				$_SESSION['g'] = [
-					'shrinkpageheader' => false,
 					'headermenu' => []
 				];
 				break;
