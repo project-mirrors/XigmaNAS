@@ -358,6 +358,7 @@ $(window).on("load", function() {
 		<?=$sphere->html_button_delete_rows();?>
 		<?=html_button('rescanbusses',gettext('Rescan Busses'));?>
 	</div>
+	<div class="gap"></div>
 	<table class="area_data_settings">
 		<colgroup>
 			<col class="area_data_settings_col_tag">
@@ -365,7 +366,6 @@ $(window).on("load", function() {
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('Import Disks'));
 ?>
 		</thead>
@@ -379,6 +379,7 @@ $(window).on("load", function() {
 	<div id="submit">
 		<?=html_button('import',gettext('Import'));?>
 	</div>
+	<div class="gap"></div>
 	<table class="area_data_settings">
 		<colgroup>
 			<col class="area_data_settings_col_tag">
@@ -386,7 +387,6 @@ $(window).on("load", function() {
 		</colgroup>
 		<thead>
 <?php
-			html_separator2();
 			html_titleline2(gettext('Import Software RAID Disks'));
 ?>
 		<tbody>
