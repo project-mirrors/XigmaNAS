@@ -181,3 +181,8 @@ etc/inc/fm_user.php
 usr/local/lib/php/extensions/no-debug-non-zts-20210902/apcu.so
 usr/local/lib/php/extensions/no-debug-non-zts-20210902/opcache.so
 usr/local/lib/php/extensions/no-debug-non-zts-20210902
+# 9566
+usr/local/www/images/announcement12.gif
+usr/local/www/images/header_bg.png
+usr/local/www/images/header_logo.png
+usr/local/www/images/header_rlogo.png
