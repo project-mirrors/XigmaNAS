@@ -201,6 +201,7 @@ $document->render();
 <?php
 	else:
 ?>
+		<div class="gap"></div>
 		<table class="area_data_settings">
 			<colgroup>
 				<col class="area_data_settings_col_tag">
@@ -325,6 +326,7 @@ $document->render();
 //		output
 		if($handle):
 ?>
+			<div class="gap"></div>
 			<table class="area_data_settings">
 				<colgroup>
 					<col class="area_data_settings_col_tag">
@@ -378,6 +380,7 @@ $document->render();
 ?>
 				</tbody>
 			</table>
+			<div class="gap"></div>
 			<table class="area_data_settings">
 				<colgroup>
 					<col class="area_data_settings_col_tag">
@@ -418,6 +421,7 @@ $document->render();
 ?>
 				</tbody>
 			</table>
+			<div class="gap"></div>
 			<table class="area_data_settings">
 				<colgroup>
 					<col class="area_data_settings_col_tag">
@@ -439,6 +443,7 @@ $document->render();
 ?>
 				</tbody>
 			</table>
+			<div class="gap"></div>
 			<table class="area_data_settings">
 				<colgroup>
 					<col class="area_data_settings_col_tag">
@@ -473,6 +478,7 @@ $document->render();
 ?>
 				</tbody>
 			</table>
+			<div class="gap"></div>
 			<table class="area_data_settings">
 				<colgroup>
 					<col class="area_data_settings_col_tag">
@@ -500,6 +506,7 @@ $document->render();
 ?>
 				</tbody>
 			</table>
+			<div class="gap"></div>
 			<table class="area_data_settings">
 				<colgroup>
 					<col class="area_data_settings_col_tag">
@@ -548,6 +555,7 @@ $document->render();
 ?>
 				</tbody>
 			</table>
+			<div class="gap"></div>
 			<table class="area_data_settings">
 				<colgroup>
 					<col class="area_data_settings_col_tag">
@@ -568,6 +576,7 @@ $document->render();
 ?>
 				</tbody>
 			</table>
+			<div class="gap"></div>
 			<table class="area_data_settings">
 				<colgroup>
 					<col class="area_data_settings_col_tag">
@@ -585,6 +594,7 @@ $document->render();
 ?>
 				</tbody>
 			</table>
+			<div class="gap"></div>
 			<table class="area_data_settings">
 				<colgroup>
 					<col class="area_data_settings_col_tag">
