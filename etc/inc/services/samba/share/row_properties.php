@@ -36,7 +36,7 @@ namespace services\samba\share;
 
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_afpcompat(): myp\property_bool {
 		$caption = gettext('Enable');
 		$property = parent::init_afpcompat();

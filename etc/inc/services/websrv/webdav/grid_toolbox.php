@@ -96,6 +96,14 @@ class grid_toolbox extends myt\grid_toolbox {
 		return $rmo;
 	}
 /**
+ *	Create the properties object
+ *	@return grid_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new grid_properties();
+		return $cop;
+	}
+/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg

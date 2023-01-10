@@ -66,6 +66,14 @@ class row_toolbox extends myt\row_toolbox {
 	public static function init_rmo() {
 		return myr\rmo_row_templates::rmo_with_clone();
 	}
+/**
+ *	Create the properties object
+ *	@return row_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new row_properties();
+		return $cop;
+	}
 	public static function render(row_properties $cop,mys\row $sphere,int $record_mode,bool $prerequisites_ok) {
 		global $input_errors;
 		global $errormsg;

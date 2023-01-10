@@ -60,7 +60,7 @@ use function write_config;
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox extends myt\grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\grid
@@ -98,6 +98,14 @@ final class grid_toolbox extends myt\grid_toolbox {
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
+	}
+/**
+ *	Create the properties object
+ *	@return grid_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new grid_properties();
+		return $cop;
 	}
 /**
  *	Render the page
@@ -210,7 +218,7 @@ final class grid_toolbox extends myt\grid_toolbox {
  *	@param mys\root $sphere
  *	@param myr\rmo $rmo
  */
-	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
 		global $input_errors;
 		global $errormsg;

@@ -36,6 +36,7 @@ namespace services\unisond;
 
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 use const PAGE_MODE_EDIT;
 use const PAGE_MODE_POST;
@@ -44,10 +45,10 @@ use const PAGE_MODE_VIEW;
 /**
  *	Wrapper class for autoloading functions
  */
-final class setting_toolbox {
+class setting_toolbox extends myt\setting_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		$sphere = new mys\settings();
@@ -59,8 +60,8 @@ final class setting_toolbox {
 /**
  *	Create the request method object
  *	@param setting_properties $cop
- *	@param \common\sphere\settings $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@param mys\settings $sphere
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
 		$rmo = new myr\rmo();

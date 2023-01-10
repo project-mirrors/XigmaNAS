@@ -54,6 +54,14 @@ class grid_toolbox extends myt\grid_toolbox {
 		return $sphere;
 	}
 /**
+ *	Create the properties object
+ *	@return grid_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new grid_properties();
+		return $cop;
+	}
+/**
  *	Returns an array of /usr/local/etc/nut/driver.list
  *	@return array
  */
