@@ -818,7 +818,7 @@ function get_headermenu(): array {
 		$isAdminSession = session::is_admin();
 //		home
 		$menu_name = 'home';
-		$menu[$menu_name] = ['type' => 'internal','visible' => true,'img' => '','symbol' => null,'description' => "\u{1F3E0}",'link' => '/index.php','menuitem' => []];
+		$menu[$menu_name] = ['type' => 'internal','visible' => true,'img' => '','symbol' => "\u{1F3E0}",'description' => gettext('Home'),'link' => '/index.php','menuitem' => []];
 //		system
 		$menu_name = 'system';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => true,'img' => '','symbol' => "\u{2699}\u{FE0F}",'description' => gettext('System'),'link' => '','menuitem' => []];
@@ -827,7 +827,7 @@ function get_headermenu(): array {
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Advanced'),'link' => '/system_advanced.php'];
 		$menu_items[] = ['type' => 'internal','visible' => !$isAdminSession,'description' => gettext('Password'),'link' => '/userportal_system_password.php'];
 		$menu_items[] = ['type' => 'separator','visible' => $isAdminSession,'description' => '','link' => '/index.php'];
-		if('full' == $g['platform']):
+		if($g['platform'] === 'full'):
 			if($g['zroot']):
 				$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Firmware Update'),'link' => '/system_firmware.php'];
 			endif;
@@ -876,7 +876,7 @@ function get_headermenu(): array {
 		$menu_name = 'services';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','symbol' => "\u{1F9F0}",'description' => gettext('Services'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
-		if('dom0' !== $g['arch']):
+		if($g['arch'] !== 'dom0'):
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('HAST'),'link' => '/services_hast.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Samba AD'),'link' => '/services_samba_ad.php'];
 			$menu_items[] = ['type' => 'separator','visible' => $isAdminSession,'description' => '','link' => '/index.php'];
@@ -909,7 +909,7 @@ function get_headermenu(): array {
 		endif;
 		unset($menu_items);
 //		virtualization
-		if('x64' == $g['arch']):
+		if($g['arch'] === 'x64'):
 			$menu_name = 'vm';
 			$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','symbol' => "\u{1F3D7}\u{FE0F}",'description' => gettext('Virtualization'),'link' => '','menuitem' => []];
 			$menu_items = &$menu[$menu_name]['menuitem'];
@@ -921,7 +921,7 @@ function get_headermenu(): array {
 		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','symbol' => "\u{1F510}",'description' => gettext('Access'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Users & Groups'),'link' => '/access_users.php'];
-		if('dom0' !== $g['arch']):
+		if($g['arch'] !== 'dom0'):
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Active Directory'),'link' => '/access_ad.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('LDAP'),'link' => '/access_ldap.php'];
 			$menu_items[] = ['type' => 'internal','visible' => false,'description' => gettext('NIS'),'link' => '/notavailable.php'];
@@ -1092,6 +1092,7 @@ function make_headermenu() {
 	make_headermenu_extensions($menu); // function cares about access rights itself
 	$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 	$output[] = '<nav id="navhdr">';
+	$output[] = '<ul><li><a onclick="">' . "\u{2630}" . '</a>';
 	$output[] = '<ul>';
 	foreach($menu_list as $menuid):
 		if($menu[$menuid]['visible']): // render menu when visible
@@ -1172,6 +1173,7 @@ function make_headermenu() {
 		endif;
 	endforeach;
 	$output[] = '</ul>';
+	$output[] = '</li></ul>';
 	$output[] = '</nav>';
 	return implode('',$output);
 }

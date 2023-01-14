@@ -2081,7 +2081,11 @@ EOJ;
 //		function cares about access rights itself
 		make_headermenu_extensions($menu);
 		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
-		$ul_h = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL();
+		$ul_top = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL();
+		$li_top = $ul_top->addLI();
+		$attributes = ['onclick' => ''];
+		$li_top->addA(attributes: $attributes,value: "\u{2630}");
+		$ul_h = $li_top->addUL();
 		foreach($menu_list as $menuid):
 			if($menu[$menuid]['visible']):
 //				render menu when visible
@@ -2161,8 +2165,8 @@ EOJ;
 	}
 	public function ins_header(array $page_title = []) {
 		$header = $this->addElement(name: 'header',attributes: ['id' => 'g4h']);
-		$header->ins_header_menu();
 		$header->addDIV(attributes: ['id' => 'gapheader']);
+		$header->ins_header_menu();
 		if(!empty($page_title)):
 			$header->addDIV(attributes: ['id' => 'pgtitle'])->addP(attributes: ['class' => 'pgtitle'],value: $this->clc_page_title($page_title));
 		endif;

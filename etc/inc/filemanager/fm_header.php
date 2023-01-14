@@ -84,8 +84,8 @@ trait fm_header {
 		echo '<div id="spinner_main"></div>',"\n";
 		echo '<div id="spinner_overlay" style="display: none; background-color: white; position: fixed; left:0; top:0; height:100%; width:100%; opacity: 0.25;"></div>',"\n";
 		echo '<header id="g4h">',"\n";
-		display_headermenu();
 		echo '<div id="gapheader"></div>',"\n";
+		display_headermenu();
 //		QuiXplorer Header
 		if(!isset($pgtitle_omit) || !$pgtitle_omit):
 			echo '<p class="pgtitle" style="padding:0em 2em;">',gentitle($pgtitle),'</p>',"\n";
