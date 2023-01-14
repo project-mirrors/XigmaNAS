@@ -119,20 +119,19 @@ Changes:
 - Upgrade sudo to v1.9.12p1.
 - Upgrade iperf3 to v3.12.
 - Upgrade devcpu-data-intel to v20221108.
-- Upgrade nut to v2022.11.16.
 - Upgrade zoneinfo to 2022g.
 - Upgrade proftpd to v1.3.7f.
 - Upgrade arcconf to vB25611.
 - Upgrade lcdproc to v2021.12.20.
 - Upgrade nano to v7.1.
 - Upgrade jquery to v3.6.3.
-- Upgrade nut to v2022.12.20.
 - Upgrade bash to v5.2p15.
 - Upgrade rsync to v3.2.7.
 - Upgrade cdialog to v1.3-20221229.
 - Upgrade lighttpd to v1.4.68.
 - Upgrade syncthing to v1.23.0.
 - Upgrade php to v8.2.1.
+- Upgrade nut to v2023.01.02.
 
 Fixes:
 - fix bring up lighttpd at all times.
