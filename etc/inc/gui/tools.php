@@ -2081,27 +2081,30 @@ EOJ;
 //		function cares about access rights itself
 		make_headermenu_extensions($menu);
 		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
-		$ul_top = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL();
-		$li_top = $ul_top->addLI();
-		$attributes = ['onclick' => ''];
+		$ul_top = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL(['class' => 'lev1']);
+		$li_top = $ul_top->addLI(['class' => 'lev1']);
+		$attributes = ['class' => 'lev1','onclick' => ''];
 		$li_top->addA(attributes: $attributes,value: "\u{2630}");
-		$ul_h = $li_top->addUL();
+		$ul_h = $li_top->addUL(['class' => 'lev2']);
 		foreach($menu_list as $menuid):
 			if($menu[$menuid]['visible']):
 //				render menu when visible
-				$li_h = $ul_h->addLI();
+				$li_h = $ul_h->addLI(['class' => 'lev2']);
 				$attributes = [];
 				switch($menu[$menuid]['type']):
 					case 'external':
+						$attributes['class'] = 'lev2';
 						$attributes['href'] = $menu[$menuid]['link'];
 						$attributes['target'] = '_blank';
 						$attributes['rel'] = 'noreferrer';
 						break;
 					case 'internal':
+						$attributes['class'] = 'lev2';
 						$attributes['href'] = $menu[$menuid]['link'];
 						$attributes['onclick'] = 'spinner()';
 						break;
 					case 'nolink':
+						$attributes['class'] = 'lev2';
 						$attributes['onclick'] = '';
 						break;
 				endswitch;
@@ -2124,15 +2127,16 @@ EOJ;
 						addA(attributes: $attributes)->insIMG(attributes: ['src' => $menu[$menuid]['img'],'title' => $menu[$menuid]['description'],'alt' => $menu[$menuid]['description']]);
 				endif;
 				if(!empty($menu[$menuid]['menuitem'])):
-					$ul_v = $li_h->addUL();
+					$ul_v = $li_h->addUL(['class' => 'lev3']);
 //					Display menu items.
 					foreach($menu[$menuid]['menuitem'] as $menu_item):
 						if($menu_item['visible']):
 //							render menuitem when visible
-							$li_v = $ul_v->addLI();
+							$li_v = $ul_v->addLI(['class' => 'lev3']);
+							$a_attributes = [];
 							switch($menu_item['type']):
 								case 'external':
-									$a_attributes = [];
+									$a_attributes['class'] = 'lev3';
 									$a_attributes['href'] = $menu_item['link'];
 									$a_attributes['target'] = '_blank';
 									$a_attributes['rel'] = 'noreferrer';
@@ -2143,7 +2147,7 @@ EOJ;
 									$li_v->insA(attributes: $a_attributes,value: $menu_item['description']);
 									break;
 								case 'internal':
-									$a_attributes = [];
+									$a_attributes['class'] = 'lev3';
 									$a_attributes['href'] = $menu_item['link'];
 									$a_attributes['target'] = '_self';
 									if(preg_match($hard_link_regex,$menu_item['link']) !== 1):
@@ -2153,7 +2157,8 @@ EOJ;
 									$li_v->insA(attributes: $a_attributes,value: $menu_item['description']);
 									break;
 								case 'separator':
-									$li_v->insSPAN(attributes: ['class' => 'tabseparator']);
+									$a_attributes['class'] = 'lev3 tabseparator';
+									$li_v->insSPAN(attributes: $a_attributes);
 									break;
 							endswitch;
 						endif;

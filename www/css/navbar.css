@@ -71,20 +71,29 @@
 	margin: 0;
 	padding: 0;
 	flex-flow: column wrap;
+}
+
+#navhdr ul.lev1
+{
 	z-index: 10;
 }
 
-#navhdr ul ul
+#navhdr ul.lev2,
+#navhdr ul.lev3
 {
 	display: none;
 	left: 100%;
 	top: 0;
-	max-height: 70vh;
 	opacity: 97%;
+}
+
+#navhdr ul.lev2
+{
+	max-height: 70vh;
 	z-index: 20;
 }
 
-#navhdr ul ul ul
+#navhdr ul.lev3
 {
 	max-height: 45vh;
 	z-index: 30;
@@ -94,21 +103,30 @@
 {
 	position: relative;
 	width: 100%;
+}
+
+#navhdr li.lev1
+{
 	padding: 0 0.2em;
 	background-color: transparent;
 	background-color: var(--bgc-nav);
 	text-align: center;
 }
 
-#navhdr li li
+#navhdr li.lev2,
+#navhdr li.lev3
 {
 	padding: 0.2em 0.5em;
-	background-color: #95A7C0;
-	background-color: var(--bgc-nav-sub);
 	text-align: left;
 }
 
-#navhdr li li li
+#navhdr li.lev2
+{
+	background-color: #95A7C0;
+	background-color: var(--bgc-nav-sub);
+}
+
+#navhdr li.lev3
 {
 	background-color: #6A83A7;
 	background-color: var(--bgc-nav-sub-sub);
@@ -116,27 +134,33 @@
 
 #navhdr a
 {
-/* make li clickable full width */
 	display: block;
 	width: 100%;
 	background-color: transparent;
 	background-color: var(--bgc-nav);
 	white-space: nowrap;
-	color: white;
-	color: var(--txc-nav-sub);
+	text-decoration: none;
 }
 
-#navhdr > ul > li > a
+#navhdr a.lev1
 {
 	color: #777777;
 	color: var(--txc-nav);
 }
 
+#navhdr a.lev2,
+#navhdr a.lev3
+{
+	color: white;
+	color: var(--txc-nav-sub);
+}
+
+
 #navhdr span.tabseparator
 {
+	display: block;
 	background-color: #AAAAAA;
 	background-color: var(--bgc-nav-sub-separator);
-	display: block;
 	line-height: 0.091em;
 	height: 0.091em;
 }

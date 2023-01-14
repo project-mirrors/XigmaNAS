@@ -1092,23 +1092,26 @@ function make_headermenu() {
 	make_headermenu_extensions($menu); // function cares about access rights itself
 	$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 	$output[] = '<nav id="navhdr">';
-	$output[] = '<ul><li><a onclick="">' . "\u{2630}" . '</a>';
-	$output[] = '<ul>';
+	$output[] = '<ul class="lev1"><li class="lev1"><a class="lev1" onclick="">' . "\u{2630}" . '</a>';
+	$output[] = '<ul class="lev2">';
 	foreach($menu_list as $menuid):
 		if($menu[$menuid]['visible']): // render menu when visible
-			$output[] = '<li>';
+			$output[] = '<li class="lev2">';
 			$a_tag = [];
 			switch($menu[$menuid]['type']):
 				case 'external':
+					$a_tag['class'] = 'class="lev2"';
 					$a_tag['href'] = sprintf('href="%s"',htmlspecialchars($menu[$menuid]['link']));
 					$a_tag['target'] = sprintf('target="%s"','_blank');
 					$a_tag['rel'] = sprintf('rel=%s','noreferrer');
 					break;
 				case 'internal':
+					$a_tag['class'] = 'class="lev2"';
 					$a_tag['href'] = sprintf('href="%s"',htmlspecialchars($menu[$menuid]['link']));
 					$a_tag['onclick'] = sprintf('onclick="%s"','spinner()');
 					break;
 				case 'nolink':
+					$a_tag['class'] = 'class="lev2"';
 					$a_tag['onclick'] = 'onclick=""';
 					break;
 			endswitch;
@@ -1134,34 +1137,34 @@ function make_headermenu() {
 				$output[] = sprintf('<a %s>%s</a>',$tags,$value);
 			endif;
 			if(!empty($menu[$menuid]['menuitem'])):
-				$output[] = '<ul>';
+				$output[] = '<ul class="lev3">';
 //				Display menu items.
 				foreach($menu[$menuid]['menuitem'] as $menu_item):
 					if($menu_item['visible']): // render menuitem when visible
-						$output[] = '<li>';
+						$output[] = '<li class="lev3">';
 						switch($menu_item['type']):
 							case 'external':
 								$link = $menu_item['link'];
 								if(preg_match($hard_link_regex,$link) === 1):
 //									hard link = no spinner
-									$output[] = sprintf('<a href="%s" target="_blank" rel="noreferrer">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
+									$output[] = sprintf('<a class="lev3" href="%s" target="_blank" rel="noreferrer">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
 								else:
 //									local link = spinner
-									$output[] = sprintf('<a href="%s" target="_blank" onclick="spinner()">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
+									$output[] = sprintf('<a class="lev3" href="%s" target="_blank" onclick="spinner()">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
 								endif;
 								break;
 							case 'internal':
 								$link = $menu_item['link'];
 								if(preg_match($hard_link_regex,$link) === 1):
 //									hard link = no spinner
-									$output[] = sprintf('<a href="%s" target="_self">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
+									$output[] = sprintf('<a class="lev3" href="%s" target="_self">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
 								else:
 //									local link = spinner
-									$output[] = sprintf('<a href="%s" target="_self" onclick="spinner()">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
+									$output[] = sprintf('<a class="lev3" href="%s" target="_self" onclick="spinner()">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
 								endif;
 								break;
 							case 'separator':
-								$output[] = '<span class="tabseparator"></span>';
+								$output[] = '<span class="lev3 tabseparator"></span>';
 								break;
 						endswitch;
 						$output[] = '</li>';
