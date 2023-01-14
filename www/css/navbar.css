@@ -58,8 +58,10 @@
 
 #navhdr
 {
-  position: absolute;
-  z-index: 10;
+	position: absolute;
+	z-index: 10;
+	font-size: 1.2em;
+	font-weight: normal;
 }
 
 #navhdr ul
@@ -70,8 +72,6 @@
 	padding: 0;
 	flex-flow: column wrap;
 	z-index: 10;
-	font-size: 1em;
-	font-weight: normal;
 }
 
 #navhdr ul ul
@@ -157,5 +157,5 @@
 
 #navhdr li:hover > ul
 {
-  display: flex;
+	display: flex;
 }
