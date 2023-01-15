@@ -113,15 +113,9 @@
 	text-align: center;
 }
 
-#navhdr li.lev2,
-#navhdr li.lev3
-{
-	padding: 0.2em 0.5em;
-	text-align: left;
-}
-
 #navhdr li.lev2
 {
+	padding: 0.2em 0.5em;
 	background-color: #95A7C0;
 	background-color: var(--bgc-nav-sub);
 }
@@ -131,8 +125,19 @@
 	text-align: center;
 }
 
+#navhdr li.lev2st
+{
+	text-align: left;
+}
+
+#navhdr li.lev2to
+{
+	text-align: left;
+}
+
 #navhdr li.lev3
 {
+	padding: 0.2em 0.5em;
 	background-color: #6A83A7;
 	background-color: var(--bgc-nav-sub-sub);
 }
