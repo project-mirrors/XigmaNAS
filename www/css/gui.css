@@ -499,11 +499,6 @@ input[type='checkbox']:checked ~ div.hideifchecked
 	margin-top: 0.3em;
 }
 
-.formprero
-{
-	background-color: transparent;
-}
-
 .formbtn
 {
 	font-weight: bold;
