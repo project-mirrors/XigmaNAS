@@ -1093,25 +1093,36 @@ function make_headermenu() {
 	$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 	$output[] = '<nav id="navhdr">';
 	$output[] = '<ul class="lev1"><li class="lev1"><a class="lev1" onclick="">' . "\u{2630}" . '</a>';
-	$output[] = '<ul class="lev2">';
+	switch($navbartoplevelstyle):
+		case 'symbol':
+			$class_lev2 = 'lev2 lev2so';
+			break;
+		case 'symbolandtext':
+			$class_lev2 = 'lev2 lev2st';
+			break;
+		default:
+			$class_lev2 = 'lev2 lev2to';
+			break;
+	endswitch;
+	$output[] = sprintf('<ul class="%s">',$class_lev2);
 	foreach($menu_list as $menuid):
 		if($menu[$menuid]['visible']): // render menu when visible
-			$output[] = '<li class="lev2">';
+			$output[] = sprintf('<li class="%s">',$class_lev2);
 			$a_tag = [];
 			switch($menu[$menuid]['type']):
 				case 'external':
-					$a_tag['class'] = 'class="lev2"';
+					$a_tag['class'] = sprintf('class="%s"',$class_lev2);
 					$a_tag['href'] = sprintf('href="%s"',htmlspecialchars($menu[$menuid]['link']));
 					$a_tag['target'] = sprintf('target="%s"','_blank');
 					$a_tag['rel'] = sprintf('rel=%s','noreferrer');
 					break;
 				case 'internal':
-					$a_tag['class'] = 'class="lev2"';
+					$a_tag['class'] = sprintf('class="%s"',$class_lev2);
 					$a_tag['href'] = sprintf('href="%s"',htmlspecialchars($menu[$menuid]['link']));
 					$a_tag['onclick'] = sprintf('onclick="%s"','spinner()');
 					break;
 				case 'nolink':
-					$a_tag['class'] = 'class="lev2"';
+					$a_tag['class'] = sprintf('class="%s"',$class_lev2);
 					$a_tag['onclick'] = 'onclick=""';
 					break;
 			endswitch;

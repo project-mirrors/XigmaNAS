@@ -126,6 +126,11 @@
 	background-color: var(--bgc-nav-sub);
 }
 
+#navhdr li.lev2so
+{
+	text-align: center;
+}
+
 #navhdr li.lev3
 {
 	background-color: #6A83A7;

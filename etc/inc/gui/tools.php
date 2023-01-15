@@ -2085,26 +2085,37 @@ EOJ;
 		$li_top = $ul_top->addLI(['class' => 'lev1']);
 		$attributes = ['class' => 'lev1','onclick' => ''];
 		$li_top->addA(attributes: $attributes,value: "\u{2630}");
-		$ul_h = $li_top->addUL(['class' => 'lev2']);
+		switch($navbartoplevelstyle):
+			case 'symbol':
+				$class_lev2 = 'lev2 lev2so';
+				break;
+			case 'symbolandtext':
+				$class_lev2 = 'lev2 lev2st';
+				break;
+			default:
+				$class_lev2 = 'lev2 lev2to';
+				break;
+		endswitch;
+		$ul_h = $li_top->addUL(['class' => $class_lev2]);
 		foreach($menu_list as $menuid):
 			if($menu[$menuid]['visible']):
 //				render menu when visible
-				$li_h = $ul_h->addLI(['class' => 'lev2']);
+				$li_h = $ul_h->addLI(['class' => $class_lev2]);
 				$attributes = [];
 				switch($menu[$menuid]['type']):
 					case 'external':
-						$attributes['class'] = 'lev2';
+						$attributes['class'] = $class_lev2;
 						$attributes['href'] = $menu[$menuid]['link'];
 						$attributes['target'] = '_blank';
 						$attributes['rel'] = 'noreferrer';
 						break;
 					case 'internal':
-						$attributes['class'] = 'lev2';
+						$attributes['class'] = $class_lev2;
 						$attributes['href'] = $menu[$menuid]['link'];
 						$attributes['onclick'] = 'spinner()';
 						break;
 					case 'nolink':
-						$attributes['class'] = 'lev2';
+						$attributes['class'] = $class_lev2;
 						$attributes['onclick'] = '';
 						break;
 				endswitch;
