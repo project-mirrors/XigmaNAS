@@ -467,6 +467,7 @@ input[type='checkbox']:checked ~ div.hideifchecked
 	display: none;
 }
 
+.formpre,
 .formfld
 {
 	color: #000000;
@@ -477,6 +478,7 @@ input[type='checkbox']:checked ~ div.hideifchecked
 	border: var(--bop-input-rw);
 }
 
+.formprero,
 .formfldro
 {
 	color: #000000;
