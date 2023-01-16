@@ -119,6 +119,10 @@
 	--txc-input-ro: #000000;
 	--bgc-input-ro: transparent;
 	--bop-input-ro: 1px outset #EEEEEE;
+
+	--txc-input-checkbox: #474747;
+
+	--txc-input-radio: #474747;
 /*
 	gap
 */
@@ -162,6 +166,16 @@ textarea,
 {
 	font-family: inherit;
 	font-size: 1em !important;
+}
+
+input[type="checkbox"]
+{
+	accent-color: var(--txc-input-checkbox);
+}
+
+input[type="radio"]
+{
+	accent-color: var(--txc-input-radio);
 }
 
 body,
@@ -416,8 +430,8 @@ pre.cmdoutput
 	display: block;
 }
 
-.celldatacheckbox input[type='checkbox'],
-.celldataradio input[type='radio']
+.celldatacheckbox input[type="checkbox"],
+.celldataradio input[type="radio"]
 {
 	float: left;
 	width: 1.2em;
@@ -455,14 +469,14 @@ pre.cmdoutput
 	display: block;
 }
 
-input[type='radio']:checked ~ div.showifchecked,
-input[type='checkbox']:checked ~ div.showifchecked
+input[type="radio"]:checked ~ div.showifchecked,
+input[type="checkbox"]:checked ~ div.showifchecked
 {
 	display: block;
 }
 
-input[type='radio']:checked ~ div.hideifchecked,
-input[type='checkbox']:checked ~ div.hideifchecked
+input[type="radio"]:checked ~ div.hideifchecked,
+input[type="checkbox"]:checked ~ div.hideifchecked
 {
 	display: none;
 }
