@@ -166,10 +166,11 @@ textarea,
 	font-size: 1em !important;
 }
 
+pre,
 .formpre,
 .formprero
 {
-	font-family: monospace;
+	font-family: monospace,monospace;
 }
 
 input[type="checkbox"]
@@ -251,7 +252,6 @@ p
 pre
 {
 	border: 0;
-	font-family: 'Courier New', Courier, monospace;
 	white-space: pre-wrap;
 	line-height: 1.2em;
 	font-size: 1em;
