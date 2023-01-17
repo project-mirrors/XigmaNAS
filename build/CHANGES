@@ -24,7 +24,7 @@ Changes:
 - Upgrade lighttpd to v1.4.68.
 - Upgrade syncthing to v1.23.0.
 - Upgrade php to v8.2.1.
-- Upgrade nut to v2023.01.02.
+- Upgrade nut to v2023.01.16.
 
 Fixes:
 - fix bring up lighttpd at all times.
