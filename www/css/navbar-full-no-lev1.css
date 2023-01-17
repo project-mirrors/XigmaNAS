@@ -1,5 +1,5 @@
 /*
-	navbar.css
+	navbar-no-lev1.css
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2023 XigmaNAS® <info@xigmanas.com>.
@@ -89,7 +89,10 @@
 
 #navhdr ul.lev2
 {
-	max-height: 70vh;
+	display: flex;
+	flex-flow: column nowrap;
+	max-height: inherit;
+	opacity: inherit;
 	z-index: 20;
 }
 
@@ -107,7 +110,7 @@
 
 #navhdr li.lev1
 {
-	padding: 0 0.2em;
+	padding: 0;
 	background-color: transparent;
 	background-color: var(--bgc-nav);
 	text-align: center;
@@ -115,9 +118,9 @@
 
 #navhdr li.lev2
 {
-	padding: 0.2em 0.5em;
-	background-color: #95A7C0;
-	background-color: var(--bgc-nav-sub);
+	padding: 0.2em 0.1em;
+	background-color: transparent;
+	background-color: var(--bgc-nav);
 }
 
 #navhdr li.lev2so
@@ -156,6 +159,7 @@
 
 #navhdr a.lev1
 {
+	display: none;
 	color: #777777;
 	color: var(--txc-nav);
 }

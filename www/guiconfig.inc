@@ -1152,9 +1152,9 @@ function make_headermenu() {
 //				Display menu items.
 				foreach($menu[$menuid]['menuitem'] as $menu_item):
 					if($menu_item['visible']): // render menuitem when visible
-						$output[] = '<li class="lev3">';
 						switch($menu_item['type']):
 							case 'external':
+								$output[] = '<li class="lev3">';
 								$link = $menu_item['link'];
 								if(preg_match($hard_link_regex,$link) === 1):
 //									hard link = no spinner
@@ -1163,8 +1163,10 @@ function make_headermenu() {
 //									local link = spinner
 									$output[] = sprintf('<a class="lev3" href="%s" target="_blank" onclick="spinner()">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
 								endif;
+								$output[] = '</li>';
 								break;
 							case 'internal':
+								$output[] = '<li class="lev3">';
 								$link = $menu_item['link'];
 								if(preg_match($hard_link_regex,$link) === 1):
 //									hard link = no spinner
@@ -1173,12 +1175,14 @@ function make_headermenu() {
 //									local link = spinner
 									$output[] = sprintf('<a class="lev3" href="%s" target="_self" onclick="spinner()">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
 								endif;
+								$output[] = '</li>';
 								break;
 							case 'separator':
+								$output[] = '<div class="lev3">';
 								$output[] = '<span class="lev3 tabseparator"></span>';
+								$output[] = '</div>';
 								break;
 						endswitch;
-						$output[] = '</li>';
 					endif;
 				endforeach;
 				$output[] = '</ul>';

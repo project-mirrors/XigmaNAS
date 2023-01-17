@@ -43,6 +43,7 @@ use DOMNode;
 use function calc_adddivsubmittodataframe;
 use function get_headermenu;
 use function get_product_copyright;
+use function get_product_url;
 use function make_headermenu_extensions;
 use function system_get_hostname;
 use function system_get_language_codeset;
@@ -2081,41 +2082,40 @@ EOJ;
 //		function cares about access rights itself
 		make_headermenu_extensions($menu);
 		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
-		$ul_top = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL(['class' => 'lev1']);
-		$li_top = $ul_top->addLI(['class' => 'lev1']);
-		$attributes = ['class' => 'lev1','onclick' => ''];
-		$li_top->addA(attributes: $attributes,value: "\u{2630}");
+		$ul_lev1 = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL(['class' => 'lev1']);
+		$li_lev1 = $ul_lev1->addLI(['class' => 'lev1']);
+		$li_lev1->addA(attributes: ['class' => 'lev1','onclick' => ''],value: "\u{2630}");
 		switch($navbartoplevelstyle):
 			case 'symbol':
-				$class_lev2 = 'lev2 lev2so';
+				$a_lev2_attributes = $li_lev2_attributes = $ul_lev2_attributes = ['class' => 'lev2 lev2so'];
 				break;
 			case 'symbolandtext':
-				$class_lev2 = 'lev2 lev2st';
+				$a_lev2_attributes = $li_lev2_attributes = $ul_lev2_attributes = ['class' => 'lev2 lev2st'];
 				break;
 			default:
-				$class_lev2 = 'lev2 lev2to';
+				$a_lev2_attributes = $li_lev2_attributes = $ul_lev2_attributes = ['class' => 'lev2 lev2to'];
 				break;
 		endswitch;
-		$ul_h = $li_top->addUL(['class' => $class_lev2]);
+		$ul_lev2 = $li_lev1->addUL($ul_lev2_attributes);
 		foreach($menu_list as $menuid):
 			if($menu[$menuid]['visible']):
 //				render menu when visible
-				$li_h = $ul_h->addLI(['class' => $class_lev2]);
-				$attributes = [];
+				$li_lev2 = $ul_lev2->addLI($li_lev2_attributes);
+				$attributes = $a_lev2_attributes;
 				switch($menu[$menuid]['type']):
 					case 'external':
-						$attributes['class'] = $class_lev2;
+						$attributes = $a_lev2_attributes;
 						$attributes['href'] = $menu[$menuid]['link'];
 						$attributes['target'] = '_blank';
 						$attributes['rel'] = 'noreferrer';
 						break;
 					case 'internal':
-						$attributes['class'] = $class_lev2;
+						$attributes = $a_lev2_attributes;
 						$attributes['href'] = $menu[$menuid]['link'];
 						$attributes['onclick'] = 'spinner()';
 						break;
 					case 'nolink':
-						$attributes['class'] = $class_lev2;
+						$attributes = $a_lev2_attributes;
 						$attributes['onclick'] = '';
 						break;
 				endswitch;
@@ -2132,44 +2132,39 @@ EOJ;
 							$value = $menu[$menuid]['description'];
 							break;
 					endswitch;
-					$li_h->addA(attributes: $attributes,value: $value);
+					$li_lev2->addA(attributes: $attributes,value: $value);
 				else:
-					$li_h->
-						addA(attributes: $attributes)->insIMG(attributes: ['src' => $menu[$menuid]['img'],'title' => $menu[$menuid]['description'],'alt' => $menu[$menuid]['description']]);
+					$li_lev2->addA(attributes: $attributes)->insIMG(attributes: ['src' => $menu[$menuid]['img'],'title' => $menu[$menuid]['description'],'alt' => $menu[$menuid]['description']]);
 				endif;
 				if(!empty($menu[$menuid]['menuitem'])):
-					$ul_v = $li_h->addUL(['class' => 'lev3']);
+					$ul_lev3 = $li_lev2->addUL(['class' => 'lev3']);
 //					Display menu items.
 					foreach($menu[$menuid]['menuitem'] as $menu_item):
 						if($menu_item['visible']):
 //							render menuitem when visible
-							$li_v = $ul_v->addLI(['class' => 'lev3']);
-							$a_attributes = [];
+							$a_lev3_attributes = ['class' => 'lev3'];
 							switch($menu_item['type']):
 								case 'external':
-									$a_attributes['class'] = 'lev3';
-									$a_attributes['href'] = $menu_item['link'];
-									$a_attributes['target'] = '_blank';
-									$a_attributes['rel'] = 'noreferrer';
+									$a_lev3_attributes['href'] = $menu_item['link'];
+									$a_lev3_attributes['target'] = '_blank';
+									$a_lev3_attributes['rel'] = 'noreferrer';
 									if(preg_match($hard_link_regex,$menu_item['link']) !== 1):
 //										local link = spinner
-										$a_attributes['onclick'] = 'spinner()';
+										$a_lev3_attributes['onclick'] = 'spinner()';
 									endif;
-									$li_v->insA(attributes: $a_attributes,value: $menu_item['description']);
+									$ul_lev3->addLI(['class' => 'lev3'])->insA(attributes: $a_lev3_attributes,value: $menu_item['description']);
 									break;
 								case 'internal':
-									$a_attributes['class'] = 'lev3';
-									$a_attributes['href'] = $menu_item['link'];
-									$a_attributes['target'] = '_self';
+									$a_lev3_attributes['href'] = $menu_item['link'];
+									$a_lev3_attributes['target'] = '_self';
 									if(preg_match($hard_link_regex,$menu_item['link']) !== 1):
 //										local link = spinner
-										$a_attributes['onclick'] = 'spinner()';
+										$a_lev3_attributes['onclick'] = 'spinner()';
 									endif;
-									$li_v->insA(attributes: $a_attributes,value: $menu_item['description']);
+									$ul_lev3->addLI(['class' => 'lev3'])->insA(attributes: $a_lev3_attributes,value: $menu_item['description']);
 									break;
 								case 'separator':
-									$a_attributes['class'] = 'lev3 tabseparator';
-									$li_v->insSPAN(attributes: $a_attributes);
+									$ul_lev3->addDIV(['class' => 'lev3'])->insSPAN(attributes: ['class' => 'lev3 tabseparator']);
 									break;
 							endswitch;
 						endif;
