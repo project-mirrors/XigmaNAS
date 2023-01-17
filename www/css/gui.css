@@ -159,13 +159,17 @@ th,
 input,
 select,
 textarea,
-.formpre,
-.formprero,
 .formbtn,
 .label
 {
 	font-family: inherit;
 	font-size: 1em !important;
+}
+
+.formpre,
+.formprero
+{
+	font-family: monospace;
 }
 
 input[type="checkbox"]
