@@ -393,20 +393,22 @@ setifconfig()
 	${XML_CMD} sel --template \
 		--match "//vinterfaces/bridge" \
 			--value-of "if" \
-			--value-of "concat(' \"',mtu,'\"')" \
+			--if "string-length(mtu) > 0" \
+				--value-of "concat(' mtu ',mtu)" \
+			--else \
+				--output " mtu 1500" \
+			--break \
 			--match "bridgeif" \
 				--value-of "concat(' addm ',.)" \
 			--break \
-			--value-of "concat(' \"',extraoptions,'\"')" \
+			--if "string-length(extraoptions) > 0" \
+				--value-of "concat(' ',extraoptions)" \
+			--break \
 			--nl \
 		--break \
 		${configxml_file} | ${XML_CMD} unesc | \
-		while read _bridge _mtu _bridge_args; do
-			if [ "${_mtu}" = '""' ]; then
-				_mtu='"1500"';
-			fi
-			_mtu=$( echo ${_mtu} | sed -e 's/^"\(.*\)"$/\1/' )
-			_bridge_args="up mtu ${_mtu} ${_bridge_args}"
+		while read _bridge _bridge_args; do
+			_bridge_args="up ${_bridge_args}"
 			_bridge_addr=$( ${XML_CMD} sel --template \
 				--match "//interfaces/*[if = '${_bridge}']" \
 					--if "ipaddr[. = 'dhcp']" \
