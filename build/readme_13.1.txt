@@ -116,7 +116,6 @@ Changes:
 - Upgrade pecl-APCu to v5.1.22.
 - Upgrade python to v3.9.15.
 - Upgrade virtualbox-ose to v6.1.40.
-- Upgrade sudo to v1.9.12p1.
 - Upgrade iperf3 to v3.12.
 - Upgrade devcpu-data-intel to v20221108.
 - Upgrade zoneinfo to 2022g.
@@ -132,6 +131,7 @@ Changes:
 - Upgrade syncthing to v1.23.0.
 - Upgrade php to v8.2.1.
 - Upgrade nut to v2023.01.16.
+- Upgrade sudo to v1.9.12p2.
 
 Fixes:
 - fix bring up lighttpd at all times.
