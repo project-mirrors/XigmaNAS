@@ -25,6 +25,7 @@ Changes:
 - Upgrade php to v8.2.1.
 - Upgrade nut to v2023.01.16.
 - Upgrade sudo to v1.9.12p2.
+- Upgrade libvncserver to v0.9.14.
 
 Fixes:
 - fix bring up lighttpd at all times.
