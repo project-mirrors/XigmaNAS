@@ -443,7 +443,9 @@ setifconfig()
 			--value-of "if" \
 			--value-of "concat(' vhid ',vhid,' advskew ',advskew,' pass ',password)" \
 			--value-of "concat(' alias ',vipaddr,'/',vsubnet)" \
-			--value-of "concat(' \"',extraoptions,'\"')" \
+			--if "string-length(extraoptions) > 0" \
+				--value-of "concat(' ',extraoptions)" \
+			--break \
 			--nl \
 		--break \
 		${configxml_file} | ${XML_CMD} unesc | \
