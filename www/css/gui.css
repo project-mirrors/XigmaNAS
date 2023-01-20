@@ -183,6 +183,12 @@ input[type="radio"]
 	accent-color: var(--txc-input-radio);
 }
 
+input:read-only::placeholder,
+textarea:read-only::placeholder
+{
+	color: transparent;
+}
+
 body,
 div#gapheader,
 div#gapfooter
