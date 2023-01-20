@@ -180,7 +180,7 @@ $software = [
 	]],
 	['PHP',[
 		'A server-side scripting language (<a href="https://www.php.net" target="_blank" rel="noreferrer">https://www.php.net</a>).',
-		'Copyright © 1999-2022 The PHP Group. All Rights Reserved.'
+		'Copyright © 1999-2023 The PHP Group. All Rights Reserved.'
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
@@ -225,7 +225,7 @@ $software = [
 	]],
 	['sudo',[
 		'A tool to allow a sysadmin to give limited root privileges. (<a href="https://www.sudo.ws" target="_blank" rel="noreferrer">https://www.sudo.ws</a>).',
-		'Copyright © 1994-1996, 1998-2022 Todd C. Miller. All Rights Reserved.'
+		'Copyright © 1994-1996, 1998-2023 Todd C. Miller. All Rights Reserved.'
 	]],
 	['Syncthing',[
 		'Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. (<a href="https://syncthing.net" target="_blank" rel="noreferrer">https://syncthing.net</a>).',
