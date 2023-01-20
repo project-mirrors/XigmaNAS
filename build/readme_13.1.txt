@@ -122,7 +122,6 @@ Changes:
 - Upgrade proftpd to v1.3.7f.
 - Upgrade arcconf to vB25611.
 - Upgrade lcdproc to v2021.12.20.
-- Upgrade nano to v7.1.
 - Upgrade jquery to v3.6.3.
 - Upgrade bash to v5.2p15.
 - Upgrade rsync to v3.2.7.
@@ -133,6 +132,7 @@ Changes:
 - Upgrade nut to v2023.01.16.
 - Upgrade sudo to v1.9.12p2.
 - Upgrade libvncserver to v0.9.14.
+- Upgrade nano to v7.2.
 
 Fixes:
 - fix bring up lighttpd at all times.
