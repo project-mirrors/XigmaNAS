@@ -123,6 +123,16 @@
 	background-color: var(--bgc-nav);
 }
 
+#navhdr li.lev2:first-child
+{
+	padding-top: 0;
+}
+
+#navhdr li.lev2:last-child
+{
+	padding-bottom: 0;
+}
+
 #navhdr li.lev2so
 {
 	text-align: center;
@@ -171,7 +181,6 @@
 	color: var(--txc-nav-sub);
 }
 
-
 #navhdr span.tabseparator
 {
 	display: block;
@@ -195,7 +204,8 @@
 	color: var(--txc-nav-sub-hovered);
 }
 
-#navhdr li:hover > ul
+#navhdr li:hover > ul,
+#navhdr li:focus > ul
 {
 	display: flex;
 }

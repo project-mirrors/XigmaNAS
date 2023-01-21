@@ -191,7 +191,8 @@
 	color: var(--txc-nav-sub-hovered);
 }
 
-#navhdr li:hover > ul
+#navhdr li:hover > ul,
+#navhdr li:focus > ul
 {
 	display: flex;
 }
