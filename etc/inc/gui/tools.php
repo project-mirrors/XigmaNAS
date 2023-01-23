@@ -1129,7 +1129,6 @@ EOJ;
 			$div->
 				addA(attributes: ['href' => $link])->
 					insIMG(attributes: ['src' => $g_img['mod'],'title' => $sphere->getmsg_sym_mod(),'alt' => $sphere->getmsg_sym_mod(),'class' => 'spin oneemhigh']);
-			$div->addA(attributes: ['href' => $link,'title' => $sphere->getmsg_sym_mod()],value: $g_img['unicode.mod']);
 		elseif($notprotected):
 //			record is dirty
 			$div->
@@ -1164,7 +1163,6 @@ EOJ;
 			$div->
 				addA(attributes: ['href' => $link])->
 					insIMG(attributes: ['src' => $g_img['inf'],'title' => $sphere->getmsg_sym_inf(),'alt' => $sphere->getmsg_sym_inf(),'class' => 'spin oneemhigh']);
-//			$div->addA(attributes: ['href' => $link,'title' => $sphere->getmsg_sym_inf()],value: $g_img['unicode.inf']);
 		endif;
 		return $this;
 	}
