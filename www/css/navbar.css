@@ -43,7 +43,7 @@
 */
 	--txc-nav: #777777;
 	--bgc-nav: transparent;
-	--bop-nav: 0.091em solid black;
+	--bop-nav: 0.0625rem solid black;
 
 	--txc-nav-sub: white;
 	--bgc-nav-sub: #95A7C0;
@@ -60,7 +60,7 @@
 {
 	position: absolute;
 	z-index: 10;
-	font-size: 1.2em;
+	font-size: 1.25rem;
 	font-weight: normal;
 }
 
@@ -107,7 +107,10 @@
 
 #navhdr li.lev1
 {
-	padding: 0 0.2em;
+	width: 2rem;
+/*
+	padding: 0 0.1875rem;
+*/
 	background-color: transparent;
 	background-color: var(--bgc-nav);
 	text-align: center;
@@ -115,7 +118,7 @@
 
 #navhdr li.lev2
 {
-	padding: 0.2em 0.5em;
+	padding: 0.1875rem 0.5rem;
 	background-color: #95A7C0;
 	background-color: var(--bgc-nav-sub);
 }
@@ -138,7 +141,7 @@
 #navhdr div.lev3,
 #navhdr li.lev3
 {
-	padding: 0.2em 0.5em;
+	padding: 0.1875rem 0.5rem;
 	background-color: #6A83A7;
 	background-color: var(--bgc-nav-sub-sub);
 	text-align: left;
@@ -173,8 +176,8 @@
 	display: block;
 	background-color: #AAAAAA;
 	background-color: var(--bgc-nav-sub-separator);
-	line-height: 0.091em;
-	height: 0.091em;
+	line-height: 0.125rem;
+	height: 0.125rem;
 }
 
 #navhdr li:hover

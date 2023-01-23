@@ -1012,13 +1012,18 @@ class HTMLTitleLine2 extends HTMLBaseControl2 {
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
 //		compose
-		$attributes = [];
 		if(preg_match('/\S/',$ctrlname)):
-			$attributes['id'] = $ctrlname;
+			$tr_attributes['id'] = $ctrlname;
+		else:
+			$tr_attributes = [];
 		endif;
-		$tr = $anchor->addTR($attributes);
-		$attributes = ['class' => $this->GetClassOfTopic(),'colspan' => $this->GetColSpan()];
-		$th = $tr->addTH($attributes,$this->GetTitle());
+		$th_attributes = ['class' => $this->GetClassOfTopic(),'colspan' => $this->GetColSpan()];
+		$div_attributes = ['class' => 'cblot'];
+		$anchor->
+			addTR(attributes: $tr_attributes)->
+				addTH(attributes: $th_attributes)->
+					addDIV(attributes: $div_attributes)->
+						insSPAN(value: $this->GetTitle());
 		return $anchor;
 	}
 }
@@ -1054,20 +1059,21 @@ class HTMLTitleLineCheckBox2 extends HTMLCheckBox2 {
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
 //		compose
-		$attributes = ['id' => sprintf('%s_tr',$ctrlname)];
-		$tr = $anchor->addTR($attributes);
-		$attributes = ['class' => $this->GetClassOfTopic(),'colspan' => $this->GetColSpan()];
-		$th = $tr->addTH($attributes);
-		$attributes = ['style' => 'float:left'];
-		$spanleft = $th->addSPAN($attributes,$this->GetTitle());
-		$attributes = ['style' => 'float:right'];
-		$spanright = $th->addSPAN($attributes);
-		$label = $spanright->addElement('label');
-		$attributes = ['type' => 'checkbox','id' => $ctrlname,'name' => $ctrlname,'class' => 'formfld cblot','value' => 'yes'];
-		$this->getAttributes($attributes);
-		$label->insINPUT($attributes);
-		$attributes = ['class' => 'cblot'];
-		$label->addSPAN($attributes,$this->GetCaption());
+		$tr_attributes = ['id' => sprintf('%s_tr',$ctrlname)];
+		$th_attributes = ['class' => $this->GetClassOfTopic(),'colspan' => $this->GetColSpan()];
+		$div_attributes = ['class' => 'cblot'];
+		$label_attributes = ['class' => 'cblot'];
+		$input_attributes = ['type' => 'checkbox','id' => $ctrlname,'class' => 'cblot','name' => $ctrlname,'value' => 'yes'];
+		$this->getAttributes($input_attributes);
+		$span_attributes = ['class' => 'cblot'];
+		$anchor->
+			addTR(attributes: $tr_attributes)->
+				addTH(attributes: $th_attributes)->
+					addDIV(attributes: $div_attributes)->
+						insSPAN(value: $this->GetTitle())->
+						addElement(name: 'label',attributes: $label_attributes)->
+							insINPUT(attributes: $input_attributes)->
+							addSPAN(attributes: $span_attributes,value: $this->GetCaption());
 		return $anchor;
 	}
 }

@@ -496,10 +496,10 @@ trait tools {
 	}
 //	title macros
 	public function ins_titleline(string $title = null,int $colspan = 0,string $id = null) {
-		$tr_attributes = [];
-		$th_attributes = [];
 		if(!is_null($id) && preg_match('/\S/',$id)):
-			$tr_attributes['id'] = sprintf('%s_tr',$id);
+			$tr_attributes = ['id' => sprintf('%s_tr',$id)];
+		else:
+			$tr_attributes = [];
 		endif;
 		$th_attributes['class'] = 'lhetop';
 		if($this->option_exists(option: 'tablesort')):
@@ -507,32 +507,35 @@ trait tools {
 		endif;
 		if($colspan > 0):
 			$th_attributes['colspan'] = $colspan;
+		else:
+			$th_attributes = [];
 		endif;
-		$spanleft_attributes = ['style' => 'float:left'];
-		$this->addTR(attributes: $tr_attributes)->addTH(attributes: $th_attributes)->addSPAN(attributes: $spanleft_attributes,value: $title);
+		$div_attributes = ['class' => 'cblot'];
+		$this->
+			addTR(attributes: $tr_attributes)->
+				addTH(attributes: $th_attributes)->
+					addDIV(attributes: $div_attributes)->
+						insSPAN(value: $title);
 		return $this;
 	}
 	public function ins_titleline_with_checkbox(property $property,$value,bool $is_required = false,bool $is_readonly = false,string $title = '',int $colspan = 0) {
 		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
-		$tr_attributes = [];
-		$th_attributes = [];
-		$tr_attributes['id'] = sprintf('%s_tr',$property->get_id());
-		$th_attributes['class'] = 'lhetop';
+		$tr_attributes = ['id' => sprintf('%s_tr',$property->get_id())];
 		if($this->option_exists(option: 'tablesort')):
 			$tr_attributes['class'] = 'tablesorter-ignoreRow';
 		endif;
+		$th_attributes = ['class' => 'lhetop'];
 		if($colspan > 0):
 			$th_attributes['colspan'] = $colspan;
 		endif;
-		$spanleft_attributes = ['style' => 'float:left'];
-		$spanright_attributes = ['style' => 'float:right'];
+		$div_attributes = ['class' => 'cblot'];
+		$label_attributes = ['class' => 'cblot'];
 		$input_attributes = [
 			'type' => 'checkbox',
 			'id' => $property->get_id(),
+			'class' => 'cblot',
 			'name' => $property->get_name(),
-			'class' => 'formfld cblot',
-			'value' => 'yes',
-			'class' => 'oneemhigh'
+			'value' => 'yes'
 		];
 		if(isset($preset) && $preset):
 			$input_attributes['checked'] = 'checked';
@@ -548,9 +551,9 @@ trait tools {
 		$this->
 			addTR(attributes: $tr_attributes)->
 				addTH(attributes: $th_attributes)->
-					insSPAN(attributes: $spanleft_attributes,value: $title)->
-					addSPAN(attributes: $spanright_attributes)->
-						addElement(name: 'label')->
+					addDIV(attributes: $div_attributes)->
+						insSPAN(value: $title)->
+						addElement(attributes: $label_attributes,name: 'label')->
 							insINPUT(attributes: $input_attributes)->
 							addSPAN(attributes: $span_attributes,value: $property->get_caption());
 		return $this;
@@ -1126,6 +1129,7 @@ EOJ;
 			$div->
 				addA(attributes: ['href' => $link])->
 					insIMG(attributes: ['src' => $g_img['mod'],'title' => $sphere->getmsg_sym_mod(),'alt' => $sphere->getmsg_sym_mod(),'class' => 'spin oneemhigh']);
+			$div->addA(attributes: ['href' => $link,'title' => $sphere->getmsg_sym_mod()],value: $g_img['unicode.mod']);
 		elseif($notprotected):
 //			record is dirty
 			$div->
@@ -1160,6 +1164,7 @@ EOJ;
 			$div->
 				addA(attributes: ['href' => $link])->
 					insIMG(attributes: ['src' => $g_img['inf'],'title' => $sphere->getmsg_sym_inf(),'alt' => $sphere->getmsg_sym_inf(),'class' => 'spin oneemhigh']);
+//			$div->addA(attributes: ['href' => $link,'title' => $sphere->getmsg_sym_inf()],value: $g_img['unicode.inf']);
 		endif;
 		return $this;
 	}
@@ -2082,8 +2087,8 @@ EOJ;
 //		function cares about access rights itself
 		make_headermenu_extensions($menu);
 		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
-		$ul_lev1 = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL(['class' => 'lev1']);
-		$li_lev1 = $ul_lev1->addLI(['class' => 'lev1']);
+		$ul_lev1 = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL(attributes: ['class' => 'lev1']);
+		$li_lev1 = $ul_lev1->addLI(attributes: ['class' => 'lev1']);
 		$li_lev1->addA(attributes: ['class' => 'lev1','onclick' => ''],value: "\u{2630}");
 		switch($navbartoplevelstyle):
 			case 'symbol':
@@ -2096,11 +2101,11 @@ EOJ;
 				$a_lev2_attributes = $li_lev2_attributes = $ul_lev2_attributes = ['class' => 'lev2 lev2to'];
 				break;
 		endswitch;
-		$ul_lev2 = $li_lev1->addUL($ul_lev2_attributes);
+		$ul_lev2 = $li_lev1->addUL(attributes: $ul_lev2_attributes);
 		foreach($menu_list as $menuid):
 			if($menu[$menuid]['visible']):
 //				render menu when visible
-				$li_lev2 = $ul_lev2->addLI($li_lev2_attributes);
+				$li_lev2 = $ul_lev2->addLI(attributes: $li_lev2_attributes);
 				$attributes = $a_lev2_attributes;
 				switch($menu[$menuid]['type']):
 					case 'external':
@@ -2137,7 +2142,7 @@ EOJ;
 					$li_lev2->addA(attributes: $attributes)->insIMG(attributes: ['src' => $menu[$menuid]['img'],'title' => $menu[$menuid]['description'],'alt' => $menu[$menuid]['description']]);
 				endif;
 				if(!empty($menu[$menuid]['menuitem'])):
-					$ul_lev3 = $li_lev2->addUL(['class' => 'lev3']);
+					$ul_lev3 = $li_lev2->addUL(attributes: ['class' => 'lev3']);
 //					Display menu items.
 					foreach($menu[$menuid]['menuitem'] as $menu_item):
 						if($menu_item['visible']):
@@ -2152,7 +2157,7 @@ EOJ;
 //										local link = spinner
 										$a_lev3_attributes['onclick'] = 'spinner()';
 									endif;
-									$ul_lev3->addLI(['class' => 'lev3'])->insA(attributes: $a_lev3_attributes,value: $menu_item['description']);
+									$ul_lev3->addLI(attributes: ['class' => 'lev3'])->insA(attributes: $a_lev3_attributes,value: $menu_item['description']);
 									break;
 								case 'internal':
 									$a_lev3_attributes['href'] = $menu_item['link'];
@@ -2161,10 +2166,10 @@ EOJ;
 //										local link = spinner
 										$a_lev3_attributes['onclick'] = 'spinner()';
 									endif;
-									$ul_lev3->addLI(['class' => 'lev3'])->insA(attributes: $a_lev3_attributes,value: $menu_item['description']);
+									$ul_lev3->addLI(attributes: ['class' => 'lev3'])->insA(attributes: $a_lev3_attributes,value: $menu_item['description']);
 									break;
 								case 'separator':
-									$ul_lev3->addDIV(['class' => 'lev3'])->insSPAN(attributes: ['class' => 'lev3 tabseparator']);
+									$ul_lev3->addDIV(attributes: ['class' => 'lev3'])->insSPAN(attributes: ['class' => 'lev3 tabseparator']);
 									break;
 							endswitch;
 						endif;
