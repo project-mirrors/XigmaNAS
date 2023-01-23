@@ -88,7 +88,7 @@ trait fm_header {
 		display_headermenu();
 //		QuiXplorer Header
 		if(!isset($pgtitle_omit) || !$pgtitle_omit):
-			echo '<p class="pgtitle" style="padding:0em 2em;">',gentitle($pgtitle),'</p>',"\n";
+			echo '<div id="pgtitle">','<p class="pgtitle">',gentitle($pgtitle),'</p>','</div>',"\n";
 		endif;
 		echo '</header>',"\n",
 			'<main id="g4m2">',"\n".
