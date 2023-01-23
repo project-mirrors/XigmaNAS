@@ -82,7 +82,7 @@
 }
 div#area_tabnav
 {
-	padding: 0em 2em;
+	padding: 0 2rem;
 }
 td.tabnavtbl
 {
@@ -103,7 +103,7 @@ td.tabnavtbl li
 td.tabnavtbl a
 {
 	float: left;
-	font-size: 0.91em;
+	font-size: 0.9375rem;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -111,13 +111,13 @@ td.tabnavtbl span
 {
 	float: left;
 	display: block;
-	padding: 0.27em 0.64em 0.09em 0.64em;
+	padding: 0.25rem 0.625rem 0.0625rem 0.625rem;
 	white-space: nowrap;
-	height: 1.45em;
+	height: 1.4375rem;
 }
 td.tabnavtbl td
 {
-	font-size: 0.91em;
+	font-size: 0.9375rem;
 	font-weight: bold;
 	text-decoration: none;
 }
