@@ -104,7 +104,7 @@
 	opacity: 0.98;
 	border: 0.0625rem solid black;
 	border: var(--bop-nav);
-	font-size: 1rem;
+	font-size: 1.25rem;
 	font-weight: normal;
 	min-width: 14rem;
 	z-index: 10;
