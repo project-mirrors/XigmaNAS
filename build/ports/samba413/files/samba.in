@@ -329,9 +329,12 @@ samba_mkconf_cmd()
 		--break \
 		--if 'count(//samba/storedosattributes) > 0' \
 			--output 'store dos attributes = yes' --nl \
-		--elif 'count(//samba/mapdosattributes) > 0' \
-			--output 'map hidden = yes' --nl \
-			--output 'map system = yes' --nl \
+		--else \
+			--output 'store dos attributes = no' --nl \
+			--if 'count(//samba/mapdosattributes) > 0' \
+				--output 'map hidden = yes' --nl \
+				--output 'map system = yes' --nl \
+			--break \
 		--break \
 		--if '//samba/localmaster[. = "yes"]' \
 			--output 'local master = yes' --nl \
