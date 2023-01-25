@@ -125,10 +125,11 @@ samba_mkconf_user_shares()
 					--value-of 'concat("path = ",path)' --nl \
 				--break \
 				--if 'count(readonly) = 0' \
-					--output 'writeable = yes' --nl \
+					--output 'read only = no' --nl \
+				--else \
+					--output 'read only = yes' --nl \
 				--break \
 				--output 'printable = no' --nl \
-				--output 'veto files = /.snap/.sujournal/' --nl \
 				--if 'count(hidedotfiles) > 0' \
 					--output 'hide dot files = yes' --nl \
 				--else \
@@ -143,12 +144,18 @@ samba_mkconf_user_shares()
 				--break \
 				--if 'count(browseable) = 0' \
 					--output 'browseable = no' --nl \
+				--else \
+					--output 'browseable = yes' --nl \
 				--break \
 				--if 'count(inheritpermissions) > 0' \
 					--output 'inherit permissions = yes' --nl \
+				--else \
+					--output 'inherit permissions = no' --nl \
 				--break \
 				--if 'count(inheritacls) > 0' \
 					--output 'inherit acls = yes' --nl \
+				--else \
+					--output 'inherit acls = no' --nl \
 				--break \
 				--output 'vfs objects =' \
 					--if 'count(shadowcopy) > 0' \
@@ -201,7 +208,9 @@ samba_mkconf_user_shares()
 					--output 'shadow:sort = desc' --nl \
 				--break \
 				--if 'count(zfsacl) > 0' \
-					--output 'veto files = /.zfs/' --nl \
+					--output 'veto files = /.snap/.sujournal/.zfs/' --nl \
+				--else \
+					--output 'veto files = /.snap/.sujournal/' \
 				--break \
 				--if 'count(afpcompat) > 0' \
 					--if 'string-length(vfs_fruit_resource) > 0' \
@@ -323,9 +332,13 @@ samba_mkconf_cmd()
 		--break \
 		--if 'count(//samba/largereadwrite) = 0' \
 			--output 'large readwrite = no' --nl \
+		--else \
+			--output 'large readwrite = yes' --nl \
 		--break \
 		--if 'count(//samba/easupport) > 0' \
 			--output 'ea support = yes' --nl \
+		--else \
+			--output 'ea support = no' --nl \
 		--break \
 		--if 'count(//samba/storedosattributes) > 0' \
 			--output 'store dos attributes = yes' --nl \
@@ -376,6 +389,8 @@ samba_mkconf_cmd()
 		--break \
 		--if 'count(//samba/nullpasswords) > 0' \
 			--output 'null passwords = yes' --nl \
+		--else \
+			--output 'null passwords = no' --nl \
 		--break \
 		--output 'max log size = 100' --nl \
 		--output 'logging = syslog' --nl \
