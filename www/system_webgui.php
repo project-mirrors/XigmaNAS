@@ -222,35 +222,17 @@ $css_settings->
 		c2_titleline(gettext('CSS Settings'));
 $tbody = $css_settings->addTBODY();
 $hooks_cssguifile = $tbody->c2($cop->get_cssguifile(),$sphere,false,$is_readonly)->get_hooks();
-$hooks_cssguifile['fc']->
-	insDIV(['class' => 'gap'])->
-	ins_radio_grid($cop->get_cssguifilemode(),$sphere,false,$is_readonly)->
-	ins_description($cop->get_cssguifilemode());
+$hooks_cssguifile['fc']->cr($cop->get_cssguifilemode(),$sphere,false,$is_readonly);
 $hooks_cssnavbarfile = $tbody->c2($cop->get_cssnavbarfile(),$sphere,false,$is_readonly)->get_hooks();
-$hooks_cssnavbarfile['fc']->
-	insDIV(['class' => 'gap'])->
-	ins_radio_grid($cop->get_cssnavbarfilemode(),$sphere,false,$is_readonly)->
-	ins_description($cop->get_cssnavbarfilemode());
+$hooks_cssnavbarfile['fc']->cr($cop->get_cssnavbarfilemode(),$sphere,false,$is_readonly);
 $hooks_csstabsfile = $tbody->c2($cop->get_csstabsfile(),$sphere,false,$is_readonly)->get_hooks();
-$hooks_csstabsfile['fc']->
-	insDIV(['class' => 'gap'])->
-	ins_radio_grid($cop->get_csstabsfilemode(),$sphere,false,$is_readonly)->
-	ins_description($cop->get_csstabsfilemode());
+$hooks_csstabsfile['fc']->cr($cop->get_csstabsfilemode(),$sphere,false,$is_readonly);
 $hooks_cssloginfile = $tbody->c2($cop->get_cssloginfile(),$sphere,false,$is_readonly)->get_hooks();
-$hooks_cssloginfile['fc']->
-	insDIV(['class' => 'gap'])->
-	ins_radio_grid($cop->get_cssloginfilemode(),$sphere,false,$is_readonly)->
-	ins_description($cop->get_cssloginfilemode());
+$hooks_cssloginfile['fc']->cr($cop->get_cssloginfilemode(),$sphere,false,$is_readonly);
 $hooks_cssfcfile = $tbody->c2($cop->get_cssfcfile(),$sphere,false,$is_readonly)->get_hooks();
-$hooks_cssfcfile['fc']->
-	insDIV(['class' => 'gap'])->
-	ins_radio_grid($cop->get_cssfcfilemode(),$sphere,false,$is_readonly)->
-	ins_description($cop->get_cssfcfilemode());
+$hooks_cssfcfile['fc']->cr($cop->get_cssfcfilemode(),$sphere,false,$is_readonly);
 $hooks_cssstylefile = $tbody->c2($cop->get_cssstylefile(),$sphere,false,$is_readonly)->get_hooks();
-$hooks_cssstylefile['fc']->
-	insDIV(['class' => 'gap'])->
-	ins_radio_grid($cop->get_cssstylefilemode(),$sphere,false,$is_readonly)->
-	ins_description($cop->get_cssstylefilemode());
+$hooks_cssstylefile['fc']->cr($cop->get_cssstylefilemode(),$sphere,false,$is_readonly);
 $content->
 	add_table_data_settings()->
 		push()->
