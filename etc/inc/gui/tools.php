@@ -644,7 +644,7 @@ trait tools {
 				endif;
 			endif;
 			if(preg_match('/\S/',$description_output)):
-				$this->addDIV(attributes: ['class' => 'formfldadditionalinfo'],value: $description_output);
+				$this->addDIV(attributes: ['class' => 'cd-description'],value: $description_output);
 			endif;
 		endif;
 		return $this;
@@ -653,6 +653,7 @@ trait tools {
 		$this->reset_hooks();
 		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
 		$id = $property->get_id();
+		$caption = $property->get_caption();
 		$input_attributes = [
 			'type' => 'checkbox',
 			'id' => $id,
@@ -664,19 +665,33 @@ trait tools {
 			$input_attributes['checked'] = 'checked';
 		endif;
 		if($is_readonly):
-			$class_checkbox = 'celldatacheckbox';
 			$input_attributes['disabled'] = 'disabled';
 			$is_required = false;
-		else:
-			$class_checkbox = 'celldatacheckbox';
 		endif;
 		if($is_required):
-			$class_checkbox = 'celldatacheckbox';
 			$input_attributes['required'] = 'required';
 		endif;
-		$hook = $this->addDIV(attributes: ['class' => $class_checkbox]);
-		$hook->insINPUT(attributes: $input_attributes)->addElement(name: 'label',attributes: ['for' => $id],value: filter_var($property->get_caption(),FILTER_VALIDATE_REGEXP,['options' => ['default' => "\xc2\xa0",'regexp' => '/\S/']]));
+		$hook = $this->addDIV(attributes: ['class' => 'cd-input-checkbox']);
 		$this->add_hook(dom_element: $hook,identifier: $id);
+		$switch_value = (isset($caption) ? 1 : 0) + ($is_readonly ? 0 : 2);
+		switch($switch_value):
+			case 0:
+//				no caption + read mode
+				$hook->insINPUT(attributes: $input_attributes);
+				break;
+			case 1:
+//				caption + read mode
+				$hook->insINPUT(attributes: $input_attributes)->insSPAN(value: $caption);
+				break;
+			case 2:
+//				no caption + edit mode
+				$hook->insINPUT(attributes: $input_attributes);
+				break;
+			case 3:
+//				caption + edit mode
+				$hook->insINPUT(attributes: $input_attributes)->addElement(name: 'label',attributes: ['for' => $id],value: $caption);
+				break;
+		endswitch;
 		return $this;
 	}
 	public function ins_input(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
@@ -690,7 +705,7 @@ trait tools {
 			'value' => $preset
 		];
 		switch($type):
-			case 0:
+			default:
 				$input_attributes['type'] = 'text';
 				break;
 			case 1:
@@ -717,22 +732,27 @@ trait tools {
 			$input_attributes['placeholder'] = $placeholder;
 		endif;
 		$size = $property->get_size();
+		$input_attributes['size'] = 1;
 		if($size > 0):
-			$input_attributes['size'] = $size;
+			$input_attributes['style'] = sprintf('max-width: %uch',$size);
 		endif;
 		if($maxlength > 0):
 			$input_attributes['maxlength'] = $maxlength;
 		endif;
-		$hook = $this->addDIV();
-		$hook->insINPUT(attributes: $input_attributes);
-		if(isset($caption)):
-			if($is_readonly):
-				$hook->insSPAN(attributes: ['style' => 'margin-left: 0.7em;'],value: $caption);
-			else:
-				$hook->addElement(name: 'label',attributes: ['style' => 'margin-left: 0.7em;','for' => $id],value: $caption);
-			endif;
-		endif;
+		$hook = $this->addDIV(attributes: ['class' => 'cd-input-text']);
 		$this->add_hook(dom_element: $hook,identifier: $id);
+		$hook->insINPUT(attributes: $input_attributes);
+		$switch_value = (isset($caption) ? 1 : 0) + ($is_readonly ? 0 : 2);
+		switch($switch_value):
+			case 1:
+//				caption + read mode + text
+				$hook->insSPAN(value: $caption);
+				break;
+			case 3:
+//				caption + edit mode + text
+				$hook->insElement(name: 'label',attributes: ['for' => $id],value: $caption);
+				break;
+		endswitch;
 		return $this;
 	}
 	public function ins_input_hidden(string $name = null,$value = '') {
@@ -751,7 +771,7 @@ trait tools {
 	public function ins_checkbox_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$this->reset_hooks();
 		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
-		$table = $this->add_table_data_selection();
+		$table = $this->addDIV(attributes: ['class' => 'cd-checkbox-grid'])->add_table_data_selection();
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
 		$input_attributes = [
@@ -776,7 +796,7 @@ trait tools {
 			elseif(array_key_exists('checked',$input_attributes)):
 				unset($input_attributes['checked']);
 			endif;
-			$hook = $tbody->addTR()->addTDwC(class: 'lcebl celldatacheckbox');
+			$hook = $tbody->addTR()->addTDwC(class: 'lcebl')->addDIV(attributes: ['class' => 'cd-input-checkbox-grid']);
 			$hook->insINPUT(attributes: $input_attributes)->addElement(name: 'label',attributes: ['for' => $input_attributes['id']],value: $option_val);
 			$this->add_hook(dom_element: $hook,identifier: $option_tag);
 			$n_options++;
@@ -807,6 +827,7 @@ trait tools {
 	public function ins_filechooser(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
 		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
 		$id = $property->get_id();
+		$caption = $property->get_caption();
 		$name = $property->get_name();
 		$input_attributes = [
 			'type' => 'text',
@@ -833,14 +854,13 @@ trait tools {
 			$input_attributes['placeholder'] = $placeholder;
 		endif;
 		$size = $property->get_size();
+		$input_attributes['size'] = 1;
 		if($size > 0):
-			$input_attributes['size'] = $size;
+			$input_attributes['style'] = sprintf('max-width: %uch',$size);
 		endif;
 		if($maxlength > 0):
 			$input_attributes['maxlength'] = $maxlength;
 		endif;
-		$div = $this->addDIV();
-		$div->insINPUT(attributes: $input_attributes);
 //	file chooser start
 		if(!$is_readonly):
 			$var = 'ifield';
@@ -859,23 +879,42 @@ EOJ;
 				'onclick' => $js,
 				'value' => '...'
 			];
-			$div->insINPUT(attributes: $button_attributes);
 		endif;
 //	file chooser end
-		$caption = $property->get_caption();
-		if(isset($caption)):
-			if($is_readonly):
-				$div->insSPAN(attributes: ['style' => 'margin-left: 0.7em;'],value: $caption);
-			else:
-				$div->addElement(name: 'label',attributes: ['style' => 'margin-left: 0.7em;','for' => $property->get_id()],value: $property->get_caption());
-			endif;
-		endif;
+		$hook = $this->addDIV(attributes: ['class' => 'cd-filechooser']);
+		$switch_value = (isset($caption) ? 1 : 0) + ($is_readonly ? 0 : 2);
+		switch($switch_value):
+			case 0:
+//				no caption + read mode
+				$hook->insINPUT(attributes: $input_attributes);
+				break;
+			case 1:
+//				caption + read mode
+				$hook->insINPUT(attributes: $input_attributes)->insSPAN(value: $caption);
+				break;
+			case 2:
+//				no caption + edit mode
+				$hook->
+					addDIV(attributes: ['class' => 'cd-group'])->
+						insINPUT(attributes: $input_attributes)->
+						insINPUT(attributes: $button_attributes);
+				break;
+			case 3:
+//				caption + edit mode
+				$hook->
+					addDIV(attributes: ['class' => 'cd-group'])->
+						insINPUT(attributes: $input_attributes)->
+						insINPUT(attributes: $button_attributes)->
+				$hook->
+					addElement(name: 'label',attributes: ['for' => $id],value: $caption);
+				break;
+		endswitch;
 		return $this;
 	}
 	public function ins_radio_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$this->reset_hooks();
 		$preset = (string)(is_object($value) ? $value->row[$property->get_name()] : $value);
-		$table = $this->add_table_data_selection();
+		$table = $this->addDIV(attributes: ['class' => 'cd-radio-grid'])->add_table_data_selection();
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
 		$input_attributes = [
@@ -900,8 +939,17 @@ EOJ;
 			elseif(array_key_exists('checked',$input_attributes)):
 				unset($input_attributes['checked']);
 			endif;
-			$hook = $tbody->addTR()->addTDwC(class: 'lcebl celldataradio');
-			$hook->insINPUT(attributes: $input_attributes)->addElement(name: 'label',attributes: ['for' => $input_attributes['id']],value: $option_val);
+			$hook = $tbody->
+						addTR()->
+							addTDwC(class: 'lcebl')->
+								addDIV(attributes: ['class' => 'cd-input-radio-grid'])->
+									insINPUT(attributes: $input_attributes)->
+									addDIV(attributes: ['class' => 'cd-element']);
+			if($is_readonly):
+				$hook->insSPAN(value: $option_val);
+			else:
+				$hook->addElement(name: 'label',attributes: ['for' => $input_attributes['id']],value: $option_val);
+			endif;
 			$this->add_hook(dom_element: $hook,identifier: $option_tag);
 			$n_options++;
 		endforeach;
@@ -945,7 +993,8 @@ EOJ;
 		if($is_required):
 			$select_attributes['required'] = 'required';
 		endif;
-		$select = $this->addElement(name: 'select',attributes: $select_attributes);
+		$hook = $this->addDIV(attributes: ['class' => 'cd-select']);
+		$select = $hook->addElement(name: 'select',attributes: $select_attributes);
 		if($is_required):
 			$select->addElement(name: 'option',attributes: ['value' => ''],value: gettext('Choose...'));
 		endif;
@@ -958,7 +1007,7 @@ EOJ;
 			$select->addElement(name: 'option',attributes: $option_attributes,value: $option_val);
 		endforeach;
 		if(isset($caption)):
-			$this->insSPAN(attributes: ['style' => 'margin-left: 0.7em;'],value: $caption);
+			$hook->insSPAN(value: $caption);
 		endif;
 		return $this;
 	}
@@ -980,58 +1029,69 @@ EOJ;
 		return $this;
 	}
 	public function ins_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$n_rows_min = 5;
+		$n_rows_max = 64;
 		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
 		$id = $property->get_id();
 		$caption = $property->get_caption();
 		$textarea_attributes = [
 			'id' => $id,
-			'name' => $property->get_name(),
+			'name' => $property->get_name()
 		];
 		if($is_readonly):
-			$textarea_attributes['class'] = 'formprero';
+			$textarea_attributes['class'] = 'cd-textarea-input formprero';
 			$textarea_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
 			$placeholder = $property->get_placeholderv() ?? $property->get_placeholder();
 		else:
-			$textarea_attributes['class'] = 'formpre';
+			$textarea_attributes['class'] = 'cd-textarea-input formpre';
 			$maxlength = $property->get_maxlength();
 			$placeholder = $property->get_placeholder();
 		endif;
 		if($is_required):
-			$textarea_attributes['class'] = 'formpre';
+			$textarea_attributes['class'] = 'cd-textarea-input formpre';
 			$textarea_attributes['required'] = 'required';
 		endif;
 		if(isset($placeholder)):
 			$textarea_attributes['placeholder'] = $placeholder;
 		endif;
-		$n_cols = $property->get_cols();
-		if(is_null($n_cols)):
-//			default number of columns
-			$textarea_attributes['cols'] = 60;
-		elseif($n_cols > 0):
-			$textarea_attributes['cols'] = $n_cols;
-		endif;
 		$n_rows = $property->get_rows();
 		if(is_null($n_rows)):
 //			calculate the number of rows within min-max
-			$textarea_attributes['rows'] = min(64,max(5,1 + substr_count($preset,"\n")));
-		elseif($n_rows > 0):
-			$textarea_attributes['rows'] = $n_rows;
+			$n_rows = min($n_rows_max,max($n_rows_min,1 + substr_count($preset,"\n")));
 		endif;
+		$textarea_attributes['style'] = sprintf('height: %ulh;min-height: %ulh;max-height: %ulh;',$n_rows,$n_rows_min,$n_rows_max);
 		$textarea_attributes['wrap'] = $property->get_wrap() ? 'hard' : 'soft';
 		if($maxlength > 0):
 			$textarea_attributes['maxlength'] = $maxlength;
 		endif;
-		$div = $this->addDIV();
-		$div->addElement(name: 'textarea',attributes: $textarea_attributes,value: $preset);
-		if(isset($caption)):
-			if($is_readonly):
-				$div->insSPAN(attributes: ['style' => 'margin-left: 0.7em;'],value: $caption);
-			else:
-				$div->addElement(name: 'label',attributes: ['style' => 'margin-left: 0.7em;','for' => $id],value: $caption);
-			endif;
-		endif;
+		$label_attributes = [
+			'class' => 'cd-textarea-label',
+			'for' => $id
+		];
+		$div_attributes = [
+			'class' => 'cd-textarea'
+		];
+		$hook = $this->addDIV(attributes: $div_attributes);
+		$switch_value = (isset($caption) ? 1 : 0) + ($is_readonly ? 0 : 2);
+		switch($switch_value):
+			case 0:
+//				no caption + read mode
+			case 2:
+//				no caption + edit mode
+				$hook->insElement(name: 'textarea',attributes: $textarea_attributes,value: $preset);
+				break;
+			case 1:
+//				caption + read mode
+				$hook->insElement(name: 'textarea',attributes: $textarea_attributes,value: $preset)->insSPAN(value: $caption);
+				break;
+				break;
+			case 3:
+//				caption + edit mode
+				$hook->insElement(name: 'textarea',attributes: $textarea_attributes,value: $preset)->addElement(name: 'label',attributes: $label_attributes,value: $caption);
+				break;
+		endswitch;
 		return $this;
 	}
 	public function ins_textinfo(string $id = null,string $value = null) {
@@ -1242,27 +1302,45 @@ EOJ;
 	}
 //	cr blocks
 	public function cr_checkbox(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_checkbox(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly)->ins_description(property: $property);
+		$this->
+			addDIV(attributes: ['class' => 'cd-element'])->
+				ins_checkbox(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly)->
+				ins_description(property: $property);
 		return $this;
 	}
 	public function cr_checkbox_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->ins_checkbox_grid(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,use_tablesort: $use_tablesort)->ins_description(property: $property);
+		$this->
+			addDIV(attributes: ['class' => 'cd-element'])->
+				ins_checkbox_grid(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,use_tablesort: $use_tablesort)->
+				ins_description(property: $property);
 		return $this;
 	}
 	public function cr_filechooser(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_filechooser(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly)->ins_description(property: $property);
+		$this->
+			addDIV(attributes: ['class' => 'cd-element'])->
+				ins_filechooser(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly)->
+				ins_description(property: $property);
 		return $this;
 	}
 	public function cr_input_text(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_input(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,type: 0)->ins_description(property: $property);
+		$this->
+			addDIV(attributes: ['class' => 'cd-element'])->
+				ins_input(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,type: 0)->
+				ins_description(property: $property);
 		return $this;
 	}
 	public function cr_input_password(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_input(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,type: 1)->ins_description(property: $property);
+		$this->
+			addDIV(attributes: ['class' => 'cd-element'])->
+				ins_input(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,type: 1)->
+				ins_description(property: $property);
 		return $this;
 	}
 	public function cr_radio_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->ins_radio_grid(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,use_tablesort: $use_tablesort)->ins_description(property: $property);
+		$this->
+			addDIV(attributes: ['class' => 'cd-element'])->
+				ins_radio_grid(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,use_tablesort: $use_tablesort)->
+				ins_description(property: $property);
 		return $this;
 	}
 /**
@@ -1429,7 +1507,10 @@ EOJ;
  *	@return $this
  */
 	public function cr_select(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_select(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly)->ins_description(property: $property);
+		$this->
+			addDIV(attributes: ['class' => 'cd-element'])->
+				ins_select(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly)->
+				ins_description(property: $property);
 		return $this;
 	}
 /**
@@ -1445,7 +1526,10 @@ EOJ;
 	public function cr_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = null,int $n_rows = null) {
 		$property->set_cols(cols: $n_cols);
 		$property->set_rows(rows: $n_rows);
-		$this->ins_textarea(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly)->ins_description(property: $property);
+		$this->
+			addDIV(attributes: ['class' => 'cd-element'])->
+				ins_textarea(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly)->
+				ins_description(property: $property);
 		return $this;
 	}
 /**
@@ -1521,7 +1605,7 @@ EOJ;
 		else:
 			$tr->addTDwC(class: $class_tag,value: $property->get_title());
 		endif;
-		$subnode = $tr->addTDwC(class: $class_data);
+		$subnode = $tr->addTDwC(class: $class_data)->addDIV(attributes: ['class' => 'cd-container']);
 		return $subnode;
 	}
 /**
@@ -2167,7 +2251,7 @@ EOJ;
 									$ul_lev3->addLI(attributes: ['class' => 'lev3'])->insA(attributes: $a_lev3_attributes,value: $menu_item['description']);
 									break;
 								case 'separator':
-									$ul_lev3->addDIV(attributes: ['class' => 'lev3'])->insSPAN(attributes: ['class' => 'lev3 tabseparator']);
+									$ul_lev3->addLI(attributes: ['class' => 'lev3 tabseparator'])->insSPAN(attributes: ['class' => 'lev3 tabseparator']);
 									break;
 							endswitch;
 						endif;
