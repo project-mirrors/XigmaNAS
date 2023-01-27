@@ -465,12 +465,12 @@ div.cd-input-radio-grid input[type=radio]
 	height: var(--cd-size-radio);
 }
 
-div.cd-input-checkbox > label,
-div.cd-input-checkbox > span,
-div.cd-input-checkbox-grid > label,
-div.cd-input-checkbox-grid > span,
-div.cd-input-radio-grid > label,
-div.cd-input-radio-grid > span,
+div.cd-input-checkbox > div > label,
+div.cd-input-checkbox > div > span,
+div.cd-input-checkbox-grid > div > label,
+div.cd-input-checkbox-grid > div > span,
+div.cd-input-radio-grid > div > label,
+div.cd-input-radio-grid > div > span,
 div.cd-input-text > label,
 div.cd-input-text > span,
 div.cd-select > label,
@@ -509,32 +509,8 @@ div.cd-textarea > textarea
 	resize: vertical
 }
 
-/*
-div.cd-input-checkbox > input + label,
-div.cd-input-checkbox-grid > input + label,
-div.cd-input-radio-grid > input + label,
-div.cd-input-text > input + label,
-div.cd-select > input + label,
-div.cd-textarea > input + label
-{
-	padding-left: 0.5rem;
-	padding-left: var(--cd-padding-left);
-}
-*/
-
-/*
-div.cd-input-checkbox > input + span,
-div.cd-input-checkbox-grid > input + span,
-div.cd-input-radio-grid > input + span,
-div.cd-input-text > input + span,
-div.cd-select > input + span,
-div.cd-textarea > input + span
-{
-	padding-left: 0.5rem;
-	padding-left: var(--cd-padding-left);
-}
-*/
-
+div.cd-input-checkbox > input:checked + div > div.showifchecked,
+div.cd-input-checkbox-grid > input:checked + div > div.showifchecked,
 div.cd-input-radio-grid > input:checked + div > div.showifchecked
 {
 	display: block;

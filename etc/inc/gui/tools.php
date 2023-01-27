@@ -671,27 +671,16 @@ trait tools {
 		if($is_required):
 			$input_attributes['required'] = 'required';
 		endif;
-		$hook = $this->addDIV(attributes: ['class' => 'cd-input-checkbox']);
+		$hook = $this->
+			addDIV(attributes: ['class' => 'cd-input-checkbox'])->
+				insINPUT(attributes: $input_attributes)->
+					addDIV(attributes: ['class' => 'cd-element']);
+		if($is_readonly):
+			$hook->insSPAN(value: $caption);
+		else:
+			$hook->addElement(name: 'label',attributes: ['for' => $input_attributes['id']],value: $caption);
+		endif;
 		$this->add_hook(dom_element: $hook,identifier: $id);
-		$switch_value = (isset($caption) ? 1 : 0) + ($is_readonly ? 0 : 2);
-		switch($switch_value):
-			case 0:
-//				no caption + read mode
-				$hook->insINPUT(attributes: $input_attributes);
-				break;
-			case 1:
-//				caption + read mode
-				$hook->insINPUT(attributes: $input_attributes)->insSPAN(value: $caption);
-				break;
-			case 2:
-//				no caption + edit mode
-				$hook->insINPUT(attributes: $input_attributes);
-				break;
-			case 3:
-//				caption + edit mode
-				$hook->insINPUT(attributes: $input_attributes)->addElement(name: 'label',attributes: ['for' => $id],value: $caption);
-				break;
-		endswitch;
 		return $this;
 	}
 	public function ins_input(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
@@ -796,8 +785,17 @@ trait tools {
 			elseif(array_key_exists('checked',$input_attributes)):
 				unset($input_attributes['checked']);
 			endif;
-			$hook = $tbody->addTR()->addTDwC(class: 'lcebl')->addDIV(attributes: ['class' => 'cd-input-checkbox-grid']);
-			$hook->insINPUT(attributes: $input_attributes)->addElement(name: 'label',attributes: ['for' => $input_attributes['id']],value: $option_val);
+			$hook = $tbody->
+				addTR()->
+					addTDwC(class: 'lcebl')->
+						addDIV(attributes: ['class' => 'cd-input-checkbox-grid'])->
+							$hook->insINPUT(attributes: $input_attributes)->
+									addDIV(attributes: ['class' => 'cd-element']);
+			if($is_readonly):
+				$hook->insSPAN(value: $option_val);
+			else:
+				$hook->addElement(name: 'label',attributes: ['for' => $input_attributes['id']],value: $option_val);
+			endif;
 			$this->add_hook(dom_element: $hook,identifier: $option_tag);
 			$n_options++;
 		endforeach;
