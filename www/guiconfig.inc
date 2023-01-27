@@ -1178,9 +1178,9 @@ function make_headermenu() {
 								$output[] = '</li>';
 								break;
 							case 'separator':
-								$output[] = '<div class="lev3">';
+								$output[] = '<li class="lev3 tabseparator">';
 								$output[] = '<span class="lev3 tabseparator"></span>';
-								$output[] = '</div>';
+								$output[] = '</li>';
 								break;
 						endswitch;
 					endif;

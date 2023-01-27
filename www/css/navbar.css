@@ -138,13 +138,17 @@
 	text-align: left;
 }
 
-#navhdr div.lev3,
 #navhdr li.lev3
 {
 	padding: 0.1875rem 0.5rem;
 	background-color: #6A83A7;
 	background-color: var(--bgc-nav-sub-sub);
 	text-align: left;
+}
+
+#navhdr li.lev3.tabseparator
+{
+	padding: 0 0.5rem;
 }
 
 #navhdr a
@@ -180,7 +184,7 @@
 	height: 0.125rem;
 }
 
-#navhdr li:hover
+#navhdr li:not(.tabseparator):hover
 {
 	background-color: white;
 	background-color: var(--bgc-nav-sub-hovered);
@@ -188,14 +192,14 @@
 	background-image: var(--bgi-nav-sub-hovered);
 }
 
-#navhdr li:hover > a
+#navhdr li:not(.tabseparator):hover > a
 {
 	color: black;
 	color: var(--txc-nav-sub-hovered);
 }
 
-#navhdr li:hover > ul,
-#navhdr li:focus > ul
+#navhdr li:not(.tabseparator):hover > ul,
+#navhdr li:not(.tabseparator):focus > ul
 {
 	display: flex;
 }
