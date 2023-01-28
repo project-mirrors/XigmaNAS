@@ -674,7 +674,7 @@ trait tools {
 		$hook = $this->
 			addDIV(attributes: ['class' => 'cd-input-checkbox'])->
 				insINPUT(attributes: $input_attributes)->
-					addDIV(attributes: ['class' => 'cd-element']);
+					addDIV(attributes: ['class' => 'cd-container']);
 		if($is_readonly):
 			$hook->insSPAN(value: $caption);
 		else:
@@ -790,7 +790,7 @@ trait tools {
 					addTDwC(class: 'lcebl')->
 						addDIV(attributes: ['class' => 'cd-input-checkbox-grid'])->
 							$hook->insINPUT(attributes: $input_attributes)->
-									addDIV(attributes: ['class' => 'cd-element']);
+									addDIV(attributes: ['class' => 'cd-container']);
 			if($is_readonly):
 				$hook->insSPAN(value: $option_val);
 			else:
@@ -942,7 +942,7 @@ EOJ;
 							addTDwC(class: 'lcebl')->
 								addDIV(attributes: ['class' => 'cd-input-radio-grid'])->
 									insINPUT(attributes: $input_attributes)->
-									addDIV(attributes: ['class' => 'cd-element']);
+									addDIV(attributes: ['class' => 'cd-container']);
 			if($is_readonly):
 				$hook->insSPAN(value: $option_val);
 			else:
