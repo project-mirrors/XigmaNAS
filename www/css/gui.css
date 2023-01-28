@@ -407,6 +407,7 @@ div.cd-container
 	width: 100%;
 	gap: 0.5rem;
 	gap: var(--cd-container-gap);
+	flex: 1 1 0%
 }
 
 div.cd-element
