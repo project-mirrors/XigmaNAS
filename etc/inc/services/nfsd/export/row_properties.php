@@ -75,6 +75,7 @@ class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('root')->
 			set_id('mapalltouser')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			filter_use_default();
 		return $property;
 	}
@@ -83,6 +84,7 @@ class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('root')->
 			set_id('maproottouser')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			filter_use_default();
 		return $property;
 	}

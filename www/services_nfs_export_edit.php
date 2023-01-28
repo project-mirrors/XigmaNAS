@@ -233,14 +233,10 @@ $maptouser_hooks = $document->get_hooks();
 foreach($maptouser_hooks as $hook_key => $hook_obj):
 	switch($hook_key):
 		case 'yes':
-			$hook_obj->
-				addDIV(['class' => 'showifchecked'])->
-					ins_select($cop->get_mapalltouser(),$sphere,false,false);
+			$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_mapalltouser(),$sphere,false,false);
 			break;
 		case 'no':
-			$hook_obj->
-				addDIV(['class' => 'showifchecked'])->
-					ins_select($cop->get_maproottouser(),$sphere,false,false);
+			$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_maproottouser(),$sphere,false,false);
 			break;
 	endswitch;
 endforeach;
