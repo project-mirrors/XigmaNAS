@@ -1611,7 +1611,7 @@
 		<param>Brightness=4</param>
 		<param>OffBrightness=0</param>
 		<param>Keypad=yes</param>
-		<param>Backlight=yes</param>
+		<param>Backlight=on</param>
 		<param>Size=20x4</param>
 		<param>KeyDirect_1=Enter</param>
 		<param>KeyDirect_2=Down</param>
