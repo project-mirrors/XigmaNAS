@@ -1057,9 +1057,10 @@ EOJ;
 		$n_rows = $property->get_rows();
 		if(is_null($n_rows)):
 //			calculate the number of rows within min-max
-			$n_rows = min($n_rows_max,max($n_rows_min,1 + substr_count($preset,"\n")));
+			$textarea_attributes['rows'] = min($n_rows_max,max($n_rows_min,1 + substr_count($preset,"\n")));
+		elseif($n_rows > 0):
+			$textarea_attributes['rows'] = $n_rows;
 		endif;
-		$textarea_attributes['style'] = sprintf('height: %ulh;min-height: %ulh;max-height: %ulh;',$n_rows,$n_rows_min,$n_rows_max);
 		$textarea_attributes['wrap'] = $property->get_wrap() ? 'hard' : 'soft';
 		if($maxlength > 0):
 			$textarea_attributes['maxlength'] = $maxlength;
