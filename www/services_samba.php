@@ -295,21 +295,9 @@ $security_hooks = $document->get_hooks();
 foreach($security_hooks as $hook_key => $hook_obj):
 	switch($hook_key):
 		case 'ads':
-			$p = $cop->get_trusteddomains();
-			$hook_obj->
-				addDIV(['class' => 'showifchecked'])->
-					ins_checkbox($p,$sphere,false,$is_readonly)->
-					ins_description($p);
-			$p = $cop->get_pwdsrv();
-			$hook_obj->
-				addDIV(['class' => 'showifchecked'])->
-					ins_input($p,$sphere,false,$is_readonly)->
-					ins_description($p);
-			$p = $cop->get_winssrv();
-			$hook_obj->
-				addDIV(['class' => 'showifchecked'])->
-					ins_input($p,$sphere,false,$is_readonly)->
-					ins_description($p);
+			$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_trusteddomains(),$sphere,false,$is_readonly);
+			$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_pwdsrv(),$sphere,false,$is_readonly);
+			$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_winssrv(),$sphere,false,$is_readonly);
 			break;
 	endswitch;
 endforeach;
@@ -344,14 +332,8 @@ $tbody2->
 	c2($cop->get_aio(),$sphere,false,$is_readonly);
 $aio_hooks = $document->get_hooks();
 foreach($aio_hooks as $hook_key => $hook_obj):
-	$hook_obj->
-		addDIV(['class' => 'showifchecked'])->
-			ins_input($cop->get_aiorsize(),$sphere,false,$is_readonly)->
-			ins_description($cop->get_aiorsize());
-	$hook_obj->
-		addDIV(['class' => 'showifchecked'])->
-			ins_input($cop->get_aiowsize(),$sphere,false,$is_readonly)->
-			ins_description($cop->get_aiowsize());
+	$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_aiorsize(),$sphere,false,$is_readonly);
+	$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_aiowsize(),$sphere,false,$is_readonly);
 endforeach;
 unset($hook_obj,$hook_key,$aio_hooks);
 $tbody2->
