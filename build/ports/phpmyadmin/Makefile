@@ -25,7 +25,7 @@ SUB_LIST+=	PKGNAME=${PKGNAME}	        \
 
 do-install:
 	cd ${WRKSRC} ; \
-	for src in $$( ${FIND} . ! -name .cvsignore ! -name '*.bak' ) ; do \
+	for src in $$( ${FIND} . ! -name .cvsignore ! -name '*.bak' -not -name *.orig) ; do \
 	    dst=${STAGEDIR}${WWWDIR}$${src#.} ; \
 	    if ${TEST} -d "$$src" ; then \
 		${MKDIR} "$$dst" ; \
