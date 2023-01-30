@@ -12,8 +12,8 @@ CONFLICTS=	nut-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	cd9bd31fd
-NUT_COMMIT_DATE=	2023.01.16
+GH_TAGNAME=	ccfb3569a
+NUT_COMMIT_DATE=	2023.01.27
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build
