@@ -45,8 +45,8 @@ setvar()
 	esac
 }
 
-sethostid()
-{
+#	Set hostid
+sethostid() {
 	local _uuid _systemuuid
 
 #	set uuid if not exist in smbios
@@ -60,9 +60,8 @@ sethostid()
 	fi
 }
 
-# Set hostname
-sethostname()
-{
+#	Set hostname
+sethostname() {
 	local _hostname
 
 #	Generate hostname from configuration.
@@ -77,41 +76,97 @@ sethostname()
 	${SYSRC_CMD} -q hostname="${_hostname}" > /dev/null 2>&1
 }
 
-# Set interface configuration
-setifconfig()
-{
+#	Remove network related records from rc.conf
+#	- cloned_interfaces
+#	- create_args_*
+#	- ifconfig_*
+#	- ipv4_*
+#	- ipv6_*
+#	- vlans_*
+#	- wlans_*
+unsetnetworkconfiguration() {
+	local _value
+
+	set | grep -E '^(cloned_interfaces|create_args_|ifconfig_|ipv4_|ipv6_|vlans_|wlans_)' | while read _value; do
+		_value=${_value%=*}
+		${SYSRC_CMD} -qx "${_value}" > /dev/null 2>&1
+	done
+}
+
+#	Create cloned_interfaces record in rc.conf
+setclonedinterfaces() {
+	local _cloned_interfaces
+
+	_cloned_interfaces=$( ${XML_CMD} sel --template \
+		--match "//vinterfaces/lagg/if" \
+			--value-of "concat(' ',.)" \
+		--break \
+		--match "//vinterfaces/vlan/if" \
+			--value-of "concat(' ',.)" \
+		--break \
+		--match "//vinterfaces/bridge/if" \
+			--value-of "concat(' ',.)" \
+		--break \
+		--match "//vinterfaces/bridge/taplist" \
+			--value-of "concat(' ',.)" \
+		--break \
+		${configxml_file} | ${XML_CMD} unesc )
+	${SYSRC_CMD} -q cloned_interfaces+="${_cloned_interfaces}" > /dev/null 2>&1
+}
+
+#	Create vlans_ and create_args_ records in rc.conf for vlan devices
+setvlans() {
+	local _vlanif _vlandev _vlantag
+
+	${XML_CMD} sel --template \
+		--match "//vinterfaces/vlan" \
+			--value-of "concat(if,' ',vlandev,' ',tag)" \
+			--nl \
+		--break \
+	${configxml_file} | ${XML_CMD} unesc | \
+	while read _vlanif _vlandev _vlantag; do
+		${SYSRC_CMD} -q "vlans_${_vlandev}"+="${_vlanif}" > /dev/null 2>&1
+		${SYSRC_CMD} -q "create_args_${_vlanif}"="vlan ${_vlantag}" > /dev/null 2>&1
+	done
+}
+
+#	Create wlans_ records in rc.conf for wlan devices
+setwlans() {
+	local _wlanif _wlandev _wlandrv
+
+	${XML_CMD} sel --template \
+		--match "//vinterfaces/wlan" \
+			--value-of "concat(if,' ',wlandev)" \
+			--nl \
+		--break \
+		${configxml_file} | ${XML_CMD} unesc | \
+	while read _wlanif _wlandev; do
+		if [ -n "${_wlanif}" ]; then
+			${SYSRC_CMD} -q "wlans_${_wlandev}"+=" ${_wlanif}" > /dev/null 2>&1
+		fi
+		_wlandrv=$( echo $_wlandev | sed -e 's/[0-9]*$//' )
+#		if [ -f "/cf/boot/kernel/if_${_wlandrv}.ko" ]; then
+#			${KLDLOAD_CMD} "/cf/boot/kernel/if_${_wlandrv}.ko" > /dev/null 2>&1
+#		fi
+		${KLDLOAD_CMD} "if_${_wlandrv}.ko" > /dev/null 2>&1
+	done
+}
+
+#	Set interface configuration
+setifconfig() {
 	local _value _id
 	local _ifn _ipaddr _subnet _gateway _mtu _ifn_isboot
-	local _create_args _ifconfig_args
-	local _cloned_interfaces
+	local _ifconfig_args
 	local _laggport _laggport_mtu _laggport_args
 	local _vlandev _vlandev_args _vlandev_ifconfig
 	local _wlan _wlandev _wlan_args _wdev _ap_args _ap_create_args
 	local _bridgeif _bridgeif_mtu _bridgeif_args _bridge _bridge_args _bridge_addr _tap _taplist
 	local _carp _carp_t1 _carp_vhid _carp_t3 _carp_advskew _carp_args _carp_linkup _carp_linkdown
 
-#	Cleanup ifn and addrs
-	set | grep -E '^(ifconfig_|ipv4_|ipv6_)' | while read _value; do
-		_value=${_value%=*}
-		${SYSRC_CMD} -qx "${_value}" > /dev/null 2>&1
-	done
 #	LAN interface
 	_ifn=$( configxml_get "//interfaces/lan/if" )
 	_ifn=$( get_if ${_ifn} )
 	_ifn_isboot=$( ${SYSCTL_CMD} -q -n net.isboot.nic )
-#	Always make and add create_args for vlan devices. If a vlan interface's name is not a number, the vlan tag must be specified via the vlan parameter in the create_args_<interface> variable.
-	_create_args=$( ${XML_CMD} sel --template \
-		--match "//interfaces/lan" \
-			--if "starts-with(if,'vlan')" \
-				--match "//vinterfaces/vlan[if = '${_ifn}']" \
-					--value-of "concat('vlan ',tag,' vlandev ',vlandev)" \
-				--break \
-			--break \
-		--break \
-		${configxml_file} | ${XML_CMD} unesc )
-	if [ -n "${_create_args}" ]; then
-		${SYSRC_CMD} -q "create_args_${_ifn}"="${_create_args}" > /dev/null 2>&1
-	fi
 #	set ifconfig
 	_ifconfig_args=$( ${XML_CMD} sel --template \
 		--match "//interfaces/lan" \
@@ -175,7 +230,7 @@ setifconfig()
 			fi
 		fi
 		if [ -n "${_ifconfig_args}" ]; then
-			${SYSRC_CMD} -q "ifconfig_${_ifn}"="${_ifconfig_args}" > /dev/null 2>&1
+			${SYSRC_CMD} -q "ifconfig_${_ifn}"+="${_ifconfig_args}" > /dev/null 2>&1
 		fi
 	fi
 #	Set gateway.
@@ -191,19 +246,6 @@ setifconfig()
 	_id=$( configxml_get_count "//interfaces/*[contains(name(),'opt')]" )
 	while [ ${_id} -gt 0 ]; do
 		_ifn=$( configxml_get "//interfaces/*[name() = 'opt${_id}']/if" )
-#		always make and add create_args for vlan devices
-		_create_args=$( ${XML_CMD} sel --template \
-			--match "//interfaces/*[name() = 'opt${_id}']" \
-				--if "starts-with(if,'vlan')" \
-					--match "//vinterfaces/vlan[if = '${_ifn}']" \
-						--value-of "concat('vlan ',tag,' vlandev ',vlandev)" \
-					--break \
-				--break \
-			--break \
-			${configxml_file} | ${XML_CMD} unesc )
-		if [ -n "${_create_args}" ]; then
-			${SYSRC_CMD} -q "create_args_${_ifn}"="${_create_args}" > /dev/null 2>&1
-		fi
 #		make and add ifconfig for OPT# when interface is enabled, otherwise delete ifconfig record
 		if configxml_isset "//interfaces/*[name() = 'opt${_id}']/enable"; then
 #			interface OPT# is enabled
@@ -264,7 +306,7 @@ setifconfig()
 				fi
 			fi
 			if [ -n "${_ifconfig_args}" ]; then
-				${SYSRC_CMD} -q "ifconfig_${_ifn}"="${_ifconfig_args}" > /dev/null 2>&1
+				${SYSRC_CMD} -q "ifconfig_${_ifn}"+="${_ifconfig_args}" > /dev/null 2>&1
 			fi
 		else
 #			interface OPT# is disabled
@@ -272,24 +314,6 @@ setifconfig()
 		fi
 		_id=$(( ${_id} - 1 ))
 	done
-#	Cloned interfaces:
-	_cloned_interfaces=$( ${XML_CMD} sel --template \
-		--if "//interfaces/*/if[contains(.,'lagg')]" \
-			--match "//vinterfaces/lagg/if" \
-				--value-of "concat(.,' ')" \
-			--break \
-		--break \
-		--match "//vinterfaces/vlan/if" \
-			--value-of "concat(.,' ')" \
-		--break \
-		--match "//vinterfaces/bridge/if" \
-			--value-of "concat(.,' ')" \
-		--break \
-		--match "//vinterfaces/bridge/taplist" \
-			--value-of "concat(.,' ')" \
-		--break \
-		${configxml_file} | ${XML_CMD} unesc )
-	${SYSRC_CMD} -q cloned_interfaces="${_cloned_interfaces}" > /dev/null 2>&1
 #	Prepare interfaces used by lagg. Bring interfaces up only if a lagg interface is used as LAN or OPT interface.
 	${XML_CMD} sel --text --template \
 		--match '//interfaces/*[((name()="lan") or (starts-with(name(),"opt") and enable)) and starts-with(if,"lagg")]' \
@@ -308,12 +332,12 @@ setifconfig()
 				_laggport_args="${_laggport_args} mtu ${_laggport_mtu}"
 			fi
 			if [ -n "${_laggport}" ]; then
-				${SYSRC_CMD} -q "ifconfig_${_laggport}"="${_laggport_args}" > /dev/null 2>&1
+				${SYSRC_CMD} -q "ifconfig_${_laggport}"+="${_laggport_args}" > /dev/null 2>&1
 			fi
 		done
 #	Bring unconfigured parents up when a vlan interface is used as a LAN or OPT interface.
 	${XML_CMD} sel --text --template \
-		--match '//interfaces/*[((name()="lan") or (starts-with(name(),"opt") and enable)) and starts-with(if,"vlan")]' \
+		--match '//interfaces/*[((name()="lan") or (starts-with(name(),"opt") and enable))]' \
 			--var vlaninterface='.' \
 			--match '//vinterfaces/vlan[enable and if=$vlaninterface/if]' \
 				--if 'string-length(vlandev) > 0' \
@@ -333,23 +357,6 @@ setifconfig()
 		done
 #	wlan interfaces
 	${XML_CMD} sel --template \
-		--match "//vinterfaces/wlan" \
-			--value-of "if" \
-			--value-of "concat(' ',wlandev)" \
-			--nl \
-		--break \
-		${configxml_file} | ${XML_CMD} unesc | \
-		while read _wlan _wlandev _wlan_args; do
-			if [ -n "${_wlan}" ]; then
-				${SYSRC_CMD} -q "wlans_${_wlandev}"="${_wlan}" > /dev/null 2>&1
-			fi
-			_wdev=$( echo $_wlandev | sed -e 's/[0-9]*$//' )
-#			if [ -f "/cf/boot/kernel/if_${_wdev}.ko" ]; then
-#				${KLDLOAD_CMD} "/cf/boot/kernel/if_${_wdev}.ko" > /dev/null 2>&1
-#			fi
-			${KLDLOAD_CMD} "if_${_wdev}.ko" > /dev/null 2>&1
-		done
-	${XML_CMD} sel --template \
 		--match "//vinterfaces/wlan[apmode]" \
 			--value-of "if" \
 			--value-of "concat(' ssid ',ap_ssid)" \
@@ -361,10 +368,10 @@ setifconfig()
 		while read _wlan _ap_args; do
 			_ap_create_args="wlanmode hostap"
 			if [ -n "$_wlan" ]; then
-				${SYSRC_CMD} -q "create_args_${_wlan}"="${_ap_create_args}" > /dev/null 2>&1
+				${SYSRC_CMD} -q "create_args_${_wlan}"+="${_ap_create_args}" > /dev/null 2>&1
 			fi
 			if [ -n "$_wlan" ]; then
-				${SYSRC_CMD} -q "ifconfig_${_wlan}"="${_ap_args}" > /dev/null 2>&1
+				${SYSRC_CMD} -q "ifconfig_${_wlan}"+="${_ap_args}" > /dev/null 2>&1
 			fi
 		done
 #	prepare bridge/carp interfaces
@@ -385,7 +392,7 @@ setifconfig()
 					_value=$( ${SYSRC_CMD} -qn ifconfig_${_bridgeif} )
 #					if [ "${_value}" != "syncdhcp" -a "${_value}" != "dhcp" ]; then
 					if [ -z "${_value}" ]; then
-						${SYSRC_CMD} -q "ifconfig_${_bridgeif}"="${_bridgeif_args}" > /dev/null 2>&1
+						${SYSRC_CMD} -q "ifconfig_${_bridgeif}"+="${_bridgeif_args}" > /dev/null 2>&1
 					fi
 				fi
 			fi
@@ -431,11 +438,11 @@ setifconfig()
 				_bridge_args="${_bridge_args} ${_bridge_addr}"
 			else
 				if [ -n "${_bridge_addr}" ]; then
-					${SYSRC_CMD} -q "ipv4_addrs_${_bridge}"="${_bridge_addr}" > /dev/null 2>&1
+					${SYSRC_CMD} -q "ipv4_addrs_${_bridge}"+="${_bridge_addr}" > /dev/null 2>&1
 				fi
 			fi
 			if [ -n "${_bridge}" ]; then
-				${SYSRC_CMD} -q "ifconfig_${_bridge}"="${_bridge_args}" > /dev/null 2>&1
+				${SYSRC_CMD} -q "ifconfig_${_bridge}"+="${_bridge_args}" > /dev/null 2>&1
 			fi
 		done
 	${XML_CMD} sel --template \
@@ -466,7 +473,7 @@ setifconfig()
 				--break \
 				${configxml_file} | ${XML_CMD} unesc )
 			if [ -n "${_carp}" ]; then
-				${SYSRC_CMD} -q "ifconfig_${_carp}_alias${_carp_vhid}"="${_carp_args}" > /dev/null 2>&1
+				${SYSRC_CMD} -q "ifconfig_${_carp}_alias${_carp_vhid}"+="${_carp_args}" > /dev/null 2>&1
 			fi
 			if [ -n "${_carp}" ]; then
 				${KLDLOAD_CMD} -n carp.ko
@@ -516,7 +523,7 @@ EOF
 			--break \
 			${configxml_file} | ${XML_CMD} unesc )
 		if [ -n "${_ifconfig_args}" ]; then
-			${SYSRC_CMD} -q "ifconfig_${_ifn}_ipv6"="${_ifconfig_args}" > /dev/null 2>&1
+			${SYSRC_CMD} -q "ifconfig_${_ifn}_ipv6"+="${_ifconfig_args}" > /dev/null 2>&1
 		fi
 #		Set gateway.
 		_ipaddr=$( configxml_get "//interfaces/lan/ipv6addr" )
@@ -548,7 +555,7 @@ EOF
 				--break \
 				${configxml_file} | ${XML_CMD} unesc )
 			if [ -n "${_ifconfig_args}" ]; then
-				${SYSRC_CMD} -q "ifconfig_${_ifn}_ipv6"="${_ifconfig_args}" > /dev/null 2>&1
+				${SYSRC_CMD} -q "ifconfig_${_ifn}_ipv6"+="${_ifconfig_args}" > /dev/null 2>&1
 			fi
 		else
 			${SYSRC_CMD} -qx "ifconfig_${_ifn}_ipv6" > /dev/null 2>&1
@@ -558,8 +565,7 @@ EOF
 }
 
 # Update services
-updateservices()
-{
+updateservices() {
 	local _platform
 
 	_platform=$( cat /etc/platform )
@@ -607,7 +613,6 @@ updateservices()
 			fi
 		fi
 	done
-
 #	Force on when low memory full
 	case ${_platform} in
 		*-full)
@@ -619,8 +624,7 @@ updateservices()
 }
 
 # Set additional options.
-setoptions()
-{
+setoptions() {
 	local _option _name _value _platform
 
 #	Unset rc.conf variables configured via WebGUI
@@ -684,8 +688,7 @@ setoptions()
 }
 
 # Serial console
-setserialconsole()
-{
+setserialconsole() {
 	local _sio _ttyu _ttyuonoff
 	local _sio _uboot _speed
 
@@ -721,6 +724,10 @@ sethostid
 updateservices
 setvar
 sethostname
+unsetnetworkconfiguration
+setclonedinterfaces
+setvlans
+setwlans
 setifconfig
 setoptions
 setserialconsole
