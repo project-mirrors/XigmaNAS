@@ -151,8 +151,8 @@ $software = [
 		'Copyright © 2002-2006 by Manuel Kasper. All Rights Reserved.',
 	]],
 	['msmtp',[
-		'A SMTP client with a sendmail compatible interface (<a href="http://marlam.de/msmtp/" target="_blank" rel="noreferrer">http://marlam.de/msmtp/</a>).',
-		'Copyright © 2008 Martin Lambers and others. All Rights Reserved.'
+		'A SMTP client with a sendmail compatible interface (<a href="https://marlam.de/msmtp/" target="_blank" rel="noreferrer">http://marlam.de/msmtp/</a>).',
+		'Copyright © 2004-2023 Martin Lambers and others. All Rights Reserved.'
 	]],
 	['mt-daapd',[
 		'Multithread daapd Apple iTunes server (<a href="http://www.fireflymediaserver.org" target="_blank" rel="noreferrer">http://www.fireflymediaserver.org</a>).',
