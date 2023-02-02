@@ -1,13 +1,18 @@
 PORTNAME=		msmtp
-PORTVERSION=	1.8.22
+PORTVERSION=	1.8.23
 PORTREVISION=	0
 CATEGORIES=		mail
 COMMENT=		SMTP client
 MAINTAINER=		zoon01@xigmanas.com
+WWW=		https://marlam.de/msmtp/
 
 MASTER_SITES=   https://marlam.de/msmtp/releases/
-
 PATCH_SITES=	https://github.com/marlam/msmtp-mirror/commit/
+
+# XigmaNAS® contains license files
+NO_LICENSES_INSTALL=		yes
+NO_LICENSES_DIALOGS=		yes
+LICENSE=	GPLv3
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf cpe gmake makeinfo pkgconfig tar:xz
@@ -40,10 +45,10 @@ MSMTPQ_RUN_DEPENDS=     bash:shells/bash
 NLS_CONFIGURE_ENABLE=	nls
 NLS_USES=		gettext
 
-GNUTLS_CONFIGURE_ON=	--with-ssl=gnutls
+GNUTLS_CONFIGURE_ON=	--with-tls=gnutls
 GNUTLS_LIB_DEPENDS=	libgnutls.so:security/gnutls
 OPENSSL_USES=           ssl
-OPENSSL_CONFIGURE_ON=	--with-ssl=openssl
+OPENSSL_CONFIGURE_ON=	--with-tls=openssl
 OPENSSL_CONFIGURE_ENV=	libssl_CFLAGS="-I${OPENSSLINC}" \
 			libssl_LIBS="-L${OPENSSLLIB} -lssl -lcrypto"
 CERTSFILE=		${LOCALBASE}/share/certs/ca-root-nss.crt
@@ -51,9 +56,9 @@ CERTSFILE=		${LOCALBASE}/share/certs/ca-root-nss.crt
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MGNUTLS} || ${PORT_OPTIONS:MOPENSSL}
-RUN_DEPENDS+=	${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss
+RUN_DEPENDS+=	${CERTSFILE}:security/ca_root_nss
 .else
-CONFIGURE_ARGS+=	--with-ssl=no
+CONFIGURE_ARGS+=	--with-tls=no
 .endif
 
 post-extract:

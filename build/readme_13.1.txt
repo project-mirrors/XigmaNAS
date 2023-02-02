@@ -111,7 +111,6 @@ Changes:
 - Upgrade to FreeBSD 13.1-RELEASE P5.
 - Upgrade tmux to v3.3a.
 - Upgrade rrdtool to v1.8.0.
-- Upgrade msmtp to v1.8.22.
 - Upgrade devcpu-data-amd to v20221002.
 - Upgrade pecl-APCu to v5.1.22.
 - Upgrade python to v3.9.15.
@@ -133,6 +132,7 @@ Changes:
 - Upgrade virtualbox-ose to v6.1.42.
 - Upgrade nut to v2023.01.27.
 - Upgrade php to v8.2.2.
+- Upgrade msmtp to v1.8.23.
 
 Fixes:
 - fix bring up lighttpd at all times.
