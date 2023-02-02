@@ -26,6 +26,7 @@ Changes:
 - Upgrade nut to v2023.01.27.
 - Upgrade php to v8.2.2.
 - Upgrade msmtp to v1.8.23.
+- Upgrade inadyn to v2.10.0.
 
 Fixes:
 - fix bring up lighttpd at all times.

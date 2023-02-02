@@ -1,9 +1,10 @@
 PORTNAME=		inadyn
-PORTVERSION=	2.9.1
+PORTVERSION=	2.10.0
 PORTREVISION?=  0
 CATEGORIES=	dns
 COMMENT=	Dynamic DNS update client
 MAINTAINER=	zoon01@xigmanas.com
+WWW=		https://troglobit.com/projects/inadyn/
 
 MASTER_SITES=	https://github.com/troglobit/${PORTNAME}/releases/download/v${PORTVERSION}/
 

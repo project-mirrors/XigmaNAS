@@ -108,7 +108,7 @@ $software = [
 	['inadyn',[
 		'Simple Dynamic DNS client (<a href="https://github.com/troglobit/inadyn" target="_blank" rel="noreferrer">https://github.com/troglobit/inadyn</a>).',
 		'Inadyn Copyright © 2003-2010 up to v1.96.2 Narcis Ilisei. All Rights Reserved.',
-		'Inadyn Copyright © 2010-2021 from Joachim Nilsson (<a href="mailto:troglobit@gmail.com">troglobit@gmail.com</a>). All Rights Reserved.'
+		'Inadyn Copyright © 2010-2022 from Joachim Nilsson (<a href="mailto:troglobit@gmail.com">troglobit@gmail.com</a>). All Rights Reserved.'
 	]],
 	['iperf3',[
 		'A tool to measure TCP and UDP bandwidth. (<a href="https://software.es.net/iperf/" target="_blank" rel="noreferrer">https://software.es.net/iperf</a>).',
