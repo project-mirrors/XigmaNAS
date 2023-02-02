@@ -127,12 +127,12 @@ Changes:
 - Upgrade cdialog to v1.3-20221229.
 - Upgrade lighttpd to v1.4.68.
 - Upgrade syncthing to v1.23.0.
-- Upgrade php to v8.2.1.
 - Upgrade sudo to v1.9.12p2.
 - Upgrade libvncserver to v0.9.14.
 - Upgrade nano to v7.2.
 - Upgrade virtualbox-ose to v6.1.42.
 - Upgrade nut to v2023.01.27.
+- Upgrade php to v8.2.2.
 
 Fixes:
 - fix bring up lighttpd at all times.
