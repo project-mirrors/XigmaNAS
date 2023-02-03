@@ -23,8 +23,7 @@ SYSCTL_CMD="/sbin/sysctl"
 SYSRC_CMD="/usr/sbin/sysrc"
 XML_CMD="/usr/local/bin/xml"
 
-setvar()
-{
+setvar() {
 	local _platform
 
 #	Get operating platform
@@ -119,7 +118,7 @@ setvlans() {
 	local _vlanif _vlandev _vlantag
 
 	${XML_CMD} sel --template \
-		--match "//vinterfaces/vlan" \
+		--match "//vinterfaces/vlan[enable]" \
 			--value-of "concat(if,' ',vlandev,' ',tag)" \
 			--nl \
 		--break \
