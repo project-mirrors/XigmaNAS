@@ -789,8 +789,8 @@ trait tools {
 				addTR()->
 					addTDwC(class: 'lcebl')->
 						addDIV(attributes: ['class' => 'cd-input-checkbox-grid'])->
-							$hook->insINPUT(attributes: $input_attributes)->
-									addDIV(attributes: ['class' => 'cd-container']);
+							insINPUT(attributes: $input_attributes)->
+							addDIV(attributes: ['class' => 'cd-container']);
 			if($is_readonly):
 				$hook->insSPAN(value: $option_val);
 			else:
