@@ -118,8 +118,10 @@ class row_toolbox extends myt\row_toolbox {
 			addTBODY()->
 				c2($cop->get_if(),$sphere,true,false)->
 				c2($cop->get_tag(),$sphere,true,false)->
-				c2(property: $cop->get_vlandev(),value: $sphere,is_required: true,is_readonly: false)->
-				c2(property: $cop->get_description(),value: $sphere,is_required: false,is_readonly: false);
+				c2($cop->get_vlandev(),$sphere,true,false)->
+				c2($cop->get_vlanpcp(),$sphere,false,false)->
+				c2($cop->get_vlanproto(),$sphere,false,false)->
+				c2($cop->get_description(),$sphere,false,false);
 		$buttons = $document->add_area_buttons();
 		if($isrecordnew):
 			$buttons->ins_button_add();

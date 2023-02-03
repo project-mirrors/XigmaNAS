@@ -115,17 +115,20 @@ setclonedinterfaces() {
 
 #	Create vlans_ and create_args_ records in rc.conf for vlan devices
 setvlans() {
-	local _vlanif _vlandev _vlantag
+	local _vlanif _vlandev _vlantagandargs
 
 	${XML_CMD} sel --template \
 		--match "//vinterfaces/vlan[enable]" \
 			--value-of "concat(if,' ',vlandev,' ',tag)" \
+			--if "string-length(vlanproto) > 0" \
+				--value-of "concat(' vlanproto ',vlanproto)" \
+			--break \
 			--nl \
 		--break \
 	${configxml_file} | ${XML_CMD} unesc | \
-	while read _vlanif _vlandev _vlantag; do
+	while read _vlanif _vlandev _vlantagandargs; do
 		${SYSRC_CMD} -q "vlans_${_vlandev}"+="${_vlanif}" > /dev/null 2>&1
-		${SYSRC_CMD} -q "create_args_${_vlanif}"="vlan ${_vlantag}" > /dev/null 2>&1
+		${SYSRC_CMD} -q "create_args_${_vlanif}"="vlan ${_vlantagandargs}" > /dev/null 2>&1
 	done
 }
 
@@ -202,6 +205,11 @@ setifconfig() {
 				--break \
 				--if "count(wpa/enable) > 0" \
 					--output " WPA" \
+				--break \
+			--break \
+			--match "//vinterfaces/vlan[enable and if='${_ifn}']" \
+				--if "string-length(vlanpcp) > 0" \
+					--value-of "concat(' vlanpcp ',vlanpcp)" \
 				--break \
 			--break \
 			--if "starts-with(if,'lagg')" \
@@ -283,6 +291,11 @@ setifconfig() {
 						--break \
 						--if "count(wpa/enable) > 0" \
 							--output " WPA" \
+						--break \
+					--break \
+					--match "//vinterfaces/vlan[enable and if='${_ifn}']" \
+						--if "string-length(vlanpcp) > 0" \
+							--value-of "concat(' vlanpcp ',vlanpcp)" \
 						--break \
 					--break \
 					--if "starts-with(if,'lagg')" \

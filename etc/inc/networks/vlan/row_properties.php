@@ -107,12 +107,12 @@ class row_properties extends grid_properties {
 		$description = gettext('Set the VLAN encapsulation protocol.');
 		$options = [
 			'' => gettext('Default'),
-			'802.1Q' => gettext('802.1Q'),
+			'802.1Q' => gettext('802.1Q (default)'),
 			'802.1ad' => gettext('802.1ad (QinQ)')
 		];
 		$property = parent::init_vlanproto();
 		$property->
-			set_defaultvalue('802.1Q')->
+			set_defaultvalue('')->
 			set_description($description)->
 			set_id('vlanproto')->
 			set_options($options)->

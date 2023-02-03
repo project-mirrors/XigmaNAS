@@ -138,6 +138,8 @@ $cops = [
 	$cop->get_if(),
 	$cop->get_tag(),
 	$cop->get_vlandev(),
+	$cop->get_vlanpcp(),
+	$cop->get_vlanproto(),
 	$cop->get_description()
 ];
 $a_options = [];
