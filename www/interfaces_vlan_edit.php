@@ -31,144 +31,175 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require 'auth.inc';
-require 'guiconfig.inc';
 
-if (isset($_GET['uuid']))
-	$uuid = $_GET['uuid'];
-if (isset($_POST['uuid']))
-	$uuid = $_POST['uuid'];
+require_once 'autoload.php';
+require_once 'auth.inc';
+require_once 'guiconfig.inc';
 
-$pgtitle = [gtext('Network'), gtext('Interface Management'), gtext('VLAN'), isset($uuid) ? gtext('Edit') : gtext('Add')];
+use common\arr;
+use networks\vlan\row_toolbox as toolbox;
 
-$a_vlans = &array_make_branch($config,'vinterfaces','vlan');
-if(empty($a_vlans)):
-else:
-	array_sort_key($a_vlans,'if');
+//	init indicators
+$input_errors = [];
+$prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
 endif;
-
-if (isset($uuid) && (FALSE !== ($cnid = array_search_ex($uuid, $a_vlans, "uuid")))) {
-	$pconfig['enable'] = isset($a_vlans[$cnid]['enable']);
-	$pconfig['uuid'] = $a_vlans[$cnid]['uuid'];
-	$pconfig['if'] = $a_vlans[$cnid]['if'];
-	$pconfig['tag'] = $a_vlans[$cnid]['tag'];
-	$pconfig['vlandev'] = $a_vlans[$cnid]['vlandev'];
-	$pconfig['desc'] = $a_vlans[$cnid]['desc'];
-} else {
-	$pconfig['enable'] = true;
-	$pconfig['uuid'] = uuid();
-	$pconfig['if'] = "vlan" . get_nextvlan_id();
-	$pconfig['tag'] = 1;
-	$pconfig['vlandev'] = "";
-	$pconfig['desc'] = "";
-}
-
-if ($_POST) {
-	unset($input_errors);
-	$pconfig = $_POST;
-
-	if (isset($_POST['Cancel']) && $_POST['Cancel']) {
-		header("Location: interfaces_vlan.php");
-		exit;
-	}
-
-	// Input validation.
-	$reqdfields = ['vlandev','tag'];
-	$reqdfieldsn = [gtext('Physical Interface'),gtext('VLAN Tag')];
-	$reqdfieldst = ['string','numeric'];
-	do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
-	do_input_validation_type($_POST, $reqdfields, $reqdfieldsn, $reqdfieldst, $input_errors);
-
-	// Validate tag range.
-	if (($_POST['tag'] < '1') || ($_POST['tag'] > '4094')) {
-		$input_errors[] = gtext("The VLAN ID must be between 1 and 4094.");
-	}
-
-	// Validate if tag is unique. Only check if not in edit mode.
-	if (!(isset($uuid) && (FALSE !== $cnid))) {
-		class InterfaceFilter {
-			function InterfaceFilter($vlandev) { $this->vlandev = $vlandev; }
-			function filter($data) { return ($data['vlandev'] === $this->vlandev); }
-		}
-
-		if (false !== array_search_ex($_POST['tag'], array_filter($a_vlans, array(new InterfaceFilter($_POST['vlandev']), 'filter')), "tag")) {
-			$input_errors[] = sprintf(gtext("A VLAN with the tag %s is already defined on this interface."), $_POST['tag']);
-		}
-	}
-
-	if (empty($input_errors)) {
-		$vlan = [];
-		$vlan['enable'] = !empty($_POST['enable']) ? true : false;
-		$vlan['uuid'] = $_POST['uuid'];
-		$vlan['if'] = $_POST['if'];
-		$vlan['tag'] = $_POST['tag'];
-		$vlan['vlandev'] = $_POST['vlandev'];
-		$vlan['desc'] = $_POST['desc'];
-
-		if (isset($uuid) && (FALSE !== $cnid)) {
-			$a_vlans[$cnid] = $vlan;
-		} else {
-			$a_vlans[] = $vlan;
-		}
-
-		write_config();
-		touch($d_sysrebootreqd_path);
-
-		header("Location: interfaces_vlan.php");
-		exit;
-	}
-}
-
-function get_nextvlan_id() {
-	global $config;
-
-	$id = 0;
-	$a_vlan = $config['vinterfaces']['vlan'];
-
-	if (false !== array_search_ex("vlan" . strval($id), $a_vlan, "if")) {
-		do {
-			$id++; // Increase ID until a unused one is found.
-		} while (false !== array_search_ex("vlan" . strval($id), $a_vlan, "if"));
-	}
-
-	return $id;
-}
-?>
-<?php include 'fbegin.inc';?>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tabnavtbl">
-		  <ul id="tabnav">
-				<li class="tabinact"><a href="interfaces_assign.php"><span><?=gtext("Management");?></span></a></li>
-				<li class="tabinact"><a href="interfaces_wlan.php"><span><?=gtext("WLAN");?></span></a></li>
-				<li class="tabact"><a href="interfaces_vlan.php" title="<?=gtext('Reload page');?>"><span><?=gtext("VLAN");?></span></a></li>
-				<li class="tabinact"><a href="interfaces_lagg.php"><span><?=gtext("LAGG");?></span></a></li>
-				<li class="tabinact"><a href="interfaces_bridge.php"><span><?=gtext("Bridge");?></span></a></li>
-				<li class="tabinact"><a href="interfaces_carp.php"><span><?=gtext("CARP");?></span></a></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td class="tabcont">
-			<form action="interfaces_vlan_edit.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-			<?php if ($input_errors) print_input_errors($input_errors);?>
-			<table width="100%" border="0" cellpadding="6" cellspacing="0">
-			<?php html_titleline(gtext("VLAN Settings"));?>
-					<?php html_inputbox("tag", gtext("VLAN Tag"), $pconfig['tag'], gtext("802.1Q VLAN tag (between 1 and 4094)."), true, 4);?>
-					<?php $a_if = []; foreach (get_interface_list() as $ifk => $ifv) { if (preg_match('/vlan/i', $ifk)) { continue; } $a_if[$ifk] = htmlspecialchars("{$ifk} ({$ifv['mac']})"); };?>
-					<?php html_combobox("vlandev", gtext("Physical Interface"), $pconfig['vlandev'], $a_if, "", true);?>
-					<?php html_inputbox("desc", gtext("Description"), $pconfig['desc'], gtext("You may enter a description here for your reference."), false, 40);?>
-				</table>
-				<div id="submit">
-					<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && (FALSE !== $cnid)) ? gtext("Save") : gtext("Add")?>" />
-					<input name="Cancel" type="submit" class="formbtn" value="<?=gtext("Cancel");?>" />
-					<input name="enable" type="hidden" value="<?=$pconfig['enable'];?>" />
-					<input name="if" type="hidden" value="<?=$pconfig['if'];?>" />
-					<input name="uuid" type="hidden" value="<?=$pconfig['uuid'];?>" />
-				</div>
-				<?php include 'formend.inc';?>
-			</form>
-		</td>
-	</tr>
-</table>
-<?php include 'fend.inc';?>
+//	init properties and sphere
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
+//	determine page mode and validate resource id
+switch($page_method):
+	case 'GET':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'edit': // modify the data of the provided resource id and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input(INPUT_GET);
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'cancel': // cancel - nothing to do
+				$sphere->row[$sphere->get_row_identifier()] = null;
+				break;
+			case 'clone':
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'edit': // edit requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
+				break;
+			case 'save': // modify requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
+				break;
+		endswitch;
+		break;
+endswitch;
+/*
+ *	exit if $sphere->row[$sphere->row_identifier()] is null
+ */
+if(is_null($sphere->get_row_identifier_value())):
+	header($sphere->get_parent()->get_location());
+	exit;
+endif;
+/*
+ *	search resource id in sphere
+ */
+$sphere->row_id = arr::search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+/*
+ *	start determine record update mode
+ */
+$updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
+$record_mode = RECORD_ERROR;
+if($sphere->row_id === false): // record does not exist in config
+	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
+		switch($updatenotify_mode):
+			case UPDATENOTIFY_MODE_UNKNOWN:
+				$record_mode = RECORD_NEW;
+				break;
+		endswitch;
+	endif;
+else: // record found in configuration
+	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
+		switch($updatenotify_mode):
+			case UPDATENOTIFY_MODE_NEW:
+				$record_mode = RECORD_NEW_MODIFY;
+				break;
+			case UPDATENOTIFY_MODE_MODIFIED:
+				$record_mode = RECORD_MODIFY;
+				break;
+			case UPDATENOTIFY_MODE_UNKNOWN:
+				$record_mode = RECORD_MODIFY;
+				break;
+		endswitch;
+	endif;
+endif;
+if($record_mode === RECORD_ERROR): // oops, something went wrong
+	header($sphere->get_parent()->get_location());
+	exit;
+endif;
+$isrecordnew = ($record_mode === RECORD_NEW);
+$isrecordnewmodify = ($record_mode === RECORD_NEW_MODIFY);
+$isrecordmodify = ($record_mode === RECORD_MODIFY);
+$isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
+/*
+ *	end determine record update mode
+ */
+$cops = [
+	$cop->get_enable(),
+	$cop->get_if(),
+	$cop->get_tag(),
+	$cop->get_vlandev(),
+	$cop->get_description()
+];
+$a_options = [];
+foreach(get_interface_list() as $ifk => $ifv):
+	$a_options[$ifk] = sprintf('%s (%s)',$ifk,$ifv['mac'] ?? '');
+endforeach;
+$cop->get_vlandev()->set_options($a_options);
+switch($page_mode):
+	case PAGE_MODE_ADD:
+		foreach($cops as $cops_element):
+			$sphere->row[$cops_element->get_name()] = $cops_element->get_defaultvalue();
+		endforeach;
+		break;
+	case PAGE_MODE_CLONE:
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input() ?? $cops_element->get_defaultvalue();
+		endforeach;
+//		adjust page mode
+		$page_mode = PAGE_MODE_ADD;
+		break;
+	case PAGE_MODE_EDIT:
+		$source = $sphere->grid[$sphere->row_id];
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			switch($cops_element->get_input_type()):
+				case $cops_element::INPUT_TYPE_TEXTAREA:
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
+					endif;
+					break;
+			endswitch;
+			$sphere->row[$name] = $cops_element->validate_config($source);
+		endforeach;
+		break;
+	case PAGE_MODE_POST:
+//		apply post values that are applicable for all record modes
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
+			if(!isset($sphere->row[$name])):
+				$sphere->row[$name] = $_POST[$name] ?? '';
+				$input_errors[] = $cops_element->get_message_error();
+			endif;
+		endforeach;
+		if($prerequisites_ok && empty($input_errors)):
+			if(method_exists($cop,'get_auxparam')):
+				$name = $cop->get_auxparam()->get_name();
+				if(array_key_exists($name,$sphere->row)):
+					$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
+				endif;
+			endif;
+			$sphere->upsert();
+			if($isrecordnew):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			elseif($updatenotify_mode === UPDATENOTIFY_MODE_UNKNOWN):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			endif;
+			write_config();
+			header($sphere->get_parent()->get_location()); // cleanup
+			exit;
+		endif;
+		break;
+endswitch;
+toolbox::render($cop,$sphere,$record_mode,$prerequisites_ok);
