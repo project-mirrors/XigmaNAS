@@ -93,14 +93,12 @@ unsetnetworkconfiguration() {
 }
 
 #	Create cloned_interfaces record in rc.conf
+#	vlan is handled by setvlans
 setclonedinterfaces() {
 	local _cloned_interfaces
 
 	_cloned_interfaces=$( ${XML_CMD} sel --template \
 		--match "//vinterfaces/lagg/if" \
-			--value-of "concat(' ',.)" \
-		--break \
-		--match "//vinterfaces/vlan/if" \
 			--value-of "concat(' ',.)" \
 		--break \
 		--match "//vinterfaces/bridge/if" \
@@ -110,25 +108,31 @@ setclonedinterfaces() {
 			--value-of "concat(' ',.)" \
 		--break \
 		${configxml_file} | ${XML_CMD} unesc )
-	${SYSRC_CMD} -q cloned_interfaces+="${_cloned_interfaces}" > /dev/null 2>&1
+	if [ -n "${_cloned_interfaces}" ]; then
+		${SYSRC_CMD} -q cloned_interfaces+="${_cloned_interfaces}" > /dev/null 2>&1
+	fi
 }
 
 #	Create vlans_ and create_args_ records in rc.conf for vlan devices
+#	vlanproto must be set at creation time
+#	vlanpcp cannot be set at creation time when interface name is not vlan[#].
 setvlans() {
-	local _vlanif _vlandev _vlantagandargs
+	local _vlanif _vlandev _vlantag _vlanproto _vlanpcp
 
 	${XML_CMD} sel --template \
 		--match "//vinterfaces/vlan[enable]" \
-			--value-of "concat(if,' ',vlandev,' ',tag)" \
+			--value-of "concat(if,' ',vlandev,' ',tag,' ')" \
 			--if "string-length(vlanproto) > 0" \
-				--value-of "concat(' vlanproto ',vlanproto)" \
+				--value-of vlanproto \
+			--else \
+				--output "802.1Q" \
 			--break \
 			--nl \
 		--break \
 	${configxml_file} | ${XML_CMD} unesc | \
-	while read _vlanif _vlandev _vlantagandargs; do
+	while read _vlanif _vlandev _vlantag _vlanproto _vlanpcp; do
 		${SYSRC_CMD} -q "vlans_${_vlandev}"+="${_vlanif}" > /dev/null 2>&1
-		${SYSRC_CMD} -q "create_args_${_vlanif}"="vlan ${_vlantagandargs}" > /dev/null 2>&1
+		${SYSRC_CMD} -q "create_args_${_vlanif}"="vlan ${_vlantag} vlanproto ${_vlanproto}" > /dev/null 2>&1
 	done
 }
 
@@ -208,8 +212,11 @@ setifconfig() {
 				--break \
 			--break \
 			--match "//vinterfaces/vlan[enable and if='${_ifn}']" \
+				--output ' vlanpcp ' \
 				--if "string-length(vlanpcp) > 0" \
-					--value-of "concat(' vlanpcp ',vlanpcp)" \
+					--value-of vlanpcp \
+				--else \
+					--output '0' \
 				--break \
 			--break \
 			--if "starts-with(if,'lagg')" \
@@ -294,8 +301,11 @@ setifconfig() {
 						--break \
 					--break \
 					--match "//vinterfaces/vlan[enable and if='${_ifn}']" \
+						--output ' vlanpcp ' \
 						--if "string-length(vlanpcp) > 0" \
-							--value-of "concat(' vlanpcp ',vlanpcp)" \
+							--value-of vlanpcp \
+						--else \
+							--output '0' \
 						--break \
 					--break \
 					--if "starts-with(if,'lagg')" \
@@ -737,8 +747,8 @@ updateservices
 setvar
 sethostname
 unsetnetworkconfiguration
-setclonedinterfaces
 setvlans
+setclonedinterfaces
 setwlans
 setifconfig
 setoptions

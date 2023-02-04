@@ -97,7 +97,7 @@ class grid_properties extends myp\container_row {
 	final public function get_vlanproto(): myp\property_list {
 		return $this->x_vlanproto ?? $this->init_vlanproto();
 	}
-public function init_description(): myp\property_description {
+	public function init_description(): myp\property_description {
 		$property = parent::init_description();
 		$property->
 			set_id('desc')->
