@@ -39,7 +39,7 @@ use common\properties as myp;
 class row_properties extends grid_properties {
 	public function init_if(): myp\property_text {
 		$description = gettext('The name of the VLAN interface');
-		$placeholder = gettext('myvlan');
+		$placeholder = gettext('vlan0');
 		$property =  parent::init_if();
 		$property->
 			set_defaultvalue('')->
@@ -48,7 +48,7 @@ class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_placeholder($placeholder)->
 			set_size(20)->
-			filter_use_default_set_regexp('/^[a-z][a-z0-9]{0,15}$/')->
+			filter_use_default_set_regexp('/^[a-z][0-9a-z]*(_[0-9a-z]+)*$/')->
 			filter_use_default();
 		return $property;
 	}
