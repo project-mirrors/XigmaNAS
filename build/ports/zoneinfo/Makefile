@@ -8,6 +8,7 @@ MAINTAINER=	zoon01@xigmanas.com
 MASTER_SITES=   ftp://ftp.iana.org/tz/releases/ \
 				ftp://munnari.oz.au/pub/
 DISTNAME=	tzdata${DISTVERSION}
+WWW=		https://www.iana.org/time-zones
 
 # XigmaNAS® contains license files
 NO_LICENSES_INSTALL=	yes
