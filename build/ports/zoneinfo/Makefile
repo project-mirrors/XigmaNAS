@@ -1,15 +1,29 @@
 PORTNAME=		zoneinfo
+PORTREVISION=	1
 DISTVERSION=	2022g
-CATEGORIES=		misc
-COMMENT=		Updated timezone definitions
-MAINTAINER=		zoon01@xigmanas.com
+CATEGORIES=	misc
+COMMENT=	Updated timezone definitions
+MAINTAINER=	zoon01@xigmanas.com
 
-MASTER_SITES=   	ftp://ftp.iana.org/tz/releases/ \
-					ftp://munnari.oz.au/pub/
-DISTNAME=		tzdata${DISTVERSION}
+MASTER_SITES=   ftp://ftp.iana.org/tz/releases/ \
+				ftp://munnari.oz.au/pub/
+DISTNAME=	tzdata${DISTVERSION}
+
+# XigmaNAS® contains license files
+NO_LICENSES_INSTALL=	yes
+NO_LICENSES_DIALOGS=	yes
+LICENSE=	PD
 
 WRKSRC=	${WRKDIR}
 PREFIX=	/usr
+NO_ARCH=	yes
+
+OPTIONS_DEFINE=	BACKWARD
+OPTIONS_DEFAULT= BACKWARD
+OPTIONS_SUB=	yes
+
+BACKWARD_DESC=	Include backwards compatible zones
+BACKWARD_VARS=	tzfiles+=backward
 
 TZFILES=	africa antarctica asia australasia etcetera europe \
 		factory northamerica southamerica
