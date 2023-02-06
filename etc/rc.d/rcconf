@@ -117,7 +117,7 @@ setclonedinterfaces() {
 #	vlanproto must be set at creation time
 #	vlanpcp cannot be set at creation time when interface name is not vlan[#].
 setvlans() {
-	local _vlanif _vlandev _vlantag _vlanproto _vlanpcp
+	local _vlanif _vlandev _vlantag _vlanproto _vlanpcp _vlanignore
 
 	${XML_CMD} sel --template \
 		--match "//vinterfaces/vlan[enable]" \
@@ -127,12 +127,35 @@ setvlans() {
 			--else \
 				--output "802.1Q" \
 			--break \
+			--output " " \
+			--if "string-length(vlanpcp) > 0" \
+				--value-of vlanpcp \
+			--else \
+				--output "0" \
+			--break \
 			--nl \
 		--break \
 	${configxml_file} | ${XML_CMD} unesc | \
-	while read _vlanif _vlandev _vlantag _vlanproto _vlanpcp; do
+	while read _vlanif _vlandev _vlantag _vlanproto _vlanpcp _vlanignore; do
 		${SYSRC_CMD} -q "vlans_${_vlandev}"+="${_vlanif}" > /dev/null 2>&1
 		${SYSRC_CMD} -q "create_args_${_vlanif}"="vlan ${_vlantag} vlanproto ${_vlanproto}" > /dev/null 2>&1
+		cat <<EOF > "/etc/start_if.${_vlanif}" 2>&1
+#!/bin/sh
+IFCONFIG_CMD="/sbin/ifconfig"
+vlan_if="${_vlanif}"
+#	vlan_dev="${_vlandev}"
+#	vlan_tag="${_vlantag}"
+#	vlan_proto="${_vlanproto}"
+vlan_pcp="${_vlanpcp}"
+#	replaced by vlans_ + create_args_
+#	if expr \$vlan_if : 'vlan[0-9][0-9]*$' >/dev/null 2>&1; then
+#		\${IFCONFIG_CMD} \${vlan_if} create vlandev \${vlan_dev} vlan \${vlan_tag} vlanproto \${vlan_proto}
+#	else
+#		\${IFCONFIG_CMD} vlan create vlandev \${vlan_dev} vlan \${vlan_tag} vlanproto \${vlan_proto} name \${vlan_if}
+#	fi
+\${IFCONFIG_CMD} \${vlan_if} vlanpcp \${vlan_pcp}
+EOF
+		chmod ug+x "/etc/start_if.${_vlanif}" 2>&1
 	done
 }
 
@@ -209,14 +232,6 @@ setifconfig() {
 				--break \
 				--if "count(wpa/enable) > 0" \
 					--output " WPA" \
-				--break \
-			--break \
-			--match "//vinterfaces/vlan[enable and if='${_ifn}']" \
-				--output ' vlanpcp ' \
-				--if "string-length(vlanpcp) > 0" \
-					--value-of vlanpcp \
-				--else \
-					--output '0' \
 				--break \
 			--break \
 			--if "starts-with(if,'lagg')" \
@@ -298,14 +313,6 @@ setifconfig() {
 						--break \
 						--if "count(wpa/enable) > 0" \
 							--output " WPA" \
-						--break \
-					--break \
-					--match "//vinterfaces/vlan[enable and if='${_ifn}']" \
-						--output ' vlanpcp ' \
-						--if "string-length(vlanpcp) > 0" \
-							--value-of vlanpcp \
-						--else \
-							--output '0' \
 						--break \
 					--break \
 					--if "starts-with(if,'lagg')" \
