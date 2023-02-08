@@ -55,7 +55,7 @@ use function write_config;
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox extends myt\grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
@@ -83,6 +83,14 @@ final class grid_toolbox extends myt\grid_toolbox {
 			set_default('GET','view',PAGE_MODE_VIEW)->
 			add('POST','apply',PAGE_MODE_POST);
 		return $rmo;
+	}
+/**
+ *	Create the properties object
+ *	@return grid_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new grid_properties();
+		return $cop;
 	}
 /**
  *	Render the page
@@ -170,7 +178,7 @@ final class grid_toolbox extends myt\grid_toolbox {
 				ins_button_apply();
 //		additional javascript code
 		$jol = <<<'EOJ'
-$('#system_rc_list img.move').click(function() {
+$('#system_rc_list .move').click(function() {
 	var row = $(this).closest('tr');
 	if ($(this).hasClass('up')) row.prev().before(row);
 	if ($(this).hasClass('down')) row.next().after(row);
@@ -191,7 +199,7 @@ EOJ;
  *	@param mys\root $sphere
  *	@param myr\rmo $rmo
  */
-	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
 		global $input_errors;
 		global $errormsg;
