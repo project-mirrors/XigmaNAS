@@ -100,6 +100,14 @@ class grid_toolbox extends myt\grid_toolbox {
 		return $rmo;
 	}
 /**
+ *	Create the properties object
+ *	@return grid_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new grid_properties();
+		return $cop;
+	}
+/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg
@@ -185,7 +193,7 @@ class grid_toolbox extends myt\grid_toolbox {
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
 						add_toolbox_area()->
 							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
-							ins_maintainbox(false)->
+							ins_maintainbox($sphere,false)->
 							ins_informbox($sphere,false);
 				unset($known_groups[$sphere->row[$cop->get_name()->get_name()]]);
 			endforeach;
@@ -202,7 +210,7 @@ class grid_toolbox extends myt\grid_toolbox {
 						insTDwC('lcell',$gettext_system_group)->
 						add_toolbox_area()->
 							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
-							ins_maintainbox(false)->
+							ins_maintainbox($sphere,false)->
 							ins_informbox($sphere,false);
 			endforeach;
 		else:
