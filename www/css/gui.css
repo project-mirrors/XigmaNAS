@@ -1743,3 +1743,15 @@ td.padr1
 	-ms-grid-column-align: end;
 	justify-self: right;
 }
+
+.move:hover
+{
+	cursor: pointer;
+}
+
+.monotopic
+{
+	color: #95A7C0 !important;
+	color: var(--bgc-topic) !important;
+	filter: brightness(0.6) sepia(1) hue-rotate(170deg);
+}
