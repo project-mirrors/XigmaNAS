@@ -1190,7 +1190,7 @@ EOJ;
 			$this->addDIV(attributes: ['class' => 'lcrgridl','title' => $sphere->getmsg_sym_del()],value: $g_img['unicode.del']);
 		else:
 //			record is protected
-			$this->addDIV(attributes: ['class' => 'lcrgridl monotoolbox','title' => $sphere->getmsg_sym_loc()],value: $g_img['unicode.del']);
+			$this->addDIV(attributes: ['class' => 'lcrgridl monotoolbox','title' => $sphere->getmsg_sym_loc()],value: $g_img['unicode.loc']);
 		endif;
 		return $this;
 	}
