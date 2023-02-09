@@ -1134,22 +1134,23 @@ EOJ;
  *	Creates a TD element, signaling enabled/active or disabled/inactive
  *	@global array $g_img
  *	@param bool $is_enabled
- *	@param int $mode 0: Enabled = light background, Disabled = dark background
- *                   1: Enabled = dark background, Disabled = light background
- *                   2: light background
- *                   3: dark background
+ *	@param int $mode
+ *		0: Enabled = light background, Disabled = dark background
+ *		1: Enabled = dark background, Disabled = light background
+ *		2: light background
+ *		3: dark background
+ *	@param int $type
+ *		0: Enabled / Disabled
+ *		1: Running / Stopped
+ *		2: Active / Inactive
+ *		3: Online / Offline
+ *		4: On / Off
+ *		5: Yes / No
  *	@return $this
  */
-	public function ins_enadis_icon(bool $is_enabled = false,int $mode = 0) {
+	public function ins_enadis_icon(bool $is_enabled = false,int $mode = 0,int $type = 0) {
 		global $g_img;
 
-		if($is_enabled):
-			$title = gettext('Enabled');
-			$value = $g_img['unicode.ena'];
-		else:
-			$title = gettext('Disabled');
-			$value = $g_img['unicode.dis'];
-		endif;
 		switch($mode):
 			default:
 				$class = $is_enabled ? 'lcelc' : 'lcelcd';
@@ -1162,6 +1163,27 @@ EOJ;
 				break;
 			case 3:
 				$class = 'lcelcd';
+				break;
+		endswitch;
+		$value = $is_enabled ? $g_img['unicode.ena'] : $g_img['unicode.dis'];
+		switch($type):
+			default:
+				$title = $is_enabled ? gettext('Enabled') : gettext('Disabled');
+				break;
+			case 1:
+				$title = $is_enabled ? gettext('Running') : gettext('Stopped');
+				break;
+			case 2:
+				$title = $is_enabled ? gettext('Active') : gettext('Inactive');
+				break;
+			case 3:
+				$title = $is_enabled ? gettext('Online') : gettext('Offline');
+				break;
+			case 4:
+				$title = $is_enabled ? gettext('On') : gettext('Off');
+				break;
+			case 5:
+				$title = $is_enabled ? gettext('Yes') : gettext('No');
 				break;
 		endswitch;
 		$this->addTD(attributes: ['class' => $class,'title' => $title],value: $value);
