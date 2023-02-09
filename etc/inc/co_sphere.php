@@ -855,49 +855,20 @@ class co_sphere_grid extends co_sphere_level2 {
 		return $root->get_html();
 	}
 	public function html_toolbox(bool $notprotected = true,bool $notdirty = true) {
-/*
- *	<td>
- *		<a href="scriptname_edit.php?submit=edit&uuid=12345678-1234-1234-1234-1234567890AB"><img="images/edit.png" title="Edit Record" alt="Edit Record" class="spin"/></a>
- *		or
- *		<img src="images/delete.png" title="Record is marked for deletion" alt="Record is marked for deletion"/>
- *		or
- *		<img src="images/locked.png" title="Record is protected" alt="Record is protected"/>
- *	</td>
- */
 		global $g_img;
 
 		$root = new document();
 		$o_td = $root->addTD();
 		if($notdirty && $notprotected):
-			//	record is editable
+//			record is editable
 			$link = sprintf('%s?submit=edit&%s=%s',$this->get_modify()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
-			$img_attributes = [
-				'src' => $g_img['mod'],
-				'title' => $this->getmsg_sym_mod(),
-				'alt' => $this->getmsg_sym_mod(),
-				'class' => 'spin oneemhigh'
-			];
-			$o_td->
-				addA(['href' => $link])->
-					insIMG($img_attributes);
+			$o_td->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $this->getmsg_sym_mod()],value: $g_img['unicode.mod']);
 		elseif($notprotected):
-			//	record is dirty
-			$img_attributes = [
-				'src' => $g_img['del'],
-				'title' => $this->getmsg_sym_del(),
-				'alt' => $this->getmsg_sym_del(),
-				'class' => 'oneemhigh'
-			];
-			$o_td->insIMG($img_attributes);
+//			record is dirty
+			$o_td->addDIV(attributes: ['class' => 'oneemhigh','title' => $this->getmsg_sym_del()],value: $g_img['unicode.del']);
 		else:
-			//	record is protected
-			$img_attributes = [
-				'src' => $g_img['loc'],
-				'title' => $this->getmsg_sym_loc(),
-				'alt' => $this->getmsg_sym_loc(),
-				'class' => 'oneemhigh'
-			];
-			$o_td->insIMG($img_attributes);
+//			record is protected
+			$o_td->addDIV(attributes: ['class' => 'oneemhigh monotoolbox','title' => $this->getmsg_sym_loc()],value: $g_img['unicode.loc']);
 		endif;
 		return $root->get_html();
 	}
@@ -905,64 +876,28 @@ class co_sphere_grid extends co_sphere_level2 {
 		global $g_img;
 
 		$link = sprintf('%s?%s=%s',$this->get_maintain()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
-		$img_attributes = [
-			'src' => $g_img['mai'],
-			'title' => $this->getmsg_sym_mai(),
-			'alt' => $this->getmsg_sym_mai(),
-			'class' => 'spin oneemhigh'
-		];
 		$root = new document();
-		$root->
-			addTD()->
-				addA(['href' => $link])->
-					insIMG($img_attributes);
+		$root->addTD()->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $this->getmsg_sym_mai()],value: $g_img['unicode.mai']);
 		return $root->get_html();
 	}
 	public function html_informbox() {
 		global $g_img;
 
 		$link = sprintf('%s?%s=%s',$this->get_inform()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
-		$img_attributes = [
-			'src' => $g_img['inf'],
-			'title' => $this->getmsg_sym_inf(),
-			'alt' => $this->getmsg_sym_inf(),
-			'class' => 'spin oneemhigh'
-		];
 		$root = new document();
-		$root->
-			addTD()->
-				addA(['href' => $link])->
-					insIMG($img_attributes);
+		$root->addTD()->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $this->getmsg_sym_inf()],value: $g_img['unicode.inf']);
 		return $root->get_html();
 	}
 	public function html_footer_add(int $colspan = 2) {
-/*
- *	<tr>
- *		<th class="lcenl" colspan="1">
- *		</th>
- *		<th class="lceadd">
- *			<a href="scriptname_edit.php?submit=add"><img src="images/add.png" title="Add Record" alt="Add Record" class="spin"/></a>
- *		</th>
- *	</tr>
- */
 		global $g_img;
 
-		$img_attributes = [
-			'src' => $g_img['add'],
-			'title' => $this->getmsg_sym_add(),
-			'alt' => $this->getmsg_sym_add(),
-			'class' => 'spin oneemhigh'
-		];
 		$link = sprintf('%s?submit=add',$this->get_modify()->get_scriptname());
 		$root = new document();
 		$o_tr = $root->addTR();
 		if($colspan > 1):
 			$o_tr->insTH(['class' => 'lcenl','colspan' => $colspan - 1]);
 		endif;
-		$o_tr->
-			addTH(['class' => 'lceadd'])->
-				addA(['href' => $link])->
-					insIMG($img_attributes);
+		$o_tr->addTH(['class' => 'lceadd'])->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $this->getmsg_sym_add()],value: $g_img['unicode.add']);
 		return $root->get_html();
 	}
 }
