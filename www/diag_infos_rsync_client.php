@@ -32,9 +32,13 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+
+use common\arr;
+
 //	require_once 'properties_services_rsyncd_client.php';
 //	require_once 'co_request_method.php';
 
@@ -64,7 +68,7 @@ function diag_infos_rsync_client_get_sphere() {
 		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected rsync jobs?'));
  */
 //	sphere data
-	$sphere->grid = &array_make_branch($config,'rsync','rsyncclient');
+	$sphere->grid = &arr::make_branch($config,'rsync','rsyncclient');
 	return $sphere;
 }
 function diag_infos_rsync_client_selection($cop,$sphere) {
@@ -82,14 +86,14 @@ function diag_infos_rsync_client_selection($cop,$sphere) {
 	$a_col_width = ['20%','20%','10%','20%','30%'];
 	$n_col_width = count($a_col_width);
 	if($use_tablesort):
-		$document = new_page($pgtitle,NULL,'tablesort');
+		$document = new_page(page_title: $pgtitle,options: 'tablesort');
 	else:
 		$document = new_page($pgtitle);
 	endif;
-	//	get areas
+//	get areas
 //	$body = $document->getElementById('main');
 	$pagecontent = $document->getElementById('pagecontent');
-	//	add tab navigation
+//	add tab navigation
 	$document->
 		add_area_tabnav()->
 			add_tabnav_upper()->
@@ -111,7 +115,7 @@ function diag_infos_rsync_client_selection($cop,$sphere) {
 				ins_tabnav_record('diag_infos_sockets.php',gettext('Sockets'))->
 				ins_tabnav_record('diag_infos_ipmi.php',gettext('IPMI Stats'))->
 				ins_tabnav_record('diag_infos_ups.php',gettext('UPS'));
-	//	create data area
+//	create data area
 	$content = $pagecontent->add_area_data();
 /*
 	//	display information, warnings and errors
@@ -126,7 +130,7 @@ function diag_infos_rsync_client_selection($cop,$sphere) {
 		$content->ins_config_has_changed_box();
 	endif;
  */
-	//	add content
+//	add content
 	$table = $content->add_table_data_selection();
 	$table->ins_colgroup_with_styles('width',$a_col_width);
 	$thead = $table->addTHEAD();
@@ -194,23 +198,15 @@ function diag_infos_rsync_client_selection($cop,$sphere) {
 				insTDwC('lcell',$rsyncserverip)->
 				insTDwC('lcell',$remoteshare);
 			if($is_reversedirection):
-				$gt = gettext('Push');
-				$tr->
-					addTDwC('lcelc')->
-						addA(['title' => $gt])->
-							insIMG(['src' => $g_img['mle'],'alt' => $gt]);
+				$tr->addTDwC('lcelc')->addA(attributes: ['title' => gettext('Push')],value: $g_img['unicode.mle']);
 			else:
-				$gt = gettext('Pull');
-				$tr->
-					addTDwC('lcelc')->
-						addA(['title' => $gt])->
-							insIMG(['src' => $g_img['mri'],'alt' => $gt]);
+				$tr->addTDwC('lcelc')->addA(attributes: ['title' => gettext('Pull')],value: $g_img['unicode.mri']);
 			endif;
 			$table_detected = $tr->
 				insTDwC('lcell',$localshare)->
 				addTDwC('lcebl')->
 					add_table_data_selection();
-			//	subsection list detected shares
+//			subsection list detected shares
 			$a_col_width_detected = ['50%','50%'];
 //			$n_col_width_detected = count($a_col_width);
 			$table_detected->ins_colgroup_with_styles('width',$a_col_width_detected);
