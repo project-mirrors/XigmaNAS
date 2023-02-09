@@ -1749,9 +1749,9 @@ td.padr1
 	cursor: pointer;
 }
 
-.monotopic
+.monotoolbox
 {
 	color: #95A7C0 !important;
 	color: var(--bgc-topic) !important;
-	filter: brightness(0.6) sepia(1) hue-rotate(170deg);
+	filter: brightness(60%) grayscale(100%);
 }
