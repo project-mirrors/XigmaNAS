@@ -120,8 +120,7 @@ foreach($sphere->grid as $sphere->row_id => $sphere->row):
 			add_toolbox_area()->
 				push()->
 				addDIV(['class' => 'lcrgridl'])->
-					addA(['href' => $sphere->row['link']])->
-						insIMG(['src' => $g_img['mod'],'title' => gettext('Modify Service'),'alt' => gettext('Modify Service'),'class' => 'spin oneemhigh'])->
+					addA(['href' => $sphere->row['link'],'class' => 'spin oneemhigh monotoolbox','title' => gettext('Modify Service')],value: $g_img['unicode.mod'])->
 				pop()->
 				ins_maintainbox($sphere,false)->
 				ins_informbox($sphere,false);
