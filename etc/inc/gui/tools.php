@@ -43,7 +43,6 @@ use DOMNode;
 use function calc_adddivsubmittodataframe;
 use function get_headermenu;
 use function get_product_copyright;
-use function get_product_url;
 use function make_headermenu_extensions;
 use function system_get_hostname;
 use function system_get_language_codeset;
@@ -1165,9 +1164,7 @@ EOJ;
 				$class = 'lcelcd';
 				break;
 		endswitch;
-		$this->
-			addTDwC(class: $class)->
-				addA(attributes: ['title' => $title],value: $value);
+		$this->addTD(attributes: ['class' => $class,'title' => $title],value: $value);
 		return $this;
 	}
 	public function add_toolbox_area(bool $lcrgrid = true) {
@@ -2146,7 +2143,7 @@ EOJ;
 		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 		$ul_lev1 = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL(attributes: ['class' => 'lev1']);
 		$li_lev1 = $ul_lev1->addLI(attributes: ['class' => 'lev1']);
-		$li_lev1->addA(attributes: ['class' => 'lev1','onclick' => ''],value: "\u{2630}\u{fe0f}");
+		$li_lev1->addA(attributes: ['class' => 'lev1','onclick' => ''],value: "\u{2630}\u{fe0e}");
 		switch($navbartoplevelstyle):
 			case 'symbol':
 				$a_lev2_attributes = $li_lev2_attributes = $ul_lev2_attributes = ['class' => 'lev2 lev2so'];
