@@ -115,8 +115,8 @@ foreach($sphere->grid as $sphere->row_id => $sphere->row):
 	$tba = $tbody->
 		addTR()->
 			insTDwC('lcell' . $dc,$sphere->row[$cop->get_name()->get_name()] ?? '')->
-			ins_enadis_icon($is_enabled)->
-			ins_enadis_icon($is_running)->
+			ins_enadis_icon(is_enabled: $is_enabled)->
+			ins_enadis_icon(is_enabled: $is_running,type: 1)->
 			add_toolbox_area()->
 				push()->
 				addDIV(['class' => 'lcrgridl'])->
