@@ -1146,10 +1146,10 @@ EOJ;
 
 		if($is_enabled):
 			$title = gettext('Enabled');
-			$src = $g_img['ena'];
+			$value = $g_img['unicode.ena'];
 		else:
 			$title = gettext('Disabled');
-			$src = $g_img['dis'];
+			$value = $g_img['unicode.dis'];
 		endif;
 		switch($mode):
 			default:
@@ -1167,8 +1167,7 @@ EOJ;
 		endswitch;
 		$this->
 			addTDwC(class: $class)->
-				addA(attributes: ['title' => $title])->
-					insIMG(attributes: ['src' => $src,'alt' => $title]);
+				addA(attributes: ['title' => $title],value: $value);
 		return $this;
 	}
 	public function add_toolbox_area(bool $lcrgrid = true) {
@@ -1180,22 +1179,18 @@ EOJ;
 	public function ins_toolbox($sphere,bool $notprotected = true,bool $notdirty = true) {
 		global $g_img;
 
-		$div = $this->addDIV(attributes: ['class' => 'lcrgridl']);
 		if($notdirty && $notprotected):
 //			record is editable
 			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
-			$div->
-				addA(attributes: ['href' => $link])->
-					insIMG(attributes: ['src' => $g_img['mod'],'title' => $sphere->getmsg_sym_mod(),'alt' => $sphere->getmsg_sym_mod(),'class' => 'spin oneemhigh']);
+			$div = $this->addDIV(attributes: ['class' => 'lcrgridl']);
+			$div->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $sphere->getmsg_sym_mod()],value: $g_img['unicode.mod']);
 		elseif($notprotected):
 //			record is dirty
-			$div->
-				insIMG(attributes: ['src' => $g_img['del'],'title' => $sphere->getmsg_sym_del(),'alt' => $sphere->getmsg_sym_del(),'class' => 'oneemhigh']);
+			$this->addDIV(attributes: ['class' => 'lcrgridl'],value: $g_img['unicode.del']);
 		else:
 //			record is protected
-			$div->
-				insIMG(attributes: ['src' => $g_img['loc'],'title' => $sphere->getmsg_sym_loc(),'alt' => $sphere->getmsg_sym_loc(),'class' => 'oneemhigh']);
+			$this->addDIV(attributes: ['class' => 'lcrgridl monotoolbox','title' => $sphere->getmsg_sym_loc()],value: $g_img['unicode.del']);
 		endif;
 		return $this;
 	}
@@ -1206,9 +1201,7 @@ EOJ;
 		if($show_link):
 			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_maintain()->get_scriptname(),$querystring);
-			$div->
-				addA(attributes: ['href' => $link])->
-					insIMG(attributes: ['src' => $g_img['mai'],'title' => $sphere->getmsg_sym_mai(),'alt' => $sphere->getmsg_sym_mai(),'class' => 'spin oneemhigh']);
+			$div->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $sphere->getmsg_sym_mai()],value: $g_img['unicode.mai']);
 		endif;
 		return $this;
 	}
@@ -1219,9 +1212,7 @@ EOJ;
 		if($show_link):
 			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_inform()->get_scriptname(),$querystring);
-			$div->
-				addA(attributes: ['href' => $link])->
-					insIMG(attributes: ['src' => $g_img['inf'],'title' => $sphere->getmsg_sym_inf(),'alt' => $sphere->getmsg_sym_inf(),'class' => 'spin oneemhigh']);
+			$div->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $sphere->getmsg_sym_inf()],value: $g_img['unicode.inf']);
 		endif;
 		return $this;
 	}
@@ -1230,36 +1221,23 @@ EOJ;
 
 		$div = $this->addDIV(attributes: ['class' => 'lgridl']);
 		if($show_arrows):
-			$image_attribute_mup = [
-				'src' => $g_img['mup'],
+			$span_attribute_mup = [
 				'title' => $sphere->getmsg_sym_mup(),
-				'alt' => $sphere->getmsg_sym_mup(),
-				'class' => 'oneemhigh move up'
+				'class' => 'oneemhigh move up monotoolbox'
 			];
-			$image_attribute_mdn = [
-				'src' => $g_img['mdn'],
+			$span_attribute_mdn = [
 				'title' => $sphere->getmsg_sym_mdn(),
-				'alt' => $sphere->getmsg_sym_mdn(),
-				'class' => 'oneemhigh move down'
+				'class' => 'oneemhigh move down monotoolbox'
 			];
 			$div->
-				insIMG(attributes: $image_attribute_mup)->
-				insIMG(attributes: $image_attribute_mdn);
+				insSPAN(attributes: $span_attribute_mup,value: $g_img['unicode.mup'])->
+				insSPAN(attributes: $span_attribute_mdn,value: $g_img['unicode.mdn']);
 		endif;
 		return $this;
 	}
 	public function ins_record_add($sphere,int $colspan = 0) {
 		global $g_img;
-/*
- *	<tr>
- *		<th class="lcenl" colspan="1"></th>
- *		<th class="lceadd">
- *			<a href="scriptname_edit.php?submit=add">
- *				<img src="images/add.png" title="Add Record" alt="Add Record" class="spin oneemhigh"/>
- *			</a>
- *		</th>
- *	</tr>
- */
+
 		$querystring = http_build_query(['submit' => 'add'],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 		$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 //		PHP_QUERY_RFC3986
@@ -1269,8 +1247,7 @@ EOJ;
 		endif;
 		$tr->
 			addTHwC(class: 'lceadd')->
-				addA(attributes: ['href' => $link])->
-					insIMG(attributes: ['src' => $g_img['add'],'title' => $sphere->getmsg_sym_add(),'alt' => $sphere->getmsg_sym_add(),'class' => 'spin oneemhigh']);
+				addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $sphere->getmsg_sym_add()],value: $g_img['unicode.add']);
 		return $this;
 	}
 	public function ins_no_records_found(int $colspan = 0,string $message = null) {
@@ -1824,8 +1801,6 @@ EOJ;
 	}
 //	submit area macros
 	public function add_area_buttons(bool $use_config_setting = true,bool $noscript = false) {
-		global $config;
-
 		$div_attributes = ['id' => 'submit'];
 		if($use_config_setting):
 			$root = $this->ownerDocument ?? $this;
@@ -2017,10 +1992,11 @@ EOJ;
 	}
 	public function clc_html_page_title(array $page_title = []) {
 		global $d_sysrebootreqd_path;
+		global $g_img;
 
 		$output = '';
 		if(session::is_admin() && file_exists($d_sysrebootreqd_path)):
-			$output .= "\u{26a0}\u{FE0F} ";
+			$output .= $g_img['unicode.reboot'] . ' ';
 		endif;
 		$output .= system_get_hostname();
 		if(!empty($page_title)):
@@ -2170,7 +2146,7 @@ EOJ;
 		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 		$ul_lev1 = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL(attributes: ['class' => 'lev1']);
 		$li_lev1 = $ul_lev1->addLI(attributes: ['class' => 'lev1']);
-		$li_lev1->addA(attributes: ['class' => 'lev1','onclick' => ''],value: "\u{2630}");
+		$li_lev1->addA(attributes: ['class' => 'lev1','onclick' => ''],value: "\u{2630}\u{fe0f}");
 		switch($navbartoplevelstyle):
 			case 'symbol':
 				$a_lev2_attributes = $li_lev2_attributes = $ul_lev2_attributes = ['class' => 'lev2 lev2so'];
@@ -2283,6 +2259,7 @@ EOJ;
  */
 	public function ins_footer() {
 		global $d_sysrebootreqd_path;
+		global $g_img;
 
 		$g4fx = $this->
 			addElement(name: 'footer',attributes: ['id' => 'g4f'])->
@@ -2291,15 +2268,7 @@ EOJ;
 		$g4fl = $g4fx->addDIV(attributes: ['class' => 'g4fl lcrgridl']);
 		if(session::is_admin()):
 			if(file_exists($d_sysrebootreqd_path)):
-				$img_attributes = [
-					'src' => '/images/notify_reboot.png',
-					'title' => gettext('A reboot is required'),
-					'alt' => gettext('Reboot Required'),
-					'class' => 'spin oneemhigh'
-				];
-				$g4fl->
-					addA(attributes: ['class' => 'g4fi','href' => '/reboot.php'])->
-						insIMG(attributes: $img_attributes);
+				$g4fl->addA(attributes: ['class' => 'g4fi spin','href' => '/reboot.php','title' => gettext('A reboot is required')],value: $g_img['unicode.reboot']);
 			endif;
 		endif;
 		$g4fx->addDIV(attributes: ['class' => 'g4fc lcrgridc'],value: get_product_copyright());
