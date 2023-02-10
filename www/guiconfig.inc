@@ -789,7 +789,7 @@ function genhtmltitle(array $page_title = []) {
 
 	$output = '';
 	if(session::is_admin() && file_exists($d_sysrebootreqd_path)):
-		$output .= $g_img['unicode.reboot'];
+		$output .= $g_img['unicode.reboot'] . ' ';
 	endif;
 	$output .= htmlspecialchars(system_get_hostname());
 	if(!empty($page_title)):
