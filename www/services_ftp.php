@@ -340,7 +340,7 @@ $document->render();
 							html_checkbox2('tlsrequired',gettext('TLS Only'),!empty($pconfig['tlsrequired']),gettext('Allow TLS connections only.'),'',false);
 							html_combobox2('sysloglevel',gettext('Syslog Level'),$pconfig['sysloglevel'],$l_sysloglevel,'');
 							$helpinghand = '<a'
-								. ' href="http://www.proftpd.org/docs/directives/linked/configuration.html"'
+								. ' href="http://www.proftpd.org/docs/directives/index.html"'
 								. ' target="_blank"'
 								. ' rel="noreferrer">'
 								. gettext('Please check the documentation')
