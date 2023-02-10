@@ -1124,6 +1124,35 @@ div#warningbox div.message
 }
 
 /*
+	message box icon design
+*/
+.mbci-min.iconerr,
+.mbci-min.iconwrn,
+.mbci-min.iconinf
+{
+	font-size: 3rem;
+	transform: rotatex(-15deg) rotatey(30deg);
+}
+
+.mbci-min.iconerr
+{
+	text-shadow: -2px -2px 5px #b60e0e;
+	color: #ee2d2d;
+}
+
+.mbci-min.iconwrn
+{
+	text-shadow: -2px -2px 5px #b70e0e;
+	color: #ed2a2a;
+}
+
+.mbci-min.iconinf
+{
+	text-shadow: -2px -2px 5px #2e4d8b;
+	color: #446ec1;
+}
+
+/*
 	message box container item maximum size
 */
 .mbci-max
