@@ -344,8 +344,8 @@ trait tools {
 		$this->reset_hooks();
 		if(is_array($input_errors)):
 			$id = 'errorbox';
-			$src = $g_img['box.error'];
-			$alt = '';
+			$class = 'iconerr mbci-min';
+			$text = "\u{26a0}\u{fe0e}";
 			$firstrowtrigger = true;
 			foreach($input_errors as $rowvalue):
 				if(is_string($rowvalue) && preg_match('/\S/',$rowvalue)):
@@ -354,10 +354,9 @@ trait tools {
 						$mbcl1 = $hook_id->addDIV(attributes: ['class' => 'mbcl-1']);
 						$this->add_hook(dom_element: $mbcl1,identifier: 'mbcl-1');
 						$mbcl2 = $mbcl1->addDIV(attributes: ['class' => 'mbcl-2 mbci-min']);
-						$mbcl2i1 = $mbcl2->addDIV(attributes: ['class' => 'icon mbci-min']);
+						$mbcl2->addDIV(attributes: ['class' => $class],value: $text);
 						$mbcl2i2 = $mbcl2->addDIV(attributes: ['class' => 'message mbci-max']);
 						$mbcl3 = $mbcl2i2->addDIV(attributes: ['class' => 'mbcl-3 mbci-min']);
-						$mbcl2i1->insIMG(attributes: ['src' => $src,'alt' => $alt]);
 						$hook_messages = $mbcl3->
 							addDIV(value: sprintf('%s:',gettext('The following errors were detected'),':'))->
 								addUL();
@@ -390,20 +389,18 @@ trait tools {
 			switch($message_type):
 				default:
 					$id = 'errorbox';
-					$src = $g_img['box.error'];
-					$alt = '';
+					$class = 'iconerr mbci-min';
 					break;
 				case 'info':
 					$id = 'infobox';
-					$src = $g_img['box.info'];
-					$alt = '';
+					$class = 'iconinf mbci-min';
 					break;
 				case 'warning':
 					$id = 'warningbox';
-					$src = $g_img['box.warning'];
-					$alt = '';
+					$class = 'iconwrn mbci-min';
 					break;
 			endswitch;
+			$text = "\u{26a0}\u{fe0e}";
 			$firstrowtrigger = true;
 			foreach($grid as $rowvalue):
 				if(is_string($rowvalue) && preg_match('/\S/',$rowvalue)):
@@ -412,8 +409,7 @@ trait tools {
 						$mbcl1 = $hook_id->addDIV(attributes: ['class' => 'mbcl-1']);
 						$this->add_hook(dom_element: $mbcl1,identifier: 'mbcl-1');
 						$mbcl2 = $mbcl1->addDIV(attributes: ['class' => 'mbcl-2 mbci-min']);
-						$mbcl2i1 = $mbcl2->addDIV(attributes: ['class' => 'icon mbci-min']);
-						$mbcl2i1->insIMG(attributes: ['src' => $src,'alt' => $alt]);
+						$mbcl2->addDIV(attributes: ['class' => $class],value: $text);
 						$mbcl2i2 = $mbcl2->addDIV(attributes: ['class' => 'message mbci-max']);
 						$hook_messages = $mbcl2i2->addDIV(attributes: ['class' => 'mbcl-3 mbci-min']);
 						$this->add_hook(dom_element: $hook_messages,identifier: 'messages');
