@@ -711,6 +711,11 @@ input[type="checkbox"]:checked ~ div.hideifchecked
 	color: var(--txc-footer);
 }
 
+.g4fi
+{
+	color: yellow !important;
+}
+
 .g4fl
 {
 	text-align: left;
