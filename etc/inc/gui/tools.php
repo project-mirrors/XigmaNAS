@@ -2165,7 +2165,7 @@ EOJ;
 		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 		$ul_lev1 = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL(attributes: ['class' => 'lev1']);
 		$li_lev1 = $ul_lev1->addLI(attributes: ['class' => 'lev1']);
-		$li_lev1->addA(attributes: ['class' => 'lev1','onclick' => ''],value: "\u{2630}\u{fe0e}");
+		$li_lev1->addA(attributes: ['class' => 'lev1','onclick' => ''],value: "\u{2630}\u{fe0f}");
 		switch($navbartoplevelstyle):
 			case 'symbol':
 				$a_lev2_attributes = $li_lev2_attributes = $ul_lev2_attributes = ['class' => 'lev2 lev2so'];
