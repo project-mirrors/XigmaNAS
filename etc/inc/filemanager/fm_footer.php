@@ -44,6 +44,7 @@ trait fm_footer {
 //	footer for html-page
 	public function show_footer() {
 		global $d_sysrebootreqd_path;
+		global $g_img;
 
 		$output = [];
 		$output[] = '<div class="area_data_pot"></div>';
@@ -64,9 +65,7 @@ trait fm_footer {
 		$output[] = '<td class="g4fl">';
 		if(session::is_admin()):
 			if(file_exists($d_sysrebootreqd_path)):
-				$output[] = '<a href="/reboot.php" class="g4fi">';
-				$output[] = '<img src="/images/notify_reboot.png" title="' . gtext('A reboot is required') . '" alt="' . gtext('Reboot Required') . '>">';
-				$output[] = '</a>';
+				$output[] = '<a href="/reboot.php" class="g4fi spin" title="' . gettext('A reboot is required') . '">' . $g_img['unicode.reboot'] . '</a>';
 			endif;
 		endif;
 		$output[] = '</td>';

@@ -46,9 +46,7 @@ use common\session;
 <?php
 					if(session::is_admin() && file_exists($d_sysrebootreqd_path)):
 ?>
-						<a href="/reboot.php" class="g4fi">
-							<img src="/images/notify_reboot.png" title="<?=gtext('A reboot is required');?>" alt="<?=gtext('Reboot Required');?>">
-						</a>
+						<a href="/reboot.php" class="g4fi spin" title="<?=gtext('A reboot is required');?>"><?=$g_img['unicode.reboot'];?></a>
 <?php
 					endif;
 ?>
