@@ -1,11 +1,18 @@
-PORTNAME=	minidlna
-PORTVERSION=	1.3.0
-PORTREVISION=   2
+PORTNAME=		minidlna
+PORTVERSION=	1.3.2
+PORTREVISION=   0
 PORTEPOCH=      1
 CATEGORIES=	net multimedia www
+MASTER_SITES=	SF
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Media-server compatible with "Digital Life Network Alliance"
+WWW=		http://minidlna.sourceforge.net
+
+# XigmaNAS® contains license files
+NO_LICENSES_INSTALL=	yes
+NO_LICENSES_DIALOGS=	yes
+LICENSE=	GPLv2
 
 LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
 		libexif.so:graphics/libexif \
@@ -18,15 +25,13 @@ LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-db-path=/var/db/minidlna \
 		--with-os-url="https://www.xigmanas.com"
+
 CPPFLAGS+=	-I${LOCALBASE}/include
 CFLAGS+=	-DXigmaNAS
 LIBS+=		-L${LOCALBASE}/lib
-USES+=		autoreconf gettext-tools iconv jpeg
+USES+=		autoreconf cpe gettext-tools iconv jpeg
 
-USE_GITHUB=     yes 
-GH_ACCOUNT=     glebius 
-GH_TAGNAME=     4f6a473 
-
+CPE_VENDOR=	minidlna_project
 
 PKGMESSAGE=	${WRKSRC}/pkg-message
 SUB_FILES+=	pkg-message

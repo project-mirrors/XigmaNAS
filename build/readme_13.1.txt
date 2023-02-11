@@ -135,6 +135,7 @@ Changes:
 - Upgrade msmtp to v1.8.23.
 - Upgrade inadyn to v2.10.0.
 - Upgrade e2fsprogs to v1.46.6.
+- Upgrade minidlna to v1.3.2.
 
 Fixes:
 - fix bring up lighttpd at all times.
