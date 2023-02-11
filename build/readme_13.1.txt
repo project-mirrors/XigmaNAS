@@ -136,6 +136,7 @@ Changes:
 - Upgrade minidlna to v1.3.2.
 - Upgrade cdialog to v1.3-20230209.
 - Upgrade lighttpd to v1.4.69.
+- Upgrade phpmyadmin to v5.2.1.
 
 Fixes:
 - fix bring up lighttpd at all times.
