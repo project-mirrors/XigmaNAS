@@ -718,9 +718,6 @@ usr/bin/smbutil
 ## split -- split a file into pieces
 usr/bin/split
 
-## svnlite -- Subversion command-line client tool
-usr/bin/svnlite
-
 ## usbhidaction -- perform actions according to USB HID controls
 usr/bin/usbhidaction
 
@@ -784,6 +781,9 @@ usr/sbin/pwd_mkdb
 
 ## rtsold -- router solicitation daemon
 usr/sbin/rtsold:sbin/rtsol
+
+## setfib -- set the default FIB (routing table) for the calling process
+usr/sbin/setfib
 
 ## sesutil -- Utility for managing SCSI Enclosure Services (SES) device
 usr/sbin/sesutil
