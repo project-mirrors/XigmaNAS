@@ -3,7 +3,6 @@ XigmaNAS® 13.1.0.5 - Glowpanel
 Changes:
 - Upgrade to FreeBSD 13.1-RELEASE P5.
 - Upgrade tmux to v3.3a.
-- Upgrade cdialog to v1.3-20220728.
 - Upgrade rrdtool to v1.8.0.
 - Upgrade devcpu-data-amd to v20221002.
 - Upgrade pecl-APCu to v5.1.22.
@@ -29,6 +28,7 @@ Changes:
 - Upgrade inadyn to v2.10.0.
 - Upgrade e2fsprogs to v1.46.6.
 - Upgrade minidlna to v1.3.2.
+- Upgrade cdialog to v1.3-20230209.
 
 Fixes:
 - fix bring up lighttpd at all times.

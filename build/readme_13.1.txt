@@ -123,7 +123,6 @@ Changes:
 - Upgrade jquery to v3.6.3.
 - Upgrade bash to v5.2p15.
 - Upgrade rsync to v3.2.7.
-- Upgrade cdialog to v1.3-20221229.
 - Upgrade lighttpd to v1.4.68.
 - Upgrade syncthing to v1.23.0.
 - Upgrade sudo to v1.9.12p2.
@@ -136,6 +135,7 @@ Changes:
 - Upgrade inadyn to v2.10.0.
 - Upgrade e2fsprogs to v1.46.6.
 - Upgrade minidlna to v1.3.2.
+- Upgrade cdialog to v1.3-20230209.
 
 Fixes:
 - fix bring up lighttpd at all times.
