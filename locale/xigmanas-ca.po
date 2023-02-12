@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"POT-Creation-Date: 2023-02-11 22:13+0000\n"
 "PO-Revision-Date: 2022-12-15 14:59+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-30 11:44+0000\n"
-"X-Generator: Launchpad (build 20dbca4abd50eb567cd11c349e7e914443a145a1)\n"
+"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
+"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
 "Language: ca_ES\n"
 
 msgid ""
@@ -261,6 +261,9 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "102"
+msgstr ""
+
 msgid "128K"
 msgstr "128K"
 
@@ -381,8 +384,14 @@ msgstr "69"
 msgid "8 KiB"
 msgstr "8 KiB"
 
+msgid "802.1Q (default)"
+msgstr ""
+
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q etiqueta VLAN (des 1 fins a 4094)."
+
+msgid "802.1ad (QinQ)"
+msgstr ""
 
 msgid "8200"
 msgstr "8200"
@@ -406,10 +415,6 @@ msgid ""
 msgstr ""
 "Un grup del portal s'identifica mitjançant un nombre d'etiqueta i defineix "
 "les adreces IP i ports d'escolta TCP."
-
-#, php-format
-msgid "A VLAN with the tag %s is already defined on this interface."
-msgstr "Una VLAN amb l'etiqueta%s ja está definida en aquesta interfície."
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
@@ -1532,6 +1537,9 @@ msgstr "Backend"
 msgid "Background"
 msgstr "Segon pla"
 
+msgid "Background (lowest)"
+msgstr ""
+
 msgid "Backup"
 msgstr "Còpia de seguretat"
 
@@ -1659,6 +1667,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "el millor disponible"
+
+msgid "Best effort (default)"
+msgstr ""
 
 msgid "Beta Versions"
 msgstr "Versions Beta"
@@ -2962,6 +2973,9 @@ msgstr "És crític"
 msgid "Critical Error Level"
 msgstr "Error de nivell critic"
 
+msgid "Critical applications"
+msgstr ""
+
 msgid "Cron"
 msgstr "Cron"
 
@@ -3846,6 +3860,9 @@ msgstr "Desactiveu els objectius seleccionats"
 msgid "Disable Selected Users"
 msgstr "Desactiva els usuaris seleccionats"
 
+msgid "Disable Selected VLANs"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr "Desactiva els registres seleccionats de WebDAV"
 
@@ -4343,6 +4360,9 @@ msgstr "Voleu desactivar els directoris arrel seleccionats de NFS?"
 msgid "Do you want to disable selected Samba shares?"
 msgstr "Voleu desactivar les accions de Samba seleccionades?"
 
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Voleu desactivar els registres WebDAV seleccionats?"
 
@@ -4444,6 +4464,9 @@ msgstr "Voleu habilitar els directoris arrel NFS seleccionats?"
 
 msgid "Do you want to enable selected Samba shares?"
 msgstr "Voleu activar les accions de Samba seleccionades?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Voleu activar els registres seleccionats WebDAV?"
@@ -4555,6 +4578,9 @@ msgstr "Voleu canviar els directoris arrel NFS seleccionats?"
 
 msgid "Do you want to toggle selected Samba shares?"
 msgstr "Voleu canviar les accions de Samba seleccionades?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Voleu canviar els registres seleccionats de WebDAV?"
@@ -5121,6 +5147,9 @@ msgstr "Activar els objectius seleccionats?"
 msgid "Enable Selected Users"
 msgstr "Activeu usuaris seleccionats"
 
+msgid "Enable Selected VLANs"
+msgstr ""
+
 msgid "Enable Selected WebDAV Records"
 msgstr "Activa els registres seleccionats de WebDAV"
 
@@ -5364,13 +5393,6 @@ msgstr ""
 "Activeu aquesta opció per fer que els ports sèrie estiguin disponibles per "
 "als clients."
 
-msgid ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-msgstr ""
-"Activeu aquesta opció per reduir l'alçada de la capçalera de la pàgina al "
-"mínim durant la durada d'aquesta sessió."
-
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr ""
 "Activeu aquesta opció per actualitzar el microcódi de la CPU a l'inici."
@@ -5413,6 +5435,9 @@ msgid ""
 msgstr ""
 "Si habiliteu aquesta opció, podeu exposar el vostre sistema a un risc de "
 "seguretat addicional."
+
+msgid "Encapsulation Protocol"
+msgstr ""
 
 msgid "Encrypt password"
 msgstr "Xifrar contrasenya"
@@ -5720,6 +5745,9 @@ msgstr "Exemple: pkg install packagename."
 
 msgid "Excel Sheet"
 msgstr "Full Excel"
+
+msgid "Excellent effort"
+msgstr ""
 
 msgid "Exec"
 msgstr "Executa"
@@ -6573,6 +6601,9 @@ msgstr "Visualització de ressaltat"
 msgid "Hint"
 msgstr "Consell"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home Directory"
 msgstr "Carpeta inici"
 
@@ -6943,6 +6974,9 @@ msgstr "Errors d'Entrada/Sortida"
 msgid "In/Out Packets"
 msgstr "Paquets d'Entrada/Sortida"
 
+msgid "Inactive"
+msgstr ""
+
 msgid "Include /dev into scan/import"
 msgstr "Inclou /dev a la cerca /import"
 
@@ -7208,6 +7242,9 @@ msgstr "Data interna de la SAI"
 
 msgid "Internal UPS clock time"
 msgstr "Hora interna de la SAI"
+
+msgid "Internetwork control"
+msgstr ""
 
 msgid "Interval"
 msgstr "Interval"
@@ -8600,6 +8637,9 @@ msgstr ""
 "Xarxa autoritzada per accedir a la destinació iSCSI. Es necessita adreces IP "
 "o CIDR o 'ALL' per a qualsevol IPs."
 
+msgid "Network control (highest)"
+msgstr ""
+
 msgid "Networks"
 msgstr "Xarxes"
 
@@ -8921,15 +8961,6 @@ msgstr ""
 msgid "Not Reported"
 msgstr "No informat"
 
-msgid ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-msgstr ""
-"No tots els conductors/NIC donen suport 802.1Q VLAN tagging correctament. A "
-"les targetes que no admeten explícitament, etiquetatge VLAN seguirà "
-"funcionant, però la reducció de MTU pot causar problemes."
-
 msgid "Not attached"
 msgstr "No s'adjunta"
 
@@ -9031,6 +9062,9 @@ msgstr "OFF"
 msgid "Off - do not share"
 msgstr "Apagat: no compartiu"
 
+msgid "Offline"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Prova immediata de desconexió"
 
@@ -9066,6 +9100,9 @@ msgstr "Activat: comparteix amb els permisos predeterminats"
 
 msgid "On-Disk Configuration"
 msgstr "Configuració en disc"
+
+msgid "Online"
+msgstr ""
 
 msgid "Online Information"
 msgstr "Informació en línia"
@@ -9206,6 +9243,9 @@ msgstr "Es selecciona l'autenticació PAM"
 
 msgid "PBKDF2 Iterations"
 msgstr "Iteracions PBKDF2"
+
+msgid "PCP"
+msgstr ""
 
 msgid "PDF File"
 msgstr "Fitxer PDF"
@@ -9801,6 +9841,11 @@ msgstr "Impressió d'informació detallada."
 msgid "Print general information."
 msgstr "Impressió d'informació general."
 
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr "Extensió de privacitat"
 
@@ -10340,9 +10385,6 @@ msgstr "Raó per la ultma commutació a bateria (* opac)"
 msgid "Reboot"
 msgstr "Rearrenca"
 
-msgid "Reboot Required"
-msgstr "Cal reiniciar"
-
 msgid "Reboot Schedule is locked"
 msgstr "La planificació de reinici está bloquejada"
 
@@ -10808,6 +10850,9 @@ msgstr "Executar ara"
 msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr ""
 "Executar sense necessitat de dimoni rsync remot. (Desactivat per defecte)"
+
+msgid "Running"
+msgstr ""
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11522,6 +11567,9 @@ msgstr "Fes-ho només lectura."
 msgid "Set share password."
 msgstr "Establir una contrasenya compartida."
 
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
 msgid "Set the account's primary group."
 msgstr "Definiu el grup principal del compte."
 
@@ -11843,9 +11891,6 @@ msgstr "Mostra només el símbol"
 
 msgid "Show text only"
 msgstr "Mostra només el text"
-
-msgid "Shrink Page Header"
-msgstr "Reduir la mida de capçalera de pàgina"
 
 msgid "Shutdown"
 msgstr "Apagada"
@@ -12777,9 +12822,6 @@ msgstr "L'identificador del SAI i adreça IP"
 msgid "The UUID of the record."
 msgstr "El UUID del registre."
 
-msgid "The VLAN ID must be between 1 and 4094."
-msgstr "L'ID de VLAN ha d'estar entre 1 i 4094."
-
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
@@ -13364,6 +13406,9 @@ msgstr ""
 "El nom del fitxer de confiança de TLS. El fitxer ha d'estar en format PEM "
 "que contingui un o més certificats d'autoritats de certificació de confiança "
 "(CA)."
+
+msgid "The name of the VLAN interface"
+msgstr ""
 
 msgid "The name of the ZFS pool."
 msgstr "El nom del grup ZFS."
@@ -14503,6 +14548,9 @@ msgstr "Commuta els objectius seleccionats"
 msgid "Toggle Selected Users"
 msgstr "Commuta els usuaris seleccionats"
 
+msgid "Toggle Selected VLANs"
+msgstr ""
+
 msgid "Toggle Selected WebDAV Records"
 msgstr "Commuta els registres seleccionats de WebDAV"
 
@@ -15287,22 +15335,17 @@ msgstr "VHID"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VLAN Settings"
-msgstr "Configuració de VLAN"
+msgid "VLAN Interface"
+msgstr ""
 
 msgid "VLAN Tag"
 msgstr "Etiqueta VLAN"
 
-msgid ""
-"VLAN cannot be deleted because it is still being used as an interface."
+msgid "VLAN is locked"
 msgstr ""
-"VLAN no es pot eliminar perquè encara està sent utilitzat com una interfície."
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN està marcat per ser esborrat"
-
-msgid "VLAN is protected"
-msgstr "VLAN està protegit"
 
 msgid "VLAN is unlocked"
 msgstr "VLAN està desbloquejat"
@@ -15355,6 +15398,12 @@ msgstr "Versió:"
 
 msgid "Vibration During Write."
 msgstr "Vibracions durant escriptura."
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
 
 msgid "Virtual Device"
 msgstr "Dispositiu virtual"
@@ -16228,8 +16277,51 @@ msgstr "update.example.com"
 msgid "visible"
 msgstr "visible"
 
+msgid "vlan0"
+msgstr ""
+
 msgid "was assigned to"
 msgstr "va ser assignat a"
 
 msgid "yes"
 msgstr "sí"
+
+#, php-format
+#~ msgid "A VLAN with the tag %s is already defined on this interface."
+#~ msgstr "Una VLAN amb l'etiqueta%s ja está definida en aquesta interfície."
+
+#~ msgid ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+#~ msgstr ""
+#~ "No tots els conductors/NIC donen suport 802.1Q VLAN tagging correctament. A "
+#~ "les targetes que no admeten explícitament, etiquetatge VLAN seguirà "
+#~ "funcionant, però la reducció de MTU pot causar problemes."
+
+#~ msgid "Reboot Required"
+#~ msgstr "Cal reiniciar"
+
+#~ msgid "Shrink Page Header"
+#~ msgstr "Reduir la mida de capçalera de pàgina"
+
+#~ msgid "The VLAN ID must be between 1 and 4094."
+#~ msgstr "L'ID de VLAN ha d'estar entre 1 i 4094."
+
+#~ msgid "VLAN Settings"
+#~ msgstr "Configuració de VLAN"
+
+#~ msgid ""
+#~ "VLAN cannot be deleted because it is still being used as an interface."
+#~ msgstr ""
+#~ "VLAN no es pot eliminar perquè encara està sent utilitzat com una interfície."
+
+#~ msgid "VLAN is protected"
+#~ msgstr "VLAN està protegit"
+
+#~ msgid ""
+#~ "Enable this option to reduce the height of the page header to a minimum for "
+#~ "the duration of this session."
+#~ msgstr ""
+#~ "Activeu aquesta opció per reduir l'alçada de la capçalera de la pàgina al "
+#~ "mínim durant la durada d'aquesta sessió."

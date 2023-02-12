@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"POT-Creation-Date: 2023-02-11 22:13+0000\n"
 "PO-Revision-Date: 2021-11-15 14:27+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-30 11:44+0000\n"
-"X-Generator: Launchpad (build 20dbca4abd50eb567cd11c349e7e914443a145a1)\n"
+"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
+"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -253,6 +253,9 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "102"
+msgstr ""
+
 msgid "128K"
 msgstr ""
 
@@ -373,8 +376,14 @@ msgstr "69"
 msgid "8 KiB"
 msgstr "8 KiB"
 
+msgid "802.1Q (default)"
+msgstr ""
+
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN tag (tussen 1 en 4094)."
+
+msgid "802.1ad (QinQ)"
+msgstr ""
 
 msgid "8200"
 msgstr "8200"
@@ -398,10 +407,6 @@ msgid ""
 msgstr ""
 "'N Portaal Groep word geïdentifiseer deur 'n tag nommer en definieer IP "
 "adresse en beluistering na TCP poorte."
-
-#, php-format
-msgid "A VLAN with the tag %s is already defined on this interface."
-msgstr "'N VLAN met die tag %s is reeds gedefinieër op hierdie koppelvlak."
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
@@ -1512,6 +1517,9 @@ msgstr "Terug einde"
 msgid "Background"
 msgstr "Agtergrond"
 
+msgid "Background (lowest)"
+msgstr ""
+
 msgid "Backup"
 msgstr "Rugsteun"
 
@@ -1637,6 +1645,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "Beste beskikbaar"
+
+msgid "Best effort (default)"
+msgstr ""
 
 msgid "Beta Versions"
 msgstr "Beta Weergawes"
@@ -2893,6 +2904,9 @@ msgstr "Krities"
 msgid "Critical Error Level"
 msgstr "Kritiese Fout Vlak"
 
+msgid "Critical applications"
+msgstr ""
+
 msgid "Cron"
 msgstr "Cron"
 
@@ -3765,6 +3779,9 @@ msgstr "Deaktiveer Geselekteerde Teikens"
 msgid "Disable Selected Users"
 msgstr "Deaktiveer Geselekteerde Gebruikers"
 
+msgid "Disable Selected VLANs"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr "Deaktiveer Geselekteerde WebDAV Rekords"
 
@@ -4255,6 +4272,9 @@ msgstr "Wil jy geselekteerde NFS wortelgidse deaktiveer?"
 msgid "Do you want to disable selected Samba shares?"
 msgstr "Wil jy geselekteerde Samba aandele -deaktiveer?"
 
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Wil jy geselekteerde WebDAV rekords deaktiveer?"
 
@@ -4356,6 +4376,9 @@ msgstr "Wil jy geselekteerde NFS wortelgids Inskakel?"
 
 msgid "Do you want to enable selected Samba shares?"
 msgstr "Wil jy geselekteerde Samba aandele inskakel?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Wil jy geselekteerde WebDAV rekords inskakel?"
@@ -4467,6 +4490,9 @@ msgstr "Doen jy wil geselekteerde NFS wortel directories toggle?"
 
 msgid "Do you want to toggle selected Samba shares?"
 msgstr "Doen jy wil geselekteerde Samba deel toggle?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Doen jy wil geselekteerde WebDAV rekords toggle?"
@@ -5031,6 +5057,9 @@ msgstr "Inskakel Geselekteerde Teikens"
 msgid "Enable Selected Users"
 msgstr "Inskakel Geselekteerde Gebruikers"
 
+msgid "Enable Selected VLANs"
+msgstr ""
+
 msgid "Enable Selected WebDAV Records"
 msgstr "Inskakel Geselekteerde WebDAV Rekords"
 
@@ -5264,11 +5293,6 @@ msgstr ""
 "Inskakel hierdie opsie om gasheer seriële poorte beskikbaar te stel aan "
 "kliente."
 
-msgid ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-msgstr ""
-
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr ""
 "Inskakel hierdie opsie om die CPU mikrokode by die opstart op te dateer."
@@ -5311,6 +5335,9 @@ msgid ""
 msgstr ""
 "As jou hierdie opsie aanskakel, kan u stelsel blootgestel word aan bykomende "
 "veiligheids risiko!"
+
+msgid "Encapsulation Protocol"
+msgstr ""
 
 msgid "Encrypt password"
 msgstr "Enkripteer wagwoord"
@@ -5617,6 +5644,9 @@ msgstr "Voorbeeld: pkg installeer pakketnaam."
 
 msgid "Excel Sheet"
 msgstr "Excel Laken"
+
+msgid "Excellent effort"
+msgstr ""
 
 msgid "Exec"
 msgstr "Exec"
@@ -6457,6 +6487,9 @@ msgstr ""
 msgid "Hint"
 msgstr "Hint"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home Directory"
 msgstr "Tuis Directory"
 
@@ -6817,6 +6850,9 @@ msgstr "In/Uit Foute"
 msgid "In/Out Packets"
 msgstr "In/Uit Pakkies"
 
+msgid "Inactive"
+msgstr ""
+
 msgid "Include /dev into scan/import"
 msgstr ""
 
@@ -7079,6 +7115,9 @@ msgstr "Interne UPS klok datum"
 
 msgid "Internal UPS clock time"
 msgstr "Interne UPS klok tyd"
+
+msgid "Internetwork control"
+msgstr ""
 
 msgid "Interval"
 msgstr "Interval"
@@ -8455,6 +8494,9 @@ msgstr ""
 "Netwerk gemagtig om toegang tot die iSCSI teiken te verkry. Dit neem IP of "
 "CIDR adresse of 'ALL' vir enige IPs."
 
+msgid "Network control (highest)"
+msgstr ""
+
 msgid "Networks"
 msgstr "Netwerke"
 
@@ -8771,15 +8813,6 @@ msgstr ""
 msgid "Not Reported"
 msgstr "Nie Gerapporteer"
 
-msgid ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-msgstr ""
-"Nie alle bestuurders/NICs ondersteun 802.1Q VLAN tagging behoorlik. Op "
-"kaarte wat dit nie eksplisiet ondersteun nie, VLAN tagging sal steeds werk, "
-"maar die verminderde MTU kan probleme veroorsaak."
-
 msgid "Not attached"
 msgstr "Nie aangeheg"
 
@@ -8878,6 +8911,9 @@ msgstr "Af"
 msgid "Off - do not share"
 msgstr ""
 
+msgid "Offline"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Aflyn Onmiddellike Toets"
 
@@ -8913,6 +8949,9 @@ msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "Op Skyf Konfigurasie"
+
+msgid "Online"
+msgstr ""
 
 msgid "Online Information"
 msgstr "Aanlyn Inligting"
@@ -9050,6 +9089,9 @@ msgid "PAM authentication is selected."
 msgstr "PAM ontentisering geselekteerde."
 
 msgid "PBKDF2 Iterations"
+msgstr ""
+
+msgid "PCP"
 msgstr ""
 
 msgid "PDF File"
@@ -9639,6 +9681,11 @@ msgstr "Druk gedetailleerde inligting."
 msgid "Print general information."
 msgstr "Druk algemene inligting."
 
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr "Privaatheid Uitbreiding"
 
@@ -10177,9 +10224,6 @@ msgstr "Rede vir last oordraf na die battery (* vaag)"
 msgid "Reboot"
 msgstr "Herlaai"
 
-msgid "Reboot Required"
-msgstr "Herselflaai Benodig"
-
 msgid "Reboot Schedule is locked"
 msgstr ""
 
@@ -10637,6 +10681,9 @@ msgstr "Hardloop Nou"
 msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr ""
 "Lopend sonder dat dit vergelee rsync daemon nodig. (Afgeskakel by verstek)"
+
+msgid "Running"
+msgstr ""
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11331,6 +11378,9 @@ msgstr "Stel slegs lees."
 msgid "Set share password."
 msgstr "Stel die deel wagwoord"
 
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
 msgid "Set the account's primary group."
 msgstr "Stel primêre groep die rekening se."
 
@@ -11640,9 +11690,6 @@ msgstr "Wys simbool slegs"
 
 msgid "Show text only"
 msgstr "Wys teks slegs"
-
-msgid "Shrink Page Header"
-msgstr "Krimp Bladsy Koptekst"
 
 msgid "Shutdown"
 msgstr "Skakel Af"
@@ -12555,9 +12602,6 @@ msgstr "Die UPS identifiseerder en IP adres"
 msgid "The UUID of the record."
 msgstr "Die UUID van die rekord."
 
-msgid "The VLAN ID must be between 1 and 4094."
-msgstr "Die VLAN ID moet tussen 1 en 4094 wees."
-
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
@@ -13142,6 +13186,9 @@ msgid ""
 msgstr ""
 "Die naam van die TLS trust lêer. Die lêer moet in PEM-formaat wees wat een "
 "of meer sertifikate van betroubare sertifiserings owerhede (CA's) bevat."
+
+msgid "The name of the VLAN interface"
+msgstr ""
 
 msgid "The name of the ZFS pool."
 msgstr "Die naam van die ZFS poel."
@@ -14258,6 +14305,9 @@ msgstr "Toggle Geselekteerde Teikens"
 msgid "Toggle Selected Users"
 msgstr "Toggle Geselekteerde Gebruikers"
 
+msgid "Toggle Selected VLANs"
+msgstr ""
+
 msgid "Toggle Selected WebDAV Records"
 msgstr "Toggle Geselekteerde WebDAV Rekords"
 
@@ -15023,22 +15073,17 @@ msgstr "VHID"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VLAN Settings"
-msgstr "VLAN Instellings"
+msgid "VLAN Interface"
+msgstr ""
 
 msgid "VLAN Tag"
 msgstr "VLAN Etiket"
 
-msgid ""
-"VLAN cannot be deleted because it is still being used as an interface."
+msgid "VLAN is locked"
 msgstr ""
-"VLAN kan nie geskrap word omdat dit steeds gebruik word as 'n koppelvlak."
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN is gemerk vir skrap"
-
-msgid "VLAN is protected"
-msgstr "VLAN word beskerm"
 
 msgid "VLAN is unlocked"
 msgstr "VLAN is ontgeslot"
@@ -15091,6 +15136,12 @@ msgstr "Weergawe:"
 
 msgid "Vibration During Write."
 msgstr "Vibrasie Tydens Skryf."
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
 
 msgid "Virtual Device"
 msgstr "Virtuele Toestel"
@@ -15969,8 +16020,44 @@ msgstr ""
 msgid "visible"
 msgstr "sigbaar"
 
+msgid "vlan0"
+msgstr ""
+
 msgid "was assigned to"
 msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "The VLAN ID must be between 1 and 4094."
+#~ msgstr "Die VLAN ID moet tussen 1 en 4094 wees."
+
+#, php-format
+#~ msgid "A VLAN with the tag %s is already defined on this interface."
+#~ msgstr "'N VLAN met die tag %s is reeds gedefinieër op hierdie koppelvlak."
+
+#~ msgid ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+#~ msgstr ""
+#~ "Nie alle bestuurders/NICs ondersteun 802.1Q VLAN tagging behoorlik. Op "
+#~ "kaarte wat dit nie eksplisiet ondersteun nie, VLAN tagging sal steeds werk, "
+#~ "maar die verminderde MTU kan probleme veroorsaak."
+
+#~ msgid "Reboot Required"
+#~ msgstr "Herselflaai Benodig"
+
+#~ msgid "Shrink Page Header"
+#~ msgstr "Krimp Bladsy Koptekst"
+
+#~ msgid "VLAN Settings"
+#~ msgstr "VLAN Instellings"
+
+#~ msgid ""
+#~ "VLAN cannot be deleted because it is still being used as an interface."
+#~ msgstr ""
+#~ "VLAN kan nie geskrap word omdat dit steeds gebruik word as 'n koppelvlak."
+
+#~ msgid "VLAN is protected"
+#~ msgstr "VLAN word beskerm"

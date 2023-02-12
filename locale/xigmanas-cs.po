@@ -2,23 +2,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-12-10 23:58+0000\n"
-"PO-Revision-Date: 2022-12-30 16:05+0000\n"
-"Last-Translator: Tomfro <Unknown>\n"
+"POT-Creation-Date: 2023-02-11 22:13+0000\n"
+"PO-Revision-Date: 2023-02-04 12:27+0000\n"
+"Last-Translator: rama <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-30 11:44+0000\n"
-"X-Generator: Launchpad (build 20dbca4abd50eb567cd11c349e7e914443a145a1)\n"
-"Language: cs_CZ\n"
+"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
+"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: cs_CZ\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
 "default value is on. The values on and off are equivalent to the dev and "
 "nodev mount options."
 msgstr ""
+" Kontrola zda-li blokové zařízení může být otevřeno z tohoto souborového "
+"systému. Výchozí hodnotou je zapnuto. Hodnoty zapnuto a vypnuto jsou "
+"ekvivalenty mapování FS dev a nodev"
 
 msgid " No private key"
 msgstr " Žádný soukromý klíč"
@@ -67,11 +70,11 @@ msgstr "%dB / blok"
 
 #, php-format
 msgid "%s already exists as a %s."
-msgstr "%s už existuje jako %s."
+msgstr "%s již existuje jako %s."
 
 #, php-format
 msgid "%s already exists."
-msgstr "%s už existuje."
+msgstr "%s již existuje."
 
 #, php-format
 msgid "%s available of %s"
@@ -237,7 +240,7 @@ msgid "1"
 msgstr "1"
 
 msgid "1 - one copy"
-msgstr ""
+msgstr "1 - jedna kopie"
 
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr ""
@@ -255,6 +258,9 @@ msgstr "1000"
 
 msgid "1000000"
 msgstr "1000000"
+
+msgid "102"
+msgstr ""
 
 msgid "128K"
 msgstr "128K"
@@ -287,7 +293,7 @@ msgid "2"
 msgstr "2"
 
 msgid "2 - two copies"
-msgstr ""
+msgstr "2 - dvě kopie"
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -305,19 +311,19 @@ msgid "22"
 msgstr "22"
 
 msgid "256K"
-msgstr ""
+msgstr "256K"
 
 msgid "2K"
-msgstr ""
+msgstr "2K"
 
 msgid "2k"
-msgstr ""
+msgstr "2k"
 
 msgid "3"
 msgstr "3"
 
 msgid "3 - three copies - not applicable when encryption is enabled"
-msgstr ""
+msgstr "3 - tři kopie - nelze zvolit v případě, že je zapnuto šifrování"
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "Pro vytvoření svazku typu RAID-5 je zapotřebí třech a více disků."
@@ -332,19 +338,19 @@ msgid "32 KiB"
 msgstr "32 KiB"
 
 msgid "32K"
-msgstr ""
+msgstr "32K"
 
 msgid "4 KiB"
 msgstr "4 KiB"
 
 msgid "4K"
-msgstr ""
+msgstr "4K"
 
 msgid "4KB wrapper"
 msgstr "4KB mezivrstva (wrapper)"
 
 msgid "4k"
-msgstr ""
+msgstr "4k"
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -353,13 +359,13 @@ msgid "512 Bytes"
 msgstr "512 bajtů"
 
 msgid "512 bytes"
-msgstr ""
+msgstr "512 bajtů"
 
 msgid "512B"
-msgstr ""
+msgstr "512B"
 
 msgid "512K"
-msgstr ""
+msgstr "512K"
 
 msgid "514"
 msgstr "514"
@@ -368,7 +374,7 @@ msgid "64 KiB"
 msgstr "64 KiB"
 
 msgid "64K"
-msgstr ""
+msgstr "64K"
 
 msgid "69"
 msgstr "69"
@@ -376,18 +382,24 @@ msgstr "69"
 msgid "8 KiB"
 msgstr "8 KiB"
 
+msgid "802.1Q (default)"
+msgstr ""
+
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr ""
 "Značka virtuální sítě (VLAN) dle normy 802.1Q – číslo z rozsahu 1 až 4094."
+
+msgid "802.1ad (QinQ)"
+msgstr ""
 
 msgid "8200"
 msgstr "8200"
 
 msgid "8K"
-msgstr ""
+msgstr "8K"
 
 msgid "8k"
-msgstr ""
+msgstr "8k"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -402,11 +414,6 @@ msgid ""
 msgstr ""
 "Skupina portálu je identifikovaná číslem značky (tag) a určuje IP adresy a "
 "TCP porty, na kterých je očekáváno spojení."
-
-#, php-format
-msgid "A VLAN with the tag %s is already defined on this interface."
-msgstr ""
-"Virtuální síť (VLAN) se značkou (tag) %s už na tomto rozhraní existuje."
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
@@ -527,10 +534,10 @@ msgid "ACL Mode"
 msgstr "Režim ACL seznamu"
 
 msgid "ACL Type"
-msgstr ""
+msgstr "ACL typ"
 
 msgid "ACL inherit"
-msgstr "Přebírání ACL seznamů"
+msgstr "ACL dědění"
 
 msgid "ACL mode"
 msgstr "Režim ACL seznamu"
@@ -661,7 +668,7 @@ msgid "Add Encrypted Volume"
 msgstr "Přidat šifrovaný svazek"
 
 msgid "Add Filesystem"
-msgstr ""
+msgstr "Přidat souborový systém (FS)"
 
 msgid "Add Group"
 msgstr "Přidat skupinu"
@@ -884,7 +891,7 @@ msgid "Admin access"
 msgstr "Administrátorský přístup"
 
 msgid "Admin controlled mount"
-msgstr ""
+msgstr "Administrátorem kontrolovaný mount"
 
 msgid "Administrative WebGUI"
 msgstr "Webové rozhraní pro správu"
@@ -1064,6 +1071,8 @@ msgid ""
 "Allow mounting on a busy directory or a directory which already contains "
 "files or directories."
 msgstr ""
+"Povolit mount na používaném zařízení nebo adresáře obsahující soubory či "
+"podadresáře."
 
 msgid "Allow new files to be created."
 msgstr "Umožnit vytváření nových souborů."
@@ -1462,7 +1471,7 @@ msgid "Auto Snapshot Settings"
 msgstr "Nastavení automatického zachycování stavu"
 
 msgid "Auto mount"
-msgstr ""
+msgstr "Auto mount"
 
 msgid "Auto page refresh."
 msgstr "Automatické obnovování stránky."
@@ -1527,6 +1536,9 @@ msgstr "Podpůrná vrstva (backend)"
 
 msgid "Background"
 msgstr "Pozadí"
+
+msgid "Background (lowest)"
+msgstr ""
 
 msgid "Backup"
 msgstr "Zálohovat"
@@ -1649,6 +1661,9 @@ msgstr "Než začne klient Unison fungovat, je zapotřebí provést následujíc
 msgid "Best available"
 msgstr "Nejlepší dostupné"
 
+msgid "Best effort (default)"
+msgstr ""
+
 msgid "Beta Versions"
 msgstr "Beta verze"
 
@@ -1680,7 +1695,7 @@ msgid "Blocksize"
 msgstr "Velikost bloku"
 
 msgid "Bookmark - Creates a bookmark of a given snapshot."
-msgstr ""
+msgstr "Záložka - vytváří záložku na daný snapshot."
 
 msgid "Boot Arguments"
 msgstr "Parametry zavádění"
@@ -2147,7 +2162,7 @@ msgid "Clone Configuration"
 msgstr "Klonovat nastavení"
 
 msgid "Clones"
-msgstr ""
+msgstr "Klony"
 
 msgid "Close"
 msgstr "Zavřít"
@@ -2159,7 +2174,7 @@ msgid "Collisions"
 msgstr "Kolize"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "Barevné měřítko"
 
 msgid "Cols"
 msgstr "Kolz"
@@ -2253,103 +2268,103 @@ msgid "Compression"
 msgstr "Komprese"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "Kompresní poměr"
 
 msgid "Compression level 1 - best compression ratio"
-msgstr ""
+msgstr "Úroveň komprese 1 - nejlepší kompresní poměr"
 
 msgid "Compression level 1 - fastest compression"
-msgstr ""
+msgstr "Úroveň komprese 1 - nejrychlejší komprese"
 
 msgid "Compression level 10"
-msgstr ""
+msgstr "Úroveň komprese 10"
 
 msgid "Compression level 100"
-msgstr ""
+msgstr "Úroveň komprese 100"
 
 msgid "Compression level 1000 - fastest compression"
-msgstr ""
+msgstr "Úroveň komprese 100 - nejrychlejší komprese"
 
 msgid "Compression level 11"
-msgstr ""
+msgstr "Úroveň komprese 11"
 
 msgid "Compression level 12"
-msgstr ""
+msgstr "Úroveň komprese 12"
 
 msgid "Compression level 13"
-msgstr ""
+msgstr "Úroveň komprese 13"
 
 msgid "Compression level 14"
-msgstr ""
+msgstr "Úroveň komprese 14"
 
 msgid "Compression level 15"
-msgstr ""
+msgstr "Úroveň komprese 15"
 
 msgid "Compression level 16"
-msgstr ""
+msgstr "Úroveň komprese 16"
 
 msgid "Compression level 17"
-msgstr ""
+msgstr "Úroveň komprese 17"
 
 msgid "Compression level 18"
-msgstr ""
+msgstr "Úroveň komprese 18"
 
 msgid "Compression level 19 - best compression ratio"
-msgstr ""
+msgstr "Úroveň komprese 19 - nejlepší stupeň komprese"
 
 msgid "Compression level 2"
-msgstr ""
+msgstr "Úroveň komprese 2"
 
 msgid "Compression level 20"
-msgstr ""
+msgstr "Úroveň komprese 20"
 
 msgid "Compression level 3"
-msgstr ""
+msgstr "Úroveň komprese 3"
 
 msgid "Compression level 30"
-msgstr ""
+msgstr "Úroveň komprese 30"
 
 msgid "Compression level 4"
-msgstr ""
+msgstr "Úroveň komprese 4"
 
 msgid "Compression level 40"
-msgstr ""
+msgstr "Úroveň komprese 40"
 
 msgid "Compression level 5"
-msgstr ""
+msgstr "Úroveň komprese 5"
 
 msgid "Compression level 50"
-msgstr ""
+msgstr "Úroveň komprese 50"
 
 msgid "Compression level 500"
-msgstr ""
+msgstr "Úroveň komprese 500"
 
 msgid "Compression level 6"
-msgstr ""
+msgstr "Úroveň komprese 6"
 
 msgid "Compression level 60"
-msgstr ""
+msgstr "Úroveň komprese 60"
 
 msgid "Compression level 7"
-msgstr ""
+msgstr "Úroveň komprese 7"
 
 msgid "Compression level 70"
-msgstr ""
+msgstr "Úroveň komprese 70"
 
 msgid "Compression level 8"
-msgstr ""
+msgstr "Úroveň komprese 8"
 
 msgid "Compression level 80"
-msgstr ""
+msgstr "Úroveň komprese 80"
 
 msgid "Compression level 9"
-msgstr ""
+msgstr "Úroveň komprese 9"
 
 msgid "Compression level 9 - best compression ratio"
-msgstr ""
+msgstr "Úroveň komprese 9 - nejlepší kompresní poměr"
 
 msgid "Compression level 90"
-msgstr ""
+msgstr "Úroveň komprese 90"
 
 msgid "Configuration"
 msgstr "Nastavení"
@@ -2511,6 +2526,9 @@ msgid ""
 "algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
 "the feature flag lz4_compress is active, otherwise LZJB is used."
 msgstr ""
+"Ovládá kompresní algoritmus. LZ4 je doporučeným kompresním algoritmem. Volba "
+"komprese 'Zapnuto' používá kompresní algoritmus LZ4, je-li parametr "
+"lz4_compress nastaven jako aktivní, jinak používá LZJB."
 
 msgid "Controls the dedup method."
 msgstr "Ovládá metodu deduplikace."
@@ -2519,12 +2537,14 @@ msgid ""
 "Controls the encryption cipher suite (block cipher, key length, and mode) "
 "used for this dataset."
 msgstr ""
+"Ovládá parametry šifrování (bloková šifra, délka klíče a režim) použitého "
+"pro tento dataset."
 
 msgid "Controls the format of the provided encryption key."
-msgstr ""
+msgstr "Ovládá formát nabízeného šifrovacího klíče."
 
 msgid "Controls the level of the Fast Zstandard compression level"
-msgstr ""
+msgstr "Ovládá úroveň Fast Ystandard komprese."
 
 msgid "Controls the level of the Zstandard compression level"
 msgstr ""
@@ -2919,6 +2939,9 @@ msgstr "Kritické"
 
 msgid "Critical Error Level"
 msgstr "Stupeň kritické chyby"
+
+msgid "Critical applications"
+msgstr ""
 
 msgid "Cron"
 msgstr "Naplánované úlohy (Cron)"
@@ -3798,6 +3821,9 @@ msgstr "Vypnout označené cíle"
 msgid "Disable Selected Users"
 msgstr "Zakázat označené uživatele"
 
+msgid "Disable Selected VLANs"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr "Vypnout označené WebDAV záznamy"
 
@@ -4288,6 +4314,9 @@ msgstr ""
 msgid "Do you want to disable selected Samba shares?"
 msgstr ""
 
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Opravdu chcete vypnout označené WebDAV záznamy?"
 
@@ -4391,6 +4420,9 @@ msgid "Do you want to enable selected NFS root directories?"
 msgstr ""
 
 msgid "Do you want to enable selected Samba shares?"
+msgstr ""
+
+msgid "Do you want to enable selected VLANs?"
 msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
@@ -4506,6 +4538,9 @@ msgid "Do you want to toggle selected NFS root directories?"
 msgstr ""
 
 msgid "Do you want to toggle selected Samba shares?"
+msgstr ""
+
+msgid "Do you want to toggle selected VLANs?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
@@ -5069,6 +5104,9 @@ msgstr "Zapnout označené cíle"
 msgid "Enable Selected Users"
 msgstr ""
 
+msgid "Enable Selected VLANs"
+msgstr ""
+
 msgid "Enable Selected WebDAV Records"
 msgstr "Zapnout označené záznamy pro WebDAV"
 
@@ -5301,11 +5339,6 @@ msgstr ""
 msgid "Enable this option to make host serial ports available to clients."
 msgstr "Zapnutí této předvolby zpřístupní sériové porty pro klienty."
 
-msgid ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-msgstr ""
-
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr ""
 "Zapněte tuto předvolbu pro aktualizaci mikroḱódu procesoru při spouštění."
@@ -5345,6 +5378,9 @@ msgid ""
 msgstr ""
 "Může se stát, že zapnutím této předvolby vystavíte svůj systém dalšímu "
 "bezpečnostnímu riziku!"
+
+msgid "Encapsulation Protocol"
+msgstr ""
 
 msgid "Encrypt password"
 msgstr "Heslo pro šifrování"
@@ -5641,6 +5677,9 @@ msgid "Example: pkg install packagename."
 msgstr "Příklad: pkg install nazevbalicku."
 
 msgid "Excel Sheet"
+msgstr ""
+
+msgid "Excellent effort"
 msgstr ""
 
 msgid "Exec"
@@ -6477,6 +6516,9 @@ msgstr ""
 msgid "Hint"
 msgstr "Tip"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home Directory"
 msgstr "Domovská složka"
 
@@ -6836,6 +6878,9 @@ msgstr "Vst./výst. chyby"
 msgid "In/Out Packets"
 msgstr "Vst./výst. pakety"
 
+msgid "Inactive"
+msgstr ""
+
 msgid "Include /dev into scan/import"
 msgstr ""
 
@@ -7098,6 +7143,9 @@ msgstr "Datum v UPS"
 
 msgid "Internal UPS clock time"
 msgstr "Čas v UPS"
+
+msgid "Internetwork control"
+msgstr ""
 
 msgid "Interval"
 msgstr "Interval"
@@ -8503,6 +8551,9 @@ msgstr ""
 "zápisu CIDR) nebo klíčové slovo ALL (vše) pro umožnění přístupu z libovolné "
 "sítě."
 
+msgid "Network control (highest)"
+msgstr ""
+
 msgid "Networks"
 msgstr "Sítě"
 
@@ -8816,16 +8867,6 @@ msgstr ""
 msgid "Not Reported"
 msgstr "Neoznámeno"
 
-msgid ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-msgstr ""
-"Ne všechny ovladače/síťové karty správně podporují značkování virtuálních "
-"sítí dle normy 802.1Q. Ale i na těchto síťových rozhraních bude značkování "
-"virtuálních sítí stále fungovat, jen tím způsobené zmenšení nejvyšší "
-"velikosti přenosové jednotky (MTU) může způsobovat problémy."
-
 msgid "Not attached"
 msgstr "Nepřipojeno"
 
@@ -8926,6 +8967,9 @@ msgstr "Vypnuto"
 msgid "Off - do not share"
 msgstr ""
 
+msgid "Offline"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Okamžitý test při vypnutí"
 
@@ -8961,6 +9005,9 @@ msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "Nastavení na disku"
+
+msgid "Online"
+msgstr ""
 
 msgid "Online Information"
 msgstr "Online informace"
@@ -9098,6 +9145,9 @@ msgid "PAM authentication is selected."
 msgstr "Je vybráno PAM ověřování."
 
 msgid "PBKDF2 Iterations"
+msgstr ""
+
+msgid "PCP"
 msgstr ""
 
 msgid "PDF File"
@@ -9685,6 +9735,11 @@ msgstr "Vypsat podrobné informace."
 msgid "Print general information."
 msgstr "Vypsat obecné informace."
 
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr "Rozšíření pro soukromí"
 
@@ -10222,9 +10277,6 @@ msgstr "Důvod předchozího přechodu na provoz z akumulátorů (* nejednotné)
 msgid "Reboot"
 msgstr "Restartovat"
 
-msgid "Reboot Required"
-msgstr "Je třeba restart"
-
 msgid "Reboot Schedule is locked"
 msgstr ""
 
@@ -10680,6 +10732,9 @@ msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr ""
 "Spustit i bez požadavku na službu rsync na protějšku. (Ve výchozím stavu "
 "vypnuto)"
+
+msgid "Running"
+msgstr ""
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11374,6 +11429,9 @@ msgstr "Nastavit pouze pro čtení"
 msgid "Set share password."
 msgstr "Nastavit heslo pro přístup na sdílení."
 
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
 msgid "Set the account's primary group."
 msgstr ""
 
@@ -11671,9 +11729,6 @@ msgstr ""
 
 msgid "Show text only"
 msgstr ""
-
-msgid "Shrink Page Header"
-msgstr "Zmenšit záhlaví stránky"
 
 msgid "Shutdown"
 msgstr "Vypnout"
@@ -12574,10 +12629,6 @@ msgstr "Identifikátor a IP adresa UPS zdroje"
 msgid "The UUID of the record."
 msgstr "Univerzálně neopakující se identifikátor (UUID) záznamu."
 
-msgid "The VLAN ID must be between 1 and 4094."
-msgstr ""
-"Je třeba, aby označení virtuální sítě (VLAN) bylo číslo z rozsahu 1 až 4094."
-
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
@@ -13172,6 +13223,9 @@ msgstr ""
 "Název souboru s TLS důvěryhodností. Je třeba, aby soubor byl v PEM formátu a "
 "obsahoval jeden nebo více certifikátů certifikačních autorit (CA), kterým "
 "chcete důvěřovat."
+
+msgid "The name of the VLAN interface"
+msgstr ""
 
 msgid "The name of the ZFS pool."
 msgstr "Název ZFS fondu."
@@ -14259,6 +14313,9 @@ msgstr "Vyp/zap označené cíle"
 msgid "Toggle Selected Users"
 msgstr ""
 
+msgid "Toggle Selected VLANs"
+msgstr ""
+
 msgid "Toggle Selected WebDAV Records"
 msgstr "Vyp/zap označené WebDAV záznamy"
 
@@ -15026,22 +15083,17 @@ msgstr "VHID"
 msgid "VLAN"
 msgstr "Virtuální síť (VLAN)"
 
-msgid "VLAN Settings"
-msgstr "Nastavení VLAN"
+msgid "VLAN Interface"
+msgstr ""
 
 msgid "VLAN Tag"
 msgstr "Značka virtuální sítě (VLAN)"
 
-msgid ""
-"VLAN cannot be deleted because it is still being used as an interface."
+msgid "VLAN is locked"
 msgstr ""
-"Virt. síť (VLAN) nelze smazat protože je stále používána jako rozhraní."
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN je označena ke smazání"
-
-msgid "VLAN is protected"
-msgstr "VLAN je chráněna"
 
 msgid "VLAN is unlocked"
 msgstr "VLAN je odemčena"
@@ -15094,6 +15146,12 @@ msgstr "Verze:"
 
 msgid "Vibration During Write."
 msgstr "Vibrace při zápisu."
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
 
 msgid "Virtual Device"
 msgstr "Virtuální zařízení"
@@ -15970,8 +16028,47 @@ msgstr ""
 msgid "visible"
 msgstr "viditelné"
 
+msgid "vlan0"
+msgstr ""
+
 msgid "was assigned to"
 msgstr ""
 
 msgid "yes"
 msgstr "ano"
+
+#, php-format
+#~ msgid "A VLAN with the tag %s is already defined on this interface."
+#~ msgstr ""
+#~ "Virtuální síť (VLAN) se značkou (tag) %s už na tomto rozhraní existuje."
+
+#~ msgid ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+#~ msgstr ""
+#~ "Ne všechny ovladače/síťové karty správně podporují značkování virtuálních "
+#~ "sítí dle normy 802.1Q. Ale i na těchto síťových rozhraních bude značkování "
+#~ "virtuálních sítí stále fungovat, jen tím způsobené zmenšení nejvyšší "
+#~ "velikosti přenosové jednotky (MTU) může způsobovat problémy."
+
+#~ msgid "Reboot Required"
+#~ msgstr "Je třeba restart"
+
+#~ msgid "Shrink Page Header"
+#~ msgstr "Zmenšit záhlaví stránky"
+
+#~ msgid "The VLAN ID must be between 1 and 4094."
+#~ msgstr ""
+#~ "Je třeba, aby označení virtuální sítě (VLAN) bylo číslo z rozsahu 1 až 4094."
+
+#~ msgid "VLAN Settings"
+#~ msgstr "Nastavení VLAN"
+
+#~ msgid ""
+#~ "VLAN cannot be deleted because it is still being used as an interface."
+#~ msgstr ""
+#~ "Virt. síť (VLAN) nelze smazat protože je stále používána jako rozhraní."
+
+#~ msgid "VLAN is protected"
+#~ msgstr "VLAN je chráněna"

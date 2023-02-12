@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"POT-Creation-Date: 2023-02-11 22:13+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-30 11:44+0000\n"
-"X-Generator: Launchpad (build 20dbca4abd50eb567cd11c349e7e914443a145a1)\n"
-"Language: ko\n"
+"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
+"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: ko\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -239,6 +239,9 @@ msgstr ""
 msgid "1000000"
 msgstr ""
 
+msgid "102"
+msgstr ""
+
 msgid "128K"
 msgstr ""
 
@@ -359,8 +362,14 @@ msgstr ""
 msgid "8 KiB"
 msgstr ""
 
+msgid "802.1Q (default)"
+msgstr ""
+
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN 태그(1에서 4094까지)."
+
+msgid "802.1ad (QinQ)"
+msgstr ""
 
 msgid "8200"
 msgstr ""
@@ -380,10 +389,6 @@ msgid ""
 "A Portal Group is identified by a tag number and defines IP addresses and "
 "listening TCP ports."
 msgstr "포털 그룹은 정의된 IP 주소와 TCP 수신 포트, 태그 번호로 식별 됩니다."
-
-#, php-format
-msgid "A VLAN with the tag %s is already defined on this interface."
-msgstr "태그 %s을(를) 가진 VLAN이 이미 이 인터페이스에 정의되어 있습니다."
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
@@ -1429,6 +1434,9 @@ msgstr ""
 msgid "Background"
 msgstr "배경색"
 
+msgid "Background (lowest)"
+msgstr ""
+
 msgid "Backup"
 msgstr "백업"
 
@@ -1544,6 +1552,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "가장 적합한 것"
+
+msgid "Best effort (default)"
+msgstr ""
 
 msgid "Beta Versions"
 msgstr ""
@@ -2727,6 +2738,9 @@ msgstr "치명적"
 msgid "Critical Error Level"
 msgstr "심각한 오류 수준"
 
+msgid "Critical applications"
+msgstr ""
+
 msgid "Cron"
 msgstr "Cron"
 
@@ -3586,6 +3600,9 @@ msgstr ""
 msgid "Disable Selected Users"
 msgstr ""
 
+msgid "Disable Selected VLANs"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr ""
 
@@ -4051,6 +4068,9 @@ msgstr ""
 msgid "Do you want to disable selected Samba shares?"
 msgstr ""
 
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr ""
 
@@ -4151,6 +4171,9 @@ msgid "Do you want to enable selected NFS root directories?"
 msgstr ""
 
 msgid "Do you want to enable selected Samba shares?"
+msgstr ""
+
+msgid "Do you want to enable selected VLANs?"
 msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
@@ -4262,6 +4285,9 @@ msgid "Do you want to toggle selected NFS root directories?"
 msgstr ""
 
 msgid "Do you want to toggle selected Samba shares?"
+msgstr ""
+
+msgid "Do you want to toggle selected VLANs?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
@@ -4821,6 +4847,9 @@ msgstr ""
 msgid "Enable Selected Users"
 msgstr ""
 
+msgid "Enable Selected VLANs"
+msgstr ""
+
 msgid "Enable Selected WebDAV Records"
 msgstr ""
 
@@ -5039,11 +5068,6 @@ msgstr ""
 msgid "Enable this option to make host serial ports available to clients."
 msgstr ""
 
-msgid ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-msgstr ""
-
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr "이 옵션은 시동시 CPU 마이크로코드 업데이트를 활성화 합니다."
 
@@ -5080,6 +5104,9 @@ msgstr ""
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr "이 옵션을 사용하면 시스템에 추가적인 보안 위협이 발생할 수 있습니다!"
+
+msgid "Encapsulation Protocol"
+msgstr ""
 
 msgid "Encrypt password"
 msgstr "암호화 암호"
@@ -5356,6 +5383,9 @@ msgid "Example: pkg install packagename."
 msgstr "예: pkg install 꾸러미이름"
 
 msgid "Excel Sheet"
+msgstr ""
+
+msgid "Excellent effort"
 msgstr ""
 
 msgid "Exec"
@@ -6170,6 +6200,9 @@ msgstr ""
 msgid "Hint"
 msgstr "힌트"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home Directory"
 msgstr "홈 디렉터리"
 
@@ -6495,6 +6528,9 @@ msgstr "입/출력 오류"
 msgid "In/Out Packets"
 msgstr "입/출력 패킷"
 
+msgid "Inactive"
+msgstr ""
+
 msgid "Include /dev into scan/import"
 msgstr ""
 
@@ -6745,6 +6781,9 @@ msgstr "UPS 내부 시계 날짜"
 
 msgid "Internal UPS clock time"
 msgstr "UPS 내부 시계 시간"
+
+msgid "Internetwork control"
+msgstr ""
 
 msgid "Interval"
 msgstr "간격"
@@ -8066,6 +8105,9 @@ msgid ""
 msgstr ""
 "iSCSI 타겟에 대한 접근 권한을 부여 받은 네트워크. IP나 CIDR 주소 또는 모든 IP를 설정할 경우 'ALL'을 이용합니다."
 
+msgid "Network control (highest)"
+msgstr ""
+
 msgid "Networks"
 msgstr "네트워크"
 
@@ -8375,14 +8417,6 @@ msgstr ""
 msgid "Not Reported"
 msgstr ""
 
-msgid ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-msgstr ""
-"모든 장치/NIC이 802.1Q VLAN 태깅을 적절히 지원하는 것은 아닙니다. 이것을 명시적으로 지원하지 않는 카드에서도 VLAN "
-"태깅은 여전히 작동하겠지만 감소된 MTU는 문제를 일으킬 수도 있습니다."
-
 msgid "Not attached"
 msgstr "부착되지 않음"
 
@@ -8478,6 +8512,9 @@ msgstr "끔"
 msgid "Off - do not share"
 msgstr ""
 
+msgid "Offline"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "즉각적 오프라인 테스트"
 
@@ -8512,6 +8549,9 @@ msgid "On - share with default permissions"
 msgstr ""
 
 msgid "On-Disk Configuration"
+msgstr ""
+
+msgid "Online"
 msgstr ""
 
 msgid "Online Information"
@@ -8643,6 +8683,9 @@ msgid "PAM authentication is selected."
 msgstr "PAM 인증이 선택되었습니다."
 
 msgid "PBKDF2 Iterations"
+msgstr ""
+
+msgid "PCP"
 msgstr ""
 
 msgid "PDF File"
@@ -9216,6 +9259,11 @@ msgstr ""
 msgid "Print general information."
 msgstr ""
 
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr ""
 
@@ -9736,9 +9784,6 @@ msgstr ""
 msgid "Reboot"
 msgstr "재시동"
 
-msgid "Reboot Required"
-msgstr "재시동 필요"
-
 msgid "Reboot Schedule is locked"
 msgstr ""
 
@@ -10183,6 +10228,9 @@ msgstr "지금 실행"
 
 msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr "원격지 rsync 데몬 재질의 없이 실행. (기본 값은 사용 안 함)"
+
+msgid "Running"
+msgstr ""
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -10847,6 +10895,9 @@ msgstr "읽기 전용 설정."
 msgid "Set share password."
 msgstr "공유 암호 설정."
 
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
 msgid "Set the account's primary group."
 msgstr ""
 
@@ -11109,9 +11160,6 @@ msgstr ""
 
 msgid "Show text only"
 msgstr ""
-
-msgid "Shrink Page Header"
-msgstr "페이지 상단 축소"
 
 msgid "Shutdown"
 msgstr "시스템 종료"
@@ -11962,9 +12010,6 @@ msgstr "UPS 식볈자와 IP 주소"
 msgid "The UUID of the record."
 msgstr "항목의 UUID."
 
-msgid "The VLAN ID must be between 1 and 4094."
-msgstr "VLAN ID는 1에서 4094 사이의 값이어야 합니다."
-
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
@@ -12451,6 +12496,9 @@ msgstr "RAID 이름은 a-z, A-Z, 0-9로만 구성되어야 합니다."
 msgid ""
 "The name of the TLS trust file. The file must be in PEM format containing "
 "one or more certificates of trusted Certification Authorities (CAs)."
+msgstr ""
+
+msgid "The name of the VLAN interface"
 msgstr ""
 
 msgid "The name of the ZFS pool."
@@ -13423,6 +13471,9 @@ msgstr ""
 msgid "Toggle Selected Users"
 msgstr ""
 
+msgid "Toggle Selected VLANs"
+msgstr ""
+
 msgid "Toggle Selected WebDAV Records"
 msgstr ""
 
@@ -14140,21 +14191,17 @@ msgstr "VHID"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VLAN Settings"
-msgstr "VLAN 설정"
+msgid "VLAN Interface"
+msgstr ""
 
 msgid "VLAN Tag"
 msgstr "VLAN 태그"
 
-msgid ""
-"VLAN cannot be deleted because it is still being used as an interface."
-msgstr "인터페이스로 사용 중이어서 VLAN을 삭제할 수 없습니다."
+msgid "VLAN is locked"
+msgstr ""
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN 삭제 표시됨"
-
-msgid "VLAN is protected"
-msgstr "VLAN 보호됨"
 
 msgid "VLAN is unlocked"
 msgstr "VLAN 잠금 해제됨"
@@ -14205,6 +14252,12 @@ msgstr "버전:"
 
 msgid "Vibration During Write."
 msgstr "쓰기 중 진동."
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
 
 msgid "Virtual Device"
 msgstr "가상 장치"
@@ -15031,8 +15084,42 @@ msgstr ""
 msgid "visible"
 msgstr ""
 
+msgid "vlan0"
+msgstr ""
+
 msgid "was assigned to"
 msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#, php-format
+#~ msgid "A VLAN with the tag %s is already defined on this interface."
+#~ msgstr "태그 %s을(를) 가진 VLAN이 이미 이 인터페이스에 정의되어 있습니다."
+
+#~ msgid ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+#~ msgstr ""
+#~ "모든 장치/NIC이 802.1Q VLAN 태깅을 적절히 지원하는 것은 아닙니다. 이것을 명시적으로 지원하지 않는 카드에서도 VLAN "
+#~ "태깅은 여전히 작동하겠지만 감소된 MTU는 문제를 일으킬 수도 있습니다."
+
+#~ msgid "Reboot Required"
+#~ msgstr "재시동 필요"
+
+#~ msgid "Shrink Page Header"
+#~ msgstr "페이지 상단 축소"
+
+#~ msgid "The VLAN ID must be between 1 and 4094."
+#~ msgstr "VLAN ID는 1에서 4094 사이의 값이어야 합니다."
+
+#~ msgid "VLAN Settings"
+#~ msgstr "VLAN 설정"
+
+#~ msgid ""
+#~ "VLAN cannot be deleted because it is still being used as an interface."
+#~ msgstr "인터페이스로 사용 중이어서 VLAN을 삭제할 수 없습니다."
+
+#~ msgid "VLAN is protected"
+#~ msgstr "VLAN 보호됨"

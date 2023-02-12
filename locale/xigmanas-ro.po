@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"POT-Creation-Date: 2023-02-11 22:13+0000\n"
 "PO-Revision-Date: 2022-07-19 09:46+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-30 11:44+0000\n"
-"X-Generator: Launchpad (build 20dbca4abd50eb567cd11c349e7e914443a145a1)\n"
-"Language: ro_RO\n"
+"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
+"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"Language: ro_RO\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -254,6 +254,9 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "102"
+msgstr ""
+
 msgid "128K"
 msgstr ""
 
@@ -377,8 +380,14 @@ msgstr "69"
 msgid "8 KiB"
 msgstr "8 KiB"
 
+msgid "802.1Q (default)"
+msgstr ""
+
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "Etichetă VLAN 802.1Q (valori în intervalul 1-4094)."
+
+msgid "802.1ad (QinQ)"
+msgstr ""
 
 msgid "8200"
 msgstr "8200"
@@ -402,11 +411,6 @@ msgid ""
 msgstr ""
 "Un Grup Portal este identificat printr-o etichetă număr unică (tag) și "
 "definește adresele IP și porturile TCP active pentru monitorizare."
-
-#, php-format
-msgid "A VLAN with the tag %s is already defined on this interface."
-msgstr ""
-"Rețeaua VLAN cu eticheta %s este deja definită pentru această interfață."
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
@@ -1525,6 +1529,9 @@ msgstr "Suport"
 msgid "Background"
 msgstr "Fundal"
 
+msgid "Background (lowest)"
+msgstr ""
+
 msgid "Backup"
 msgstr "Backup"
 
@@ -1651,6 +1658,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "Cel mai bun disponibil"
+
+msgid "Best effort (default)"
+msgstr ""
 
 msgid "Beta Versions"
 msgstr "Versiuni Beta"
@@ -2931,6 +2941,9 @@ msgstr "Critic"
 msgid "Critical Error Level"
 msgstr "Nivel eroare critică"
 
+msgid "Critical applications"
+msgstr ""
+
 msgid "Cron"
 msgstr "Cron"
 
@@ -3809,6 +3822,9 @@ msgstr "Dezactivare Destinații selectate"
 msgid "Disable Selected Users"
 msgstr "Dezactivare utilizatori selectați"
 
+msgid "Disable Selected VLANs"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr "Dezactivare selecție înregistrări WebDAV"
 
@@ -4301,6 +4317,9 @@ msgstr "Doriți să dezactivați directoarele root NFS selectate?"
 msgid "Do you want to disable selected Samba shares?"
 msgstr "Doriți să dezactivați partajările Samba selectate?"
 
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Doriți să dezactivați înregistrările WebDAV selectate?"
 
@@ -4402,6 +4421,9 @@ msgstr "Doriți să activați directoarele root NFS selectate?"
 
 msgid "Do you want to enable selected Samba shares?"
 msgstr "Doriți să activați partajările Samba selectate?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Doriți să activați înregistrările WebDAV selectate?"
@@ -4513,6 +4535,9 @@ msgstr "Doriți să inversați directoarele root NFS selectate?"
 
 msgid "Do you want to toggle selected Samba shares?"
 msgstr "Doriți să inversați partajările Samba selectate?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Doriți să inversați înregistrările WebDAV selectate?"
@@ -5078,6 +5103,9 @@ msgstr "Activare destinații selectate"
 msgid "Enable Selected Users"
 msgstr "Activare utilizatori selectați"
 
+msgid "Enable Selected VLANs"
+msgstr ""
+
 msgid "Enable Selected WebDAV Records"
 msgstr "Activare înregistrări WebDAV selectate"
 
@@ -5318,13 +5346,6 @@ msgstr ""
 "Activați această opțiune pentru a pune portul serial la dispoziția "
 "clienților."
 
-msgid ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-msgstr ""
-"Activați această opțiune pentru a reduce la minim înălțimea antetului de "
-"pagină pe durata acestei sesiuni."
-
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr ""
 "Activați această opțiune pentru a actualiza microcodul CPU la pornirea "
@@ -5369,6 +5390,9 @@ msgid ""
 msgstr ""
 "Activarea acestei opțiuni poate expune sistemul dumneavoastră la riscuri "
 "adiționale de securitate!"
+
+msgid "Encapsulation Protocol"
+msgstr ""
 
 msgid "Encrypt password"
 msgstr "Parolă criptare"
@@ -5676,6 +5700,9 @@ msgstr "Exemplu: nume pachet pentru instalare."
 
 msgid "Excel Sheet"
 msgstr "Foaie Excel"
+
+msgid "Excellent effort"
+msgstr ""
 
 msgid "Exec"
 msgstr "Execută"
@@ -6513,6 +6540,9 @@ msgstr "Evidențiere"
 msgid "Hint"
 msgstr "Indiciu"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home Directory"
 msgstr "Directorul Home"
 
@@ -6884,6 +6914,9 @@ msgstr "Erori In/Out"
 msgid "In/Out Packets"
 msgstr "Pachete In/Out"
 
+msgid "Inactive"
+msgstr ""
+
 msgid "Include /dev into scan/import"
 msgstr "Includere /dev în scanare/import"
 
@@ -7152,6 +7185,9 @@ msgstr "Dată ceas intern UPS"
 
 msgid "Internal UPS clock time"
 msgstr "Timp ceas intern UPS"
+
+msgid "Internetwork control"
+msgstr ""
 
 msgid "Interval"
 msgstr "Interval"
@@ -8537,6 +8573,9 @@ msgstr ""
 "Rețea autorizată pentru accesul destinațiilor iSCSI. Pot fi utilizate adrese "
 "IP, CIDR sau 'ALL'  pentru orice adresă."
 
+msgid "Network control (highest)"
+msgstr ""
+
 msgid "Networks"
 msgstr "Rețele"
 
@@ -8851,16 +8890,6 @@ msgstr ""
 msgid "Not Reported"
 msgstr "Neraportat"
 
-msgid ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-msgstr ""
-"Nu toate dispozitivele/Cartelele de rețea suportă etichetarea 802.1Q VLAN în "
-"mod corespunzător. Pentru cartelele care nu suportă explicit acest mod "
-"etichetarea VLAN va funcționa totuși,  reducerea valorii MTU putând totuși "
-"cauza probleme."
-
 msgid "Not attached"
 msgstr "Neatașat"
 
@@ -8960,6 +8989,9 @@ msgstr "Oprit"
 msgid "Off - do not share"
 msgstr ""
 
+msgid "Offline"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Test offline imediat"
 
@@ -8995,6 +9027,9 @@ msgstr ""
 
 msgid "On-Disk Configuration"
 msgstr "Configurație pe disc"
+
+msgid "Online"
+msgstr ""
 
 msgid "Online Information"
 msgstr "Informații online"
@@ -9133,6 +9168,9 @@ msgid "PAM authentication is selected."
 msgstr "Autentificarea PAM este selectată."
 
 msgid "PBKDF2 Iterations"
+msgstr ""
+
+msgid "PCP"
 msgstr ""
 
 msgid "PDF File"
@@ -9736,6 +9774,11 @@ msgstr "Imprimare informații detaliate."
 msgid "Print general information."
 msgstr "Afișare informații generale."
 
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr "Extensie de confidențialitate"
 
@@ -10275,9 +10318,6 @@ msgstr "Motivul ultimei comutări pe baterie (* opac)"
 msgid "Reboot"
 msgstr "Repornire"
 
-msgid "Reboot Required"
-msgstr "Necesită repornirea"
-
 msgid "Reboot Schedule is locked"
 msgstr "Programarea de repornire este blocată"
 
@@ -10742,6 +10782,9 @@ msgstr "Rulează acum"
 
 msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr "Rulare fără activare daemon remote sync. (Implicit dezactivat)"
+
+msgid "Running"
+msgstr ""
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11456,6 +11499,9 @@ msgstr "Setare doar citire."
 msgid "Set share password."
 msgstr "Setare parolă partajare."
 
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
 msgid "Set the account's primary group."
 msgstr "Stabilire grup primar pentru cont."
 
@@ -11772,9 +11818,6 @@ msgstr "Afișare doar simboluri"
 
 msgid "Show text only"
 msgstr "Afișare doar text"
-
-msgid "Shrink Page Header"
-msgstr "Micșorare antet pagină"
 
 msgid "Shutdown"
 msgstr "Oprire"
@@ -12682,9 +12725,6 @@ msgstr "Identificatorul UPS și adresa IP"
 msgid "The UUID of the record."
 msgstr "Codul UUID al înregistrării"
 
-msgid "The VLAN ID must be between 1 and 4094."
-msgstr "ID-ul VLAN trebuie să fie în intervalul 1-4094."
-
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
@@ -13259,6 +13299,9 @@ msgstr ""
 "Numele fișierului de încredere TLS. Fișierul trebuie să respecte formatul "
 "PEM și să conțină unul sau mai multe certificate de autorizare emisie de "
 "Autoritatea de Certificare (CA)."
+
+msgid "The name of the VLAN interface"
+msgstr ""
 
 msgid "The name of the ZFS pool."
 msgstr "Numele structurii pool ZFS."
@@ -14388,6 +14431,9 @@ msgstr "Inversare selecție destinații"
 msgid "Toggle Selected Users"
 msgstr "Inversare selecție utilizatori"
 
+msgid "Toggle Selected VLANs"
+msgstr ""
+
 msgid "Toggle Selected WebDAV Records"
 msgstr "Inversare selecție înregistrări WebDAV"
 
@@ -15165,21 +15211,17 @@ msgstr "VHID"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VLAN Settings"
-msgstr "Setări VLAN"
+msgid "VLAN Interface"
+msgstr ""
 
 msgid "VLAN Tag"
 msgstr "Etichetă VLAN"
 
-msgid ""
-"VLAN cannot be deleted because it is still being used as an interface."
-msgstr "Conexiunea VLAN nu poate fi ștearsă atât timp cât este activă."
+msgid "VLAN is locked"
+msgstr ""
 
 msgid "VLAN is marked for deletion"
 msgstr "Conexiunea VLAN este marcată pentru ștergere"
-
-msgid "VLAN is protected"
-msgstr "Conexiunea VLAN este protejată"
 
 msgid "VLAN is unlocked"
 msgstr "Conexiunea VLAN este deblocată"
@@ -15232,6 +15274,12 @@ msgstr "Versiune:"
 
 msgid "Vibration During Write."
 msgstr "Vibrații în timpul scrierii"
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
 
 msgid "Virtual Device"
 msgstr "Dispozitiv virtual"
@@ -16109,8 +16157,52 @@ msgstr "update.exemplu.com"
 msgid "visible"
 msgstr "vizibil"
 
+msgid "vlan0"
+msgstr ""
+
 msgid "was assigned to"
 msgstr "a fost atribuit la"
 
 msgid "yes"
 msgstr "da"
+
+#, php-format
+#~ msgid "A VLAN with the tag %s is already defined on this interface."
+#~ msgstr ""
+#~ "Rețeaua VLAN cu eticheta %s este deja definită pentru această interfață."
+
+#~ msgid "Reboot Required"
+#~ msgstr "Necesită repornirea"
+
+#~ msgid "Shrink Page Header"
+#~ msgstr "Micșorare antet pagină"
+
+#~ msgid "The VLAN ID must be between 1 and 4094."
+#~ msgstr "ID-ul VLAN trebuie să fie în intervalul 1-4094."
+
+#~ msgid "VLAN Settings"
+#~ msgstr "Setări VLAN"
+
+#~ msgid ""
+#~ "VLAN cannot be deleted because it is still being used as an interface."
+#~ msgstr "Conexiunea VLAN nu poate fi ștearsă atât timp cât este activă."
+
+#~ msgid "VLAN is protected"
+#~ msgstr "Conexiunea VLAN este protejată"
+
+#~ msgid ""
+#~ "Enable this option to reduce the height of the page header to a minimum for "
+#~ "the duration of this session."
+#~ msgstr ""
+#~ "Activați această opțiune pentru a reduce la minim înălțimea antetului de "
+#~ "pagină pe durata acestei sesiuni."
+
+#~ msgid ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+#~ msgstr ""
+#~ "Nu toate dispozitivele/Cartelele de rețea suportă etichetarea 802.1Q VLAN în "
+#~ "mod corespunzător. Pentru cartelele care nu suportă explicit acest mod "
+#~ "etichetarea VLAN va funcționa totuși,  reducerea valorii MTU putând totuși "
+#~ "cauza probleme."

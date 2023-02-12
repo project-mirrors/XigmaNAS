@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: comunio\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"POT-Creation-Date: 2023-02-11 22:13+0000\n"
 "PO-Revision-Date: 2022-12-11 00:13+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-30 11:45+0000\n"
-"X-Generator: Launchpad (build 20dbca4abd50eb567cd11c349e7e914443a145a1)\n"
+"X-Launchpad-Export-Date: 2023-02-11 22:45+0000\n"
+"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
 "Language: en_GB\n"
 
 msgid ""
@@ -257,6 +257,9 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "102"
+msgstr ""
+
 msgid "128K"
 msgstr "128K"
 
@@ -377,8 +380,14 @@ msgstr "69"
 msgid "8 KiB"
 msgstr "8 KiB"
 
+msgid "802.1Q (default)"
+msgstr ""
+
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN tag (between 1 and 4094)."
+
+msgid "802.1ad (QinQ)"
+msgstr ""
 
 msgid "8200"
 msgstr "8200"
@@ -402,10 +411,6 @@ msgid ""
 msgstr ""
 "A Portal Group is identified by a tag number and defines IP addresses and "
 "listening TCP ports."
-
-#, php-format
-msgid "A VLAN with the tag %s is already defined on this interface."
-msgstr "A VLAN with the tag %s is already defined on this interface."
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
@@ -1508,6 +1513,9 @@ msgstr "Backend"
 msgid "Background"
 msgstr "Background"
 
+msgid "Background (lowest)"
+msgstr ""
+
 msgid "Backup"
 msgstr "Backup"
 
@@ -1632,6 +1640,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "Best available"
+
+msgid "Best effort (default)"
+msgstr ""
 
 msgid "Beta Versions"
 msgstr "Beta Versions"
@@ -2900,6 +2911,9 @@ msgstr "Critical"
 msgid "Critical Error Level"
 msgstr "Critical Error Level"
 
+msgid "Critical applications"
+msgstr ""
+
 msgid "Cron"
 msgstr "Cron"
 
@@ -3775,6 +3789,9 @@ msgstr "Disable Selected Targets"
 msgid "Disable Selected Users"
 msgstr "Disable Selected Users"
 
+msgid "Disable Selected VLANs"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr "Disable Selected WebDAV Records"
 
@@ -4257,6 +4274,9 @@ msgstr "Do you want to disable selected NFS root directories?"
 msgid "Do you want to disable selected Samba shares?"
 msgstr "Do you want to disable selected Samba shares?"
 
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Do you want to disable selected WebDAV records?"
 
@@ -4358,6 +4378,9 @@ msgstr "Do you want to enable selected NFS root directories?"
 
 msgid "Do you want to enable selected Samba shares?"
 msgstr "Do you want to enable selected Samba shares?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Do you want to enable selected WebDAV records?"
@@ -4469,6 +4492,9 @@ msgstr "Do you want to toggle selected NFS root directories?"
 
 msgid "Do you want to toggle selected Samba shares?"
 msgstr "Do you want to toggle selected Samba shares?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Do you want to toggle selected WebDAV records?"
@@ -5031,6 +5057,9 @@ msgstr "Enable Selected Targets"
 msgid "Enable Selected Users"
 msgstr "Enable Selected Users"
 
+msgid "Enable Selected VLANs"
+msgstr ""
+
 msgid "Enable Selected WebDAV Records"
 msgstr "Enable Selected WebDAV Records"
 
@@ -5264,13 +5293,6 @@ msgstr ""
 msgid "Enable this option to make host serial ports available to clients."
 msgstr "Enable this option to make host serial ports available to clients."
 
-msgid ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-msgstr ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr "Enable this option to update the CPU microcode on startup."
 
@@ -5311,6 +5333,9 @@ msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
 "Enabling this option may expose your system to additional security risk!"
+
+msgid "Encapsulation Protocol"
+msgstr ""
 
 msgid "Encrypt password"
 msgstr "Encrypt password"
@@ -5613,6 +5638,9 @@ msgstr "Example: pkg install packagename."
 
 msgid "Excel Sheet"
 msgstr "Excel Sheet"
+
+msgid "Excellent effort"
+msgstr ""
 
 msgid "Exec"
 msgstr "Exec"
@@ -6440,6 +6468,9 @@ msgstr "Highlight View"
 msgid "Hint"
 msgstr "Hint"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home Directory"
 msgstr "Home Directory"
 
@@ -6794,6 +6825,9 @@ msgstr "In/Out Errors"
 msgid "In/Out Packets"
 msgstr "In/Out Packets"
 
+msgid "Inactive"
+msgstr ""
+
 msgid "Include /dev into scan/import"
 msgstr "Include /dev into scan/import"
 
@@ -7058,6 +7092,9 @@ msgstr "Internal UPS clock date"
 
 msgid "Internal UPS clock time"
 msgstr "Internal UPS clock time"
+
+msgid "Internetwork control"
+msgstr ""
 
 msgid "Interval"
 msgstr "Interval"
@@ -8430,6 +8467,9 @@ msgstr ""
 "Network authorised to access to the iSCSI target. It takes IP or CIDR "
 "addresses or 'ALL' for any IPs."
 
+msgid "Network control (highest)"
+msgstr ""
+
 msgid "Networks"
 msgstr "Networks"
 
@@ -8748,15 +8788,6 @@ msgstr ""
 msgid "Not Reported"
 msgstr "Not Reported"
 
-msgid ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-msgstr ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-
 msgid "Not attached"
 msgstr "Not attached"
 
@@ -8854,6 +8885,9 @@ msgstr "Off"
 msgid "Off - do not share"
 msgstr "Off - do not share"
 
+msgid "Offline"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Offline Immediate Test"
 
@@ -8889,6 +8923,9 @@ msgstr "On - share with default permissions"
 
 msgid "On-Disk Configuration"
 msgstr "On-Disk Configuration"
+
+msgid "Online"
+msgstr ""
 
 msgid "Online Information"
 msgstr "Online Information"
@@ -9025,6 +9062,9 @@ msgstr "PAM authentication is selected."
 
 msgid "PBKDF2 Iterations"
 msgstr "PBKDF2 Iterations"
+
+msgid "PCP"
+msgstr ""
 
 msgid "PDF File"
 msgstr "PDF File"
@@ -9612,6 +9652,11 @@ msgstr "Print detailed information."
 msgid "Print general information."
 msgstr "Print general information."
 
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr "Privacy Extension"
 
@@ -10147,9 +10192,6 @@ msgstr "Reason for last transfer to battery (* opaque)"
 msgid "Reboot"
 msgstr "Reboot"
 
-msgid "Reboot Required"
-msgstr "Reboot Required"
-
 msgid "Reboot Schedule is locked"
 msgstr "Reboot Schedule is locked"
 
@@ -10606,6 +10648,9 @@ msgstr "Run Now"
 
 msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr "Run without requiring remote rsync daemon. (Disabled by default)"
+
+msgid "Running"
+msgstr ""
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11303,6 +11348,9 @@ msgstr "Set read only."
 msgid "Set share password."
 msgstr "Set share password."
 
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
 msgid "Set the account's primary group."
 msgstr "Set the account's primary group."
 
@@ -11609,9 +11657,6 @@ msgstr "Show symbol only"
 
 msgid "Show text only"
 msgstr "Show text only"
-
-msgid "Shrink Page Header"
-msgstr "Shrink Page Header"
 
 msgid "Shutdown"
 msgstr "Shutdown"
@@ -12520,9 +12565,6 @@ msgstr "The UPS identifier and IP address"
 msgid "The UUID of the record."
 msgstr "The UUID of the record."
 
-msgid "The VLAN ID must be between 1 and 4094."
-msgstr "The VLAN ID must be between 1 and 4094."
-
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
@@ -13097,6 +13139,9 @@ msgid ""
 msgstr ""
 "The name of the TLS trust file. The file must be in PEM format containing "
 "one or more certificates of trusted Certification Authorities (CAs)."
+
+msgid "The name of the VLAN interface"
+msgstr ""
 
 msgid "The name of the ZFS pool."
 msgstr "The name of the ZFS pool."
@@ -14201,6 +14246,9 @@ msgstr "Toggle Selected Targets"
 msgid "Toggle Selected Users"
 msgstr "Toggle Selected Users"
 
+msgid "Toggle Selected VLANs"
+msgstr ""
+
 msgid "Toggle Selected WebDAV Records"
 msgstr "Toggle Selected WebDAV Records"
 
@@ -14966,22 +15014,17 @@ msgstr "VHID"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VLAN Settings"
-msgstr "VLAN Settings"
+msgid "VLAN Interface"
+msgstr ""
 
 msgid "VLAN Tag"
 msgstr "VLAN Tag"
 
-msgid ""
-"VLAN cannot be deleted because it is still being used as an interface."
+msgid "VLAN is locked"
 msgstr ""
-"VLAN cannot be deleted because it is still being used as an interface."
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN is marked for deletion"
-
-msgid "VLAN is protected"
-msgstr "VLAN is protected"
 
 msgid "VLAN is unlocked"
 msgstr "VLAN is unlocked"
@@ -15034,6 +15077,12 @@ msgstr "Version:"
 
 msgid "Vibration During Write."
 msgstr "Vibration During Write."
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
 
 msgid "Virtual Device"
 msgstr "Virtual Device"
@@ -15894,8 +15943,51 @@ msgstr "update.example.com"
 msgid "visible"
 msgstr "visible"
 
+msgid "vlan0"
+msgstr ""
+
 msgid "was assigned to"
 msgstr "was assigned to"
 
 msgid "yes"
 msgstr "yes"
+
+#, php-format
+#~ msgid "A VLAN with the tag %s is already defined on this interface."
+#~ msgstr "A VLAN with the tag %s is already defined on this interface."
+
+#~ msgid ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+#~ msgstr ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+
+#~ msgid "Reboot Required"
+#~ msgstr "Reboot Required"
+
+#~ msgid "Shrink Page Header"
+#~ msgstr "Shrink Page Header"
+
+#~ msgid "The VLAN ID must be between 1 and 4094."
+#~ msgstr "The VLAN ID must be between 1 and 4094."
+
+#~ msgid "VLAN Settings"
+#~ msgstr "VLAN Settings"
+
+#~ msgid ""
+#~ "VLAN cannot be deleted because it is still being used as an interface."
+#~ msgstr ""
+#~ "VLAN cannot be deleted because it is still being used as an interface."
+
+#~ msgid "VLAN is protected"
+#~ msgstr "VLAN is protected"
+
+#~ msgid ""
+#~ "Enable this option to reduce the height of the page header to a minimum for "
+#~ "the duration of this session."
+#~ msgstr ""
+#~ "Enable this option to reduce the height of the page header to a minimum for "
+#~ "the duration of this session."

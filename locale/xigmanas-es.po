@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-12-10 23:58+0000\n"
-"PO-Revision-Date: 2022-12-30 16:03+0000\n"
-"Last-Translator: Tomfro <Unknown>\n"
+"POT-Creation-Date: 2023-02-11 22:13+0000\n"
+"PO-Revision-Date: 2023-01-30 23:13+0000\n"
+"Last-Translator: Juan J Munoz <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-30 11:44+0000\n"
-"X-Generator: Launchpad (build 20dbca4abd50eb567cd11c349e7e914443a145a1)\n"
-"Language: es_ES\n"
+"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
+"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -256,6 +256,9 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "102"
+msgstr ""
+
 msgid "128K"
 msgstr "128K"
 
@@ -376,8 +379,14 @@ msgstr "69"
 msgid "8 KiB"
 msgstr "8 KiB"
 
+msgid "802.1Q (default)"
+msgstr ""
+
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "etiqueta VLAN 802.1Q (entre 1 y 4094)"
+
+msgid "802.1ad (QinQ)"
+msgstr ""
 
 msgid "8200"
 msgstr "8200"
@@ -401,10 +410,6 @@ msgid ""
 msgstr ""
 "Un portal de grupo se identifica por un nº de tag y varias IP y puertos de "
 "escucha TCP."
-
-#, php-format
-msgid "A VLAN with the tag %s is already defined on this interface."
-msgstr "Una VLAN con etiqueta %s ya ha sido definida en ésta interface."
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
@@ -1531,6 +1536,9 @@ msgstr "Motor"
 msgid "Background"
 msgstr "Color de fondo"
 
+msgid "Background (lowest)"
+msgstr ""
+
 msgid "Backup"
 msgstr "Backup"
 
@@ -1660,6 +1668,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "Mejor disponible"
+
+msgid "Best effort (default)"
+msgstr ""
 
 msgid "Beta Versions"
 msgstr "Versiones beta"
@@ -2892,7 +2903,7 @@ msgid "Create a SLOG device for ZIL"
 msgstr "Crear un dispositivo SLOG para ZIL"
 
 msgid "Create a dedup device"
-msgstr ""
+msgstr "Crear un dispositivo para evitar duplicados"
 
 msgid "Create a mirrored SLOG device for ZIL"
 msgstr "Crear un dispositivo en espejo SLOG para ZIL"
@@ -2901,7 +2912,7 @@ msgid "Create a spare device"
 msgstr "Crear un dispositivo en \"espera\""
 
 msgid "Create a special allocation device"
-msgstr ""
+msgstr "Crear un dispositivo de ubicación especial"
 
 msgid "Create a virtual device containing a single device"
 msgstr "Crea un dispositivo virtual de un único dispositivo"
@@ -2960,6 +2971,9 @@ msgstr "Valor Max."
 
 msgid "Critical Error Level"
 msgstr "Nivel de error crítico"
+
+msgid "Critical applications"
+msgstr ""
 
 msgid "Cron"
 msgstr "Cron"
@@ -3038,7 +3052,7 @@ msgid "Custom script not found."
 msgstr "Script personalizado no encontrado"
 
 msgid "Custom sharing"
-msgstr ""
+msgstr "Compartición a medida"
 
 msgid "DDNS server name, not the full URL."
 msgstr "Nombre servidor DDNS, No la URL completa"
@@ -3843,6 +3857,9 @@ msgstr "Deshabilitar los objetivos seleccionados"
 msgid "Disable Selected Users"
 msgstr "Deshabilitar usuarios seleccionados"
 
+msgid "Disable Selected VLANs"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr "Desactivar registros seleccionados WebDAV"
 
@@ -4097,12 +4114,15 @@ msgstr "Quiere aplicar estos ajustes?"
 
 msgid "Do you want to create a DRAID1 device from selected disk?"
 msgstr ""
+"¿Quieres crear un dispositivo DRAID1 a partir del disco seleccionado?"
 
 msgid "Do you want to create a DRAID2 device from selected disk?"
 msgstr ""
+"¿Quieres crear un dispositivo DRAID2 a partir del disco seleccionado?"
 
 msgid "Do you want to create a DRAID3 device from selected disk?"
 msgstr ""
+"¿Quieres crear un dispositivo DRAID3  a partir del disco seleccionado?"
 
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "¿Desea crear un JOBD con los discos seleccionados?"
@@ -4118,18 +4138,23 @@ msgstr "Desea crear un RAID-5 desde los discos seleccionados?"
 
 msgid "Do you want to create a RAIDZ1 from selected disks?"
 msgstr ""
+"¿Quieres crear un dispositivo DRAIZ1 a partir de los discos seleccionados?"
 
 msgid "Do you want to create a RAIDZ2 from selected disks?"
 msgstr ""
+"¿Quieres crear un dispositivo DRAIZ2 a partir de los discos seleccionados?"
 
 msgid "Do you want to create a RAIDZ3 from selected disks?"
 msgstr ""
+"¿Quieres crear un dispositivo DRAIZ3 a partir de los discos seleccionados?"
 
 msgid "Do you want to create a cache device from selected disks?"
 msgstr "Desea crearn un dispositivo cache desde los discos seleccionados?"
 
 msgid "Do you want to create a dedup device from selected disks?"
 msgstr ""
+"¿Quieres crea un dispositivo para evitar duplicados en base a los discos "
+"seleccionados?"
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr ""
@@ -4150,6 +4175,8 @@ msgstr ""
 msgid ""
 "Do you want to create a special allocation device from selected disks?"
 msgstr ""
+"¿Quieres crear un dispositivo de ubicación especial a partir de los discos "
+"seleccionados?"
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -4333,6 +4360,9 @@ msgstr "¿Desea deshabilitar los directorios root NFS seleccionados?"
 msgid "Do you want to disable selected Samba shares?"
 msgstr "¿Desea deshabilitar los recursos compartidos seleccionados de Samba?"
 
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Quieres desactivar los registros seleccionados WebDAV?"
 
@@ -4434,6 +4464,9 @@ msgstr "¿Desea habilitar los directorios root NFS seleccionados?"
 
 msgid "Do you want to enable selected Samba shares?"
 msgstr "¿Desea habilitar los recursos compartidos seleccionados de Samba?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Quieres habilitar los registros seleccionados WebDAV?"
@@ -4545,6 +4578,9 @@ msgstr "¿Desea intercambiar los directorios root NFS seleccionados?"
 
 msgid "Do you want to toggle selected Samba shares?"
 msgstr "¿Desea cambiar los recursos compartidos seleccionados de Samba?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Quieres cambiar los registros seleccionados WebDAV?"
@@ -5111,6 +5147,9 @@ msgstr "Habilitar los objetivos seleccionados"
 msgid "Enable Selected Users"
 msgstr "Habilitar usuarios seleccionados"
 
+msgid "Enable Selected VLANs"
+msgstr ""
+
 msgid "Enable Selected WebDAV Records"
 msgstr "Activar registros WebDAV seleccionados"
 
@@ -5345,13 +5384,6 @@ msgstr "Habilite esta opción para permitir los puertos USB a los clientes"
 msgid "Enable this option to make host serial ports available to clients."
 msgstr "Habilite esta opción para permitir los puertos serie a los clientes"
 
-msgid ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-msgstr ""
-"Habilite esta opción para reducir la altura del encabezado de la página al "
-"mínimo durante la duración de esta sesión."
-
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr ""
 "Habilite esta opción para actualizar el microcódigo de CPU al arrancar"
@@ -5394,6 +5426,9 @@ msgid ""
 msgstr ""
 "¡Habilitar esta opción expone a su sistema a Internet y los riesgos que "
 "conlleva!"
+
+msgid "Encapsulation Protocol"
+msgstr ""
 
 msgid "Encrypt password"
 msgstr "Contraseña de encriptación"
@@ -5698,6 +5733,9 @@ msgstr "Ejemplo: pkg install packagename."
 
 msgid "Excel Sheet"
 msgstr "Hoja Excel"
+
+msgid "Excellent effort"
+msgstr ""
 
 msgid "Exec"
 msgstr "Ejecutar"
@@ -6542,6 +6580,9 @@ msgstr "Vista resaltada."
 msgid "Hint"
 msgstr "Sugerencia"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home Directory"
 msgstr "Directorio Home"
 
@@ -6912,6 +6953,9 @@ msgstr "Errores de Entrada/Salida"
 msgid "In/Out Packets"
 msgstr "Paquetes de Entrada/Salida"
 
+msgid "Inactive"
+msgstr ""
+
 msgid "Include /dev into scan/import"
 msgstr "Incluir /dev en scan/import"
 
@@ -7179,6 +7223,9 @@ msgstr "Fecha interna del SAI"
 
 msgid "Internal UPS clock time"
 msgstr "Hora interna del SAI"
+
+msgid "Internetwork control"
+msgstr ""
 
 msgid "Interval"
 msgstr "Intervalo"
@@ -8567,6 +8614,9 @@ msgstr ""
 "Red autorizada para acceder al objetivo iSCSI. Este toma una IP o "
 "direcciones CIDR o 'ALL' para cualquier IPs."
 
+msgid "Network control (highest)"
+msgstr ""
+
 msgid "Networks"
 msgstr "Redes"
 
@@ -8885,15 +8935,6 @@ msgstr ""
 msgid "Not Reported"
 msgstr "No reportado"
 
-msgid ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-msgstr ""
-"No todos los controladores/NICs soportan adecuadamente la etiqueta 802.1Q "
-"VLAN . En tarjetas que explicitamente no lo soportan, el etiquetado VLAN aun "
-"podria funcionar, pero un MTU reducido podria causar problemas."
-
 msgid "Not attached"
 msgstr "Sin agregar"
 
@@ -8990,6 +9031,9 @@ msgid "Off"
 msgstr "Apagado"
 
 msgid "Off - do not share"
+msgstr "Apagado - no compartir"
+
+msgid "Offline"
 msgstr ""
 
 msgid "Offline Immediate Test"
@@ -9023,10 +9067,13 @@ msgid "On"
 msgstr "Encendido"
 
 msgid "On - share with default permissions"
-msgstr ""
+msgstr "Encendido - compartir con permisos por defecto"
 
 msgid "On-Disk Configuration"
 msgstr "Configuración del Disco"
+
+msgid "Online"
+msgstr ""
 
 msgid "Online Information"
 msgstr "Información online"
@@ -9166,6 +9213,9 @@ msgstr "Autentificación PAN"
 
 msgid "PBKDF2 Iterations"
 msgstr "Iteraciones de PBKDF2"
+
+msgid "PCP"
+msgstr ""
 
 msgid "PDF File"
 msgstr "Archivo PDF"
@@ -9760,6 +9810,11 @@ msgstr "Mostrar información detallada"
 msgid "Print general information."
 msgstr "Mostrar información general"
 
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr "Extensión de privacidad"
 
@@ -10298,9 +10353,6 @@ msgstr "Razón para la ultma conmutación a batería (* opaque)"
 msgid "Reboot"
 msgstr "Reiniciar Equipo"
 
-msgid "Reboot Required"
-msgstr "Reinicio necesario"
-
 msgid "Reboot Schedule is locked"
 msgstr "La programación de reinicios está bloqueada"
 
@@ -10772,6 +10824,9 @@ msgstr ""
 "Ejecutar sin que se requiera un demonio remoto rsync. (deshabilitado por "
 "defecto)"
 
+msgid "Running"
+msgstr ""
+
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
 "your own risk!"
@@ -10855,7 +10910,7 @@ msgid "SNMP Modules"
 msgstr "Módulos SNMP"
 
 msgid "SPECIAL"
-msgstr ""
+msgstr "Especial"
 
 msgid "SQL File"
 msgstr "Archivo SQL"
@@ -11488,6 +11543,9 @@ msgstr "Solo Lectura"
 msgid "Set share password."
 msgstr "Asignar compartir contraseña"
 
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
 msgid "Set the account's primary group."
 msgstr "Grupo primario de la cuenta"
 
@@ -11804,9 +11862,6 @@ msgstr "Mostrar símbolos únicamente"
 
 msgid "Show text only"
 msgstr "Mostrar texto únicamente"
-
-msgid "Shrink Page Header"
-msgstr "Reducir la cabecera"
 
 msgid "Shutdown"
 msgstr "Apagar"
@@ -12734,9 +12789,6 @@ msgstr "Identificador de la SAI y la IP"
 msgid "The UUID of the record."
 msgstr "El UUID del registro."
 
-msgid "The VLAN ID must be between 1 and 4094."
-msgstr "El ID de la VLAN debe estar entre 1 y 4094"
-
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
@@ -13321,6 +13373,9 @@ msgid ""
 msgstr ""
 "El nombre del archivo TLS. El archivo debe estar en formato PEM y contener "
 "uno o más certificados de Autoridades de Certificación (CA's)"
+
+msgid "The name of the VLAN interface"
+msgstr ""
 
 msgid "The name of the ZFS pool."
 msgstr "El nombre de la agrupacion de dispositivos(Pool) ZFS."
@@ -14446,6 +14501,9 @@ msgstr "Alternar grupos de portal seleccionados"
 msgid "Toggle Selected Users"
 msgstr "Intercambiar usuarios seleccionados"
 
+msgid "Toggle Selected VLANs"
+msgstr ""
+
 msgid "Toggle Selected WebDAV Records"
 msgstr "Cambiar entre los registros WebDAV seleccionados"
 
@@ -14775,7 +14833,7 @@ msgid "Unable to open directory."
 msgstr "No se puede abrir directorio."
 
 msgid "Unable to open source directory."
-msgstr ""
+msgstr "No se puede abrir un directorio de fuente abierta"
 
 msgid "Unable to read directory."
 msgstr "No se puede leer directorio."
@@ -15225,21 +15283,17 @@ msgstr "VHID"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VLAN Settings"
-msgstr "Ajustes de VLAN"
+msgid "VLAN Interface"
+msgstr ""
 
 msgid "VLAN Tag"
 msgstr "VLAN Tag"
 
-msgid ""
-"VLAN cannot be deleted because it is still being used as an interface."
-msgstr "No se puede borrar VLAN en uso."
+msgid "VLAN is locked"
+msgstr ""
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN Marcada para borrado"
-
-msgid "VLAN is protected"
-msgstr "VLAN Protegida"
 
 msgid "VLAN is unlocked"
 msgstr "VLAN desbloqueada"
@@ -15293,6 +15347,12 @@ msgstr "Versión:"
 
 msgid "Vibration During Write."
 msgstr "Vivraciones durante la escritura."
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
 
 msgid "Virtual Device"
 msgstr "Dispositivo virtual"
@@ -16169,8 +16229,50 @@ msgstr "update.example.com"
 msgid "visible"
 msgstr "Visible"
 
+msgid "vlan0"
+msgstr ""
+
 msgid "was assigned to"
 msgstr "fue asignado a"
 
 msgid "yes"
 msgstr "si"
+
+#, php-format
+#~ msgid "A VLAN with the tag %s is already defined on this interface."
+#~ msgstr "Una VLAN con etiqueta %s ya ha sido definida en ésta interface."
+
+#~ msgid ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+#~ msgstr ""
+#~ "No todos los controladores/NICs soportan adecuadamente la etiqueta 802.1Q "
+#~ "VLAN . En tarjetas que explicitamente no lo soportan, el etiquetado VLAN aun "
+#~ "podria funcionar, pero un MTU reducido podria causar problemas."
+
+#~ msgid "Reboot Required"
+#~ msgstr "Reinicio necesario"
+
+#~ msgid "Shrink Page Header"
+#~ msgstr "Reducir la cabecera"
+
+#~ msgid "The VLAN ID must be between 1 and 4094."
+#~ msgstr "El ID de la VLAN debe estar entre 1 y 4094"
+
+#~ msgid "VLAN Settings"
+#~ msgstr "Ajustes de VLAN"
+
+#~ msgid ""
+#~ "VLAN cannot be deleted because it is still being used as an interface."
+#~ msgstr "No se puede borrar VLAN en uso."
+
+#~ msgid "VLAN is protected"
+#~ msgstr "VLAN Protegida"
+
+#~ msgid ""
+#~ "Enable this option to reduce the height of the page header to a minimum for "
+#~ "the duration of this session."
+#~ msgstr ""
+#~ "Habilite esta opción para reducir la altura del encabezado de la página al "
+#~ "mínimo durante la duración de esta sesión."

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"POT-Creation-Date: 2023-02-11 22:13+0000\n"
 "PO-Revision-Date: 2018-07-06 10:59+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-30 11:45+0000\n"
-"X-Generator: Launchpad (build 20dbca4abd50eb567cd11c349e7e914443a145a1)\n"
+"X-Launchpad-Export-Date: 2023-02-11 22:45+0000\n"
+"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -227,6 +227,9 @@ msgstr ""
 msgid "1000000"
 msgstr ""
 
+msgid "102"
+msgstr ""
+
 msgid "128K"
 msgstr ""
 
@@ -347,8 +350,14 @@ msgstr ""
 msgid "8 KiB"
 msgstr ""
 
+msgid "802.1Q (default)"
+msgstr ""
+
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN tag (由 1 至 4094)."
+
+msgid "802.1ad (QinQ)"
+msgstr ""
 
 msgid "8200"
 msgstr ""
@@ -368,10 +377,6 @@ msgid ""
 "A Portal Group is identified by a tag number and defines IP addresses and "
 "listening TCP ports."
 msgstr ""
-
-#, php-format
-msgid "A VLAN with the tag %s is already defined on this interface."
-msgstr "已經有名稱為 %s 的 VLAN 被定義在此介面上。"
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
@@ -1400,6 +1405,9 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
+msgid "Background (lowest)"
+msgstr ""
+
 msgid "Backup"
 msgstr ""
 
@@ -1515,6 +1523,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "最佳可用"
+
+msgid "Best effort (default)"
+msgstr ""
 
 msgid "Beta Versions"
 msgstr ""
@@ -2664,6 +2675,9 @@ msgstr "嚴重"
 msgid "Critical Error Level"
 msgstr ""
 
+msgid "Critical applications"
+msgstr ""
+
 msgid "Cron"
 msgstr "排程 (Cron)"
 
@@ -3514,6 +3528,9 @@ msgstr ""
 msgid "Disable Selected Users"
 msgstr ""
 
+msgid "Disable Selected VLANs"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr ""
 
@@ -3979,6 +3996,9 @@ msgstr ""
 msgid "Do you want to disable selected Samba shares?"
 msgstr ""
 
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr ""
 
@@ -4079,6 +4099,9 @@ msgid "Do you want to enable selected NFS root directories?"
 msgstr ""
 
 msgid "Do you want to enable selected Samba shares?"
+msgstr ""
+
+msgid "Do you want to enable selected VLANs?"
 msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
@@ -4190,6 +4213,9 @@ msgid "Do you want to toggle selected NFS root directories?"
 msgstr ""
 
 msgid "Do you want to toggle selected Samba shares?"
+msgstr ""
+
+msgid "Do you want to toggle selected VLANs?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
@@ -4747,6 +4773,9 @@ msgstr ""
 msgid "Enable Selected Users"
 msgstr ""
 
+msgid "Enable Selected VLANs"
+msgstr ""
+
 msgid "Enable Selected WebDAV Records"
 msgstr ""
 
@@ -4966,11 +4995,6 @@ msgstr ""
 msgid "Enable this option to make host serial ports available to clients."
 msgstr ""
 
-msgid ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-msgstr ""
-
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr ""
 
@@ -5006,6 +5030,9 @@ msgstr ""
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
+msgstr ""
+
+msgid "Encapsulation Protocol"
 msgstr ""
 
 msgid "Encrypt password"
@@ -5283,6 +5310,9 @@ msgid "Example: pkg install packagename."
 msgstr ""
 
 msgid "Excel Sheet"
+msgstr ""
+
+msgid "Excellent effort"
 msgstr ""
 
 msgid "Exec"
@@ -6089,6 +6119,9 @@ msgstr ""
 msgid "Hint"
 msgstr "提示"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home Directory"
 msgstr ""
 
@@ -6411,6 +6444,9 @@ msgstr ""
 msgid "In/Out Packets"
 msgstr ""
 
+msgid "Inactive"
+msgstr ""
+
 msgid "Include /dev into scan/import"
 msgstr ""
 
@@ -6655,6 +6691,9 @@ msgstr "UPS 內部時鐘的日期"
 
 msgid "Internal UPS clock time"
 msgstr "UPS 內部時鐘的時間"
+
+msgid "Internetwork control"
+msgstr ""
 
 msgid "Interval"
 msgstr ""
@@ -7971,6 +8010,9 @@ msgid ""
 "addresses or 'ALL' for any IPs."
 msgstr "網絡授權可登入 iSCSI 目標。它需要 IP 位址或 CIDR 位址或 'ALL' (任何 IP 位址)。"
 
+msgid "Network control (highest)"
+msgstr ""
+
 msgid "Networks"
 msgstr "網絡"
 
@@ -8278,14 +8320,6 @@ msgstr ""
 msgid "Not Reported"
 msgstr ""
 
-msgid ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-msgstr ""
-"並非所有的驅動程式/網卡支持都正確支援 802.1Q VLAN 標籤 (tagging)。有些卡沒有明確表示支持，VLAN 標籤雖然仍可使用，但 MTU "
-"減少可能會造成問題。"
-
 msgid "Not attached"
 msgstr "尚未連結"
 
@@ -8380,6 +8414,9 @@ msgstr "關閉"
 msgid "Off - do not share"
 msgstr ""
 
+msgid "Offline"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr ""
 
@@ -8414,6 +8451,9 @@ msgid "On - share with default permissions"
 msgstr ""
 
 msgid "On-Disk Configuration"
+msgstr ""
+
+msgid "Online"
 msgstr ""
 
 msgid "Online Information"
@@ -8545,6 +8585,9 @@ msgid "PAM authentication is selected."
 msgstr ""
 
 msgid "PBKDF2 Iterations"
+msgstr ""
+
+msgid "PCP"
 msgstr ""
 
 msgid "PDF File"
@@ -9117,6 +9160,11 @@ msgstr ""
 msgid "Print general information."
 msgstr ""
 
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr ""
 
@@ -9637,9 +9685,6 @@ msgstr "上次轉移到電池的原因 (*不透明)"
 msgid "Reboot"
 msgstr "重新啟動"
 
-msgid "Reboot Required"
-msgstr ""
-
 msgid "Reboot Schedule is locked"
 msgstr ""
 
@@ -10083,6 +10128,9 @@ msgid "Run Now"
 msgstr ""
 
 msgid "Run without requiring remote rsync daemon. (Disabled by default)"
+msgstr ""
+
+msgid "Running"
 msgstr ""
 
 msgid ""
@@ -10743,6 +10791,9 @@ msgstr ""
 msgid "Set share password."
 msgstr "設定分享密碼。"
 
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
 msgid "Set the account's primary group."
 msgstr ""
 
@@ -11003,9 +11054,6 @@ msgid "Show symbol only"
 msgstr ""
 
 msgid "Show text only"
-msgstr ""
-
-msgid "Shrink Page Header"
 msgstr ""
 
 msgid "Shutdown"
@@ -11850,9 +11898,6 @@ msgstr ""
 msgid "The UUID of the record."
 msgstr ""
 
-msgid "The VLAN ID must be between 1 and 4094."
-msgstr "VLAN ID 必須界符於 1 到 4094 之間。"
-
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
@@ -12332,6 +12377,9 @@ msgstr ""
 msgid ""
 "The name of the TLS trust file. The file must be in PEM format containing "
 "one or more certificates of trusted Certification Authorities (CAs)."
+msgstr ""
+
+msgid "The name of the VLAN interface"
 msgstr ""
 
 msgid "The name of the ZFS pool."
@@ -13286,6 +13334,9 @@ msgstr ""
 msgid "Toggle Selected Users"
 msgstr ""
 
+msgid "Toggle Selected VLANs"
+msgstr ""
+
 msgid "Toggle Selected WebDAV Records"
 msgstr ""
 
@@ -13999,20 +14050,16 @@ msgstr "虛擬主機編號"
 msgid "VLAN"
 msgstr "虛擬局域網 (VLAN)"
 
-msgid "VLAN Settings"
+msgid "VLAN Interface"
 msgstr ""
 
 msgid "VLAN Tag"
 msgstr ""
 
-msgid ""
-"VLAN cannot be deleted because it is still being used as an interface."
+msgid "VLAN is locked"
 msgstr ""
 
 msgid "VLAN is marked for deletion"
-msgstr ""
-
-msgid "VLAN is protected"
 msgstr ""
 
 msgid "VLAN is unlocked"
@@ -14063,6 +14110,12 @@ msgid "Version:"
 msgstr ""
 
 msgid "Vibration During Write."
+msgstr ""
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
 msgstr ""
 
 msgid "Virtual Device"
@@ -14887,8 +14940,26 @@ msgstr ""
 msgid "visible"
 msgstr ""
 
+msgid "vlan0"
+msgstr ""
+
 msgid "was assigned to"
 msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#, php-format
+#~ msgid "A VLAN with the tag %s is already defined on this interface."
+#~ msgstr "已經有名稱為 %s 的 VLAN 被定義在此介面上。"
+
+#~ msgid ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+#~ msgstr ""
+#~ "並非所有的驅動程式/網卡支持都正確支援 802.1Q VLAN 標籤 (tagging)。有些卡沒有明確表示支持，VLAN 標籤雖然仍可使用，但 MTU "
+#~ "減少可能會造成問題。"
+
+#~ msgid "The VLAN ID must be between 1 and 4094."
+#~ msgstr "VLAN ID 必須界符於 1 到 4094 之間。"

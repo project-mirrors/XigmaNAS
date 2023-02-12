@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-12-10 23:58+0000\n"
+"POT-Creation-Date: 2023-02-11 22:13+0000\n"
 "PO-Revision-Date: 2022-12-13 15:34+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-01-30 11:44+0000\n"
-"X-Generator: Launchpad (build 20dbca4abd50eb567cd11c349e7e914443a145a1)\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2023-02-11 22:45+0000\n"
+"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Language: Swedish\n"
 "X-Poedit-Country: SWEDEN\n"
+"Language: \n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -251,6 +251,9 @@ msgstr "1000"
 msgid "1000000"
 msgstr "1000000"
 
+msgid "102"
+msgstr ""
+
 msgid "128K"
 msgstr "128K"
 
@@ -371,8 +374,14 @@ msgstr "69"
 msgid "8 KiB"
 msgstr "8 KiB"
 
+msgid "802.1Q (default)"
+msgstr ""
+
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN etikett (mellan 1 och 4094)."
+
+msgid "802.1ad (QinQ)"
+msgstr ""
 
 msgid "8200"
 msgstr "8200"
@@ -396,10 +405,6 @@ msgid ""
 msgstr ""
 "En Portalgrupp identifieras av ett nummer och definierar IP-adresser och "
 "lyssnande TCP portar."
-
-#, php-format
-msgid "A VLAN with the tag %s is already defined on this interface."
-msgstr "Ett VLAN med etiketten %s är redan definierat för detta gränssnitt."
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
@@ -1505,6 +1510,9 @@ msgstr "Bakgrundsprogram"
 msgid "Background"
 msgstr "Bakgrund"
 
+msgid "Background (lowest)"
+msgstr ""
+
 msgid "Backup"
 msgstr "Säkerhetskopiera"
 
@@ -1623,6 +1631,9 @@ msgstr "Innan en Unisonklient börjar fungera måste du genomföra följande:"
 
 msgid "Best available"
 msgstr "Bästa tillgängliga"
+
+msgid "Best effort (default)"
+msgstr ""
 
 msgid "Beta Versions"
 msgstr "Betaversioner"
@@ -2880,6 +2891,9 @@ msgstr "Kritiskt"
 msgid "Critical Error Level"
 msgstr "Kritiskt felnivå"
 
+msgid "Critical applications"
+msgstr ""
+
 msgid "Cron"
 msgstr "Cron"
 
@@ -3758,6 +3772,9 @@ msgstr "Inaktivera valda mål"
 msgid "Disable Selected Users"
 msgstr "Inaktivera valda användare"
 
+msgid "Disable Selected VLANs"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr "Inaktivera valda WebDAV poster"
 
@@ -4241,6 +4258,9 @@ msgstr "Vill du inaktivera valda NFS rootkataloger?"
 msgid "Do you want to disable selected Samba shares?"
 msgstr "Vill du inaktivera valda Samba utdelningar?"
 
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Vill du inaktivera valda WebDAV poster?"
 
@@ -4342,6 +4362,9 @@ msgstr "Vill du aktivera valda NFS rootkataloger?"
 
 msgid "Do you want to enable selected Samba shares?"
 msgstr "Vill du aktivera valda Samba utdelningar?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Vill du aktivera valda WebDAV poster?"
@@ -4453,6 +4476,9 @@ msgstr "Vill du växla valda NFS rootkataloger?"
 
 msgid "Do you want to toggle selected Samba shares?"
 msgstr "Vill du växla valda Samba utdelningar?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Vill du växla valda WebDAV poster?"
@@ -5014,6 +5040,9 @@ msgstr "Aktivera valda mål"
 msgid "Enable Selected Users"
 msgstr "Aktivera valda användare"
 
+msgid "Enable Selected VLANs"
+msgstr ""
+
 msgid "Enable Selected WebDAV Records"
 msgstr "Aktivera valda WebDAV poster"
 
@@ -5254,13 +5283,6 @@ msgstr ""
 "Aktivera detta alternativ för att göra värdens serieportar tillgängliga för "
 "klienterna."
 
-msgid ""
-"Enable this option to reduce the height of the page header to a minimum for "
-"the duration of this session."
-msgstr ""
-"Aktivera detta alternativ för att minska höjden på sidhuvudet till ett "
-"minimum under denna session."
-
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr ""
 "Aktivera detta alterantiv för att uppdatera CPU mikrokod vid uppstart."
@@ -5303,6 +5325,9 @@ msgid ""
 msgstr ""
 "Att aktivera detta alternativ kan utsätta ditt system för en ytterligare "
 "säkerhetsrisk!"
+
+msgid "Encapsulation Protocol"
+msgstr ""
 
 msgid "Encrypt password"
 msgstr "Krypteringslösenord"
@@ -5603,6 +5628,9 @@ msgstr "Exempelvis: pkg install packagename."
 
 msgid "Excel Sheet"
 msgstr "Excelblad"
+
+msgid "Excellent effort"
+msgstr ""
 
 msgid "Exec"
 msgstr "Kör"
@@ -6432,6 +6460,9 @@ msgstr "Topplistevy"
 msgid "Hint"
 msgstr "Tips"
 
+msgid "Home"
+msgstr ""
+
 msgid "Home Directory"
 msgstr "Hemkatalog"
 
@@ -6789,6 +6820,9 @@ msgstr "In/Ut fel"
 msgid "In/Out Packets"
 msgstr "In/Ut paket"
 
+msgid "Inactive"
+msgstr ""
+
 msgid "Include /dev into scan/import"
 msgstr "Inkludera /dev i scanna/importera"
 
@@ -7054,6 +7088,9 @@ msgstr "UPS Datum"
 
 msgid "Internal UPS clock time"
 msgstr "UPS tid"
+
+msgid "Internetwork control"
+msgstr ""
 
 msgid "Interval"
 msgstr "Intervall"
@@ -8416,6 +8453,9 @@ msgstr ""
 "Nätverk auktoriserat för åtkomst till iSCSI-målet. Tar IP-adresser, tillika "
 "CIDR. Ange 'ALL' för obestämd IP-adress."
 
+msgid "Network control (highest)"
+msgstr ""
+
 msgid "Networks"
 msgstr "Nätverk"
 
@@ -8735,15 +8775,6 @@ msgstr ""
 msgid "Not Reported"
 msgstr "Inte rapporterad"
 
-msgid ""
-"Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-"not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-"may cause problems."
-msgstr ""
-"Alla drivrutiner/NICs stödjer inte 802.1Q VLAN-märkning ordentligt. På kort "
-"som inte uttryckligen stöder det, kommer det ändå att fungera. Med det "
-"reducerade MTU-värdet kan orsaka problem."
-
 msgid "Not attached"
 msgstr "Inte tillkopplad"
 
@@ -8841,6 +8872,9 @@ msgstr "Av"
 msgid "Off - do not share"
 msgstr "Av - dela inte"
 
+msgid "Offline"
+msgstr ""
+
 msgid "Offline Immediate Test"
 msgstr "Omedelbar offlinetest"
 
@@ -8876,6 +8910,9 @@ msgstr "På - dela med standardrättigheter"
 
 msgid "On-Disk Configuration"
 msgstr "På-Disk konfiguration"
+
+msgid "Online"
+msgstr ""
 
 msgid "Online Information"
 msgstr "Onlineinformation"
@@ -9013,6 +9050,9 @@ msgstr "PAM autentisering är vald."
 
 msgid "PBKDF2 Iterations"
 msgstr "PBKDF2 Iterationer"
+
+msgid "PCP"
+msgstr ""
 
 msgid "PDF File"
 msgstr "PDF Fil"
@@ -9601,6 +9641,11 @@ msgstr "Skriv ut detaljerad information."
 msgid "Print general information."
 msgstr "Skriv ut allmän information."
 
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr "Sekretesstillägg"
 
@@ -10136,9 +10181,6 @@ msgstr "Anledning till senaste övergången till batteridrift (* opaque)"
 msgid "Reboot"
 msgstr "Starta om"
 
-msgid "Reboot Required"
-msgstr "Omstart krävs"
-
 msgid "Reboot Schedule is locked"
 msgstr "Schemalagd omstart är låst"
 
@@ -10596,6 +10638,9 @@ msgstr "Kör nu"
 
 msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr "Kör utan att kräva fjärr rsync demon. (Normalt inaktiverat)"
+
+msgid "Running"
+msgstr ""
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11292,6 +11337,9 @@ msgstr "Sätt skrivskyddad."
 msgid "Set share password."
 msgstr "Välj lösenord för utdelningen."
 
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
 msgid "Set the account's primary group."
 msgstr "Sätt kontots primära grupp."
 
@@ -11601,9 +11649,6 @@ msgstr "Visa endast symbol"
 
 msgid "Show text only"
 msgstr "Visa endast text"
-
-msgid "Shrink Page Header"
-msgstr "Minska sidhuvud."
 
 msgid "Shutdown"
 msgstr "Stäng av"
@@ -12520,9 +12565,6 @@ msgstr "UPS-namn och IP-adress"
 msgid "The UUID of the record."
 msgstr "UUID för posten."
 
-msgid "The VLAN ID must be between 1 and 4094."
-msgstr "'VLAN ID' måste vara mellan 1 och 4094."
-
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
@@ -13092,6 +13134,9 @@ msgid ""
 msgstr ""
 "Namnet på TLS trust filen. Filen måste vara i PEM format och innehålla ett "
 "eller flera certifikat från betrodda Certifikatutgivare (CAs)."
+
+msgid "The name of the VLAN interface"
+msgstr ""
 
 msgid "The name of the ZFS pool."
 msgstr "Namnet på ZFS poolen."
@@ -14201,6 +14246,9 @@ msgstr "Växla valda mål"
 msgid "Toggle Selected Users"
 msgstr "Växla valda användare"
 
+msgid "Toggle Selected VLANs"
+msgstr ""
+
 msgid "Toggle Selected WebDAV Records"
 msgstr "Växla valda WebDAV poster"
 
@@ -14972,22 +15020,17 @@ msgstr "VHID"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VLAN Settings"
-msgstr "VLAN inställningar"
+msgid "VLAN Interface"
+msgstr ""
 
 msgid "VLAN Tag"
 msgstr "VLAN etikett"
 
-msgid ""
-"VLAN cannot be deleted because it is still being used as an interface."
+msgid "VLAN is locked"
 msgstr ""
-"VLAN kan inte tas bort eftersom den fortfarande används som ett gränssnitt."
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN är markerat för borttagning"
-
-msgid "VLAN is protected"
-msgstr "VLAN är skyddat"
 
 msgid "VLAN is unlocked"
 msgstr "VLAN är olåst"
@@ -15040,6 +15083,12 @@ msgstr "Version:"
 
 msgid "Vibration During Write."
 msgstr "Vibration under skrivning."
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
 
 msgid "Virtual Device"
 msgstr "Virtuell enhet"
@@ -15907,8 +15956,51 @@ msgstr "update.example.com"
 msgid "visible"
 msgstr "synlig"
 
+msgid "vlan0"
+msgstr ""
+
 msgid "was assigned to"
 msgstr "var tilldelad till"
 
 msgid "yes"
 msgstr "ja"
+
+#, php-format
+#~ msgid "A VLAN with the tag %s is already defined on this interface."
+#~ msgstr "Ett VLAN med etiketten %s är redan definierat för detta gränssnitt."
+
+#~ msgid ""
+#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
+#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
+#~ "may cause problems."
+#~ msgstr ""
+#~ "Alla drivrutiner/NICs stödjer inte 802.1Q VLAN-märkning ordentligt. På kort "
+#~ "som inte uttryckligen stöder det, kommer det ändå att fungera. Med det "
+#~ "reducerade MTU-värdet kan orsaka problem."
+
+#~ msgid "Reboot Required"
+#~ msgstr "Omstart krävs"
+
+#~ msgid "Shrink Page Header"
+#~ msgstr "Minska sidhuvud."
+
+#~ msgid "The VLAN ID must be between 1 and 4094."
+#~ msgstr "'VLAN ID' måste vara mellan 1 och 4094."
+
+#~ msgid "VLAN Settings"
+#~ msgstr "VLAN inställningar"
+
+#~ msgid ""
+#~ "VLAN cannot be deleted because it is still being used as an interface."
+#~ msgstr ""
+#~ "VLAN kan inte tas bort eftersom den fortfarande används som ett gränssnitt."
+
+#~ msgid "VLAN is protected"
+#~ msgstr "VLAN är skyddat"
+
+#~ msgid ""
+#~ "Enable this option to reduce the height of the page header to a minimum for "
+#~ "the duration of this session."
+#~ msgstr ""
+#~ "Aktivera detta alternativ för att minska höjden på sidhuvudet till ett "
+#~ "minimum under denna session."
