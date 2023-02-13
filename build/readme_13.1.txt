@@ -108,7 +108,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 13.1.0.5.9642
 ===================
 Changes:
-- Upgrade to FreeBSD 13.1-RELEASE P5.
+- Upgrade to FreeBSD 13.1-RELEASE P6.
 - Upgrade tmux to v3.3a.
 - Upgrade rrdtool to v1.8.0.
 - Upgrade devcpu-data-amd to v20221002.
