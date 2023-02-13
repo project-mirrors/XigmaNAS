@@ -988,7 +988,6 @@
 		// createmask and directorymask can be used to overwrite default values when security=share
 		<createmask>0666</createmask>
 		<directorymask>0777</directorymask>
-		<nullpasswords/>
 		<auxparam></auxparam> // Can be defined multiple times.
 		<share>
 			<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
