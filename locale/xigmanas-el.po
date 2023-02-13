@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-11 22:13+0000\n"
-"PO-Revision-Date: 2023-01-16 10:16+0000\n"
+"PO-Revision-Date: 2023-02-13 07:49+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
-"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
+"X-Launchpad-Export-Date: 2023-02-13 12:04+0000\n"
+"X-Generator: Launchpad (build c30b1c29d38ad9ae4ecf0214b6405ef66ee22360)\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: Greek\n"
-"X-Poedit-Country: Greece\n"
 "Language: \n"
+"X-Poedit-Country: Greece\n"
+"X-Poedit-Language: Greek\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -265,7 +265,7 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "102"
-msgstr ""
+msgstr "102"
 
 msgid "128K"
 msgstr "128K"
@@ -394,13 +394,13 @@ msgid "8 KiB"
 msgstr "8 KiB"
 
 msgid "802.1Q (default)"
-msgstr ""
+msgstr "802.1Q (προεπιλογή)"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "ετικέτα 802.1Q VLAN  (μεταξύ  1 και 4094)."
 
 msgid "802.1ad (QinQ)"
-msgstr ""
+msgstr "802.1ad (QinQ)"
 
 msgid "8200"
 msgstr "8200"
@@ -1568,7 +1568,7 @@ msgid "Background"
 msgstr "Φόντο"
 
 msgid "Background (lowest)"
-msgstr ""
+msgstr "Παρασκήνιο (χαμηλότατη)"
 
 msgid "Backup"
 msgstr "Αντίγραφο Ασφαλείας"
@@ -1698,7 +1698,7 @@ msgid "Best available"
 msgstr "Οι βέλτιστες διαθέσιμες"
 
 msgid "Best effort (default)"
-msgstr ""
+msgstr "Όσο το δυνατόν καλό (προεπιλογή)"
 
 msgid "Beta Versions"
 msgstr "Δοκιμαστικές Εκδόσεις"
@@ -3014,7 +3014,7 @@ msgid "Critical Error Level"
 msgstr "Επίπεδο Κρίσιμου Σφάλματος"
 
 msgid "Critical applications"
-msgstr ""
+msgstr "Κρίσιμες εφαρμογές"
 
 msgid "Cron"
 msgstr "Προγραμματισμένες εργασίες"
@@ -3904,7 +3904,7 @@ msgid "Disable Selected Users"
 msgstr "Απενεργοποίηση Επιλεγμένων Χρηστών"
 
 msgid "Disable Selected VLANs"
-msgstr ""
+msgstr "Απενεργοποίηση Επιλεγμένων VLAN"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών WebDAV"
@@ -4414,7 +4414,7 @@ msgid "Do you want to disable selected Samba shares?"
 msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα κοινόχρηστα Samba;"
 
 msgid "Do you want to disable selected VLANs?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα VLAN;"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Θέλετε να επενεργοποιήσετε τις επιλεγμένες εγγραφές WebDAV;"
@@ -4521,7 +4521,7 @@ msgid "Do you want to enable selected Samba shares?"
 msgstr "Θέλετε να ενεργοποιήσετε τα επιλεγμένα κοινόχρηστα Samba;"
 
 msgid "Do you want to enable selected VLANs?"
-msgstr ""
+msgstr "Θέλετε να ενεργοποιήσετε τα επιλεγμένα VLAN;"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εγγραφές WebDAV;"
@@ -4636,7 +4636,7 @@ msgid "Do you want to toggle selected Samba shares?"
 msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα κοινόχρηστα Samba;"
 
 msgid "Do you want to toggle selected VLANs?"
-msgstr ""
+msgstr "Θέλετε να κάνετε εναλλαγή λειτουργίας των επιλεγμένων VLAN;"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές WebDAV;"
@@ -5208,7 +5208,7 @@ msgid "Enable Selected Users"
 msgstr "Ενεργοποίηση Επιλεγμένων Χρηστών"
 
 msgid "Enable Selected VLANs"
-msgstr ""
+msgstr "Ενεργοποίηση Επιλεγμένων VLAN"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών WebDAV"
@@ -5504,7 +5504,7 @@ msgstr ""
 "πρόσθετο ρίσκο ασφαλείας!"
 
 msgid "Encapsulation Protocol"
-msgstr ""
+msgstr "Πρωτόκολλο Encapsulation"
 
 msgid "Encrypt password"
 msgstr "Κρυπτογράφηση κωδικού"
@@ -5817,7 +5817,7 @@ msgid "Excel Sheet"
 msgstr "Φύλλο Excel"
 
 msgid "Excellent effort"
-msgstr ""
+msgstr "Το καλύτερο δυνατό"
 
 msgid "Exec"
 msgstr "Εκτέλεση"
@@ -6666,7 +6666,7 @@ msgid "Hint"
 msgstr "Συμβουλή"
 
 msgid "Home"
-msgstr ""
+msgstr "Αρχή"
 
 msgid "Home Directory"
 msgstr "Αρχικός φάκελος"
@@ -7045,7 +7045,7 @@ msgid "In/Out Packets"
 msgstr "Πακέτα Εισόδου/Εξόδου"
 
 msgid "Inactive"
-msgstr ""
+msgstr "Ανενεργό"
 
 msgid "Include /dev into scan/import"
 msgstr "Να συμπεριληφθεί το /dev στην ανίχνευση/εισαγωγή"
@@ -7318,7 +7318,7 @@ msgid "Internal UPS clock time"
 msgstr "Εσωτερική ώρα ρολογιού UPS"
 
 msgid "Internetwork control"
-msgstr ""
+msgstr "Internetwork control"
 
 msgid "Interval"
 msgstr "Μεσοδιάστημα"
@@ -8725,7 +8725,7 @@ msgstr ""
 "IP ή CIDR διευθύνσεις  ή 'ALL' για οποιεσδήποτε IPs."
 
 msgid "Network control (highest)"
-msgstr ""
+msgstr "Network control (υψηλότατο)"
 
 msgid "Networks"
 msgstr "Δίκτυα"
@@ -9151,7 +9151,7 @@ msgid "Off - do not share"
 msgstr "Off - όχι κοινή χρήση"
 
 msgid "Offline"
-msgstr ""
+msgstr "Εκτός σύνδεσης"
 
 msgid "Offline Immediate Test"
 msgstr "Offline Immediate Test"
@@ -9190,7 +9190,7 @@ msgid "On-Disk Configuration"
 msgstr "Ρυθμίσεις που βρίσκονται στο δίσκο"
 
 msgid "Online"
-msgstr ""
+msgstr "Σε Σύνδεση"
 
 msgid "Online Information"
 msgstr "Πληροφορίες Ενεργής Σύνδεσης"
@@ -9334,7 +9334,7 @@ msgid "PBKDF2 Iterations"
 msgstr "Επαναλήψεις PBKDF2"
 
 msgid "PCP"
-msgstr ""
+msgstr "PCP"
 
 msgid "PDF File"
 msgstr "Αρχείο PDF"
@@ -9943,6 +9943,8 @@ msgid ""
 "Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
 "class of service and maps to the frame priority level."
 msgstr ""
+"Το Priority code point (PCP) είναι ένα πεδίο των 3 bit που αναφέρεται στο "
+"επίπεδο προτεραιότητας IEEE 802.1p class of service and maps to the frame."
 
 msgid "Privacy Extension"
 msgstr "Επέκταση Απορρήτου"
@@ -10950,7 +10952,7 @@ msgstr ""
 "(Απενεργοποιημένο από προεπιλογή)"
 
 msgid "Running"
-msgstr ""
+msgstr "Υπό εκτέλεση"
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11673,7 +11675,7 @@ msgid "Set share password."
 msgstr "Ορισμός κονόχρηστου κωδικού."
 
 msgid "Set the VLAN encapsulation protocol."
-msgstr ""
+msgstr "Ορίστε το VLAN πρωτόκολλο encapsulation."
 
 msgid "Set the account's primary group."
 msgstr "Ορίστε την πρωτεύουσα ομάδα του λογαριασμού."
@@ -13552,7 +13554,7 @@ msgstr ""
 "Πιστοποίησης (CAs)."
 
 msgid "The name of the VLAN interface"
-msgstr ""
+msgstr "Το όνομα της διεπαφής VLAN."
 
 msgid "The name of the ZFS pool."
 msgstr "Το όνομα του ZFS pool."
@@ -14723,7 +14725,7 @@ msgid "Toggle Selected Users"
 msgstr "Μεταβολή Επιλεγμένων Χρηστών"
 
 msgid "Toggle Selected VLANs"
-msgstr ""
+msgstr "Εναλλαγή Λειτουργίας Επιλεγμένων VLAN"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "Μεταβολή Επιλεγμένων Εγγραφών WebDAV"
@@ -15514,13 +15516,13 @@ msgid "VLAN"
 msgstr "VLAN"
 
 msgid "VLAN Interface"
-msgstr ""
+msgstr "Διεπαφή VLAN"
 
 msgid "VLAN Tag"
 msgstr "Ετικέτα VLAN"
 
 msgid "VLAN is locked"
-msgstr ""
+msgstr "Το VLAN είναι κλειδωμένο"
 
 msgid "VLAN is marked for deletion"
 msgstr "Το VLAN έχει σημειωθεί προς διαγραφή."
@@ -15578,10 +15580,10 @@ msgid "Vibration During Write."
 msgstr "Δόνηση κατά την εγγραφή."
 
 msgid "Video < 100ms latency"
-msgstr ""
+msgstr "Βίντεο < 100ms latency"
 
 msgid "Video < 10ms latency"
-msgstr ""
+msgstr "Βίντεο < 10ms latency"
 
 msgid "Virtual Device"
 msgstr "Εικονική Συσκευή"
@@ -16475,52 +16477,10 @@ msgid "visible"
 msgstr "ορατό"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
 msgstr "ανατέθηκε στο"
 
 msgid "yes"
 msgstr "ναι"
-
-#, php-format
-#~ msgid "A VLAN with the tag %s is already defined on this interface."
-#~ msgstr "Ένα VLAN με την ετικέτα %s είναι ήδη καθορισμένο σε αυτή τη διεπαφή."
-
-#~ msgid ""
-#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-#~ "may cause problems."
-#~ msgstr ""
-#~ "Δεν υποστηρίζουν όλοι οι οδηγοί/ελεγκτές δικτύου σωστά τις VLAN ετικέτες "
-#~ "802.1Q. Σε κάρτες που δεν τις υποστηρίζουν ρητά, οι VLAN ετικέτες θα "
-#~ "συνεχίσουν να λειτουργούν, αλλά το μειωμένο MTU μπορεί να προκαλέσει "
-#~ "προβλήματα."
-
-#~ msgid "Reboot Required"
-#~ msgstr "Χρειάζεται Επανεκκίνηση"
-
-#~ msgid "Shrink Page Header"
-#~ msgstr "Σμίκρυνση Κεφαλίδας Σελίδας"
-
-#~ msgid "The VLAN ID must be between 1 and 4094."
-#~ msgstr "Το VLAN ID πρέπει να είναι μεταξύ 1 και 4094."
-
-#~ msgid "VLAN Settings"
-#~ msgstr "Ρυθμίσεις VLAN"
-
-#~ msgid ""
-#~ "VLAN cannot be deleted because it is still being used as an interface."
-#~ msgstr ""
-#~ "Αυτό το VLAN δεν μπορεί να διαγραφεί γιατί χρησιμοποιείται ακόμη σαν "
-#~ "διασύνδεση."
-
-#~ msgid "VLAN is protected"
-#~ msgstr "Το VLAN είναι προστατευμένο"
-
-#~ msgid ""
-#~ "Enable this option to reduce the height of the page header to a minimum for "
-#~ "the duration of this session."
-#~ msgstr ""
-#~ "Ενεργοποιήστε αυτή την επιλογή για να μειώσετε στο ελάχιστο το ύψος της "
-#~ "κεφαλίδας της σελίδας για τη διάρκεια αυτής της συνόδου."
