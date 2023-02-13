@@ -364,17 +364,6 @@ class grid_properties extends myp\container {
 	final public function get_mapdosattributes(): myp\property_bool {
 		return $this->x_mapdosattributes ?? $this->init_mapdosattributes();
 	}
-	protected $x_nullpasswords;
-	public function init_nullpasswords(): myp\property_bool {
-		$property = $this->x_nullpasswords = new myp\property_bool($this);
-		$property->
-			set_name('nullpasswords')->
-			set_title(gettext('Null Passwords'));
-		return $property;
-	}
-	final public function get_nullpasswords(): myp\property_bool {
-		return $this->x_nullpasswords ?? $this->init_nullpasswords();
-	}
 	protected $x_aio;
 	public function init_aio(): myp\property_bool {
 		$property = $this->x_aio = new myp\property_bool($this);

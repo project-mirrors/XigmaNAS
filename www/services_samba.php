@@ -73,7 +73,6 @@ $cops = [
 	$cop->get_maxprotocol(),
 	$cop->get_minprotocol(),
 	$cop->get_netbiosname(),
-	$cop->get_nullpasswords(),
 	$cop->get_pwdsrv(),
 	$cop->get_rcvbuf(),
 	$cop->get_security(),
@@ -318,7 +317,6 @@ $tds2->addTHEAD()->
 	c2_titleline(gettext('Advanced SMB Settings'));
 $tbody2 = $tds2->addTBODY();
 $tbody2->
-	c2($cop->get_nullpasswords(),$sphere,false,$is_readonly)->
 	c2($cop->get_guestaccount(),$sphere,false,$is_readonly)->
 	c2($cop->get_maptoguest(),$sphere,false,$is_readonly)->
 	c2($cop->get_forceuser(),$sphere,false,$is_readonly)->

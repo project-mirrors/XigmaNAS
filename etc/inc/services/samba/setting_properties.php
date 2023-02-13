@@ -485,16 +485,6 @@ class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_nullpasswords(): myp\property_bool {
-		$caption = gettext('Allow client access to accounts that have null passwords.');
-		$property = parent::init_nullpasswords();
-		$property->
-			set_caption($caption)->
-			set_defaultvalue(false)->
-			set_id('nullpasswords')->
-			filter_use_default();
-		return $property;
-	}
 	public function init_aio(): myp\property_bool {
 		$caption = gettext('Enable Asynchronous I/O.');
 		$property = parent::init_aio();
