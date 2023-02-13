@@ -3,19 +3,19 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-11 22:13+0000\n"
-"PO-Revision-Date: 2022-12-11 05:11+0000\n"
+"PO-Revision-Date: 2023-02-12 06:15+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
+"X-Launchpad-Export-Date: 2023-02-13 03:44+0000\n"
 "X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
+"Language: \n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Language: French\n"
 "X-Poedit-Basepath: D:\\Fichiers\\freenas\\webgui\n"
 "X-Poedit-Country: FRANCE\n"
-"Language: \n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -261,7 +261,7 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "102"
-msgstr ""
+msgstr "102"
 
 msgid "128K"
 msgstr "128K"
@@ -387,13 +387,13 @@ msgid "8 KiB"
 msgstr "8 Kio"
 
 msgid "802.1Q (default)"
-msgstr ""
+msgstr "802.1Q (défaut)"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN tag (entre 1 et 4094)."
 
 msgid "802.1ad (QinQ)"
-msgstr ""
+msgstr "802.1ad (QinQ)"
 
 msgid "8200"
 msgstr "8200"
@@ -1541,7 +1541,7 @@ msgid "Background"
 msgstr "Fond"
 
 msgid "Background (lowest)"
-msgstr ""
+msgstr "Arrière-plan (le plus bas)"
 
 msgid "Backup"
 msgstr "Sauvegarde"
@@ -1674,7 +1674,7 @@ msgid "Best available"
 msgstr "Meilleur disponible"
 
 msgid "Best effort (default)"
-msgstr ""
+msgstr "Meilleur effort (par défaut)"
 
 msgid "Beta Versions"
 msgstr "Versions de Test (Beta)"
@@ -2977,7 +2977,7 @@ msgid "Critical Error Level"
 msgstr "Niveau d'erreur critique"
 
 msgid "Critical applications"
-msgstr ""
+msgstr "Applications critiques"
 
 msgid "Cron"
 msgstr "Cron"
@@ -3862,7 +3862,7 @@ msgid "Disable Selected Users"
 msgstr "Désactiver les utilisateurs sélectionnés"
 
 msgid "Disable Selected VLANs"
-msgstr ""
+msgstr "Désactiver les VLAN sélectionnés"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Désactiver les Enregistrements WebDAV Sélectionnés"
@@ -4379,7 +4379,7 @@ msgid "Do you want to disable selected Samba shares?"
 msgstr "Voulez-vous désactiver les partages Samba sélectionnés?"
 
 msgid "Do you want to disable selected VLANs?"
-msgstr ""
+msgstr "Voulez-vous désactiver les VLAN sélectionnés ?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Voulez-vous désactiver les enregistrements WebDAV sélectionnés?"
@@ -4486,7 +4486,7 @@ msgid "Do you want to enable selected Samba shares?"
 msgstr "Voulez-vous activer les partages Samba sélectionnés?"
 
 msgid "Do you want to enable selected VLANs?"
-msgstr ""
+msgstr "Voulez-vous activer les VLAN sélectionnés ?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Voulez-vous activer les enregistrements WebDAV sélectionnés?"
@@ -4601,7 +4601,7 @@ msgid "Do you want to toggle selected Samba shares?"
 msgstr "Voulez-vous changer d'état les partages Samba sélectionnés?"
 
 msgid "Do you want to toggle selected VLANs?"
-msgstr ""
+msgstr "Voulez-vous basculer les VLAN sélectionnés ?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Voulez-vous changer d'état les enregistrements WebDAV sélectionnés?"
@@ -5172,7 +5172,7 @@ msgid "Enable Selected Users"
 msgstr "Activer les Utilisateurs Sélectionnés"
 
 msgid "Enable Selected VLANs"
-msgstr ""
+msgstr "Activer les VLAN Sélectionnés"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Activer les eEnregistrements WebDAV Sélectionnés"
@@ -5463,7 +5463,7 @@ msgstr ""
 "sécurité supplémentaires."
 
 msgid "Encapsulation Protocol"
-msgstr ""
+msgstr "Protocole d'Encapsulation"
 
 msgid "Encrypt password"
 msgstr "mot de passe pour crypter"
@@ -5772,7 +5772,7 @@ msgid "Excel Sheet"
 msgstr "Feuille Excel"
 
 msgid "Excellent effort"
-msgstr ""
+msgstr "Effort Excellent"
 
 msgid "Exec"
 msgstr "Exécution"
@@ -6621,7 +6621,7 @@ msgid "Hint"
 msgstr "Information"
 
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 msgid "Home Directory"
 msgstr "Dossier personnel"
@@ -6993,7 +6993,7 @@ msgid "In/Out Packets"
 msgstr "Paquets d'entrée / sortie"
 
 msgid "Inactive"
-msgstr ""
+msgstr "Inactive"
 
 msgid "Include /dev into scan/import"
 msgstr "Inclure / dev dans scan / importation"
@@ -7268,7 +7268,7 @@ msgid "Internal UPS clock time"
 msgstr "Heure de l'horloge interne de UPS"
 
 msgid "Internetwork control"
-msgstr ""
+msgstr "Contrôle d'Interréseau"
 
 msgid "Interval"
 msgstr "Intervalle"
@@ -8667,7 +8667,7 @@ msgstr ""
 "ou 'ALL' pour toutes les adresses IP."
 
 msgid "Network control (highest)"
-msgstr ""
+msgstr "Contrôle du réseau (le plus élevé)"
 
 msgid "Networks"
 msgstr "Réseaux"
@@ -9088,7 +9088,7 @@ msgid "Off - do not share"
 msgstr "Désactivé - ne pas partager"
 
 msgid "Offline"
-msgstr ""
+msgstr "Hors ligne"
 
 msgid "Offline Immediate Test"
 msgstr "Test immédiat hors ligne"
@@ -9127,7 +9127,7 @@ msgid "On-Disk Configuration"
 msgstr "Configuration sur disque"
 
 msgid "Online"
-msgstr ""
+msgstr "En ligne"
 
 msgid "Online Information"
 msgstr "Informations en ligne"
@@ -9268,7 +9268,7 @@ msgid "PBKDF2 Iterations"
 msgstr "Itérations PBKDF2"
 
 msgid "PCP"
-msgstr ""
+msgstr "PCP"
 
 msgid "PDF File"
 msgstr "Fichier PDF"
@@ -9870,6 +9870,9 @@ msgid ""
 "Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
 "class of service and maps to the frame priority level."
 msgstr ""
+"Le point de code prioritaire (PCP) est un champ de 3 bits qui fait référence "
+"à la classe de service IEEE 802.1p et correspond au niveau de priorité de "
+"trame."
 
 msgid "Privacy Extension"
 msgstr "Extension de confidentialité"
@@ -10879,7 +10882,7 @@ msgstr ""
 "Fonctionnement sans démon rsync distant requis . (Désactivé par défaut)"
 
 msgid "Running"
-msgstr ""
+msgstr "En cours d’exécution"
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11600,7 +11603,7 @@ msgid "Set share password."
 msgstr "Choisir un mot de passe du partage."
 
 msgid "Set the VLAN encapsulation protocol."
-msgstr ""
+msgstr "Définissez le protocole d'encapsulation VLAN."
 
 msgid "Set the account's primary group."
 msgstr "Définissez le groupe principal du compte."
@@ -13450,7 +13453,7 @@ msgstr ""
 "confiance."
 
 msgid "The name of the VLAN interface"
-msgstr ""
+msgstr "Le nom de l'interface VLAN"
 
 msgid "The name of the ZFS pool."
 msgstr "Le nom du pool ZFS."
@@ -14595,7 +14598,7 @@ msgid "Toggle Selected Users"
 msgstr "Changer d'état les Utilisateurs Sélectionnés"
 
 msgid "Toggle Selected VLANs"
-msgstr ""
+msgstr "Basculer les VLAN sélectionnés"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "Activer / Désactiver les Enregistrements WebDAV Sélectionnés"
@@ -15383,13 +15386,13 @@ msgid "VLAN"
 msgstr "VLAN"
 
 msgid "VLAN Interface"
-msgstr ""
+msgstr "Interface VLAN"
 
 msgid "VLAN Tag"
 msgstr "Tag VLAN"
 
 msgid "VLAN is locked"
-msgstr ""
+msgstr "Le VLAN est verrouillé"
 
 msgid "VLAN is marked for deletion"
 msgstr "Le VLAN est marqué pour suppression"
@@ -15447,10 +15450,10 @@ msgid "Vibration During Write."
 msgstr "Vibration pendant l'écriture"
 
 msgid "Video < 100ms latency"
-msgstr ""
+msgstr "Vidéo < 100 ms de latence"
 
 msgid "Video < 10ms latency"
-msgstr ""
+msgstr "Vidéo < 10 ms de latence"
 
 msgid "Virtual Device"
 msgstr "Périphérique Virtuel"
@@ -16336,52 +16339,10 @@ msgid "visible"
 msgstr "visible"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
 msgstr "a été assigné à"
 
 msgid "yes"
 msgstr "oui"
-
-#, php-format
-#~ msgid "A VLAN with the tag %s is already defined on this interface."
-#~ msgstr "Un VLAN avec l'étiquette %s est déjà défini sur cette interface"
-
-#~ msgid ""
-#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-#~ "may cause problems."
-#~ msgstr ""
-#~ "Tous les pilotes/cartes réseau ne supportent pas les VLAN 802.1Q "
-#~ "correctement. Sur les cartes ne le supportant pas explicitement, le VLAN "
-#~ "tagging fonctionnera toujours, mais le MTU (Max Transfert Unit) réduit peut "
-#~ "causer des problèmes."
-
-#~ msgid "Reboot Required"
-#~ msgstr "Redémarrage Nécessaire"
-
-#~ msgid "Shrink Page Header"
-#~ msgstr "Réduire l'en-tête de page"
-
-#~ msgid "The VLAN ID must be between 1 and 4094."
-#~ msgstr "L'ID VLAN doit être compris entre 1 et 4094."
-
-#~ msgid "VLAN Settings"
-#~ msgstr "Paramètres VLAN"
-
-#~ msgid ""
-#~ "VLAN cannot be deleted because it is still being used as an interface."
-#~ msgstr ""
-#~ "Le VLAN ne peut pas être supprimé car il est toujours utilisé comme "
-#~ "interface."
-
-#~ msgid "VLAN is protected"
-#~ msgstr "Le VLAN est protégé"
-
-#~ msgid ""
-#~ "Enable this option to reduce the height of the page header to a minimum for "
-#~ "the duration of this session."
-#~ msgstr ""
-#~ "Activez cette option pour réduire la hauteur de l'en-tête de page au minimum "
-#~ "pendant la durée de cette session."
