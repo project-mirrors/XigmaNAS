@@ -1,19 +1,25 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.23.0
+PORTVERSION=	1.23.1
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
 
 COMMENT=	Encrypted file sync tool
-WWW=		https://syncthing.net/
 MAINTAINER=	zoon01@xigmanas.com
+WWW=		https://syncthing.net/
 
 MASTER_SITES=	https://github.com/syncthing/syncthing/releases/download/v${PORTVERSION}/
 DISTNAME=	${PORTNAME}-source-${DISTVERSIONPREFIX}${PORTVERSION}
 
+# XigmaNAS® contains license files
+NO_LICENSES_INSTALL=	yes
+NO_LICENSES_DIALOGS=	yes
+LICENSE=	MPL20
+#LICENSE_FILE=	${WRKSRC}/${PORTNAME}/LICENSE
+
 #BUILD_DEPENDS=	${LOCALBASE}/bin/go:lang/go
 
-USES=		cpe go:1.18,modules
+USES=		cpe go:1.19,modules
 BINS=		syncthing stdiscosrv strelaysrv strelaypoolsrv
 
 .for x in ${BINS}
