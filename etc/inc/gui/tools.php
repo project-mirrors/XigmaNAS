@@ -2064,10 +2064,6 @@ EOJ;
 				insElement(name: 'link',attributes: ['href' => 'js/datechooser.css','rel' => 'stylesheet','type' => 'text/css'])->
 				insElement(name: 'script',attributes: ['src' => 'js/datechooser.js']);
 		endif;
-		$head->
-			insElement(name: 'link',attributes: ['href' => '/images/info_box.png','rel' => 'prefetch'])->
-			insElement(name: 'link',attributes: ['href' => '/images/warn_box.png','rel' => 'prefetch'])->
-			insElement(name: 'link',attributes: ['href' => '/images/error_box.png','rel' => 'prefetch']);
 		return $this;
 	}
 /**
