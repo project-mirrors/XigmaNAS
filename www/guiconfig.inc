@@ -280,31 +280,25 @@ function verify_xz_file($fname) {
 }
 
 function print_core_box($type,$msg,$mbcl1i2 = null) {
-	global $g_img;
-
 	switch ($type):
 		case 'error':
 			$id = 'errorbox';
-			$src = $g_img['box.error'];
-			$alt = '';
+			$class = 'iconerr mbci-min';
 			break;
 		case 'info':
 			$id = 'infobox';
-			$src = $g_img['box.info'];
-			$alt = '';
+			$class = 'iconinf mbci-min';
 			break;
 		case 'warning':
 			$id = 'warningbox';
-			$src = $g_img['box.warning'];
-			$alt = '';
+			$class = 'iconwrn mbci-min';
 			break;
 	endswitch;
+	$text = "\u{26a0}\u{fe0e}";
 	echo '<div id="',$id,'">',"\n";
 	echo '<div class="mbcl-1">',"\n";
 	echo '<div class="mbcl-2 mbci-min">',"\n";
-	echo '<div class="icon mbci-min">',"\n";
-	echo '<img src="',$src,'" alt="',$alt,'">',"\n";
-	echo '</div>',"\n";
+	echo '<div class="',$class,'">',$text,'</div>',"\n";
 	echo '<div class="message mbci-max">',"\n";
 	echo '<div class="mbcl-3 mbci-min">',"\n";
 	echo '<div>',$msg,'</div>',"\n";
