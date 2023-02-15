@@ -243,17 +243,13 @@ function do_input_validate_synctime($postdata,&$input_errors) {
 }
 
 function print_input_errors($input_errors) {
-	global $g_img;
-
 	$id = 'errorbox';
-	$src = $g_img['box.error'];
-	$alt = '';
+	$class = 'iconerr mbci-min';
+	$text = "\u{26a0}\u{fe0e}";
 	echo '<div id="',$id,'">',"\n";
 	echo '<div class="mbcl-1">',"\n";
 	echo '<div class="mbcl-2 mbci-min">',"\n";
-	echo '<div class="icon mbci-min">',"\n";
-	echo '<img src="',$src,'" alt="',$alt,'">',"\n";
-	echo '</div>',"\n";
+	echo '<div class="',$class,'">',$text,'</div>',"\n";
 	echo '<div class="message mbci-max">',"\n";
 	echo '<div class="mbcl-3 mbci-min">',"\n";
 	echo '<div>',gtext('The following input errors were detected'),':',"\n";
