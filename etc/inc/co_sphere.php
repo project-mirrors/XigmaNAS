@@ -861,7 +861,8 @@ class co_sphere_grid extends co_sphere_level2 {
 		$o_td = $root->addTD();
 		if($notdirty && $notprotected):
 //			record is editable
-			$link = sprintf('%s?submit=edit&%s=%s',$this->get_modify()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
+			$querystring = http_build_query(['submit' => 'edit',$this->get_row_identifier() => $this->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$link = sprintf('%s?%s',$this->get_modify()->get_scriptname(),$querystring);
 			$o_td->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $this->getmsg_sym_mod()],value: $g_img['unicode.mod']);
 		elseif($notprotected):
 //			record is dirty
@@ -875,7 +876,8 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function html_maintainbox() {
 		global $g_img;
 
-		$link = sprintf('%s?%s=%s',$this->get_maintain()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
+		$querystring = http_build_query(['submit' => 'edit',$this->get_row_identifier() => $this->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+		$link = sprintf('%s?%s',$this->get_maintain()->get_scriptname(),$querystring);
 		$root = new document();
 		$root->addTD()->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $this->getmsg_sym_mai()],value: $g_img['unicode.mai']);
 		return $root->get_html();
@@ -883,7 +885,8 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function html_informbox() {
 		global $g_img;
 
-		$link = sprintf('%s?%s=%s',$this->get_inform()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
+		$querystring = http_build_query(['submit' => 'edit',$this->get_row_identifier() => $this->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+		$link = sprintf('%s?%s',$this->get_inform()->get_scriptname(),$querystring);
 		$root = new document();
 		$root->addTD()->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $this->getmsg_sym_inf()],value: $g_img['unicode.inf']);
 		return $root->get_html();
