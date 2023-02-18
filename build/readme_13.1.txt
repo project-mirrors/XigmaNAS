@@ -126,7 +126,6 @@ Changes:
 - Upgrade libvncserver to v0.9.14.
 - Upgrade nano to v7.2.
 - Upgrade virtualbox-ose to v6.1.42.
-- Upgrade nut to v2023.01.27.
 - Upgrade php to v8.2.2.
 - Upgrade msmtp to v1.8.23.
 - Upgrade inadyn to v2.10.0.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade phpmyadmin to v5.2.1.
 - Upgrade syncthing to v1.23.1.
 - Upgrade sudo to v1.9.13p1.
+- Upgrade nut to v2023.02.13.
 
 Fixes:
 - fix bring up lighttpd at all times.
