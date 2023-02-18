@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
-"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
+"X-Launchpad-Export-Date: 2023-02-18 01:20+0000\n"
+"X-Generator: Launchpad (build 611eba1e393fbca1b432f5f94117b070ac88176b)\n"
 "Language: ca_ES\n"
 
 msgid ""
@@ -16285,43 +16285,3 @@ msgstr "va ser assignat a"
 
 msgid "yes"
 msgstr "sí"
-
-#, php-format
-#~ msgid "A VLAN with the tag %s is already defined on this interface."
-#~ msgstr "Una VLAN amb l'etiqueta%s ja está definida en aquesta interfície."
-
-#~ msgid ""
-#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-#~ "may cause problems."
-#~ msgstr ""
-#~ "No tots els conductors/NIC donen suport 802.1Q VLAN tagging correctament. A "
-#~ "les targetes que no admeten explícitament, etiquetatge VLAN seguirà "
-#~ "funcionant, però la reducció de MTU pot causar problemes."
-
-#~ msgid "Reboot Required"
-#~ msgstr "Cal reiniciar"
-
-#~ msgid "Shrink Page Header"
-#~ msgstr "Reduir la mida de capçalera de pàgina"
-
-#~ msgid "The VLAN ID must be between 1 and 4094."
-#~ msgstr "L'ID de VLAN ha d'estar entre 1 i 4094."
-
-#~ msgid "VLAN Settings"
-#~ msgstr "Configuració de VLAN"
-
-#~ msgid ""
-#~ "VLAN cannot be deleted because it is still being used as an interface."
-#~ msgstr ""
-#~ "VLAN no es pot eliminar perquè encara està sent utilitzat com una interfície."
-
-#~ msgid "VLAN is protected"
-#~ msgstr "VLAN està protegit"
-
-#~ msgid ""
-#~ "Enable this option to reduce the height of the page header to a minimum for "
-#~ "the duration of this session."
-#~ msgstr ""
-#~ "Activeu aquesta opció per reduir l'alçada de la capçalera de la pàgina al "
-#~ "mínim durant la durada d'aquesta sessió."

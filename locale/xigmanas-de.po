@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-11 22:13+0000\n"
-"PO-Revision-Date: 2023-02-12 10:00+0000\n"
+"PO-Revision-Date: 2023-02-14 06:38+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-13 03:45+0000\n"
-"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
+"X-Launchpad-Export-Date: 2023-02-18 01:20+0000\n"
+"X-Generator: Launchpad (build 611eba1e393fbca1b432f5f94117b070ac88176b)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -2958,7 +2958,7 @@ msgid "Critical Error Level"
 msgstr "Kritischer Fehlergrad"
 
 msgid "Critical applications"
-msgstr ""
+msgstr "Kritische Anwendungen"
 
 msgid "Cron"
 msgstr "Cron"
@@ -3845,7 +3845,7 @@ msgid "Disable Selected Users"
 msgstr "Ausgewählte Benutzer abschalten"
 
 msgid "Disable Selected VLANs"
-msgstr ""
+msgstr "Ausgewählte VLANs deaktivieren"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Schalte ausgewählte WebDAV Einträge ab"
@@ -4356,7 +4356,7 @@ msgid "Do you want to disable selected Samba shares?"
 msgstr "Möchten Sie ausgewählte Samba-Freigaben deaktivieren?"
 
 msgid "Do you want to disable selected VLANs?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten VLANs deaktivieren?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Möchten Sie die ausgewählten WebDAV Einträge abschalten?"
@@ -4461,7 +4461,7 @@ msgid "Do you want to enable selected Samba shares?"
 msgstr "Möchten Sie ausgewählte Samba-Freigaben aktivieren?"
 
 msgid "Do you want to enable selected VLANs?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten VLANs aktivieren?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Möchten Sie die ausgewählten WebDAV Einträge einschalten?"
@@ -4575,7 +4575,7 @@ msgid "Do you want to toggle selected Samba shares?"
 msgstr "Möchten Sie ausgewählte Samba-Freigaben umschalten?"
 
 msgid "Do you want to toggle selected VLANs?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten VLANs umschalten?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Möchten Sie die ausgewählten WebDAV Einträge umschalten?"
@@ -5141,7 +5141,7 @@ msgid "Enable Selected Users"
 msgstr "Aktiviert die ausgewählten Nutzer"
 
 msgid "Enable Selected VLANs"
-msgstr ""
+msgstr "Ausgewählte VLANs aktivieren"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Schalte ausgewählte WebDAV Einträge ein"
@@ -5429,7 +5429,7 @@ msgstr ""
 "Sicherheitsrisiken aussetzen."
 
 msgid "Encapsulation Protocol"
-msgstr ""
+msgstr "Kapselungsprotokoll"
 
 msgid "Encrypt password"
 msgstr "Passwort verschlüsseln"
@@ -5740,7 +5740,7 @@ msgid "Excel Sheet"
 msgstr "Excel Arbeitsblatt"
 
 msgid "Excellent effort"
-msgstr ""
+msgstr "Hervorragende Leistung"
 
 msgid "Exec"
 msgstr "Ausführen"
@@ -6588,7 +6588,7 @@ msgid "Hint"
 msgstr "Hinweis"
 
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgid "Home Directory"
 msgstr "Statistik-Speicherort"
@@ -7234,7 +7234,7 @@ msgid "Internal UPS clock time"
 msgstr "Uhrzeit der UPS-Uhr"
 
 msgid "Internetwork control"
-msgstr ""
+msgstr "Internetwork-Steuerung"
 
 msgid "Interval"
 msgstr "Intervall"
@@ -8634,7 +8634,7 @@ msgstr ""
 "CIDR Adresse oder 'ALL' für jede IP."
 
 msgid "Network control (highest)"
-msgstr ""
+msgstr "Netzwerksteuerung (höchste)"
 
 msgid "Networks"
 msgstr "Netzwerke"
@@ -9844,6 +9844,8 @@ msgid ""
 "Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
 "class of service and maps to the frame priority level."
 msgstr ""
+"Priority Code Point (PCP) ist ein 3-Bit-Feld, das sich auf die IEEE 802.1p-"
+"Dienstklasse bezieht und auf die Frame-Prioritätsebene abgebildet wird."
 
 msgid "Privacy Extension"
 msgstr "Privacy Extension"
@@ -11574,7 +11576,7 @@ msgid "Set share password."
 msgstr "Setze Passwort für Freigabe."
 
 msgid "Set the VLAN encapsulation protocol."
-msgstr ""
+msgstr "Das VLAN-Kapselungsprotokoll festlegen."
 
 msgid "Set the account's primary group."
 msgstr "Legen Sie die primäre Gruppe des Kontos fest."
@@ -13432,7 +13434,7 @@ msgstr ""
 "(Certification Authorities CAs) enthalten."
 
 msgid "The name of the VLAN interface"
-msgstr ""
+msgstr "Der Name der VLAN-Schnittstelle"
 
 msgid "The name of the ZFS pool."
 msgstr "Der Name des ZFS Pools."
@@ -14600,7 +14602,7 @@ msgid "Toggle Selected Users"
 msgstr "Ausgewählte Benutzer umschalten"
 
 msgid "Toggle Selected VLANs"
-msgstr ""
+msgstr "Ausgewählte VLANs umschalten"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "Ausgewählte WebDAV  Einträge umschalten."
@@ -15384,13 +15386,13 @@ msgid "VLAN"
 msgstr "VLAN"
 
 msgid "VLAN Interface"
-msgstr ""
+msgstr "VLAN-Schnittstelle"
 
 msgid "VLAN Tag"
 msgstr "VLAN-Markierung"
 
 msgid "VLAN is locked"
-msgstr ""
+msgstr "VLAN ist gesperrt"
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN ist zur Löschung markiert"
@@ -15448,10 +15450,10 @@ msgid "Vibration During Write."
 msgstr "Vibrationen während Schreiboperationen."
 
 msgid "Video < 100ms latency"
-msgstr ""
+msgstr "Video < 100 ms Latenz"
 
 msgid "Video < 10ms latency"
-msgstr ""
+msgstr "Video < 10 ms Latenz"
 
 msgid "Virtual Device"
 msgstr "Virtuelles Gerät"
@@ -16341,7 +16343,7 @@ msgid "visible"
 msgstr "sichtbar"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
 msgstr "wurde zugewiesen an"

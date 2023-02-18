@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-11 22:13+0000\n"
-"PO-Revision-Date: 2023-02-07 16:51+0000\n"
+"PO-Revision-Date: 2023-02-17 20:54+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-11 22:45+0000\n"
-"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
+"X-Launchpad-Export-Date: 2023-02-18 01:21+0000\n"
+"X-Generator: Launchpad (build 611eba1e393fbca1b432f5f94117b070ac88176b)\n"
+"Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"Language: zh_CN\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -235,7 +235,7 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "102"
-msgstr ""
+msgstr "102"
 
 msgid "128K"
 msgstr "128K"
@@ -358,13 +358,13 @@ msgid "8 KiB"
 msgstr "8 KiB"
 
 msgid "802.1Q (default)"
-msgstr ""
+msgstr "802.1Q（默认）"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN 标签 （介于1和4094之间）。"
 
 msgid "802.1ad (QinQ)"
-msgstr ""
+msgstr "802.1ad (QinQ)"
 
 msgid "8200"
 msgstr "8200"
@@ -1417,7 +1417,7 @@ msgid "Background"
 msgstr "后台"
 
 msgid "Background (lowest)"
-msgstr ""
+msgstr "背景（最低）"
 
 msgid "Backup"
 msgstr "备份"
@@ -1536,7 +1536,7 @@ msgid "Best available"
 msgstr "现有最佳"
 
 msgid "Best effort (default)"
-msgstr ""
+msgstr "最佳效能（默认）"
 
 msgid "Beta Versions"
 msgstr "Beta版本"
@@ -2707,7 +2707,7 @@ msgid "Critical Error Level"
 msgstr "严重错误级别"
 
 msgid "Critical applications"
-msgstr ""
+msgstr "关键应用"
 
 msgid "Cron"
 msgstr "定时任务（Cron）"
@@ -3562,7 +3562,7 @@ msgid "Disable Selected Users"
 msgstr "禁用所选用户"
 
 msgid "Disable Selected VLANs"
-msgstr ""
+msgstr "禁用选中的VLANs"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "禁用所选的WebDAV记录"
@@ -4030,7 +4030,7 @@ msgid "Do you want to disable selected Samba shares?"
 msgstr "你要禁用选定的Samba共享吗？"
 
 msgid "Do you want to disable selected VLANs?"
-msgstr ""
+msgstr "你想要禁用选中的VLANs吗？"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "是否要禁用所选的WebDAV记录？"
@@ -4135,7 +4135,7 @@ msgid "Do you want to enable selected Samba shares?"
 msgstr "你要启用选定的Samba共享吗？"
 
 msgid "Do you want to enable selected VLANs?"
-msgstr ""
+msgstr "你想要启用选中的VLANs吗？"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "是否要启用所选的WebDAV记录？"
@@ -4249,7 +4249,7 @@ msgid "Do you want to toggle selected Samba shares?"
 msgstr "你要切换选定的Samba共享吗？"
 
 msgid "Do you want to toggle selected VLANs?"
-msgstr ""
+msgstr "你想要切换选中的VLANZs吗？"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "是否要切换选定的WebDAV记录？"
@@ -4807,7 +4807,7 @@ msgid "Enable Selected Users"
 msgstr "启用选定的用户"
 
 msgid "Enable Selected VLANs"
-msgstr ""
+msgstr "启用选中的VLANs"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "启用选定的WebDAV记录"
@@ -5064,7 +5064,7 @@ msgid ""
 msgstr "启用此选项可能会使系统面临额外的安全隐患！"
 
 msgid "Encapsulation Protocol"
-msgstr ""
+msgstr "封装协议"
 
 msgid "Encrypt password"
 msgstr "加密密码"
@@ -5344,7 +5344,7 @@ msgid "Excel Sheet"
 msgstr "Excel表格"
 
 msgid "Excellent effort"
-msgstr ""
+msgstr "优秀效能"
 
 msgid "Exec"
 msgstr "执行"
@@ -6154,7 +6154,7 @@ msgid "Hint"
 msgstr "提示"
 
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgid "Home Directory"
 msgstr "Home 目录"
@@ -6478,7 +6478,7 @@ msgid "In/Out Packets"
 msgstr "入/出数据包"
 
 msgid "Inactive"
-msgstr ""
+msgstr "无效"
 
 msgid "Include /dev into scan/import"
 msgstr "将 /dev 包含到 扫描/导入 中"
@@ -6726,7 +6726,7 @@ msgid "Internal UPS clock time"
 msgstr "UPS 内部时钟的时间"
 
 msgid "Internetwork control"
-msgstr ""
+msgstr "联网控制"
 
 msgid "Interval"
 msgstr "间隔"
@@ -8050,7 +8050,7 @@ msgid ""
 msgstr "网络授权可访问 iSCSI 目标。它需要IP 地址或CIDR 地址或 “ALL” （任何IP地址）。"
 
 msgid "Network control (highest)"
-msgstr ""
+msgstr "网络控制（最高）"
 
 msgid "Networks"
 msgstr "网络"
@@ -8454,7 +8454,7 @@ msgid "Off - do not share"
 msgstr "关闭 - 不共享"
 
 msgid "Offline"
-msgstr ""
+msgstr "离线"
 
 msgid "Offline Immediate Test"
 msgstr "离线即时测试"
@@ -8493,7 +8493,7 @@ msgid "On-Disk Configuration"
 msgstr "磁盘配置"
 
 msgid "Online"
-msgstr ""
+msgstr "在线"
 
 msgid "Online Information"
 msgstr "在线信息"
@@ -8627,7 +8627,7 @@ msgid "PBKDF2 Iterations"
 msgstr "PBKDF2 迭代"
 
 msgid "PCP"
-msgstr ""
+msgstr "PCP"
 
 msgid "PDF File"
 msgstr "PDF文件"
@@ -9201,7 +9201,7 @@ msgstr "打印一般信息。"
 msgid ""
 "Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
 "class of service and maps to the frame priority level."
-msgstr ""
+msgstr "优先级代码点 (PCP) 是一个 3 位字段，它指的是 IEEE 802.1p 服务等级并映射到帧优先级。"
 
 msgid "Privacy Extension"
 msgstr "隐私扩展"
@@ -10172,7 +10172,7 @@ msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr "运行而不需要远程rsync进程。 （默认禁用）"
 
 msgid "Running"
-msgstr ""
+msgstr "正在运行"
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -10833,7 +10833,7 @@ msgid "Set share password."
 msgstr "设置共享密码。"
 
 msgid "Set the VLAN encapsulation protocol."
-msgstr ""
+msgstr "设置VLAN封装协议。"
 
 msgid "Set the account's primary group."
 msgstr "设置帐户的主要组。"
@@ -12436,7 +12436,7 @@ msgid ""
 msgstr "TLS信任文件的名称。 该文件必须是包含一个或多个可信认证机构（CA）证书的PEM格式。"
 
 msgid "The name of the VLAN interface"
-msgstr ""
+msgstr "VLAN接口名称"
 
 msgid "The name of the ZFS pool."
 msgstr "ZFS池的名称。"
@@ -13393,7 +13393,7 @@ msgid "Toggle Selected Users"
 msgstr "切换选中的用户"
 
 msgid "Toggle Selected VLANs"
-msgstr ""
+msgstr "切换选中的VLANs"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "切换选定的WebDAV记录"
@@ -14113,13 +14113,13 @@ msgid "VLAN"
 msgstr "虚拟局域网（VLAN）"
 
 msgid "VLAN Interface"
-msgstr ""
+msgstr "VLAN 接口"
 
 msgid "VLAN Tag"
 msgstr "VLAN 标签"
 
 msgid "VLAN is locked"
-msgstr ""
+msgstr "VLAN已锁定"
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN被标记为删除"
@@ -14175,10 +14175,10 @@ msgid "Vibration During Write."
 msgstr "写入期间振动。"
 
 msgid "Video < 100ms latency"
-msgstr ""
+msgstr "视频 < 100 毫秒延迟"
 
 msgid "Video < 10ms latency"
-msgstr ""
+msgstr "视频 < 10 毫秒延迟"
 
 msgid "Virtual Device"
 msgstr "虚拟设备"
@@ -15003,46 +15003,10 @@ msgid "visible"
 msgstr "可见"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
 msgstr "被分配给"
 
 msgid "yes"
 msgstr "是"
-
-#, php-format
-#~ msgid "A VLAN with the tag %s is already defined on this interface."
-#~ msgstr "已经有一个标记为 %s 的VLAN定义在此接口上。"
-
-#~ msgid ""
-#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-#~ "may cause problems."
-#~ msgstr ""
-#~ "并非所有的驱动器/网卡支持都正确支援802.1Q VLAN 标签（tagging）。有些卡虽然没有明确表示支持，但 VLAN "
-#~ "标签仍可使用，可是减少的MTU 可能会造成问题。"
-
-#~ msgid "Reboot Required"
-#~ msgstr "需要重启"
-
-#~ msgid "Shrink Page Header"
-#~ msgstr "缩小页眉"
-
-#~ msgid "The VLAN ID must be between 1 and 4094."
-#~ msgstr "VLAN ID必须在1和4094之间。"
-
-#~ msgid "VLAN Settings"
-#~ msgstr "VLAN设置"
-
-#~ msgid ""
-#~ "VLAN cannot be deleted because it is still being used as an interface."
-#~ msgstr "VLAN不能被删除，因为它仍然被用作接口。"
-
-#~ msgid "VLAN is protected"
-#~ msgstr "VLAN被保护"
-
-#~ msgid ""
-#~ "Enable this option to reduce the height of the page header to a minimum for "
-#~ "the duration of this session."
-#~ msgstr "启用此选项可在此会话期间将页眉高度降至最低。"

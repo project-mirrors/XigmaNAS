@@ -9,10 +9,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-11 22:44+0000\n"
-"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Launchpad-Export-Date: 2023-02-18 01:20+0000\n"
+"X-Generator: Launchpad (build 611eba1e393fbca1b432f5f94117b070ac88176b)\n"
 "Language: cs_CZ\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -16036,39 +16036,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "ano"
-
-#, php-format
-#~ msgid "A VLAN with the tag %s is already defined on this interface."
-#~ msgstr ""
-#~ "Virtuální síť (VLAN) se značkou (tag) %s už na tomto rozhraní existuje."
-
-#~ msgid ""
-#~ "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
-#~ "not explicitly support it, VLAN tagging will still work, but the reduced MTU "
-#~ "may cause problems."
-#~ msgstr ""
-#~ "Ne všechny ovladače/síťové karty správně podporují značkování virtuálních "
-#~ "sítí dle normy 802.1Q. Ale i na těchto síťových rozhraních bude značkování "
-#~ "virtuálních sítí stále fungovat, jen tím způsobené zmenšení nejvyšší "
-#~ "velikosti přenosové jednotky (MTU) může způsobovat problémy."
-
-#~ msgid "Reboot Required"
-#~ msgstr "Je třeba restart"
-
-#~ msgid "Shrink Page Header"
-#~ msgstr "Zmenšit záhlaví stránky"
-
-#~ msgid "The VLAN ID must be between 1 and 4094."
-#~ msgstr ""
-#~ "Je třeba, aby označení virtuální sítě (VLAN) bylo číslo z rozsahu 1 až 4094."
-
-#~ msgid "VLAN Settings"
-#~ msgstr "Nastavení VLAN"
-
-#~ msgid ""
-#~ "VLAN cannot be deleted because it is still being used as an interface."
-#~ msgstr ""
-#~ "Virt. síť (VLAN) nelze smazat protože je stále používána jako rozhraní."
-
-#~ msgid "VLAN is protected"
-#~ msgstr "VLAN je chráněna"

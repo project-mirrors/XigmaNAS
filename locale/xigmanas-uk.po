@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-11 22:13+0000\n"
-"PO-Revision-Date: 2023-02-12 09:45+0000\n"
-"Last-Translator: Tomfro <Unknown>\n"
+"PO-Revision-Date: 2023-02-18 01:18+0000\n"
+"Last-Translator: Олександр Більчук <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-13 03:45+0000\n"
-"X-Generator: Launchpad (build 76fbbe3960b74b1bf6aa937d9f415c99a6b083f0)\n"
+"X-Launchpad-Export-Date: 2023-02-18 01:21+0000\n"
+"X-Generator: Launchpad (build 611eba1e393fbca1b432f5f94117b070ac88176b)\n"
 "Language: \n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Country: Ukrainian\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -381,13 +381,13 @@ msgid "8 KiB"
 msgstr "8 КіБ"
 
 msgid "802.1Q (default)"
-msgstr ""
+msgstr "802.1Q (за замовчуванням)"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN тег (між 1 і 4094)."
 
 msgid "802.1ad (QinQ)"
-msgstr ""
+msgstr "802.1ad (QinQ)"
 
 msgid "8200"
 msgstr "8200"
@@ -1527,7 +1527,7 @@ msgid "Background"
 msgstr "Тло"
 
 msgid "Background (lowest)"
-msgstr ""
+msgstr "Фон (найнижчий)"
 
 msgid "Backup"
 msgstr "Резервування"
@@ -1655,7 +1655,7 @@ msgid "Best available"
 msgstr "Найкраще з доступного"
 
 msgid "Best effort (default)"
-msgstr ""
+msgstr "Найкраща спроба (за замовчуванням)"
 
 msgid "Beta Versions"
 msgstr "Бета версії"
@@ -2937,7 +2937,7 @@ msgid "Critical Error Level"
 msgstr "Критичний рівень помилок"
 
 msgid "Critical applications"
-msgstr ""
+msgstr "Критичні програми"
 
 msgid "Cron"
 msgstr "Cron"
@@ -3824,7 +3824,7 @@ msgid "Disable Selected Users"
 msgstr "Вимкнути обраних користувачів"
 
 msgid "Disable Selected VLANs"
-msgstr ""
+msgstr "Вимкнути вибрані VLAN"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Вимкнути обрані записи WebDAV"
@@ -4316,7 +4316,7 @@ msgid "Do you want to disable selected Samba shares?"
 msgstr "Ви підтверджуєте вимкнення обраних загальних ресурсів Samba?"
 
 msgid "Do you want to disable selected VLANs?"
-msgstr ""
+msgstr "Бажаєте вимкнути вибрані VLAN?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Ви підтверджуєте вимкнення обраних записів WebDAV?"
@@ -4421,7 +4421,7 @@ msgid "Do you want to enable selected Samba shares?"
 msgstr "Ви підтверджуєте увімкнення обраних загальних ресурсів Samba?"
 
 msgid "Do you want to enable selected VLANs?"
-msgstr ""
+msgstr "Ви бажаєте увімкнути вибрані VLAN?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Ви підтверджуєте увімкнення обраних записів WebDAV?"
@@ -4535,7 +4535,7 @@ msgid "Do you want to toggle selected Samba shares?"
 msgstr "Ви підтверджуєте перемикання обраних загальних ресурсів Samba?"
 
 msgid "Do you want to toggle selected VLANs?"
-msgstr ""
+msgstr "Бажаєте перемкнути вибрані VLAN?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Ви підтверджуєте перемикання обраних записів WebDAV?"
@@ -5101,7 +5101,7 @@ msgid "Enable Selected Users"
 msgstr "Дозволити обраних користувачів"
 
 msgid "Enable Selected VLANs"
-msgstr ""
+msgstr "Увімкнути вибрані VLAN"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Увімкнути обраний запис WebDAV"
@@ -5385,7 +5385,7 @@ msgstr ""
 "Обрання цієї опції може наразити вашу систему на додаткові безпекові ризики!"
 
 msgid "Encapsulation Protocol"
-msgstr ""
+msgstr "Протокол інкапсуляції"
 
 msgid "Encrypt password"
 msgstr "Пароль шифрування"
@@ -5692,7 +5692,7 @@ msgid "Excel Sheet"
 msgstr "Таблиця Excel"
 
 msgid "Excellent effort"
-msgstr ""
+msgstr "Відмінне зусилля"
 
 msgid "Exec"
 msgstr "Виконати"
@@ -6530,7 +6530,7 @@ msgid "Hint"
 msgstr "Підказка"
 
 msgid "Home"
-msgstr ""
+msgstr "Домівка"
 
 msgid "Home Directory"
 msgstr "Домашній каталог"
@@ -6897,7 +6897,7 @@ msgid "In/Out Packets"
 msgstr "Пакети вводу/виводу"
 
 msgid "Inactive"
-msgstr ""
+msgstr "Неактивний"
 
 msgid "Include /dev into scan/import"
 msgstr "Включити /dev до scan/import"
@@ -7168,7 +7168,7 @@ msgid "Internal UPS clock time"
 msgstr "Час на внутрішньому годиннику ДБЖ"
 
 msgid "Internetwork control"
-msgstr ""
+msgstr "Міжмережевий контроль"
 
 msgid "Interval"
 msgstr "Інтервал"
@@ -8557,7 +8557,7 @@ msgstr ""
 "адреси."
 
 msgid "Network control (highest)"
-msgstr ""
+msgstr "Контроль мережі (найвищий)"
 
 msgid "Networks"
 msgstr "Мережі"
@@ -8980,7 +8980,7 @@ msgid "Off - do not share"
 msgstr "Вимкнуто - не розшарено"
 
 msgid "Offline"
-msgstr ""
+msgstr "Відключено"
 
 msgid "Offline Immediate Test"
 msgstr "Офлайновий негайний тест"
@@ -9019,7 +9019,7 @@ msgid "On-Disk Configuration"
 msgstr "Дискова конфігурація"
 
 msgid "Online"
-msgstr ""
+msgstr "В мережі"
 
 msgid "Online Information"
 msgstr "Онлайн інформація"
@@ -9160,7 +9160,7 @@ msgid "PBKDF2 Iterations"
 msgstr "Ітерації PBKDF2"
 
 msgid "PCP"
-msgstr ""
+msgstr "PCP"
 
 msgid "PDF File"
 msgstr "Файл PDF"
@@ -9756,6 +9756,8 @@ msgid ""
 "Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
 "class of service and maps to the frame priority level."
 msgstr ""
+"Пріоритетна точка коду (PCP) — це 3-бітове поле, яке відноситься до класу "
+"сервісу IEEE 802.1p і відповідає рівню пріоритету кадру."
 
 msgid "Privacy Extension"
 msgstr "Розширення приватності"
@@ -10755,7 +10757,7 @@ msgstr ""
 "Запуск без необхідності віддаленого демону rsync. (Вимкнено за замовчуванням)"
 
 msgid "Running"
-msgstr ""
+msgstr "Виконується"
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11462,7 +11464,7 @@ msgid "Set share password."
 msgstr "Встановлює пароль загального ресурсу."
 
 msgid "Set the VLAN encapsulation protocol."
-msgstr ""
+msgstr "Встановіть протокол інкапсуляції VLAN."
 
 msgid "Set the account's primary group."
 msgstr "Встановіть основну групу облікового запису."
@@ -13270,7 +13272,7 @@ msgstr ""
 "декілька сертифікатів довірених центрів сертифікації (CAs)."
 
 msgid "The name of the VLAN interface"
-msgstr ""
+msgstr "Ім'я інтерфейсу VLAN"
 
 msgid "The name of the ZFS pool."
 msgstr "Ім'я пулу ZFS."
@@ -14388,7 +14390,7 @@ msgid "Toggle Selected Users"
 msgstr "Перемкнути обрані користувачі"
 
 msgid "Toggle Selected VLANs"
-msgstr ""
+msgstr "Перемкнути вибрані VLAN"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "Перемкнути обрані записи WebDAV"
@@ -15171,13 +15173,13 @@ msgid "VLAN"
 msgstr "VLAN"
 
 msgid "VLAN Interface"
-msgstr ""
+msgstr "Інтерфейс VLAN"
 
 msgid "VLAN Tag"
 msgstr "Мітка VLAN"
 
 msgid "VLAN is locked"
-msgstr ""
+msgstr "VLAN заблоковано"
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN позначений для видалення"
@@ -15235,10 +15237,10 @@ msgid "Vibration During Write."
 msgstr "Вібрація впродовж запису"
 
 msgid "Video < 100ms latency"
-msgstr ""
+msgstr "Затримка відео < 100 мс"
 
 msgid "Video < 10ms latency"
-msgstr ""
+msgstr "Затримка відео < 10 мс"
 
 msgid "Virtual Device"
 msgstr "Віртуальний пристрій"
@@ -16119,7 +16121,7 @@ msgid "visible"
 msgstr "видимий"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
 msgstr "був призначений до"
