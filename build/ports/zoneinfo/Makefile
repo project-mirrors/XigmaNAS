@@ -2,12 +2,12 @@ PORTNAME=		zoneinfo
 PORTREVISION=	1
 DISTVERSION=	2022g
 CATEGORIES=	misc
-COMMENT=	Updated timezone definitions
-MAINTAINER=	zoon01@xigmanas.com
-
-MASTER_SITES=   ftp://ftp.iana.org/tz/releases/ \
-				ftp://munnari.oz.au/pub/
+MASTER_SITES=   https://data.iana.org/time-zones/releases/ \
+		ftp://ftp.iana.org/tz/releases/
 DISTNAME=	tzdata${DISTVERSION}
+
+MAINTAINER=	zoon01@xigmanas.com
+COMMENT=	Updated timezone definitions
 WWW=		https://www.iana.org/time-zones
 
 # XigmaNAS® contains license files
@@ -30,32 +30,32 @@ TZFILES=	africa antarctica asia australasia etcetera europe \
 		factory northamerica southamerica
 POSIXRULES=	America/New_York
 
-.include <bsd.port.pre.mk>
-
-# The following country codes can be missed from /usr/share/misc/iso3166 and
-# shouldn't appear in the zoneinfo file.
-MISSING=	ax bl bq cw gg im je me mf rs ss sx
-
-.ifndef NOMISSING
-.for M in ${MISSING}
-HAS_${M:tu}!=	${GREP} -c ^${M:tu} /usr/share/misc/iso3166 || ${TRUE}
-.if ${HAS_${M:tu}} == "0"
-EXTRA_PATCHES+=	${FILESDIR}/patchremove-${M}
-.endif
-.endfor
-.endif
+post-patch:
+	cd ${WRKSRC}; \
+	badc=$$(${AWK} '/^[^\#]/ { t[$$1]=1; }; \
+			END { for (i=0; i<676; ++i) { \
+				c = sprintf("%c%c", 65+int(i/26), 65+(i%26)); \
+				if (!(c in t)) print c; \
+			      } \
+			}' \
+			/usr/share/misc/iso3166 | \
+			${SED} -n -e '1h; 1!H; $${g;s/\n/|/g;p;}'); \
+	for fn in zone.tab zone1970.tab; do \
+		${MV} $${fn} $${fn}.bak; \
+		${AWK} -v FS="\t" -v OFS="\t" -v re="(^|,)($${badc})" \
+			'/^[^#]/ && $$1 ~ re { \
+				print "#" $$0; \
+				gsub(re,"",$$1); \
+				sub(/^,/,"",$$1); \
+			 }; \
+			 $$1 != "" { print; }' <$${fn}.bak >$${fn}; \
+	done
 
 do-build:
 	umask 022; \
 	cd ${WRKSRC}; \
 	zic -d ${WRKSRC}/zoneinfo -p ${POSIXRULES} -m ${NOBINMODE} \
-		${LEAPFILE} -y ${.OBJDIR}/yearistype ${TZFILES}
-
-test-patches:
-.for M in ${MISSING}
-	make clean
-	NOMISSING=1 EXTRA_PATCHES=${FILESDIR}/patchremove-${M} make patch
-.endfor
+		-y ${.OBJDIR}/yearistype ${TZFILES}
 
 do-install:
 # Compress zoneinfo data, exclude some useless files.
@@ -68,4 +68,5 @@ do-install:
 	cp -RLpf ${WRKSRC}/zoneinfo ${WRKSRC}/zoneinfo.tmp
 	${TAR} -c -v -f - -X ${WRKSRC}/zoneinfo.exlude -C ${WRKSRC}/zoneinfo.tmp/ . | ${XZ_CMD} -cv > ${XIGMANAS_ROOTFS}/usr/share/zoneinfo.txz
 	rm -rf ${WRKSRC}/zoneinfo.tmp
-.include <bsd.port.post.mk>
+
+.include <bsd.port.mk>
