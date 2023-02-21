@@ -29,7 +29,7 @@ Changes:
 - Upgrade phpmyadmin to v5.2.1.
 - Upgrade syncthing to v1.23.1.
 - Upgrade sudo to v1.9.13p1.
-- Upgrade nut to v2023.02.13.
+- Upgrade nut to v2023.02.16.
 
 Fixes:
 - fix bring up lighttpd at all times.
