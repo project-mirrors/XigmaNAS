@@ -34,6 +34,7 @@ Changes:
 Fixes:
 - fix bring up lighttpd at all times.
 - fix CVE-2022-3437 by backport samba fixes.
+- fix missing time zones.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.

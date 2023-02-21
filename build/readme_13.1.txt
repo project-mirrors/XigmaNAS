@@ -141,6 +141,7 @@ Changes:
 Fixes:
 - fix bring up lighttpd at all times.
 - fix CVE-2022-3437 by backport samba fixes.
+- fix missing time zones.
 
 Default login credentials:
 ==========================
