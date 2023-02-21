@@ -64,6 +64,8 @@ do-install:
 	@${ECHO_CMD} "zone.tab" >> ${WRKSRC}/zoneinfo.exlude
 
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/share
-	${TAR} -c -v -f - -X ${WRKSRC}/zoneinfo.exlude -C ${WRKSRC}/zoneinfo/ . | ${XZ_CMD} -cv > ${XIGMANAS_ROOTFS}/usr/share/zoneinfo.txz
-
+#	Copy into temporary folder without hardlinks
+	cp -RLpf ${WRKSRC}/zoneinfo ${WRKSRC}/zoneinfo.tmp
+	${TAR} -c -v -f - -X ${WRKSRC}/zoneinfo.exlude -C ${WRKSRC}/zoneinfo.tmp/ . | ${XZ_CMD} -cv > ${XIGMANAS_ROOTFS}/usr/share/zoneinfo.txz
+	rm -rf ${WRKSRC}/zoneinfo.tmp
 .include <bsd.port.post.mk>
