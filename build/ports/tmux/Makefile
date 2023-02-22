@@ -1,6 +1,6 @@
 PORTNAME=		tmux
 PORTVERSION=	3.3a
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	sysutils
 COMMENT=	Terminal Multiplexer
 MAINTAINER=	zoon01@xigmanas.com
