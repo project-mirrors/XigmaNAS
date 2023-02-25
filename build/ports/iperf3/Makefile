@@ -1,13 +1,15 @@
 PORTNAME=		iperf
-PORTVERSION=    3.12
+PORTVERSION=    3.13
 PORTREVISION=   0
 CATEGORIES=	benchmarks
-COMMENT=	Improved tool to measure TCP and UDP bandwidth
+
 MAINTAINER=	zoon01@xigmanas.com
+COMMENT=	Improved tool to measure TCP and UDP bandwidth
+WWW=		https://software.es.net/iperf/
 
 USE_GITHUB=	yes
 GH_ACCOUNT=     esnet 
-GH_TAGNAME=     169b0d9
+GH_TAGNAME=     f48e7fa
 
 USES=		cpe libtool ssl
 GNU_CONFIGURE=	yes
