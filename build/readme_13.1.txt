@@ -114,7 +114,6 @@ Changes:
 - Upgrade devcpu-data-amd to v20221002.
 - Upgrade pecl-APCu to v5.1.22.
 - Upgrade python to v3.9.15.
-- Upgrade devcpu-data-intel to v20221108.
 - Upgrade zoneinfo to 2022g.
 - Upgrade proftpd to v1.3.7f.
 - Upgrade arcconf to vB25611.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade nut to v2023.02.16.
 - Upgrade php to v8.2.3.
 - Upgrade iperf3 to v3.13.
+- Upgrade devcpu-data-intel to v20230214.
 
 Fixes:
 - fix bring up lighttpd at all times.
