@@ -277,7 +277,7 @@ endif;
 			<tbody>
 				<tr>
 					<td class="celltag"><?=gtext('PHP Command');?></td>
-					<td class="celldata"><textarea id="txtPHPCommand" name="txtPHPCommand" rows="3" cols="49" wrap="off"><?=htmlspecialchars(!empty($_POST['txtPHPCommand']) ? $_POST['txtPHPCommand'] : '');?></textarea></td>
+					<td class="celldata"><textarea id="txtPHPCommand" class="cd-textarea-input formpre" name="txtPHPCommand" rows="3" cols="49" wrap="off"><?=htmlspecialchars($_POST['txtPHPCommand'] ?? '');?></textarea></td>
 				</tr>
 				<tr>
 					<td class="celltag"><?=gtext('Control');?></td>
