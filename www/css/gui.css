@@ -936,6 +936,7 @@ a
 .tabcont
 {
 	background-color: #EEEEEE;
+	background-color: var(--bgc-area-data);
 	padding: 1.8125rem;
 	border: 0;
 }
