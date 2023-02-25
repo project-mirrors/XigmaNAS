@@ -31,23 +31,6 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-html
-{
-	height: 100%;
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	font-weight: normal;
-}
-
-input,
-select,
-textarea
-{
-	font-family: inherit;
-	font-size: inherit;
-	font-weight: inherit;
-}
-
 :root
 {
 /*
@@ -70,12 +53,26 @@ textarea
 
 	--bgc-area-data: #EEEEEE;
 /*
+	g4
+*/
+	--bgc-g4h: transparent;
+	--bgc-g4m: transparent;
+	--bgc-g4f: transparent;
+/*
 	box
 */
-	--bgc-box-info: #D9DEE8;
-	--bgc-box-error: #FFD9D1;
-	--bgc-box-warning: #F7F2B9;
 	--txc-box: #000000;
+
+	--bgc-box-error: #FFD9D1;
+	--txc-icon-error: #ee2d2d;
+	--txc-error: #FF0000;
+
+	--bgc-box-warning: #F7F2B9;
+	--txc-icon-warning: #ed2a2a;
+	--txc-warning: #FFA500;
+
+	--bgc-box-info: #D9DEE8;
+	--txc-icon-info: #446ec1;
 /*
 	tag column
 */
@@ -118,15 +115,27 @@ textarea
 	meter bar
 */
 	--bgi-meter-bar: linear-gradient(to bottom, #DDDDDD,#EEEEEE 20%,#CCCCCC 45%,#CCCCCC 55%,#DDDDDD);
-    --bgi-meter-opt: linear-gradient(to bottom, #AADD77,#CCEEAA 20%,#77AA33 45%,#77AA33 55%,#AADD77);
-    --bgi-meter-sub: linear-gradient(to bottom, #FFEE77,#FFFFCC 20%,#DDBB33 45%,#DDBB33 55%,#FFEE77);
-    --bgi-meter-elg: linear-gradient(to bottom, #FF7777,#FFCCCC 20%,#DD4444 45%,#DD4444 55%,#FF7777);
+	--bgi-meter-opt: linear-gradient(to bottom, #AADD77,#CCEEAA 20%,#77AA33 45%,#77AA33 55%,#AADD77);
+	--bgi-meter-sub: linear-gradient(to bottom, #FFEE77,#FFFFCC 20%,#DDBB33 45%,#DDBB33 55%,#FFEE77);
+	--bgi-meter-elg: linear-gradient(to bottom, #FF7777,#FFCCCC 20%,#DD4444 45%,#DD4444 55%,#FF7777);
 /*
 	footer
 */
 	--bgc-footer: #000000;
 	--bgi-footer: linear-gradient(#9C9C9C,#000000);
 	--txc-footer: #FFFFFF;
+	--txc-footer-a-link: #777777;
+	--txc-footer-a-hover: #999999;
+/*
+	colors by name
+*/
+	--txc-red: #CC0000;
+	--txc-yellow: #FFFF00;
+/*
+	a
+*/
+	--txc-a-link: #0000CC;
+	--txc-a-hover: #95A7C0;
 /*
 	input
 */
@@ -160,6 +169,27 @@ textarea
 	--cd-padding-left: 0.5rem;
 	--cd-size-checkbox: 1.125rem;
 	--cd-size-radio: 1.125rem;
+/*
+	cmdoutput
+*/
+	--txc-cmdoutput: #777777;
+}
+
+html
+{
+	height: 100%;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+input,
+select,
+textarea
+{
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
 }
 
 body
@@ -243,11 +273,13 @@ body a:active,
 body a:visited
 {
 	color: #0000CC;
+	color: var(--txc-a-link);
 }
 
 body a:hover
 {
 	color: #95A7C0;
+	color: var(--txc-a-hover);
 	cursor: pointer;
 }
 
@@ -612,7 +644,6 @@ div.cd-description
 .celldatacheckbox label
 {
 	display: block;
-/*	font-size: 1rem;*/
 }
 
 .showifchecked,
@@ -714,6 +745,7 @@ input[type="checkbox"]:checked ~ div.hideifchecked
 .g4fi
 {
 	color: yellow !important;
+	color: var(--txc-yellow) !important;
 }
 
 .g4fl
@@ -734,11 +766,11 @@ input[type="checkbox"]:checked ~ div.hideifchecked
 .red
 {
 	color: #CC0000;
+	color: var(--txc-red);
 }
 
 .vexpl
 {
-/*	font-size: 1rem;*/
 }
 
 a
@@ -761,7 +793,6 @@ a
 	border-right: var(--bop-cell);
 	border-bottom: 0.0625rem solid #999999;
 	border-bottom: var(--bop-cell);
-/*	font-size: 1rem;*/
 	padding-right: 0.5625rem;
 	padding-left: 0.5625rem;
 	padding-top: 0.375rem;
@@ -775,7 +806,6 @@ a
 
 .listbg
 {
-/*	font-size: 1rem;*/
 	padding-right: 1.4375rem;
 	padding-left: 0.5625rem;
 	padding-top: 0.375rem;
@@ -802,7 +832,6 @@ a
 	font-weight: bold;
 	border-bottom: 0.0625rem solid #999999;
 	border-bottom: var(--bop-cell);
-/*	font-size: 1rem;*/
 	padding-top: 0.4375rem;
 	padding-bottom: 0.4375rem;
 }
@@ -848,7 +877,6 @@ a
 	border-bottom: var(--bop-cell);
 	border-left: 0.0625rem solid #999999;
 	border-left: var(--bop-cell);
-/*	font-size: 1rem;*/
 	padding-top: 0.375rem;
 	padding-bottom: 0.375rem;
 	padding-right: 0.5625rem;
@@ -857,7 +885,6 @@ a
 
 .list
 {
-/*	font-size: 1rem;*/
 	padding-left: 0.5625rem;
 	padding-top: 0.1875rem;
 	padding-bottom: 0.1875rem;
@@ -878,7 +905,6 @@ a
 	background-color: var(--bgc-topic);
 	background-image: linear-gradient(#95A7C0,#97AAC2,#8197B4);
 	background-image: var(--bgi-topic);
-/*	font-size: 1rem;*/
 	padding-right: 1.4375rem;
 	padding-left: 0.5625rem;
 	color: #FFFFFF;
@@ -902,7 +928,6 @@ a
 
 .optsect_s
 {
-/*	font-size: 1rem;*/
 	color: #FFFFFF;
 	color: var(--txc-topic);
 	font-weight: bold;
@@ -1143,18 +1168,21 @@ div#warningbox div.message
 {
 	text-shadow: -2px -2px 5px #b60e0e;
 	color: #ee2d2d;
+	color: var(--txc-icon-error);
 }
 
 .mbci-min.iconwrn
 {
 	text-shadow: -2px -2px 5px #b70e0e;
 	color: #ed2a2a;
+	color: var(--txc-icon-warning);
 }
 
 .mbci-min.iconinf
 {
 	text-shadow: -2px -2px 5px #2e4d8b;
 	color: #446ec1;
+	color: var(--txc-icon-info);
 }
 
 /*
@@ -1175,6 +1203,7 @@ header#g4h
     -ms-flex: 0 0 auto;
 	flex: 0 0 auto;
 	background-color: transparent;
+	background-color: var(--bgc-g4h);
 }
 
 main#g4m2,
@@ -1188,6 +1217,7 @@ main#g4m
 	-ms-flex: 1 1 0;
 	flex: 1 1 0;
 	background-color: transparent;
+	background-color: var(--bgc-g4m);
 }
 
 main#g4m2,
@@ -1213,6 +1243,7 @@ footer#g4f
     -ms-flex: 0 0 auto;
 	flex: 0 0 auto;
 	background-color: transparent;
+	background-color: var(--bgc-g4f);
 }
 
 div#gapheader
@@ -1249,11 +1280,13 @@ div#pagefooter span a:active,
 div#pagefooter span a:visited
 {
 	color: #777777;
+	color: var(--txc-footer-a-link);
 }
 
 div#pagefooter span a:hover
 {
 	color: #999999;
+	color: var(--txc-footer-a-hover);
 }
 
 div#pgtitle,
@@ -1290,6 +1323,7 @@ div#cmdoutput
 {
 	margin-bottom: 0.4375rem;
 	color: #777777;
+	color: var(--txc-cmdoutput);
 	font-weight: bold;
 }
 
@@ -1370,12 +1404,14 @@ div#swapusage .capofsize
 .warningtext
 {
 	color: #FFA500;
+	color: var(--txc-warning);
 	font-weight: bold;
 }
 
 .errortext
 {
 	color: #FF0000;
+	color: var(--txc-error);
 	font-weight: bold;
 }
 
@@ -1429,7 +1465,6 @@ div#swapusage .capofsize
 .lcefl
 {
 	margin: 0;
-/*	font-size: 1rem;*/
 	white-space: normal;
 	overflow: hidden;
 	text-overflow: ellipsis;
