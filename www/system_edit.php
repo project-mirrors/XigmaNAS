@@ -149,7 +149,7 @@ $(window).on("load", function() {
 				<tr>
 					<td class="celltag"><?=gtext('File Path');?></td>
 					<td class="celldata">
-						<input size="42" id="savetopath" name="savetopath" value="<?=$savetopath;?>">
+						<input class="formfld" size="42" id="savetopath" name="savetopath" value="<?=$savetopath;?>">
 						<input name="browse" type="button" class="formbtn" id="Browse" onclick='ifield = form.savetopath; filechooser = window.open("filechooser.php?p="+encodeURIComponent(ifield.value),"filechooser","scrollbars=yes,toolbar=no,menubar=no,statusbar=no,width=550,height=300"); filechooser.ifield = ifield; window.ifield = ifield;' value="...">
 						<button name="submit" type="submit" class="formbtn" id="open" value="open"><?=gtext('Open File');?></button>
 <?php
