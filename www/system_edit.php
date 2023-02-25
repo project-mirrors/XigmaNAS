@@ -213,7 +213,7 @@ $(window).on("load", function() {
 <?php
 //						NOTE: The opening and the closing textarea tag must be on the same line.
 ?>
-						<textarea style="width:100%;margin:0;white-space:pre;font-family:'Courier New',Courier,monospace" class="<?=$language;?>:showcolumns" rows="<?=$rows;?>" cols="<?=$cols;?>" name="code"><?=htmlspecialchars(!empty($content) ? $content : '');?></textarea>
+						<textarea style="width:100%;white-space:pre;" class="<?=$language;?>:showcolumns cd-textarea-input formpre" rows="<?=$rows;?>" cols="<?=$cols;?>" name="code"><?=htmlspecialchars($content ?? '');?></textarea>
 					</td>
 				</tr>
 			</tbody>
