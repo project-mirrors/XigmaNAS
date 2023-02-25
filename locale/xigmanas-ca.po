@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-02-11 22:13+0000\n"
-"PO-Revision-Date: 2022-12-15 14:59+0000\n"
+"PO-Revision-Date: 2023-02-20 08:19+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-18 01:20+0000\n"
-"X-Generator: Launchpad (build 611eba1e393fbca1b432f5f94117b070ac88176b)\n"
+"X-Launchpad-Export-Date: 2023-02-25 18:36+0000\n"
+"X-Generator: Launchpad (build b826c8bc42f0c41016fa141bf50faee47f7ecd80)\n"
 "Language: ca_ES\n"
 
 msgid ""
@@ -62,7 +62,7 @@ msgstr "%d setmanes"
 
 #, php-format
 msgid "%d year"
-msgstr "%d any"
+msgstr "%d qualsevol"
 
 #, php-format
 msgid "%d years"
@@ -230,7 +230,7 @@ msgid "/mnt"
 msgstr "/mnt"
 
 msgid "/update?domain="
-msgstr "/update?domain="
+msgstr "/actualitza?domini="
 
 msgid "000"
 msgstr "000"
@@ -262,7 +262,7 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "102"
-msgstr ""
+msgstr "102"
 
 msgid "128K"
 msgstr "128K"
@@ -385,13 +385,13 @@ msgid "8 KiB"
 msgstr "8 KiB"
 
 msgid "802.1Q (default)"
-msgstr ""
+msgstr "802.1Q (defecte)"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q etiqueta VLAN (des 1 fins a 4094)."
 
 msgid "802.1ad (QinQ)"
-msgstr ""
+msgstr "802.1ad (QinQ)"
 
 msgid "8200"
 msgstr "8200"
@@ -1538,7 +1538,7 @@ msgid "Background"
 msgstr "Segon pla"
 
 msgid "Background (lowest)"
-msgstr ""
+msgstr "Fons (el mes baix)"
 
 msgid "Backup"
 msgstr "Còpia de seguretat"
@@ -1669,7 +1669,7 @@ msgid "Best available"
 msgstr "el millor disponible"
 
 msgid "Best effort (default)"
-msgstr ""
+msgstr "El millor (defecte)"
 
 msgid "Beta Versions"
 msgstr "Versions Beta"
@@ -2974,7 +2974,7 @@ msgid "Critical Error Level"
 msgstr "Error de nivell critic"
 
 msgid "Critical applications"
-msgstr ""
+msgstr "Aplicacions critiques"
 
 msgid "Cron"
 msgstr "Cron"
@@ -3861,7 +3861,7 @@ msgid "Disable Selected Users"
 msgstr "Desactiva els usuaris seleccionats"
 
 msgid "Disable Selected VLANs"
-msgstr ""
+msgstr "Deshabiltar les VLAN's seleccionades"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Desactiva els registres seleccionats de WebDAV"
@@ -4361,7 +4361,7 @@ msgid "Do you want to disable selected Samba shares?"
 msgstr "Voleu desactivar les accions de Samba seleccionades?"
 
 msgid "Do you want to disable selected VLANs?"
-msgstr ""
+msgstr "Vols deshabilitar les VLANS's seleccionades?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Voleu desactivar els registres WebDAV seleccionats?"
@@ -4466,7 +4466,7 @@ msgid "Do you want to enable selected Samba shares?"
 msgstr "Voleu activar les accions de Samba seleccionades?"
 
 msgid "Do you want to enable selected VLANs?"
-msgstr ""
+msgstr "Vols habilitar les VLAN's seleccionades?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Voleu activar els registres seleccionats WebDAV?"
@@ -4580,7 +4580,7 @@ msgid "Do you want to toggle selected Samba shares?"
 msgstr "Voleu canviar les accions de Samba seleccionades?"
 
 msgid "Do you want to toggle selected VLANs?"
-msgstr ""
+msgstr "Vols canviar les VLAN's sleccionades?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Voleu canviar els registres seleccionats de WebDAV?"
@@ -5148,7 +5148,7 @@ msgid "Enable Selected Users"
 msgstr "Activeu usuaris seleccionats"
 
 msgid "Enable Selected VLANs"
-msgstr ""
+msgstr "Habilitar les VLAN's seleccionades"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Activa els registres seleccionats de WebDAV"
@@ -5437,7 +5437,7 @@ msgstr ""
 "seguretat addicional."
 
 msgid "Encapsulation Protocol"
-msgstr ""
+msgstr "Protocol encapsulat"
 
 msgid "Encrypt password"
 msgstr "Xifrar contrasenya"
@@ -5747,7 +5747,7 @@ msgid "Excel Sheet"
 msgstr "Full Excel"
 
 msgid "Excellent effort"
-msgstr ""
+msgstr "Esforç máxim"
 
 msgid "Exec"
 msgstr "Executa"
@@ -6602,7 +6602,7 @@ msgid "Hint"
 msgstr "Consell"
 
 msgid "Home"
-msgstr ""
+msgstr "Inici"
 
 msgid "Home Directory"
 msgstr "Carpeta inici"
@@ -6975,7 +6975,7 @@ msgid "In/Out Packets"
 msgstr "Paquets d'Entrada/Sortida"
 
 msgid "Inactive"
-msgstr ""
+msgstr "Inactiu"
 
 msgid "Include /dev into scan/import"
 msgstr "Inclou /dev a la cerca /import"
@@ -7244,7 +7244,7 @@ msgid "Internal UPS clock time"
 msgstr "Hora interna de la SAI"
 
 msgid "Internetwork control"
-msgstr ""
+msgstr "Control de treball d'internet"
 
 msgid "Interval"
 msgstr "Interval"
@@ -8638,7 +8638,7 @@ msgstr ""
 "o CIDR o 'ALL' per a qualsevol IPs."
 
 msgid "Network control (highest)"
-msgstr ""
+msgstr "Control de xarxa (el mes elevat)"
 
 msgid "Networks"
 msgstr "Xarxes"
@@ -9063,7 +9063,7 @@ msgid "Off - do not share"
 msgstr "Apagat: no compartiu"
 
 msgid "Offline"
-msgstr ""
+msgstr "Sense connexió"
 
 msgid "Offline Immediate Test"
 msgstr "Prova immediata de desconexió"
@@ -9102,7 +9102,7 @@ msgid "On-Disk Configuration"
 msgstr "Configuració en disc"
 
 msgid "Online"
-msgstr ""
+msgstr "En línia"
 
 msgid "Online Information"
 msgstr "Informació en línia"
@@ -9245,7 +9245,7 @@ msgid "PBKDF2 Iterations"
 msgstr "Iteracions PBKDF2"
 
 msgid "PCP"
-msgstr ""
+msgstr "PCP"
 
 msgid "PDF File"
 msgstr "Fitxer PDF"
@@ -9845,6 +9845,8 @@ msgid ""
 "Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
 "class of service and maps to the frame priority level."
 msgstr ""
+"El punt de codi de prioritat (PCP) és un camp de 3 bits que fa referència a "
+"la classe de servei IEEE 802.1p i s'assigna al nivell de prioritat de trama."
 
 msgid "Privacy Extension"
 msgstr "Extensió de privacitat"
@@ -10852,7 +10854,7 @@ msgstr ""
 "Executar sense necessitat de dimoni rsync remot. (Desactivat per defecte)"
 
 msgid "Running"
-msgstr ""
+msgstr "En execució"
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11568,7 +11570,7 @@ msgid "Set share password."
 msgstr "Establir una contrasenya compartida."
 
 msgid "Set the VLAN encapsulation protocol."
-msgstr ""
+msgstr "Estableix el protocol d'encapsulació de la VLAN."
 
 msgid "Set the account's primary group."
 msgstr "Definiu el grup principal del compte."
@@ -13408,7 +13410,7 @@ msgstr ""
 "(CA)."
 
 msgid "The name of the VLAN interface"
-msgstr ""
+msgstr "El nom de la interfície VLAN"
 
 msgid "The name of the ZFS pool."
 msgstr "El nom del grup ZFS."
@@ -14549,7 +14551,7 @@ msgid "Toggle Selected Users"
 msgstr "Commuta els usuaris seleccionats"
 
 msgid "Toggle Selected VLANs"
-msgstr ""
+msgstr "Commuta les VLAN seleccionades"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "Commuta els registres seleccionats de WebDAV"
@@ -15336,13 +15338,13 @@ msgid "VLAN"
 msgstr "VLAN"
 
 msgid "VLAN Interface"
-msgstr ""
+msgstr "Interfície VLAN"
 
 msgid "VLAN Tag"
 msgstr "Etiqueta VLAN"
 
 msgid "VLAN is locked"
-msgstr ""
+msgstr "La VLAN està bloquejada"
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN està marcat per ser esborrat"
@@ -15400,10 +15402,10 @@ msgid "Vibration During Write."
 msgstr "Vibracions durant escriptura."
 
 msgid "Video < 100ms latency"
-msgstr ""
+msgstr "Vídeo < 100 ms de latència"
 
 msgid "Video < 10ms latency"
-msgstr ""
+msgstr "Vídeo < 10 ms de latència"
 
 msgid "Virtual Device"
 msgstr "Dispositiu virtual"
@@ -16278,7 +16280,7 @@ msgid "visible"
 msgstr "visible"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
 msgstr "va ser assignat a"

@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-11 22:13+0000\n"
-"PO-Revision-Date: 2023-02-05 17:57+0000\n"
+"PO-Revision-Date: 2023-02-20 18:06+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-18 01:21+0000\n"
-"X-Generator: Launchpad (build 611eba1e393fbca1b432f5f94117b070ac88176b)\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2023-02-25 18:36+0000\n"
+"X-Generator: Launchpad (build b826c8bc42f0c41016fa141bf50faee47f7ecd80)\n"
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
+"Language: \n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
@@ -259,7 +259,7 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "102"
-msgstr ""
+msgstr "102"
 
 msgid "128K"
 msgstr "128K"
@@ -382,13 +382,13 @@ msgid "8 KiB"
 msgstr "8 КиБ"
 
 msgid "802.1Q (default)"
-msgstr ""
+msgstr "802.1Q (default)"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "Метка 802.1Q VLAN (между 1 и 4094)."
 
 msgid "802.1ad (QinQ)"
-msgstr ""
+msgstr "802.1ad (QinQ)"
 
 msgid "8200"
 msgstr "8200"
@@ -3831,7 +3831,7 @@ msgid "Disable Selected Users"
 msgstr "Отключить выбранных пользователей"
 
 msgid "Disable Selected VLANs"
-msgstr ""
+msgstr "Отключить выбранные VLANы"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Отключить выбранные WebDAV записи"
@@ -4325,7 +4325,7 @@ msgid "Do you want to disable selected Samba shares?"
 msgstr "Вы хотите отключить выбранные общие ресурсы Samba?"
 
 msgid "Do you want to disable selected VLANs?"
-msgstr ""
+msgstr "Вы хотите отключить выбранные VLANы?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Вы действительно хотите отключить выбранные WebDAV записи?"
@@ -4430,7 +4430,7 @@ msgid "Do you want to enable selected Samba shares?"
 msgstr "Вы хотите включить выбранные общие ресурсы Samba?"
 
 msgid "Do you want to enable selected VLANs?"
-msgstr ""
+msgstr "Вы хотите включить выбранные VLANы?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Вы действительно хотите включить выбранные WebDAV записи?"
@@ -4544,7 +4544,7 @@ msgid "Do you want to toggle selected Samba shares?"
 msgstr "Вы хотите переключить выбранные общие ресурсы Samba?"
 
 msgid "Do you want to toggle selected VLANs?"
-msgstr ""
+msgstr "Вы хотите переключить выбранные VLANы?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Вы действительно хотите переключить выбранные WebDAV записи?"
@@ -5112,7 +5112,7 @@ msgid "Enable Selected Users"
 msgstr "Включить выбранных пользователей"
 
 msgid "Enable Selected VLANs"
-msgstr ""
+msgstr "Включить выбранные VLANы"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Включить выбранные WebDAV записи"
@@ -5396,7 +5396,7 @@ msgstr ""
 "вашей системы!"
 
 msgid "Encapsulation Protocol"
-msgstr ""
+msgstr "Протокол инкапсуляции"
 
 msgid "Encrypt password"
 msgstr "Пароль для шифрования"
@@ -6544,7 +6544,7 @@ msgid "Hint"
 msgstr "Подсказка"
 
 msgid "Home"
-msgstr ""
+msgstr "Домой"
 
 msgid "Home Directory"
 msgstr "Домашний каталог"
@@ -6910,7 +6910,7 @@ msgid "In/Out Packets"
 msgstr "Пакеты ввода/вывода"
 
 msgid "Inactive"
-msgstr ""
+msgstr "Неактивно"
 
 msgid "Include /dev into scan/import"
 msgstr "Включить /dev в сканирование/импорт"
@@ -7182,7 +7182,7 @@ msgid "Internal UPS clock time"
 msgstr "Время по данным внутренних часов ИБП"
 
 msgid "Internetwork control"
-msgstr ""
+msgstr "Управление сетью"
 
 msgid "Interval"
 msgstr "Интервал"
@@ -7770,7 +7770,7 @@ msgid "Logical Block"
 msgstr "Логический блок"
 
 msgid "Logical Referenced"
-msgstr ""
+msgstr "Логическая ссылка"
 
 #, php-format
 msgid "Logical Unit Controller Authorised network (%s by default)"
@@ -7791,7 +7791,7 @@ msgid "Logical Unit Type mapped to LUN."
 msgstr "Тип логического устройства, сопоставленный с LUN."
 
 msgid "Logical Used"
-msgstr ""
+msgstr "Логически используемый"
 
 msgid "Login"
 msgstr "Вход"
@@ -8577,7 +8577,7 @@ msgstr ""
 "адреса, введите 'ALL'."
 
 msgid "Network control (highest)"
-msgstr ""
+msgstr "Сетевой контроль (самый высокий)"
 
 msgid "Networks"
 msgstr "Сети"
@@ -8996,7 +8996,7 @@ msgid "Off - do not share"
 msgstr "Выкл. - не делиться"
 
 msgid "Offline"
-msgstr ""
+msgstr "Не в сети"
 
 msgid "Offline Immediate Test"
 msgstr "Непосредственный тест офлайн"
@@ -9035,7 +9035,7 @@ msgid "On-Disk Configuration"
 msgstr "Конфигурация на диске"
 
 msgid "Online"
-msgstr ""
+msgstr "В сети"
 
 msgid "Online Information"
 msgstr "Онлайн информация"
@@ -9776,6 +9776,8 @@ msgid ""
 "Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
 "class of service and maps to the frame priority level."
 msgstr ""
+"Кодовая точка приоритета (PCP) - это 3-разрядное поле, которое относится к "
+"классу обслуживания IEEE 802.1p и соответствует уровню приоритета кадра."
 
 msgid "Privacy Extension"
 msgstr "Расширение конфиденциальности"
@@ -10774,7 +10776,7 @@ msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr "Запуск без  необходимости удаленного rsync. (Выключено по умолчанию)"
 
 msgid "Running"
-msgstr ""
+msgstr "Выполнение"
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11476,7 +11478,7 @@ msgid "Set share password."
 msgstr "Установить пароль общего ресурса"
 
 msgid "Set the VLAN encapsulation protocol."
-msgstr ""
+msgstr "Установка протокола инкапсуляции VLAN."
 
 msgid "Set the account's primary group."
 msgstr "Установите основную группу учетной записи."
@@ -13301,7 +13303,7 @@ msgstr ""
 "несколько сертификатов доверенных центров сертификации (ЦС)."
 
 msgid "The name of the VLAN interface"
-msgstr ""
+msgstr "Имя интерфейса VLAN"
 
 msgid "The name of the ZFS pool."
 msgstr "Имя пула ZFS."
@@ -14424,7 +14426,7 @@ msgid "Toggle Selected Users"
 msgstr "Переключить выбранных пользователей"
 
 msgid "Toggle Selected VLANs"
-msgstr ""
+msgstr "Переключение выбранных VLAN"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "Переключить выбранные WebDAV записи"
@@ -15210,13 +15212,13 @@ msgid "VLAN"
 msgstr "VLAN"
 
 msgid "VLAN Interface"
-msgstr ""
+msgstr "Интерфейс VLAN"
 
 msgid "VLAN Tag"
 msgstr "Метка VLAN"
 
 msgid "VLAN is locked"
-msgstr ""
+msgstr "VLAN заблокирована"
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN помечен для удаления"
@@ -15274,10 +15276,10 @@ msgid "Vibration During Write."
 msgstr "Вибрация во время записи."
 
 msgid "Video < 100ms latency"
-msgstr ""
+msgstr "Задержка видео < 100мс"
 
 msgid "Video < 10ms latency"
-msgstr ""
+msgstr "Задержка видео < 10мс"
 
 msgid "Virtual Device"
 msgstr "Виртуальное устройство"
@@ -16165,7 +16167,7 @@ msgid "visible"
 msgstr "показать"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
 msgstr "был назначен на"

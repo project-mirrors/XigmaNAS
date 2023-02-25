@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: comunio\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-02-11 22:13+0000\n"
-"PO-Revision-Date: 2022-12-11 00:13+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2023-02-24 14:27+0000\n"
+"Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-18 01:21+0000\n"
-"X-Generator: Launchpad (build 611eba1e393fbca1b432f5f94117b070ac88176b)\n"
+"X-Launchpad-Export-Date: 2023-02-25 18:36+0000\n"
+"X-Generator: Launchpad (build b826c8bc42f0c41016fa141bf50faee47f7ecd80)\n"
 "Language: en_GB\n"
 
 msgid ""
@@ -258,7 +258,7 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "102"
-msgstr ""
+msgstr "102"
 
 msgid "128K"
 msgstr "128K"
@@ -381,13 +381,13 @@ msgid "8 KiB"
 msgstr "8 KiB"
 
 msgid "802.1Q (default)"
-msgstr ""
+msgstr "802.1Q (default)"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN tag (between 1 and 4094)."
 
 msgid "802.1ad (QinQ)"
-msgstr ""
+msgstr "802.1ad (QinQ)"
 
 msgid "8200"
 msgstr "8200"
@@ -1514,7 +1514,7 @@ msgid "Background"
 msgstr "Background"
 
 msgid "Background (lowest)"
-msgstr ""
+msgstr "Background (lowest)"
 
 msgid "Backup"
 msgstr "Backup"
@@ -1642,7 +1642,7 @@ msgid "Best available"
 msgstr "Best available"
 
 msgid "Best effort (default)"
-msgstr ""
+msgstr "Best effort (default)"
 
 msgid "Beta Versions"
 msgstr "Beta Versions"
@@ -2912,7 +2912,7 @@ msgid "Critical Error Level"
 msgstr "Critical Error Level"
 
 msgid "Critical applications"
-msgstr ""
+msgstr "Critical applications"
 
 msgid "Cron"
 msgstr "Cron"
@@ -3790,7 +3790,7 @@ msgid "Disable Selected Users"
 msgstr "Disable Selected Users"
 
 msgid "Disable Selected VLANs"
-msgstr ""
+msgstr "Disable Selected VLANs"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Disable Selected WebDAV Records"
@@ -4275,7 +4275,7 @@ msgid "Do you want to disable selected Samba shares?"
 msgstr "Do you want to disable selected Samba shares?"
 
 msgid "Do you want to disable selected VLANs?"
-msgstr ""
+msgstr "Do you want to disable selected VLANs?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Do you want to disable selected WebDAV records?"
@@ -4380,7 +4380,7 @@ msgid "Do you want to enable selected Samba shares?"
 msgstr "Do you want to enable selected Samba shares?"
 
 msgid "Do you want to enable selected VLANs?"
-msgstr ""
+msgstr "Do you want to enable selected VLANs?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Do you want to enable selected WebDAV records?"
@@ -4494,7 +4494,7 @@ msgid "Do you want to toggle selected Samba shares?"
 msgstr "Do you want to toggle selected Samba shares?"
 
 msgid "Do you want to toggle selected VLANs?"
-msgstr ""
+msgstr "Do you want to toggle selected VLANs?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Do you want to toggle selected WebDAV records?"
@@ -5058,7 +5058,7 @@ msgid "Enable Selected Users"
 msgstr "Enable Selected Users"
 
 msgid "Enable Selected VLANs"
-msgstr ""
+msgstr "Enable Selected VLANs"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Enable Selected WebDAV Records"
@@ -5335,7 +5335,7 @@ msgstr ""
 "Enabling this option may expose your system to additional security risk!"
 
 msgid "Encapsulation Protocol"
-msgstr ""
+msgstr "Encapsulation Protocol"
 
 msgid "Encrypt password"
 msgstr "Encrypt password"
@@ -5640,7 +5640,7 @@ msgid "Excel Sheet"
 msgstr "Excel Sheet"
 
 msgid "Excellent effort"
-msgstr ""
+msgstr "Excellent effort"
 
 msgid "Exec"
 msgstr "Exec"
@@ -6469,7 +6469,7 @@ msgid "Hint"
 msgstr "Hint"
 
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgid "Home Directory"
 msgstr "Home Directory"
@@ -6826,7 +6826,7 @@ msgid "In/Out Packets"
 msgstr "In/Out Packets"
 
 msgid "Inactive"
-msgstr ""
+msgstr "Inactive"
 
 msgid "Include /dev into scan/import"
 msgstr "Include /dev into scan/import"
@@ -7094,7 +7094,7 @@ msgid "Internal UPS clock time"
 msgstr "Internal UPS clock time"
 
 msgid "Internetwork control"
-msgstr ""
+msgstr "Internetwork control"
 
 msgid "Interval"
 msgstr "Interval"
@@ -8468,7 +8468,7 @@ msgstr ""
 "addresses or 'ALL' for any IPs."
 
 msgid "Network control (highest)"
-msgstr ""
+msgstr "Network control (highest)"
 
 msgid "Networks"
 msgstr "Networks"
@@ -8886,7 +8886,7 @@ msgid "Off - do not share"
 msgstr "Off - do not share"
 
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 msgid "Offline Immediate Test"
 msgstr "Offline Immediate Test"
@@ -8925,7 +8925,7 @@ msgid "On-Disk Configuration"
 msgstr "On-Disk Configuration"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Online Information"
 msgstr "Online Information"
@@ -9064,7 +9064,7 @@ msgid "PBKDF2 Iterations"
 msgstr "PBKDF2 Iterations"
 
 msgid "PCP"
-msgstr ""
+msgstr "PCP"
 
 msgid "PDF File"
 msgstr "PDF File"
@@ -9656,6 +9656,8 @@ msgid ""
 "Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
 "class of service and maps to the frame priority level."
 msgstr ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
 
 msgid "Privacy Extension"
 msgstr "Privacy Extension"
@@ -10650,7 +10652,7 @@ msgid "Run without requiring remote rsync daemon. (Disabled by default)"
 msgstr "Run without requiring remote rsync daemon. (Disabled by default)"
 
 msgid "Running"
-msgstr ""
+msgstr "Running"
 
 msgid ""
 "Running this service as root is not recommended for security reasons, use at "
@@ -11349,7 +11351,7 @@ msgid "Set share password."
 msgstr "Set share password."
 
 msgid "Set the VLAN encapsulation protocol."
-msgstr ""
+msgstr "Set the VLAN encapsulation protocol."
 
 msgid "Set the account's primary group."
 msgstr "Set the account's primary group."
@@ -13141,7 +13143,7 @@ msgstr ""
 "one or more certificates of trusted Certification Authorities (CAs)."
 
 msgid "The name of the VLAN interface"
-msgstr ""
+msgstr "The name of the VLAN interface"
 
 msgid "The name of the ZFS pool."
 msgstr "The name of the ZFS pool."
@@ -14247,7 +14249,7 @@ msgid "Toggle Selected Users"
 msgstr "Toggle Selected Users"
 
 msgid "Toggle Selected VLANs"
-msgstr ""
+msgstr "Toggle Selected VLANs"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "Toggle Selected WebDAV Records"
@@ -15015,13 +15017,13 @@ msgid "VLAN"
 msgstr "VLAN"
 
 msgid "VLAN Interface"
-msgstr ""
+msgstr "VLAN Interface"
 
 msgid "VLAN Tag"
 msgstr "VLAN Tag"
 
 msgid "VLAN is locked"
-msgstr ""
+msgstr "VLAN is locked"
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN is marked for deletion"
@@ -15079,10 +15081,10 @@ msgid "Vibration During Write."
 msgstr "Vibration During Write."
 
 msgid "Video < 100ms latency"
-msgstr ""
+msgstr "Video < 100ms latency"
 
 msgid "Video < 10ms latency"
-msgstr ""
+msgstr "Video < 10ms latency"
 
 msgid "Virtual Device"
 msgstr "Virtual Device"
@@ -15944,7 +15946,7 @@ msgid "visible"
 msgstr "visible"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
 msgstr "was assigned to"
