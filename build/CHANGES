@@ -19,7 +19,6 @@ Changes:
 - Upgrade virtualbox-ose to v6.1.42.
 - Upgrade msmtp to v1.8.23.
 - Upgrade inadyn to v2.10.0.
-- Upgrade e2fsprogs to v1.46.6.
 - Upgrade minidlna to v1.3.2.
 - Upgrade cdialog to v1.3-20230209.
 - Upgrade lighttpd to v1.4.69.
@@ -30,6 +29,7 @@ Changes:
 - Upgrade php to v8.2.3.
 - Upgrade iperf3 to v3.13.
 - Upgrade devcpu-data-intel to v20230214.
+- Upgrade e2fsprogs to v1.47.0.
 
 Fixes:
 - fix bring up lighttpd at all times.
