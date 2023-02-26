@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-02-11 22:13+0000\n"
+"POT-Creation-Date: 2023-02-26 15:59+0000\n"
 "PO-Revision-Date: 2018-07-06 10:59+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-25 18:36+0000\n"
+"X-Launchpad-Export-Date: 2023-02-26 16:36+0000\n"
 "X-Generator: Launchpad (build b826c8bc42f0c41016fa141bf50faee47f7ecd80)\n"
 
 msgid ""
@@ -971,9 +971,6 @@ msgstr ""
 
 msgid "Allow challenge-response authentication."
 msgstr ""
-
-msgid "Allow client access to accounts that have null passwords."
-msgstr "准許沒有密碼的帳號連線。"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -8358,9 +8355,6 @@ msgstr ""
 msgid "Now"
 msgstr "現在"
 
-msgid "Null Passwords"
-msgstr ""
-
 msgid "Number of bad battery packs"
 msgstr "壞電池組的數量"
 
@@ -14948,3 +14942,6 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Allow client access to accounts that have null passwords."
+#~ msgstr "准許沒有密碼的帳號連線。"

@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2023-02-11 22:13+0000\n"
+"POT-Creation-Date: 2023-02-26 15:59+0000\n"
 "PO-Revision-Date: 2023-02-18 01:18+0000\n"
 "Last-Translator: Олександр Більчук <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-25 18:36+0000\n"
+"X-Launchpad-Export-Date: 2023-02-26 16:36+0000\n"
 "X-Generator: Launchpad (build b826c8bc42f0c41016fa141bf50faee47f7ecd80)\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -1037,10 +1037,6 @@ msgstr "Дозволити USB послідовні порти"
 
 msgid "Allow challenge-response authentication."
 msgstr "Дозволити автентифікацію \"виклик-відповідь\"."
-
-msgid "Allow client access to accounts that have null passwords."
-msgstr ""
-"Дозволити клієнтський доступ для облікових записів, що мають пустий пароль."
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -8921,9 +8917,6 @@ msgstr "Листопад"
 msgid "Now"
 msgstr "Зараз"
 
-msgid "Null Passwords"
-msgstr "Нульові/пусті паролі"
-
 msgid "Number of bad battery packs"
 msgstr "Кількість поганих блоків батареї"
 
@@ -16128,3 +16121,10 @@ msgstr "був призначений до"
 
 msgid "yes"
 msgstr "так"
+
+#~ msgid "Allow client access to accounts that have null passwords."
+#~ msgstr ""
+#~ "Дозволити клієнтський доступ для облікових записів, що мають пустий пароль."
+
+#~ msgid "Null Passwords"
+#~ msgstr "Нульові/пусті паролі"

@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2023-02-11 22:13+0000\n"
+"POT-Creation-Date: 2023-02-26 15:59+0000\n"
 "PO-Revision-Date: 2023-02-20 18:06+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-25 18:36+0000\n"
+"X-Launchpad-Export-Date: 2023-02-26 16:36+0000\n"
 "X-Generator: Launchpad (build b826c8bc42f0c41016fa141bf50faee47f7ecd80)\n"
-"X-Poedit-Language: Russian\n"
+"X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: Russian\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -1041,9 +1041,6 @@ msgstr "Разрешить USB serial-порты"
 
 msgid "Allow challenge-response authentication."
 msgstr "Разрешить проверку подлинности по запросу."
-
-msgid "Allow client access to accounts that have null passwords."
-msgstr "Разрешить клиентский доступ к учетным записям без пароля"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -8937,9 +8934,6 @@ msgstr "ноября"
 msgid "Now"
 msgstr "Сейчас"
 
-msgid "Null Passwords"
-msgstr "Пустые пароли"
-
 msgid "Number of bad battery packs"
 msgstr "Количество плохих батарейных блоков"
 
@@ -16174,3 +16168,9 @@ msgstr "был назначен на"
 
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Allow client access to accounts that have null passwords."
+#~ msgstr "Разрешить клиентский доступ к учетным записям без пароля"
+
+#~ msgid "Null Passwords"
+#~ msgstr "Пустые пароли"

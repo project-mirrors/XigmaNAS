@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2023-02-11 22:13+0000\n"
+"POT-Creation-Date: 2023-02-26 15:59+0000\n"
 "PO-Revision-Date: 2021-11-15 14:27+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-25 18:36+0000\n"
+"X-Launchpad-Export-Date: 2023-02-26 16:37+0000\n"
 "X-Generator: Launchpad (build b826c8bc42f0c41016fa141bf50faee47f7ecd80)\n"
 
 msgid ""
@@ -1034,9 +1034,6 @@ msgstr "Toelaat USB Seriële Poorte"
 
 msgid "Allow challenge-response authentication."
 msgstr "Toelaat uitdaging-antwoord ontentisering"
-
-msgid "Allow client access to accounts that have null passwords."
-msgstr "Laat kliënt toegang tot rekeninge wat null wagwoorde het."
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -8853,9 +8850,6 @@ msgstr "November"
 msgid "Now"
 msgstr "Nou"
 
-msgid "Null Passwords"
-msgstr "Null Wagwoorde"
-
 msgid "Number of bad battery packs"
 msgstr "Aantal slegte battery pakke"
 
@@ -16028,3 +16022,9 @@ msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Allow client access to accounts that have null passwords."
+#~ msgstr "Laat kliënt toegang tot rekeninge wat null wagwoorde het."
+
+#~ msgid "Null Passwords"
+#~ msgstr "Null Wagwoorde"
