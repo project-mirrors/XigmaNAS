@@ -168,8 +168,8 @@ $(window).on("load", function() {
 					<tr>
 						<td class="celltag"><?=gtext('Size');?></td>
 						<td class="celldata">
-							<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>">
-							<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>">
+							<?=gtext('Rows'); ?>: <input size="3" name="rows" class="formfld" value="<?=$rows;?>">
+							<?=gtext('Cols'); ?>: <input size="3" name="cols" class="formfld" value="<?=$cols;?>">
 							<button type="submit" name="submit" class="formbtn" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
 							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>">
 						</td>
