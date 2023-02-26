@@ -137,7 +137,7 @@ $document->render();
 			echo html_button('refresh',gettext('Refresh'));
 ?>
 			<span class="label">&nbsp;&nbsp;&nbsp;<?=gtext('Search event');?></span>
-			<input size="30" id="searchlog" name="searchlog" class="formfld" value="<?=htmlspecialchars($searchlog);?>"/>
+			<input type="text" class="formfld" size="30" id="searchlog" name="searchlog" value="<?=htmlspecialchars($searchlog);?>"/>
 <?php
 			echo html_button('search',gettext('Search'));
 ?>
