@@ -32,24 +32,28 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use common\arr;
+use common\uuid;
 
 $pconfig['enable'] = isset($config['system']['firewall']['enable']);
 if(isset($_POST['export']) && $_POST['export']):
 	$doc = new DOMDocument('1.0','UTF-8');
 	$doc->formatOutput = true;
 	$elm = $doc->createElement(get_product_name());
-	$elm->setAttribute('version', get_product_version());
-	$elm->setAttribute('revision', get_product_revision());
+	$elm->setAttribute('version',get_product_version());
+	$elm->setAttribute('revision',get_product_revision());
 	$node = $doc->appendChild($elm);
 
 //	export as XML
-	array_sort_key($config['system']['firewall']['rule'],'ruleno');
+	arr::sort_key($config['system']['firewall']['rule'],'ruleno');
 	foreach($config['system']['firewall']['rule'] as $k => $v):
 		$elm = $doc->createElement('rule');
 		foreach($v as $k2 => $v2):
-			$elm2 = $doc->createElement($k2, $v2);
+			$elm2 = $doc->createElement($k2,$v2);
 			$elm->appendChild($elm2);
 		endforeach;
 		$node->appendChild($elm);
@@ -65,7 +69,9 @@ if(isset($_POST['export']) && $_POST['export']):
 		header(sprintf('Content-Length: %d',strlen($data)));
 		header('Pragma: hack');
 		echo $data;
-		ob_flush();
+		while(ob_get_level() > 0):
+			ob_end_flush();
+		endwhile;
 		flush();
 		exit;
 	endif;
@@ -76,7 +82,7 @@ elseif(isset($_POST['import']) && $_POST['import']):
 		$doc = new DOMDocument();
 		$data = [];
 		$data['rule'] = [];
-		if($doc->loadXML($xml) != FALSE):
+		if($doc->loadXML($xml) != false):
 			$doc->normalizeDocument();
 			$rules = $doc->getElementsByTagName('rule');
 			foreach($rules as $rule):
@@ -98,14 +104,14 @@ elseif(isset($_POST['import']) && $_POST['import']):
 			$errormsg = gtext('Invalid file format.');
 		else:
 //			Take care array already exists.
-			array_make_branch($config,'system','firewall','rule');
+			arr::make_branch($config,'system','firewall','rule');
 //			Import rules.
 			foreach ($data['rule'] as $rule):
 //				Check if rule already exists.
-				$index = array_search_ex($rule['uuid'], $config['system']['firewall']['rule'], "uuid");
-				if(false !== $index):
+				$index = arr::search_ex($rule['uuid'],$config['system']['firewall']['rule'],'uuid');
+				if($index !== false):
 //					Create new uuid and mark rule as duplicate (modify description).
-					$rule['uuid'] = uuid();
+					$rule['uuid'] = uuid::create_v4();
 					$rule['desc'] = gtext('*** Imported duplicate ***') . " {$rule['desc']}";
 				endif;
 				$config['system']['firewall']['rule'][] = $rule;
@@ -120,7 +126,7 @@ elseif(isset($_POST['import']) && $_POST['import']):
 	endif;
 elseif($_POST):
 	$pconfig = $_POST;
-	$config['system']['firewall']['enable'] = isset($_POST['enable']) ? true : false;
+	$config['system']['firewall']['enable'] = isset($_POST['enable']);
 	write_config();
 	$retval = 0;
 	if(!file_exists($d_sysrebootreqd_path)):
@@ -134,11 +140,10 @@ elseif($_POST):
 		updatenotify_delete('firewall');
 	endif;
 endif;
-
-$a_rule = &array_make_branch($config,'system','firewall','rule');
+$a_rule = &arr::make_branch($config,'system','firewall','rule');
 if(empty($a_rule)):
 else:
-	array_sort_key($a_rule,'ruleno');
+	arr::sort_key($a_rule,'ruleno');
 endif;
 
 if(isset($_GET['act']) && $_GET['act'] === 'del'):
@@ -153,17 +158,17 @@ if(isset($_GET['act']) && $_GET['act'] === 'del'):
 	exit;
 endif;
 
-function firewall_process_updatenotification($mode, $data) {
+function firewall_process_updatenotification($mode,$data) {
 	global $config;
 
 	$retval = 0;
-	switch ($mode):
+	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 		case UPDATENOTIFY_MODE_MODIFIED:
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
-			$cnid = array_search_ex($data, $config['system']['firewall']['rule'],'uuid');
-			if(false !== $cnid):
+			$cnid = arr::search_ex($data,$config['system']['firewall']['rule'],'uuid');
+			if($cnid !== false):
 				unset($config['system']['firewall']['rule'][$cnid]);
 				write_config();
 			endif;
@@ -174,7 +179,7 @@ function firewall_process_updatenotification($mode, $data) {
 $pgtitle = [gtext('Network'),gtext('Firewall')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 function enable_change(enable_change) {
 	var endis = !(document.iform.enable.checked || enable_change);
@@ -207,7 +212,7 @@ $(window).on("load", function() {
 			</colgroup>
 			<thead>
 <?php
-				html_titleline_checkbox2('enable',gettext('Firewall'),!empty($pconfig['enable']) ? true : false,gettext('Enable'),'enable_change(false)');
+				html_titleline_checkbox2('enable',gettext('Firewall'),!empty($pconfig['enable']),gettext('Enable'),'enable_change(false)');
 ?>
 			</thead>
 			<tbody>
@@ -231,29 +236,33 @@ $(window).on("load", function() {
 			<colgroup>
 				<col style="width:5%">
 				<col style="width:10%">
+				<col style="width:10%">
 				<col style="width:5%">
-				<col style="width:15%">
+				<col style="width:10%">
 				<col style="width:5%">
-				<col style="width:15%">
+				<col style="width:10%">
 				<col style="width:5%">
 				<col style="width:5%">
-				<col style="width:25%">
+				<col style="width:5%">
+				<col style="width:20%">
 				<col style="width:10%">
 			</colgroup>
 			<thead>
 <?php
-				html_separator2(9);
-				html_titleline2(gettext('Firewall Rules'),10);
+				html_separator2(12);
+				html_titleline2(gettext('Firewall Rules'),12);
 ?>
 				<tr>
 					<th class="lhelc">&nbsp;</th>
 					<th class="lhell"><?=gtext('Rule #');?></th>
+					<th class="lhell"><?=gtext('Interface');?></th>
 					<th class="lhell"><?=gtext('Protocol');?></th>
 					<th class="lhell"><?=gtext('Source');?></th>
 					<th class="lhell"><?=gtext('Port');?></th>
 					<th class="lhell"><?=gtext('Destination');?></th>
 					<th class="lhell"><?=gtext('Port');?></th>
 					<th class="lhelc"><?=htmlspecialchars('<->');?></th>
+					<th class="lhelc"><?=gtext('Status');?></th>
 					<th class="lhell"><?=gtext('Description');?></th>
 					<th class="lhebl"><?=gtext('Toolbox');?></th>
 				</tr>
@@ -274,20 +283,32 @@ $(window).on("load", function() {
 							$actionimg = 'images/fw_action_reject.png';
 							break;
 					endswitch;
+					if(isset($rule['if']) && (preg_match('/\S/',$rule['if']) === 1)):
+						$index = arr::search_ex($rule['if'],$config['interfaces'],'if');
+						if($index !== false):
+							$nif = mb_strtoupper($index);
+						else:
+							$nif = get_ifname($rule['if']);
+						endif;
+					else:
+						$nif = '*';
+					endif;
 ?>
 					<tr>
-						<td class="<?=$enable?'lcelc':'lcelcd';?>"><img src="<?=$actionimg;?>" alt=""/></td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars($rule['ruleno'] ?? '');?></td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=strtoupper($rule['protocol']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['src']) ? '*' : $rule['src']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['srcport']) ? '*' : $rule['srcport']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['dst']) ? '*' : $rule['dst']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['dstport']) ? '*' : $rule['dstport']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcelc':'lcelcd';?>"><?=empty($rule['direction']) ? '*' : strtoupper($rule['direction']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars($rule['desc']);?>&nbsp;</td>
+						<td class="<?=$enable ? 'lcelc' : 'lcelcd';?>"><img src="<?=$actionimg;?>" alt=""/></td>
+						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars($rule['ruleno'] ?? '');?></td>
+						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars($nif);?></td>
+						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=strtoupper($rule['protocol']);?>&nbsp;</td>
+						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars(empty($rule['src']) ? '*' : $rule['src']);?>&nbsp;</td>
+						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars(empty($rule['srcport']) ? '*' : $rule['srcport']);?>&nbsp;</td>
+						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars(empty($rule['dst']) ? '*' : $rule['dst']);?>&nbsp;</td>
+						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars(empty($rule['dstport']) ? '*' : $rule['dstport']);?>&nbsp;</td>
+						<td class="<?=$enable ? 'lcelc' : 'lcelcd';?>"><?=empty($rule['direction']) ? '*' : strtoupper($rule['direction']);?>&nbsp;</td>
+						<td class="<?=$enable ? 'lcelc' : 'lcelcd';?>"><?=$enable ? $g_img['unicode.ena'] : $g_img['unicode.dis'];?></td>
+						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars($rule['desc']);?>&nbsp;</td>
 						<td class="lcebld">
 <?php
-							if(UPDATENOTIFY_MODE_DIRTY != $notificationmode):
+							if($notificationmode != UPDATENOTIFY_MODE_DIRTY):
 ?>
 								<a href="system_firewall_edit.php?uuid=<?=$rule['uuid'];?>"><img src="images/edit.png" title="<?=gtext('Edit rule');?>" border="0" alt="<?=gtext('Edit rule');?>"/></a>
 								<a href="system_firewall.php?act=del&amp;uuid=<?=$rule['uuid'];?>" onclick="return confirm('<?=gtext('Do you really want to delete this rule?');?>')"><img src="images/delete.png" title="<?=gtext('Delete rule');?>" border="0" alt="<?=gtext('Delete rule');?>" /></a>
@@ -306,7 +327,7 @@ $(window).on("load", function() {
 			</tbody>
 			<tfoot>
 				<tr>
-					<td class="lcenl" colspan="9"></td>
+					<td class="lcenl" colspan="11"></td>
 					<td class="lceadd">
 						<a href="system_firewall_edit.php"><img src="images/add.png" title="<?=gtext('Add rule');?>" border="0" alt="<?=gtext('Add rule');?>" /></a>
 <?php
