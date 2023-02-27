@@ -116,7 +116,7 @@ trait fm_edit_editarea {
 		echo	'<form name="editfrm" method="post" action="',$this->make_link('edit',$dir,$item),'">',"\n";
 		echo		'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',session::get_authtoken(),'">',"\n",'</div>',"\n";
 		echo		'<input type="hidden" name="dosave" value="yes">',"\n";
-		echo		'<textarea name="code" id="txtedit" rows="27" cols="125" style="font-family: monospace;" wrap="off">',htmlspecialchars($buffer),'</textarea>',"\n";
+		echo		'<textarea class="formpre" name="code" id="txtedit" rows="27" cols="125" style="font-family: monospace;" wrap="off">',htmlspecialchars($buffer),'</textarea>',"\n";
 		echo		'<br>',"\n";
 		echo		'<br>',"\n";
 		echo		'<table>',"\n",
