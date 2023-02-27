@@ -95,7 +95,8 @@ foreach($rawdata as $line):
 		continue;
 	endif;
 	[$fname,$mpoint,$compress,$canmount,$quota,$used,$avail,$xattr,$snapdir,$readonly,$origin,$reservation,$dedup,$sync,$atime,$aclinherit,$aclmode,$primarycache,$secondarycache] = explode("\t",$line);
-	if(strpos($fname,'/') !== false): // dataset
+	if(strpos($fname,'/') !== false):
+//		dataset
 		if(empty($origin) || $origin != '-'):
 			continue;
 		endif;
@@ -136,14 +137,15 @@ foreach($rawdata as $line):
 			if(!empty($tmp) && !empty($tmp['name'])):
 				$mp_group = $tmp['name'];
 			endif;
-			$mp_mode = sprintf("0%o",$mp_perm);
+			$mp_mode = sprintf('0%o',$mp_perm);
 		endif;
 		$zfs['datasets']['dataset'][$fname]['accessrestrictions'] = [
 			'owner' => $mp_owner,
 			'group' => $mp_group,
 			'mode' => $mp_mode,
 		];
-	else: // zpool
+	else:
+//		zpool
 		$zfs['pools']['pool'][$fname] = [
 			'uuid' => uuid::create_v4(),
 			'name' => $fname,
@@ -251,18 +253,18 @@ foreach($rawdata as $line):
 		continue;
 	endif;
 //	dev
-	if(!is_null($vdev) && preg_match('/^\t    (\S+)/',$line,$m)):
+	if(!is_null($vdev) && preg_match('/^\t    (\S+)/',$line,$m) === 1):
 		$dev = $m[1];
-		if(preg_match("/^(.+)\.nop$/",$dev,$m)):
+		if(preg_match('/^(.+)\.nop$/',$dev,$m) === 1):
 			$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
 			$zfs['vdevices']['vdevice'][$vdev]['aft4k'] = true;
-		elseif(preg_match("/^(.+)\.eli$/",$dev,$m)):
+		elseif(preg_match('/^(.+)\.eli$/',$dev,$m) === 1):
 //			$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
 			$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$dev}";
 		else:
 			$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$dev}";
 		endif;
-	elseif(!is_null($pool) && preg_match('/^\t  (\S+)/',$line,$m)): // vdev or dev (type disk)
+	elseif(!is_null($pool) && preg_match('/^\t  (\S+)/',$line,$m) === 1): // vdev or dev (type disk)
 		$is_vdev_type = true;
 		if($type == 'spare'):
 			$dev = $m[1];
@@ -270,13 +272,13 @@ foreach($rawdata as $line):
 			$dev = $m[1];
 		elseif($type == 'log'):
 			$dev = $m[1];
-			if(preg_match("/^mirror-([0-9]+)$/",$dev,$m)):
-				$type = "log-mirror";
+			if(preg_match('/^mirror-([0-9]+)$/',$dev,$m) === 1):
+				$type = 'log-mirror';
 			endif;
 		else:
 //			vdev or dev (type disk)
 			$type = $m[1];
-			if(preg_match("/^(.*)\-\d+$/",$type,$m)):
+			if(preg_match('/^(.*)\-\d+$/',$type,$m) === 1):
 				$tmp = $m[1];
 				$is_vdev_type = in_array($tmp,$vdev_type);
 				if($is_vdev_type):
@@ -288,9 +290,9 @@ foreach($rawdata as $line):
 			if(!$is_vdev_type):
 				$dev = $type;
 				$type = 'disk';
-				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
+				$vdev = sprintf('%s_%s_%d',$pool,$type,$i++);
 			else:
-				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
+				$vdev = sprintf('%s_%s_%d',$pool,$type,$i++);
 			endif;
 		endif;
 		if(!array_key_exists($vdev,$zfs['vdevices']['vdevice'])):
@@ -305,32 +307,32 @@ foreach($rawdata as $line):
 			$zfs['pools']['pool'][$pool]['vdevice'][] = $vdev;
 		endif;
 		if($type == 'spare' || $type == 'cache' || $type == 'log' || $type == 'disk'):
-			if(preg_match("/^(.+)\.nop$/",$dev,$m)):
+			if(preg_match('/^(.+)\.nop$/',$dev,$m) === 1):
 				$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
 				$zfs['vdevices']['vdevice'][$vdev]['aft4k'] = true;
-			elseif(preg_match("/^(.+)\.eli$/",$dev,$m)):
+			elseif(preg_match('/^(.+)\.eli$/',$dev,$m) === 1):
 //				$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
 				$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$dev}";
 			else:
 				$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$dev}";
 			endif;
 		endif;
-	elseif(preg_match('/^\t(\S+)/',$line,$m)):
+	elseif(preg_match('/^\t(\S+)/',$line,$m) === 1):
 //		zpool or spares
 		$vdev = null;
 		$type = null;
 		switch($m[1]):
 			case 'spares':
 				$type = 'spare';
-				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
+				$vdev = sprintf('%s_%s_%d',$pool,$type,$i++);
 				break;
 			case 'cache':
 				$type = 'cache';
-				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
+				$vdev = sprintf('%s_%s_%d',$pool,$type,$i++);
 				break;
 			case 'logs':
 				$type = 'log';
-				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
+				$vdev = sprintf('%s_%s_%d',$pool,$type,$i++);
 				break;
 			default:
 //				search for the longest match because of whitespaces
@@ -382,7 +384,7 @@ if(isset($_POST['import_config'])):
 				$a_posted['vdev'][] = $vdev;
 			endif;
 			foreach($zfs['vdevices']['vdevice'][$vdev]['device'] as $device):
-				if(preg_match('/^\/dev\/hast\//',$device)):
+				if(preg_match('/^\/dev\/hast\//',$device) === 1):
 					$hastpool = true;
 				endif;
 			endforeach;
@@ -402,11 +404,11 @@ if(isset($_POST['import_config'])):
 			foreach($vdev['device'] as $device):
 				$encrypted = false;
 				$device = disks_label_to_device($device);
-				if(preg_match("/^(.+)\.eli$/",$device,$m)):
+				if(preg_match('/^(.+)\.eli$/',$device,$m) === 1):
 					$device = $m[1];
 					$encrypted = true;
 				endif;
-				if(preg_match("/^(.*)p\d+$/",$device,$m)):
+				if(preg_match('/^(.*)p\d+$/',$device,$m) === 1):
 					$device = $m[1];
 				endif;
 				$index = false;
@@ -416,20 +418,20 @@ if(isset($_POST['import_config'])):
 				if($index === false && isset($_POST['import_disks'])):
 					$disk = arr::search_ex($device,$disks,'devicespecialfile');
 					$disk = $disks[$disk];
-					$serial = "";
+					$serial = '';
 					if(!empty($disk['serial'])):
 						$serial = $disk['serial'];
 					endif;
-					if(($serial == "n/a") || ($serial == gtext("n/a"))):
-						$serial = "";
+					if(($serial == 'n/a') || ($serial == gtext('n/a'))):
+						$serial = '';
 					endif;
 					$cfg['disks']['disk'][] = [
 						'uuid' => uuid::create_v4(),
 						'name' => $disk['name'],
 						'id' => $disk['id'],
 						'devicespecialfile' => $disk['devicespecialfile'],
-						'model' => !empty($disk['model']) ? $disk['model'] : "",
-						'desc' => !empty($disk['desc']) ? $disk['desc'] : "",
+						'model' => !empty($disk['model']) ? $disk['model'] : '',
+						'desc' => !empty($disk['desc']) ? $disk['desc'] : '',
 						'type' => $disk['type'],
 						'serial' => $serial,
 						'size' => $disk['size'],
@@ -446,7 +448,7 @@ if(isset($_POST['import_config'])):
 							'devicetype' => $disk['smart']['devicetype'],
 							'devicetypearg' => $disk['smart']['devicetypearg'],
 							'enable' => false,
-							'extraoptions' => "",
+							'extraoptions' => '',
 						],
 					];
 				elseif($index !== false && isset($_POST['import_disks_overwrite'])):
@@ -466,10 +468,10 @@ if(isset($_POST['import_config'])):
 							'uuid' => uuid::create_v4(),
 							'name' => $disk['name'],
 							'device' => $disk['devicespecialfile'],
-							'devicespecialfile' => $disk['devicespecialfile'].".eli",
-							'desc' => "Encrypted disk",
+							'devicespecialfile' => $disk['devicespecialfile'].'.eli',
+							'desc' => 'Encrypted disk',
 							'size' => $disk['size'],
-							'aalgo' => "none",
+							'aalgo' => 'none',
 							'ealgo' => $geli_info['ealgo'],
 							'fstype' => 'zfs',
 						];
@@ -543,7 +545,7 @@ $document->
 			ins_tabnav_record('disks_zfs_config_sync.php',gettext('Synchronize'),gettext('Reload page'),true);
 $document->render();
 ?>
-<form action="disks_zfs_config_sync.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="disks_zfs_config_sync.php" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($message_box_text)):
 		print_core_box($message_box_type,$message_box_text);
@@ -800,6 +802,6 @@ $document->render();
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
