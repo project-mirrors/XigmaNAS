@@ -38,6 +38,7 @@
 	bgi-: background image
 	txc-: text color
 	boc-: border color
+	bor-: border radius
 	bos-: border style
 	bow-: border width
 	bop-: border properties => [border width] [border style] [border color]
@@ -137,6 +138,10 @@
 	--txc-a-link: #0000CC;
 	--txc-a-hover: #95A7C0;
 /*
+	button
+*/
+	--boc-button: #767676;
+/*
 	input
 */
 	--txc-input-rw: #000000;
@@ -150,6 +155,11 @@
 	--txc-input-checkbox: #474747;
 
 	--txc-input-radio: #474747;
+
+	--bor-top-left: 2px;
+	--bor-top-right: 2px;
+	--bor-bottom-right: 2px;
+	--bor-bottom-left: 2px;
 /*
 	gap
 */
@@ -187,6 +197,8 @@ input,
 select,
 textarea
 {
+	margin: 0;
+	padding: 0;
 	font-family: inherit;
 	font-size: inherit;
 	font-weight: inherit;
@@ -227,19 +239,12 @@ textarea,
 	font-size: 1rem;
 }
 
+textarea,
 pre,
 .formpre,
 .formprero
 {
 	font-family: monospace,monospace;
-}
-
-input,
-select,
-textarea
-{
-	margin: 0;
-	padding: 0;
 }
 
 input[type="checkbox"]
@@ -681,6 +686,11 @@ input[type="checkbox"]:checked ~ div.hideifchecked
 	display: none;
 }
 
+input[type=file]:enabled:read-write,
+input[type=password]:enabled:read-write,
+input[type=text]:enabled:read-write,
+select:enabled,
+textarea:enabled:read-write,
 .formpre,
 .formfld
 {
@@ -690,8 +700,19 @@ input[type="checkbox"]:checked ~ div.hideifchecked
 	background-color: var(--bgc-input-rw);
 	border: 1px inset #FFFFFF;
 	border: var(--bop-input-rw);
+	border-top-left-radius: 2px;
+	border-top-left-radius: var(--bor-top-left);
 }
 
+input[type=file]:disabled,
+input[type=password]:disabled,
+input[type=text]:disabled,
+select:disabled,
+textarea:disabled,
+input[type=file]:enabled:read-only,
+input[type=password]:enabled:read-only,
+input[type=text]:enabled:read-only,
+textarea:enabled:read-only,
 .formprero,
 .formfldro
 {
@@ -701,6 +722,8 @@ input[type="checkbox"]:checked ~ div.hideifchecked
 	background-color: var(--bgc-input-ro);
 	border: 1px outset #EEEEEE;
 	border: var(--bop-input-ro);
+	border-bottom-right-radius: 2px;
+	border-bottom-right-radius: var(--bor-bottom-right);
 }
 
 .formfld[type=file]
@@ -715,14 +738,26 @@ input[type="checkbox"]:checked ~ div.hideifchecked
 
 .formbtn
 {
+	appearance: none;
 	font-weight: bold;
+	color: #000000;
+	color: var(--txc-input-rw);
+	background-color: #EEEEEE;
+	background-color: var(--bgc-area-data);
+	border-color: #767676;
+	border-color: var(--boc-button);
+	border-radius: 3px;
+	border-style: solid;
+	border-width: 1px;
+	padding-left: 6px;
+	padding-right: 6px;
 }
 
 .formbtn:hover,
 .formbtn:active
 {
-	-webkit-transform: scale(0.99,0.98);
-	transform: scale(0.99,0.98);
+	-webkit-transform: scale(0.95,0.95);
+	transform: scale(0.95,0.95);
 }
 
 .g4fl,
