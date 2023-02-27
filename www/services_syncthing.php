@@ -121,8 +121,9 @@ $(document).ready(function(){
 });
 //]]>
 </script>
-<form action="services_syncthing.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-	<table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="services_syncthing.php" method="post" name="iform" id="iform" class="pagecontent" onsubmit="spinner()">
+	<div class="area_data_top"></div>
+	<div id="area_data_frame">
 <?php
 		if(!empty($errormsg)):
 			print_error_box($errormsg);
@@ -182,7 +183,8 @@ $(document).ready(function(){
 <?php
 		include 'formend.inc';
 ?>
-	</td></tr></tbody></table>
+	</div>
+	<div class="area_data_pot"></div>
 </form>
 <?php
 include 'fend.inc';
