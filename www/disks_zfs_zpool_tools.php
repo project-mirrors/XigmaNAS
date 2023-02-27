@@ -268,7 +268,7 @@ $document->
 			ins_tabnav_record('disks_zfs_zpool_io.php',gettext('I/O Statistics'));
 $document->render();
 ?>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform">
+<form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if($sphere_array['pageindex'] > 1):
 		if($sphere_array['submit']):
@@ -1894,6 +1894,6 @@ $document->render();
 	endif;
 	include 'formend.inc';
 ?>
-</form></td></tr></tbody></table>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
