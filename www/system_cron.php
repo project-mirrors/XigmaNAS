@@ -63,17 +63,6 @@ $gt_selection_disable = gtext('Disable Selected Jobs');
 $gt_selection_disable_confirm = gtext('Do you want to disable selected jobs?');
 $gt_selection_delete = gtext('Delete Selected Jobs');
 $gt_selection_delete_confirm = gtext('Do you want to delete selected jobs?');
-$img_path = [
-	'add' => 'images/add.png',
-	'mod' => 'images/edit.png',
-	'del' => 'images/delete.png',
-	'loc' => 'images/locked.png',
-	'unl' => 'images/unlocked.png',
-	'mai' => 'images/maintain.png',
-	'inf' => 'images/info.png',
-	'ena' => 'images/status_enabled.png',
-	'dis' => 'images/status_disabled.png'
-];
 
 // sunrise: verify if setting exists, otherwise run init tasks
 $sphere_array = &arr::make_branch($config,'cron','job');
@@ -376,11 +365,11 @@ $document->render();
 <?php
 						if ($enabled):
 ?>
-							<a title="<?=gtext('Enabled');?>"><center><img src="<?=$img_path['ena'];?>" border="0" alt="" /></center></a>
+							<a title="<?=gtext('Enabled');?>"><center><img src="<?=$g_img['ena'];?>" border="0" alt="" /></center></a>
 <?php
 						else:
 ?>
-							<a title="<?=gtext('Disabled');?>"><center><img src="<?=$img_path['dis'];?>" border="0" alt="" /></center></a>
+							<a title="<?=gtext('Disabled');?>"><center><img src="<?=$g_img['dis'];?>" border="0" alt="" /></center></a>
 <?php
 						endif;
 ?>
@@ -392,16 +381,16 @@ $document->render();
 <?php
 								if ($notdirty && $notprotected):
 ?>
-									<a href="<?=$sphere_scriptname_child;?>?uuid=<?=$sphere_record['uuid'];?>"><img src="<?=$img_path['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
+									<a href="<?=$sphere_scriptname_child;?>?uuid=<?=$sphere_record['uuid'];?>"><img src="<?=$g_img['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
 <?php
 								else:
 									if ($notprotected):
 ?>
-										<img src="<?=$img_path['del'];?>" title="<?=$gt_record_del;?>" alt="<?=$gt_record_del;?>"/>
+										<img src="<?=$g_img['del'];?>" title="<?=$gt_record_del;?>" alt="<?=$gt_record_del;?>"/>
 <?php
 									else:
 ?>
-										<img src="<?=$img_path['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>"/>
+										<img src="<?=$g_img['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>"/>
 <?php
 									endif;
 								endif;
@@ -419,7 +408,7 @@ $document->render();
 		<tfoot>
 			<tr>
 				<td class="lcenl" colspan="5"></td>
-				<td class="lceadd"><a href="<?=$sphere_scriptname_child;?>"><img src="<?=$img_path['add'];?>" title="<?=$gt_record_add;?>" border="0" alt="<?=$gt_record_add;?>"/></a></td>
+				<td class="lceadd"><a href="<?=$sphere_scriptname_child;?>"><img src="<?=$g_img['add'];?>" title="<?=$gt_record_add;?>" border="0" alt="<?=$gt_record_add;?>"/></a></td>
 			</tr>
 		</tfoot>
 	</table>
