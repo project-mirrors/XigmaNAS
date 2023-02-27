@@ -419,6 +419,11 @@ pre.cmdoutput
 	background-color: var(--bgc-lce-odd);
 }
 
+.area_data_selection > tbody > tr:last-child > td {
+	border-bottom-right-radius: 2px;
+	border-bottom-right-radius: var(--bor-bottom-right);
+}
+
 .area_data_selection tbody:not(.donothighlight) > tr:hover > td
 {
 	background-color: #CCCCCC;
@@ -483,6 +488,7 @@ div.cd-group
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
+	gap: 0.25rem;
 }
 
 div.cd-input-checkbox input[type=checkbox],
