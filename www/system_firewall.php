@@ -189,8 +189,9 @@ $(window).on("load", function() {
 });
 //]]>
 </script>
-<form action="system_firewall.php" method="post" name="iform" id="iform" enctype="multipart/form-data">
-	<table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="system_firewall.php" method="post" name="iform" id="iform" class="pagecontent" enctype="multipart/form-data">
+	<div class="area_data_top"></div>
+	<div id="area_data_frame">
 <?php
 		if($input_errors):
 			print_input_errors($input_errors);
@@ -249,7 +250,6 @@ $(window).on("load", function() {
 			</colgroup>
 			<thead>
 <?php
-				html_separator2(12);
 				html_titleline2(gettext('Firewall Rules'),12);
 ?>
 				<tr>
@@ -344,7 +344,8 @@ $(window).on("load", function() {
 		<div id="submit">
 			<input name="submit" type="submit" class="formbtn spin" value="<?=gtext('Save & Restart');?>" />
 		</div>
-	</td></tr></tbody></table>
+	</div>
+	<div class="area_data_pot"></div>
 <?php
 	include 'formend.inc';
 ?>
