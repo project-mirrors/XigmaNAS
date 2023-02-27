@@ -238,7 +238,7 @@ function Execute() {
 									'<img style="border:0px;vertical-align:middle" src="/images/fm_img/_info.gif" alt="">',
 								'</td>',"\n",
 								'<td class="lcell">',
-									'<input type="text" size="40" name="newitems[]" value="',htmlspecialchars($newitem),'">',
+									'<input type="text" class="formfld" size="40" name="newitems[]" value="',htmlspecialchars($newitem),'">',
 								'</td>',"\n",
 								'<td class="lcebl">',
 									'<input type="hidden" name="selitems[]" value="',htmlspecialchars($selitem),'">',htmlspecialchars($selitem),

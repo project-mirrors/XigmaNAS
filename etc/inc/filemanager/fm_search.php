@@ -143,7 +143,7 @@ trait fm_search {
 					'<thead>',
 						'<tr>',
 							'<th class="lhebl">',
-								'<input name="searchitem" type="text" size="25" value="',htmlspecialchars($searchitem ?? ''),'" placeholder="',gtext('Search Filter'),'">',
+								'<input type="text" class="formfld" name="searchitem" size="25" value="',htmlspecialchars($searchitem ?? ''),'" placeholder="',gtext('Search Filter'),'">',
 								'<input type="checkbox" name="subdir" value="y"',($subdir ? ' checked' : ''),'>',
 								'<span style="font-weight:normal">',gtext('Search subfolder'),'&nbsp;</span>',
 								'<input type="submit" value="',gtext('Search'),'">','&nbsp;',

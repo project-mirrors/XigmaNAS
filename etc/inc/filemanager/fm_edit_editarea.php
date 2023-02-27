@@ -128,7 +128,7 @@ trait fm_edit_editarea {
 		echo		'<br>',"\n";
 		echo		'<table>',"\n",
 						'<tr>',"\n",
-							'<td><input type="text" name="fname" value="',htmlspecialchars($item),'"></td>',"\n",
+							'<td><input type="text" class="formfld" name="fname" value="',htmlspecialchars($item),'"></td>',"\n",
 							'<td><input type="submit" value="',gtext('Save'),'"></td>',"\n",
 							'<td><input type="reset" value="',gtext('Reset'),'"></td>',"\n",
 							'<td><input type="button" value="',gtext('Close'),'" onClick="javascript:location=\'',$this->make_link('list',$dir,null),'\';"></td>',"\n",

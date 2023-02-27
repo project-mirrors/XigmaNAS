@@ -323,7 +323,7 @@ trait fm_list {
 			echo '<option value="file">',gtext('File'),'</option>',"\n";
 			echo '<option value="dir">',gtext('Directory'),'</option>',"\n";
 			echo '</select>',"\n";
-			echo '<input name="mkname" type="text" size="15">',"\n";
+			echo '<input type="text" class="formfld" name="mkname" size="15">',"\n";
 			echo '<input type="submit" value="',gtext('Create'),'">',"\n";
 			echo '</td></tr></tbody></table>',"\n";
 			echo '</form>',"\n";
