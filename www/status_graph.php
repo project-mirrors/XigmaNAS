@@ -40,8 +40,8 @@ use common\arr;
 use status\monitor\shared_toolbox as myst;
 
 $grid = arr::make_branch($config,'interfaces');
-$graph_width = 397;
-$graph_height = 220;
+$graph_width = 400;
+$graph_height = 225;
 $a_object = [
 	'type' => 'image/svg+xml',
 	'class' => 'rrdgraphs',

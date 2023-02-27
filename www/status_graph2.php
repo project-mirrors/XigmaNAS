@@ -51,10 +51,10 @@ $fetch_link = "stats.php?if=$ifnum";
 //SVG style attributes
 $attribs['bg']='fill="'.$color_fill.'" stroke="none" stroke-width="0" opacity="1"';
 $attribs['axis']='fill="'.$color_fill.'" stroke="black"';
-$attribs['in']='fill="#00CC00" font-family="Tahoma, Verdana, Arial, Helvetica, sans-serif" font-size="6"';
-$attribs['out']='fill="#FF0000" font-family="Tahoma, Verdana, Arial, Helvetica, sans-serif" font-size="6"';
-$attribs['graph_in']='fill="none" stroke="#00CC00" stroke-opacity="0.8"';
-$attribs['graph_out']='fill="none" stroke="#FF0000" stroke-opacity="0.8"';
+$attribs['in']='fill="#009400" font-family="Tahoma, Verdana, Arial, Helvetica, sans-serif" font-size="6"';
+$attribs['out']='fill="#12389B" font-family="Tahoma, Verdana, Arial, Helvetica, sans-serif" font-size="6"';
+$attribs['graph_in']='fill="none" stroke="#008E00" stroke-opacity="0.8"';
+$attribs['graph_out']='fill="none" stroke="#12389B" stroke-opacity="0.8"';
 $attribs['grid_txt']='fill="gray" font-family="Tahoma, Verdana, Arial, Helvetica, sans-serif" font-size="5"';
 $attribs['grid']='stroke="#C3C3C3" stroke-opacity="1" stroke-width="0.2"';
 $attribs['switch_unit']='fill="#C3C3C3" font-family="Tahoma, Verdana, Arial, Helvetica, sans-serif" font-size="4" text-decoration="underline"';
