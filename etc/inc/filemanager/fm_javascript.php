@@ -44,10 +44,8 @@ trait fm_javascript {
 //	Checkboxes
 	function Toggle(e) {
 		if(e.checked) {
-			Highlight(e);
 			document.selform.toggleAllC.checked = AllChecked();
 		} else {
-			UnHighlight(e);
 			document.selform.toggleAllC.checked = false;
 		}
 	}
@@ -62,7 +60,6 @@ trait fm_javascript {
 			var e = ml.elements[i];
 			if(e.name == "selitems[]") {
 				e.checked = true;
-				Highlight(e);
 			}
 		}
 		ml.toggleAllC.checked = true;
@@ -74,7 +71,6 @@ trait fm_javascript {
 			var e = ml.elements[i];
 			if(e.name == "selitems[]") {
 				e.checked = false;
-				UnHighlight(e);
 			}
 		}
 		ml.toggleAllC.checked = false;
@@ -95,29 +91,6 @@ trait fm_javascript {
 			if(ml.elements[i].name == "selitems[]" && ml.elements[i].checked) ++num;
 		}
 		return num;
-	}
-//	Row highlight
-	function Highlight(e) {
-		var r = null;
-		if(e.parentNode && e.parentNode.parentNode) {
-			r = e.parentNode.parentNode;
-		} else if(e.parentElement && e.parentElement.parentElement) {
-			r = e.parentElement.parentElement;
-		}
-		if(r && r.className=="rowdata") {
-			r.className = "rowdatasel";
-		}
-	}
-	function UnHighlight(e) {
-		var r = null;
-		if(e.parentNode && e.parentNode.parentNode) {
-			r = e.parentNode.parentNode;
-		} else if (e.parentElement && e.parentElement.parentElement) {
-			r = e.parentElement.parentElement;
-		}
-		if(r && r.className=="rowdatasel") {
-			r.className = "rowdata";
-		}
 	}
 //	Copy / Move / Delete
 	function Copy() {
