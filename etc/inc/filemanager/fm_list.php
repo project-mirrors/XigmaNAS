@@ -199,7 +199,7 @@ trait fm_list {
 		foreach($list as $item => $value):
 //			link to dir / file
 			$abs_item = $this->get_abs_item($dir,$item);
-			echo '<tr class="rowdata">';
+			echo '<tr>';
 			echo '<td class="lcelc"><input type="checkbox" name="selitems[]" value="',htmlspecialchars($item),'" onclick="javascript:Toggle(this);"></td>',"\n";
 //			icon + link
 			echo '<td class="lcell" style="white-space: nowrap">';
