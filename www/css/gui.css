@@ -736,19 +736,6 @@ textarea:enabled:read-only,
 	border-bottom-right-radius: var(--bor-bottom-right);
 }
 
-/*
-	NOT FOR PRODUCTION
-	DEV highlight issues
-*/
-.formpre,
-.formfld,
-.formprero,
-.formfldro
-{
-	color: #FF0000;
-	background-color: #00FFFF;
-}
-
 .formfld[type=file]
 {
 	width: 56rem;
