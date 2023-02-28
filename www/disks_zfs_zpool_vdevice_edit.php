@@ -64,19 +64,10 @@ $gt_confirm_cache = gtext('Do you want to create a cache device from selected di
 $gt_confirm_log = gtext('Do you want to create a log device from selected disk?');
 $gt_confirm_logmir = gtext('Do you want to create a mirrored log device from selected disks?');
 $gt_confirm_dedup = gtext('Do you want to create a dedup device from selected disks?');
-$gt_confirm_logmir = gtext('Do you want to create a special allocation device from selected disks?');
+$gt_confirm_sac = gtext('Do you want to create a special allocation device from selected disks?');
 $gt_record_loc = gtext('Virtual device is already in use.');
 $gt_record_opn = gtext('Virtual device can be removed.');
 $prerequisites_ok = true;
-$img_path = [
-	'add' => 'images/add.png',
-	'mod' => 'images/edit.png',
-	'del' => 'images/delete.png',
-	'loc' => 'images/locked.png',
-	'unl' => 'images/unlocked.png',
-	'mai' => 'images/maintain.png',
-	'inf' => 'images/info.png'
-];
 //	detect page mode
 $mode_page = ($_POST) ? PAGE_MODE_POST : (($_GET) ? PAGE_MODE_EDIT : PAGE_MODE_ADD);
 if($mode_page == PAGE_MODE_POST):
@@ -394,7 +385,7 @@ $document->
 			ins_tabnav_record('disks_zfs_zpool_io.php',gettext('I/O Statistics'));
 $document->render();
 ?>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform" class="pagecontent"><div class="area_data_top"></div><div id="area_data_frame">
 <?php
 	if(!empty($errormsg)):
 		print_error_box($errormsg);
@@ -404,31 +395,6 @@ $document->render();
 	endif;
 	if(file_exists($d_sysrebootreqd_path)):
 		print_info_box(get_std_save_message(0));
-	endif;
-	if ($isrecordnewornewmodify):
-?>
-		<div id="submit" style="margin-bottom:10px">
-			<button name="action" id="button_single" type="submit" class="formbtn" value="stripe" title="<?=gtext('Create a virtual device containing a single device');?>"><?=gtext('DISK');?></button>
-			<button name="action" id="button_stripe" type="submit" class="formbtn" value="stripe" title="<?=gtext('Create a virtual device containing concatenated devices');?>"><?=gtext('STRIPE');?></button>
-			<button name="action" id="button_mirror" type="submit" class="formbtn" value="mirror" title="<?=gtext('Create a virtual device containing mirrored devices');?>"><?=gtext('MIRROR');?></button>
-			<button name="action" id="button_raidz1" type="submit" class="formbtn" value="raidz1" title="<?=gtext('Create a virtual device which tolerates a single device failure');?>"><?=gtext('RAID-Z1');?></button>
-			<button name="action" id="button_raidz2" type="submit" class="formbtn" value="raidz2" title="<?=gtext('Create a virtual device which tolerates 2 device failures');?>"><?=gtext('RAID-Z2');?></button>
-			<button name="action" id="button_raidz3" type="submit" class="formbtn" value="raidz3" title="<?=gtext('Create a virtual device which tolerates 3 device failures');?>"><?=gtext('RAID-Z3');?></button>
-<!--
-			<button name="action" id="button_draid1" type="submit" class="formbtn" value="draid1" title="<?=gtext('Create a virtual device which tolerates a single device failure');?>"><?=gtext('DRAID-1');?></button>
-			<button name="action" id="button_draid2" type="submit" class="formbtn" value="draid2" title="<?=gtext('Create a virtual device which tolerates 2 device failures');?>"><?=gtext('DRAID-2');?></button>
-			<button name="action" id="button_draid3" type="submit" class="formbtn" value="draid3" title="<?=gtext('Create a virtual device which tolerates 3 device failures');?>"><?=gtext('DRAID-3');?></button>
--->
-			<button name="action" id="button_spare"  type="submit" class="formbtn" value="spare" title="<?=gtext('Create a spare device');?>"><?=gtext('HOT SPARE');?></button>
-			<button name="action" id="button_cache"  type="submit" class="formbtn" value="cache" title="<?=gtext('Create a L2ARC device for ARC');?>"><?=gtext('CACHE');?></button>
-			<button name="action" id="button_log"    type="submit" class="formbtn" value="log" title="<?=gtext('Create a SLOG device for ZIL');?>"><?=gtext('LOG');?></button>
-			<button name="action" id="button_logmir" type="submit" class="formbtn" value="log-mirror" title="<?=gtext('Create a mirrored SLOG device for ZIL');?>"><?=gtext('LOG (Mirror)');?></button>
-<!--
-			<button name="action" id="button_dedup" type="submit" class="formbtn" value="dedup" title="<?=gtext('Create a dedup device');?>"><?=gtext('DEDUP');?></button>
-			<button name="action" id="button_sac" type="submit" class="formbtn" value="sac" title="<?=gtext('Create a special allocation device');?>"><?=gtext('SPECIAL');?></button>
--->
-		</div>
-<?php
 	endif;
 ?>
 	<table class="area_data_settings">
@@ -451,9 +417,6 @@ $document->render();
 			html_inputbox2('desc',gettext('Description'),$sphere_record['desc'],gettext('You may enter a description here for your reference.'),false,40);
 ?>
 		</tbody>
-		<tfoot>
-			<th class="lcenl" colspan="2"></th>
-		</tfoot>
 	</table>
 	<table class="area_data_selection">
 		<colgroup>
@@ -472,27 +435,27 @@ $document->render();
 			html_titleline2(gettext('Device List'),9);
 ?>
 			<tr>
-				<td class="lhelc">
+				<th class="lhelc">
 <?php
 					if ($isrecordnewornewmodify):
 ?>
-						<input type="checkbox" class="oneemhigh" id="togglebox" name="togglebox" title="<?=gtext('Invert Selection');?>"/>
+						<input type="checkbox" class="oneemhigh" id="togglebox" name="togglebox" title="<?=gtext('Invert Selection');?>">
 <?php
 					else:
 ?>
-						<input type="checkbox" class="oneemhigh" id="togglebox" name="togglebox" disabled="disabled"/>
+						<input type="checkbox" class="oneemhigh" id="togglebox" name="togglebox" disabled="disabled">
 <?php
 					endif;
 ?>
-				</td>
-				<td class="lhell"><?=gtext('Device');?></td>
-				<td class="lhell"><?=gtext('Partition');?></td>
-				<td class="lhell"><?=gtext('Model');?></td>
-				<td class="lhell"><?=gtext('Serial Number');?></td>
-				<td class="lhell"><?=gtext('Size');?></td>
-				<td class="lhell"><?=gtext('Controller');?></td>
-				<td class="lhell"><?=gtext('Name');?></td>
-				<td class="lhebl"><?=gtext('Toolbox');?></td>
+				</th>
+				<th class="lhell"><?=gtext('Device');?></th>
+				<th class="lhell"><?=gtext('Partition');?></th>
+				<th class="lhell"><?=gtext('Model');?></th>
+				<th class="lhell"><?=gtext('Serial Number');?></th>
+				<th class="lhell"><?=gtext('Size');?></th>
+				<th class="lhell"><?=gtext('Controller');?></th>
+				<th class="lhell"><?=gtext('Name');?></th>
+				<th class="lhebl"><?=gtext('Toolbox');?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -508,11 +471,11 @@ $document->render();
 <?php
 								if($ismemberofthisvdev):
 ?>
-									<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>" checked="checked"/>
+									<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>" checked="checked">
 <?php
 								else:
 ?>
-									<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>"/>
+									<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>">
 <?php
 								endif;
 ?>
@@ -528,7 +491,7 @@ $document->render();
 <?php
 								if($ismemberofthisvdev):
 ?>
-									<img src="<?=$img_path['unl'];?>" title="<?=$gt_record_opn;?>" alt="<?=$gt_record_opn;?>"/>
+									<img src="<?=$g_img['unl'];?>" title="<?=$gt_record_opn;?>" alt="<?=$gt_record_opn;?>">
 <?php
 								endif;
 ?>
@@ -576,7 +539,7 @@ $document->render();
 ?>
 					<tr>
 						<td class="lcelcd">
-							<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" checked="checked" disabled="disabled"/>
+							<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" checked="checked" disabled="disabled">
 						</td>
 						<td class="lcelld"><?=htmlspecialchars($r_device['name'] ?? '');?></td>
 						<td class="lcelld"><?=htmlspecialchars($r_device['partition'] ?? '');?></td>
@@ -586,7 +549,7 @@ $document->render();
 						<td class="lcelld"><?=htmlspecialchars($r_device['controller'] ?? '');?></td>
 						<td class="lcelld"><?=htmlspecialchars($r_device['desc'] ?? '');?></td>
 						<td class="lcebld">
-							<img src="<?=$img_path['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>"/>
+							<img src="<?=$g_img['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>">
 						</td>
 					</tr>
 <?php
@@ -599,16 +562,41 @@ $document->render();
 <?php
 		if($isrecordmodify):
 ?>
-			<input name="submit" type="submit" class="formbtn" value="<?=gtext('Save');?>"/>
+			<input name="submit" type="submit" class="formbtn" value="<?=gtext('Save');?>">
 <?php
 		endif;
 ?>
-		<input name="cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>"/>
-		<input name="uuid" type="hidden" value="<?=$sphere_record['uuid'];?>"/>
+		<input name="cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>">
+<?php
+		if ($isrecordnewornewmodify):
+?>
+			<button name="action" id="button_single" type="submit" class="formbtn" value="stripe" title="<?=gtext('Create a virtual device containing a single device');?>"><?=gtext('DISK');?></button>
+			<button name="action" id="button_stripe" type="submit" class="formbtn" value="stripe" title="<?=gtext('Create a virtual device containing concatenated devices');?>"><?=gtext('STRIPE');?></button>
+			<button name="action" id="button_mirror" type="submit" class="formbtn" value="mirror" title="<?=gtext('Create a virtual device containing mirrored devices');?>"><?=gtext('MIRROR');?></button>
+			<button name="action" id="button_raidz1" type="submit" class="formbtn" value="raidz1" title="<?=gtext('Create a virtual device which tolerates a single device failure');?>"><?=gtext('RAID-Z1');?></button>
+			<button name="action" id="button_raidz2" type="submit" class="formbtn" value="raidz2" title="<?=gtext('Create a virtual device which tolerates 2 device failures');?>"><?=gtext('RAID-Z2');?></button>
+			<button name="action" id="button_raidz3" type="submit" class="formbtn" value="raidz3" title="<?=gtext('Create a virtual device which tolerates 3 device failures');?>"><?=gtext('RAID-Z3');?></button>
+<!--
+			<button name="action" id="button_draid1" type="submit" class="formbtn" value="draid1" title="<?=gtext('Create a virtual device which tolerates a single device failure');?>"><?=gtext('DRAID-1');?></button>
+			<button name="action" id="button_draid2" type="submit" class="formbtn" value="draid2" title="<?=gtext('Create a virtual device which tolerates 2 device failures');?>"><?=gtext('DRAID-2');?></button>
+			<button name="action" id="button_draid3" type="submit" class="formbtn" value="draid3" title="<?=gtext('Create a virtual device which tolerates 3 device failures');?>"><?=gtext('DRAID-3');?></button>
+-->
+			<button name="action" id="button_spare"  type="submit" class="formbtn" value="spare" title="<?=gtext('Create a spare device');?>"><?=gtext('HOT SPARE');?></button>
+			<button name="action" id="button_cache"  type="submit" class="formbtn" value="cache" title="<?=gtext('Create a L2ARC device for ARC');?>"><?=gtext('CACHE');?></button>
+			<button name="action" id="button_log"    type="submit" class="formbtn" value="log" title="<?=gtext('Create a SLOG device for ZIL');?>"><?=gtext('LOG');?></button>
+			<button name="action" id="button_logmir" type="submit" class="formbtn" value="log-mirror" title="<?=gtext('Create a mirrored SLOG device for ZIL');?>"><?=gtext('LOG (Mirror)');?></button>
+<!--
+			<button name="action" id="button_dedup" type="submit" class="formbtn" value="dedup" title="<?=gtext('Create a dedup device');?>"><?=gtext('DEDUP');?></button>
+			<button name="action" id="button_sac" type="submit" class="formbtn" value="sac" title="<?=gtext('Create a special allocation device');?>"><?=gtext('SPECIAL');?></button>
+-->
+<?php
+		endif;
+?>
+		<input name="uuid" type="hidden" value="<?=$sphere_record['uuid'];?>">
 	</div>
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</div><div class="area_data_pot"></div></form>
 <?php
 include 'fend.inc';
