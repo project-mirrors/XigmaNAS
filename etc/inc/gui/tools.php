@@ -698,18 +698,15 @@ trait tools {
 				break;
 		endswitch;
 		if($is_readonly):
-			$input_attributes['class'] = 'formfldro';
 			$input_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
 			$placeholder = $property->get_placeholderv() ?? $property->get_placeholder();
 		else:
-			$input_attributes['class'] = 'formfld';
 			$maxlength = $property->get_maxlength();
 			$placeholder = $property->get_placeholder();
 		endif;
 		if($is_required):
-			$input_attributes['class'] = 'formfld';
 			$input_attributes['required'] = 'required';
 		endif;
 		if(isset($placeholder)):
@@ -829,18 +826,15 @@ trait tools {
 			'value' => $preset
 		];
 		if($is_readonly):
-			$input_attributes['class'] = 'formfldro';
 			$input_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
 			$placeholder = $property->get_placeholderv() ?? $property->get_placeholder();
 		else:
-			$input_attributes['class'] = 'formfld';
 			$maxlength = $property->get_maxlength();
 			$placeholder = $property->get_placeholder();
 		endif;
 		if($is_required):
-			$input_attributes['class'] = 'formfld';
 			$input_attributes['required'] = 'required';
 		endif;
 		if(isset($placeholder)):
@@ -977,11 +971,8 @@ EOJ;
 			'name' => $property->get_name()
 		];
 		if($is_readonly):
-			$select_attributes['class'] = 'formfldro';
 			$select_attributes['disabled'] = 'disabled';
 			$is_required = false;
-		else:
-			$select_attributes['class'] = 'formfld';
 		endif;
 		if($is_required):
 			$select_attributes['required'] = 'required';
@@ -1032,18 +1023,18 @@ EOJ;
 			'name' => $property->get_name()
 		];
 		if($is_readonly):
-			$textarea_attributes['class'] = 'cd-textarea-input formprero';
+			$textarea_attributes['class'] = 'cd-textarea-input';
 			$textarea_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
 			$placeholder = $property->get_placeholderv() ?? $property->get_placeholder();
 		else:
-			$textarea_attributes['class'] = 'cd-textarea-input formpre';
+			$textarea_attributes['class'] = 'cd-textarea-input';
 			$maxlength = $property->get_maxlength();
 			$placeholder = $property->get_placeholder();
 		endif;
 		if($is_required):
-			$textarea_attributes['class'] = 'cd-textarea-input formpre';
+			$textarea_attributes['class'] = 'cd-textarea-input';
 			$textarea_attributes['required'] = 'required';
 		endif;
 		if(isset($placeholder)):
@@ -1828,19 +1819,17 @@ EOJ;
 				endif;
 			else:
 				$target = $root->getElementById(elementId: 'g4f') ?? $this;
-				$div_attributes['style'] = 'padding: 0em 2em;';
+				$div_attributes['class'] = 'outer-frame-trbl';
 				if($noscript):
 					$subnode = $target->prepend_element(name: 'noscript')->addElement(name: 'div',attributes: $div_attributes);
 				else:
 					$subnode = $target->prepend_element(name: 'div',attributes: $div_attributes);
 				endif;
 			endif;
+		elseif($noscript):
+			$subnode = $this->addElement(name: 'noscript')->addDIV(attributes: $div_attributes);
 		else:
-			if($noscript):
-				$subnode = $this->addElement(name: 'noscript')->addDIV(attributes: $div_attributes);
-			else:
-				$subnode = $this->addDIV(attributes: $div_attributes);
-			endif;
+			$subnode = $this->addDIV(attributes: $div_attributes);
 		endif;
 		return $subnode;
 	}
