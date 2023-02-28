@@ -163,8 +163,8 @@
 /*
 	gap
 */
-	--mat-gap: 1.0625rem;
-	--mab-gap: 1.0625rem;
+	--mat-gap: 1rem;
+	--mab-gap: 1rem;
 /*
 	celltag
 */
@@ -409,17 +409,21 @@ pre.cmdoutput
 	box-shadow: none;
 }
 
-.area_data_selection > tbody > tr:nth-child(even) {
+.area_data_selection > tbody > tr:nth-child(even)
+{
 	background-color: #F4F4F4;
 	background-color: var(--bgc-lce-even);
 }
 
-.area_data_selection > tbody > tr:nth-child(odd) {
+.area_data_selection > tbody > tr:nth-child(odd)
+{
 	background-color: #FCFCFC;
 	background-color: var(--bgc-lce-odd);
 }
 
-.area_data_selection > tbody > tr:last-child > td {
+div.cd-radio-grid > table > tbody > tr:last-child > td:last-child,
+div.cd-checkbox-grid > table > tbody > tr:last-child > td:last-child
+{
 	border-bottom-right-radius: 2px;
 	border-bottom-right-radius: var(--bor-bottom-right);
 }
@@ -732,6 +736,19 @@ textarea:enabled:read-only,
 	border-bottom-right-radius: var(--bor-bottom-right);
 }
 
+/*
+	NOT FOR PRODUCTION
+	DEV highlight issues
+*/
+.formpre,
+.formfld,
+.formprero,
+.formfldro
+{
+	color: #FF0000;
+	background-color: #00FFFF;
+}
+
 .formfld[type=file]
 {
 	width: 56rem;
@@ -742,6 +759,9 @@ textarea:enabled:read-only,
 	margin-top: 0.3125rem;
 }
 
+button,
+input[type=button],
+input[type=submit],
 .formbtn
 {
 	appearance: none;
@@ -759,8 +779,15 @@ textarea:enabled:read-only,
 	padding-right: 6px;
 }
 
-.formbtn:hover,
-.formbtn:active
+button:disabled,
+input[type=button]:disabled,
+input[type=submit]:disabled,
+.formbtn:disabled {
+	opacity: 30%;
+}
+
+.formbtn:enabled:hover,
+.formbtn:enabled:active
 {
 	-webkit-transform: scale(0.95,0.95);
 	transform: scale(0.95,0.95);
@@ -978,7 +1005,7 @@ a
 {
 	background-color: #EEEEEE;
 	background-color: var(--bgc-area-data);
-	padding: 1.8125rem;
+	padding: 1rem;
 	border: 0;
 }
 
@@ -1003,7 +1030,7 @@ table#area_data
 td#area_data_frame
 {
 	border: 0;
-	padding: 1.5rem;
+	padding: 1rem;
 }
 
 div#area_data_frame
@@ -1016,8 +1043,8 @@ div#area_data_frame
 .area_data_pot,
 div#area_data_frame
 {
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .area_data_top,
@@ -1028,12 +1055,12 @@ div#area_data_frame
 
 .area_data_top
 {
-	padding-top: 1.5rem;
+	padding-top: 1rem;
 }
 
 .area_data_pot
 {
-	padding-bottom: 1.5rem;
+	padding-bottom: 1rem;
 }
 
 .area_data_top,
@@ -1071,7 +1098,7 @@ div#area_data_frame > form > table > thead tr:last-child th[class^="lhe"]
 div#area_data_frame > table.area_data_selection:not(:last-child),
 div#area_data_frame > table.area_data_settings:not(:last-child)
 {
-	margin-bottom: 1.0625rem;
+	margin-bottom: 1rem;
 	margin-bottom: var(--mab-gap);
 }
 
@@ -1332,7 +1359,8 @@ div#pagefooter span a:hover
 }
 
 div#pgtitle,
-div#pagecontent
+div#pagecontent,
+.outer-frame-trbl
 {
 	padding: 0 2rem;
 }
@@ -1354,6 +1382,9 @@ form.pagecontent
 div#submit
 {
 	margin-top: 1rem;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 0.25rem;
 }
 
 div#remarks
