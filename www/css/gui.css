@@ -774,6 +774,7 @@ input[type=file]:disabled
 button[type=submit],
 input[type=button],
 input[type=file]::file-selector-button,
+input[type=reset],
 input[type=submit]
 {
 	appearance: none;
@@ -795,6 +796,7 @@ input[type=submit]
 
 button[type=submit]:disabled,
 input[type=button]:disabled,
+input[type=reset]:disabled,
 input[type=submit]:disabled,
 input[type=file]:disabled::file-selector-button
 {
@@ -803,14 +805,17 @@ input[type=file]:disabled::file-selector-button
 
 button[type=submit]:enabled:active,
 input[type=button]:enabled:active,
+input[type=reset]:enabled:active,
 input[type=submit]:enabled:active,
 input[type=file]:enabled:active::file-selector-button,
 button[type=submit]:enabled:focus,
 input[type=button]:enabled:focus,
+input[type=reset]:enabled:focus,
 input[type=submit]:enabled:focus,
 input[type=file]:enabled:focus::file-selector-button,
 button[type=submit]:enabled:hover,
 input[type=button]:enabled:hover,
+input[type=reset]:enabled:hover,
 input[type=submit]:enabled:hover,
 input[type=file]:enabled:hover::file-selector-button
 {
