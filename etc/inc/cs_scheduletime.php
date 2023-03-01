@@ -54,7 +54,7 @@ function render_scheduler(array $pconfig,bool $with_minutes = true): void {
 	$matrix['months' ] = ['header' => gettext('Months' ),'all' => 'all_months' ,'sel' => 'month'];
 	$matrix['weekdays'] = ['header' => gettext('Weekdays'),'all' => 'all_weekdays','sel' => 'weekday'];
 	$document = new gui\document();
-	$div = $document->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
+	$div = $document->addDIV(['class' => 'scheduler-container']);
 	foreach($matrix as $matrix_key => $control):
 		$attributes_1 = ['type' => 'radio','class' => 'rblo','name' => $control['all'],'id' => $control['all'] . '1','value' => '1'];
 		$attributes_2 = ['type' => 'radio','class' => 'rblo dimassoctable','name' => $control['all'],'id' => $control['all'] . '2','value' => '0'];

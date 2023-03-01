@@ -1362,7 +1362,7 @@ EOJ;
 			endif;
 		endif;
 //		scheduler
-		$div = $root_for_scheduler->addDIV(attributes: ['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
+		$div = $root_for_scheduler->addDIV(attributes: ['class' => 'scheduler-container']);
 		$root_for_scheduler->ins_description(property: $cops['scheduler']);
 //		insert elements
 		foreach($matrix as $matrix_key => $control):
