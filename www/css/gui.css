@@ -707,7 +707,7 @@ input[type=checkbox]:checked ~ div.hideifchecked
 	margin-top: 0.3125rem;
 }
 
-input:not([type]):enabled:read-write
+input:not([type]):enabled:read-write,
 input[type=password]:enabled:read-write,
 input[type=text]:enabled:read-write,
 select:enabled,
