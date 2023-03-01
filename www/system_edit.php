@@ -149,14 +149,14 @@ $(window).on("load", function() {
 				<tr>
 					<td class="celltag"><?=gtext('File Path');?></td>
 					<td class="celldata">
-						<input class="formfld" size="42" id="savetopath" name="savetopath" value="<?=$savetopath;?>">
-						<input name="browse" type="button" class="formbtn" id="Browse" onclick='ifield = form.savetopath; filechooser = window.open("filechooser.php?p="+encodeURIComponent(ifield.value),"filechooser","scrollbars=yes,toolbar=no,menubar=no,statusbar=no,width=550,height=300"); filechooser.ifield = ifield; window.ifield = ifield;' value="...">
-						<button name="submit" type="submit" class="formbtn" id="open" value="open"><?=gtext('Open File');?></button>
+						<input type="text" size="42" id="savetopath" name="savetopath" value="<?=$savetopath;?>">
+						<input type="button" name="browse" id="Browse" onclick='ifield = form.savetopath; filechooser = window.open("filechooser.php?p="+encodeURIComponent(ifield.value),"filechooser","scrollbars=yes,toolbar=no,menubar=no,statusbar=no,width=550,height=300"); filechooser.ifield = ifield; window.ifield = ifield;' value="...">
+						<button type="submit" name="submit" id="open" value="open"><?=gtext('Open File');?></button>
 <?php
 						if($hlm_available && $hlm_enabled):
 						else:
 ?>
-							<button name="submit" type="submit" class="formbtn" id="Save" value="save"><?=gtext('Save File');?></button>
+							<button type="submit" name="submit" id="Save" value="save"><?=gtext('Save File');?></button>
 <?php
 						endif;
 ?>
@@ -168,9 +168,9 @@ $(window).on("load", function() {
 					<tr>
 						<td class="celltag"><?=gtext('Size');?></td>
 						<td class="celldata">
-							<?=gtext('Rows'); ?>: <input size="3" name="rows" class="formfld" value="<?=$rows;?>">
-							<?=gtext('Cols'); ?>: <input size="3" name="cols" class="formfld" value="<?=$cols;?>">
-							<button type="submit" name="submit" class="formbtn" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
+							<?=gtext('Rows'); ?>: <input type="text" size="3" name="rows" value="<?=$rows;?>">
+							<?=gtext('Cols'); ?>: <input type="text" size="3" name="cols" value="<?=$cols;?>">
+							<button type="submit" name="submit" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
 							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>">
 						</td>
 					</tr>
@@ -180,7 +180,7 @@ $(window).on("load", function() {
 					<tr>
 						<td class="celltag"><?=gtext('Highlight View');?></td>
 						<td class="celldata">
-							<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightdis"><?=gtext('Disable');?></button>
+							<button type="submit" name="submit" id="highlight" value="highlightdis"><?=gtext('Disable');?></button>
 							<input type="hidden" name="rows" value="<?=$rows;?>">
 							<input type="hidden" name="cols" value="<?=$cols;?>">
 							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>">
@@ -192,15 +192,15 @@ $(window).on("load", function() {
 					<tr>
 						<td class="celltag"><?=gtext('Size');?></td>
 						<td class="celldata">
-							<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>">
-							<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>">
-							<button type="submit" name="submit" class="formbtn" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
+							<?=gtext('Rows'); ?>: <input type="text" size="3" name="rows" value="<?=$rows;?>">
+							<?=gtext('Cols'); ?>: <input type="text" size="3" name="cols" value="<?=$cols;?>">
+							<button type="submit" name="submit" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
 						</td>
 					</tr>
 					<tr>
 						<td class="celltag"><?=gtext('Highlight View');?></td>
 						<td class="celldata">
-							<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightena"><?=gtext('Enable');?></button>
+							<button type="submit" name="submit" id="highlight" value="highlightena"><?=gtext('Enable');?></button>
 							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>">
 						</td>
 					</tr>
