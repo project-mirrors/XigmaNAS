@@ -21,12 +21,12 @@ rraki() {
 
 #	prepare variables
 	_login="root"
-	if [ 0 -lt `configxml_get_count "//access/publickey/param[login=\"${_login}\"]"` ]; then
-		_homedir=`/usr/bin/getent passwd "${_login}" | cut -d : -f 6`
-		_sshdir="${_homedir}/.ssh"
-		_akfile="${_sshdir}/authorized_keys"
+	if [ $( configxml_get_count "//access/publickey/param[login=\"${_login}\"]" ) -gt 0 ]; then
+		_homedir=$( /usr/bin/getent passwd "${_login}" | cut -d : -f 6 )
 #		process only when _login and _homedir are not empty and _homedir exists and is not /mnt
 		if [ -n "${_login}" ] && [ -n "${_homedir}" ] && [ -d "${_homedir}" ] && [ "${_homedir}" != "/mnt" ]; then
+			_sshdir="${_homedir}/.ssh"
+			_akfile="${_sshdir}/authorized_keys"
 #			create .ssh folder if it doesn't exist
 			[ ! -d "${_sshdir}" ] && /bin/mkdir -m 700 "${_sshdir}" && /usr/sbin/chown "${_login}" "${_sshdir}"
 #			prepare authorized_keys file
@@ -50,16 +50,16 @@ ruaki() {
 	local _index _login _homedir _sshdir _akfile
 
 #	loop through users
-	_index=`configxml_get_count "//access/user"`
+	_index=$( configxml_get_count "//access/user" )
 	while [ ${_index} -gt 0 ]; do
 #		prepare variables
-		_login=`configxml_get "//access/user[position()=${_index}]/login"`
-		if [ 0 -lt `configxml_get_count "//access/publickey/param[login=\"${_login}\"]"` ]; then
-			_homedir=`/usr/bin/getent passwd "${_login}" | cut -d : -f 6`
-			_sshdir="${_homedir}/.ssh"
-			_akfile="${_sshdir}/authorized_keys"
+		_login=$( configxml_get "//access/user[position()=${_index}]/login" )
+		if [ $( configxml_get_count "//access/publickey/param[login=\"${_login}\"]" ) -gt 0 ]; then
+			_homedir=$( /usr/bin/getent passwd "${_login}" | cut -d : -f 6 )
 #			process only when _login and _homedir are not empty and _homedir exists and is not /mnt
 			if [ -n "${_login}" ] && [ -n "${_homedir}" ] && [ -d "${_homedir}" ] && [ "${_homedir}" != "/mnt" ]; then
+				_sshdir="${_homedir}/.ssh"
+				_akfile="${_sshdir}/authorized_keys"
 #				create ssh folder if it doesn't exist
 				[ ! -d "${_sshdir}" ] && /bin/mkdir -m 700 "${_sshdir}" && /usr/sbin/chown "${_login}" "${_sshdir}"
 #				prepare authorized_keys file
