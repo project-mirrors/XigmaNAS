@@ -30,172 +30,85 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-body {
-	min-width: 472px;
-}
 .loginpageworkspace {
-	height: 100%;
+	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
 	align-items: center;
+	height: 100%;
 }
 .loginpageframe {
-	flex: 0 0 auto;
-	padding: 20px;
-	background: #EEEEEE;
+	padding: 1.25rem;
+    background-color: #D6D6D6;
+    background-color: var(--bgc-setting-tag);
 }
 .loginpagedata {
+	display: flex;
 	flex-flow: column nowrap;
 }
 .lph {
-	flex: 0 0 auto;
+	display: flex;
 	flex-flow: column nowrap;
 	align-items: stretch;
-	border: 1px solid #bbb;
-	border-bottom-width: 0px;
-	-moz-border-radius: 2px 2px 0 0;
-	-webkit-border-radius: 2px 2px 0 0;
-	border-radius: 2px 2px 0 0;
-	padding: 15px;
-	background: rgb(237,237,237);
-	background: -moz-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(222,222,222,1) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,237,237,1)), color-stop(100%,rgba(222,222,222,1)));
-	background: -webkit-linear-gradient(top, rgba(237,237,237,1) 0%,rgba(222,222,222,1) 100%);
-	background: -o-linear-gradient(top, rgba(237,237,237,1) 0%,rgba(222,222,222,1) 100%);
-	background: -ms-linear-gradient(top, rgba(237,237,237,1) 0%,rgba(222,222,222,1) 100%);
-	background: linear-gradient(to bottom, rgba(237,237,237,1) 0%,rgba(222,222,222,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#dedede',GradientType=0 );
+	gap: 0.25rem;
+	flex: 0 0 auto;
+	border: 0.0625rem solid #bbb;
+	padding: 1rem;
 }
 .lphl {
-	flex: 0 0 auto;
+	display: flex;
 	flex-flow: row nowrap;
-	align-items: center;
 	justify-content: space-between;
+	align-items: center;
+	gap: 1.25rem;
+	flex: 0 0 auto;
 }
 .lphh {
 	flex: 0 0 auto;
 }
 .lphll {
 	flex: 0 0 auto;
-	padding-right: 20px;
 }
 .lphlr {
 	flex: 0 0 auto;
 }
 .hostname {
-	padding-top: 5px;
 	text-align: right;
-	font-size: 12px;
 	color: #666666;
 }
 .lpm {
-	padding: 20px;
-	background: #444;
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	height: 150px;
-	flex: 0 0 auto;
+	display: flex;
 	flex-flow: column nowrap;
 	justify-content: space-between;
+	gap: 1.25rem;
+	flex: 0 0 auto;
+	border-left: 0.0625rem solid #bbb;
+	border-right: 0.0625rem solid #bbb;
+	padding: 1.25rem;
 }
 .lpmi {
 	flex: 0 0 auto;
 }
 .lpm input {
 	width: 100%;
-	padding: 10px 30px;
-	color: #fff;
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	font-size: 14px !important;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	border:1px solid #444444;
-	-webkit-border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;
-	border-radius: 3px 3px 3px 3px;
-}
-.lpm input#username {
-	background: #eee url(/images/uname.png) no-repeat 8px 12px;
-	color: #444;
-}
-.lpm input#password {
-	background: #eee url(/images/pwd.png) no-repeat 8px 12px;
-	color: #444;
+	font-size: 2rem;
 }
 .lpf {
-	flex: 0 0 auto;
-	border: 1px solid #bbb;
-	border-top-width: 0px;
-	-moz-border-radius: 0 0 2px 2px;
-	-webkit-border-radius: 0 0 2px 2px;
-	border-radius: 0 0 2px 2px;
-	padding: 15px;
-	background: rgb(237,237,237);
-	background: -moz-linear-gradient(bottom, rgba(237,237,237,1) 0%, rgba(222,222,222,1) 100%);
-	background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,rgba(237,237,237,1)), color-stop(100%,rgba(222,222,222,1)));
-	background: -webkit-linear-gradient(bottom, rgba(237,237,237,1) 0%,rgba(222,222,222,1) 100%);
-	background: -o-linear-gradient(bottom, rgba(237,237,237,1) 0%,rgba(222,222,222,1) 100%);
-	background: -ms-linear-gradient(bottom, rgba(237,237,237,1) 0%,rgba(222,222,222,1) 100%);
-	background: linear-gradient(to top, rgba(237,237,237,1) 0%,rgba(222,222,222,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dedede', endColorstr='#ededed',GradientType=0 );
-}
-.lpf ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	color: #444;
-	-webkit-box-orient: horizontal; /* 1 */
-	-moz-box-orient: horizontal;    /* 2 */
-	-ms-box-orient: horizontal;     /* 3 */
-	-webkit-flex-direction: row;    /* 4 */
-	-ms-flex-direction: row;        /* 5 */
-	flex-direction: row;            /* 6 */
+	display: flex;
+	flex-flow: row wrap;
 	justify-content: space-between;
+	gap: 0.25rem;
+	flex: 0 0 auto;
+	border: 0.0625rem solid #bbb;
+	padding: 1rem;
 }
-.lpf li a {
-	color:#444;
-}
-.lpf li a:hover {
+.lpf > div a:hover {
 	text-decoration: underline;
 }
 .lpe {
 	flex: 0 0 auto;
-	font-size: 15px;
+	font-size: 1rem;
 	color:red;
 	text-align:center;
-	padding-top: 20px;
-}
-.loginpageworkspace, .loginpagedata, .lph, .lphl, .lpm, .lpf ul {
-	display: -webkit-box;  /* 1 */
-	display: -moz-box;     /* 2 */
-	display: -ms-flexbox;  /* 3 */
-	display: -webkit-flex; /* 4 */
-	display: -ms-flex;     /* 5 */
-	display: flex;         /* 6 */
-}
-
-span, a, form, h1, button {
-	background: transparent;
-	border: 0;
-	margin: 0;
-	padding: 0;
-	vertical-align: baseline;
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-}
-.formbtn{
-	display: inline-block;
-	font-family: Verdana;
-	width: auto;
-	height: auto;
-	font-size: 16px;
-	padding: 10px 40px;
-	-moz-box-shadow: inset 0 1px 0 0 #7cd4fc,inset 0 1px 0 0 #2696c9,inset 0 1px 0 1px #59b7e3,0 0px 0px 0 #444444;
-	-webkit-box-shadow: inset 0 1px 0 0 #7cd4fc,inset 0 1px 0 0 #2696c9,inset 0 1px 0 1px #59b7e3,0 0px 0px 0 #444444;
-	box-shadow: inset 0 1px 0 0 #7cd4fc,inset 0 1px 0 0 #2696c9,inset 0 1px 0 1px #59b7e3,0 0px 0px 0 #444444;
-	border:1px solid #444444;
-	color: #ffffff;
-	-webkit-border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;text-shadow: 0 1px 2px #000000;
-	border-radius: 3px 3px 3px 3px;
-	background-color: #42b0e3;
+	padding-top: 1.25rem;
 }

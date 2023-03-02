@@ -227,6 +227,7 @@ $loginpagedata->
 $loginpagedata->
 	addDIV(['class' => 'lpm'])->
 		push()->
+
 		addDIV(['class' => 'lpmi'])->
 			insINPUT(['type' => 'text','id' => 'username','name' => 'username','placeholder' => gettext('Username'),'autofocus' => 'autofocus','autocomplete' => 'username'])->
 		last()->
@@ -234,18 +235,17 @@ $loginpagedata->
 			insINPUT(['type' => 'password','id' => 'password','name' => 'password','placeholder' => gettext('Password'),'autocomplete' => 'current-password'])->
 		pop()->
 		addDIV(['class' => 'lpmi'])->
-			insINPUT(['class' => 'formbtn','type' => 'submit','value' => gettext('Login')]);
+			insINPUT(['type' => 'submit','value' => gettext('Login')]);
 $loginpagedata->
 	addElement('footer',['class' => 'lpf'])->
-		addUL()->
-			push()->addLI(['style' => 'padding-right: 4px;'])->
-				insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.xigmanas.com/forums/'],gettext('Forum'))->
-			last()->addLI(['style' => 'padding: 0 4px;'])->
-				insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.xigmanas.com/wiki/doku.php'],gettext('Information & Manuals'))->
-			last()->addLI(['style' => 'padding: 0 4px;'])->
-				insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://web.libera.chat/#xigmanas'],gettext('IRC XigmaNAS'))->
-			pop()->addLI(['style' => 'padding-left: 4px;'])->
-				insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40xigmanas%2ecom&lc=US&item_name=XigmaNAS&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted'],gettext('Donate'));
+		push()->addDIV(['class' => 'lpfi'])->
+			insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.xigmanas.com/forums/'],gettext('Forum'))->
+		last()->addDIV(['class' => 'lpfi'])->
+			insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.xigmanas.com/wiki/doku.php'],gettext('Information & Manuals'))->
+		last()->addDIV(['class' => 'lpfi'])->
+			insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://web.libera.chat/#xigmanas'],gettext('IRC XigmaNAS'))->
+		pop()->addDIV(['class' => 'lpfi'])->
+			insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40xigmanas%2ecom&lc=US&item_name=XigmaNAS&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted'],gettext('Donate'));
 if(!empty($input_errors)):
 	$loginpagedata->
 		insDIV(['class' => 'lpe'],$input_errors);
