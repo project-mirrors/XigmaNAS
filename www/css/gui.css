@@ -702,16 +702,6 @@ input[type=checkbox]:checked ~ div.hideifchecked
 	display: none;
 }
 
-.formbtn,
-.formfld,
-.formfldro,
-.formpre,
-.formprero
-{
-	color: #ff0000;
-	background-color: #00ffff;
-}
-
 .formfldadditionalinfo
 {
 	margin-top: 0.3125rem;
