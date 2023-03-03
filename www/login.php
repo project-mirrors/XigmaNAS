@@ -207,48 +207,41 @@ endif;
 $document = new_page([],'login.php','login');
 $pagecontent = $document->getElementById('pagecontent');
 $loginpagedata = $pagecontent->
-	addDIV(['class' => 'loginpageworkspace'])->
-		addDIV(['class' => 'loginpageframe'])->
-			addDIV(['class' => 'loginpagedata']);
+	addDIV(['class' => 'loginpage-workspace'])->
+		addDIV(['class' => 'loginpage-frame'])->
+			addDIV(['class' => 'loginpage-data']);
 $loginpagedata->
-	addElement('header',['class' => 'lph'])->
+	addElement('header',['class' => 'loginpage-header'])->
 		push()->
-		addDIV(['class' => 'lphl'])->
+		addDIV(['class' => 'loginpage-header-logo'])->
 			push()->
-			addDIV(['class' => 'lphll'])->
+			addDIV(['class' => 'loginpage-header-logo-left'])->
 				insIMG(['src' => '/images/lock.png','alt' => ''])->
 			pop()->
-			addDIV(['class' => 'lphlr'])->
+			addDIV(['class' => 'loginpage-header-logo-right'])->
 				addA(['title' => sprintf('www.%s',get_product_url()),'href' => sprintf('https://www.%s',get_product_url()),'target' => '_blank','rel' => "noreferrer"])->
 					insIMG(['src' => '/images/login_logo.png','alt' => 'logo'])->
 		pop()->
-		addDIV(['class' => 'lphh'])->
-			insDIV(['class' => 'hostname'],system_get_hostname());
+		addDIV(['class' => 'loginpage-header-hostname'])->
+			insDIV(['class' => 'loginpage-hostname'],system_get_hostname());
 $loginpagedata->
-	addDIV(['class' => 'lpm'])->
-		push()->
-
-		addDIV(['class' => 'lpmi'])->
-			insINPUT(['type' => 'text','id' => 'username','name' => 'username','placeholder' => gettext('Username'),'autofocus' => 'autofocus','autocomplete' => 'username'])->
-		last()->
-		addDIV(['class' => 'lpmi'])->
-			insINPUT(['type' => 'password','id' => 'password','name' => 'password','placeholder' => gettext('Password'),'autocomplete' => 'current-password'])->
-		pop()->
-		addDIV(['class' => 'lpmi'])->
-			insINPUT(['type' => 'submit','value' => gettext('Login')]);
+	addDIV(['class' => 'loginpage-body'])->
+		insINPUT(['type' => 'text','id' => 'username','class' => 'loginpage-body-item','name' => 'username','placeholder' => gettext('Username'),'autofocus' => 'autofocus','autocomplete' => 'username'])->
+		insINPUT(['type' => 'password','id' => 'password','class' => 'loginpage-body-item','name' => 'password','placeholder' => gettext('Password'),'autocomplete' => 'current-password'])->
+		insINPUT(['type' => 'submit','value' => gettext('Login')]);
 $loginpagedata->
-	addElement('footer',['class' => 'lpf'])->
-		push()->addDIV(['class' => 'lpfi'])->
+	addElement('footer',['class' => 'loginpage-footer'])->
+		push()->addDIV(['class' => 'loginpage-footer-item'])->
 			insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.xigmanas.com/forums/'],gettext('Forum'))->
-		last()->addDIV(['class' => 'lpfi'])->
+		last()->addDIV(['class' => 'loginpage-footer-item'])->
 			insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.xigmanas.com/wiki/doku.php'],gettext('Information & Manuals'))->
-		last()->addDIV(['class' => 'lpfi'])->
+		last()->addDIV(['class' => 'loginpage-footer-item'])->
 			insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://web.libera.chat/#xigmanas'],gettext('IRC XigmaNAS'))->
-		pop()->addDIV(['class' => 'lpfi'])->
+		pop()->addDIV(['class' => 'loginpage-footer-item'])->
 			insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40xigmanas%2ecom&lc=US&item_name=XigmaNAS&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted'],gettext('Donate'));
 if(!empty($input_errors)):
 	$loginpagedata->
-		insDIV(['class' => 'lpe'],$input_errors);
+		insDIV(['class' => 'loginpage-error'],$input_errors);
 endif;
 $document->add_js_document_ready(sprintf('document.getElementById("%s").focus();','username'));
 $document->render();

@@ -702,6 +702,16 @@ input[type=checkbox]:checked ~ div.hideifchecked
 	display: none;
 }
 
+.formbtn,
+.formfld,
+.formfldro,
+.formpre,
+.formprero
+{
+	color: #ff0000;
+	background-color: #00ffff;
+}
+
 .formfldadditionalinfo
 {
 	margin-top: 0.3125rem;
@@ -1945,4 +1955,107 @@ td.padr1
 	color: #95A7C0 !important;
 	color: var(--bgc-topic) !important;
 	filter: brightness(60%) grayscale(100%);
+}
+
+.loginpage-workspace
+{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.loginpage-frame
+{
+	padding: 1.25rem;
+    background-color: #D6D6D6;
+    background-color: var(--bgc-setting-tag);
+}
+
+.loginpage-data
+{
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.loginpage-hostname
+{
+	text-align: right;
+	color: #666666;
+}
+
+.loginpage-header
+{
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: stretch;
+	gap: 0.25rem;
+	border: 0.0625rem solid #999999;
+	border: var(--bop-cell);
+	padding: 1rem;
+}
+
+.loginpage-header-logo
+{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.25rem;
+}
+
+.loginpage-header-hostname
+{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	align-items: stretch;
+	gap: 1.25rem;
+}
+
+.loginpage-body
+{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	gap: 1.25rem;
+	border-left: 0.0625rem solid #999999;
+	border-left: var(--bop-cell);
+	border-right: 0.0625rem solid #999;
+	border-right: var(--bop-cell);
+	padding: 1.25rem;
+}
+
+.loginpage-body input
+{
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.loginpage-footer
+{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	gap: 0.25rem;
+	border: 0.0625rem solid #999999;
+	border: var(--bop-cell);
+	padding: 1rem;
+}
+
+.loginpage-footer > div a:hover
+{
+	text-decoration: underline;
+}
+
+.loginpage-error
+{
+	color: red;
+	color: var(--txc-red);
+	text-align: center;
+	padding-top: 1.25rem;
 }
