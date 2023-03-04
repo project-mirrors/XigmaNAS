@@ -186,3 +186,8 @@ usr/local/www/images/announcement12.gif
 usr/local/www/images/header_bg.png
 usr/local/www/images/header_logo.png
 usr/local/www/images/header_rlogo.png
+# 9763
+usr/local/www/css/fm_style.css
+usr/local/www/css/fm_style.css.php
+usr/local/www/css/login.css
+usr/local/www/css/login.css.php
