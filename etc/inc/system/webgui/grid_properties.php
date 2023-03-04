@@ -92,28 +92,6 @@ class grid_properties extends myp\container {
 	final public function get_cssguifilemode(): myp\property_list {
 		return $this->x_cssguifilemode ?? $this->init_cssguifilemode();
 	}
-	protected $x_cssloginfile;
-	public function init_cssloginfile(): myp\property_text {
-		$property = $this->x_cssloginfile = new myp\property_text($this);
-		$property->
-			set_name('cssloginfile')->
-			set_title(gettext('Login'));
-		return $property;
-	}
-	final public function get_cssloginfile(): myp\property_text {
-		return $this->x_cssloginfile ?? $this->init_cssloginfile();
-	}
-	protected $x_cssloginfilemode;
-	public function init_cssloginfilemode(): myp\property_list {
-		$property = $this->x_cssloginfilemode = new myp\property_list($this);
-		$property->
-			set_name('cssloginfilemode')->
-			set_title(gettext('File Mode'));
-		return $property;
-	}
-	final public function get_cssloginfilemode(): myp\property_list {
-		return $this->x_cssloginfilemode ?? $this->init_cssloginfilemode();
-	}
 	protected $x_cssnavbarfile;
 	public function init_cssnavbarfile(): myp\property_text {
 		$property = $this->x_cssnavbarfile = new myp\property_text($this);
@@ -135,28 +113,6 @@ class grid_properties extends myp\container {
 	}
 	final public function get_cssnavbarfilemode(): myp\property_list {
 		return $this->x_cssnavbarfilemode ?? $this->init_cssnavbarfilemode();
-	}
-	protected $x_cssstylefile;
-	public function init_cssstylefile(): myp\property_text {
-		$property = $this->x_cssstylefile = new myp\property_text($this);
-		$property->
-			set_name('cssstylefile')->
-			set_title(gettext('File Manager'));
-		return $property;
-	}
-	final public function get_cssstylefile(): myp\property_text {
-		return $this->x_cssstylefile ?? $this->init_cssstylefile();
-	}
-	protected $x_cssstylefilemode;
-	public function init_cssstylefilemode(): myp\property_list {
-		$property = $this->x_cssstylefilemode = new myp\property_list($this);
-		$property->
-			set_name('cssstylefilemode')->
-			set_title(gettext('File Mode'));
-		return $property;
-	}
-	final public function get_cssstylefilemode(): myp\property_list {
-		return $this->x_cssstylefilemode ?? $this->init_cssstylefilemode();
 	}
 	protected $x_csstabsfile;
 	public function init_csstabsfile(): myp\property_text {

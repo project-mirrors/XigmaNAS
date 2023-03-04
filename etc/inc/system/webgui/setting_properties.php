@@ -107,36 +107,6 @@ class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_cssloginfile(): myp\property_text {
-		$description = gettext('Fully qualified file name of a custom login CSS file.');
-		$placeholder = '/usr/local/www/css/login.css';
-		$property = parent::init_cssloginfile();
-		$property->
-			set_id('cssloginfile')->
-			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_placeholderv($placeholder)->
-			set_defaultvalue('')->
-			filter_use_default_or_empty();
-		return $property;
-	}
-	public function init_cssloginfilemode(): myp\property_list {
-		$description = gettext('Select file mode of the custom login CSS file.');
-		$options = [
-			'' => gettext('Disable'),
-			'replace' => gettext('Replace the default CSS file'),
-			'append' => gettext('Append content to the default CSS file')
-		];
-		$property = parent::init_cssloginfilemode();
-		$property->
-			set_id('cssloginfilemode')->
-			set_description($description)->
-			set_defaultvalue('')->
-			set_options($options)->
-			filter_use_default();
-		return $property;
-	}
 	public function init_cssnavbarfile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom navigation bar CSS file.');
 		$placeholder = '/usr/local/www/css/navbar.css';
@@ -161,36 +131,6 @@ class setting_properties extends grid_properties {
 		$property = parent::init_cssnavbarfilemode();
 		$property->
 			set_id('cssnavbarfilemode')->
-			set_description($description)->
-			set_defaultvalue('')->
-			set_options($options)->
-			filter_use_default();
-		return $property;
-	}
-	public function init_cssstylefile(): myp\property_text {
-		$description = gettext('Fully qualified file name of a custom file manager CSS file.');
-		$placeholder = '/usr/local/www/css/fm_style.css';
-		$property = parent::init_cssstylefile();
-		$property->
-			set_id('cssstylefile')->
-			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_placeholderv($placeholder)->
-			set_defaultvalue('')->
-			filter_use_default_or_empty();
-		return $property;
-	}
-	public function init_cssstylefilemode(): myp\property_list {
-		$description = gettext('Select file mode of the custom file manager CSS file.');
-		$options = [
-			'' => gettext('Disable'),
-			'replace' => gettext('Replace the default CSS file'),
-			'append' => gettext('Append content to the default CSS file')
-		];
-		$property = parent::init_cssstylefilemode();
-		$property->
-			set_id('cssstylefilemode')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_options($options)->

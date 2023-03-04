@@ -56,12 +56,8 @@ $cops = [
 	$cop->get_cssfcfilemode(),
 	$cop->get_cssguifile(),
 	$cop->get_cssguifilemode(),
-	$cop->get_cssloginfile(),
-	$cop->get_cssloginfilemode(),
 	$cop->get_cssnavbarfile(),
 	$cop->get_cssnavbarfilemode(),
-	$cop->get_cssstylefile(),
-	$cop->get_cssstylefilemode(),
 	$cop->get_csstabsfile(),
 	$cop->get_csstabsfilemode(),
 	$cop->get_navbartoplevelstyle(),
@@ -227,12 +223,8 @@ $hooks_cssnavbarfile = $tbody->c2($cop->get_cssnavbarfile(),$sphere,false,$is_re
 $hooks_cssnavbarfile['fc']->cr($cop->get_cssnavbarfilemode(),$sphere,false,$is_readonly);
 $hooks_csstabsfile = $tbody->c2($cop->get_csstabsfile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_csstabsfile['fc']->cr($cop->get_csstabsfilemode(),$sphere,false,$is_readonly);
-$hooks_cssloginfile = $tbody->c2($cop->get_cssloginfile(),$sphere,false,$is_readonly)->get_hooks();
-$hooks_cssloginfile['fc']->cr($cop->get_cssloginfilemode(),$sphere,false,$is_readonly);
 $hooks_cssfcfile = $tbody->c2($cop->get_cssfcfile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_cssfcfile['fc']->cr($cop->get_cssfcfilemode(),$sphere,false,$is_readonly);
-$hooks_cssstylefile = $tbody->c2($cop->get_cssstylefile(),$sphere,false,$is_readonly)->get_hooks();
-$hooks_cssstylefile['fc']->cr($cop->get_cssstylefilemode(),$sphere,false,$is_readonly);
 $content->
 	add_table_data_settings()->
 		push()->
