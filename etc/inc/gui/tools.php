@@ -2022,8 +2022,6 @@ EOJ;
 			insElement(name: 'link',attributes: ['href' => '/css/navbar.css.php','rel' => 'stylesheet','type' => 'text/css'])->
 			insElement(name: 'link',attributes: ['href' => '/css/tabs.css.php','rel' => 'stylesheet','type' => 'text/css']);
 		if($this->option_exists(option: 'login')):
-			$head->
-				insElement(name: 'link',attributes: ['href' => '/css/login.css.php','rel' => 'stylesheet','type' => 'text/css']);
 			header("Content-Security-Policy: frame-ancestors 'none'");
 		endif;
 		$head->
