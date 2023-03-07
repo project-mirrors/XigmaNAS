@@ -130,6 +130,7 @@
 /*
 	colors by name
 */
+	--txc-green: #00CC00;
 	--txc-red: #CC0000;
 	--txc-yellow: #FFFF00;
 /*
@@ -868,10 +869,18 @@ input[type=file]:enabled:hover::file-selector-button
 	text-align: right;
 }
 
+.unicode-dis,
 .red
 {
 	color: #CC0000;
 	color: var(--txc-red);
+}
+
+.unicode-ena,
+.green
+{
+	color: #00CC00;
+	color: var(--txc-green);
 }
 
 .vexpl
