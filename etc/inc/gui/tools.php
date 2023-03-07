@@ -1140,16 +1140,16 @@ EOJ;
 
 		switch($mode):
 			default:
-				$class = $is_enabled ? 'lcelc' : 'lcelcd';
+				$class = $is_enabled ? 'lcelc unicode-ena' : 'lcelcd unicode-dis';
 				break;
 			case 1:
-				$class = $is_enabled ? 'lcelcd' : 'lcelc';
+				$class = $is_enabled ? 'lcelcd unicode-ena' : 'lcelc unicode-dis';
 				break;
 			case 2:
-				$class = 'lcelc';
+				$class = $is_enabled ? 'lcelc unicode-ena' : 'lcelc unicode-dis';
 				break;
 			case 3:
-				$class = 'lcelcd';
+				$class = $is_enabled ? 'lcelcd unicode-ena' : 'lcelcd unicode-dis';
 				break;
 		endswitch;
 		$value = $is_enabled ? $g_img['unicode.ena'] : $g_img['unicode.dis'];

@@ -304,7 +304,7 @@ $(window).on("load", function() {
 						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars(empty($rule['dst']) ? '*' : $rule['dst']);?>&nbsp;</td>
 						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars(empty($rule['dstport']) ? '*' : $rule['dstport']);?>&nbsp;</td>
 						<td class="<?=$enable ? 'lcelc' : 'lcelcd';?>"><?=empty($rule['direction']) ? '*' : strtoupper($rule['direction']);?>&nbsp;</td>
-						<td class="<?=$enable ? 'lcelc' : 'lcelcd';?>"><?=$enable ? $g_img['unicode.ena'] : $g_img['unicode.dis'];?></td>
+						<td class="<?=$enable ? 'lcelc unicode-ena' : 'lcelcd unicode-dis';?>"><?=$enable ? $g_img['unicode.ena'] : $g_img['unicode.dis'];?></td>
 						<td class="<?=$enable ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars($rule['desc']);?>&nbsp;</td>
 						<td class="lcebld">
 <?php
