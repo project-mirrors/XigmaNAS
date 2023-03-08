@@ -191,3 +191,6 @@ usr/local/www/css/fm_style.css
 usr/local/www/css/fm_style.css.php
 usr/local/www/css/login.css
 usr/local/www/css/login.css.php
+# 9773
+usr/local/www/css/navbar-full-no-lev1.css
+usr/local/www/css/navbar-until-2022-12-31.css
