@@ -118,7 +118,6 @@ Changes:
 - Upgrade proftpd to v1.3.7f.
 - Upgrade arcconf to vB25611.
 - Upgrade lcdproc to v2021.12.20.
-- Upgrade jquery to v3.6.3.
 - Upgrade bash to v5.2p15.
 - Upgrade rsync to v3.2.7.
 - Upgrade libvncserver to v0.9.14.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20230214.
 - Upgrade e2fsprogs to v1.47.0.
 - Upgrade sudo to v1.9.13p2.
+- Upgrade jquery to v3.6.4.
 
 Fixes:
 - fix bring up lighttpd at all times.
