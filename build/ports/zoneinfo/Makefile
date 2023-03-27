@@ -1,6 +1,6 @@
 PORTNAME=		zoneinfo
-PORTREVISION=	1
-DISTVERSION=	2022g
+PORTREVISION=	0
+DISTVERSION=	2023b
 CATEGORIES=	misc
 MASTER_SITES=   https://data.iana.org/time-zones/releases/ \
 		ftp://ftp.iana.org/tz/releases/
@@ -63,10 +63,14 @@ do-install:
 	@${ECHO_CMD} "posixrules" >> ${WRKSRC}/zoneinfo.exlude
 	@${ECHO_CMD} "zone.tab" >> ${WRKSRC}/zoneinfo.exlude
 
+# XigmaNAS® install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/share
 #	Copy into temporary folder without hardlinks
 	cp -RLpf ${WRKSRC}/zoneinfo ${WRKSRC}/zoneinfo.tmp
 	${TAR} -c -v -f - -X ${WRKSRC}/zoneinfo.exlude -C ${WRKSRC}/zoneinfo.tmp/ . | ${XZ_CMD} -cv > ${XIGMANAS_ROOTFS}/usr/share/zoneinfo.txz
 	rm -rf ${WRKSRC}/zoneinfo.tmp
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

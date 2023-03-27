@@ -114,7 +114,6 @@ Changes:
 - Upgrade devcpu-data-amd to v20221002.
 - Upgrade pecl-APCu to v5.1.22.
 - Upgrade python to v3.9.15.
-- Upgrade zoneinfo to 2022g.
 - Upgrade proftpd to v1.3.7f.
 - Upgrade arcconf to vB25611.
 - Upgrade lcdproc to v2021.12.20.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade e2fsprogs to v1.47.0.
 - Upgrade sudo to v1.9.13p2.
 - Upgrade jquery to v3.6.4.
+- Upgrade zoneinfo to 2023b.
 
 Fixes:
 - fix bring up lighttpd at all times.
