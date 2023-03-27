@@ -128,7 +128,6 @@ Changes:
 - Upgrade cdialog to v1.3-20230209.
 - Upgrade lighttpd to v1.4.69.
 - Upgrade phpmyadmin to v5.2.1.
-- Upgrade syncthing to v1.23.1.
 - Upgrade nut to v2023.02.16.
 - Upgrade php to v8.2.3.
 - Upgrade iperf3 to v3.13.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade sudo to v1.9.13p2.
 - Upgrade jquery to v3.6.4.
 - Upgrade zoneinfo to 2023b.
+- Upgrade syncthing to v1.23.2.
 
 Fixes:
 - fix bring up lighttpd at all times.
