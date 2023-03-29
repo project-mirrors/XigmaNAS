@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-26 16:37+0000\n"
-"X-Generator: Launchpad (build b826c8bc42f0c41016fa141bf50faee47f7ecd80)\n"
+"X-Launchpad-Export-Date: 2023-03-27 22:24+0000\n"
+"X-Generator: Launchpad (build 610eeb74559fa4aabb929a482afece263183fac0)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: de\n"
 
@@ -16343,10 +16343,3 @@ msgstr "wurde zugewiesen an"
 
 msgid "yes"
 msgstr "ja"
-
-#~ msgid "Null Passwords"
-#~ msgstr "Leere Passwörter"
-
-#~ msgid "Allow client access to accounts that have null passwords."
-#~ msgstr ""
-#~ "Den Zugriff auf Benutzerkonten mit leeren Passwörtern durch Clients zulassen."

@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-26 15:59+0000\n"
-"PO-Revision-Date: 2021-07-09 22:15+0000\n"
-"Last-Translator: Sebastian <sebastian.cabrera@gmail.com>\n"
+"PO-Revision-Date: 2023-03-14 02:57+0000\n"
+"Last-Translator: Carlos Moura <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-02-26 16:36+0000\n"
-"X-Generator: Launchpad (build b826c8bc42f0c41016fa141bf50faee47f7ecd80)\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Launchpad-Export-Date: 2023-03-27 22:25+0000\n"
+"X-Generator: Launchpad (build 610eeb74559fa4aabb929a482afece263183fac0)\n"
 "X-Poedit-Country: Brazilian Portuguese\n"
-"Language: \n"
 "X-Poedit-Language: Brazilian Portuguese\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -111,6 +111,7 @@ msgstr "%s usado de %s"
 msgid ""
 "%s would like to thank the authors of this software for their efforts:"
 msgstr ""
+"%s gostaria de agradecer os autores desse software pelo esforço deles:"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -451,6 +452,7 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Porta para conexões de entrada usando o protocolo iSER (iSCSI sobre RDMA)."
 
 msgid "A reboot is required"
 msgstr "É preciso reiniciar"
@@ -528,7 +530,7 @@ msgid "ACL Mode"
 msgstr "Modo ACL"
 
 msgid "ACL Type"
-msgstr ""
+msgstr "Tipo ACL"
 
 msgid "ACL inherit"
 msgstr "ACL herdada"
@@ -661,7 +663,7 @@ msgid "Add Encrypted Volume"
 msgstr "Adicionar Volume Criptografado"
 
 msgid "Add Filesystem"
-msgstr ""
+msgstr "Adicionar sistema de arquivo"
 
 msgid "Add Group"
 msgstr "Adicionar Grupo"
@@ -715,7 +717,7 @@ msgid "Add Portal Group"
 msgstr "Adiciona o grupo portal"
 
 msgid "Add Provider"
-msgstr ""
+msgstr "Adicionar Provedor"
 
 msgid "Add Public Key"
 msgstr "Adicionar chave pública"
@@ -724,7 +726,7 @@ msgid "Add RAID"
 msgstr "Adicionar RAID"
 
 msgid "Add Reboot Schedule"
-msgstr ""
+msgstr "Adicionar agendamento de reinicialização"
 
 msgid "Add Record"
 msgstr "Adicionar Registro"
@@ -745,7 +747,7 @@ msgid "Add Samba Share"
 msgstr "Adicionar Compartilhamento Samba"
 
 msgid "Add Schedule"
-msgstr ""
+msgstr "Adicionar Agendamento"
 
 msgid "Add Share"
 msgstr "Adicionar Compartilhamento"
@@ -871,7 +873,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Endereço do 'hastd daemon' remoto. Deve ser um endereço IP estático."
 
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 msgid "Admin Password"
 msgstr "Senha do administrador"
@@ -889,7 +891,7 @@ msgid "Administrator Name"
 msgstr "Nome do Administrador"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Senha do administrador"
 
 msgid "Advanced"
 msgstr "Avançado"
@@ -1016,7 +1018,7 @@ msgid "Allow GSSAPI authentication."
 msgstr "Permitir autenticação GSSAPI"
 
 msgid "Allow IPv6"
-msgstr ""
+msgstr "Permitir IPv6"
 
 msgid "Allow New Files"
 msgstr "Permitir novos arquivos"
@@ -1250,7 +1252,7 @@ msgid "Append content to the default CSS file"
 msgstr "Acrescentar conteúdo ao arquivo CSS padrão"
 
 msgid "Append my IP"
-msgstr ""
+msgstr "Anexar meu IP"
 
 msgid "Append the current IP to the DDNS server update path."
 msgstr ""
@@ -1316,6 +1318,8 @@ msgid ""
 "Assign a previously defined authentication group to the portal group, to be "
 "used for target discovery."
 msgstr ""
+"Adicionar um grupo de autenticação previamente definido ao grupo de portal, "
+"para ser usado como destino de descoberta"
 
 msgid "Assign a previously defined authentication group to the target."
 msgstr ""
@@ -1451,7 +1455,7 @@ msgid "Auto Snapshot Settings"
 msgstr "Configurações de  Snapshot Automático"
 
 msgid "Auto mount"
-msgstr ""
+msgstr "Auto montar"
 
 msgid "Auto page refresh."
 msgstr "Atualização de página automática"
@@ -1666,7 +1670,7 @@ msgid "BitTorrent"
 msgstr "BitTorrent"
 
 msgid "BitTorrent Settings"
-msgstr ""
+msgstr "Configurações do BitTorrent"
 
 msgid "Blank Time"
 msgstr "Horário Vazio"
@@ -1948,7 +1952,7 @@ msgid "CTL LUN"
 msgstr "CTL LUN"
 
 msgid "Cache Directory"
-msgstr ""
+msgstr "Diretório de Cache"
 
 msgid "Calibration Battery"
 msgstr "Calibração da Bateria"
@@ -2050,13 +2054,13 @@ msgid "Charging Battery"
 msgstr "Carregando Bateria"
 
 msgid "Check IP Command"
-msgstr ""
+msgstr "Verificar IP Command"
 
 msgid "Check IP Path"
-msgstr ""
+msgstr "Verificar IP Path"
 
 msgid "Check IP Server"
-msgstr ""
+msgstr "Verificar IP do Servidor"
 
 msgid "Check IP using HTTPS"
 msgstr ""
@@ -2141,7 +2145,7 @@ msgid "Clone Configuration"
 msgstr "Clonar Configuração"
 
 msgid "Clones"
-msgstr ""
+msgstr "Clones"
 
 msgid "Close"
 msgstr "Fechar"
@@ -2240,7 +2244,7 @@ msgid "Compression"
 msgstr "Compressão"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "Taxa de Compressão"
 
 msgid "Compression level 1 - best compression ratio"
 msgstr ""
@@ -2342,7 +2346,7 @@ msgid "Configuration"
 msgstr "Configuração"
 
 msgid "Configuration Folder"
-msgstr ""
+msgstr "Pasta de configuração"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -15465,6 +15469,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "sim"
-
-#~ msgid "Allow client access to accounts that have null passwords."
-#~ msgstr "Permitir acesso de clientes a contas sem senhas."
