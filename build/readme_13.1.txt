@@ -134,9 +134,9 @@ Changes:
 - Upgrade e2fsprogs to v1.47.0.
 - Upgrade sudo to v1.9.13p2.
 - Upgrade jquery to v3.6.4.
-- Upgrade zoneinfo to 2023b.
 - Upgrade syncthing to v1.23.2.
 - Upgrade php to v8.2.4.
+- Upgrade zoneinfo to 2023c.
 
 Fixes:
 - fix bring up lighttpd at all times.
