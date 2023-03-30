@@ -108,10 +108,10 @@ trait tools {
  *	@return $this
  */
 	public function import_soup(string $value = null,bool $check_for_html = true) {
-		if(!is_null($value)):
+		if(!is_null(value: $value)):
 //			rough check if value contains html code, if found try to import as HTML, otherwise add as text
 			$html_import_successful = false;
-			if($check_for_html && preg_match('~/[a-z]*>~i',$value)):
+			if($check_for_html && preg_match(pattern: '~/[a-z]*>~i',subject: $value)):
 				$backup_use_internal_errors = libxml_use_internal_errors(use_errors: true);
 //				libxml_disable_entity_loader is deprecated since PHP 8.0.0
 				if(PHP_VERSION_ID < 80000):
@@ -148,7 +148,7 @@ trait tools {
  *	@return DOMNode $this
  */
 	public function ins_javascript(string $text = '') {
-		if(preg_match('/\S/',$text)):
+		if(preg_match(pattern: '/\S/',subject: $text)):
 			$node = $this->addElement(name: 'script');
 			if($node !== false):
 				$opening = $node->ownerDocument->createTextNode(data: "\n" . '//<![CDATA[' . "\n");
@@ -315,10 +315,10 @@ trait tools {
  */
 	public function ins_tabnav_record(string $href = '',string $value = '',string $title = '',bool $active = false) {
 		$attributes = [];
-		if(preg_match('/\S/',$href)):
+		if(preg_match(pattern: '/\S/',subject: $href)):
 			$attributes['href'] = $href;
 		endif;
-		if(preg_match('/\S/',$title)):
+		if(preg_match(pattern: '/\S/',subject: $title)):
 			$attributes['title'] = $title;
 		endif;
 		$this->
@@ -342,13 +342,13 @@ trait tools {
 		global $g_img;
 
 		$this->reset_hooks();
-		if(is_array($input_errors)):
+		if(is_array(value: $input_errors)):
 			$id = 'errorbox';
 			$class = 'iconerr mbci-min';
 			$text = "\u{26a0}\u{fe0e}";
 			$firstrowtrigger = true;
 			foreach($input_errors as $rowvalue):
-				if(is_string($rowvalue) && preg_match('/\S/',$rowvalue)):
+				if(is_string(value: $rowvalue) && preg_match(pattern: '/\S/',subject: $rowvalue)):
 					if($firstrowtrigger):
 						$hook_id = $this->addDIV(attributes: ['id' => $id]);
 						$mbcl1 = $hook_id->addDIV(attributes: ['class' => 'mbcl-1']);
@@ -358,12 +358,12 @@ trait tools {
 						$mbcl2i2 = $mbcl2->addDIV(attributes: ['class' => 'message mbci-max']);
 						$mbcl3 = $mbcl2i2->addDIV(attributes: ['class' => 'mbcl-3 mbci-min']);
 						$hook_messages = $mbcl3->
-							addDIV(value: sprintf('%s:',gettext('The following errors were detected'),':'))->
+							addDIV(value: sprintf('%s:',gettext(message: 'The following errors were detected'),':'))->
 								addUL();
 						$this->add_hook(dom_element: $hook_messages,identifier: 'messages');
 						$firstrowtrigger = false;
 					endif;
-					$hook_messages->addLI(value: htmlspecialchars_decode($rowvalue,ENT_QUOTES | ENT_HTML5));
+					$hook_messages->addLI(value: htmlspecialchars_decode(string: $rowvalue,flags: ENT_QUOTES | ENT_HTML5));
 //					$hook_messages->addLI(value: $rowvalue);
 				endif;
 			endforeach;
@@ -380,12 +380,12 @@ trait tools {
 		global $g_img;
 
 		$this->reset_hooks();
-		if(is_string($message)):
+		if(is_string(value: $message)):
 			$grid = [$message];
-		elseif(is_array($message)):
+		elseif(is_array(value: $message)):
 			$grid = $message;
 		endif;
-		if(is_array($grid)):
+		if(is_array(value: $grid)):
 			switch($message_type):
 				default:
 					$id = 'errorbox';
@@ -403,7 +403,7 @@ trait tools {
 			$text = "\u{26a0}\u{fe0e}";
 			$firstrowtrigger = true;
 			foreach($grid as $rowvalue):
-				if(is_string($rowvalue) && preg_match('/\S/',$rowvalue)):
+				if(is_string(value: $rowvalue) && preg_match(pattern: '/\S/',subject: $rowvalue)):
 					if($firstrowtrigger):
 						$hook_id = $this->addDIV(attributes: ['id' => $id]);
 						$mbcl1 = $hook_id->addDIV(attributes: ['class' => 'mbcl-1']);
@@ -415,7 +415,7 @@ trait tools {
 						$this->add_hook(dom_element: $hook_messages,identifier: 'messages');
 						$firstrowtrigger = false;
 					endif;
-					$hook_messages->insDIV(value: htmlspecialchars_decode($rowvalue,ENT_QUOTES | ENT_HTML5));
+					$hook_messages->insDIV(value: htmlspecialchars_decode(string: $rowvalue,flags: ENT_QUOTES | ENT_HTML5));
 //					$mbcl3->insDIV(value: $rowvalue);
 				endif;
 			endforeach;
@@ -437,27 +437,27 @@ trait tools {
 		if($errorcode == 0):
 			if(file_exists(filename: $d_sysrebootreqd_path)):
 				$message = [
-					gettext('The changes have been saved.'),
-					sprintf('<a href="reboot.php">%s</a>',gettext('You have to reboot the system for the changes to take effect.'))
+					gettext(message: 'The changes have been saved.'),
+					sprintf('<a href="reboot.php">%s</a>',gettext(message: 'You have to reboot the system for the changes to take effect.'))
 				];
 			else:
-				$message = gettext('The changes have been applied successfully.');
+				$message = gettext(message: 'The changes have been applied successfully.');
 			endif;
 		else:
-			$message = sprintf('%s: %s (%s %s).',gettext('Error'),gettext('The changes could not be applied'),gettext('Error Code'),$errorcode);
+			$message = sprintf('%s: %s (%s %s).',gettext(message: 'Error'),gettext(message: 'The changes could not be applied'),gettext(message: 'Error Code'),$errorcode);
 		endif;
 		$this->ins_info_box(message: $message);
 		return $this;
 	}
 	public function ins_config_has_changed_box() {
 		$gt_info = [
-			gettext('The configuration has been changed.'),
-			gettext('You must apply the changes in order for them to take effect.'),
-			sprintf('<a href="diag_log.php">%s</a>',gettext('If this message persists take a look at the system log for more information.'))
+			gettext(message: 'The configuration has been changed.'),
+			gettext(message: 'You must apply the changes in order for them to take effect.'),
+			sprintf('<a href="diag_log.php">%s</a>',gettext(message: 'If this message persists take a look at the system log for more information.'))
 		];
 		$this->addDIV(attributes: ['id' => 'applybox'])->ins_info_box(message: $gt_info);
 		$hooks = $this->get_hooks();
-		if(array_key_exists('mbcl-1',$hooks)):
+		if(array_key_exists(key: 'mbcl-1',array: $hooks)):
 			$hooks['mbcl-1']->addDIV(attributes: ['class' => 'mbci-min'])->ins_button_apply();
 		endif;
 		return $this;
@@ -491,7 +491,7 @@ trait tools {
 	}
 //	title macros
 	public function ins_titleline(string $title = null,int $colspan = 0,string $id = null) {
-		if(!is_null($id) && preg_match('/\S/',$id)):
+		if(!is_null(value: $id) && preg_match(pattern: '/\S/',subject: $id)):
 			$tr_attributes = ['id' => sprintf('%s_tr',$id)];
 		else:
 			$tr_attributes = [];
@@ -514,7 +514,7 @@ trait tools {
 		return $this;
 	}
 	public function ins_titleline_with_checkbox(property $property,$value,bool $is_required = false,bool $is_readonly = false,string $title = '',int $colspan = 0) {
-		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$preset = is_object(value: $value) ? $value->row[$property->get_name()] : $value;
 		$tr_attributes = ['id' => sprintf('%s_tr',$property->get_id())];
 		if($this->option_exists(option: 'tablesort')):
 			$tr_attributes['class'] = 'tablesorter-ignoreRow';
@@ -567,21 +567,21 @@ trait tools {
 			$suppressbr = true;
 			if(!empty($description)):
 //				string or array
-				if(is_string($description)):
+				if(is_string(value: $description)):
 					$description_output = $description;
-				elseif(is_array($description)):
+				elseif(is_array(value: $description)):
 					foreach($description as $description_row):
-						if(is_string($description_row)):
+						if(is_string(value: $description_row)):
 							if($suppressbr):
 								$description_output .= $description_row;
 								$suppressbr = false;
 							else:
 								$description_output .= ('<br />' . $description_row);
 							endif;
-						elseif(is_array($description_row)):
-							switch(count($description_row)):
+						elseif(is_array(value: $description_row)):
+							switch(count(value: $description_row)):
 								case 1:
-									if(is_string($description_row[0])):
+									if(is_string(value: $description_row[0])):
 										if($suppressbr):
 											$suppressbr = false;
 										else:
@@ -591,12 +591,12 @@ trait tools {
 									endif;
 									break;
 								case 2:
-									if(is_string($description_row[0])):
+									if(is_string(value: $description_row[0])):
 										$color = null;
-										if(is_string($description_row[1])):
+										if(is_string(value: $description_row[1])):
 											$color = $description_row[1];
 										endif;
-										if(is_bool($description_row[1])):
+										if(is_bool(value: $description_row[1])):
 											$suppressbr = $description_row[1];
 										endif;
 										if($suppressbr):
@@ -604,7 +604,7 @@ trait tools {
 										else:
 											$description_output .= '<br />';
 										endif;
-										if(is_null($color)):
+										if(is_null(value: $color)):
 											$description_output .= $description_row[0];
 										else:
 											$description_output .= sprintf('<span style="color:%2$s">%1$s</span>',$description_row[0],$color);
@@ -613,12 +613,12 @@ trait tools {
 									break;
 								case 3:
 //									allow not to break
-									if(is_string($description_row[0])):
+									if(is_string(value: $description_row[0])):
 										$color = null;
-										if(is_string($description_row[1])):
+										if(is_string(value: $description_row[1])):
 											$color = $description_row[1];
 										endif;
-										if(is_bool($description_row[2])):
+										if(is_bool(value: $description_row[2])):
 											$suppressbr = $description_row[2];
 										endif;
 										if($suppressbr):
@@ -626,7 +626,7 @@ trait tools {
 										else:
 											$description_output .= '<br />';
 										endif;
-										if(is_null($color)):
+										if(is_null(value: $color)):
 											$description_output .= $description_row[0];
 										else:
 											$description_output .= sprintf('<span style="color:%2$s">%1$s</span>',$description_row[0],$color);
@@ -638,7 +638,7 @@ trait tools {
 					endforeach;
 				endif;
 			endif;
-			if(preg_match('/\S/',$description_output)):
+			if(preg_match(pattern: '/\S/',subject: $description_output)):
 				$this->addDIV(attributes: ['class' => 'cd-description'],value: $description_output);
 			endif;
 		endif;
@@ -646,7 +646,7 @@ trait tools {
 	}
 	public function ins_checkbox(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->reset_hooks();
-		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$preset = is_object(value: $value) ? $value->row[$property->get_name()] : $value;
 		$id = $property->get_id();
 		$caption = $property->get_caption();
 		$input_attributes = [
@@ -680,7 +680,7 @@ trait tools {
 	}
 	public function ins_input(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
 		$this->reset_hooks();
-		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$preset = is_object(value: $value) ? $value->row[$property->get_name()] : $value;
 		$id = $property->get_id();
 		$caption = $property->get_caption();
 		$input_attributes = [
@@ -737,12 +737,12 @@ trait tools {
 		return $this;
 	}
 	public function ins_input_hidden(string $name = null,$value = '') {
-		if(isset($name) && preg_match('/\S/',$name) && is_scalar($value)):
+		if(isset($name) && preg_match(pattern: '/\S/',subject: $name) && is_scalar(value: $value)):
 			$input_attributes = ['type' => 'hidden'];
-			if(preg_match('/\S/',$name)):
+			if(preg_match(pattern: '/\S/',subject: $name)):
 				$input_attributes['name'] = $name;
 			endif;
-			if(is_scalar($value)):
+			if(is_scalar(value: $value)):
 				$input_attributes['value'] = $value;
 			endif;
 			$this->addDIV()->insINPUT(attributes: $input_attributes);
@@ -751,7 +751,7 @@ trait tools {
 	}
 	public function ins_checkbox_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$this->reset_hooks();
-		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$preset = is_object(value: $value) ? $value->row[$property->get_name()] : $value;
 		$table = $this->addDIV(attributes: ['class' => 'cd-checkbox-grid'])->add_table_data_selection();
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
@@ -772,9 +772,9 @@ trait tools {
 			$option_tag = (string)$option_key;
 			$input_attributes['value'] = $option_tag;
 			$input_attributes['id'] = sprintf('checkbox_%s',uuid::create_v4());
-			if(is_array($preset) && in_array($option_tag,$preset)):
+			if(is_array(value: $preset) && in_array(needle: $option_tag,haystack: $preset)):
 				$input_attributes['checked'] = 'checked';
-			elseif(array_key_exists('checked',$input_attributes)):
+			elseif(array_key_exists(key: 'checked',array: $input_attributes)):
 				unset($input_attributes['checked']);
 			endif;
 			$hook = $tbody->
@@ -794,7 +794,7 @@ trait tools {
 		switch($n_options <=> 1):
 			case -1:
 				$message_info = $property->get_message_info();
-				if(!is_null($message_info)):
+				if(!is_null(value: $message_info)):
 					$table->addTFOOT()->addTR()->addTDwC(class: 'lcebl',value: $message_info);
 				endif;
 				$suppress_tablesort = $this->option_exists(option: 'tablesort');
@@ -815,7 +815,7 @@ trait tools {
 		return $this;
 	}
 	public function ins_filechooser(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
-		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$preset = is_object(value: $value) ? $value->row[$property->get_name()] : $value;
 		$id = $property->get_id();
 		$caption = $property->get_caption();
 		$name = $property->get_name();
@@ -900,7 +900,7 @@ EOJ;
 	}
 	public function ins_radio_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$this->reset_hooks();
-		$preset = (string)(is_object($value) ? $value->row[$property->get_name()] : $value);
+		$preset = (string)(is_object(value: $value) ? $value->row[$property->get_name()] : $value);
 		$table = $this->addDIV(attributes: ['class' => 'cd-radio-grid'])->add_table_data_selection();
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
@@ -923,7 +923,7 @@ EOJ;
 			$input_attributes['id'] = sprintf('radio_%s',uuid::create_v4());
 			if($option_tag == $preset):
 				$input_attributes['checked'] = 'checked';
-			elseif(array_key_exists('checked',$input_attributes)):
+			elseif(array_key_exists(key: 'checked',array: $input_attributes)):
 				unset($input_attributes['checked']);
 			endif;
 			$hook = $tbody->
@@ -943,7 +943,7 @@ EOJ;
 		switch($n_options <=> 1):
 			case -1:
 				$message_info = $property->get_message_info();
-				if(!is_null($message_info)):
+				if(!is_null(value: $message_info)):
 					$table->addTFOOT()->addTR()->addTDwC(class: 'lcebl',value: $message_info);
 				endif;
 				$suppress_tablesort = $this->option_exists(option: 'tablesort');
@@ -964,7 +964,7 @@ EOJ;
 		return $this;
 	}
 	public function ins_select(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
-		$preset = (string)(is_object($value) ? $value->row[$property->get_name()] : $value);
+		$preset = (string)(is_object(value: $value) ? $value->row[$property->get_name()] : $value);
 		$caption = $property->get_caption();
 		$select_attributes = [
 			'id' => $property->get_id(),
@@ -980,7 +980,7 @@ EOJ;
 		$hook = $this->addDIV(attributes: ['class' => 'cd-select']);
 		$select = $hook->addElement(name: 'select',attributes: $select_attributes);
 		if($is_required):
-			$select->addElement(name: 'option',attributes: ['value' => ''],value: gettext('Choose...'));
+			$select->addElement(name: 'option',attributes: ['value' => ''],value: gettext(message: 'Choose...'));
 		endif;
 		foreach($property->get_options() as $option_key => $option_val):
 			$option_tag = (string)$option_key;
@@ -1000,7 +1000,7 @@ EOJ;
 		if($this->option_exists(option: 'tablesort')):
 			$tr_attributes = ['class' => 'tablesorter-ignoreRow'];
 		endif;
-		if(isset($id) && preg_match('/\S/',$id)):
+		if(isset($id) && preg_match(pattern: '/\S/',subject: $id)):
 			$tr_attributes['id'] = sprintf('%s_tr',$id);
 		endif;
 		$td_attributes = [
@@ -1015,7 +1015,7 @@ EOJ;
 	public function ins_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
 		$n_rows_min = 5;
 		$n_rows_max = 64;
-		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$preset = is_object(value: $value) ? $value->row[$property->get_name()] : $value;
 		$id = $property->get_id();
 		$caption = $property->get_caption();
 		$textarea_attributes = [
@@ -1041,9 +1041,9 @@ EOJ;
 			$textarea_attributes['placeholder'] = $placeholder;
 		endif;
 		$n_rows = $property->get_rows();
-		if(is_null($n_rows)):
+		if(is_null(value: $n_rows)):
 //			calculate the number of rows within min-max
-			$textarea_attributes['rows'] = min($n_rows_max,max($n_rows_min,1 + substr_count($preset,"\n")));
+			$textarea_attributes['rows'] = min($n_rows_max,max($n_rows_min,1 + substr_count(haystack: $preset,needle: "\n")));
 		elseif($n_rows > 0):
 			$textarea_attributes['rows'] = $n_rows;
 		endif;
@@ -1096,7 +1096,7 @@ EOJ;
 			'type' => 'checkbox',
 			'name' => $cbm_toggle_id,
 			'id' => $cbm_toggle_id,
-			'title' => gettext('Invert Selection'),
+			'title' => gettext(message: 'Invert Selection'),
 			'class' => 'oneemhigh'
 		];
 		$this->insINPUT(attributes: $input_attributes);
@@ -1155,22 +1155,22 @@ EOJ;
 		$value = $is_enabled ? $g_img['unicode.ena'] : $g_img['unicode.dis'];
 		switch($type):
 			default:
-				$title = $is_enabled ? gettext('Enabled') : gettext('Disabled');
+				$title = $is_enabled ? gettext(message: 'Enabled') : gettext(message: 'Disabled');
 				break;
 			case 1:
-				$title = $is_enabled ? gettext('Running') : gettext('Stopped');
+				$title = $is_enabled ? gettext(message: 'Running') : gettext(message: 'Stopped');
 				break;
 			case 2:
-				$title = $is_enabled ? gettext('Active') : gettext('Inactive');
+				$title = $is_enabled ? gettext(message: 'Active') : gettext(message: 'Inactive');
 				break;
 			case 3:
-				$title = $is_enabled ? gettext('Online') : gettext('Offline');
+				$title = $is_enabled ? gettext(message: 'Online') : gettext(message: 'Offline');
 				break;
 			case 4:
-				$title = $is_enabled ? gettext('On') : gettext('Off');
+				$title = $is_enabled ? gettext(message: 'On') : gettext(message: 'Off');
 				break;
 			case 5:
-				$title = $is_enabled ? gettext('Yes') : gettext('No');
+				$title = $is_enabled ? gettext(message: 'Yes') : gettext(message: 'No');
 				break;
 		endswitch;
 		$this->addTD(attributes: ['class' => $class,'title' => $title],value: $value);
@@ -1187,7 +1187,7 @@ EOJ;
 
 		if($notdirty && $notprotected):
 //			record is editable
-			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$querystring = http_build_query(data: ['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],numeric_prefix: '',arg_separator: ini_get(option: 'arg_separator.output'),encoding_type: PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 			$div = $this->addDIV(attributes: ['class' => 'lcrgridl']);
 			$div->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $sphere->getmsg_sym_mod()],value: $g_img['unicode.mod']);
@@ -1205,7 +1205,7 @@ EOJ;
 
 		$div = $this->addDIV(attributes: ['class' => 'lcrgridc']);
 		if($show_link):
-			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$querystring = http_build_query(data: ['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],numeric_prefix: '',arg_separator: ini_get(option: 'arg_separator.output'),encoding_type: PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_maintain()->get_scriptname(),$querystring);
 			$div->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $sphere->getmsg_sym_mai()],value: $g_img['unicode.mai']);
 		endif;
@@ -1216,7 +1216,7 @@ EOJ;
 
 		$div = $this->addDIV(attributes: ['class' => 'lcrgridr']);
 		if($show_link):
-			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$querystring = http_build_query(data: ['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],numeric_prefix: '',arg_separator: ini_get(option: 'arg_separator.output'),encoding_type: PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_inform()->get_scriptname(),$querystring);
 			$div->addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $sphere->getmsg_sym_inf()],value: $g_img['unicode.inf']);
 		endif;
@@ -1244,7 +1244,7 @@ EOJ;
 	public function ins_record_add($sphere,int $colspan = 0) {
 		global $g_img;
 
-		$querystring = http_build_query(['submit' => 'add'],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+		$querystring = http_build_query(data: ['submit' => 'add'],numeric_prefix: '',arg_separator: ini_get(option: 'arg_separator.output'),encoding_type: PHP_QUERY_RFC3986);
 		$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 //		PHP_QUERY_RFC3986
 		$tr = $this->addTR();
@@ -1257,8 +1257,8 @@ EOJ;
 		return $this;
 	}
 	public function ins_no_records_found(int $colspan = 0,string $message = null) {
-		if(is_null($message)):
-			$message = gettext('No records found.');
+		if(is_null(value: $message)):
+			$message = gettext(message: 'No records found.');
 		endif;
 		$td_attributes = ['class' => 'lcebl'];
 		if($colspan > 0):
@@ -1338,26 +1338,26 @@ EOJ;
 	public function cr_scheduler($cops,$sphere,bool $is_required = false,bool $is_readonly = false) {
 //		init matrix
 		$matrix = [];
-		if(array_key_exists('all_minutes',$cops) && array_key_exists('minutes',$cops)):
+		if(array_key_exists(key: 'all_minutes',array: $cops) && array_key_exists(key: 'minutes',array: $cops)):
 			$matrix['minutes'] = ['all' => $cops['all_minutes'],'sel' => $cops['minutes'],'val_min' => 0,'val_steps' => 60,'val_break' => 15];
 		endif;
-		if(array_key_exists('all_hours',$cops) && array_key_exists('hours',$cops)):
+		if(array_key_exists(key: 'all_hours',array: $cops) && array_key_exists(key: 'hours',array: $cops)):
 			$matrix['hours'] = ['all' => $cops['all_hours'],'sel' => $cops['hours'],'val_min' => 0,'val_steps' => 24,'val_break' => 6];
 		endif;
-		if(array_key_exists('all_days',$cops) && array_key_exists('days',$cops)):
+		if(array_key_exists(key: 'all_days',array: $cops) && array_key_exists(key: 'days',array: $cops)):
 			$matrix['days'] = ['all' => $cops['all_days'],'sel' => $cops['days'],'val_min' => 1,'val_steps' => 31,'val_break' => 7];
 		endif;
-		if(array_key_exists('all_months',$cops) && array_key_exists('months',$cops)):
+		if(array_key_exists(key: 'all_months',array: $cops) && array_key_exists(key: 'months',array: $cops)):
 			$matrix['months'] = ['all' => $cops['all_months'],'sel' => $cops['months']];
 		endif;
-		if(array_key_exists('all_weekdays',$cops) && array_key_exists('weekdays',$cops)):
+		if(array_key_exists(key: 'all_weekdays',array: $cops) && array_key_exists(key: 'weekdays',array: $cops)):
 			$matrix['weekdays'] = ['all' => $cops['all_weekdays'],'sel' => $cops['weekdays']];
 		endif;
 		$root_for_scheduler = $this;
-		if(array_key_exists('preset',$cops)):
+		if(array_key_exists(key: 'preset',array: $cops)):
 			$this->cr(property: $cops['preset'],value: $sphere,is_required: $is_required,is_readonly: $is_readonly);
 			$hooks = $this->get_hooks();
-			if(array_key_exists('custom',$hooks)):
+			if(array_key_exists(key: 'custom',array: $hooks)):
 				$root_for_scheduler = $hooks['custom']->addDIV(attributes: ['class' => 'showifchecked']);
 			endif;
 		endif;
@@ -1385,13 +1385,13 @@ EOJ;
 						addDIV(attributes: ['class' => 'rblo'])->
 							insINPUT(attributes: $attr_all)->
 							addElement(name: 'label',attributes: ['for' => sprintf('%s1',$all_id)])->
-								insSPAN(attributes: ['class' => 'rblo'],value: gettext('All'))->
+								insSPAN(attributes: ['class' => 'rblo'],value: gettext(message: 'All'))->
 						pop()->
 						addDIV(attributes: ['class' => 'rblo'])->
 							push()->
 							insINPUT(attributes: $attr_sel)->
 								addElement(name: 'label',attributes: ['for' => sprintf('%s0',$all_id)])->
-									insSPAN(attributes: ['class' => 'rblo'],value: gettext('Selected...'))->
+									insSPAN(attributes: ['class' => 'rblo'],value: gettext(message: 'Selected...'))->
 							pop()->
 							addTABLE()->
 								addTBODY(attributes: ['class' => 'donothighlight'])->
@@ -1404,7 +1404,7 @@ EOJ;
 					$val_count = $control['val_steps'];
 					$val_max = $val_min + $val_count - 1;
 					$val_break = $control['val_break'];
-					$outer_max = ceil($val_count / $val_break) - 1;
+					$outer_max = ceil(num: $val_count / $val_break) - 1;
 					$inner_max = $val_min + $val_break - 1;
 					for($outer = 0;$outer <= $outer_max;$outer++):
 						$td = $tr->addTDwC(class: 'lcefl');
@@ -1416,7 +1416,7 @@ EOJ;
 									'name' => sprintf('%s[]',$sel_name),
 									'value' => $key
 								];
-								if(isset($sphere->row[$sel_name]) && is_array($sphere->row[$sel_name]) && in_array((string)$key,$sphere->row[$sel_name])):
+								if(isset($sphere->row[$sel_name]) && is_array(value: $sphere->row[$sel_name]) && in_array(needle: (string)$key,haystack: $sphere->row[$sel_name])):
 									$attributes['checked'] = 'checked';
 								endif;
 								$td->
@@ -1440,7 +1440,7 @@ EOJ;
 							'name' => sprintf('%s[]',$sel_name),
 							'value' => $key
 						];
-						if(isset($sphere->row[$sel_name]) && is_array($sphere->row[$sel_name]) && in_array((string)$key,$sphere->row[$sel_name])):
+						if(isset($sphere->row[$sel_name]) && is_array(value: $sphere->row[$sel_name]) && in_array(needle: (string)$key,haystack: $sphere->row[$sel_name])):
 							$attributes['checked'] = 'checked';
 						endif;
 						$td->
@@ -1459,12 +1459,12 @@ EOJ;
 							'name' => sprintf('%s[]',$sel_name),
 							'value' => $key
 						];
-						if(isset($sphere->row[$sel_name]) && is_array($sphere->row[$sel_name])):
-							if(in_array((string)$key,$sphere->row[$sel_name])):
+						if(isset($sphere->row[$sel_name]) && is_array(value: $sphere->row[$sel_name])):
+							if(in_array(needle: (string)$key,haystack: $sphere->row[$sel_name])):
 								$attributes['checked'] = 'checked';
 							elseif($key == 7):
 //								compatibility for non-ISO day of week 0 for Sunday
-								if(in_array('0',$sphere->row[$sel_name])):
+								if(in_array(needle: '0',haystack: $sphere->row[$sel_name])):
 									$attributes['checked'] = 'checked';
 								endif;
 							endif;
@@ -1533,19 +1533,19 @@ EOJ;
 				break;
 			case property::INPUT_TYPE_CHECKBOX_GRID:
 				$param_tablesort = $additional_parameter[0] ?? false;
-				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
+				$use_tablesort = is_bool(value: $param_tablesort) ? $param_tablesort : false;
 				$this->cr_checkbox_grid(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,use_tablesort: $use_tablesort);
 				break;
 			case property::INPUT_TYPE_RADIO_GRID:
 				$param_tablesort = $additional_parameter[0] ?? false;
-				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
+				$use_tablesort = is_bool(value: $param_tablesort) ? $param_tablesort : false;
 				$this->cr_radio_grid(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,use_tablesort: $use_tablesort);
 				break;
 			case property::INPUT_TYPE_TEXTAREA:
 				$param_cols = $additional_parameter[0] ?? null;
-				$n_cols = is_int($param_cols) ? $param_cols : null;
+				$n_cols = is_int(value: $param_cols) ? $param_cols : null;
 				$param_rows = $additional_parameter[1] ?? null;
-				$n_rows = is_int($param_rows) ? $param_rows : null;
+				$n_rows = is_int(value: $param_rows) ? $param_rows : null;
 				$this->cr_textarea(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,n_cols: $n_cols,n_rows: $n_rows);
 				break;
 			case property::INPUT_TYPE_SELECT:
@@ -1773,19 +1773,19 @@ EOJ;
 				break;
 			case property::INPUT_TYPE_CHECKBOX_GRID:
 				$param_tablesort = $additional_parameter[0] ?? false;
-				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
+				$use_tablesort = is_bool(value: $param_tablesort) ? $param_tablesort : false;
 				$this->c2_checkbox_grid(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,use_tablesort: $use_tablesort);
 				break;
 			case property::INPUT_TYPE_RADIO_GRID:
 				$param_tablesort = $additional_parameter[0] ?? false;
-				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
+				$use_tablesort = is_bool(value: $param_tablesort) ? $param_tablesort : false;
 				$this->c2_radio_grid(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,use_tablesort: $use_tablesort);
 				break;
 			case property::INPUT_TYPE_TEXTAREA:
 				$param_cols = $additional_parameter[0] ?? null;
-				$n_cols = is_int($param_cols) ? $param_cols : null;
+				$n_cols = is_int(value: $param_cols) ? $param_cols : null;
 				$param_rows = $additional_parameter[1] ?? null;
-				$n_rows = is_int($param_rows) ? $param_rows : null;
+				$n_rows = is_int(value: $param_rows) ? $param_rows : null;
 				$this->c2_textarea(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,n_cols: $n_cols,n_rows: $n_rows);
 				break;
 			case property::INPUT_TYPE_SELECT:
@@ -1799,7 +1799,7 @@ EOJ;
 				break;
 			case property::INPUT_TYPE_TITLELINE_CHECKBOX:
 				$param_title = $additional_parameter[0] ?? '';
-				$title = is_string($param_title) ? $param_title : '';
+				$title = is_string(value: $param_title) ? $param_title : '';
 				$this->c2_titleline_with_checkbox(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,title: $title);
 				break;
 		endswitch;
@@ -1837,7 +1837,7 @@ EOJ;
 		$element = 'button';
 		$class_button = 'formbtn';
 		$value ??= 'cancel';
-		$content ??= gettext('Cancel');
+		$content ??= gettext(message: 'Cancel');
 		$attributes ??= [];
 		$id ??= sprintf('%s_%s',$element,$value);
 		$name ??= 'submit';
@@ -1866,7 +1866,7 @@ EOJ;
 		$id = null;
 		$name = null;
 		$value = 'save';
-		$content ??= gettext('Add');
+		$content ??= gettext(message: 'Add');
 		$attributes = null;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
@@ -1875,7 +1875,7 @@ EOJ;
 		$id = null;
 		$name = null;
 		$value = 'apply';
-		$content ??= gettext('Apply Changes');
+		$content ??= gettext(message: 'Apply Changes');
 		$attributes = null;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
@@ -1884,7 +1884,7 @@ EOJ;
 		$id = null;
 		$name = null;
 		$value = 'cancel';
-		$content ??= gettext('Cancel');
+		$content ??= gettext(message: 'Cancel');
 		$attributes = ['formnovalidate' => 'formnovalidate'];
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
@@ -1893,7 +1893,7 @@ EOJ;
 		$id = null;
 		$name = null;
 		$value = 'clone';
-		$content ??= gettext('Clone Configuration');
+		$content ??= gettext(message: 'Clone Configuration');
 		$attributes = null;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
@@ -1902,7 +1902,7 @@ EOJ;
 		$id = null;
 		$name = null;
 		$value = 'edit';
-		$content ??= gettext('Edit');
+		$content ??= gettext(message: 'Edit');
 		$attributes = null;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
@@ -1911,8 +1911,8 @@ EOJ;
 		$id = null;
 		$name = null;
 		$value = $enable ? 'enable' : 'disable';
-		$content_on ??= gettext('Enable');
-		$content_off ??= gettext('Disable');
+		$content_on ??= gettext(message: 'Enable');
+		$content_off ??= gettext(message: 'Disable');
 		$content = $enable ? $content_on : $content_off;
 		$attributes = null;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
@@ -1923,7 +1923,7 @@ EOJ;
 			$id = null;
 			$name = null;
 			$value = 'reload';
-			$content ??= gettext('Reload');
+			$content ??= gettext(message: 'Reload');
 			$attributes = null;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		endif;
@@ -1934,7 +1934,7 @@ EOJ;
 			$id = null;
 			$name = null;
 			$value = 'reorder';
-			$content ??= gettext('Reorder');
+			$content ??= gettext(message: 'Reorder');
 			$attributes = null;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		endif;
@@ -1945,7 +1945,7 @@ EOJ;
 			$id = null;
 			$name = null;
 			$value = 'rescan';
-			$content ??= gettext('Rescan');
+			$content ??= gettext(message: 'Rescan');
 			$attributes = null;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		endif;
@@ -1956,7 +1956,7 @@ EOJ;
 			$id = null;
 			$name = null;
 			$value = 'restart';
-			$content ??= gettext('Restart');
+			$content ??= gettext(message: 'Restart');
 			$attributes = null;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		endif;
@@ -1966,7 +1966,7 @@ EOJ;
 		$id = null;
 		$name = null;
 		$value = 'save';
-		$content ??= gettext('Apply');
+		$content ??= gettext(message: 'Apply');
 		$attributes = null;
 		$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
@@ -1991,7 +1991,7 @@ EOJ;
 		return $this;
 	}
 	public function clc_page_title(array $page_title = []) {
-		$output = implode(' > ',$page_title);
+		$output = implode(separator: ' > ',array: $page_title);
 		return $output;
 	}
 	public function clc_html_page_title(array $page_title = []) {
@@ -1999,7 +1999,7 @@ EOJ;
 		global $g_img;
 
 		$output = '';
-		if(session::is_admin() && file_exists($d_sysrebootreqd_path)):
+		if(session::is_admin() && file_exists(filename: $d_sysrebootreqd_path)):
 			$output .= $g_img['unicode.reboot'] . ' ';
 		endif;
 		$output .= system_get_hostname();
@@ -2017,12 +2017,12 @@ EOJ;
 			insElement(name: 'meta',attributes: ['name' => 'viewport','content' => 'width=device-width, initial-scale=1.0'])->
 			insElement(name: 'meta',attributes: ['name' => 'robots','content' => 'noindex,nofollow'])->
 			insElement(name: 'meta',attributes: ['name' => 'description','content' => 'XigmaNAS® - The Free Network Attached Storage Project'])->
-			insElement(name: 'title',value: $this->clc_html_page_title($page_title))->
+			insElement(name: 'title',value: $this->clc_html_page_title(page_title: $page_title))->
 			insElement(name: 'link',attributes: ['href' => '/css/gui.css.php','rel' => 'stylesheet','type' => 'text/css'])->
 			insElement(name: 'link',attributes: ['href' => '/css/navbar.css.php','rel' => 'stylesheet','type' => 'text/css'])->
 			insElement(name: 'link',attributes: ['href' => '/css/tabs.css.php','rel' => 'stylesheet','type' => 'text/css']);
 		if($this->option_exists(option: 'login')):
-			header("Content-Security-Policy: frame-ancestors 'none'");
+			header(header: "Content-Security-Policy: frame-ancestors 'none'");
 		endif;
 		$head->
 			insElement(name: 'style',value: '.avoid-fouc { visibility:hidden; }');
@@ -2064,7 +2064,7 @@ EOJ;
 		$is_login = $this->option_exists(option: 'login');
 		$is_multipart = $this->option_exists(option: 'multipart');
 		$is_tablesort = $this->option_exists(option: 'tablesort');
-		$is_form = (isset($action_url) && preg_match('/^\S+$/',$action_url));
+		$is_form = (isset($action_url) && preg_match(pattern: '/^\S+$/',subject: $action_url));
 		$is_spinonsubmit = $is_form && !$this->option_exists(option: 'nospinonsubmit');
 		$is_tabnav = !($is_login || $this->option_exists(option: 'notabnav'));
 		$body = $this->addElement(name: 'body',attributes: ['id' => 'main']);
@@ -2140,7 +2140,7 @@ EOJ;
 		$hard_link_regex = '~^[a-z]+://~';
 		$menu = get_headermenu();
 //		function cares about access rights itself
-		make_headermenu_extensions($menu);
+		make_headermenu_extensions(menu: $menu);
 		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 		$ul_lev1 = $this->addDIV(attributes: ['id' => 'area_navhdr'])->addElement(name: 'nav',attributes: ['id' => 'navhdr'])->addUL(attributes: ['class' => 'lev1']);
 		$li_lev1 = $ul_lev1->addLI(attributes: ['class' => 'lev1']);
@@ -2179,7 +2179,7 @@ EOJ;
 						$attributes['onclick'] = '';
 						break;
 				endswitch;
-//				$tags = implode(' ',$a_tag);
+//				$tags = implode(separator: ' ',array: $a_tag);
 				if(empty($menu[$menuid]['img'])):
 					switch($navbartoplevelstyle):
 						case 'symbol':
@@ -2208,7 +2208,7 @@ EOJ;
 									$a_lev3_attributes['href'] = $menu_item['link'];
 									$a_lev3_attributes['target'] = '_blank';
 									$a_lev3_attributes['rel'] = 'noreferrer';
-									if(preg_match($hard_link_regex,$menu_item['link']) !== 1):
+									if(preg_match(pattern: $hard_link_regex,subject: $menu_item['link']) !== 1):
 //										local link = spinner
 										$a_lev3_attributes['onclick'] = 'spinner()';
 									endif;
@@ -2217,7 +2217,7 @@ EOJ;
 								case 'internal':
 									$a_lev3_attributes['href'] = $menu_item['link'];
 									$a_lev3_attributes['target'] = '_self';
-									if(preg_match($hard_link_regex,$menu_item['link']) !== 1):
+									if(preg_match(pattern: $hard_link_regex,subject: $menu_item['link']) !== 1):
 //										local link = spinner
 										$a_lev3_attributes['onclick'] = 'spinner()';
 									endif;
@@ -2239,7 +2239,7 @@ EOJ;
 		$header->addDIV(attributes: ['id' => 'gapheader']);
 		$header->ins_header_menu();
 		if(!empty($page_title)):
-			$header->addDIV(attributes: ['id' => 'pgtitle'])->addP(attributes: ['class' => 'pgtitle'],value: $this->clc_page_title($page_title));
+			$header->addDIV(attributes: ['id' => 'pgtitle'])->addP(attributes: ['class' => 'pgtitle'],value: $this->clc_page_title(page_title: $page_title));
 		endif;
 		return $this;
 	}
@@ -2265,8 +2265,8 @@ EOJ;
 				addDIV(attributes: ['id' => 'pagefooter','class' => 'lcrgridx']);
 		$g4fl = $g4fx->addDIV(attributes: ['class' => 'g4fl lcrgridl']);
 		if(session::is_admin()):
-			if(file_exists($d_sysrebootreqd_path)):
-				$g4fl->addA(attributes: ['class' => 'g4fi spin','href' => '/reboot.php','title' => gettext('A reboot is required')],value: $g_img['unicode.reboot']);
+			if(file_exists(filename: $d_sysrebootreqd_path)):
+				$g4fl->addA(attributes: ['class' => 'g4fi spin','href' => '/reboot.php','title' => gettext(message: 'A reboot is required')],value: $g_img['unicode.reboot']);
 			endif;
 		endif;
 		$g4fx->addDIV(attributes: ['class' => 'g4fc lcrgridc'],value: get_product_copyright());
