@@ -1,5 +1,5 @@
 /*
-	navbar-no-lev1.css
+	navbar-full-lev23.css
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2023 XigmaNAS® <info@xigmanas.com>.
@@ -212,7 +212,8 @@
 	height: 0.125rem;
 }
 
-#navhdr li:not(.tabseparator):hover
+#navhdr li:not(.tabseparator):hover,
+#navhdr li:not(.tabseparator):focus
 {
 	background-color: white;
 	background-color: var(--bgc-nav-sub-hovered);
@@ -220,7 +221,8 @@
 	background-image: var(--bgi-nav-sub-hovered);
 }
 
-#navhdr li:not(.tabseparator):hover > a
+#navhdr li:not(.tabseparator):hover > a,
+#navhdr li:not(.tabseparator):focus > a
 {
 	color: black;
 	color: var(--txc-nav-sub-hovered);
@@ -228,6 +230,12 @@
 
 #navhdr li:not(.tabseparator):hover > ul,
 #navhdr li:not(.tabseparator):focus > ul
+{
+	display: flex;
+}
+
+#navhdr a:hover + ul,
+#navhdr a:focus + ul
 {
 	display: flex;
 }
