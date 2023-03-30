@@ -42,7 +42,7 @@ use common\uuid;
 use gui\document;
 
 /*
- *	compatibility to previous versions which directly instantiate from co_DOMDocument.
+ *	compatibility to previous versions which directly instantiated from co_DOMDocument.
  */
 class_alias('gui\document','co_DOMDocument',true);
 
@@ -1323,6 +1323,6 @@ function new_page(array $page_title = [],string $action_url = null,string ...$op
  *	@return document
  */
 function new_document(string $version = '1.0',string $encoding = 'UTF-8') {
-	$document = new document($version,$encoding);
+	$document = new document(version: $version,encoding: $encoding);
 	return $document;
 }
