@@ -215,7 +215,11 @@ function render_pool_edit($a_items = [],$format = '0N',$a_selected_items = []) {
 							$value = $r_item['pool.name'];
 							$attribute['value'] = sprintf('value="%s"',$value);
 							if(count($a_selected_items) > 0):
-								$attribute['checked'] = (false === array_search($value,$a_selected_items) ? '' : 'checked="checked"');
+								if(array_search($value,$a_selected_items) === false):
+									$attribute['checked'] =  '';
+								else:
+									$attribute['checked'] =  'checked="checked"';
+								endif;
 							endif;
 							echo '<tr>';
 								echo '<td class="lcelc">';
@@ -341,7 +345,11 @@ function render_pooldev_edit($a_items = [],$format = '1',$a_selected_items = [],
 							endif;
 							$attribute['value'] = sprintf('value="%s"',$value);
 							if(count($a_selected_items) > 0):
-								$attribute['checked'] = (false === array_search($value,$a_selected_items) ? '' : 'checked="checked"');
+								if(array_search($value,$a_selected_items) === false):
+									$attribute['checked'] =  '';
+								else:
+									$attribute['checked'] =  'checked="checked"';
+								endif;
 							endif;
 							$vdevice = '';
 							if(preg_match('/\S/',$r_item['vdev.type'])):
@@ -477,7 +485,11 @@ function render_newvdev_edit($a_items = [],$format = '0N',$a_selected_items = []
 							$value = $r_item['name'];
 							$attribute['value'] = sprintf('value="%s"',$value);
 							if(count($a_selected_items) > 0):
-								$attribute['checked'] = (false === array_search($value,$a_selected_items) ? '' : 'checked="checked"');
+								if(array_search($value,$a_selected_items) === false):
+									$attribute['checked'] = '';
+								else:
+									$attribute['checked'] = 'checked="checked"';
+								endif;
 							endif;
 							echo '<tr>';
 								echo '<td class="lcelc">';
@@ -588,7 +600,11 @@ function render_newdev_edit($a_items = [],$format = '1',$a_selected_items = []) 
 							$mediasize = $r_item['mediasize'] ?? 0;
 							$attribute['value'] = sprintf('value="%s"',$value);
 							if(count($a_selected_items) > 0):
-								$attribute['checked'] = (false === array_search($value,$a_selected_items) ? '' : 'checked="checked"');
+								if(array_search($value,$a_selected_items) === false):
+									$attribute['checked'] = '';
+								else:
+									$attribute['checked'] = 'checked="checked"';
+								endif;
 							endif;
 							echo '<tr>';
 								echo '<td class="lcelc">';
@@ -654,7 +670,7 @@ function render_selector_radio($title,$a_option,$r_option_selected = '') {
  *
  * An option gets preselected when it matches $r_option_selected
  */
-	$b_check_default = (false === arr::search_ex($r_option_selected,$a_option,'value'));
+	$b_check_default = arr::search_ex($r_option_selected,$a_option,'value') === false;
 	if(count($a_option) > 0):
 		echo '<tr>';
 			echo '<td class="celltag">';  // left hand column start
