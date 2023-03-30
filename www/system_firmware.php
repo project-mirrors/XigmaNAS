@@ -113,14 +113,12 @@ function simplexml_load_file_from_url($url,$timeout = 5) {
 		$is_proxy_enabled = is_bool($test) ? $test : true;
 		unset($test);
 		if($is_proxy_enabled):
-//			$curl_cfgopt[CURLOPT_PROXYTYPE] = CURLPROXY_HTTP;
 			$curl_cfgopt[CURLOPT_PROXY] = $proxy_cfg['address'] ?? '';
 			$curl_cfgopt[CURLOPT_PROXYPORT] = $proxy_cfg['port'] ?? '';
 			$test = $proxy_cfg['auth'] ?? false;
 			$is_auth_enabled = is_bool($test) ? $test : true;
 			unset($test);
 			if($is_auth_enabled):
-//				$curl_cfgopt[CURLOPT_HTTPAUTH] = CURLAUTH_BASIC;
 				$curl_cfgopt[CURLOPT_PROXYUSERPWD] = sprintf('%s:%s',$proxy_cfg['username'] ?? '',$proxy_cfg['password'] ?? '');
 			endif;
 		endif;
