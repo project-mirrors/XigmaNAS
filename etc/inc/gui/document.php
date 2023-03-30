@@ -46,10 +46,10 @@ class document extends DOMDocument {
 	protected $js_document_ready = [];
 
 	public function __construct(string $version = '1.0',string $encoding = 'UTF-8') {
-		parent::__construct($version,$encoding);
+		parent::__construct(version: $version,encoding: $encoding);
 		$this->preserveWhiteSpace = false;
 		$this->formatOutput = true;
-		$this->registerNodeClass('DOMElement',__NAMESPACE__ . '\element');
+		$this->registerNodeClass(baseClass: 'DOMElement',extendedClass: __NAMESPACE__ . '\element');
 	}
 	public function set_options(string ...$options) {
 		foreach($options as $value):
@@ -58,17 +58,17 @@ class document extends DOMDocument {
 		return $this;
 	}
 	public function option_exists(string $option) {
-		return array_key_exists($option,$this->options);
+		return array_key_exists(key: $option,array: $this->options);
 	}
 	public function push($element) {
 		array_push($this->stack,$element);
 		return $element;
 	}
 	public function pop() {
-		return array_pop($this->stack);
+		return array_pop(array: $this->stack);
 	}
 	public function last() {
-		return $this->stack[array_key_last($this->stack)];
+		return $this->stack[array_key_last(array: $this->stack)];
 	}
 	public function reset_hooks() {
 		$this->hook_stack = [];
@@ -81,7 +81,8 @@ class document extends DOMDocument {
 		return $this->hook_stack;
 	}
 	public function add_js_on_load(string $jcode = '',string $key = null) {
-		if(preg_match('/\S/',$jcode)):
+		$preg_match_result = preg_match(pattern: '/\S/',subject: $jcode);
+		if($preg_match_result === 1):
 			if(isset($key)):
 				$this->js_on_load[$key] = $jcode;
 			else:
@@ -91,7 +92,8 @@ class document extends DOMDocument {
 		return $this;
 	}
 	public function add_js_document_ready(string $jcode = '',string $key = null) {
-		if(preg_match('/\S/',$jcode)):
+		$preg_match_result= preg_match(pattern: '/\S/',subject: $jcode);
+		if($preg_match_result === 1):
 			if(isset($key)):
 				$this->js_document_ready[$key] = $jcode;
 			else:
@@ -101,17 +103,13 @@ class document extends DOMDocument {
 		return $this;
 	}
 	protected function clc_javascript() {
-		$body = $this->getElementById('main');
+		$body = $this->getElementById(elementId: 'main');
 		if(isset($body)):
 			if(!empty($this->js_on_load)):
-				$jdata = implode("\n",[
-					'$(window).on("load", function() {',
-					implode("\n",$this->js_on_load),
-					'});'
-				]);
+				$jdata = implode(separator: "\n",array: ['$(window).on("load", function() {',implode(separator: "\n",array: $this->js_on_load),'});']);
 				$body->ins_javascript(text: $jdata);
 			endif;
-			$jdata = implode("\n",$this->js_document_ready);
+			$jdata = implode(separator: "\n",array: $this->js_document_ready);
 			$body->ins_javascript(text: $jdata);
 		endif;
 		return $this;
