@@ -703,6 +703,16 @@ input[type=checkbox]:checked ~ div.hideifchecked
 	display: none;
 }
 
+.formbtn,
+.formfld,
+.formfldro,
+.formpre,
+.formprero
+{
+	color: #ff0000;
+	background-color: #00ffff;
+}
+
 .formfldadditionalinfo
 {
 	margin-top: 0.3125rem;
@@ -1875,7 +1885,7 @@ meter.poolusage,
 meter.upsusage
 {
 	height: 1.25rem;
-	width: 6.25rem;
+	width: 9rem;
 	margin-right: 1rem;
 }
 
