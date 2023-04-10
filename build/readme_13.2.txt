@@ -1,4 +1,4 @@
-		README & CHANGELOG FOR XIGMANAS® 13.1.0.5 - Glowpanel
+		README & CHANGELOG FOR XIGMANAS® 13.2.0.5 - xxxxxxxxxx
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
@@ -108,40 +108,11 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 13.1.0.5.9790
 ===================
 Changes:
-- Upgrade to FreeBSD 13.1-RELEASE P7.
-- Upgrade tmux to v3.3a.
-- Upgrade rrdtool to v1.8.0.
-- Upgrade devcpu-data-amd to v20221002.
-- Upgrade pecl-APCu to v5.1.22.
-- Upgrade python to v3.9.15.
-- Upgrade proftpd to v1.3.7f.
-- Upgrade arcconf to vB25611.
-- Upgrade lcdproc to v2021.12.20.
-- Upgrade bash to v5.2p15.
-- Upgrade rsync to v3.2.7.
-- Upgrade libvncserver to v0.9.14.
-- Upgrade nano to v7.2.
-- Upgrade virtualbox-ose to v6.1.42.
-- Upgrade msmtp to v1.8.23.
-- Upgrade inadyn to v2.10.0.
-- Upgrade minidlna to v1.3.2.
-- Upgrade cdialog to v1.3-20230209.
-- Upgrade lighttpd to v1.4.69.
-- Upgrade phpmyadmin to v5.2.1.
-- Upgrade nut to v2023.02.16.
-- Upgrade iperf3 to v3.13.
-- Upgrade devcpu-data-intel to v20230214.
-- Upgrade e2fsprogs to v1.47.0.
-- Upgrade jquery to v3.6.4.
-- Upgrade syncthing to v1.23.2.
-- Upgrade php to v8.2.4.
-- Upgrade zoneinfo to 2023c.
-- Upgrade sudo to v1.9.13p3.
+- Upgrade to FreeBSD 13.2-RELEASE P0.
+
 
 Fixes:
-- fix bring up lighttpd at all times.
-- fix CVE-2022-3437 by backport samba fixes.
-- fix missing time zones.
+
 
 Default login credentials:
 ==========================
