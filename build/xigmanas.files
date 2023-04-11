@@ -114,6 +114,9 @@ bin/getfacl
 ## setfacl -- set ACL information
 bin/setfacl
 
+## timeout -- run a command with a time limit
+bin/timeout
+
 ## uuidgen -- generate universally unique identifiers
 bin/uuidgen
 
@@ -399,9 +402,6 @@ usr/bin/tail
 
 ## tar -- manipulate tape archives
 usr/bin/bsdtar:usr/bin/tar
-
-## timeout -- run a command with a time limit
-usr/bin/timeout
 
 ## top -- display and update information about the top cpu processes
 usr/bin/top
@@ -1191,6 +1191,7 @@ etc/rc.d/zfsd
 etc/rc.d/zfsbe
 etc/rc.d/zfskeys
 etc/rc.d/zpool
+etc/rc.d/zpoolreguid
 
 ####### contents of /usr/share/snmp/defs
 usr/share/snmp/defs/bridge_tree.def
