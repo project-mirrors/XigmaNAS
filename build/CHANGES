@@ -1,8 +1,8 @@
-XigmaNAS® 13.2.0.5 - xxxxxxxxxx
+XigmaNAS® 13.2.0.5 - Heighliner
 -------------------------
 Changes:
 - Upgrade to FreeBSD 13.2-RELEASE P0.
-
+- Upgrade netatalk3 to version 3.1.14.
 
 Fixes:
 
