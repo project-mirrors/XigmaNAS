@@ -110,6 +110,7 @@ BUILD 13.2.0.5.xxxx
 Changes:
 - Upgrade to FreeBSD 13.2-RELEASE P0.
 - Upgrade netatalk3 to version 3.1.14.
+- Upgrade mDNSResponder to version 1790.80.10.
 
 Fixes:
 

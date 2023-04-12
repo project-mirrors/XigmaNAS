@@ -1,17 +1,21 @@
 PORTNAME=		mDNSResponder
-PORTVERSION=	1310.140.1
-PORTREVISION=	0
+PORTVERSION=	1790.80.10
+PORTREVISION=	1
 CATEGORIES=	net dns
-COMMENT=	Apple's mDNSResponder
-MAINTAINER=	zoon01@xigmanas.com
+MASTER_SITES=	https://opensource.apple.com/tarballs/mDNSResponder/
 
-MASTER_SITES=	http://www.opensource.apple.com/tarballs/mDNSResponder/
+MAINTAINER=	zoon01@xigmanas.com
+COMMENT=	Apple's mDNSResponder
+WWW=		https://developer.apple.com/bonjour/ \
+		https://github.com/apple-oss-distributions/mDNSResponder
+
 DISTNAME=	${PORTNAME}-${PORTVERSION}
 
 USE_LDCONFIG=	YES
 
 MAKE_ARGS+=	os=freebsd LOCALBASE=${PREFIX}
 BUILD_WRKSRC=	${WRKSRC}/mDNSPosix
+WRKSRC=		${WRKDIR}/mDNSResponder-mDNSResponder-${PORTVERSION}
 
 USES=		compiler:c11 cpe gmake
 
