@@ -70,8 +70,8 @@ SAMBA4_LOCKDIR=			${VARDIR}/db/${SAMBA4_PORTNAME}
 SAMBA4_BINDDNSDIR=		${SAMBA4_LOCKDIR}/bind-dns
 SAMBA4_PRIVATEDIR=		${SAMBA4_LOCKDIR}/private
 SAMBA4_PAMDIR=			${PREFIX}/lib
-SAMBA4_LIBDIR=			${PREFIX}/lib
-SAMBA4_MODULEDIR=		${PREFIX}/lib/shared-modules
+SAMBA4_LIBDIR=			${PREFIX}/lib/${SAMBA4_PORTNAME}
+SAMBA4_INCLUDEDIR=		${PREFIX}/include/${SAMBA4_PORTNAME}
 SAMBA4_CONFDIR=			${PREFIX}/etc
 SAMBA4_CONFIG=			smb4.conf
 SAMBA4_MODULES_CLASS=		auth bind9 gensec gpext idmap ldb nss_info \
@@ -387,7 +387,7 @@ GSSAPI_HEIMDAL_PREVENTS_MSG=	GSSAPI_HEIMDAL and AD_DC enable conflicting options
 
 LDAP_CONFIGURE_WITH=		ldap
 LDAP_CONFIGURE_ON=		--with-openldap=${LOCALBASE}
-LDAP_USE=			OPENLDAP=yes
+LDAP_USES=			ldap
 LDAP_VARS=			SAMBA4_MODULES+=idmap_ldap
 
 LIBZFS_CONFIGURE_WITH=		libzfs
@@ -564,11 +564,6 @@ MAKE_ENV+=			RPCGEN_CPP="${CPP}"
 #CFLAGS+=			-D_FUNCTION_DEF
 #.endif
 
-# XigmaNAS
-.if ${OSVERSION} >= 1200000
-LDFLAGS+=			-lncurses -lmenu -lpanel -lform
-.endif
-
 # Make sure that the right version of Python is used by the tools
 # https://bugzilla.samba.org/show_bug.cgi?id=7305
 SHEBANG_FILES=			${PATCH_WRKSRC}/source4/scripting/bin/* ${PATCH_WRKSRC}/selftest/*
@@ -665,6 +660,12 @@ post-install-FRUIT-off:
 				${RM} ${STAGEDIR}${SAMBA4_MODULEDIR}/vfs/fruit.so
 				${RM} ${STAGEDIR}${PREFIX}/man/man8/vfs_fruit.8
 
+post-install-CLUSTER-on:
+				${LN} -nfs ../../../../share/ctdb/events/legacy/00.ctdb.script		${STAGEDIR}${PREFIX}/etc/ctdb/events/legacy/00.ctdb.script
+				${LN} -nfs ../../../../share/ctdb/events/legacy/10.interface.script	${STAGEDIR}${PREFIX}/etc/ctdb/events/legacy/10.interface.script
+				${LN} -nfs ../../../../share/ctdb/events/legacy/05.system.script	${STAGEDIR}${PREFIX}/etc/ctdb/events/legacy/05.system.script
+				${LN} -nfs ../../../../share/ctdb/events/legacy/01.reclock.script	${STAGEDIR}${PREFIX}/etc/ctdb/events/legacy/01.reclock.script
+
 post-install:
 # Run post-install script
 .for dir in			${SAMBA4_LOGDIR} ${SAMBA4_RUNDIR} ${SAMBA4_LOCKDIR} ${SAMBA4_MODULEDIR}
@@ -725,9 +726,9 @@ post-install:
 	for file in samba-ldbadd samba-ldbdel samba-ldbedit samba-ldbmodify samba-ldbrename samba-ldbsearch; do \
 		${CP} -pv ${STAGEDIR}${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}/usr/local/bin; \
 	done
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/shared-modules/ldb
-	for file in ${STAGEDIR}${PREFIX}/lib/modules/ldb/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/shared-modules/ldb; \
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/ldb
+	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/ldb/*; do \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/ldb; \
 	done
 	for file in tdbbackup tdbdump tdbrestore tdbtool; do \
 		${CP} -pv ${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}/usr/local/bin; \
