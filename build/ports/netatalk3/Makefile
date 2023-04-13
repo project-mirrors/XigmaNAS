@@ -63,9 +63,9 @@ post-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/contrib/macusers/macusers \
 		${STAGEDIR}${PREFIX}/bin/macusers
 	[ -f ${STAGEDIR}${PREFIX}/etc/afp.conf ] || \
-		${INSTALL_DATA} -c ${STAGEDIR}${PREFIX}/etc/afp.conf.dist ${STAGEDIR}${PREFIX}/etc/afp.conf
+		${INSTALL_DATA} -c ${STAGEDIR}${PREFIX}/etc/afp.conf.sample ${STAGEDIR}${PREFIX}/etc/afp.conf
 	[ -f ${STAGEDIR}${PREFIX}/etc/extmap.conf ] || \
-		${INSTALL_DATA} -c ${STAGEDIR}${PREFIX}/etc/extmap.conf.dist ${STAGEDIR}${PREFIX}/etc/extmap.conf
+		${INSTALL_DATA} -c ${STAGEDIR}${PREFIX}/etc/extmap.conf.sample ${STAGEDIR}${PREFIX}/etc/extmap.conf
 
 # XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
@@ -77,7 +77,7 @@ post-install:
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/cnid_dbd ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/netatalk ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_LIB} -v ${STAGEDIR}${PREFIX}/lib/libatalk.so.18 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${INSTALL_DATA} -v ${STAGEDIR}${PREFIX}/etc/extmap.conf.dist ${XIGMANAS_ROOTFS}/usr/local/etc/extmap.conf
+	@${INSTALL_DATA} -v ${STAGEDIR}${PREFIX}/etc/extmap.conf.sample ${XIGMANAS_ROOTFS}/usr/local/etc/extmap.conf
 
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/etc/uams
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}/etc/uams/uams_dhx_pam.so ${XIGMANAS_ROOTFS}/etc/uams
