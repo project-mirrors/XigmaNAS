@@ -42,6 +42,18 @@
 
 : brand ( x y -- ) \ "XigmaNAS" [wide] logo in B/W (6 rows x 50 columns)
 
+	framebuffer? if
+		s" term-putimage" sfind if
+			\ note, we use 0, 0 for image upper left as origin,
+			\ and 0, 7 for lower right to preserve aspect ratio
+			>r 0 1 1 0 7
+			s" /boot/images/xigmanas-brand-rev.png"
+			r> execute if 2drop exit then
+		else
+			drop
+		then
+	then
+
 	s" __  ___                       _   _    _    ____  " brand+
 	s" \ \/ (_) __ _ _ __ ___   __ _| \ | |  / \  / ___| " brand+
 	s"  \  /| |/ _` | '_ ` _ \ / _` |  \| | / _ \ \___ \ " brand+
