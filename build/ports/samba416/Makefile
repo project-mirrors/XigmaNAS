@@ -70,7 +70,8 @@ SAMBA4_LOCKDIR=			${VARDIR}/db/${SAMBA4_PORTNAME}
 SAMBA4_BINDDNSDIR=		${SAMBA4_LOCKDIR}/bind-dns
 SAMBA4_PRIVATEDIR=		${SAMBA4_LOCKDIR}/private
 SAMBA4_PAMDIR=			${PREFIX}/lib
-SAMBA4_LIBDIR=			${PREFIX}/lib/${SAMBA4_PORTNAME}
+SAMBA4_LIBDIR=			${PREFIX}/lib
+SAMBA4_MODULEDIR=		${PREFIX}/lib/shared-modules
 SAMBA4_INCLUDEDIR=		${PREFIX}/include/${SAMBA4_PORTNAME}
 SAMBA4_CONFDIR=			${PREFIX}/etc
 SAMBA4_CONFIG=			smb4.conf
@@ -726,9 +727,9 @@ post-install:
 	for file in samba-ldbadd samba-ldbdel samba-ldbedit samba-ldbmodify samba-ldbrename samba-ldbsearch; do \
 		${CP} -pv ${STAGEDIR}${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}/usr/local/bin; \
 	done
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/ldb
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/ldb/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/ldb; \
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/shared-modules/ldb
+	for file in ${STAGEDIR}${PREFIX}/lib/modules/ldb/*; do \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/shared-modules/ldb; \
 	done
 	for file in tdbbackup tdbdump tdbrestore tdbtool; do \
 		${CP} -pv ${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}/usr/local/bin; \

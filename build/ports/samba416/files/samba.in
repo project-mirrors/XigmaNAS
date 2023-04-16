@@ -44,6 +44,7 @@ smbcontrol_command="/usr/local/bin/smbcontrol"
 samba_logdir="${samba_logdir:-/var/log/samba4}"
 samba_lockdir="${samba_lockdir:-/var/db/samba4}"
 samba_piddir="${samba_piddir=/var/run/samba4}"
+samba_add_fddir="${samba_piddir=/var/run/samba4}/fd"
 samba_recycle_repository="${samba_recycle_repository:-".recycle/%U"}"
 samba_recycle_directory_mode="${samba_recycle_directory_mode:-"0777"}"
 samba_recycle_subdir_mode="${samba_recycle_subdir_mode:-"0700"}"
@@ -77,6 +78,7 @@ fi
 
 # Create required directories.
 [ ! -d "${samba_piddir}" ] && mkdir "${samba_piddir}"
+[ ! -d "${samba_add_fddir}" ] && mkdir "${samba_add_fddir}"
 [ ! -d "${samba_logdir}" ] && mkdir "${samba_logdir}"
 [ ! -d "${samba_lockdir}" ] && mkdir "${samba_lockdir}"
 [ ! -d "${samba_lockdir}/private" ] && mkdir "${samba_lockdir}/private"
