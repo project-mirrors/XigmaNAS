@@ -5,7 +5,6 @@ Changes:
 - Upgrade netatalk3 to version 3.1.14.
 - Upgrade mDNSResponder to version 1790.80.10.
 - Upgrade syncthing to version 1.23.4.
-- Upgrade samba to version 4.16.10.
 
 Fixes:
 

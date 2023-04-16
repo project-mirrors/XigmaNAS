@@ -52,7 +52,7 @@
     SUBDIR += rconf
     SUBDIR += rrdtool
     SUBDIR += rsync
-    SUBDIR += samba416
+    SUBDIR += samba413
     SUBDIR += sas2ircu
     SUBDIR += sas3ircu
     SUBDIR += scponly
