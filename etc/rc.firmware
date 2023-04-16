@@ -487,12 +487,12 @@ set_boot_path() {
 	BOOTPATH=${BEPATH}
 	MBRPART=0
 	if [ -L '/boot' ] && [ -d '/boot' ]; then
-    	BOOTPOOL=$(readlink '/boot' | awk -F '/' '{print $1}')
-    	BOOTPROP=$(zpool list -H -o bootfs ${BOOTPOOL})
-    	if [ "${BOOTPROP}" = "-" ]; then
-        	BOOTPATH=/${BOOTPOOL}
+		BOOTPOOL=$(readlink '/boot' | awk -F '/' '{print $1}')
+		BOOTPROP=$(zpool list -H -o bootfs ${BOOTPOOL})
+		if [ "${BOOTPROP}" = "-" ]; then
+			BOOTPATH=/${BOOTPOOL}
 			MBRPART=1
-    	fi
+		fi
 	fi
 }
 
@@ -500,9 +500,9 @@ backup_chflags() {
 	# Dump chflag from common directories/* to zipped files.
 	cd ${BEPATH}
 	RESULT=1
- 	for FILES in ${DIRNOSCHG}; do
- 		/usr/sbin/mtree -q -P -c -p ${FILES} | /usr/bin/gzip > ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz
- 	done
+	for FILES in ${DIRNOSCHG}; do
+		/usr/sbin/mtree -q -P -c -p ${FILES} | /usr/bin/gzip > ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz
+	done
 	RESULT=$?
 	if [ "${RESULT}" -ne 0 ]; then
 		msg="ERROR: Failed to backup chflags."
@@ -515,10 +515,10 @@ remove_chflags() {
 	# Remove chflag from common directories/*.
 	cd ${BEPATH}
 	RESULT=1
- 	for FILES in ${DIRNOSCHG}; do
- 		/bin/chflags -R noschg ${FILES}
- 		/bin/chmod -R u+rw ${FILES}
- 	done
+	for FILES in ${DIRNOSCHG}; do
+		/bin/chflags -R noschg ${FILES}
+		/bin/chmod -R u+rw ${FILES}
+	done
 	RESULT=$?
 	if [ "${RESULT}" -ne 0 ]; then
 		msg="ERROR: Failed to remove chflags."
@@ -531,9 +531,9 @@ restore_chflags() {
 	# Restore chflag from previous zipped files.
 	cd ${BEPATH}
 	RESULT=1
- 	for FILES in ${DIRNOSCHG}; do
+	for FILES in ${DIRNOSCHG}; do
 		/usr/bin/zcat ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz | /usr/sbin/mtree -q -P -U -p ${FILES}
- 	done
+	done
 	RESULT=$?
 	if [ "${RESULT}" -ne 0 ]; then
 		msg="ERROR: Failed to restore chflags."
