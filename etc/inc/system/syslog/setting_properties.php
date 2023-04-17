@@ -64,7 +64,7 @@ class setting_properties extends grid_properties {
 			set_defaultvalue(50)->
 			set_size(5)->
 			set_maxlength(4)->
-			set_min(5)->set_max(1000)->
+			set_min(5)->set_max(1500)->
 			filter_use_default();
 		return $property;
 	}
