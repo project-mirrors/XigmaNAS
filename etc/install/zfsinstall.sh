@@ -575,17 +575,17 @@ zroot_init()
 	fi
 
 	# Creating/adding the /boot/efi mountpoint.
-	# New FreeBSD changes on 13.x, keep for reference for now.
 	if [ "${BOOT_MODE}" = 2 ]; then
 		if [ ! -d "${ALTROOT}/boot/efi" ]; then
 			mkdir -p ${ALTROOT}/boot/efi
 		fi
-		#for DISK in ${DISKS}
-		#do
+		for DISK in ${DISKS}
+		do
 			# Add the first esp partition to fstab.
-			#echo "/dev/${DISK}p1 /boot/efi msdosfs rw 2 2" >> ${ALTROOT}/etc/fstab
-			#break
-		#done
+			echo "Adding esp device to fstab..."
+			echo "/dev/${DISK}p1 /boot/efi msdosfs rw 2 2" >> ${ALTROOT}/etc/fstab
+			break
+		done
 	fi
 
 	# Backup geli providers metadata.

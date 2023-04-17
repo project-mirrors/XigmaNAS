@@ -54,6 +54,7 @@ mkdir boot ;
 mkdir boot/defaults ;
 mkdir boot/dtb ;
 mkdir boot/dtb/overlays ;
+mkdir boot/efi ;
 mkdir boot/images ;
 mkdir boot/kernel ;
 mkdir boot/lua ;
