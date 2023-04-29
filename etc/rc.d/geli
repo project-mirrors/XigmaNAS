@@ -8,7 +8,7 @@
 #
 
 # PROVIDE: disks
-# KEYWORD: nojail
+# KEYWORD: nojail shutdown
 
 . /etc/rc.subr
 . /etc/configxml.subr
