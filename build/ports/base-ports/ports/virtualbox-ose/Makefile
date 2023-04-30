@@ -1,6 +1,6 @@
 PORTNAME=	virtualbox-ose
-PORTVERSION=	6.1.42
-PORTREVISION=	1
+PORTVERSION=	6.1.44
+PORTREVISION=	0
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.virtualbox.org/virtualbox/${PORTVERSION}/
 DISTFILES=	VirtualBox-${PORTVERSION}${EXTRACT_SUFX} ${GUESTADDITIONS}
@@ -114,6 +114,12 @@ SUB_LIST=	VBOXDIR=${VBOX_DIR} \
 USE_RC_SUBR=	vboxheadless vboxwatchdog
 
 .include <bsd.port.options.mk>
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1400079
+BUILD_DEPENDS+= clang14:devel/llvm14
+CC=clang14
+CXX=clang++14
+.endif
 
 .if ${SLAVE_PORT} == no
 CONFLICTS_INSTALL+=	virtualbox-ose-nox11
