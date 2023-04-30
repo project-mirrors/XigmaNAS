@@ -6,12 +6,12 @@
 #
 # host status monitoring daemon
 #
-# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/statd		Revision 339434
+# XigmaNAS® Checked: /releng/13.2/libexec/rc/rc.d/statd		commit/92ecb030d2547a95956b3a6e5240e895ad4eed4e
 # XigmaNAS® Changes: - Remove nfsserver nfsclient
 #
 
 # PROVIDE: statd
-# REQUIRE: nfsd rpcbind
+# REQUIRE: rpcbind
 # BEFORE:  DAEMON
 # KEYWORD: nojail shutdown
 # XQUERY: -i "count(//nfsd/enable) > 0" -o "0" -b
