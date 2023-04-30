@@ -6,12 +6,12 @@
 #
 # NFS file locking daemon
 #
-# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/lockd		Revision 339434
+# XigmaNAS® Checked: /stable/13/libexec/rc/rc.d/lockd		commit/92ecb030d2547a95956b3a6e5240e895ad4eed4e
 # XigmaNAS® Changes:	- Remove nfsclient
 #
 
 # PROVIDE: lockd
-# REQUIRE: nfsd rpcbind statd
+# REQUIRE: rpcbind statd
 # BEFORE:  DAEMON
 # KEYWORD: nojail shutdown
 # XQUERY: -i "count(//nfsd/enable) > 0" -o "0" -b
