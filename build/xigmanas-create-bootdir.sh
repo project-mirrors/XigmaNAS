@@ -64,6 +64,7 @@ mkdir $MINIBSD_DIR
 mkdir $MINIBSD_DIR/defaults
 mkdir $MINIBSD_DIR/dtb
 mkdir $MINIBSD_DIR/dtb/overlays
+mkdir $MINIBSD_DIR/efi
 mkdir $MINIBSD_DIR/firmware
 mkdir $MINIBSD_DIR/images
 mkdir $MINIBSD_DIR/kernel

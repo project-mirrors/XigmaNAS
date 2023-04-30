@@ -57,6 +57,7 @@ mkdir boot/dtb/overlays ;
 mkdir boot/efi ;
 mkdir boot/images ;
 mkdir boot/kernel ;
+mkdir boot/loader.conf.d ;
 mkdir boot/lua ;
 mkdir boot/modules ;
 mkdir boot/zfs ;
