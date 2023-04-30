@@ -291,6 +291,10 @@ if [ $(/sbin/sysctl -n security.jail.jailed) -eq 1 ]; then
 	if [ $(/sbin/sysctl -n security.jail.vnet) -ne 1 ]; then
 		skip="$skip -s nojailvnet"
 	fi
+
+	if [ "$early_late_divider" = "FILESYSTEMS" ]; then
+		early_late_divider=NETWORKING
+	fi
 fi
 
 # If the firstboot sentinel doesn't exist, we want to skip firstboot scripts.
@@ -307,6 +311,12 @@ _rc_elem_done=' '
 for _rc_elem in ${files}; do
 	run_rc_script ${_rc_elem} ${_boot}
 	_rc_elem_done="${_rc_elem_done}${_rc_elem} "
+
+	# Force reloading of rc.conf file
+	if [ "${_rc_elem}" = "/etc/rc.d/rcconf" ]; then
+		_rc_conf_loaded=false
+		load_rc_config ${_rc_elem}
+	fi
 
 	case "$_rc_elem" in
 	*/${early_late_divider})	break ;;
@@ -330,9 +340,14 @@ if [ -e "${firstboot_sentinel}" ]; then
 fi
 
 files=$(rcorder ${skip} ${skip_firstboot} /etc/rc.d/* ${local_rc} 2>/dev/null)
+_skip_early=1
 for _rc_elem in ${files}; do
-	case "$_rc_elem_done" in
-	*" $_rc_elem "*)	continue ;;
+	case "$_skip_early" in
+	1)	case "$_rc_elem" in
+		*/${early_late_divider})	_skip_early=0 ;;
+		esac
+		continue
+		;;
 	esac
 
 	run_rc_script ${_rc_elem} ${_boot}
