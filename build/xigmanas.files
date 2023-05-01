@@ -326,13 +326,13 @@ sbin/rtquery
 sbin/nvmecontrol
 
 ## pfctl -- control the packet filter (PF) device
-/sbin/pfctl
+sbin/pfctl
 
 ## pfilctl -- pfil(9) control utility
-/sbin/pfilctl
+sbin/pfilctl
 
 ## pflogd -- packet filter logging daemon
-/sbin/pflogd
+sbin/pflogd
 
 ####### contents of /usr/bin
 
