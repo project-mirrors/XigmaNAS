@@ -13,20 +13,21 @@ WWW=		http://minidlna.sourceforge.net
 NO_LICENSES_INSTALL=	yes
 NO_LICENSES_DIALOGS=	yes
 LICENSE=	GPLv2
-
+CFLAGS+=	-I${LOCALBASE}/ffmpeg4/include
 LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
 		libexif.so:graphics/libexif \
 		libid3tag.so:audio/libid3tag \
 		libogg.so:audio/libogg \
 		libvorbis.so:audio/libvorbis \
 		libFLAC.so:audio/flac \
-		libavformat.so:multimedia/ffmpeg
+ 		libavformat.so:multimedia/ffmpeg4
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-db-path=/var/db/minidlna \
 		--with-os-url="https://www.xigmanas.com"
 
-CPPFLAGS+=	-I${LOCALBASE}/include
+CPPFLAGS+=	-I${LOCALBASE}/ffmpeg4/include -I${LOCALBASE}/include
+LDFLAGS+=	-L${LOCALBASE}/ffmpeg4/lib -L${LOCALBASE}/lib
 CFLAGS+=	-DXigmaNAS
 LIBS+=		-L${LOCALBASE}/lib
 USES+=		autoreconf cpe gettext-tools iconv jpeg
