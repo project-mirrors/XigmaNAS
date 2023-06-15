@@ -17,7 +17,7 @@ LIB_DEPENDS+=		libsqlite3.so:databases/sqlite3 \
 			libtwolame.so:audio/twolame \
 			libvorbis.so:audio/libvorbis \
 			libmp4v2.so:multimedia/mp4v2 \
-			libavformat.so:multimedia/ffmpeg
+			libavformat.so:multimedia/ffmpeg4
 
 BUILD_DEPENDS=		libxml2>0:textproc/libxml2
 
@@ -42,7 +42,7 @@ CONFIGURE_ARGS+=	--enable-largefile \
 			--disable-inotify
 CONFIGURE_ARGS+=	--localstatedir=/var/db
 
-CONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include -I${LOCALBASE}/include/ffmpeg ${PTHREAD_CFLAGS}" \
+CONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include -I${LOCALBASE}/include/ffmpeg4 ${PTHREAD_CFLAGS}" \
 			LIBS="-L${LOCALBASE}/lib ${PTHREAD_LIBS}"
 
 .include <bsd.port.options.mk>
@@ -57,7 +57,7 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-src__lib__Common__Common.cpp \
 
 pre-patch:
 .if ${ARCH} == "amd64" || ${ARCH} == "i386"
-	${CP} ${FILESDIR}/extra-patch-ffmpeg-configure-xigmanas ${PORTSDIR}/multimedia/ffmpeg/files/patch-configure-xigmanas
+	${CP} ${FILESDIR}/extra-patch-ffmpeg-configure-xigmanas ${PORTSDIR}/multimedia/ffmpeg4/files/patch-configure-xigmanas
 .endif
 
 pre-configure:
