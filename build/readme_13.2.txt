@@ -109,12 +109,12 @@ BUILD 13.2.0.5.xxxx
 ===================
 Changes:
 - Upgrade to FreeBSD 13.2-RELEASE P0.
-- Upgrade netatalk3 to version 3.1.14.
-- Upgrade mDNSResponder to version 1790.80.10.
-- Upgrade syncthing to version 1.23.4.
+- Upgrade netatalk3 to v3.1.14.
+- Upgrade mDNSResponder to v1790.80.10.
 - Upgrade devcpu-data-amd to v20230424.
 - Upgrade virtualbox-ose to v6.1.44.
 - Upgrade nut to v2023.04.25.
+- Upgrade syncthing to v1.23.5.
 
 Fixes:
 
