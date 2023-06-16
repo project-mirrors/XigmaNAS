@@ -9,6 +9,7 @@ Changes:
 - Upgrade nut to v2023.04.25.
 - Upgrade syncthing to v1.23.5.
 - Upgrade lighttpd to v1.4.71.
+- Upgrade php8 to v8.2.7.
 
 Fixes:
 
