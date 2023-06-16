@@ -11,6 +11,7 @@ Changes:
 - Upgrade lighttpd to v1.4.71.
 - Upgrade php8 to v8.2.7.
 - Upgrade nut to v2023.06.16.
+- Upgrade devcpu-data-intel to v20230613.
 
 Fixes:
 
