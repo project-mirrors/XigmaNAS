@@ -737,9 +737,8 @@ post-install:
 # py-markdown importlib_metadata zipp.py
 	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/markdown ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
 	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/importlib_metadata ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
-	for file in zipp.py; do \
-		${CP} -pv ${PREFIX}/lib/python3.9/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages; \
-	done
+	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/zipp ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
+
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
