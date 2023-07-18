@@ -120,6 +120,7 @@ Changes:
 - Upgrade nut to v2023.06.16.
 - Upgrade devcpu-data-intel to v20230613.
 - Upgrade msmtp to v1.8.24.
+- Upgrade syncthing to v1.23.6.
 
 Fixes:
 
