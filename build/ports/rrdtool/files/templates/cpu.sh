@@ -1,5 +1,5 @@
 /usr/local/bin/rrdtool graph $WORKING_DIR/rrd/rrd-${GRAPH}_${GRAPH_NAME}.png \
-"-v CPU usage [%]" \
+"-v Usage [%]" \
 "-s" "$START_TIME" \
 "-t" "$TITLE_STRING" \
 $BACKGROUND \
@@ -39,4 +39,4 @@ $BACKGROUND \
 "STACK:nice#FFC96C" \
 "STACK:system#EC00EC" \
 "STACK:user#10BB0D" \
-"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"
+"TEXTALIGN:right" "COMMENT:Last Update\: $LAST_UPDATE"

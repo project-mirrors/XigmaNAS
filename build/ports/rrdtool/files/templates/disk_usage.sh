@@ -24,4 +24,4 @@ $BASEDIVISOR \
 "GPRINT:Free:AVERAGE:Avg\\:%7.2lf %s" \
 "GPRINT:Free:LAST:Last\\:%7.2lf %s" \
 "COMMENT:\n" \
-"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"
+"TEXTALIGN:right" "COMMENT:Last Update\: $LAST_UPDATE"

@@ -75,4 +75,4 @@ $BACKGROUND \
 "STACK:cache#BF993F" \
 "STACK:buf#FFCC55" \
 "GPRINT:mtotal:LAST:RAM total\\:%6.1lf %s" \
-"COMMENT:\tLast update\: $LAST_UPDATE"
+"COMMENT:\tLast Update\: $LAST_UPDATE"

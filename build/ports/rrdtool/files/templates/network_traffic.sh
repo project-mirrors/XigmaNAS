@@ -24,4 +24,4 @@ $LOWER_LIMIT \
 "GPRINT:out_bits:${OUT_MAX}:Max\\:%6.1lf %s" \
 "GPRINT:out_bits:AVERAGE:Avg\\:%6.1lf %s" \
 "GPRINT:out_bits:LAST:Last\\:%6.1lf %s${BIT_STR}/sec\\n" \
-"TEXTALIGN:right" "COMMENT: Last update\: $LAST_UPDATE"
+"TEXTALIGN:right" "COMMENT: Last Update\: $LAST_UPDATE"

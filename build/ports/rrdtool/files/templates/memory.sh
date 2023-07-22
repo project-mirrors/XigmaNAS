@@ -54,4 +54,4 @@ $BACKGROUND \
 "GPRINT:rsfree:LAST:Total memory (RAM+Swap) free\\:%6.1lf %s" \
 "COMMENT:\n" \
 "GPRINT:rsused:LAST:Total memory (RAM+Swap) used\\:%6.1lf %s" \
-"COMMENT:\tLast update\: $LAST_UPDATE"
+"COMMENT:\tLast Update\: $LAST_UPDATE"

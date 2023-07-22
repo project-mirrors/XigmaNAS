@@ -23,4 +23,4 @@ $BACKGROUND \
 "GPRINT:L2_ASIZE:AVERAGE:Avg\\:%6.1lf %s" \
 "GPRINT:L2_ASIZE:LAST:Last\\:%6.1lf %s" \
 "COMMENT:\n" \
-"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"
+"TEXTALIGN:right" "COMMENT:Last Update\: $LAST_UPDATE"

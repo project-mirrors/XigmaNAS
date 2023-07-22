@@ -159,16 +159,16 @@ CREATE_UPSVARS ()
 #				                OFF
 #						        OB
 #	$1: var name $2: value $3: CHRG
-charge=0
-load=0
-bvoltage=0
-ovoltage=0
-ivoltage=0
-runtime=0
-OL=0
-OF=0
-OB=0
-CG=0
+charge=nan
+load=nan
+bvoltage=nan
+ovoltage=nan
+ivoltage=nan
+runtime=nan
+OL=nan
+OF=nan
+OB=nan
+CG=nan
 if [ "$CMD" == "" ]; then
 	OF=100
 	return
@@ -192,28 +192,32 @@ while [ "$1" != "" ]; do
 			;;
 		battery.runtime:)
 			runtime=`echo -e "$2" | awk '{calc=$1/60; print calc}'`
-			;;
+			;;		
 		ups.status:)
 			case "$2" in
 				OL)
-					OL=100
+					OL=-10
+					if [ "$charge" -lt 100 ]; then
+						OL=nan
+						CG=-10
+					fi
 					;;
 				OFF)
-					OF=100
+					OF=-10
 					;;
 				OB)
-					OL=100
-					OB=100
+#					OL=-10
+					OB=-10
 					;;
 				CHRG)
-					OL=100
-					CG=100
+#					OL=-10
+					CG=-10
 					;;
 			esac;
 			case "$3" in
 				CHRG)
-					OL=100;
-					CG=100
+#					OL=-10;
+					CG=-10
 					;;
 			esac
 			;;
@@ -581,7 +585,7 @@ if [ "$RUN_UPT" -eq 1 ]; then
 			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		valupt=`echo -e "$TOP" | awk '/averages:/ {gsub("[,+:]", " "); print $10*24*60+$11*60+$12; exit}'`
+		valupt=`echo -e "$TOP" | awk '/averages:/ {gsub("[,+:]", " "); print $10*24+$11+$12/60; exit}'`
 		/usr/local/bin/rrdtool update "$FILE" N:"$valupt" 2>> /tmp/rrdgraphs-error.log
 	fi
 fi

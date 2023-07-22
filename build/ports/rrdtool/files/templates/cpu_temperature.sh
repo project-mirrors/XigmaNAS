@@ -14,4 +14,4 @@ $LEFT_AXIS_FORMAT "-a" "PNG" \
 "GPRINT:c00:AVERAGE:Avg\\: %5.1lf" \
 "GPRINT:c00:LAST:Last\\: %5.1lf" \
 "COMMENT:\n" \
-"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"
+"TEXTALIGN:right" "COMMENT:Last Update\: $LAST_UPDATE"

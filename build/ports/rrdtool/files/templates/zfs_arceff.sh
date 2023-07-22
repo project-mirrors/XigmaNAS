@@ -42,4 +42,4 @@ $BACKGROUND \
 "GPRINT:EFF_L2ARC:AVERAGE:Avg\\:% 5.1lf%%" \
 "GPRINT:EFF_L2ARC:LAST:Last\\:% 5.1lf%%" \
 "COMMENT:\n" \
-"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"
+"TEXTALIGN:right" "COMMENT:Last Update\: $LAST_UPDATE"

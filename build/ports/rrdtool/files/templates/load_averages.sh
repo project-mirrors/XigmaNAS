@@ -40,4 +40,4 @@ $BACKGROUND \
 "GPRINT:maxC15:Max\\: %5.2lf" \
 "GPRINT:avgC15:Avg\\: %5.2lf" \
 "GPRINT:lastC15:Last\\: %5.2lf\\n" \
-"TEXTALIGN:right" "COMMENT: Last update\: $LAST_UPDATE"
+"TEXTALIGN:right" "COMMENT: Last Update\: $LAST_UPDATE"

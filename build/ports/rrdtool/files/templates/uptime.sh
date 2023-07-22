@@ -1,5 +1,5 @@
 /usr/local/bin/rrdtool graph $WORKING_DIR/rrd/rrd-${GRAPH}_${GRAPH_NAME}.png \
-"-v Uptime [minutes]" \
+"-v Uptime [Hours]" \
 "-s" "$START_TIME" \
 "-t" "$TITLE_STRING" \
 $BACKGROUND \
@@ -14,13 +14,13 @@ $BACKGROUND \
 "VDEF:maxtime=uptime,MAXIMUM" \
 "AREA:uptime#FFCC556F" \
 "HRULE:mintime#0000FF:Minimun\::dashes" \
-"GPRINT:uptime:MIN:%1.0lf min" \
+"GPRINT:uptime:MIN:%1.0lf hrs" \
 "HRULE:maxtime#FF0000:Maximum\::dashes" \
-"GPRINT:uptime:MAX:%1.0lf min" \
+"GPRINT:uptime:MAX:%1.0lf hrs" \
 "HRULE:avgtime#10BB0D:Average\::dashes" \
-"GPRINT:uptime:AVERAGE:%1.0lf min" \
+"GPRINT:uptime:AVERAGE:%1.0lf hrs" \
 "LINE1:uptime#FFCC55:Current\:" \
-"GPRINT:uptime:LAST:%1.0lf min" \
+"GPRINT:uptime:LAST:%1.0lf hrs" \
 "COMMENT:\n" \
-"COMMENT:Actual uptime\: $UT" \
-"COMMENT:Last update\: $LAST_UPDATE"
+"COMMENT:Actual Uptime\: $UT" \
+"COMMENT:Last Update\: $LAST_UPDATE"

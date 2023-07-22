@@ -45,4 +45,4 @@ $BACKGROUND \
 "GPRINT:stddev:LAST:Last\\:%6.1lf" \
 "COMMENT:\t$LATENCY_PARAMETERS" \
 "COMMENT:\n" \
-"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"
+"TEXTALIGN:right" "COMMENT:Last Update\: $LAST_UPDATE"

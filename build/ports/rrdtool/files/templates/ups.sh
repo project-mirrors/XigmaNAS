@@ -1,6 +1,6 @@
 # DS: $charge:$load:$bvoltage:$ovoltage:$ivoltage:$runtime:$OL:$OF:$OB:$CG
 /usr/local/bin/rrdtool graph $WORKING_DIR/rrd/rrd-${GRAPH}_${GRAPH_NAME}.png \
-"-v UPS usage" \
+"-v UPS Usage" \
 "-s" "$START_TIME" \
 "-t" "$TITLE_STRING" \
 $BACKGROUND \
@@ -56,9 +56,10 @@ $BACKGROUND \
 "GPRINT:ovoltage:LAST:Last\\:%6.1lf" \
 "COMMENT:\n" \
 "COMMENT:UPS status\\:" \
-"LINE2:OL#009900:Online" \
-"LINE2:OB#CC0000:On battery" \
-"LINE2:CG#FFA500:Charging" \
-"LINE2:OF#FF00FF:Offline" \
-"COMMENT:wherein ON=100, OFF=0\n" \
-"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"
+"AREA:OL#009900:Online" \
+"AREA:OB#CC0000:On battery" \
+"AREA:CG#FFA500:Charging" \
+"AREA:OF#FF00FF:Offline" \
+"--lower-limit" "-9" \
+"--rigid" \
+"TEXTALIGN:right" "COMMENT:Last Update\: $LAST_UPDATE"

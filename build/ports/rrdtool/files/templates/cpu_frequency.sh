@@ -20,4 +20,4 @@ $BACKGROUND \
 "GPRINT:avgC:Avg\: %0.0lf" \
 "GPRINT:lastC:Last\: %0.0lf" \
 "COMMENT:\n" \
-"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"
+"TEXTALIGN:right" "COMMENT:Last Update\: $LAST_UPDATE"

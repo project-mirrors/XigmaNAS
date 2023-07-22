@@ -57,4 +57,4 @@ $BACKGROUND \
 "STACK:sleeping#FFC96C" \
 "STACK:running#10BB0D" \
 "GPRINT:total:LAST:Processes total\\:%6.1lf" \
-"COMMENT:\tLast update\: $LAST_UPDATE"
+"COMMENT:\tLast Update\: $LAST_UPDATE"
