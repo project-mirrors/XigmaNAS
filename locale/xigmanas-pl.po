@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-26 15:59+0000\n"
-"PO-Revision-Date: 2021-11-15 12:31+0000\n"
-"Last-Translator: Mar Son <Unknown>\n"
+"PO-Revision-Date: 2023-05-02 12:19+0000\n"
+"Last-Translator: Piotr Łobuz <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-04-28 22:40+0000\n"
-"X-Generator: Launchpad (build 90e2150bef31b411d7bae5c4032c7e320fcaaec8)\n"
+"X-Launchpad-Export-Date: 2023-07-23 20:04+0000\n"
+"X-Generator: Launchpad (build 2bfac4503c7b6a57e9a8acd782035a16f97e2ddb)\n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: POLAND\n"
 "Language: \n"
+"X-Poedit-Country: POLAND\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -223,7 +223,7 @@ msgid "/mnt"
 msgstr "/mnt"
 
 msgid "/update?domain="
-msgstr ""
+msgstr "/update?domain="
 
 msgid "000"
 msgstr "000"
@@ -236,7 +236,7 @@ msgid "1"
 msgstr "1"
 
 msgid "1 - one copy"
-msgstr ""
+msgstr "1 - jedna kopia"
 
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr "1 lub więcej dysków jest wymaganych aby zbudować wolumin JBOD"
@@ -254,10 +254,10 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "102"
-msgstr ""
+msgstr "102"
 
 msgid "128K"
-msgstr ""
+msgstr "128K"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -266,28 +266,28 @@ msgid "16384"
 msgstr "16384"
 
 msgid "16K"
-msgstr ""
+msgstr "16K"
 
 msgid "16k"
-msgstr ""
+msgstr "16k"
 
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
 msgid "1K"
-msgstr ""
+msgstr "1K"
 
 msgid "1M"
-msgstr ""
+msgstr "!M"
 
 msgid "1k"
-msgstr ""
+msgstr "1k"
 
 msgid "2"
 msgstr "2"
 
 msgid "2 - two copies"
-msgstr ""
+msgstr "2 - dwie kopie"
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -305,19 +305,19 @@ msgid "22"
 msgstr "22"
 
 msgid "256K"
-msgstr ""
+msgstr "256K"
 
 msgid "2K"
-msgstr ""
+msgstr "2K"
 
 msgid "2k"
-msgstr ""
+msgstr "2k"
 
 msgid "3"
 msgstr "3"
 
 msgid "3 - three copies - not applicable when encryption is enabled"
-msgstr ""
+msgstr "3 - trzy kopie - nie dotyczy, gdy włączone jest szyfrowanie"
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "Co najmniej 3 dyski są potrzebne do RAID-5"
@@ -332,19 +332,19 @@ msgid "32 KiB"
 msgstr "32 KiB"
 
 msgid "32K"
-msgstr ""
+msgstr "32K"
 
 msgid "4 KiB"
 msgstr "4 KiB"
 
 msgid "4K"
-msgstr ""
+msgstr "4K"
 
 msgid "4KB wrapper"
 msgstr "4KB paczki"
 
 msgid "4k"
-msgstr ""
+msgstr "4k"
 
 msgid "5.25\""
 msgstr "5,25\""
@@ -353,13 +353,13 @@ msgid "512 Bytes"
 msgstr "512 bajtów"
 
 msgid "512 bytes"
-msgstr ""
+msgstr "512 bajtów"
 
 msgid "512B"
-msgstr ""
+msgstr "512B"
 
 msgid "512K"
-msgstr ""
+msgstr "512K"
 
 msgid "514"
 msgstr "514"
@@ -368,7 +368,7 @@ msgid "64 KiB"
 msgstr "64 KiB"
 
 msgid "64K"
-msgstr ""
+msgstr "64K"
 
 msgid "69"
 msgstr "69"
@@ -377,7 +377,7 @@ msgid "8 KiB"
 msgstr "8 KiB"
 
 msgid "802.1Q (default)"
-msgstr ""
+msgstr "802.1Q(domyślnie)"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "Etykieta VLAN 802.1Q (pomiędzy 1 a 4094)."
@@ -389,10 +389,10 @@ msgid "8200"
 msgstr "8200"
 
 msgid "8K"
-msgstr ""
+msgstr "8K"
 
 msgid "8k"
-msgstr ""
+msgstr "8k"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -519,7 +519,7 @@ msgid "ACL Mode"
 msgstr "Tryb ACL"
 
 msgid "ACL Type"
-msgstr ""
+msgstr "Typ ACL"
 
 msgid "ACL inherit"
 msgstr "dziedziczenie ACL"
@@ -653,7 +653,7 @@ msgid "Add Encrypted Volume"
 msgstr "Dodaj wolumin zaszyfrowany"
 
 msgid "Add Filesystem"
-msgstr ""
+msgstr "Dodaj system plików"
 
 msgid "Add Group"
 msgstr "Dodaj grupę"
@@ -864,7 +864,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Adres zdalnego demona hastd. Musi być statycznym adresem IP"
 
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 msgid "Admin Password"
 msgstr "Hasło Administratora"
@@ -882,7 +882,7 @@ msgid "Administrator Name"
 msgstr "Nazwa administratora"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Hasło administratora"
 
 msgid "Advanced"
 msgstr "Zaawansowane"
@@ -1159,7 +1159,7 @@ msgid ""
 msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
-msgstr ""
+msgstr "Adres IPv4 lub IPv6 do nasłuchiwania nadchodzących połączeń"
 
 msgid ""
 "An Initiator Group is identified by a tag number and defines authorised "
@@ -1170,11 +1170,15 @@ msgid ""
 "An alert email is sent when the capacity of a pool exceeds the critical "
 "threshold."
 msgstr ""
+"Wysyła wiadomość email z powiadomieniem, gdy pojemność puli przekroczy próg "
+"krytyczny"
 
 msgid ""
 "An alert email is sent when the capacity of a pool exceeds the warning "
 "threshold."
 msgstr ""
+"Wysyła wiadomość email z powiadomieniem, gdy pojemność puli przekroczy próg "
+"ostrzegawczy."
 
 msgid "An empty field is default."
 msgstr "Domślnie puste pole."
@@ -1646,7 +1650,7 @@ msgid "BitTorrent"
 msgstr "BitTorrent"
 
 msgid "BitTorrent Settings"
-msgstr ""
+msgstr "Ustawienia sieci BitTorrent"
 
 msgid "Blank Time"
 msgstr ""
