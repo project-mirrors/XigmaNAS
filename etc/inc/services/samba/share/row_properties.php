@@ -326,12 +326,12 @@ class row_properties extends grid_properties {
 	public function init_guestonly(): myp\property_bool {
 		$caption = gettext('Permit guest connections only.');
 		$description = gettext('This controls whether this share is accessible by the guest account only.');
-		$property = parent::init_guest();
+		$property = parent::init_guestonly();
 		$property->
 			set_id('guestonly')->
 			set_caption($caption)->
 			set_description($description)->
-			set_defaultvalue(false)->
+			set_defaultvalue(true)->
 			filter_use_default();
 		return $property;
 	}
