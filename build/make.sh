@@ -1654,14 +1654,6 @@ copy_files() {
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/libvncserver /usr/ports/net
 	echo "===> New port libvncserver has been created!"
 	echo ""
-	echo "===> Delete current nss_ldap port from base OS"
-	rm -rf /usr/ports/net/nss_ldap
-	echo "===> Delete completed!"
-	echo ""
-	echo "===> Adding new port nss_ldap to ports/net/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/nss_ldap /usr/ports/net
-	echo "===> New port nss_ldap has been created!"
-	echo ""
 	echo "===> Delete current pecl-APCu port from base OS"
 	rm -rf /usr/ports/devel/pecl-APCu
 	echo "===> Delete completed!"
