@@ -33,6 +33,7 @@ status_cmd="samba_cmd"
 reload_cmd="samba_reload_cmd"
 rcvar_cmd="samba_rcvar_cmd"
 mkconf_cmd="samba_mkconf_cmd"
+stop_postcmd="samba_poststop"
 
 # Defaults
 samba_enable="${samba_enable:=NO}"
@@ -112,8 +113,7 @@ winbindd_flags="${winbindd_flags=''}"
 required_files="${samba_config}"
 required_dirs="${samba_lockdir}"
 
-samba_mkconf_user_shares()
-{
+samba_mkconf_user_shares() {
 	/usr/local/bin/xml sel --template \
 		--match '//samba/share' \
 			--if 'string-length(name) > 0' \
@@ -139,6 +139,9 @@ samba_mkconf_user_shares()
 					--output 'guest ok = yes' --nl \
 				--elif 'count(guest) > 0' \
 					--output 'guest ok = yes' --nl \
+					--if 'count(guestonly) > 0' \
+						--output 'guest only = yes' \
+					--break \
 				--else \
 					--output 'guest ok = no' --nl \
 				--break \
@@ -262,8 +265,7 @@ samba_mkconf_user_shares()
 	${configxml_file} | /usr/local/bin/xml unesc >> ${samba_config}
 }
 
-samba_mkconf_cmd()
-{
+samba_mkconf_cmd() {
 #	Create smb4.conf file
 	/usr/local/bin/xml sel --template \
 		--output '[global]' --nl \
@@ -501,8 +503,7 @@ samba_mkconf_cmd()
 	samba_mkconf_user_shares
 }
 
-sambaad_mkconf_cmd()
-{
+sambaad_mkconf_cmd() {
 	local _dns_domain _netbios_domain _path _hostname _realm _domain _name
 
 	_dns_domain=$(configxml_get "//sambaad/dns_domain")
@@ -602,6 +603,23 @@ samba_start_precmd() {
 			/sbin/kldload aio.ko
 		fi
 	fi
+#
+	if ! df -t fdescfs -T "${samba_piddir}/fd" >/dev/null 2>&1; then
+		install -d -m 0555 "${samba_piddir}/fd"
+		if can_mount fdescfs; then
+			mount -t fdescfs -o nodup none "${samba_piddir}/fd"
+		else
+			warn "${name}: cannot fdescfs mount to ${samba_piddir}/fd"
+		fi
+	fi
+}
+
+samba_poststop() {
+	if df -t fdescfs -T "${samba_piddir}/fd" >/dev/null 2>&1; then
+		if can_mount fdescfs; then
+			umount "${samba_piddir}/fd"
+		fi
+	fi
 }
 
 samba_rcvar_cmd() {
@@ -653,8 +671,7 @@ samba_reload_cmd() {
 	done
 }
 
-safe_shellquote()
-{
+safe_shellquote() {
 	local _result
 #	replace inside quote &<>| => \X, ' => '\''
 #	_result=$(echo "$@" | sed -e "s/\([\&\<\>\|]\)/\\\\\\\\\1/g" -e "s/'/'\\\\\\''/g")

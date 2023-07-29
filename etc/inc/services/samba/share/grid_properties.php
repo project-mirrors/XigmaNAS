@@ -276,6 +276,17 @@ class grid_properties extends myp\container_row {
 	final public function get_guest(): myp\property_bool {
 		return $this->x_guest ?? $this->init_guest();
 	}
+	protected $x_guestonly;
+	public function init_guestonly(): myp\property_bool {
+		$property = $this->x_guestonly = new myp\property_bool($this);
+		$property->
+			set_name('guestonly')->
+			set_title(gettext('Guest Only'));
+		return $property;
+	}
+	final public function get_guestonly(): myp\property_bool {
+		return $this->x_guestonly ?? $this->init_guestonly();
+	}
 	protected $x_inheritpermissions;
 	public function init_inheritpermissions(): myp\property_bool {
 		$property = $this->x_inheritpermissions = new myp\property_bool($this);
