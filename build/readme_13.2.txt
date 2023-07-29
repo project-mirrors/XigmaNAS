@@ -112,7 +112,6 @@ Changes:
 - Upgrade netatalk3 to v3.1.14.
 - Upgrade mDNSResponder to v1790.80.10.
 - Upgrade devcpu-data-amd to v20230424.
-- Upgrade virtualbox-ose to v6.1.44.
 - Upgrade jquery to v3.7.0.
 - Upgrade syncthing to v1.23.5.
 - Upgrade lighttpd to v1.4.71.
@@ -122,6 +121,7 @@ Changes:
 - Upgrade msmtp to v1.8.24.
 - Upgrade syncthing to v1.23.6.
 - Upgrade sudo to v1.9.14p3.
+- Upgrade virtualbox-ose to v6.1.46.
 
 Fixes:
 
