@@ -140,7 +140,7 @@ samba_mkconf_user_shares() {
 				--elif 'count(guest) > 0' \
 					--output 'guest ok = yes' --nl \
 					--if 'count(guestonly) > 0' \
-						--output 'guest only = yes' \
+						--output 'guest only = yes' --nl \
 					--break \
 				--else \
 					--output 'guest ok = no' --nl \
