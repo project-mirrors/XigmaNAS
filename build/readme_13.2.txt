@@ -121,6 +121,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20230613.
 - Upgrade msmtp to v1.8.24.
 - Upgrade syncthing to v1.23.6.
+- Upgrade sudo to v1.9.14p3.
 
 Fixes:
 
