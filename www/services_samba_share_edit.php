@@ -184,6 +184,7 @@ $cops = [
 	$cop->get_readonly(),
 	$cop->get_browseable(),
 	$cop->get_guest(),
+	$cop->get_guestonly(),
 	$cop->get_inheritpermissions(),
 	$cop->get_inheritacls(),
 	$cop->get_recyclebin(),
@@ -348,35 +349,46 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-$content->
+$tbody = $content->
 	add_table_data_settings()->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
 			c2_titleline(gettext('Share Settings'))->
 		pop()->
-		addTBODY()->
-			c2($cop->get_name(),$sphere,true)->
-			c2($cop->get_comment(),$sphere,true)->
-			c2($cop->get_path(),$sphere,true)->
-			c2($cop->get_readonly(),$sphere)->
-			c2($cop->get_browseable(),$sphere)->
-			c2($cop->get_guest(),$sphere)->
-			c2($cop->get_forceuser(),$sphere)->
-			c2($cop->get_forcegroup(),$sphere)->
-			c2($cop->get_inheritpermissions(),$sphere)->
-			c2($cop->get_recyclebin(),$sphere)->
-			c2($cop->get_hidedotfiles(),$sphere)->
-			c2($cop->get_shadowcopy(),$sphere)->
-			c2($cop->get_shadowformat(),$sphere)->
-			c2($cop->get_zfsacl(),$sphere)->
-			c2($cop->get_inheritacls(),$sphere)->
-			c2($cop->get_storealternatedatastreams(),$sphere)->
-			c2($cop->get_storentfsacls(),$sphere)->
-			c2($cop->get_createmask(),$sphere)->
-			c2($cop->get_directorymask(),$sphere)->
-			c2($cop->get_hostsallow(),$sphere)->
-			c2($cop->get_hostsdeny(),$sphere);
+		addTBODY();
+$tbody->
+	c2($cop->get_name(),$sphere,true)->
+	c2($cop->get_comment(),$sphere,true)->
+	c2($cop->get_path(),$sphere,true)->
+	c2($cop->get_readonly(),$sphere)->
+	c2($cop->get_browseable(),$sphere)->
+	c2($cop->get_guest(),$sphere);
+$guestok_hooks = $document->get_hooks();
+foreach($guestok_hooks as $hook_key => $hook_obj):
+	switch($hook_key):
+		case 'guest':
+			$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_guestonly(),$sphere,false,false);
+			break;
+	endswitch;
+endforeach;
+unset($guestok_hooks);
+$tbody->
+	c2($cop->get_forceuser(),$sphere)->
+	c2($cop->get_forcegroup(),$sphere)->
+	c2($cop->get_inheritpermissions(),$sphere)->
+	c2($cop->get_recyclebin(),$sphere)->
+	c2($cop->get_hidedotfiles(),$sphere)->
+	c2($cop->get_shadowcopy(),$sphere)->
+	c2($cop->get_shadowformat(),$sphere)->
+	c2($cop->get_zfsacl(),$sphere)->
+	c2($cop->get_inheritacls(),$sphere)->
+	c2($cop->get_storealternatedatastreams(),$sphere)->
+	c2($cop->get_storentfsacls(),$sphere)->
+	c2($cop->get_createmask(),$sphere)->
+	c2($cop->get_directorymask(),$sphere)->
+	c2($cop->get_hostsallow(),$sphere)->
+	c2($cop->get_hostsdeny(),$sphere);
 $content->
 	add_table_data_settings()->
 		push()->
