@@ -52,7 +52,7 @@ class row_properties extends grid_properties {
 		$description =
 			sprintf(gettext('These parameters are added to the [Share] section of %s.'),'smb4.conf') .
 			' ' .
-			sprintf('<a href="%s" target="_blank" rel="noreferrer">%s</a>.','http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html',gettext('Please check the documentation'));
+			sprintf('<a href="%s" target="_blank" rel="noreferrer">%s</a>.','https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html',gettext('Please check the documentation'));
 		$property = parent::init_auxparam();
 		$property->
 			set_description($description);
