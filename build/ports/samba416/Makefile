@@ -1,6 +1,6 @@
 PORTNAME=			${SAMBA4_BASENAME}416
 PORTVERSION=			${SAMBA4_VERSION}
-PORTREVISION=			0
+PORTREVISION=			1
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
@@ -417,10 +417,6 @@ UTMP_CONFIGURE_WITH=		utmp
 ##############################################################################
 .include <bsd.port.options.mk>
 ##############################################################################
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1300076
-IGNORE=runs only on FreeBSD 13.1 and above due use of O_EMPTY_PATH
-.endif
-
 .if !defined(WANT_EXP_MODULES) || empty(WANT_EXP_MODULES)
 WANT_EXP_MODULES=		vfs_cacheprime
 .endif
@@ -466,7 +462,7 @@ SAMBA4_MODULES+=		auth_skel pdb_test gpext_security gpext_registry \
 USES+=				python:build,test
 CONFIGURE_ARGS+=		--disable-python
 .else
-USES+=				python:3.6+
+USES+=				python
 PLIST+=				${PKGDIR}/pkg-plist.python
 # Don't cache Python modules
 CONFIGURE_ARGS+=		--nopycache
