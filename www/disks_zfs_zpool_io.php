@@ -35,12 +35,13 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-function disks_zfs_zpool_io_ajax() {
+function disks_zfs_zpool_io_ajax(bool $isfirstcall = false) {
 //	calling zpool iostat with no configured pools returns ['no pools available'].
+	$flags = $isfirstcall ? '-v' : '-vy';
 	if(isset($_GET['pool']) && is_string($_GET['pool'])):
-		$cmd = sprintf('zpool iostat -vy %s 2>&1',escapeshellarg($_GET['pool']));
+		$cmd = sprintf('zpool iostat %s %s 2>&1',$flags,escapeshellarg($_GET['pool']));
 	else:
-		$cmd = 'zpool iostat -vy 2>&1';
+		$cmd = sprintf('zpool iostat %s 2>&1',$flags);
 	endif;
 	mwexec2($cmd,$rawdata);
 	return implode("\n",$rawdata);
@@ -86,7 +87,7 @@ $pagecontent->
 					insTDwC('celltag',gettext('Information'))->
 					addTDwC('celldata')->
 						addElement('pre',['class' => 'cmdoutput'])->
-							addElement('span',['id' => 'area_refresh'],disks_zfs_zpool_io_ajax());
+							addElement('span',['id' => 'area_refresh'],disks_zfs_zpool_io_ajax(isfirstcall: true));
 //	add additional javascript code
 $js_document_ready = <<<'EOJ'
 	var gui = new GUI;
