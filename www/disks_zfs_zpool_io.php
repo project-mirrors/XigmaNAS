@@ -91,7 +91,7 @@ $pagecontent->
 //	add additional javascript code
 $js_document_ready = <<<'EOJ'
 	var gui = new GUI;
-	gui.recall(0,5000,'disks_zfs_zpool_io.php',null,function(data) {
+	gui.recall(5000,5000,'disks_zfs_zpool_io.php',null,function(data) {
 		if($('#area_refresh').length > 0) {
 			$('#area_refresh').text(data.area_refresh);
 		}
