@@ -1,0 +1,19 @@
+--- lib/libc/sys/open.2.orig	2023-07-29 14:57:11.994962000 +0200
++++ lib/libc/sys/open.2	2023-08-05 20:41:11.000000000 +0200
+@@ -28,7 +28,7 @@
+ .\"     @(#)open.2	8.2 (Berkeley) 11/16/93
+ .\" $FreeBSD$
+ .\"
+-.Dd April 22, 2022
++.Dd Dd May 29, 2023
+ .Dt OPEN 2
+ .Os
+ .Sh NAME
+@@ -344,6 +344,7 @@
+ using for
+ .Dv EVFILT_VNODE
+ .It Xr readlinkat 2
++It Xr __acl_get_fd 2 , Xr __alc_aclcheck_fd 2
+ .El
+ But operations like
+ .Xr read 2 ,
