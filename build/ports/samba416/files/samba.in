@@ -600,6 +600,16 @@ samba_start_precmd() {
 		done
 		echo " done"
 	fi
+	# 
+	if ! df -t fdescfs -T "${samba_server_piddir}/fd" >/dev/null 2>&1; then
+	install -d -m 0555 "${samba_server_piddir}/fd"
+	if can_mount fdescfs; then
+		mount -t fdescfs -o nodup none "${samba_server_piddir}/fd"
+        else
+		warn "${name}: cannot fdescfs mount to ${samba_server_piddir}/fd"
+		fi
+	fi
+
 #	AIO module check
 	if configxml_isset //samba/aio; then
 		if ! /sbin/kldstat -q -m aio; then
