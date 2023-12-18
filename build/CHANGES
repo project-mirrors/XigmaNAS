@@ -15,6 +15,7 @@ Changes:
 - Upgrade virtualbox-ose to v6.1.46.
 - Upgrade nut to v2023.07.11.
 - Upgrade php8 to v8.2.8.
+- Upgrade bash to v5.2p21.
 
 Fixes:
 
