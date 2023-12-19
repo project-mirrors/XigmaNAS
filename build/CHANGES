@@ -7,7 +7,6 @@ Changes:
 - Upgrade devcpu-data-amd to v20230424.
 - Upgrade jquery to v3.7.0.
 - Upgrade syncthing to v1.23.5.
-- Upgrade lighttpd to v1.4.71.
 - Upgrade devcpu-data-intel to v20230613.
 - Upgrade syncthing to v1.23.6.
 - Upgrade sudo to v1.9.14p3.
@@ -16,6 +15,7 @@ Changes:
 - Upgrade php8 to v8.2.8.
 - Upgrade bash to v5.2p21.
 - Upgrade msmtp to v1.8.25.
+- Upgrade lighttpd to v1.4.73.
 
 Fixes:
 
