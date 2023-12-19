@@ -122,7 +122,8 @@ Changes:
 - Upgrade php8 to v8.2.8.
 - Upgrade bash to v5.2p21.
 - Upgrade msmtp to v1.8.25.
-- Upgrade lighttpd to v1.4.73.
+- Upgrade lighttpd to v1.3.73.
+- Upgrade proftpd to v1.3.8a.
 
 Fixes:
 

@@ -1,8 +1,9 @@
 PORTNAME=		proftpd
-PORTVERSION=	1.3.7f
+PORTVERSION=	1.3.8a
 PORTREVISION=	0
 CATEGORIES=		ftp
 COMMENT=		Highly configurable FTP daemon
+WWW?=		http://www.proftpd.org/
 MAINTAINER=		zoon01@xigmanas.com
 
 MASTER_SITES=		ftp://ftp.proftpd.org/distrib/source/ \
