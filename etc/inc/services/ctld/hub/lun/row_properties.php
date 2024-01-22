@@ -461,7 +461,7 @@ class row_properties extends grid_properties {
 	}
 	public function init_opt_pblocksize(): myp\property_text {
 		$description = gettext('Specify physical block size of the device.');
-		$regexp = '/^(?:|[1-9][0-9]{0,8}[kmgtpezy]b?)$/i';
+		$regexp = '/^(?:|0|[1-9][0-9]{0,8}[kmgtpezy]b?)$/i';
 		$property = parent::init_opt_pblocksize();
 		$property->
 			set_id('opt_pblocksize')->
