@@ -113,7 +113,6 @@ Changes:
 - Upgrade mDNSResponder to v1790.80.10.
 - Upgrade jquery to v3.7.0.
 - Upgrade syncthing to v1.23.6.
-- Upgrade virtualbox-ose to v6.1.46.
 - Upgrade php8 to v8.2.8.
 - Upgrade msmtp to v1.8.25.
 - Upgrade proftpd to v1.3.8a.
@@ -126,6 +125,7 @@ Changes:
 - Upgrade bash to v5.2p26.
 - Upgrade pecl-APCu to v5.1.23.
 - Upgrade sudo to v1.9.15p5.
+- Upgrade virtualbox-ose to v6.1.50.
 
 Fixes:
 
