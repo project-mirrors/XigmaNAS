@@ -1,5 +1,5 @@
 PORTNAME=		sudo
-PORTVERSION=		1.9.14p3
+PORTVERSION=		1.9.15p5
 PORTREVISION=		0
 CATEGORIES=		security
 
@@ -21,6 +21,8 @@ do-install:
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -m 4755 -v ${DEP_STAGEDIR}${PREFIX}/bin/sudo ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/sudoreplay ${XIGMANAS_ROOTFS}/usr/local/bin
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/libexec/sudo
+	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/libexec/sudo/sudo_intercept.so ${XIGMANAS_ROOTFS}/usr/local/libexec/sudo
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/sbin/visudo ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${LN} -fsv /usr/local/bin/sudo ${XIGMANAS_ROOTFS}/usr/local/bin/sudoedit
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/libexec/sudo ${XIGMANAS_ROOTFS}/usr/local/libexec
