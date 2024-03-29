@@ -1,22 +1,38 @@
---- dmidecode.c.orig	2020-10-14 14:51:11.000000000 +0200
-+++ dmidecode.c	2021-02-03 15:15:31.000000000 +0100
-@@ -116,7 +116,7 @@
- 	size_t i;
+--- dmidecode.c.orig	2023-03-14 17:32:17.000000000 +0100
++++ dmidecode.c	2024-03-29 21:22:19.000000000 +0100
+@@ -6025,17 +6025,25 @@
+ 		pr_comment("dmidecode %s", VERSION);
  
- 	for (i = 0; i < len; i++)
--		if (bp[i] < 32 || bp[i] == 127)
-+		if (bp[i] < 32 || bp[i] >= 127)
- 			bp[i] = '.';
- }
+ 	/* Read from dump if so instructed */
++	size = 0x20;
+ 	if (opt.flags & FLAG_FROM_DUMP)
+ 	{
+ 		if (!(opt.flags & FLAG_QUIET))
+ 			pr_info("Reading SMBIOS/DMI data from file %s.",
+ 				opt.dumpfile);
+-		if ((buf = mem_chunk(0, 0x20, opt.dumpfile)) == NULL)
++		if ((buf = read_file(0, &size, opt.dumpfile)) == NULL)
+ 		{
+ 			ret = 1;
+ 			goto exit_free;
+ 		}
  
-@@ -248,9 +248,9 @@
- 			{
- 				int j, l = strlen(s) + 1;
- 
--				off = 0;
- 				for (row = 0; row < ((l - 1) >> 4) + 1; row++)
- 				{
-+					off = 0;
- 					for (j = 0; j < 16 && j < l - (row << 4); j++)
- 						off += sprintf(raw_data + off,
- 						       j ? " %02X" : "%02X",
++		/* Truncated entry point can't be processed */
++		if (size < 0x20)
++		{
++			ret = 1;
++			goto done;
++		}
++
+ 		if (memcmp(buf, "_SM3_", 5) == 0)
+ 		{
+ 			if (smbios3_decode(buf, opt.dumpfile, 0))
+@@ -6059,7 +6067,7 @@
+ 	 * contain one of several types of entry points, so read enough for
+ 	 * the largest one, then determine what type it contains.
+ 	 */
+-	size = 0x20;
++
+ 	if (!(opt.flags & FLAG_NO_SYSFS)
+ 	 && (buf = read_file(0, &size, SYS_ENTRY_FILE)) != NULL)
+ 	{

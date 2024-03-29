@@ -126,6 +126,7 @@ Changes:
 - Upgrade pecl-APCu to v5.1.23.
 - Upgrade sudo to v1.9.15p5.
 - Upgrade virtualbox-ose to v6.1.50.
+- Upgrade dmidecode to v3.5.
 
 Fixes:
 
