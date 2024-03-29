@@ -129,6 +129,7 @@ Changes:
 - Upgrade dmidecode to v3.5.
 - Upgrade gzip to v1.13.
 - Upgrade inadyn to v2.12.0.
+- Upgrade iperf3 to v3.16.
 
 Fixes:
 

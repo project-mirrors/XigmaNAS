@@ -1,5 +1,5 @@
 PORTNAME=		iperf
-PORTVERSION=    3.13
+PORTVERSION=    3.16
 PORTREVISION=   0
 CATEGORIES=	benchmarks
 
@@ -13,6 +13,7 @@ GH_TAGNAME=     f48e7fa
 
 USES=		cpe libtool ssl
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 USE_LDCONFIG=	yes
 
 CPE_VENDOR=	iperf_project
