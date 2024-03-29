@@ -128,6 +128,7 @@ Changes:
 - Upgrade virtualbox-ose to v6.1.50.
 - Upgrade dmidecode to v3.5.
 - Upgrade gzip to v1.13.
+- Upgrade inadyn to v2.12.0.
 
 Fixes:
 
