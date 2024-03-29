@@ -125,6 +125,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20240312.
 - Upgrade nut to v20240324.
 - Upgrade bash to v5.2p26.
+- Upgrade pecl-APCu to v5.1.23.
 
 Fixes:
 
