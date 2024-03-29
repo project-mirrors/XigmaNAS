@@ -1,9 +1,11 @@
 PORTNAME=		gzip
-PORTVERSION=	1.12
+PORTVERSION=	1.13
 PORTREVISION?=  0
 CATEGORIES=	archivers
-COMMENT=	A compression utility designed to be a replacement for compress
+
 MAINTAINER=	zoon01@xigmanas.com
+COMMENT=	A compression utility designed to be a replacement for compress
+WWW=		https://www.gnu.org/software/gzip/
 
 MASTER_SITES=				${MASTER_SITE_GNU}
 MASTER_SITE_SUBDIR=	${PORTNAME}
