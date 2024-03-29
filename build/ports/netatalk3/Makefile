@@ -1,9 +1,9 @@
 PORTNAME=		netatalk
-PORTVERSION=	3.1.14
+PORTVERSION=	3.1.18
 PORTREVISION=	0
 PORTEPOCH=	1
 CATEGORIES=	net
-MASTER_SITES=	SF
+MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}-${PORTVERSION:S/./-/g}
 PKGNAMESUFFIX=  3
 
 MAINTAINER=	zoon01@xigmanas.com
@@ -14,12 +14,12 @@ LICENSE=	GPLv2
 LIB_DEPENDS=	libgcrypt.so:security/libgcrypt \
 		libevent.so:devel/libevent
 
-USES=           bdb:5+ gettext gmake iconv libtool perl5 pkgconfig shebangfix ssl tar:bzip2
+USES=           bdb:18 gettext gmake iconv libtool perl5 pkgconfig shebangfix ssl tar:bzip2
 
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 #USE_RC_SUBR=	netatalk
-SHEBANG_GLOB=   afpstats
+#SHEBANG_GLOB=   afpstats
 
 CONFIGURE_ARGS+=	--with-pkgconfdir=${PREFIX}/etc \
 			--with-libgcrypt-dir=${LOCALBASE} \
@@ -54,6 +54,8 @@ post-patch:
 	    	s|%%DB_LIB%%|-l${BDB_LIB_NAME}|g ; \
 		s|%%LOCALBASE%%|${LOCALBASE}|g' \
 		${WRKSRC}/configure
+	@${REINPLACE_CMD} -e 's|\.dist|\.sample|g' \
+		${WRKSRC}/config/Makefile.in
 
 post-stage:
 	@${RM} -f ${STAGEDIR}${PREFIX}/etc/afp.conf \
@@ -76,7 +78,7 @@ post-install:
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/cnid_metad ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/cnid_dbd ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/netatalk ${XIGMANAS_ROOTFS}/usr/local/sbin
-	@${INSTALL_LIB} -v ${STAGEDIR}${PREFIX}/lib/libatalk.so.18 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${INSTALL_LIB} -v ${STAGEDIR}${PREFIX}/lib/libatalk.so.0 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${INSTALL_DATA} -v ${STAGEDIR}${PREFIX}/etc/extmap.conf.sample ${XIGMANAS_ROOTFS}/usr/local/etc/extmap.conf
 
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/etc/uams

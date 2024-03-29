@@ -18,6 +18,7 @@ Changes:
 - Upgrade lighttpd to v1.4.73.
 - Upgrade proftpd to v1.3.8a.
 - Upgrade zoneinfo to 2024a.
+- Upgrade netatalk to v3.1.18.
 
 Fixes:
 
