@@ -3,24 +3,25 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-26 15:59+0000\n"
-"PO-Revision-Date: 2022-01-28 07:38+0000\n"
-"Last-Translator: hrkokw <Unknown>\n"
+"PO-Revision-Date: 2024-03-29 18:33+0000\n"
+"Last-Translator: pack <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-07-23 20:04+0000\n"
-"X-Generator: Launchpad (build 2bfac4503c7b6a57e9a8acd782035a16f97e2ddb)\n"
+"X-Launchpad-Export-Date: 2024-03-29 18:40+0000\n"
+"X-Generator: Launchpad (build aec24aef7a9042c99ef3e238d8b0ca01df9e1a9f)\n"
+"X-Poedit-Country: JAPAN\n"
+"Language: \n"
 "X-Poedit-Language: Japanese\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"Language: \n"
-"X-Poedit-Country: JAPAN\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
 "default value is on. The values on and off are equivalent to the dev and "
 "nodev mount options."
 msgstr ""
+" このファイルシステムでデバイスノードを開けるかを制御します。デフォルトはオン。オン・オフはマウントオプションのdev・nodevにそれぞれ相当します。"
 
 msgid " No private key"
 msgstr " 秘密鍵なし"
@@ -552,7 +553,7 @@ msgid "Access the webGUI with the new IP address"
 msgstr "新しいIPアドレスで Web 画面にアクセス"
 
 msgid "Acoustic Level"
-msgstr ""
+msgstr "騒音レベル"
 
 msgid "Action"
 msgstr "アクション"
@@ -601,7 +602,7 @@ msgid "Add"
 msgstr "追加"
 
 msgid "Add Auth Group"
-msgstr ""
+msgstr "管理グループを追加"
 
 msgid "Add Bridge"
 msgstr "ブリッジを追加"
@@ -625,7 +626,7 @@ msgid "Add Encrypted Volume"
 msgstr "暗号化したボリュームの追加"
 
 msgid "Add Filesystem"
-msgstr ""
+msgstr "ファイルシステムを追加"
 
 msgid "Add Group"
 msgstr "グループを追加"
@@ -634,16 +635,16 @@ msgid "Add Host"
 msgstr "ホストを追加"
 
 msgid "Add Initiator Name"
-msgstr ""
+msgstr "イニシエータ名を追加"
 
 msgid "Add Initiator Portal"
-msgstr ""
+msgstr "ポータルを追加"
 
 msgid "Add LAGG"
 msgstr "LAGG追加"
 
 msgid "Add LUN"
-msgstr ""
+msgstr "LUNを追加"
 
 msgid "Add LUN Record"
 msgstr ""
@@ -655,13 +656,13 @@ msgid "Add Media Folder"
 msgstr ""
 
 msgid "Add Mutual CHAP User"
-msgstr ""
+msgstr "相互CHAPユーザーを追加"
 
 msgid "Add NFS Export"
-msgstr ""
+msgstr "NFSエクスポートを追加"
 
 msgid "Add NFS Root"
-msgstr ""
+msgstr "NFSルートを追加"
 
 msgid "Add Option"
 msgstr "オプションを追加"
@@ -769,10 +770,10 @@ msgid "Add extent"
 msgstr "エクステントの追加"
 
 msgid "Add iSCSI Initiator"
-msgstr ""
+msgstr "iSCSIイニシエータを追加"
 
 msgid "Add iSNS Server"
-msgstr ""
+msgstr "iSCSIサーバーを追加"
 
 msgid "Add initiator group"
 msgstr "イニシエータグループの追加"
@@ -796,19 +797,19 @@ msgid "Add self-test"
 msgstr "セルフテストの追加"
 
 msgid "Add sysctl setting"
-msgstr ""
+msgstr "sysctl設定を追加"
 
 msgid "Add target"
 msgstr "ターゲットの追加"
 
 msgid "Add the selected device to the existing mirror."
-msgstr ""
+msgstr "選択したデバイスを既存のミラーに追加"
 
 msgid "Add user to additional groups."
-msgstr ""
+msgstr "ユーザーをグループに追加"
 
 msgid "Additional Information"
-msgstr ""
+msgstr "追加情報"
 
 msgid "Additional Network"
 msgstr "追加のネットワーク"
@@ -835,7 +836,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "リモート hastd デーモンのアドレス。固定IPアドレスでなければいけません。"
 
 msgid "Admin"
-msgstr ""
+msgstr "管理者"
 
 msgid "Admin Password"
 msgstr "管理者パスワード"
@@ -916,22 +917,22 @@ msgid "All"
 msgstr "全て"
 
 msgid "All Days"
-msgstr ""
+msgstr "毎日"
 
 msgid "All Hours"
-msgstr ""
+msgstr "毎時"
 
 msgid "All Interfaces"
-msgstr ""
+msgstr "全てのインターフェース"
 
 msgid "All Minutes"
-msgstr ""
+msgstr "毎分"
 
 msgid "All Months"
-msgstr ""
+msgstr "毎月"
 
 msgid "All Weekdays"
-msgstr ""
+msgstr "平日"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "以下の全ての統計データが削除されます:"
@@ -1000,7 +1001,7 @@ msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr "クライアントが、中断されたアップロード及びダウンロードの再開 (リジューム) を許可します。"
 
 msgid "Allow consecutive read/writes to be issued in parallel"
-msgstr ""
+msgstr "連続した読み書きを並列に実行することを許可する"
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "キーボードインタラクティブ認証を許可"
@@ -1008,7 +1009,7 @@ msgstr "キーボードインタラクティブ認証を許可"
 msgid ""
 "Allow mounting on a busy directory or a directory which already contains "
 "files or directories."
-msgstr ""
+msgstr "使用中のディレクトリまたは既にファイル等を含むディレクトリにマウントすることを許可する"
 
 msgid "Allow new files to be created."
 msgstr "新しいファイルの作成を許可します。"
@@ -2090,13 +2091,13 @@ msgid ""
 "Commands are executed by the scheduler when the minute, hour, and month of "
 "year fields match the current time, and when at least one of the two day "
 "fields (day of month, or day of week) matches the current time."
-msgstr ""
+msgstr "スケジューラの月/日または曜日/時/分が現時刻と一致した際にコマンドは実行されます。"
 
 msgid "Comment"
 msgstr "コメント"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "通信エラー"
 
 msgid "Community"
 msgstr "コミュニティー"
@@ -2120,109 +2121,109 @@ msgid "Compression"
 msgstr "圧縮"
 
 msgid "Compression Ratio"
-msgstr ""
+msgstr "圧縮率"
 
 msgid "Compression level 1 - best compression ratio"
-msgstr ""
+msgstr "圧縮レベル1 - 圧縮率最高"
 
 msgid "Compression level 1 - fastest compression"
-msgstr ""
+msgstr "圧縮レベル1 - 最速"
 
 msgid "Compression level 10"
-msgstr ""
+msgstr "圧縮レベル10"
 
 msgid "Compression level 100"
-msgstr ""
+msgstr "圧縮レベル100"
 
 msgid "Compression level 1000 - fastest compression"
-msgstr ""
+msgstr "圧縮レベル1000 - 最速"
 
 msgid "Compression level 11"
-msgstr ""
+msgstr "圧縮レベル11"
 
 msgid "Compression level 12"
-msgstr ""
+msgstr "圧縮レベル12"
 
 msgid "Compression level 13"
-msgstr ""
+msgstr "圧縮レベル13"
 
 msgid "Compression level 14"
-msgstr ""
+msgstr "圧縮レベル14"
 
 msgid "Compression level 15"
-msgstr ""
+msgstr "圧縮レベル15"
 
 msgid "Compression level 16"
-msgstr ""
+msgstr "圧縮レベル16"
 
 msgid "Compression level 17"
-msgstr ""
+msgstr "圧縮レベル17"
 
 msgid "Compression level 18"
-msgstr ""
+msgstr "圧縮レベル18"
 
 msgid "Compression level 19 - best compression ratio"
-msgstr ""
+msgstr "圧縮レベル19 - 圧縮率最高"
 
 msgid "Compression level 2"
-msgstr ""
+msgstr "圧縮レベル2"
 
 msgid "Compression level 20"
-msgstr ""
+msgstr "圧縮レベル20"
 
 msgid "Compression level 3"
-msgstr ""
+msgstr "圧縮レベル3"
 
 msgid "Compression level 30"
-msgstr ""
+msgstr "圧縮レベル30"
 
 msgid "Compression level 4"
-msgstr ""
+msgstr "圧縮レベル4"
 
 msgid "Compression level 40"
-msgstr ""
+msgstr "圧縮レベル40"
 
 msgid "Compression level 5"
-msgstr ""
+msgstr "圧縮レベル5"
 
 msgid "Compression level 50"
-msgstr ""
+msgstr "圧縮レベル50"
 
 msgid "Compression level 500"
-msgstr ""
+msgstr "圧縮レベル500"
 
 msgid "Compression level 6"
-msgstr ""
+msgstr "圧縮レベル6"
 
 msgid "Compression level 60"
-msgstr ""
+msgstr "圧縮レベル60"
 
 msgid "Compression level 7"
-msgstr ""
+msgstr "圧縮レベル7"
 
 msgid "Compression level 70"
-msgstr ""
+msgstr "圧縮レベル70"
 
 msgid "Compression level 8"
-msgstr ""
+msgstr "圧縮レベル8"
 
 msgid "Compression level 80"
-msgstr ""
+msgstr "圧縮レベル80"
 
 msgid "Compression level 9"
-msgstr ""
+msgstr "圧縮レベル9"
 
 msgid "Compression level 9 - best compression ratio"
-msgstr ""
+msgstr "圧縮レベル9 - 圧縮率最高"
 
 msgid "Compression level 90"
-msgstr ""
+msgstr "圧縮レベル90"
 
 msgid "Configuration"
 msgstr "設定"
 
 msgid "Configuration Folder"
-msgstr ""
+msgstr "設定フォルダ"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2260,7 +2261,7 @@ msgid "Consider replacing this drive"
 msgstr "このドライブを交換することを検討してください"
 
 msgid "Console Autologin"
-msgstr ""
+msgstr "コンソール自動ログイン"
 
 msgid "Console Menu"
 msgstr "コンソールメニュー"
@@ -2316,7 +2317,7 @@ msgid "Controller Model"
 msgstr "コントローラーモデル"
 
 msgid "Controller Name"
-msgstr ""
+msgstr "コントローラー名"
 
 msgid "Controller TCP Port"
 msgstr "コントローラ TCP ポート"
@@ -2324,12 +2325,12 @@ msgstr "コントローラ TCP ポート"
 msgid ""
 "Controls how the set of illegal NTFS ASCII character are stored in the "
 "filesystem, commonly used by OS X clients."
-msgstr ""
+msgstr "不正なNTFS ASCII文字の記録方法。主にOS Xクライアントが使用する。"
 
 msgid ""
 "Controls if Time Machine support via the FULLSYNC volume capability is "
 "advertised to clients."
-msgstr ""
+msgstr "Time Machine互換機能（FULLSYNCをクライアントにアドバタイズ）を有効にする"
 
 msgid "Controls the behavior of synchronous requests."
 msgstr "同期リクエストの挙動を指定します。"
@@ -2363,6 +2364,7 @@ msgid ""
 "algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if "
 "the feature flag lz4_compress is active, otherwise LZJB is used."
 msgstr ""
+"圧縮アルゴリズムの設定。LZ4推奨。設定を'On'にした場合lz4_compressフラグがアクティブであればLZ4、そうでなければLZJBが使用される。"
 
 msgid "Controls the dedup method."
 msgstr "重複排除で使用される方法を制御します。"
@@ -2370,22 +2372,22 @@ msgstr "重複排除で使用される方法を制御します。"
 msgid ""
 "Controls the encryption cipher suite (block cipher, key length, and mode) "
 "used for this dataset."
-msgstr ""
+msgstr "データセットで使用する暗号スイート（ブロック暗号、鍵長、モード）を選択"
 
 msgid "Controls the format of the provided encryption key."
-msgstr ""
+msgstr "暗号鍵のフォーマットを選択"
 
 msgid "Controls the level of the Fast Zstandard compression level"
-msgstr ""
+msgstr "Fast Zstandardの圧縮レベルの選択"
 
 msgid "Controls the level of the Zstandard compression level"
-msgstr ""
+msgstr "Zstandardの圧縮レベルの選択"
 
 msgid "Controls the level of the gzip compression algorithm"
-msgstr ""
+msgstr "gzipの圧縮レベルの選択"
 
 msgid "Controls the mount point type used for this file system."
-msgstr ""
+msgstr "このファイルシステムのマウント方法。"
 
 msgid "Controls the number of copies of data stored for this dataset."
 msgstr "データセットに保存するコピー数を制御します。"
@@ -2406,17 +2408,17 @@ msgid "Controls what types of metadata are stored redundantly."
 msgstr "メタデータが重複して格納されるかを制御します。"
 
 msgid "Controls where the OS X metadata stream is stored."
-msgstr ""
+msgstr "OS Xメタデータストリームの保存場所。"
 
 msgid "Controls where the OS X resource fork is stored."
-msgstr ""
+msgstr "OS Xリソースフォークの保存場所。"
 
 msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
-msgstr ""
+msgstr "有効にするACL(アクセスコントロールリスト)の種類。"
 
 msgid ""
 "Controls whether extended attributes are enabled for this file system."
-msgstr ""
+msgstr "このファイルシステムで拡張属性を有効化。"
 
 msgid ""
 "Controls whether processes can be executed from within this file system."
@@ -2426,13 +2428,13 @@ msgid ""
 "Controls whether processes can be executed from within this file system. The "
 "default value is on. The values on and off are equivalent to the exec and "
 "noexec mount options."
-msgstr ""
+msgstr "このファイルシステムからのプロセス実行を許可する。デフォルトはOn。On/Offはマウントオプションのexec/noexecに相当。"
 
 msgid ""
 "Controls whether regular files should be scanned for viruses when a file is "
 "opened and closed. In addition to enabling this property, the virus scan "
 "service must also be enabled for virus scanning to occur."
-msgstr ""
+msgstr "通常ファイルを開閉した際にウイルスをスキャンする。スキャン実行には、この設定に加えてウイルススキャンサービスを有効にする必要があります。"
 
 msgid ""
 "Controls whether the .zfs directory is hidden or visible in the root of the "
@@ -2455,10 +2457,10 @@ msgid "Controls whether the dataset is managed from a jail."
 msgstr "データセットがjailから管理できるか制御します。"
 
 msgid "Controls whether the file system is shared via NFS."
-msgstr ""
+msgstr "ファイルシステムをNFSで共有する。"
 
 msgid "Controls whether the file system is shared via SMB."
-msgstr ""
+msgstr "ファイルシステムをSMBで共有。"
 
 msgid ""
 "Controls whether the file system should be mounted with non-blocking "
@@ -2471,7 +2473,7 @@ msgstr "ファイルシステムに対してsetuidビットが尊重されるか
 msgid ""
 "Controls whether the volume snapshot devices under /dev/zvol/<pool> are "
 "hidden or visible."
-msgstr ""
+msgstr "/dev/zvol/<pool> 下のボリュームスナップショットデバイスを表示または非表示にする。"
 
 msgid "Controls whether this dataset can be modified."
 msgstr "このデータセットが修正可能かどうか制御します。"
@@ -2488,17 +2490,17 @@ msgid "Copies"
 msgstr "コピー"
 
 msgid "Copy"
-msgstr ""
+msgstr "コピー"
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "%s から %s にコピー。 "
 
 msgid "Copy item(s)"
 msgstr ""
 
 msgid "Copying failed."
-msgstr ""
+msgstr "コピー失敗。"
 
 msgid "Core"
 msgstr "コア"
@@ -2638,10 +2640,10 @@ msgid "Create PV Guest"
 msgstr "PV ゲスト作成"
 
 msgid "Create Permission"
-msgstr ""
+msgstr "パーミッションを作成"
 
 msgid "Create Snapshot"
-msgstr ""
+msgstr "スナップショットを作成"
 
 msgid "Create Work Directory"
 msgstr "作業ディレクトリを作成"
@@ -2650,19 +2652,19 @@ msgid "Create ZFS on a GPT partition."
 msgstr "GPTパーティションにZFSを作成"
 
 msgid "Create a L2ARC device for ARC"
-msgstr ""
+msgstr "ARC用にL2ARCデバイスを作成"
 
 msgid "Create a SLOG device for ZIL"
-msgstr ""
+msgstr "ZIL用にSLOGデバイスを作成"
 
 msgid "Create a dedup device"
-msgstr ""
+msgstr "dedupデバイスを作成"
 
 msgid "Create a mirrored SLOG device for ZIL"
-msgstr ""
+msgstr "ZIL用にミラー化されたSLOGデバイスを作成"
 
 msgid "Create a spare device"
-msgstr ""
+msgstr "スペアデバイスを追加"
 
 msgid "Create a special allocation device"
 msgstr ""
@@ -2689,7 +2691,7 @@ msgid "Create and initialize RAID."
 msgstr "RAIDの作成と初期化"
 
 msgid "Create recursive snapshot."
-msgstr ""
+msgstr "再帰的にスナップショットを作成"
 
 msgid "Create work directory if it doesn't exist."
 msgstr "作業用ディレクトリが存在しない場合は作成する。"
@@ -2911,19 +2913,19 @@ msgid "Daemon log"
 msgstr "デーモン ログ"
 
 msgid "Daily"
-msgstr ""
+msgstr "毎日"
 
 msgid "Data"
-msgstr ""
+msgstr "データ"
 
 msgid "Data Digest"
-msgstr ""
+msgstr "データダイジェスト"
 
 msgid "Data Integrity"
-msgstr ""
+msgstr "データ整合性"
 
 msgid "Data Type"
-msgstr ""
+msgstr "データ型"
 
 msgid "Data digest"
 msgstr "データダイジェスト"
@@ -2938,19 +2940,19 @@ msgid "Dataset"
 msgstr "データセット"
 
 msgid "Dataset Name"
-msgstr ""
+msgstr "データセット名"
 
 msgid "Dataset Type"
 msgstr "データセットタイプ"
 
 msgid "Dataset is locked"
-msgstr ""
+msgstr "データセットはロックされています"
 
 msgid "Dataset is marked for deletion"
-msgstr ""
+msgstr "データセットは削除するようマークされています"
 
 msgid "Dataset is unlocked"
-msgstr ""
+msgstr "データセットはロックされていません"
 
 msgid "Datasets"
 msgstr "データセット"
@@ -2968,7 +2970,7 @@ msgid "Day"
 msgstr "日"
 
 msgid "Day(s)"
-msgstr ""
+msgstr "日"
 
 msgid "Days"
 msgstr "日"
@@ -2991,7 +2993,7 @@ msgid ""
 msgstr "バイト0-1-2=平均消去回数(ビッグエンディアン)とバイト3-4-5=最大消去回数(ビッグエンディアン)としてデコード。"
 
 msgid "Decryption Password"
-msgstr ""
+msgstr "複合化パスワード"
 
 msgid "Dedup"
 msgstr "重複排除"
@@ -3006,20 +3008,24 @@ msgid ""
 "Default - Rsync will choose the 'during' algorithm when talking to rsync "
 "3.0.0 or newer and the 'before' algorithm when talking to an older rsync."
 msgstr ""
+"デフォルト - Rsync は rsync 3.0.0 以降と通信する場合は 'during' アルゴリズムを、それ以前と通信する場合は "
+"'before' アルゴリズムを使って通信する。"
 
 msgid ""
 "Default - Rsync will choose the 'during' algorithm when talking to rsync "
 "3.0.0 or newer, and the 'before' algorithm when talking to an older rsync."
 msgstr ""
+"デフォルト - Rsync は rsync 3.0.0 以降と通信する場合は 'during' アルゴリズムを、それ以前と通信する場合は "
+"'before' アルゴリズムを使って通信する。"
 
 msgid "Default Device Settings"
-msgstr ""
+msgstr "デフォルトデバイス設定"
 
 msgid "Default Root"
 msgstr "デフォルトルート"
 
 msgid "Default compression level"
-msgstr ""
+msgstr "デフォルト圧縮レベル"
 
 msgid "Default user name is 'admin'."
 msgstr "初期ユーザ名は「admin」です"
@@ -3031,7 +3037,7 @@ msgid "DefaultTime2Wait"
 msgstr "DefaultTime2Wait"
 
 msgid "Defer Destroy"
-msgstr ""
+msgstr "破壊を延期する"
 
 msgid "Define directories/URL's that require authentication."
 msgstr "認証が必要なディレクトリ/URLを指定して下さい。"
@@ -3039,13 +3045,13 @@ msgstr "認証が必要なディレクトリ/URLを指定して下さい。"
 msgid ""
 "Define iSCSI hardware offload driver to use for this portal-group. The "
 "default is \"none\"."
-msgstr ""
+msgstr "このポータルグループで使用するiSCSIオフロードドライバを設定。デフォルトは\"none\"。"
 
 msgid "Define iSCSI hardware offload driver. The default is \"None\"."
-msgstr ""
+msgstr "iSCSIオフロードドライバを設定。デフォルトは\"None\"。"
 
 msgid "Defines the checksum algorithm."
-msgstr ""
+msgstr "チェックサムアルゴリズムを設定。"
 
 msgid ""
 "Defines the minimum amount of space guaranteed to a dataset, not including "
@@ -3058,12 +3064,12 @@ msgstr "いつシャットダウン処理が開始されるかを定義して下
 msgid ""
 "Delay - File-deletions will be computed during the transfer and will be done "
 "after the transfer."
-msgstr ""
+msgstr "遅延 - 削除するファイルを通信中に集計し、完了後に実行する。"
 
 msgid ""
 "Delay - File-deletions will be computed during the transfer, and then "
 "removed after the transfer completes."
-msgstr ""
+msgstr "遅延 - 削除するファイルを通信中に集計し、完了後に実行する。"
 
 msgid "Delete"
 msgstr "削除"
@@ -3072,7 +3078,7 @@ msgid "Delete ARP entry"
 msgstr "ARP エントリの削除"
 
 msgid "Delete Algorithm"
-msgstr ""
+msgstr "削除アルゴリズム"
 
 msgid "Delete Host"
 msgstr "ホストを削除"
@@ -3081,10 +3087,10 @@ msgid "Delete Login Info"
 msgstr "ログイン情報の削除"
 
 msgid "Delete Permission"
-msgstr ""
+msgstr "削除パーミッション"
 
 msgid "Delete Selected Auth Groups"
-msgstr ""
+msgstr "選択した管理者グループを削除"
 
 msgid "Delete Selected Bridges"
 msgstr "選択したブリッジの削除"
@@ -3093,7 +3099,7 @@ msgid "Delete Selected CARPs"
 msgstr "選択したCARPの削除"
 
 msgid "Delete Selected CHAP Users"
-msgstr ""
+msgstr "選択したCHAPユーザーを削除"
 
 msgid "Delete Selected Commands"
 msgstr "選択したコマンドの削除"
@@ -3108,16 +3114,16 @@ msgid "Delete Selected Encrypted Volumes"
 msgstr "選択した暗号化ボリュームの削除"
 
 msgid "Delete Selected Filesystems"
-msgstr ""
+msgstr "選択したファイルシステムを削除"
 
 msgid "Delete Selected Groups"
 msgstr "選択したグループの削除"
 
 msgid "Delete Selected Initiator Names"
-msgstr ""
+msgstr "選択したイニシエーター名を削除"
 
 msgid "Delete Selected Initiator Portals"
-msgstr ""
+msgstr "選択したイニシエーターポータルを削除"
 
 msgid "Delete Selected Jobs"
 msgstr "選択したジョブの削除"
@@ -3126,31 +3132,31 @@ msgid "Delete Selected LAGGs"
 msgstr "選択したLAGGの削除"
 
 msgid "Delete Selected LUN Records"
-msgstr ""
+msgstr "選択したLUNレコードを削除"
 
 msgid "Delete Selected LUNs"
-msgstr ""
+msgstr "選択したLUNを削除"
 
 msgid "Delete Selected Listen Records"
-msgstr ""
+msgstr "選択したリッスンレコードを削除"
 
 msgid "Delete Selected Media Folders"
-msgstr ""
+msgstr "選択したメディアフォルダを削除"
 
 msgid "Delete Selected Mutual CHAP Users"
-msgstr ""
+msgstr "選択した相互CHAPユーザーを削除"
 
 msgid "Delete Selected NFS Exports"
-msgstr ""
+msgstr "選択したNFSエクスポートを削除"
 
 msgid "Delete Selected NFS Root Directories"
-msgstr ""
+msgstr "選択したNFSルートディレクトリを削除"
 
 msgid "Delete Selected Notifier"
-msgstr ""
+msgstr "選択した通知を削除"
 
 msgid "Delete Selected Option Records"
-msgstr ""
+msgstr "選択したオプションレコードを削除"
 
 msgid "Delete Selected Options"
 msgstr "選択したオプションの削除"
@@ -3159,13 +3165,13 @@ msgid "Delete Selected Pools"
 msgstr "選択したプールの削除"
 
 msgid "Delete Selected Port Records"
-msgstr ""
+msgstr "選択したポートレコードを削除"
 
 msgid "Delete Selected Portal Groups"
-msgstr ""
+msgstr "選択したポータルグループを削除"
 
 msgid "Delete Selected Providers"
-msgstr ""
+msgstr "選択したプロバイダを削除"
 
 msgid "Delete Selected Public Keys"
 msgstr "選択した公開鍵を削除"
@@ -3174,7 +3180,7 @@ msgid "Delete Selected RAID Volumes"
 msgstr "選択したRAIDボリュームの削除"
 
 msgid "Delete Selected Reboot Schedules"
-msgstr ""
+msgstr "選択した再起動スケジュールを削除"
 
 msgid "Delete Selected Records"
 msgstr "選択したレコードの削除"
@@ -3186,16 +3192,16 @@ msgid "Delete Selected Routes"
 msgstr "選択した経路の削除"
 
 msgid "Delete Selected Rsync Jobs"
-msgstr ""
+msgstr "選択したRsyncジョブを削除"
 
 msgid "Delete Selected Rsync Modules"
-msgstr ""
+msgstr "選択したRsyncモジュールを削除"
 
 msgid "Delete Selected Samba Shares"
 msgstr "選択したSambaの共有の削除"
 
 msgid "Delete Selected Schedules"
-msgstr ""
+msgstr "選択したスケジュールを削除"
 
 msgid "Delete Selected Shares"
 msgstr "選択した共有の削除"
@@ -3204,10 +3210,10 @@ msgid "Delete Selected Snapshots"
 msgstr "選択したスナップショットの削除"
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "選択したSysctl設定を削除"
 
 msgid "Delete Selected Targets"
-msgstr ""
+msgstr "選択したターゲットを削除"
 
 msgid "Delete Selected User Accounts"
 msgstr "選択したユーザアカウントの削除"
@@ -3225,13 +3231,13 @@ msgid "Delete Selected WLANs"
 msgstr "選択したWLANの削除"
 
 msgid "Delete Selected WebDAV Records"
-msgstr ""
+msgstr "選択したWebDAVレコードを削除"
 
 msgid "Delete Selected iSCSI Initiators"
-msgstr ""
+msgstr "選択したiSCSIイニシエーターを削除"
 
 msgid "Delete Selected iSNS Servers"
-msgstr ""
+msgstr "選択したiSNSサーバーを削除"
 
 msgid "Delete URL"
 msgstr "URL を削除"
@@ -3297,7 +3303,7 @@ msgid "Deleting MBR and partition table"
 msgstr "MBR 及びパーティションテーブルを削除します"
 
 msgid "Deleting failed."
-msgstr ""
+msgstr "削除失敗。"
 
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
@@ -3308,7 +3314,7 @@ msgid "Deny"
 msgstr "拒否"
 
 msgid "Deny discovery"
-msgstr ""
+msgstr "ディスカバリーを拒否"
 
 msgid "Description"
 msgstr "概要"
@@ -3317,7 +3323,7 @@ msgid "Destination"
 msgstr "宛て先"
 
 msgid "Destination Network"
-msgstr ""
+msgstr "接続先ネットワーク"
 
 msgid "Destination Share"
 msgstr "接続先共有"
@@ -3329,26 +3335,26 @@ msgid "Destination email address. Separate email addresses by semi-colon."
 msgstr "宛て先のメールアドレス。複数のアドレスを指定する場合の区切り文字はセミコロン（ ; ）。"
 
 msgid "Destination host name or IP address."
-msgstr ""
+msgstr "接続先のホスト名またはIPアドレス"
 
 msgid "Destination network for this static route."
-msgstr ""
+msgstr "このスタティックルートの接続先ネットワーク"
 
 msgid "Destination port"
 msgstr "宛て先ポート"
 
 msgid "Destroy"
-msgstr ""
+msgstr "破棄"
 
 msgid "Destroy Snapshot"
-msgstr ""
+msgstr "スナップショットを破壊"
 
 msgid "Destroy a pool"
-msgstr ""
+msgstr "プールを破壊"
 
 msgid ""
 "Destroy any snapshots and bookmarks more recent than the one specified."
-msgstr ""
+msgstr "選択より最近のスナップショットとブックマークを破壊。"
 
 msgid "Destroyed"
 msgstr "破棄された"
@@ -3357,16 +3363,16 @@ msgid "Detach"
 msgstr "切り離し"
 
 msgid "Detach a data device from a mirror"
-msgstr ""
+msgstr "ミラーからデータデバイスを取り外す"
 
 msgid "Detach a log device from a mirrored log"
-msgstr ""
+msgstr "ミラーログからログデバイスを取り外す"
 
 msgid "Detailed"
 msgstr "詳細"
 
 msgid "Details"
-msgstr ""
+msgstr "詳細"
 
 msgid "Detected"
 msgstr "検出"
@@ -3399,7 +3405,7 @@ msgid "Device /dev/%s - %s"
 msgstr "デバイス /dev/%s - %s"
 
 msgid "Device ID"
-msgstr ""
+msgstr "デバイスID"
 
 msgid "Device IP"
 msgstr "デバイスのIP"
@@ -3420,7 +3426,7 @@ msgid "Device Type"
 msgstr ""
 
 msgid "Device contains boot partition"
-msgstr ""
+msgstr "デバイスはブートパーティションを含む"
 
 msgid "Device is mounted"
 msgstr "デバイスはマウントされています"
@@ -3439,7 +3445,7 @@ msgid "Diagnostics"
 msgstr "診断"
 
 msgid "Diagnostics Information"
-msgstr ""
+msgstr "診断情報"
 
 msgid "Difference"
 msgstr "差分"
@@ -3461,10 +3467,10 @@ msgid "Directory %s doesn't exist!"
 msgstr "%s ディレクトリは存在しません"
 
 msgid "Directory Mask"
-msgstr ""
+msgstr "ディレクトリマスク"
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "ディレクトリ作成失敗。"
 
 msgid "Directory listing"
 msgstr "ディレクトリリスト"
@@ -3476,118 +3482,118 @@ msgid "Disable"
 msgstr "無効"
 
 msgid "Disable DNS rebind protection"
-msgstr ""
+msgstr "DNSリバインド保護を無効化"
 
 msgid "Disable Extension Menu"
-msgstr ""
+msgstr "拡張メニューを無効化"
 
 msgid "Disable Firmware Upgrade"
 msgstr "ファームウェアのアップグレードを無効"
 
 msgid "Disable Selected Auth Groups"
-msgstr ""
+msgstr "選択した管理者グループを無効化"
 
 msgid "Disable Selected CHAP Users"
-msgstr ""
+msgstr "選択したCHAPユーザーを無効化"
 
 msgid "Disable Selected Commands"
 msgstr "選択したコマンドを無効"
 
 msgid "Disable Selected Groups"
-msgstr ""
+msgstr "選択したグループを無効化"
 
 msgid "Disable Selected Initiator Names"
-msgstr ""
+msgstr "選択したイニシエーター名を無効化"
 
 msgid "Disable Selected Initiator Portals"
-msgstr ""
+msgstr "選択したイニシエーターポータルを無効化"
 
 msgid "Disable Selected Jobs"
 msgstr "選択したジョブを無効"
 
 msgid "Disable Selected LUN Records"
-msgstr ""
+msgstr "選択したLUNレコードを無効化"
 
 msgid "Disable Selected LUNs"
-msgstr ""
+msgstr "選択したLUNを無効化"
 
 msgid "Disable Selected Listen Records"
-msgstr ""
+msgstr "リッスンレコードを無効化"
 
 msgid "Disable Selected Media Folders"
-msgstr ""
+msgstr "選択したメディアフォルダを無効化"
 
 msgid "Disable Selected Mutual CHAP Users"
-msgstr ""
+msgstr "選択した相互CHAPユーザーを無効化"
 
 msgid "Disable Selected NFS Exports"
-msgstr ""
+msgstr "選択したNFSエクスポートを無効化"
 
 msgid "Disable Selected NFS Root Directories"
-msgstr ""
+msgstr "選択したNFSルートディレクトリを無効化"
 
 msgid "Disable Selected Option Records"
-msgstr ""
+msgstr "選択したオプションレコードを無効化"
 
 msgid "Disable Selected Options"
 msgstr "選択したオプションを無効"
 
 msgid "Disable Selected Port Records"
-msgstr ""
+msgstr "選択したポートレートを無効化"
 
 msgid "Disable Selected Portal Groups"
-msgstr ""
+msgstr "選択したポータルグループを無効化"
 
 msgid "Disable Selected Providers"
-msgstr ""
+msgstr "選択したプロバイダーを無効化"
 
 msgid "Disable Selected Public Keys"
 msgstr "選択した公開鍵を無効化"
 
 msgid "Disable Selected Reboot Schedules"
-msgstr ""
+msgstr "選択した再起動スケジュールを無効化"
 
 msgid "Disable Selected Records"
 msgstr "選択したレコードを無効"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "選択したルートを無効化"
 
 msgid "Disable Selected Rsync Jobs"
-msgstr ""
+msgstr "選択したRsyncジョブを無効化"
 
 msgid "Disable Selected Rsync Modules"
-msgstr ""
+msgstr "選択したRsyncモジュールを無効化"
 
 msgid "Disable Selected Samba Shares"
-msgstr ""
+msgstr "選択したSamba共有を無効化"
 
 msgid "Disable Selected Schedules"
-msgstr ""
+msgstr "選択したスケジュールを無効化"
 
 msgid "Disable Selected Sysctl Settings"
-msgstr ""
+msgstr "選択したSysctl設定を無効化"
 
 msgid "Disable Selected Targets"
-msgstr ""
+msgstr "選択したターゲットを無効化"
 
 msgid "Disable Selected Users"
-msgstr ""
+msgstr "選択したユーザーを無効化"
 
 msgid "Disable Selected VLANs"
-msgstr ""
+msgstr "選択したVLANを無効化"
 
 msgid "Disable Selected WebDAV Records"
-msgstr ""
+msgstr "選択したWebDAVレコードを無効化"
 
 msgid "Disable Selected iSCSI Initiators"
-msgstr ""
+msgstr "選択したiSCSIイニシエーターを無効化"
 
 msgid "Disable Selected iSNS Servers"
-msgstr ""
+msgstr "選択したiSNSサーバーを無効化"
 
 msgid "Disable Subtitles"
-msgstr ""
+msgstr "字幕を無効化"
 
 msgid "Disable TCP wrapper (mod_wrap module)."
 msgstr "TCP wrapper (mod_wrapモジュール) を無効にします。"
@@ -3632,7 +3638,7 @@ msgid "Discard - Do not inherit entries"
 msgstr ""
 
 msgid "Discovery"
-msgstr ""
+msgstr "ディスカバリ"
 
 msgid "Discovery Auth Group"
 msgstr "探索 認証グループ"
@@ -3641,42 +3647,42 @@ msgid "Discovery Auth Method"
 msgstr "探索 認証方法"
 
 msgid "Discovery Filter"
-msgstr ""
+msgstr "ディスカバリフィルター"
 
 msgid ""
 "Discovery will not return targets that cannot be accessed by the initiator "
 "because of their initiator-portal."
-msgstr ""
+msgstr "イニシエーターポータルによりイニシエーターがアクセスできないターゲットをディスカバリは返しません。"
 
 msgid "Discovery will return all targets assigned to this portal group."
-msgstr ""
+msgstr "ディスカバリはこのポータルグループの全てのターゲットを返します。"
 
 msgid "Disk"
 msgstr "ディスク"
 
 msgid "Disk Partition Information"
-msgstr ""
+msgstr "ディスクパーティション情報"
 
 msgid "Disk Selection"
-msgstr ""
+msgstr "ディスク選択"
 
 msgid "Disk Settings"
-msgstr ""
+msgstr "ディスク設定"
 
 msgid "Disk Space Usage"
-msgstr ""
+msgstr "ディスク使用状況"
 
 msgid "Disk Usage"
 msgstr "ディスク使用量"
 
 msgid "Disk is locked"
-msgstr ""
+msgstr "ディスクはロックされています"
 
 msgid "Disk is marked for deletion"
-msgstr ""
+msgstr "ディスクは削除のためマークされています"
 
 msgid "Disk is unlocked"
-msgstr ""
+msgstr "ディスクはロックされていません"
 
 msgid "Disks"
 msgstr "ディスク"
@@ -3691,7 +3697,7 @@ msgid "Display"
 msgstr "表示"
 
 msgid "Display Options"
-msgstr ""
+msgstr "表示オプション"
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -3707,7 +3713,7 @@ msgstr "操作ボタンをフッターでなく、スクロール可能エリア
 
 msgid ""
 "Display disk size values using binary prefixes instead of decimal prefixes."
-msgstr ""
+msgstr "ディスクサイズはSI接頭辞ではなく2進接頭辞で表示されています。"
 
 msgid ""
 "Distance the disk has shifted relative to the spindle (usually due to shock "
@@ -3715,20 +3721,20 @@ msgid ""
 msgstr "ディスクが（通常は原因衝撃や温度により）スピンドルに対してシフトした距離。測定単位は不明です。"
 
 msgid "Distributed Hash Table"
-msgstr ""
+msgstr "分散ハッシュテーブル"
 
 msgid "Dnode Size"
-msgstr ""
+msgstr "Dnodeサイズ"
 
 msgid "Do not abort the firmware upgrade process once it has started."
 msgstr "ファームウェアのアップグレード開始後に中断はしないでください。"
 
 msgid "Do not activate this option if you want to add an existing RAID."
-msgstr ""
+msgstr "既存のRAIDを追加したい場合、この設定を有効にしないでください。"
 
 msgid ""
 "Do not erase the Master Boot Record (useful for some RAID controller cards)."
-msgstr ""
+msgstr "MBRを削除しない（一部のRAIDコントローラーで有用）。"
 
 #, php-format
 msgid ""
@@ -3737,10 +3743,10 @@ msgid ""
 msgstr "%s ページがロードされた際、より新しいファームウェアがあるか確認しないようにする。"
 
 msgid "Do not mount"
-msgstr ""
+msgstr "マウントしない"
 
 msgid "Do not use ACLs"
-msgstr ""
+msgstr "ACLを使用しない"
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -3748,7 +3754,7 @@ msgid ""
 msgstr "本当に消去およびインポートしてもよろしいですか？\\n既存コンフィグは消去されて上書きされます。"
 
 msgid "Do you really want to delete all data from the selected statistics?"
-msgstr ""
+msgstr "本当に選択した統計の全データを削除しますか？"
 
 msgid "Do you really want to delete all rules?"
 msgstr "全てのルールを削除してもよろしいですか?"
@@ -3808,28 +3814,28 @@ msgid "Do you really want to uninstall this package?"
 msgstr "このパッケージをアンインストールしてもよろしいですか?"
 
 msgid "Do you want to apply these settings?"
-msgstr ""
+msgstr "これらの設定を適応しますか？"
 
 msgid "Do you want to create a DRAID1 device from selected disk?"
-msgstr ""
+msgstr "選択したディスクからDRAID1を作成しますか？"
 
 msgid "Do you want to create a DRAID2 device from selected disk?"
-msgstr ""
+msgstr "選択したディスクからDRAID2を作成しますか？"
 
 msgid "Do you want to create a DRAID3 device from selected disk?"
-msgstr ""
+msgstr "選択したディスクからDRAID3を作成しますか？"
 
 msgid "Do you want to create a JBOD from selected disks?"
-msgstr ""
+msgstr "選択したディスクからJBODを作成しますか？"
 
 msgid "Do you want to create a RAID-0 from selected disks?"
-msgstr ""
+msgstr "選択したディスクからRAID-0を作成しますか？"
 
 msgid "Do you want to create a RAID-1 from selected disks?"
-msgstr ""
+msgstr "選択したディスクからRAID-1を作成しますか？"
 
 msgid "Do you want to create a RAID-5 from selected disks?"
-msgstr ""
+msgstr "選択したディスクからRAID-5を作成しますか？"
 
 msgid "Do you want to create a RAIDZ1 from selected disks?"
 msgstr ""
@@ -14955,7 +14961,7 @@ msgstr "定義する必要があります。"
 
 #, php-format
 msgid "must be in the format: %s."
-msgstr ""
+msgstr "次のフォーマットである必要があります: %s"
 
 msgid "n/a"
 msgstr "n/a"
@@ -14967,7 +14973,7 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
-msgstr ""
+msgstr "遅延なし"
 
 msgid "none"
 msgstr "none"
@@ -14985,7 +14991,7 @@ msgid "phpVirtualBox"
 msgstr "phpVirtualBox"
 
 msgid "pools"
-msgstr ""
+msgstr "プール"
 
 msgid "rc.conf"
 msgstr "rc.conf"

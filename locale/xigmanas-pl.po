@@ -3,24 +3,27 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-26 15:59+0000\n"
-"PO-Revision-Date: 2023-05-02 12:19+0000\n"
-"Last-Translator: Piotr Łobuz <Unknown>\n"
+"PO-Revision-Date: 2024-03-29 17:32+0000\n"
+"Last-Translator: iwona20031 <racmic123@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-07-23 20:04+0000\n"
-"X-Generator: Launchpad (build 2bfac4503c7b6a57e9a8acd782035a16f97e2ddb)\n"
+"X-Launchpad-Export-Date: 2024-03-29 18:40+0000\n"
+"X-Generator: Launchpad (build aec24aef7a9042c99ef3e238d8b0ca01df9e1a9f)\n"
+"X-Poedit-Country: POLAND\n"
+"Language: \n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"Language: \n"
-"X-Poedit-Country: POLAND\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
 "default value is on. The values on and off are equivalent to the dev and "
 "nodev mount options."
 msgstr ""
+" Kontroluje, czy w tym systemie plików można otwierać węzły urządzeń. "
+"Wartość domyślna jest włączona. Wartości on i off odpowiadają opcjom "
+"montowania dev i nodev."
 
 msgid " No private key"
 msgstr " Brak klucza prywatnegp"
@@ -111,6 +114,7 @@ msgstr "%s użyte z %s"
 msgid ""
 "%s would like to thank the authors of this software for their efforts:"
 msgstr ""
+"%s  chciałbym podziękować autorom tego oprogramowania za ich wysiłki:"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -214,7 +218,7 @@ msgid "*** Imported duplicate ***"
 msgstr "*** Zaimportowane duplikaty ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr ""
+msgstr "+upnp:klasa,+upnp:oryginalny numer utworu,+dc:tytuł"
 
 msgid "/"
 msgstr "/"
@@ -383,7 +387,7 @@ msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "Etykieta VLAN 802.1Q (pomiędzy 1 a 4094)."
 
 msgid "802.1ad (QinQ)"
-msgstr ""
+msgstr "802.1ad (QinQ)"
 
 msgid "8200"
 msgstr "8200"
@@ -447,6 +451,8 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Port do nasłuchiwania połączeń przychodzących przy użyciu protokołu iSER "
+"(iSCSI over RDMA)."
 
 msgid "A reboot is required"
 msgstr "Wymagany restart systemu"
@@ -15073,22 +15079,22 @@ msgid "hidden"
 msgstr ""
 
 msgid "iSCSI"
-msgstr ""
+msgstr "iSCSI"
 
 msgid "iSCSI Initiator"
 msgstr "iSCSI Initiator"
 
 msgid "iSCSI Initiator Settings"
-msgstr ""
+msgstr "Ustawienia inicjatora iSCSI"
 
 msgid "iSCSI Initiator is locked"
-msgstr ""
+msgstr "Inicjator iSCSI jest zablokowany"
 
 msgid "iSCSI Initiator is marked for deletion"
-msgstr ""
+msgstr "Inicjator iSCSI jest oznaczony do usunięcia"
 
 msgid "iSCSI Initiator is unlocked"
-msgstr ""
+msgstr "Inicjator iSCSI jest odblokowany"
 
 msgid "iSCSI Target"
 msgstr "Cel iSCSI"
@@ -15100,40 +15106,43 @@ msgid "iSCSI Target ISTGT"
 msgstr ""
 
 msgid "iSCSI Target Information & Status"
-msgstr ""
+msgstr "Informacje i stan obiektu docelowego iSCSI"
 
 msgid "iSCSI Target Logical Unit Controller"
-msgstr ""
+msgstr "Kontroler docelowej jednostki logicznej iSCSI"
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
-msgstr ""
+msgstr "Parametr początkowy iSCSI (domyślnie %d)."
 
 msgid "iSER - iSCSI over RDMA"
-msgstr ""
+msgstr "iSER — iSCSI przez RDMA"
 
 msgid "iSNS Period"
 msgstr ""
 
 msgid "iSNS Server is locked"
-msgstr ""
+msgstr "Serwer iSNS jest zablokowany"
 
 msgid "iSNS Server is marked for deletion"
-msgstr ""
+msgstr "Serwer iSNS jest oznaczony do usunięcia"
 
 msgid "iSNS Server is unlocked"
-msgstr ""
+msgstr "Serwer iSNS jest odblokowany"
 
 msgid "iSNS Servers"
-msgstr ""
+msgstr "Serwery ISNS"
 
 msgid "iSNS Timeout"
-msgstr ""
+msgstr "Limit czasu iSNS"
 
 msgid ""
 "iSNS registration period. Registered Network Entity not updated during this "
 "period will be unregistered. The default is 900."
 msgstr ""
+"Okres rejestracji ISNS. Zarejestrowany Podmiot Sieciowy, który nie zostanie "
+"zaktualizowany w tym okresie, zostanie wyrejestrowany. Wartość domyślna to "
+"900."
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"
@@ -15145,34 +15154,44 @@ msgid ""
 "krb5 - Use Kerberos V5 protocol to authenticate users before granting access "
 "to the shared filesystem."
 msgstr ""
+"krb5 — Użyj protokołu Kerberos V5 do uwierzytelniania użytkowników przed "
+"udzieleniem dostępu do współdzielonego systemu plików."
 
 msgid "krb5i - Use Kerberos V5 authentication with data integrity checksums."
 msgstr ""
+"krb5i — Użyj uwierzytelniania Kerberos V5 z sumami kontrolnymi integralności "
+"danych."
 
 msgid ""
 "krb5p - Use Kerberos V5 authentication with data integrity checksums and "
 "data encryption."
 msgstr ""
+"krb5p — Użyj uwierzytelniania Kerberos V5 z sumami kontrolnymi integralności "
+"danych i szyfrowaniem danych."
 
 msgid "less then 1.8\"."
-msgstr ""
+msgstr "mniej niż 1,8 cala."
 
 msgid "load/unload failed."
-msgstr ""
+msgstr "ładowanie/rozładowywanie nie powiodło się."
 
 msgid "loader.conf"
 msgstr "loader.conf"
 
 msgid "mapall - Specifies a mapping for all client UIDs (including root)"
 msgstr ""
+"mapall — Określa mapowanie dla wszystkich identyfikatorów UID klientów (w "
+"tym roota)"
 
 msgid ""
 "maproot - The credential of the specified user is used for remote access by "
 "root."
 msgstr ""
+"maproot — Poświadczenia określonego użytkownika są używane do zdalnego "
+"dostępu przez roota."
 
 msgid "missing"
-msgstr ""
+msgstr "brakujący"
 
 msgid "mount"
 msgstr "montowanie"
@@ -15191,22 +15210,22 @@ msgid "n/a"
 msgstr "n/a"
 
 msgid "network traffic"
-msgstr ""
+msgstr "ruch sieciowy"
 
 msgid "no"
-msgstr ""
+msgstr "nie"
 
 msgid "no delay"
-msgstr ""
+msgstr "bez opóźnień"
 
 msgid "none"
 msgstr "brak"
 
 msgid "off"
-msgstr ""
+msgstr "wyłączone"
 
 msgid "on"
-msgstr ""
+msgstr "włączony"
 
 msgid "phpMyAdmin"
 msgstr ""
@@ -15221,16 +15240,16 @@ msgid "rc.conf"
 msgstr "rc.conf"
 
 msgid "revision"
-msgstr "kompilacja"
+msgstr "Kompilacja"
 
 msgid "scan target failed."
 msgstr "skanowanie celu nieudane."
 
 msgid "scponly - Secure Copy Protocol only"
-msgstr ""
+msgstr "scponly — tylko protokół bezpiecznego kopiowania"
 
 msgid "seconds)"
-msgstr ""
+msgstr "sekundy"
 
 msgid "sh - Bourne Shell"
 msgstr ""
@@ -15263,25 +15282,25 @@ msgid "to"
 msgstr "do"
 
 msgid "uTP"
-msgstr ""
+msgstr "uTP"
 
 msgid "umount"
 msgstr "odmontuj"
 
 msgid "unknown"
-msgstr ""
+msgstr "nieznany"
 
 msgid "update.example.com"
-msgstr ""
+msgstr "zaktualizuj przykład com"
 
 msgid "visible"
-msgstr ""
+msgstr "widoczna"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
-msgstr ""
+msgstr "został przydzielony"
 
 msgid "yes"
-msgstr "Tak"
+msgstr "tak"

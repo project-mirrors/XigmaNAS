@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2023-02-26 15:59+0000\n"
-"PO-Revision-Date: 2021-12-04 18:00+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2024-03-29 17:32+0000\n"
+"Last-Translator: Ville Lindell <Unknown>\n"
 "Language-Team: XigmaNAS <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2023-07-23 20:04+0000\n"
-"X-Generator: Launchpad (build 2bfac4503c7b6a57e9a8acd782035a16f97e2ddb)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: Finnish\n"
+"X-Launchpad-Export-Date: 2024-03-29 18:40+0000\n"
+"X-Generator: Launchpad (build aec24aef7a9042c99ef3e238d8b0ca01df9e1a9f)\n"
 "X-Poedit-Country: FINLAND\n"
+"X-Poedit-Language: Finnish\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid ""
 " Controls whether device nodes can be opened on this file system. The "
@@ -27,13 +27,13 @@ msgid ""
 msgstr ""
 
 msgid " No private key"
-msgstr ""
+msgstr " Ei yksityistä avainta"
 
 msgid " interfaces:"
 msgstr " liitännät:"
 
 msgid " | State: "
-msgstr ""
+msgstr " | Tila: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -41,11 +41,11 @@ msgstr "%1$s käytetään luomaan %2$s levyä."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s hallittu, %2$s käytetty, %3$s saatavilla"
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s käytetty, %3$s saatavilla"
 
 #, php-format
 msgid "%d days"
@@ -93,7 +93,7 @@ msgstr "%s on jo määritelty asemaksi."
 
 #, php-format
 msgid "%s is based upon/includes various free software packages."
-msgstr ""
+msgstr "%s sisältää ja on rakennettu usean ilmaisen sovelluspaketin avulla."
 
 #, php-format
 msgid "%s is too long."
@@ -101,7 +101,7 @@ msgstr "%s on liian pitkä"
 
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s/%s"
 
 #, php-format
 msgid "%s on %s"
@@ -122,27 +122,27 @@ msgstr "%s%d %s on %s%d:n käytössä"
 
 #, php-format
 msgid "%u hour"
-msgstr ""
+msgstr "%u tunti"
 
 #, php-format
 msgid "%u hours"
-msgstr ""
+msgstr "%u tunteja"
 
 #, php-format
 msgid "%u minute"
-msgstr ""
+msgstr "%u minuutti"
 
 #, php-format
 msgid "%u minutes"
-msgstr ""
+msgstr "%u minuutteja"
 
 #, php-format
 msgid "%u second"
-msgstr ""
+msgstr "%u sekunti"
 
 #, php-format
 msgid "%u seconds"
-msgstr ""
+msgstr "%u sekunttia"
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -218,16 +218,16 @@ msgid "*** Imported duplicate ***"
 msgstr "*** Tuotu kaksoiskappale ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr ""
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
 msgid "/"
 msgstr "/"
 
 msgid "/mnt"
-msgstr ""
+msgstr "/mnt"
 
 msgid "/update?domain="
-msgstr ""
+msgstr "/update?domain="
 
 msgid "000"
 msgstr "000"
@@ -239,7 +239,7 @@ msgid "1"
 msgstr "1"
 
 msgid "1 - one copy"
-msgstr ""
+msgstr "1 - yksi kopio"
 
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr ""
@@ -250,7 +250,7 @@ msgstr ""
 "1 tai useampi fyysinen levy vaaditaan loogisen Raid-1-levyn rakentamiseen"
 
 msgid "1.8\""
-msgstr ""
+msgstr "1.8\""
 
 msgid "1000"
 msgstr "1000"
@@ -259,10 +259,10 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "102"
-msgstr ""
+msgstr "102"
 
 msgid "128K"
-msgstr ""
+msgstr "128K"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -271,28 +271,28 @@ msgid "16384"
 msgstr "16384"
 
 msgid "16K"
-msgstr ""
+msgstr "16K"
 
 msgid "16k"
-msgstr ""
+msgstr "16k"
 
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
 
 msgid "1K"
-msgstr ""
+msgstr "1K"
 
 msgid "1M"
-msgstr ""
+msgstr "1M"
 
 msgid "1k"
-msgstr ""
+msgstr "1k"
 
 msgid "2"
 msgstr "2"
 
 msgid "2 - two copies"
-msgstr ""
+msgstr "2 - kaksi kopiota"
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -312,19 +312,19 @@ msgid "22"
 msgstr "22"
 
 msgid "256K"
-msgstr ""
+msgstr "256K"
 
 msgid "2K"
-msgstr ""
+msgstr "2K"
 
 msgid "2k"
-msgstr ""
+msgstr "2k"
 
 msgid "3"
 msgstr "3"
 
 msgid "3 - three copies - not applicable when encryption is enabled"
-msgstr ""
+msgstr "3 - kolme kopiota - ei käytettävissä salauksen ollessa käytössä"
 
 msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr ""
@@ -340,19 +340,19 @@ msgid "32 KiB"
 msgstr "32 KiB"
 
 msgid "32K"
-msgstr ""
+msgstr "32K"
 
 msgid "4 KiB"
 msgstr "4 KiB"
 
 msgid "4K"
-msgstr ""
+msgstr "4K"
 
 msgid "4KB wrapper"
 msgstr "4 kt wrapper"
 
 msgid "4k"
-msgstr ""
+msgstr "4k"
 
 msgid "5.25\""
 msgstr "5.25\""
@@ -364,10 +364,10 @@ msgid "512 bytes"
 msgstr ""
 
 msgid "512B"
-msgstr ""
+msgstr "512B"
 
 msgid "512K"
-msgstr ""
+msgstr "512K"
 
 msgid "514"
 msgstr "514"
@@ -376,7 +376,7 @@ msgid "64 KiB"
 msgstr "64 KiB"
 
 msgid "64K"
-msgstr ""
+msgstr "64K"
 
 msgid "69"
 msgstr "69"
@@ -385,27 +385,29 @@ msgid "8 KiB"
 msgstr "8 KiB"
 
 msgid "802.1Q (default)"
-msgstr ""
+msgstr "802.1Q (oletus)"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN tunniste (1 ja 4094 väliltä)."
 
 msgid "802.1ad (QinQ)"
-msgstr ""
+msgstr "802.1ad (QinQ)"
 
 msgid "8200"
 msgstr "8200"
 
 msgid "8K"
-msgstr ""
+msgstr "8K"
 
 msgid "8k"
-msgstr ""
+msgstr "8k"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
 "'-' and '.'."
 msgstr ""
+"NTP-aikapalvelimen nimi voi sisältää vain seuraavia merkkejä: a-z, 0-9, '-' "
+"ja '.'."
 
 msgid ""
 "A Portal Group is identified by a tag number and defines IP addresses and "
@@ -414,6 +416,8 @@ msgstr ""
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
+"Ajastettu tehtävä täytyy määrittää ennen kuin skripti /etc/capacitycheck.zfs "
+"voidaan ajastaa."
 
 msgid ""
 "A directory listing is generated when no index-files (index.php, index.html, "
@@ -449,18 +453,20 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Kuunneltava saapuvan liikenteen portti iSER (iSCSI over RDMA) protokollan "
+"yhteyksille."
 
 msgid "A reboot is required"
 msgstr "Järjestelmän uudelleenkäynnistys vaaditaan."
 
 msgid "A reload request has been sent to the daemon."
-msgstr ""
+msgstr "Päivityspyyntö on lähetetty taustaprosessille."
 
 msgid "A rescan has been issued."
 msgstr ""
 
 msgid "A sysvol folder was found."
-msgstr ""
+msgstr "Sysvol hakemisto löytyi."
 
 msgid ""
 "A tally of spindle start/stop cycles. The spindle turns on, and hence the "
@@ -474,13 +480,13 @@ msgstr "Kelvollinen IP-osoite täytyy olla määritelty."
 
 msgid ""
 "A valid IP address or CIDR notation must be specified for the hosts allow."
-msgstr ""
+msgstr "Validi IP-osoite tai CIDR-notaatio on syötettävä."
 
 msgid "A valid IPv4 address must be specified for the primary DNS server."
-msgstr ""
+msgstr "Ensisijaiseksi DNS-palvelimeksi tulee määrittää validi IPv4-osoite."
 
 msgid "A valid IPv4 address must be specified for the secondary DNS server."
-msgstr ""
+msgstr "Toissijaiseksi DNS-palvelimeksi tulee määrittää validi IPv4-osoite."
 
 msgid "A valid IPv4 address must be specified."
 msgstr "Kelvollinen IPv4-osoite täytyy määritellä."
@@ -489,10 +495,10 @@ msgid "A valid IPv6 Gateway address must be specified."
 msgstr "Kelvollinen IPv6-yhdyskäytävän osoite täytyy määritellä."
 
 msgid "A valid IPv6 address must be specified for the primary DNS server."
-msgstr ""
+msgstr "Ensisijaiseksi DNS-palvelimeksi tulee määrittää validi IPv6-osoite."
 
 msgid "A valid IPv6 address must be specified for the secondary DNS server."
-msgstr ""
+msgstr "Toissijaiseksi DNS-palvelimeksi tulee määrittää validi IPv6-osoite."
 
 msgid "A valid IPv6 address must be specified."
 msgstr "Kelvollinen IPv6-osoite täytyy määritellä."
@@ -525,7 +531,7 @@ msgid "ACL mode"
 msgstr ""
 
 msgid "AD authentication is disabled."
-msgstr ""
+msgstr "AD autentikointi on poistettu käytöstä."
 
 msgid "AFP"
 msgstr "AFP"
@@ -582,7 +588,7 @@ msgid "Action"
 msgstr "Toiminto"
 
 msgid "Actions"
-msgstr ""
+msgstr "Toiminnot"
 
 msgid "Activate"
 msgstr "Ota käyttöön"
@@ -598,19 +604,19 @@ msgstr ""
 "S.M.A.R.T komento levylle epäonnistuu."
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "Aktivoi valittu laite."
 
 msgid "Active"
-msgstr ""
+msgstr "Aktiivinen"
 
 msgid "Active Directory"
 msgstr "Active Directory"
 
 msgid "Active Shares"
-msgstr ""
+msgstr "Aktiiviset Jaot"
 
 msgid "Active Users"
-msgstr ""
+msgstr "Aktiiviset Käyttäjät"
 
 msgid "Activities"
 msgstr ""
@@ -619,7 +625,7 @@ msgid "Activity"
 msgstr ""
 
 msgid "Adaptive (Low Power Consumption)"
-msgstr ""
+msgstr "Mukautuva (Matala Virrankulutus)"
 
 msgid "Add"
 msgstr "Lisää"
@@ -628,22 +634,22 @@ msgid "Add Auth Group"
 msgstr ""
 
 msgid "Add Bridge"
-msgstr ""
+msgstr "Lisää Silta"
 
 msgid "Add CARP"
-msgstr ""
+msgstr "Lisää CARP"
 
 msgid "Add CHAP User"
-msgstr ""
+msgstr "Lisää CHAP Käyttäjä"
 
 msgid "Add Command"
-msgstr ""
+msgstr "Lisää Komento"
 
 msgid "Add Dataset"
 msgstr ""
 
 msgid "Add Disk"
-msgstr ""
+msgstr "Lisää Levy"
 
 msgid "Add Encrypted Volume"
 msgstr ""
@@ -652,7 +658,7 @@ msgid "Add Filesystem"
 msgstr ""
 
 msgid "Add Group"
-msgstr ""
+msgstr "Lisää Ryhmä"
 
 msgid "Add Host"
 msgstr "Lisää palvelin"
@@ -664,10 +670,10 @@ msgid "Add Initiator Portal"
 msgstr ""
 
 msgid "Add LAGG"
-msgstr ""
+msgstr "Lisää LAGG"
 
 msgid "Add LUN"
-msgstr ""
+msgstr "Lisää LUN"
 
 msgid "Add LUN Record"
 msgstr ""
@@ -706,61 +712,61 @@ msgid "Add Provider"
 msgstr ""
 
 msgid "Add Public Key"
-msgstr ""
+msgstr "Lisää Julkinen Avain"
 
 msgid "Add RAID"
 msgstr "Lisää RAID"
 
 msgid "Add Reboot Schedule"
-msgstr ""
+msgstr "Lisää Ajastettu Uudelleenkäynnistys"
 
 msgid "Add Record"
 msgstr ""
 
 msgid "Add Resource"
-msgstr ""
+msgstr "Lisää Resurssi"
 
 msgid "Add Route"
 msgstr "Lisää reitti"
 
 msgid "Add Rsync Job"
-msgstr ""
+msgstr "Lisää Rsync Tehtävä"
 
 msgid "Add Rsync Module"
-msgstr ""
+msgstr "Lisää Rsync Moduuli"
 
 msgid "Add Samba Share"
-msgstr ""
+msgstr "Lisää Samba Jako"
 
 msgid "Add Schedule"
-msgstr ""
+msgstr "Lisää Ajastus"
 
 msgid "Add Share"
-msgstr ""
+msgstr "Lisää Jako"
 
 msgid "Add Snapshot"
 msgstr ""
 
 msgid "Add Target"
-msgstr ""
+msgstr "Lisää Kohde"
 
 msgid "Add URL"
 msgstr "Lisää URL"
 
 msgid "Add User Account"
-msgstr ""
+msgstr "Lisää Käyttäjätili"
 
 msgid "Add VLAN"
 msgstr ""
 
 msgid "Add Virtual Device"
-msgstr ""
+msgstr "Lisää Virtuaalinen Laite"
 
 msgid "Add Volume"
 msgstr ""
 
 msgid "Add WLAN"
-msgstr ""
+msgstr "Lisää WLAN"
 
 msgid "Add WebDAV Record"
 msgstr ""
@@ -796,7 +802,7 @@ msgid "Add iSCSI Initiator"
 msgstr ""
 
 msgid "Add iSNS Server"
-msgstr ""
+msgstr "Lisää iSNS Palvelin"
 
 msgid "Add initiator group"
 msgstr ""
@@ -829,10 +835,10 @@ msgid "Add the selected device to the existing mirror."
 msgstr ""
 
 msgid "Add user to additional groups."
-msgstr ""
+msgstr "Lisää käyttäjä muihin ryhmiin."
 
 msgid "Additional Information"
-msgstr ""
+msgstr "Lisätiedot"
 
 msgid "Additional Network"
 msgstr ""
@@ -844,7 +850,7 @@ msgid "Additional Options for RAM Disk Backend"
 msgstr ""
 
 msgid "Additional Parameters"
-msgstr ""
+msgstr "Lisäparametrit"
 
 msgid "Additional Storage"
 msgstr ""
@@ -859,10 +865,10 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr ""
 
 msgid "Admin"
-msgstr ""
+msgstr "Ylläpitäjä"
 
 msgid "Admin Password"
-msgstr ""
+msgstr "Järjestelmänvalvojan Salasana"
 
 msgid "Admin access"
 msgstr ""
@@ -874,10 +880,10 @@ msgid "Administrative WebGUI"
 msgstr "Laitehallinnan selainliittymä"
 
 msgid "Administrator Name"
-msgstr ""
+msgstr "Järjestelmävalvojan Nimi"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Järjestelmävalvojan Salasana"
 
 msgid "Advanced"
 msgstr "Lisäasetukset"
@@ -889,7 +895,7 @@ msgid "Advanced Options"
 msgstr "Lisäasetusten valinnat"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "SMB Lisäasetukset"
 
 msgid "Advanced Settings"
 msgstr "Lisäasetukset"
@@ -904,17 +910,21 @@ msgid "Advertisement Skew"
 msgstr ""
 
 msgid "After - File-deletions will be done after the transfer has completed."
-msgstr ""
+msgstr "Jälkeen - Tiedostojen poistot suoritetaan siirron valmistuttua."
 
 msgid ""
 "After you click \"Save\" you may also have to do one or more of the "
 "following steps before you can access this server again:"
 msgstr ""
+"Tallentamisen jälkeen seuraavat toimenpiteet voivat olla tarpeellisia, jotta "
+"palvelin on taas tavoitettavissa:"
 
 msgid ""
 "After you click \"Save\" you must reboot the server to make the changes take "
 "effect."
 msgstr ""
+"Tallentamisen jälkeen sinun tulee käynnistää palvelin uudelleen, jotta "
+"muutokset tulevat voimaan."
 
 msgid "Aggregation Protocol"
 msgstr ""
@@ -931,7 +941,7 @@ msgid "Alert Level"
 msgstr ""
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritmi"
 
 msgid "Alias"
 msgstr ""
@@ -940,22 +950,22 @@ msgid "All"
 msgstr "Kaikki"
 
 msgid "All Days"
-msgstr ""
+msgstr "Kaikki Päivät"
 
 msgid "All Hours"
-msgstr ""
+msgstr "Kaikki Tunnit"
 
 msgid "All Interfaces"
 msgstr ""
 
 msgid "All Minutes"
-msgstr ""
+msgstr "Kaikki Minuutit"
 
 msgid "All Months"
-msgstr ""
+msgstr "Kaikki Kuukaudet"
 
 msgid "All Weekdays"
-msgstr ""
+msgstr "Kaikki Viikonpäivät"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr ""
@@ -966,7 +976,7 @@ msgid ""
 msgstr ""
 
 msgid "All data will be lost when you activate this option!"
-msgstr ""
+msgstr "Kaikki tiedot tulevat häviämään kun aktivoit tämän vaihtoehdon!"
 
 msgid "All disks are imported."
 msgstr ""
@@ -983,16 +993,16 @@ msgid "All software RAID disks are imported."
 msgstr ""
 
 msgid "Alloc"
-msgstr ""
+msgstr "Alloc"
 
 msgid "Allow"
 msgstr "Salli"
 
 msgid "Allow GSSAPI authentication."
-msgstr ""
+msgstr "Salli GSSAPI autentikointi."
 
 msgid "Allow IPv6"
-msgstr ""
+msgstr "Salli IPv6"
 
 msgid "Allow New Files"
 msgstr ""
@@ -1004,13 +1014,13 @@ msgid "Allow TCP forwarding."
 msgstr ""
 
 msgid "Allow TLS connections only."
-msgstr ""
+msgstr "Salli vain TLS-yhteydet."
 
 msgid "Allow USB"
-msgstr ""
+msgstr "Salli USB"
 
 msgid "Allow USB Serial Ports"
-msgstr ""
+msgstr "Salli USB-sarjaportit"
 
 msgid "Allow challenge-response authentication."
 msgstr ""
@@ -1034,16 +1044,16 @@ msgid ""
 msgstr ""
 
 msgid "Allow new files to be created."
-msgstr ""
+msgstr "Salli uusien tiedostojen luominen."
 
 msgid "Allow password authentication."
-msgstr ""
+msgstr "Salli autentikointi salasanalla"
 
 msgid "Allow public key authentication."
-msgstr ""
+msgstr "Salli autentikointi julkisella avaimella."
 
 msgid "Allow root to login via ssh."
-msgstr ""
+msgstr "Salli root-käyttäjän kirjautuminen SSH:n kautta."
 
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
@@ -1055,7 +1065,7 @@ msgid "Allow to start UPS from battery"
 msgstr ""
 
 msgid "Allow trusted domains."
-msgstr ""
+msgstr "Salli luotetut toimialueet."
 
 msgid ""
 "Allows  certain  users and groups to have read/write access to a share. This "
@@ -1068,7 +1078,7 @@ msgid ""
 msgstr ""
 
 msgid "Allows to connect to a hidden network"
-msgstr ""
+msgstr "Salli yhdistäminen piilotettuihin verkkoihin."
 
 msgid ""
 "Also known as 'Power-off Retract Count' per conventional HDD terminology. "
@@ -1079,22 +1089,22 @@ msgid ""
 msgstr ""
 
 msgid "AltRoot"
-msgstr ""
+msgstr "AltRoot"
 
 msgid "Alternate Data Streams"
 msgstr ""
 
 msgid "Alternate TCP port. (Default is 873)."
-msgstr ""
+msgstr "Vaihtoehtoinen TCP-portti (Oletus on 873)."
 
 msgid "Always"
-msgstr ""
+msgstr "Aina"
 
 msgid "Always On"
-msgstr ""
+msgstr "Aina Päällä"
 
 msgid "Always Scan"
-msgstr ""
+msgstr "Skannaa Aina"
 
 msgid "Ambient Conditions From External Probe Equipment"
 msgstr ""
@@ -1149,10 +1159,10 @@ msgid ""
 msgstr ""
 
 msgid "An empty field is default."
-msgstr ""
+msgstr "Tyhjä kenttä on oletus."
 
 msgid "An error occured."
-msgstr ""
+msgstr "Tapahtui virhe."
 
 msgid "An host with this name already exists."
 msgstr "Samalla nimellä oleva palvelin on jo olemassa."
@@ -1164,7 +1174,7 @@ msgid "Anonymous Bind"
 msgstr ""
 
 msgid "Anonymous Users"
-msgstr ""
+msgstr "Anonyymit Käyttäjät"
 
 msgid ""
 "Anonymous user download bandwith in KB/s. An empty field means infinity."
@@ -1194,10 +1204,10 @@ msgid "Any service using these disks might become invalid or inaccessible!"
 msgstr ""
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Lisää sisältö oletus CSS-tiedoston loppuun."
 
 msgid "Append my IP"
-msgstr ""
+msgstr "Lisää IP-osoitteeni"
 
 msgid "Append the current IP to the DDNS server update path."
 msgstr ""
@@ -1209,19 +1219,19 @@ msgid "Append user defined shares."
 msgstr ""
 
 msgid "Apple Filing Protocol"
-msgstr ""
+msgstr "Apple Filing Protokolla"
 
 msgid "Apple Filing Protocol (AFP) Compatibility Settings"
-msgstr ""
+msgstr "Apple Filing Protokollan (AFP) Yhteensopivuusasetukset"
 
 msgid "Apple Public Source License"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "Käytä"
 
 msgid "Apply Changes"
-msgstr ""
+msgstr "Toteuta Muutokset"
 
 msgid "Apply Filter"
 msgstr ""
@@ -1233,7 +1243,7 @@ msgid "Apr"
 msgstr ""
 
 msgid "April"
-msgstr ""
+msgstr "Huhtikuu"
 
 msgid "Archive"
 msgstr "Arkistoi"
@@ -1242,14 +1252,14 @@ msgid "Archive mode."
 msgstr "Arkistointitila"
 
 msgid "Are you sure you want to delete selected item(s)?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa valitut tiedostot?"
 
 msgid "Are you sure you want to reboot the server?"
-msgstr ""
+msgstr "Haluatko varmasti käynnistää palvelimen uudelleen?"
 
 msgid ""
 "Are you sure you want to reset the system configuration to factory defaults?"
-msgstr ""
+msgstr "Haluatko varmasti palauttaa tehdasasetukset?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr ""
@@ -1272,7 +1282,7 @@ msgid "Asynchronous I/O"
 msgstr ""
 
 msgid "At least one disk must be selected."
-msgstr ""
+msgstr "Vähintään yksi levy tulee valita."
 
 msgid "At least one interface must be selected."
 msgstr ""
@@ -1283,7 +1293,7 @@ msgid ""
 msgstr ""
 
 msgid "Attach"
-msgstr ""
+msgstr "Liitä"
 
 msgid "Attach a data device"
 msgstr ""
@@ -1303,15 +1313,18 @@ msgid ""
 "NTFS can result in unpredictable results, file corruption and the loss of "
 "data!"
 msgstr ""
+"Muiden tiedostojärjestelmien (esim. FAT, FAT32, EXT2, EXT3, EXT4 tai NTFS) "
+"käyttäminen saattaa johtaa odottamattomiin tuloksiin, tiedostojen "
+"korruptoitumiseen ja tiedon häviämiseen!"
 
 msgid "Attribute Name"
-msgstr ""
+msgstr "Attribuutin Nimi"
 
 msgid "Aug"
-msgstr ""
+msgstr "Elo"
 
 msgid "August"
-msgstr ""
+msgstr "Elokuu"
 
 msgid "Auth Group"
 msgstr ""
@@ -1389,7 +1402,7 @@ msgid "Auto mount"
 msgstr ""
 
 msgid "Auto page refresh."
-msgstr ""
+msgstr "Automaattinen sivun päivitys."
 
 msgid "Auto size"
 msgstr "Säädä koko automaattisesti"
@@ -1398,10 +1411,10 @@ msgid "AutoScale"
 msgstr "Skaalaa automaattisesti"
 
 msgid "Autodetect"
-msgstr ""
+msgstr "Automaattinen tunnistaminen"
 
 msgid "Autoscale"
-msgstr ""
+msgstr "Automaattinen skaalaus"
 
 msgid "Autoscale for graphs."
 msgstr ""
@@ -1413,7 +1426,7 @@ msgid "Auxiliary device firmware"
 msgstr ""
 
 msgid "Avail"
-msgstr ""
+msgstr "Vapaa"
 
 msgid "Avail Threshold"
 msgstr ""
@@ -1434,13 +1447,13 @@ msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr ""
 
 msgid "BMP Image"
-msgstr ""
+msgstr "BMP Kuva"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "BZIP2 Arkisto"
 
 msgid "Back"
-msgstr ""
+msgstr "Takaisin"
 
 msgid "Backend"
 msgstr ""
@@ -1452,7 +1465,7 @@ msgid "Background (lowest)"
 msgstr ""
 
 msgid "Backup"
-msgstr ""
+msgstr "Varmuuskopio"
 
 msgid "Backup Configuration"
 msgstr "Varmuuskopioasetukset"
@@ -1464,15 +1477,20 @@ msgid ""
 "Backup configuration reminder. The last configuration backup is older than "
 "the configured interval."
 msgstr ""
+"Asetuksien varmuuskopioinnin muistutus. Viimeisin asetuksien varmuuskopio on "
+"vanhempi kuin määritetty aikaväli."
 
 msgid ""
 "Backup configuration. The date of the last configuration backup cannot be "
 "found."
 msgstr ""
+"Varmuuskopioi asetukset. Viimeisimmän varmuuskopioinnin päivämäärää ei löydy."
 
 msgid ""
 "Backup configuration. The date of the last configuration backup is invalid."
 msgstr ""
+"Varmuuskopioi asetukset. Viimeisimmän varmuuskopioinnin päivämäärä on "
+"virheellinen."
 
 msgid "Backup/Restore"
 msgstr "Varmuuskopioi/Palauta"
@@ -1506,10 +1524,10 @@ msgid ""
 msgstr ""
 
 msgid "Battery Details"
-msgstr ""
+msgstr "Akun Tiedot"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Akun Taso:"
 
 msgid "Battery Low"
 msgstr "Akku lähes tyhjä"
@@ -1549,16 +1567,16 @@ msgid "Battery voltage"
 msgstr "Akun jännite"
 
 msgid "Be Quiet"
-msgstr ""
+msgstr "Hiljainen Tila"
 
 msgid "Be careful with turning on these options."
-msgstr ""
+msgstr "Ole varovainen ottaessasi käyttöön näitä asetuksia."
 
 msgid "Before - File-deletions will be done before the transfer starts."
-msgstr ""
+msgstr "Ennen - Tiedostojen poistamiset tehdään ennen siirron alkamista."
 
 msgid "Before - File-deletions will be performed before the transfer starts."
-msgstr ""
+msgstr "Ennen - Tiedostojen poistamiset suoritetaan ennen siirron alkamista."
 
 msgid ""
 "Before a Unison client can start to work, you need to perform the following:"
@@ -1571,7 +1589,7 @@ msgid "Best effort (default)"
 msgstr ""
 
 msgid "Beta Versions"
-msgstr ""
+msgstr "Beta Versiot"
 
 msgid "Binary Prefix"
 msgstr ""
@@ -1586,7 +1604,7 @@ msgid "BitTorrent"
 msgstr "BitTorrent"
 
 msgid "BitTorrent Settings"
-msgstr ""
+msgstr "BitTorrent Asetukset"
 
 msgid "Blank Time"
 msgstr ""
@@ -1663,16 +1681,16 @@ msgid ""
 msgstr ""
 
 msgid "Broken RTC"
-msgstr ""
+msgstr "Viallinen RTC"
 
 msgid "Browseable"
 msgstr "Selattava"
 
 msgid "Button Location"
-msgstr ""
+msgstr "Painikkeen Sijainti"
 
 msgid "Button Settings"
-msgstr ""
+msgstr "Painikkeen Asetukset"
 
 msgid ""
 "By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
@@ -1685,10 +1703,10 @@ msgid "By default, only already existing files can be uploaded."
 msgstr ""
 
 msgid "Bytes/sec"
-msgstr ""
+msgstr "Tavuja/s"
 
 msgid "C File"
-msgstr ""
+msgstr "C Tiedosto"
 
 msgid "C++ Header File"
 msgstr ""
@@ -1697,10 +1715,10 @@ msgid "C++ Source File"
 msgstr ""
 
 msgid "CA Trusted Certificates"
-msgstr ""
+msgstr "CA Luotetut Sertifikaatit"
 
 msgid "CACHE"
-msgstr ""
+msgstr "CACHE"
 
 msgid "CAM Target Layer"
 msgstr ""
@@ -1709,7 +1727,7 @@ msgid "CAM Target Layer / iSCSI Target"
 msgstr ""
 
 msgid "CARP"
-msgstr ""
+msgstr "CARP"
 
 msgid ""
 "CARP cannot be deleted because it is still being used as an interface."
@@ -1728,16 +1746,16 @@ msgid "CARP only"
 msgstr ""
 
 msgid "CCMP"
-msgstr ""
+msgstr "CCMP"
 
 msgid "CCMP TKIP"
-msgstr ""
+msgstr "CCMP TKIP"
 
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 msgid "CD-ROM"
-msgstr ""
+msgstr "CD-ROM"
 
 msgid "CD/DVD"
 msgstr "CD/DVD"
@@ -1746,10 +1764,10 @@ msgid "CD/DVD drive"
 msgstr "CD-/DVD-asema"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "CGI Skripti"
 
 msgid "CHANGE PERMISSIONS"
-msgstr ""
+msgstr "MUUTA OIKEUKSIA"
 
 msgid "CHANGED"
 msgstr "MUUTETTU"
@@ -1758,7 +1776,7 @@ msgid "CHAP"
 msgstr "CHAP-protokolla"
 
 msgid "CHAP Name"
-msgstr ""
+msgstr "CHAP Nimi"
 
 msgid "CHAP Secret"
 msgstr ""
@@ -1779,25 +1797,25 @@ msgid "CHAP-Mutual"
 msgstr ""
 
 msgid "COPY"
-msgstr ""
+msgstr "KOPIOI"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Kyrillinen)"
 
 msgid "CP1252 (Latin 1)"
-msgstr ""
+msgstr "CP1252 (Latin 1)"
 
 msgid "CP437 (Latin US)"
-msgstr ""
+msgstr "CP437 (Latin US)"
 
 msgid "CP850 (Latin 1)"
-msgstr ""
+msgstr "CP850 (Latin 1)"
 
 msgid "CP852 (Latin 2)"
-msgstr ""
+msgstr "CP852 (Latin 2)"
 
 msgid "CP866 (Cyrillic CIS 1)"
-msgstr ""
+msgstr "CP866 (Cyrillic CIS 1)"
 
 msgid "CP932 (Japanese Shift-JIS)"
 msgstr ""
@@ -1830,10 +1848,10 @@ msgid "CPU Minimum Frequency"
 msgstr ""
 
 msgid "CPU Temperature"
-msgstr ""
+msgstr "CPU Lämpötila"
 
 msgid "CPU Usage"
-msgstr ""
+msgstr "Suorittimen Käyttö"
 
 msgid "CPU frequencies:"
 msgstr ""
@@ -1847,13 +1865,13 @@ msgid ""
 msgstr ""
 
 msgid "CRC32C"
-msgstr ""
+msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "CSS Tiedosto"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "CSS Asetukset"
 
 msgid "CTL LUN"
 msgstr ""
@@ -1901,7 +1919,7 @@ msgid "Capacity Warning Threshold"
 msgstr ""
 
 msgid "Carp Settings"
-msgstr ""
+msgstr "Carp Asetukset"
 
 msgid "Case Sensitivity"
 msgstr ""
@@ -1928,7 +1946,7 @@ msgid "Change"
 msgstr "Muuta"
 
 msgid "Change Permission"
-msgstr ""
+msgstr "Määritä käyttöoikeudet"
 
 msgid "Change below file"
 msgstr ""
@@ -1937,13 +1955,14 @@ msgid "Change permissions"
 msgstr ""
 
 msgid "Change the IP address of your computer"
-msgstr ""
+msgstr "Muuta tietokoneesi IP-osoite"
 
 msgid "Change the IP address of your server"
-msgstr ""
+msgstr "Muuta palvelimen IP-osoite"
 
 msgid "Changes to this option will take effect after a reboot."
 msgstr ""
+"Tämän asetuksen muutokset tulevat voimaan uudelleenkäynnistyksen jälkeen."
 
 msgid "Channel"
 msgstr "Kanava"
@@ -1977,13 +1996,13 @@ msgid ""
 msgstr ""
 
 msgid "Check the list of available drivers"
-msgstr ""
+msgstr "Tarkista saatavilla olevien ajureiden lista"
 
 msgid "Checksum"
-msgstr ""
+msgstr "Tarkistussumma"
 
 msgid "Choose File"
-msgstr ""
+msgstr "Valitse Tiedosto"
 
 msgid "Choose UPS mode."
 msgstr ""
@@ -1998,7 +2017,7 @@ msgid "Choose which interface this route applies to."
 msgstr "Valitse mitä liitäntää tämä reitti käyttää."
 
 msgid "Choose..."
-msgstr ""
+msgstr "Valitse.."
 
 msgid "Clear"
 msgstr "Tyhjennä"
@@ -2007,7 +2026,7 @@ msgid "Clear Config And Import Disks"
 msgstr ""
 
 msgid "Clear Configuration"
-msgstr ""
+msgstr "Tyhjennä Asetukset"
 
 msgid "Clear Text Authentication"
 msgstr ""
@@ -2019,10 +2038,10 @@ msgid "Clear configuration information before importing software RAID disks."
 msgstr ""
 
 msgid "Clear device errors"
-msgstr ""
+msgstr "Tyhjennä laitteen virheet"
 
 msgid "Clear metadata on the selected device."
-msgstr ""
+msgstr "Tyhjennä valitun laitteen metatiedot."
 
 msgid "Client"
 msgstr "Asiakas"
@@ -2037,16 +2056,16 @@ msgid "Clone"
 msgstr "Kloonaa"
 
 msgid "Clone Configuration"
-msgstr ""
+msgstr "Kloonaa Asetukset"
 
 msgid "Clones"
-msgstr ""
+msgstr "Kloonit"
 
 msgid "Close"
-msgstr ""
+msgstr "Sulje"
 
 msgid "Collecting initial data, please wait..."
-msgstr ""
+msgstr "Kerätään alustavia tietoja..."
 
 msgid "Collisions"
 msgstr "Törmäyksiä"
@@ -2061,15 +2080,17 @@ msgid ""
 "Comma-separated list of group names that are permitted to login to the FTP "
 "server. (empty = ftp group)."
 msgstr ""
+"Pilkulla eroteltu lista ryhmien nimiä, joilla on oikeus kirjautua FTP-"
+"palvelimelle (tyhjä = ftp group)."
 
 msgid "Command"
 msgstr "Komento"
 
 msgid "Command Output"
-msgstr ""
+msgstr "Komennon Tuloste"
 
 msgid "Command Output:"
-msgstr ""
+msgstr "Komennon Tuloste:"
 
 msgid "Command Scripts"
 msgstr ""
@@ -2078,7 +2099,7 @@ msgid "Command Scripts (Maintenance Only)"
 msgstr ""
 
 msgid "Command execution was successful"
-msgstr ""
+msgstr "Komento suoritettu onnistuneesti."
 
 #, php-format
 msgid "Command for LINK_DOWN event (e.g. %s)."
@@ -2113,7 +2134,7 @@ msgid "Comment"
 msgstr "Kommentti"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Yhteysvirhe"
 
 msgid "Community"
 msgstr "Yhteisö"
@@ -2131,7 +2152,7 @@ msgid "Compress"
 msgstr "Pakkaa"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Pakkaa siirron aikana"
 
 msgid "Compression"
 msgstr "Pakkaus"
@@ -2140,85 +2161,85 @@ msgid "Compression Ratio"
 msgstr ""
 
 msgid "Compression level 1 - best compression ratio"
-msgstr ""
+msgstr "Pakkauksen taso 1 - paras pakkaustaso"
 
 msgid "Compression level 1 - fastest compression"
-msgstr ""
+msgstr "Pakkauksen taso 1 - nopein pakkaus"
 
 msgid "Compression level 10"
-msgstr ""
+msgstr "Pakkauksen taso 10"
 
 msgid "Compression level 100"
-msgstr ""
+msgstr "Pakkauksen taso 100"
 
 msgid "Compression level 1000 - fastest compression"
-msgstr ""
+msgstr "Pakkauksen taso 1000 - nopein pakkaus"
 
 msgid "Compression level 11"
-msgstr ""
+msgstr "Pakkauksen taso 11"
 
 msgid "Compression level 12"
-msgstr ""
+msgstr "Pakkauksen taso 12"
 
 msgid "Compression level 13"
-msgstr ""
+msgstr "Pakkauksen taso 13"
 
 msgid "Compression level 14"
-msgstr ""
+msgstr "Pakkauksen taso 14"
 
 msgid "Compression level 15"
-msgstr ""
+msgstr "Pakkauksen taso 15"
 
 msgid "Compression level 16"
-msgstr ""
+msgstr "Pakkauksen taso 16"
 
 msgid "Compression level 17"
-msgstr ""
+msgstr "Pakkauksen taso 17"
 
 msgid "Compression level 18"
-msgstr ""
+msgstr "Pakkauksen taso 18"
 
 msgid "Compression level 19 - best compression ratio"
-msgstr ""
+msgstr "Pakkauksen taso 19 - paras pakkauksen taso"
 
 msgid "Compression level 2"
-msgstr ""
+msgstr "Pakkauksen taso 2"
 
 msgid "Compression level 20"
-msgstr ""
+msgstr "Pakkauksen taso 20"
 
 msgid "Compression level 3"
-msgstr ""
+msgstr "Pakkauksen taso 3"
 
 msgid "Compression level 30"
-msgstr ""
+msgstr "Pakkauksen taso 30"
 
 msgid "Compression level 4"
-msgstr ""
+msgstr "Pakkauksen taso 4"
 
 msgid "Compression level 40"
-msgstr ""
+msgstr "Pakkauksen taso 40"
 
 msgid "Compression level 5"
-msgstr ""
+msgstr "Pakkauksen taso 5"
 
 msgid "Compression level 50"
-msgstr ""
+msgstr "Pakkauksen taso 50"
 
 msgid "Compression level 500"
-msgstr ""
+msgstr "Pakkauksen taso 500"
 
 msgid "Compression level 6"
-msgstr ""
+msgstr "Pakkauksen taso 6"
 
 msgid "Compression level 60"
-msgstr ""
+msgstr "Pakkauksen taso 60"
 
 msgid "Compression level 7"
-msgstr ""
+msgstr "Pakkauksen taso 7"
 
 msgid "Compression level 70"
-msgstr ""
+msgstr "Pakkauksen taso 70"
 
 msgid "Compression level 8"
 msgstr ""
@@ -2258,19 +2279,19 @@ msgid "Configuring"
 msgstr ""
 
 msgid "Confirm New Password"
-msgstr ""
+msgstr "Varmista Uusi Salasana"
 
 msgid "Confirm Password"
-msgstr ""
+msgstr "Varmista Salasana"
 
 msgid "Confirmation"
 msgstr "Vahvistus"
 
 msgid "Connect to hidden network"
-msgstr ""
+msgstr "Yhdistä piilotettuun verkkoon"
 
 msgid "Consider replacing this drive"
-msgstr ""
+msgstr "Harkitse levyn korvaamista"
 
 msgid "Console Autologin"
 msgstr ""
@@ -2301,10 +2322,10 @@ msgid "Content"
 msgstr "Sisältö"
 
 msgid "Content Locations"
-msgstr ""
+msgstr "Sisällön Sijainnit"
 
 msgid "Control"
-msgstr ""
+msgstr "Hallinta"
 
 msgid "Controller"
 msgstr "Ohjain"
@@ -2492,20 +2513,20 @@ msgid "Conveyance Self-Test"
 msgstr ""
 
 msgid "Copies"
-msgstr ""
+msgstr "Kopiot"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopioi"
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "Kopioi kohteesta /%s kohteeseen /%s "
 
 msgid "Copy item(s)"
 msgstr ""
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Kopiointi epäonnistui."
 
 msgid "Core"
 msgstr ""
@@ -2545,13 +2566,13 @@ msgid ""
 msgstr ""
 
 msgid "Count of errors corrected by software ECC."
-msgstr ""
+msgstr "Sovelluspohjaisen ECC:n korjaamien virheiden määrä."
 
 msgid "Count of errors due to high temperature."
-msgstr ""
+msgstr "Liian korkean lämpötilan aiheuttamien virheiden määrä."
 
 msgid "Count of errors while reading from a disk."
-msgstr ""
+msgstr "Levyn lukemisen aikana tapahtuneiden virheiden määrä."
 
 msgid ""
 "Count of hours in power-on state. The raw value of this attribute shows "
@@ -2617,13 +2638,13 @@ msgid ""
 msgstr ""
 
 msgid "Create"
-msgstr ""
+msgstr "Luo Uusi"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr ""
 
 msgid "Create Date"
-msgstr ""
+msgstr "Luontipäivämäärä"
 
 msgid "Create HVM Guest"
 msgstr ""
@@ -2632,10 +2653,10 @@ msgid "Create Mask"
 msgstr ""
 
 msgid "Create PV Guest"
-msgstr ""
+msgstr "Luo PV Vieras"
 
 msgid "Create Permission"
-msgstr ""
+msgstr "Luo Oikeus"
 
 msgid "Create Snapshot"
 msgstr ""
@@ -2665,13 +2686,13 @@ msgid "Create a special allocation device"
 msgstr ""
 
 msgid "Create a virtual device containing a single device"
-msgstr ""
+msgstr "Luo yhden laitteen sisältävä virtuaalinen laite"
 
 msgid "Create a virtual device containing concatenated devices"
 msgstr ""
 
 msgid "Create a virtual device containing mirrored devices"
-msgstr ""
+msgstr "Luo peilattuja laitteita sisältävä virtuaalinen laite."
 
 msgid "Create a virtual device which tolerates 2 device failures"
 msgstr ""
@@ -2692,7 +2713,7 @@ msgid "Create work directory if it doesn't exist."
 msgstr ""
 
 msgid "Created UFS file system:"
-msgstr ""
+msgstr "Luo UFS tiedostojärjestelmä:"
 
 msgid "Creates the pool with an alternate root."
 msgstr ""
@@ -2731,28 +2752,28 @@ msgid "Current"
 msgstr "Nykyinen"
 
 msgid "Current Password"
-msgstr ""
+msgstr "Nykyinen Salasana"
 
 msgid "Current Setting"
 msgstr ""
 
 msgid "Current Version"
-msgstr ""
+msgstr "Nykyinen Versio"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "Tämä ja edellinen kuukausi"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "Tämä ja edellinen vuosi"
 
 msgid "Current internal temperature."
-msgstr ""
+msgstr "Nykyinen sisäinen lämpötila."
 
 msgid "Current password"
 msgstr "Nykyinen salasana"
 
 msgid "Current password is incorrectly entered."
-msgstr ""
+msgstr "Nykyinen salasana on virheellisesti syötetty."
 
 msgid "Current quarter"
 msgstr ""
@@ -2772,7 +2793,7 @@ msgid "Current value of real power (Watts)"
 msgstr ""
 
 msgid "Current year"
-msgstr ""
+msgstr "Nykyinen vuosi"
 
 msgid "Custom Provider"
 msgstr ""
@@ -2846,19 +2867,19 @@ msgid "DISK"
 msgstr ""
 
 msgid "DLNA/UPnP"
-msgstr ""
+msgstr "DLNA/UPnP"
 
 msgid "DLNA/UPnP Fuppes"
 msgstr ""
 
 msgid "DLNA/UPnP MiniDLNA"
-msgstr ""
+msgstr "DLNA/UPnP MiniDLNA"
 
 msgid "DNS"
 msgstr "Nimipalvelin (DNS)"
 
 msgid "DNS Domain"
-msgstr ""
+msgstr "DNS Domaini"
 
 msgid "DNS Forwarder"
 msgstr ""
@@ -2881,22 +2902,22 @@ msgid "DOWNLOAD"
 msgstr ""
 
 msgid "DRAID-1"
-msgstr ""
+msgstr "DRAID-1"
 
 msgid "DRAID-2"
-msgstr ""
+msgstr "DRAID-2"
 
 msgid "DRAID-3"
-msgstr ""
+msgstr "DRAID-3"
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "DTS Audio Tiedosto"
 
 msgid "DVD"
 msgstr "DVD"
 
 msgid "DVD-ROM"
-msgstr ""
+msgstr "DVD-ROM"
 
 msgid "Daemon"
 msgstr "Taustaprosessi"
@@ -2908,25 +2929,25 @@ msgid "Daemon log"
 msgstr ""
 
 msgid "Daily"
-msgstr ""
+msgstr "Päivittäin"
 
 msgid "Data"
-msgstr ""
+msgstr "Tieto"
 
 msgid "Data Digest"
 msgstr ""
 
 msgid "Data Integrity"
-msgstr ""
+msgstr "Tiedon Yhtenäisyys"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Tiedon Tyyppi"
 
 msgid "Data digest"
 msgstr ""
 
 msgid "Database Directory"
-msgstr ""
+msgstr "Tietokannan Hakemisto"
 
 msgid "Database directory"
 msgstr "Tietokannan hakemisto"
@@ -2953,22 +2974,22 @@ msgid "Datasets"
 msgstr ""
 
 msgid "Date"
-msgstr ""
+msgstr "Päivämäärä"
 
 msgid "Date & Time"
 msgstr "Päivämäärä ja aika"
 
 msgid "Date Format"
-msgstr ""
+msgstr "Päivämäärän Muotoilu"
 
 msgid "Day"
-msgstr ""
+msgstr "Päivä"
 
 msgid "Day(s)"
-msgstr ""
+msgstr "Päivä(ä)"
 
 msgid "Days"
-msgstr ""
+msgstr "Päivää"
 
 msgid "Debug"
 msgstr "Virheenjäljitys"
@@ -3010,13 +3031,13 @@ msgid ""
 msgstr ""
 
 msgid "Default Device Settings"
-msgstr ""
+msgstr "Laitteen Oletusasetukset"
 
 msgid "Default Root"
 msgstr ""
 
 msgid "Default compression level"
-msgstr ""
+msgstr "Oletus pakkaustaso"
 
 msgid "Default user name is 'admin'."
 msgstr "Oletus käyttäjänimi on 'admin'"
@@ -3050,7 +3071,7 @@ msgid ""
 msgstr ""
 
 msgid "Defines when the shutdown is initiated."
-msgstr ""
+msgstr "Määrittää milloin sammuttaminen alkaa."
 
 msgid ""
 "Delay - File-deletions will be computed during the transfer and will be done "
@@ -3078,7 +3099,7 @@ msgid "Delete Login Info"
 msgstr ""
 
 msgid "Delete Permission"
-msgstr ""
+msgstr "Poista Oikeus"
 
 msgid "Delete Selected Auth Groups"
 msgstr ""
@@ -3090,25 +3111,25 @@ msgid "Delete Selected CARPs"
 msgstr ""
 
 msgid "Delete Selected CHAP Users"
-msgstr ""
+msgstr "Poista Valitut CHAP Käyttäjät"
 
 msgid "Delete Selected Commands"
-msgstr ""
+msgstr "Poista Valitut Komennot"
 
 msgid "Delete Selected Datasets"
 msgstr ""
 
 msgid "Delete Selected Disks"
-msgstr ""
+msgstr "Poista Valitut Levyt"
 
 msgid "Delete Selected Encrypted Volumes"
 msgstr ""
 
 msgid "Delete Selected Filesystems"
-msgstr ""
+msgstr "Poista Valitut Tiedostojärjestelmät"
 
 msgid "Delete Selected Groups"
-msgstr ""
+msgstr "Poista Valitut Ryhmät"
 
 msgid "Delete Selected Initiator Names"
 msgstr ""
@@ -3117,7 +3138,7 @@ msgid "Delete Selected Initiator Portals"
 msgstr ""
 
 msgid "Delete Selected Jobs"
-msgstr ""
+msgstr "Poista Valitut Tehtävät"
 
 msgid "Delete Selected LAGGs"
 msgstr ""
@@ -3132,7 +3153,7 @@ msgid "Delete Selected Listen Records"
 msgstr ""
 
 msgid "Delete Selected Media Folders"
-msgstr ""
+msgstr "Poista Valitut Media-hakemistot"
 
 msgid "Delete Selected Mutual CHAP Users"
 msgstr ""
@@ -3141,7 +3162,7 @@ msgid "Delete Selected NFS Exports"
 msgstr ""
 
 msgid "Delete Selected NFS Root Directories"
-msgstr ""
+msgstr "Poista Valitut NFS juurihakemistot"
 
 msgid "Delete Selected Notifier"
 msgstr ""
@@ -3165,61 +3186,61 @@ msgid "Delete Selected Providers"
 msgstr ""
 
 msgid "Delete Selected Public Keys"
-msgstr ""
+msgstr "Poista Valitut Julkiset Avaimet"
 
 msgid "Delete Selected RAID Volumes"
 msgstr ""
 
 msgid "Delete Selected Reboot Schedules"
-msgstr ""
+msgstr "Poista Valitut Uudelleenkäynnistyksen Ajastukset"
 
 msgid "Delete Selected Records"
 msgstr ""
 
 msgid "Delete Selected Resources"
-msgstr ""
+msgstr "Poista Valitut Resurssit"
 
 msgid "Delete Selected Routes"
-msgstr ""
+msgstr "Poista Valitut Reitit"
 
 msgid "Delete Selected Rsync Jobs"
-msgstr ""
+msgstr "Poista Valitut Rsync Tehtävät"
 
 msgid "Delete Selected Rsync Modules"
-msgstr ""
+msgstr "Poista Valitut Rsync Moduulit"
 
 msgid "Delete Selected Samba Shares"
-msgstr ""
+msgstr "Poista Valitut Samba-jaot"
 
 msgid "Delete Selected Schedules"
 msgstr ""
 
 msgid "Delete Selected Shares"
-msgstr ""
+msgstr "Poista Valitut Jaot"
 
 msgid "Delete Selected Snapshots"
 msgstr ""
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "Poista Valitut Sysctl Asetukset"
 
 msgid "Delete Selected Targets"
-msgstr ""
+msgstr "Poista Valitut Kohteet"
 
 msgid "Delete Selected User Accounts"
-msgstr ""
+msgstr "Poista Valitut Käyttäjätilit"
 
 msgid "Delete Selected VLANs"
-msgstr ""
+msgstr "Poista Valitut VLAN:t"
 
 msgid "Delete Selected Virtual Devices"
-msgstr ""
+msgstr "Poista Valitut Virtuaaliset Laitteet"
 
 msgid "Delete Selected Volumes"
 msgstr ""
 
 msgid "Delete Selected WLANs"
-msgstr ""
+msgstr "Poista Valitut WLAN-verkot"
 
 msgid "Delete Selected WebDAV Records"
 msgstr ""
@@ -3228,13 +3249,13 @@ msgid "Delete Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Delete Selected iSNS Servers"
-msgstr ""
+msgstr "Poista Valitut iSNS-palvelimet"
 
 msgid "Delete URL"
 msgstr "Poista URL"
 
 msgid "Delete VM"
-msgstr ""
+msgstr "Poista VM"
 
 msgid "Delete all rules"
 msgstr "Poista kaikki säännöt"
@@ -3259,6 +3280,7 @@ msgstr ""
 
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr ""
+"Poista vastaanottavan puolen tiedostot, joita ei ole lähettäjän puolella."
 
 msgid "Delete initiator group"
 msgstr ""
@@ -3291,10 +3313,10 @@ msgid "Deleting GEOM metadata"
 msgstr ""
 
 msgid "Deleting MBR and partition table"
-msgstr ""
+msgstr "Poista MBR ja osiotaulu"
 
 msgid "Deleting failed."
-msgstr ""
+msgstr "Poistaminen epäonnistui."
 
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
@@ -3314,19 +3336,20 @@ msgid "Destination"
 msgstr "Kohde"
 
 msgid "Destination Network"
-msgstr ""
+msgstr "Kohdeverkko"
 
 msgid "Destination Share"
-msgstr ""
+msgstr "Kohdejako"
 
 msgid "Destination email address."
 msgstr "Kohde sähköposti osoite"
 
 msgid "Destination email address. Separate email addresses by semi-colon."
 msgstr ""
+"Kohteen sähköpostiosoite. Erottele sähköpostiosoitteet puolipilkulla."
 
 msgid "Destination host name or IP address."
-msgstr ""
+msgstr "Kohteen isäntänimi tai IP-osoite."
 
 msgid "Destination network for this static route."
 msgstr ""
@@ -3335,7 +3358,7 @@ msgid "Destination port"
 msgstr "Kode portti"
 
 msgid "Destroy"
-msgstr ""
+msgstr "Tuhoa"
 
 msgid "Destroy Snapshot"
 msgstr ""
@@ -3348,10 +3371,10 @@ msgid ""
 msgstr ""
 
 msgid "Destroyed"
-msgstr ""
+msgstr "Tuhottu"
 
 msgid "Detach"
-msgstr ""
+msgstr "Irrota"
 
 msgid "Detach a data device from a mirror"
 msgstr ""
@@ -3360,16 +3383,16 @@ msgid "Detach a log device from a mirrored log"
 msgstr ""
 
 msgid "Detailed"
-msgstr ""
+msgstr "Yksityiskohtainen"
 
 msgid "Details"
-msgstr ""
+msgstr "Yksityiskohdat"
 
 msgid "Detected"
 msgstr "Havaittu"
 
 msgid "Detected Disks"
-msgstr ""
+msgstr "Löydetyt Levyt"
 
 msgid "Detected Remote Shares"
 msgstr ""
@@ -3389,45 +3412,45 @@ msgid "Device"
 msgstr "Laite"
 
 msgid "Device / Label"
-msgstr ""
+msgstr "Laite / Nimike"
 
 #, php-format
 msgid "Device /dev/%s - %s"
 msgstr "Laite /dev/%s - %s"
 
 msgid "Device ID"
-msgstr ""
+msgstr "Laitteen ID"
 
 msgid "Device IP"
 msgstr "Laitteen IP"
 
 msgid "Device List"
-msgstr ""
+msgstr "Laitelista"
 
 msgid "Device Model"
-msgstr ""
+msgstr "Laitteen Malli"
 
 msgid "Device Pass-through"
 msgstr ""
 
 msgid "Device Serial"
-msgstr ""
+msgstr "Laitteen Sarjanumero"
 
 msgid "Device Type"
-msgstr ""
+msgstr "Laitteen Tyyppi"
 
 msgid "Device contains boot partition"
 msgstr ""
 
 msgid "Device is mounted"
-msgstr ""
+msgstr "Laite on liitetty"
 
 msgid "Device not found"
-msgstr ""
+msgstr "Laitetta ei löydy"
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
-msgstr ""
+msgstr "Laite: %s | Yhteensä: %s | Käytössä: %s | Vapaata: %s"
 
 msgid "Devices"
 msgstr "Laitteet"
@@ -3455,13 +3478,13 @@ msgstr "Hakemisto"
 
 #, php-format
 msgid "Directory %s doesn't exist!"
-msgstr ""
+msgstr "Hakemistoa %s ei ole olemassa!"
 
 msgid "Directory Mask"
 msgstr ""
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "Hakemiston luominen epäonnistui."
 
 msgid "Directory listing"
 msgstr "Hakemisto listaus"
@@ -3470,7 +3493,7 @@ msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr ""
 
 msgid "Disable"
-msgstr ""
+msgstr "Poista käytöstä"
 
 msgid "Disable DNS rebind protection"
 msgstr ""
