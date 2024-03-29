@@ -115,7 +115,6 @@ Changes:
 - Upgrade syncthing to v1.23.6.
 - Upgrade sudo to v1.9.14p3.
 - Upgrade virtualbox-ose to v6.1.46.
-- Upgrade nut to v2023.07.11.
 - Upgrade php8 to v8.2.8.
 - Upgrade bash to v5.2p21.
 - Upgrade msmtp to v1.8.25.
@@ -125,6 +124,7 @@ Changes:
 - Upgrade lighttpd to v1.4.75.
 - Upgrade devcpu-data-amd to v20240116.
 - Upgrade devcpu-data-intel to v20240312.
+- Upgrade nut to v20240324.
 
 Fixes:
 
