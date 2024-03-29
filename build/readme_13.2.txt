@@ -110,7 +110,6 @@ BUILD 13.2.0.5.9884
 Changes:
 - Upgrade to FreeBSD 13.2-RELEASE P11.
 - Upgrade netatalk3 to v3.1.14.
-- Upgrade mDNSResponder to v1790.80.10.
 - Upgrade jquery to v3.7.0.
 - Upgrade syncthing to v1.23.6.
 - Upgrade php8 to v8.2.8.
@@ -130,6 +129,7 @@ Changes:
 - Upgrade gzip to v1.13.
 - Upgrade inadyn to v2.12.0.
 - Upgrade iperf3 to v3.16.
+- Upgrade mDNSResponder to v2200.80.16.
 
 Fixes:
 
