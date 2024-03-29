@@ -108,7 +108,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 13.2.0.5.9884
 ===================
 Changes:
-- Upgrade to FreeBSD 13.2-RELEASE P8.
+- Upgrade to FreeBSD 13.2-RELEASE P11.
 - Upgrade netatalk3 to v3.1.14.
 - Upgrade mDNSResponder to v1790.80.10.
 - Upgrade jquery to v3.7.0.
@@ -116,7 +116,6 @@ Changes:
 - Upgrade sudo to v1.9.14p3.
 - Upgrade virtualbox-ose to v6.1.46.
 - Upgrade php8 to v8.2.8.
-- Upgrade bash to v5.2p21.
 - Upgrade msmtp to v1.8.25.
 - Upgrade proftpd to v1.3.8a.
 - Upgrade zoneinfo to v2024a.
@@ -125,6 +124,7 @@ Changes:
 - Upgrade devcpu-data-amd to v20240116.
 - Upgrade devcpu-data-intel to v20240312.
 - Upgrade nut to v20240324.
+- Upgrade bash to v5.2p26.
 
 Fixes:
 
