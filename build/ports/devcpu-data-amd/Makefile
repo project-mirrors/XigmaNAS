@@ -1,5 +1,5 @@
 PORTNAME=	data
-PORTVERSION=	20230424
+PORTVERSION=	20240116
 PORTREVISION=	0
 CATEGORIES=	sysutils
 MASTER_SITES=	https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/amd-ucode/
@@ -24,14 +24,23 @@ NO_ARCH=	yes
 NO_BUILD=	yes
 
 DATADIR=	${PREFIX}/share/cpucontrol
-NO_WRKSUBDIR=	yes
-PLIST_FILES=	${DISTFILES:S/^/${DATADIR}\//g:C/\?.*//}
+FWDIR=		/boot/firmware
 
-_REV=		69143e8eca62a80b9791b8d358d1cc4c90e373c9
+NO_WRKSUBDIR=	yes
+PLIST_FILES=	${DISTFILES:S/^/${DATADIR}\//g:C/\?.*//} \
+		${FWDIR}/amd-ucode.bin
+
+_REV=		a193c6517fbfc0e7a4e2f8b06cb2742a82a8dd63
+
+post-extract:
+	${CAT} ${WRKSRC}/microcode_amd* > ${WRKSRC}/amd-ucode.bin
+
 
 do-install:
 # default install stagedir
 	${MKDIR} ${STAGEDIR}${DATADIR}/
+	${MKDIR} ${STAGEDIR}${FWDIR}
+	${INSTALL_DATA} ${WRKSRC}/amd-ucode.bin ${STAGEDIR}${FWDIR}/
 .for f in ${DISTFILES}
 	${INSTALL_DATA} ${WRKSRC}/${f} ${STAGEDIR}${DATADIR}/${f:C/\?.*//}
 .endfor
@@ -39,10 +48,12 @@ do-install:
 # XigmaNAS® Install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_SCRIPT} -v ${FILESDIR}/microcode_update.in ${XIGMANAS_ROOTFS}/etc/rc.d/microcode_update
+
 	${MKDIR} ${XIGMANAS_ROOTFS}${DATADIR}/
 .for f in ${DISTFILES}
 	${INSTALL_DATA} ${WRKSRC}/${f} ${XIGMANAS_ROOTFS}${DATADIR}/${f:C/\?.*//}
 .endfor
+	${INSTALL_DATA} ${WRKSRC}/amd-ucode.bin ${XIGMANAS_ROOTFS}${FWDIR}/
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 

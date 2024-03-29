@@ -111,10 +111,7 @@ Changes:
 - Upgrade to FreeBSD 13.2-RELEASE P8.
 - Upgrade netatalk3 to v3.1.14.
 - Upgrade mDNSResponder to v1790.80.10.
-- Upgrade devcpu-data-amd to v20230424.
 - Upgrade jquery to v3.7.0.
-- Upgrade syncthing to v1.23.5.
-- Upgrade devcpu-data-intel to v20230613.
 - Upgrade syncthing to v1.23.6.
 - Upgrade sudo to v1.9.14p3.
 - Upgrade virtualbox-ose to v6.1.46.
@@ -126,6 +123,8 @@ Changes:
 - Upgrade zoneinfo to v2024a.
 - Upgrade netatalk to v3.1.18.
 - Upgrade lighttpd to v1.4.75.
+- Upgrade devcpu-data-amd to v20240116.
+- Upgrade devcpu-data-intel to v20240312.
 
 Fixes:
 
