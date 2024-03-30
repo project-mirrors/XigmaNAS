@@ -33,6 +33,8 @@ WRKSRC?=			${WRKDIR}/${DISTNAME}
 # XigmaNAS®
 #PLIST?=				${PKGDIR}/pkg-plist
 
+DISABLE_VULNERABILITIES=	yes
+
 CPE_VENDOR=			samba
 CPE_PRODUCT=			samba
 # Directories
