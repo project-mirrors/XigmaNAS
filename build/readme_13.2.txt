@@ -130,6 +130,7 @@ Changes:
 - Upgrade inadyn to v2.12.0.
 - Upgrade iperf3 to v3.16.
 - Upgrade mDNSResponder to v2200.80.16.
+- Upgrade smartmontools to v7.4.
 
 Fixes:
 
