@@ -131,6 +131,7 @@ Changes:
 - Upgrade iperf3 to v3.16.
 - Upgrade mDNSResponder to v2200.80.16.
 - Upgrade smartmontools to v7.4.
+- Upgrade proftpd to v1.3.8b.
 
 Fixes:
 
