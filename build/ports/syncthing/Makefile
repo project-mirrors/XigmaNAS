@@ -1,5 +1,5 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.23.6
+PORTVERSION=	1.27.4
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
@@ -19,7 +19,7 @@ LICENSE=	MPL20
 
 #BUILD_DEPENDS=	${LOCALBASE}/bin/go:lang/go
 
-USES=		cpe go:1.19,modules
+USES=		cpe go:1.21,modules
 BINS=		syncthing stdiscosrv strelaysrv strelaypoolsrv
 
 .for x in ${BINS}
