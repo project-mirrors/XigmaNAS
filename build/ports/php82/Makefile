@@ -1,5 +1,5 @@
 PORTNAME=		php82
-PORTVERSION=	8.2.8
+PORTVERSION=	8.2.17
 PORTREVISION?=	0
 CATEGORIES?=		lang
 COMMENT=		PHP Scripting Language
@@ -10,7 +10,7 @@ MASTER_SITES=		${MASTER_SITE_PHP:S,$,:release,}
 MASTER_SITE_SUBDIR=	distributions/:release
 DISTNAME=		php-${PORTVERSION:S/.r/RC/}
 DISTFILES=			${DISTNAME}${EXTRACT_SUFX}:release
-USES+=			compiler:c11 tar:xz cpe iconv:translit gnome
+USES+=			compiler:c11 cpe gnome localbase pkgconfig tar:xz
 USE_CXXSTD=		gnu++11
 CPE_PRODUCT=		php
 PHP_VER=	82
@@ -18,6 +18,7 @@ CONFLICTS_INSTALL?=	php[0-9][0-9]${PKGNAMESUFFIX}
 
 NO_OPTIONS_SORT=	yes
 
+BUILD_DEPENDS=		re2c>0:devel/re2c
 LIB_DEPENDS=		libpcre2-8.so:devel/pcre2 \
 			libargon2.so:security/libargon2
 
@@ -29,7 +30,7 @@ LIB_DEPENDS+=		libpng.so:graphics/png
 LIB_DEPENDS+=		libjpeg.so:graphics/jpeg-turbo
 LIB_DEPENDS+=		libvpx.so:multimedia/libvpx
 LIB_DEPENDS+=		libgmp.so:math/gmp
-LIB_DEPENDS+=		libc-client4.so.9:mail/cclient
+LIB_DEPENDS+=		libc-client.so.2010:mail/panda-cclient
 LIB_DEPENDS+=		libicui18n.so:devel/icu
 LIB_DEPENDS+=		libzip.so:archivers/libzip
 
@@ -41,27 +42,24 @@ USE_GNOME=	 libxml2
 USE_OPENLDAP=	 yes
 GNU_CONFIGURE=	 yes
 NO_PKG_REGISTER= yes
-USES+=		 ssl sqlite
+USES+=		 autoreconf:build ssl
 
-CONFIGURE_ENV+=	OPENSSL_CFLAGS="-I${OPENSSLINC}" \
-		OPENSSL_LIBS="-L${OPENSSLLIB} -lssl -lcrypto" \
-		PHP_OPENSSL=yes
-
-LDFLAGS+=	-L${OPENSSLLIB} -lssl -lcrypto
-USES+=		ssl pkgconfig
+LDFLAGS=	-L${OPENSSLLIB} -lcrypto -lssl
+# PR230207 Allow relocations against read-only segments (override lld default)
+LDFLAGS_i386=	-Wl,-z,notext
 
 CONFIGURE_ARGS+=	\
 		--with-pear \
 		--with-openssl \
+		--with-imap-ssl=${OPENSSLBASE} \
+		--with-imap=${LOCALBASE} \
 		--with-gettext \
 		--with-libxml \
-		--enable-mysqlnd \
-		--with-mysqli=mysqlnd \
+		--with-pdo-mysql=mysqlnd \
 		--with-zlib-dir=/usr \
 		--with-config-file-path=/usr/local/etc \
 		--with-config-file-scan-dir=/usr/local/etc/php \
 		--enable-pdo \
-		--with-pdo-mysql=mysqlnd \
 		--with-pdo-sqlite=${LOCALBASE} \
 		--with-sqlite3 \
 		--with-iconv=${LOCALBASE} \
@@ -105,6 +103,12 @@ OPTIONS=	CLI "Build CLI version" on \
 		DTRACE "Enable DTrace support" off \
 		LINKTHR "Link thread lib (for threaded extensions)" on \
 		ZTS "Force Zend Thread Safety (ZTS) build" off
+
+CONFIGURE_ENV+=	ac_cv_decimal_fp_supported="no" \
+		lt_cv_path_SED="sed" \
+		OPENSSL_CFLAGS="-I${OPENSSLINC}" \
+		OPENSSL_LIBS="-L${OPENSSLLIB} -lssl -lcrypto" \
+		PHP_OPENSSL=yes
 
 post-patch:
 	@${TOUCH} ${WRKSRC}/ext/php_config.h

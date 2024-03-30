@@ -112,7 +112,6 @@ Changes:
 - Upgrade netatalk3 to v3.1.14.
 - Upgrade jquery to v3.7.0.
 - Upgrade syncthing to v1.23.6.
-- Upgrade php8 to v8.2.8.
 - Upgrade msmtp to v1.8.25.
 - Upgrade proftpd to v1.3.8a.
 - Upgrade zoneinfo to v2024a.
@@ -132,6 +131,7 @@ Changes:
 - Upgrade mDNSResponder to v2200.80.16.
 - Upgrade smartmontools to v7.4.
 - Upgrade proftpd to v1.3.8b.
+- Upgrade php8 to v8.2.17.
 
 Fixes:
 
