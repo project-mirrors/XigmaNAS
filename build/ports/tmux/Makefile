@@ -1,6 +1,6 @@
 PORTNAME=		tmux
 PORTVERSION=	3.3a
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	sysutils
 COMMENT=	Terminal Multiplexer
 MAINTAINER=	zoon01@xigmanas.com
@@ -17,11 +17,13 @@ USE_GITHUB=	nodefault
 GH_TUPLE=	imomaliev:tmux-bash-completion:ef56d3e:bash
 
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
+
 NO_PKG_REGISTER=yes
 CONFIGURE_ARGS=	--sysconfdir=${PREFIX}/etc --enable-utempter
 
 PLIST_FILES=	bin/tmux \
-		man/man1/tmux.1.gz \
+		share/man/man1/tmux.1.gz \
 		etc/bash_completion.d/tmux
 
 PORTDOCS=	CHANGES README TODO
@@ -30,6 +32,8 @@ PORTEXAMPLES=	*
 OPTIONS_DEFINE=	DOCS EXAMPLES LIBEVENT_STATIC BACKSPACE
 
 LIBEVENT_STATIC_DESC=	 Build with static libevent
+UTF8PROC_DESC=		 Build with utf8proc support
+UTF8PROC_USES=		 localbase
 BACKSPACE_DESC=		 Build with tty/keys patch
 
 LIBEVENT_STATIC_LIB_DEPENDS_OFF=        libevent.so:devel/libevent
