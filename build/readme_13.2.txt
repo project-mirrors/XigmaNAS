@@ -112,7 +112,6 @@ Changes:
 - Upgrade netatalk3 to v3.1.14.
 - Upgrade jquery to v3.7.0.
 - Upgrade msmtp to v1.8.25.
-- Upgrade proftpd to v1.3.8a.
 - Upgrade zoneinfo to v2024a.
 - Upgrade netatalk to v3.1.18.
 - Upgrade lighttpd to v1.4.75.
