@@ -1,4 +1,4 @@
-		README & CHANGELOG FOR XIGMANAS® 13.2.0.5 - Heighliner
+		README & CHANGELOG FOR XIGMANAS® 13.3.0.5 - Hesterion
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
@@ -105,10 +105,10 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 13.2.0.5.9884
+BUILD 13.2.0.5.xxxx
 ===================
 Changes:
-- Upgrade to FreeBSD 13.2-RELEASE P11.
+- Upgrade to FreeBSD 13.3-RELEASE P1.
 - Upgrade netatalk3 to v3.1.14.
 - Upgrade jquery to v3.7.0.
 - Upgrade msmtp to v1.8.25.
