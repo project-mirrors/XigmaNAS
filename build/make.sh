@@ -74,7 +74,7 @@ echo "XIGMANAS_TMPDIR=${XIGMANAS_TMPDIR}" >> ${XIGMANAS_MK}
 
 #	Local variables
 XIGMANAS_URL=$(cat $XIGMANAS_SVNDIR/etc/prd.url)
-XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/trunk"
+XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/branches/13.2.0.5"
 XIGMANAS_GIT_SRCTREE="https://git.FreeBSD.org/src.git"
 XIGMANAS_GIT_BRANCH="releng/13.2"
 
