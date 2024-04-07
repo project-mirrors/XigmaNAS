@@ -1,6 +1,6 @@
 PORTNAME=			${SAMBA4_BASENAME}413
 PORTVERSION=			${SAMBA4_VERSION}
-PORTREVISION=			4
+PORTREVISION=			5
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
@@ -553,6 +553,10 @@ MAKE_ENV+=			RPCGEN_CPP="${CPP}"
 #.if ${readline_ARGS} == port
 #CFLAGS+=			-D_FUNCTION_DEF
 #.endif
+# Some symbols in samba's linker version scripts are not defined, but since the
+# scripts are generated dynamically, suppress errors with lld >= 17 due to these
+# undefined symbols.
+LDFLAGS+=			-Wl,--undefined-version
 
 # XigmaNAS
 .if ${OSVERSION} >= 1200000
