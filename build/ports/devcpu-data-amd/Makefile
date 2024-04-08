@@ -53,6 +53,7 @@ do-install:
 .for f in ${DISTFILES}
 	${INSTALL_DATA} ${WRKSRC}/${f} ${XIGMANAS_ROOTFS}${DATADIR}/${f:C/\?.*//}
 .endfor
+	${MKDIR} ${XIGMANAS_ROOTFS}${FWDIR}
 	${INSTALL_DATA} ${WRKSRC}/amd-ucode.bin ${XIGMANAS_ROOTFS}${FWDIR}/
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
