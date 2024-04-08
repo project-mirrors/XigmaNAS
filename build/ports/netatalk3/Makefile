@@ -1,9 +1,9 @@
 PORTNAME=		netatalk
 PORTVERSION=	3.1.18
-PORTREVISION=	1
+PORTREVISION=	0
 PORTEPOCH=	1
-CATEGORIES=	net
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}-${PORTVERSION:S/./-/g}
+CATEGORIES=	net
 PKGNAMESUFFIX=  3
 
 MAINTAINER=	zoon01@xigmanas.com
@@ -20,7 +20,7 @@ GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 USE_LDCONFIG=	yes
 #USE_RC_SUBR=	netatalk
-#SHEBANG_GLOB=   afpstats
+SHEBANG_GLOB=   afpstats
 
 CONFIGURE_ARGS+=	--with-pkgconfdir=${PREFIX}/etc \
 			--with-libgcrypt-dir=${LOCALBASE} \
@@ -55,8 +55,6 @@ post-patch:
 	    	s|%%DB_LIB%%|-l${BDB_LIB_NAME}|g ; \
 		s|%%LOCALBASE%%|${LOCALBASE}|g' \
 		${WRKSRC}/configure
-	@${REINPLACE_CMD} -e 's|\.dist|\.sample|g' \
-		${WRKSRC}/config/Makefile.in
 
 post-stage:
 	@${RM} -f ${STAGEDIR}${PREFIX}/etc/afp.conf \

@@ -5,7 +5,7 @@
   */
  static int PAM_conv (int num_msg,
 -#ifdef LINUX
-+#if defined(LINUX) || (defined(FREEBSD) && __FreeBSD_version >= 1400000)
++#if defined(LINUX) || (defined(FREEBSD) && __FreeBSD_version >= 1300000)
                       const struct pam_message **msg,
  #else
                       struct pam_message **msg,
