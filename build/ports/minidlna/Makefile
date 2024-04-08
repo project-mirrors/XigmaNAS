@@ -51,21 +51,23 @@ NLS_USES=	gettext-runtime
 .include <bsd.port.options.mk>
 
 # XigmaNAS
-NO_PKG_REGISTER=	yes
-ICONSDIR=${MASTERDIR}/icons
-XIGMANAS_ICONS=${WRKSRC}/xigmanas-icons.c
+NO_PKG_REGISTER=yes
+ICONSDIR=	${MASTERDIR}/icons
+XIGMANAS_ICONS=	${WRKSRC}/xigmanas-icons.c
 
 post-configure:
 	@echo "creating icon file..."
 	@(cd ${ICONSDIR}; sh mkicons.sh > ${XIGMANAS_ICONS})
 
 post-install:
+	${INSTALL_MAN} ${WRKSRC}/*.5 ${STAGEDIR}${PREFIX}/share/man/man5/
+	${INSTALL_MAN} ${WRKSRC}/*.8 ${STAGEDIR}${PREFIX}/share/man/man8/
 	${INSTALL_DATA} ${WRKSRC}/minidlna.conf ${STAGEDIR}${PREFIX}/etc/minidlna.conf.sample
-
+	@${INSTALL_SCRIPT} -v ${FILESDIR}/minidlna.in /usr/local/etc/rc.d/minidlna
 # XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/minidlnad ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/minidlna.in ${XIGMANAS_ROOTFS}/etc/rc.d/minidlna
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/minidlnad ${XIGMANAS_ROOTFS}/usr/local/sbin
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
