@@ -1,19 +1,22 @@
 PORTNAME=		xmlstarlet
 PORTVERSION=	1.6.1
-CATEGORIES=		textproc
-COMMENT=		Command line XML toolkit
-MAINTAINER=		zoon01@xigmanas.com
+PORTREVISION=	1
+CATEGORIES=	textproc
+
+MAINTAINER=	zoon01@xigmanas.com
+COMMENT=	Command line XML toolkit
+WWW=		https://xmlstar.sourceforge.net/
 
 MASTER_SITES=		SF/xmlstar/${PORTNAME}/${PORTVERSION}
 
-USE_GNOME=		libxslt
-USE_ICONV=		yes
-GNU_CONFIGURE=		yes
-NO_PKG_REGISTER=	yes
+USE_GNOME=	libxslt
+USE_ICONV=	yes
+GNU_CONFIGURE=	yes
+NO_PKG_REGISTER=yes
 
-CONFIGURE_ARGS=		--with-libxml-prefix=${LOCALBASE} \
-					--with-libxslt-prefix=${LOCALBASE} \
-					--with-libiconv-prefix=${LOCALBASE}
+CONFIGURE_ARGS=	--with-libxml-prefix=${LOCALBASE} \
+			--with-libxslt-prefix=${LOCALBASE} \
+			--with-libiconv-prefix=${LOCALBASE}
 
 post-patch:
 	@${REINPLACE_CMD} -e "s|%%PTHREAD%%|${PTHREAD_LIBS}|g" \
