@@ -1,5 +1,5 @@
 PORTNAME=		minidlna
-PORTVERSION=	1.3.2
+PORTVERSION=	1.3.3
 PORTREVISION=   0
 PORTEPOCH=      1
 CATEGORIES=	net multimedia www
@@ -60,8 +60,6 @@ post-configure:
 	@(cd ${ICONSDIR}; sh mkicons.sh > ${XIGMANAS_ICONS})
 
 post-install:
-	${INSTALL_MAN} ${WRKSRC}/*.5 ${STAGEDIR}${MANPREFIX}/man/man5/
-	${INSTALL_MAN} ${WRKSRC}/*.8 ${STAGEDIR}${MANPREFIX}/man/man8/
 	${INSTALL_DATA} ${WRKSRC}/minidlna.conf ${STAGEDIR}${PREFIX}/etc/minidlna.conf.sample
 
 # XigmaNAS® install
