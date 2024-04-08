@@ -1,6 +1,6 @@
 PORTNAME=			${SAMBA4_BASENAME}413
 PORTVERSION=			${SAMBA4_VERSION}
-PORTREVISION=			5
+PORTREVISION=			6
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
@@ -53,7 +53,7 @@ SAMBA4_CONFIG=			smb4.conf
 SAMBA4_MODULES_CLASS=		auth bind9 gensec gpext idmap ldb nss_info \
 				pdb perfcount process_model service vfs
 
-CONFIGURE_ARGS+=		--mandir="${MANPREFIX}/man" \
+CONFIGURE_ARGS+=		--mandir="${PREFIX}/share/man" \
 				--sysconfdir="${SAMBA4_CONFDIR}" \
 				--includedir="${SAMBA4_INCLUDEDIR}" \
 				--datadir="${DATADIR}" \
@@ -293,12 +293,12 @@ CONFIGURE_ARGS+=		\
 FRUIT_PREVENTS=			ZEROCONF_NONE
 FRUIT_PREVENTS_MSG=		MacOSX support requires Zeroconf(AVAHI or MDNSRESPONDER)
 FRUIT_VARS=			SAMBA4_MODULES+=vfs_fruit
-FRUIT_PLIST_FILES=		man/man8/vfs_fruit.8.gz
+FRUIT_PLIST_FILES=		share/man/man8/vfs_fruit.8.gz
 
 GLUSTERFS_CONFIGURE_ENABLE=	glusterfs
 GLUSTERFS_LIB_DEPENDS=		libglusterfs.so:net/glusterfs
 GLUSTERFS_VARS=			SAMBA4_MODULES+=vfs_glusterfs
-GLUSTERFS_PLIST_FILES=		man/man8/vfs_glusterfs.8.gz
+GLUSTERFS_PLIST_FILES=		share/man/man8/vfs_glusterfs.8.gz
 
 ZEROCONF_NONE_MAKE_ENV=		ZEROCONF=none
 ##############################################################################
@@ -535,7 +535,7 @@ PLIST_FILES+=			${SAMBA4_LIBDIR}/private/libldb-mdb-int-samba4.so \
 
 .if ${PORT_OPTIONS:MGSSAPI_MIT}
 PLIST_FILES+=			${SAMBA4_MODULEDIR}/krb5/winbind_krb5_localauth.so \
-				man/man8/winbind_krb5_localauth.8.gz
+				share/man/man8/winbind_krb5_localauth.8.gz
 .	if ${PORT_OPTIONS:MAD_DC}
 PLIST_FILES+=			${SAMBA4_LIBDIR}/krb5/plugins/kdb/samba.so
 .	endif
@@ -667,7 +667,7 @@ post-install-rm-junk:
 
 post-install-FRUIT-off:
 				${RM} ${STAGEDIR}${SAMBA4_MODULEDIR}/vfs/fruit.so
-				${RM} ${STAGEDIR}${PREFIX}/man/man8/vfs_fruit.8
+				${RM} ${STAGEDIR}${PREFIX}/share/man/man8/vfs_fruit.8
 
 post-install:
 
