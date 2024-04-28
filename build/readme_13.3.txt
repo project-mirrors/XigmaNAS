@@ -132,6 +132,7 @@ Changes:
 - Upgrade php8 to v8.2.17.
 - Upgrade syncthing to v1.27.4.
 - Upgrade minidlna to v1.3.3.
+- Upgrade transmission to v4.0.5.
 
 Fixes:
 
