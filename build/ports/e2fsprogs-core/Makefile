@@ -1,6 +1,6 @@
 PORTNAME=	e2fsprogs
 PORTVERSION=	1.47.0
-PORTREVISION?=	0
+PORTREVISION?=	1
 CATEGORIES?=	sysutils
 MASTER_SITES=	KERNEL_ORG/linux/kernel/people/tytso/${PORTNAME}/v${PORTVERSION}
 
@@ -23,6 +23,7 @@ USE_CSTD=	gnu99
 USE_LDCONFIG=	${PREFIX}/lib/e2fsprogs
 .endif
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 
 # while we use the system blkid, we need to --enable-libblkid
 # so that the tools get built:
@@ -291,7 +292,7 @@ post-install:
 #	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext3
 #	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext4
 	# now the remainder of the usual post-install jobs:
-	${INSTALL_MAN} ${FILESDIR}/fsck_ext2fs.8 ${STAGEDIR}${PREFIX}/man/man8/
+	${INSTALL_MAN} ${FILESDIR}/fsck_ext2fs.8 ${STAGEDIR}${PREFIX}/share/man/man8/
 .if ${PORT_OPTIONS:MDOCS}
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
 .for i in ${PORTDOCS}
