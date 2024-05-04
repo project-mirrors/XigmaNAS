@@ -7,7 +7,6 @@ Changes:
 - Upgrade msmtp to v1.8.25.
 - Upgrade zoneinfo to v2024a.
 - Upgrade netatalk to v3.1.18.
-- Upgrade lighttpd to v1.4.75.
 - Upgrade devcpu-data-amd to v20240116.
 - Upgrade devcpu-data-intel to v20240312.
 - Upgrade nut to v20240324.
@@ -26,6 +25,7 @@ Changes:
 - Upgrade minidlna to v1.3.3.
 - Upgrade transmission to v4.0.5.
 - Upgrade php8 to v8.2.18.
+- Upgrade lighttpd to v1.4.76.
 
 Fixes:
 
