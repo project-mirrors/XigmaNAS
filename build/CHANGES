@@ -21,12 +21,12 @@ Changes:
 - Upgrade mDNSResponder to v2200.80.16.
 - Upgrade smartmontools to v7.4.
 - Upgrade proftpd to v1.3.8b.
-- Upgrade syncthing to v1.27.4.
 - Upgrade minidlna to v1.3.3.
 - Upgrade transmission to v4.0.5.
 - Upgrade php8 to v8.2.18.
 - Upgrade lighttpd to v1.4.76.
 - Upgrade samba to v4.19.6.
+- Upgrade syncthing to v1.27.7.
 
 Fixes:
 
