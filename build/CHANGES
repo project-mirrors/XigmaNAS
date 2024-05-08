@@ -26,6 +26,7 @@ Changes:
 - Upgrade transmission to v4.0.5.
 - Upgrade php8 to v8.2.18.
 - Upgrade lighttpd to v1.4.76.
+- Upgrade samba to v4.19.6.
 
 Fixes:
 

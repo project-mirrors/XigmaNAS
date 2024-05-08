@@ -41,11 +41,6 @@ Status Monitoring note:
 Rev 9366 or lower Users that has enabled and setup System > Advanced > Monitoring Setup, They need to press there the button "Save & Restart" again after the upgrade.
 That will make the new changes active for rrdtool and will provide the broken graphs again on Status Monitoring.
 
-CIFS/SMB note:
-==============
-From Samba 4.5.0 onwards, the "ntlm auth" option has been disabled by default.
-This may have an impact on very old clients that support NTLMv1 only.
-Only if really required, NTLMv1 authentication can be enabled by adding "ntlm auth = yes" in the additional parameter field in Services > CIFS/SMB > Settings.
 
 UNISON note:
 =============
@@ -133,6 +128,7 @@ Changes:
 - Upgrade transmission to v4.0.5.
 - Upgrade php8 to v8.2.18.
 - Upgrade lighttpd to v1.4.76.
+- Upgrade samba to v4.19.6.
 
 Fixes:
 
