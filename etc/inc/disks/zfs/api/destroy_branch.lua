@@ -2,7 +2,7 @@
 --	destroy_branch.lua
 --
 --	Part of XigmaNAS® (https://www.xigmanas.com).
---	Copyright © 2018-2023 XigmaNAS® <info@xigmanas.com>.
+--	Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 --	All rights reserved.
 --
 --	Redistribution and use in source and binary forms, with or without

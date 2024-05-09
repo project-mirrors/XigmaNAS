@@ -3,7 +3,7 @@
 	license.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2023 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -180,7 +180,7 @@ $software = [
 	]],
 	['PHP',[
 		'A server-side scripting language (<a href="https://www.php.net" target="_blank" rel="noreferrer">https://www.php.net</a>).',
-		'Copyright © 1999-2023 The PHP Group. All Rights Reserved.'
+		'Copyright © 1999-2024 The PHP Group. All Rights Reserved.'
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
@@ -294,7 +294,7 @@ $thead = $table->addTHEAD();
 $tbody = $table->addTBODY(['class' => 'donothighlight']);
 $thead->ins_titleline(gettext('License'),$n_col_width);
 $td = $tbody->addTR()->addTDwC('lcebl');
-$td->addP([],'<strong>XigmaNAS® is copyright © 2018-2023 XigmaNAS® (<a href="mailto:info@xigmanas.com">info@xigmanas.com</a>).<br />All Rights Reserved.</strong>');
+$td->addP([],'<strong>XigmaNAS® is copyright © 2018-2024 XigmaNAS® (<a href="mailto:info@xigmanas.com">info@xigmanas.com</a>).<br />All Rights Reserved.</strong>');
 $td->addP([],'<strong>XigmaNAS is a registered trademark of Michael Zoon (<a href="mailto:zoon01@xigmanas.com">zoon01@xigmanas.com</a>).<br />All Rights Reserved.</strong>');
 $td->addP([],'The compilation of software, code and documentation known as XigmaNAS® is distributed under the following terms:');
 $td->addP([],'Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:');
