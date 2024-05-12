@@ -1,12 +1,14 @@
 PORTNAME=			cdialog
-PORTVERSION=	1.3.20230209
-PORTEPOCH=	1
+PORTVERSION=	1.3.20240307
+PORTEPOCH=	0
 CATEGORIES=			devel
+MASTER_SITES=	https://invisible-island.net/archives/${PORTNAME:S|^c||}/\
+			https://invisible-mirror.net/archives/${PORTNAME:S|^c||}/
+DISTNAME=	${PORTNAME:S|^c||}-${PORTVERSION:R}-${PORTVERSION:E}
+
 COMMENT=			An enhanced version of 'dialog' to work with ncurses
 MAINTAINER=		zoon01@xigmanas.com
-
-MASTER_SITES=	ftp://ftp.invisible-island.net/${PORTNAME:S|^c||}/
-DISTNAME=			${PORTNAME:S|^c||}-${PORTVERSION:R}-${PORTVERSION:E}
+WWW=		https://invisible-island.net/dialog/
 
 EXTRACT_SUFX=	.tgz
 NO_PKG_REGISTER=yes
