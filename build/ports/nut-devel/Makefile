@@ -12,8 +12,8 @@ CONFLICTS=	nut-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	71f898833 
-NUT_COMMIT_DATE=	2024.03.24
+GH_TAGNAME=	8827ddfe6
+NUT_COMMIT_DATE=	2024.04.07
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build
@@ -148,6 +148,7 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/skel ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/snmp-ups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/socomec_jbus ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/sms_ser ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/solis ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/tripplite ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/tripplite_usb ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
