@@ -1,5 +1,5 @@
 PORTNAME=		rsync
-PORTVERSION=	3.2.7
+PORTVERSION=	3.3.0
 PORTREVISION=	0
 CATEGORIES=		net
 MAINTAINER=		zoon01@xigmanas.com
@@ -17,6 +17,7 @@ DISTFILES+=		${PORTNAME}-patches-${PORTVERSION}${EXTRACT_SUFX}
 EXTRA_PATCHES=	${FILESDIR}/extrapatch-main.c
 
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 NO_PKG_REGISTER=yes
 CONFIGURE_ARGS+=		--disable-debug \
 							--enable-ipv6 \

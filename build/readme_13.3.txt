@@ -132,6 +132,7 @@ Changes:
 - Upgrade cdialog to v1.3-20240307.
 - Upgrade iperf3 to v3.17.
 - Upgrade nut to v20240407.
+- Upgrade rsync to v3.3.0.
 
 Fixes:
 
