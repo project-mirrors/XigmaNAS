@@ -133,6 +133,7 @@ Changes:
 - Upgrade arconf to B26540.
 - Upgrade php8 to v8.2.19.
 - Upgrade cdialog to v1.3-20240307.
+- Upgrade iperf3 to v3.17.
 
 Fixes:
 

@@ -1,5 +1,5 @@
 PORTNAME=		iperf
-PORTVERSION=    3.16
+PORTVERSION=    3.17
 PORTREVISION=   0
 CATEGORIES=	benchmarks
 
@@ -9,7 +9,7 @@ WWW=		https://software.es.net/iperf/
 
 USE_GITHUB=	yes
 GH_ACCOUNT=     esnet 
-GH_TAGNAME=     f48e7fa
+GH_TAGNAME=     64b324d
 
 USES=		cpe libtool ssl
 GNU_CONFIGURE=	yes
