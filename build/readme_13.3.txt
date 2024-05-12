@@ -131,6 +131,7 @@ Changes:
 - Upgrade syncthing to v1.27.7.
 - Upgrade nano to v8.0.
 - Upgrade msmtp to v1.8.26.
+- Upgrade arconf to B26540.
 
 Fixes:
 
