@@ -750,6 +750,9 @@ post-install-DOCS-on:
 	done
 	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}/usr/local/bin
+# libexec
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/libexec/samba
+	@${CP} -Rpv ${STAGEDIR}${PREFIX}/libexec/samba ${XIGMANAS_ROOTFS}/usr/local/libexec/
 # lib modules
 # ldb/tdb
 	for file in samba-ldbadd samba-ldbdel samba-ldbedit samba-ldbmodify samba-ldbrename samba-ldbsearch; do \
