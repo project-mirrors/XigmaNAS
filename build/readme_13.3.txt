@@ -130,6 +130,7 @@ Changes:
 - Upgrade samba to v4.19.6.
 - Upgrade syncthing to v1.27.7.
 - Upgrade nano to v8.0.
+- Upgrade msmtp to v1.8.26.
 
 Fixes:
 

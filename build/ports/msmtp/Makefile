@@ -1,8 +1,9 @@
 PORTNAME=		msmtp
-PORTVERSION=	1.8.25
+PORTVERSION=	1.8.26
 PORTREVISION=	0
 CATEGORIES=		mail
 COMMENT=		SMTP client
+
 MAINTAINER=		zoon01@xigmanas.com
 WWW=		https://marlam.de/msmtp/
 
