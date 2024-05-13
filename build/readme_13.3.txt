@@ -134,6 +134,7 @@ Changes:
 - Upgrade nut to v20240407.
 - Upgrade rsync to v3.3.0.
 - Upgrade py-wsdd to v0.8.0.
+- Upgrade tmux to v3.4.
 
 Fixes:
 

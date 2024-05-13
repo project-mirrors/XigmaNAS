@@ -1,12 +1,14 @@
 PORTNAME=		tmux
-PORTVERSION=	3.3a
-PORTREVISION=	2
+PORTVERSION=	3.4
+PORTREVISION=	0
 CATEGORIES=	sysutils
-COMMENT=	Terminal Multiplexer
-MAINTAINER=	zoon01@xigmanas.com
-
 MASTER_SITES=	https://github.com/tmux/tmux/releases/download/${PORTVERSION}/
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
+
+MAINTAINER=	zoon01@xigmanas.com
+COMMENT=	Terminal Multiplexer
+WWW=		https://tmux.github.io/
+
 
 LICENSE=	ISCL
 LICENSE_FILE=	${WRKSRC}/COPYING
@@ -36,9 +38,9 @@ UTF8PROC_DESC=		 Build with utf8proc support
 UTF8PROC_USES=		 localbase
 BACKSPACE_DESC=		 Build with tty/keys patch
 
-LIBEVENT_STATIC_LIB_DEPENDS_OFF=        libevent.so:devel/libevent
-LIBEVENT_STATIC_BUILD_DEPENDS=  ${LOCALBASE}/lib/libevent.a:devel/libevent
-LIBEVENT_STATIC_VARS=   LESTATIC=${LOCALBASE}/lib/libevent.a
+LIBEVENT_STATIC_LIB_DEPENDS_OFF= libevent.so:devel/libevent
+LIBEVENT_STATIC_BUILD_DEPENDS= ${LOCALBASE}/lib/libevent.a:devel/libevent
+LIBEVENT_STATIC_VARS= LESTATIC=${LOCALBASE}/lib/libevent.a
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|/etc/tmux.conf|${PREFIX}/etc/tmux.conf|g' ${WRKSRC}/CHANGES \
