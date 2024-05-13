@@ -36,12 +36,6 @@ ZFS feature flags upgrade warning:
 ==================================
 Enabling all supported feature flags on a pool can make the pool inaccessible on systems that do not support these feature flags.
 
-Status Monitoring note:
-=======================
-Rev 9366 or lower Users that has enabled and setup System > Advanced > Monitoring Setup, They need to press there the button "Save & Restart" again after the upgrade.
-That will make the new changes active for rrdtool and will provide the broken graphs again on Status Monitoring.
-
-
 UNISON note:
 =============
  unison has been updated to version 2.52. The new version introduces
