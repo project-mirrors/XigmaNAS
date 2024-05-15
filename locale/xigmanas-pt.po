@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2023-02-26 15:59+0000\n"
-"PO-Revision-Date: 2022-10-03 08:52+0000\n"
-"Last-Translator: rx25 <aaresta@sapo.pt>\n"
+"PO-Revision-Date: 2024-05-11 23:10+0000\n"
+"Last-Translator: Ricardo Fialho <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-03-29 18:40+0000\n"
-"X-Generator: Launchpad (build aec24aef7a9042c99ef3e238d8b0ca01df9e1a9f)\n"
+"X-Launchpad-Export-Date: 2024-05-14 22:01+0000\n"
+"X-Generator: Launchpad (build 0e1f616671af724398db43b36ddfb3ed1f2682ec)\n"
 "X-Poedit-Country: PORTUGAL\n"
 "Language: \n"
 "X-Poedit-Language: Portuguese\n"
@@ -255,10 +255,10 @@ msgid "1000000"
 msgstr "1000000"
 
 msgid "102"
-msgstr ""
+msgstr "102"
 
 msgid "128K"
-msgstr ""
+msgstr "128K"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -267,10 +267,10 @@ msgid "16384"
 msgstr "16384"
 
 msgid "16K"
-msgstr ""
+msgstr "16K"
 
 msgid "16k"
-msgstr ""
+msgstr "16k"
 
 msgid "192.168.0.0/24"
 msgstr "192.168.0.0/24"
@@ -279,16 +279,16 @@ msgid "1K"
 msgstr ""
 
 msgid "1M"
-msgstr ""
+msgstr "1M"
 
 msgid "1k"
-msgstr ""
+msgstr "1k"
 
 msgid "2"
 msgstr "2"
 
 msgid "2 - two copies"
-msgstr ""
+msgstr "2 - duas copias"
 
 msgid "2 KiB"
 msgstr "2 KiB"
@@ -1247,7 +1247,7 @@ msgstr ""
 "Os serviços que usam estes discos poderão ficar inválidos ou inacessíveis."
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Juntar conteudo ao ficheiro CSS por defeito."
 
 msgid "Append my IP"
 msgstr "Adicionar o meu IP"
@@ -2053,7 +2053,7 @@ msgid "Check IP Path"
 msgstr ""
 
 msgid "Check IP Server"
-msgstr ""
+msgstr "Verificar Servidor IP"
 
 msgid "Check IP using HTTPS"
 msgstr ""
@@ -2283,58 +2283,58 @@ msgid "Compression level 19 - best compression ratio"
 msgstr ""
 
 msgid "Compression level 2"
-msgstr ""
+msgstr "Compressão nivel 2"
 
 msgid "Compression level 20"
-msgstr ""
+msgstr "Compressão nivel 20"
 
 msgid "Compression level 3"
-msgstr ""
+msgstr "Compressão nivel 3"
 
 msgid "Compression level 30"
-msgstr ""
+msgstr "Compressão nivel 30"
 
 msgid "Compression level 4"
-msgstr ""
+msgstr "Compressão nivel 4"
 
 msgid "Compression level 40"
-msgstr ""
+msgstr "Compressão nivel 40"
 
 msgid "Compression level 5"
-msgstr ""
+msgstr "Compressão nivel 5"
 
 msgid "Compression level 50"
-msgstr ""
+msgstr "Compressão nivel 50"
 
 msgid "Compression level 500"
-msgstr ""
+msgstr "Compressão nivel 500"
 
 msgid "Compression level 6"
-msgstr ""
+msgstr "Compressão nivel 6"
 
 msgid "Compression level 60"
-msgstr ""
+msgstr "Compressão nivel 60"
 
 msgid "Compression level 7"
-msgstr ""
+msgstr "Compressão nivel 7"
 
 msgid "Compression level 70"
-msgstr ""
+msgstr "Compressão nivel 70"
 
 msgid "Compression level 8"
-msgstr ""
+msgstr "Compressão nivel 8"
 
 msgid "Compression level 80"
-msgstr ""
+msgstr "Compressão nivel 80"
 
 msgid "Compression level 9"
-msgstr ""
+msgstr "Compressão nivel 9"
 
 msgid "Compression level 9 - best compression ratio"
-msgstr ""
+msgstr "Compressão nivel 9 - melhor racio de compressão"
 
 msgid "Compression level 90"
-msgstr ""
+msgstr "Compressão nivel 90"
 
 msgid "Configuration"
 msgstr "Configuração"
@@ -15349,10 +15349,10 @@ msgid "visible"
 msgstr "visível"
 
 msgid "vlan0"
-msgstr ""
+msgstr "vlan0"
 
 msgid "was assigned to"
-msgstr ""
+msgstr "foi assignado a"
 
 msgid "yes"
 msgstr "Sim"
