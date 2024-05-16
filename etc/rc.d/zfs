@@ -57,10 +57,6 @@ zfs_init()
 	# this file is missing after a reboot => zpools are missing, so we
 	# have to import them to be able to use them.
 	if [ ! -e /boot/zfs/zpool.cache ]; then
-		if [ -e /cf/boot/zfs/zpool.cache ]; then
-			info Importing ZFS pools from cache...
-			zpool import -c /cf/boot/zfs/zpool.cache -f -a
-		fi
 		info Importing ZFS pools...
 		zpool import -d /dev -f -a
 		zfs umount -a
