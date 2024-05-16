@@ -57,14 +57,18 @@ zfs_init()
 	# this file is missing after a reboot => zpools are missing, so we
 	# have to import them to be able to use them.
 	if [ ! -e /boot/zfs/zpool.cache ]; then
+		if [ -e /cf/boot/zfs/zpool.cache ]; then
+			info Importing ZFS pools from cache...
+			zpool import -c /cf/boot/zfs/zpool.cache -f -a
+		fi
 		info Importing ZFS pools...
 		zpool import -d /dev -f -a
 		zfs umount -a
 		# if cache is created, write it to boot device
 		if [ -e /boot/zfs/zpool.cache -a -d /cf/boot/zfs ]; then
-			mount -u -o rw /cf
+			/sbin/mount -uw /cf
 			cp -p /boot/zfs/zpool.cache /cf/boot/zfs/zpool.cache
-			mount -u -o ro /cf		    
+			/sbin/mount -ur /cf
 		fi
 	fi
 }
@@ -118,7 +122,6 @@ zfs_stop_jail()
 
 zfs_stop_main()
 {
-	
 	zfs unshare -a
 	zfs unmount -a
 }
