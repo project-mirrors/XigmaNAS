@@ -1190,7 +1190,6 @@ etc/rc.d/zfs
 etc/rc.d/zfsd
 etc/rc.d/zfsbe
 etc/rc.d/zfskeys
-etc/rc.d/zpool
 etc/rc.d/zpoolreguid
 
 ####### contents of /usr/share/snmp/defs
