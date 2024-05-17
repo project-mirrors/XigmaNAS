@@ -46,7 +46,6 @@ proftpd_defaulttransfermode=${proftpd_defaulttransfermode:-"ascii"}
 proftpd_deferwelcome=${proftpd_deferwelcome:-"off"}
 proftpd_anonymousrootdir=${proftpd_anonymousrootdir:-"/mnt"}
 proftpd_sysloglevel=${proftpd_sysloglevel:-"notice"}
-proftpd_multilinerfc2228=${proftpd_multilinerfc2228:-"off"}
 proftpd_timeoutlogin=${proftpd_timeoutlogin:-"300"}
 proftpd_timeoutnotransfer=${proftpd_timeoutnotransfer:-"300"}
 proftpd_timeoutstalled=${proftpd_timeoutstalled:-"3600"}
@@ -142,7 +141,6 @@ proftpd_mkconf()
 			--else \
 				--output "SyslogLevel ${proftpd_sysloglevel}" --nl \
 			--break \
-			--output "MultilineRFC2228 ${proftpd_multilinerfc2228}" --nl \
 			--output "DisplayLogin ${proftpd_displaylogin}" --nl \
 			--output "DeferWelcome ${proftpd_deferwelcome}" --nl \
 			--if "timeout[. > 0]" \
