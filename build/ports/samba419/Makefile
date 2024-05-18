@@ -741,6 +741,10 @@ post-install-DOCS-on:
 		[ -f "$${file}" ] && ${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib; \
 		[ -d "$${file}" ] && ${CP} -Rpv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib; \
 	done
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so.1
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_wins.so.1
+	@${LN} -f -v -s nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so
+	@${LN} -f -v -s nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib//nss_wins.so
 # share
 	@${CP} -Rpv ${STAGEDIR}${PREFIX}/share/samba419 ${XIGMANAS_ROOTFS}/usr/local/share
 # python3.9
@@ -763,8 +767,6 @@ post-install-DOCS-on:
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/bind9/*; do \
 		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/bind9; \
 	done
-
-
 # modules gensec
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/gensec
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/gensec/*; do \
