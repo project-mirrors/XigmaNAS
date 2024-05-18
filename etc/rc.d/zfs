@@ -56,21 +56,20 @@ zfs_init()
 	# Make sure zpool.cache exists. On 'embedded' installations
 	# this file is missing after a reboot => zpools are missing, so we
 	# have to import them to be able to use them.
-	if [ -e /etc/zfs/zpool.cache -o -e /boot/zfs/zpool.cache -o -e /cf/boot/zpool.cache ]; then
+	if [ -r /etc/zfs/zpool.cache -o -r /boot/zfs/zpool.cache -o -r /cf/etc/zfs/zpool.cache -o -r /cf/boot/zfs/zpool.cache ]; then
 		# nothing to do
 	else
 		info Importing ZFS pools found under /dev/gpt...
-		zpool import -d /dev/gpt -f -a
+		zpool import -d /dev/gpt -f -a -N
 		info Importing ZFS pools found under /dev...
-		zpool import -d /dev -f -a
-		zfs umount -a
+		zpool import -d /dev -f -a -N
 		# if cache is created, write it to boot device
 		if [ -d /cf/boot/zfs ]; then
-			if [ -e /etc/zfs/zpool.cache ]; then
+			if [ -r /etc/zfs/zpool.cache ]; then
 				/sbin/mount -uw /cf
 				cp -p /etc/zfs/zpool.cache /cf/boot/zfs/zpool.cache
 				/sbin/mount -ur /cf
-			elif [ -e /boot/zfs/zpool.cache ]; then
+			elif [ -r /boot/zfs/zpool.cache ]; then
 				/sbin/mount -uw /cf
 				cp -p /boot/zfs/zpool.cache /cf/boot/zfs/zpool.cache
 				/sbin/mount -ur /cf
