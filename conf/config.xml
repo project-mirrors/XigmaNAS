@@ -5,7 +5,7 @@
 	<lastchange></lastchange>
 	<system>
 		<hostname>xigmanas</hostname>
-		<domain>local</domain>
+		<domain>internal</domain>
 		<dnsserver></dnsserver>
 		<ipv6dnsserver></ipv6dnsserver>
 		<dnsallowoverride/>
