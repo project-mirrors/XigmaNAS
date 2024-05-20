@@ -720,106 +720,113 @@ post-install-DOCS-on:
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/xigmanas-samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
 # rc/link
-	@${LN} -fsv /var/etc/smb4.conf ${XIGMANAS_ROOTFS}/usr/local/etc/smb4.conf
+	@${LN} -fsv /var/etc/smb4.conf ${XIGMANAS_ROOTFS}${PREFIX}/etc/smb4.conf
 # sbin
 .for file in eventlogadm nmbd samba smbd winbindd
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}/usr/local/sbin
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 .endfor
 .for file in samba_dnsupdate samba_downgrade_db samba_kcc samba_spnupdate samba_upgradedns samba-gpupdate
-	@${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}/usr/local/sbin
+	@${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 .endfor
 # bin
 .for file in cifsdd dbwrap_tool dumpmscat gentest locktest masktest mdsearch mvxattr ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-ldbdump samba-ldbadd samba-ldbdel samba-ldbedit samba-ldbmodify samba-ldbrename samba-ldbsearch samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree testparm vfstest vlp wbinfo
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}/usr/local/bin
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin
 .endfor
 .for file in samba-log-parser samba-tool smbtar
-	@${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}/usr/local/bin
+	@${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin
 .endfor
 # lib
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/*; do \
 		[ -h "$${file}" ] && continue; \
-		[ -f "$${file}" ] && ${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib; \
-		[ -d "$${file}" ] && ${CP} -Rpv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib; \
+		[ -f "$${file}" ] && ${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib; \
+		[ -d "$${file}" ] && ${CP} -Rpv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib; \
 	done
+	@echo "End install lib for file in ${STAGEDIR}${PREFIX}/lib/*"
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so.1
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_wins.so.1
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/pam_winbind.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/pam_winbind.so
 	@${LN} -f -v -s nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so
-	@${LN} -f -v -s nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib//nss_wins.so
+	@${LN} -f -v -s nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_wins.so
 # share
-	@${CP} -Rpv ${STAGEDIR}${PREFIX}/share/samba419 ${XIGMANAS_ROOTFS}/usr/local/share
+	@${CP} -Rpv ${STAGEDIR}${PREFIX}/share/samba419 ${XIGMANAS_ROOTFS}${PREFIX}/share
+# include
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/include
+	@${CP} -Rpv ${STAGEDIR}${PREFIX}/include/samba4 ${XIGMANAS_ROOTFS}${PREFIX}/include/
+
 # python3.9
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
 	for file in talloc.cpython-39.so tdb.cpython-39.so ldb.cpython-39.so; do \
-		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.9/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages; \
+		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.9/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages; \
 	done
-	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
-	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}/usr/local/bin
+	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
+	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}${PREFIX}/bin
 # libexec
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/libexec/samba
-	@${CP} -Rpv ${STAGEDIR}${PREFIX}/libexec/samba ${XIGMANAS_ROOTFS}/usr/local/libexec/
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/libexec/samba
+	@${CP} -Rpv ${STAGEDIR}${PREFIX}/libexec/samba ${XIGMANAS_ROOTFS}${PREFIX}/libexec/
 # lib modules
 # ldb/tdb
 	for file in samba-ldbadd samba-ldbdel samba-ldbedit samba-ldbmodify samba-ldbrename samba-ldbsearch; do \
-		${CP} -pv ${STAGEDIR}${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}/usr/local/bin; \
+		${CP} -pv ${STAGEDIR}${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin; \
 	done
 # modules bind9
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/bind9
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/bind9
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/bind9/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/bind9; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/bind9; \
 	done
 # modules gensec
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/gensec
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/gensec
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/gensec/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/gensec; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/gensec; \
 	done
 # modules idmap
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/idmap
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/idmap
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/idmap/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/idmap; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/idmap; \
 	done
 # modules krb5
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/krb5
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/krb5
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/krb5/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/krb5; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/krb5; \
 	done
 # modules ldb
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/ldb
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/ldb
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/ldb/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/ldb; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/ldb; \
 	done
 	for file in tdbbackup tdbdump tdbrestore tdbtool; do \
-		${CP} -pv ${STAGEDIR}${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}/usr/local/bin; \
+		${CP} -pv ${STAGEDIR}${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin; \
 	done
 
 # modules nss_info
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/nss_info
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/nss_info
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/nss_info/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/nss_info; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/nss_info; \
 	done
 # modules process_model
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/process_model
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/process_model
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/process_model/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/process_model; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/process_model; \
 	done
 # modules service
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/service
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/service
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/service/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/service; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/service; \
 	done
 # modules vfs
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/vfs
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/vfs
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/vfs/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/modules/vfs; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/vfs; \
 	done
 # private
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/private
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/private
 	for file in ${STAGEDIR}${PREFIX}/lib/samba4/private/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/samba4/private; \
+		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/private; \
 	done
 # py-markdown importlib_metadata zipp.py
-	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/markdown ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
-	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/importlib_metadata ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
-	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/zipp ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/markdown ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/importlib_metadata ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/zipp ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
 
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
