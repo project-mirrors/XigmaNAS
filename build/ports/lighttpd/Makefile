@@ -11,6 +11,7 @@ MASTER_SITES=	https://download.lighttpd.net/lighttpd/releases-1.4.x/
 
 LIB_DEPENDS+=	libpcre.so:${PORTSDIR}/devel/pcre \
 		libuuid.so:${PORTSDIR}/misc/e2fsprogs-libuuid \
+		libnettle.so:security/nettle \
 		libsqlite3.so:${PORTSDIR}/databases/sqlite3 \
 		libmemcached.so:${PORTSDIR}/databases/libmemcached \
 		libbrotlicommon.so:archivers/brotli \
