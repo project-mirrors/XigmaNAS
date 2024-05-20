@@ -11,7 +11,6 @@ MASTER_SITE_SUBDIR=	distributions/:release
 DISTNAME=		php-${PORTVERSION:S/.r/RC/}
 DISTFILES=			${DISTNAME}${EXTRACT_SUFX}:release
 USES+=			compiler:c11 cpe gnome localbase pkgconfig tar:xz
-USE_CXXSTD=		gnu++17
 CPE_PRODUCT=		php
 PHP_VER=	82
 CONFLICTS_INSTALL?=	php[0-9][0-9]${PKGNAMESUFFIX}
@@ -19,8 +18,8 @@ CONFLICTS_INSTALL?=	php[0-9][0-9]${PKGNAMESUFFIX}
 NO_OPTIONS_SORT=	yes
 
 BUILD_DEPENDS=		re2c>0:devel/re2c
-LIB_DEPENDS=		libpcre2-8.so:devel/pcre2 \
-			libargon2.so:security/libargon2
+LIB_DEPENDS=		libargon2.so:security/libargon2 \
+			libpcre2-8.so:devel/pcre2
 
 LIB_DEPENDS+=		libcurl.so:ftp/curl
 LIB_DEPENDS+=		libmcrypt.so:security/libmcrypt
