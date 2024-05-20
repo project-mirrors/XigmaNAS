@@ -87,7 +87,7 @@ $software = [
 	]],
 	['FreeBSD',[
 		'The FreeBSD Project (<a href="https://www.freebsd.org" target="_blank" rel="noreferrer">https://www.freebsd.org</a>).',
-		'Copyright © 1995-2022 The FreeBSD Project. All Rights Reserved.'
+		'Copyright © 1995-2024 The FreeBSD Project. All Rights Reserved.'
 	]],
 	['Freenas 7',[
 		'Freenas 7 (<a href="https://github.com/freenas/freenas7" target="_blank" rel="noreferrer">https://github.com/freenas/freenas7</a>).',
@@ -108,7 +108,7 @@ $software = [
 	['inadyn',[
 		'Simple Dynamic DNS client (<a href="https://github.com/troglobit/inadyn" target="_blank" rel="noreferrer">https://github.com/troglobit/inadyn</a>).',
 		'Inadyn Copyright © 2003-2010 up to v1.96.2 Narcis Ilisei. All Rights Reserved.',
-		'Inadyn Copyright © 2010-2022 from Joachim Nilsson (<a href="mailto:troglobit@gmail.com">troglobit@gmail.com</a>). All Rights Reserved.'
+		'Inadyn Copyright © 2010-2023 from Joachim Nilsson (<a href="mailto:troglobit@gmail.com">troglobit@gmail.com</a>). All Rights Reserved.'
 	]],
 	['iperf3',[
 		'A tool to measure TCP and UDP bandwidth. (<a href="https://software.es.net/iperf/" target="_blank" rel="noreferrer">https://software.es.net/iperf</a>).',
@@ -128,7 +128,7 @@ $software = [
 	]],
 	['jQuery',[
 		'A fast, small, and feature-rich JavaScript library (<a href="https://jquery.com" target="_blank" rel="noreferrer">https://jquery.com</a>).',
-		'Copyright © 2022 jQuery Foundation. All Rights Reserved.'
+		'Copyright © 2024 jQuery Foundation. All Rights Reserved.'
 	]],
 	['LCDproc',[
 		'A client/server suite for LCD devices (<a href="http://lcdproc.org" target="_blank" rel="noreferrer">http://lcdproc.org</a>).',
@@ -152,7 +152,7 @@ $software = [
 	]],
 	['msmtp',[
 		'A SMTP client with a sendmail compatible interface (<a href="https://marlam.de/msmtp/" target="_blank" rel="noreferrer">http://marlam.de/msmtp/</a>).',
-		'Copyright © 2004-2023 Martin Lambers and others. All Rights Reserved.'
+		'Copyright © 2004-2024 Martin Lambers and others. All Rights Reserved.'
 	]],
 	['mt-daapd',[
 		'Multithread daapd Apple iTunes server (<a href="http://www.fireflymediaserver.org" target="_blank" rel="noreferrer">http://www.fireflymediaserver.org</a>).',
@@ -184,12 +184,12 @@ $software = [
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
-		'Copyright © 2003-2022 phpMyAdmin contributors. All Rights Reserved.'
+		'Copyright © 2003-2023 phpMyAdmin contributors. All Rights Reserved.'
 	]],
 	['phpVirtualBox',[
 		'phpVirtualBox (<a href="https://github.com/phpvirtualbox/phpvirtualbox/" target="_blank" rel="noreferrer">https://github.com/phpvirtualbox/phpvirtualbox</a>).',
 		'Copyright © 2011-2015 Ian Moore, Inc. All Rights Reserved.',
-		'Copyright © 2017-2022 Now maintained by Smart Guide Pty Ltd (<a href="mailto:tudor@smartguide.com">tudor@smartguide.com</a>). All Rights Reserved.'
+		'Copyright © 2017-2024 Now maintained by Smart Guide Pty Ltd (<a href="mailto:tudor@smartguide.com">tudor@smartguide.com</a>). All Rights Reserved.'
 	]],
 	['ProFTPD',[
 		'A highly configurable FTP server (<a href="http://www.proftpd.org" target="_blank" rel="noreferrer">http://www.proftpd.org</a>).',
@@ -197,7 +197,7 @@ $software = [
 	]],
 	['Python',[
 		'A programming language (<a href="https://www.python.org" target="_blank" rel="noreferrer">https://www.python.org</a>).',
-		'Copyright © 2001-2022 Python Software Foundation. All Rights Reserved.'
+		'Copyright © 2001-2024 Python Software Foundation. All Rights Reserved.'
 	]],
 	['QuiXplorer',[
 		'A Web-based file-management browser (<a href="https://github.com/realtimeprojects/quixplorer" target="_blank" rel="noreferrer">https://github.com/realtimeprojects/quixplorer</a>).',
@@ -250,11 +250,11 @@ $software = [
 	]],
 	['Transmission',[
 		'A fast, easy, and free multi-platform BitTorrent client (<a href="https://transmissionbt.com" target="_blank" rel="noreferrer">https://transmissionbt.com</a>).',
-		'Copyright © 2008-2018 Transmission Project. All Rights Reserved.'
+		'Copyright © 2008-2024 Transmission Project. All Rights Reserved.'
 	]],
 	['VirtualBox',[
 		'Open Source Edition (OSE) & (Guest Additions) (<a href="https://www.virtualbox.org" target="_blank" rel="noreferrer">https://www.virtualbox.org</a>).',
-		'Copyright © 2010-2022, Oracle and/or its affiliates. All Rights Reserved.'
+		'Copyright © 2010-2024, Oracle and/or its affiliates. All Rights Reserved.'
 	]],
 	['VMXNET3',[
 		'A NIC driver for FreeBSD (<a href="https://www.vmware.com" target="_blank" rel="noreferrer">https://www.vmware.com</a>).',
