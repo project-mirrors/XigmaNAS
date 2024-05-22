@@ -32,6 +32,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'config.inc';
 require_once 'functions.inc';
 require_once 'install.inc';
@@ -249,4 +250,3 @@ formated for you as part of the installation!
 EOD;
 
 tui_wait_keypress($text);
-?>
