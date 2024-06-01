@@ -1,6 +1,6 @@
 PORTNAME=		transmission
-DISTVERSION=	4.0.5
-PORTREVISION=	1
+DISTVERSION=	4.0.6
+PORTREVISION=	0
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/${DISTVERSION}/
 
@@ -16,8 +16,8 @@ LICENSE=	     GPLv3+
 
 BUILD_DEPENDS=	${LOCALBASE}/include/fast_float/fast_float.h:math/fast_float \
 		${LOCALBASE}/include/fmt/format.h:devel/libfmt \
+		${LOCALBASE}/include/rapidjson/rapidjson.h:devel/rapidjson \
 		${LOCALBASE}/include/utf8cpp/utf8.h:devel/utf8cpp
-
 
 LIB_DEPENDS=	libb64.so:converters/libb64 \
 		libcurl.so:ftp/curl \
@@ -47,18 +47,19 @@ LDFLAGS+=	-pthread
 do-install:
 # XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
-	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
-
+# dir
 	@${MKDIR} -pv ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}
 	@${MKDIR} -pv ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/
 	@${MKDIR} -pv ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/images
-
+# script
+	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
+# bin
 	@${INSTALL_PROGRAM} -v ${BUILD_WRKSRC}/daemon/transmission-daemon ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${BUILD_WRKSRC}/utils/transmission-create ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${BUILD_WRKSRC}/utils/transmission-edit ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${BUILD_WRKSRC}/utils/transmission-remote ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${BUILD_WRKSRC}/utils/transmission-show ${XIGMANAS_ROOTFS}/usr/local/bin
-
+# data
 	@${INSTALL_DATA} -v ${WRKSRC}/web/public_html/index.html ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web
 	@${INSTALL_DATA} -v ${WRKSRC}/web/public_html/transmission-app.css ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web
 	@${INSTALL_DATA} -v ${WRKSRC}/web/public_html/transmission-app.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web

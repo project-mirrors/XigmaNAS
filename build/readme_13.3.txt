@@ -115,7 +115,6 @@ Changes:
 - Upgrade smartmontools to v7.4.
 - Upgrade proftpd to v1.3.8b.
 - Upgrade minidlna to v1.3.3.
-- Upgrade transmission to v4.0.5.
 - Upgrade lighttpd to v1.4.76.
 - Upgrade samba to v4.19.6.
 - Upgrade syncthing to v1.27.7.
@@ -129,6 +128,7 @@ Changes:
 - Upgrade rsync to v3.3.0.
 - Upgrade py-wsdd to v0.8.0.
 - Upgrade tmux to v3.4.
+- Upgrade transmission to v4.0.6.
 
 Fixes:
 
