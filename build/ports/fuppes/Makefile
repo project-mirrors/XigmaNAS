@@ -1,6 +1,6 @@
 PORTNAME=		fuppes
 PORTVERSION=	0.692
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES=		net
 COMMENT=		Free UPnP Entertainment Service
 MAINTAINER=		zoon01@xigmanas.com
@@ -11,7 +11,7 @@ DISTNAME=		${PORTNAME}-${PORTVERSION}
 LIB_DEPENDS+=		libsqlite3.so:databases/sqlite3 \
 			libtag.so:audio/taglib \
 			libcurl.so:ftp/curl \
-			libpcre.so:devel/pcre \
+			libpcre2-8.so:devel/pcre2 \
 			libuuid.so:misc/e2fsprogs-libuuid \
 			libmp3lame.so:audio/lame \
 			libtwolame.so:audio/twolame \
