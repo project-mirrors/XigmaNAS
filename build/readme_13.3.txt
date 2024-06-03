@@ -130,6 +130,7 @@ Changes:
 - Upgrade transmission to v4.0.6.
 - Upgrade mariadb to v10.11.7.
 - Upgrade php8 to v8.3.7.
+- Upgrade e2fsprogs to v1.47.1.
 
 Fixes:
 
