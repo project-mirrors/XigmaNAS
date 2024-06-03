@@ -102,7 +102,6 @@ Changes:
 - Upgrade zoneinfo to v2024a.
 - Upgrade netatalk to v3.1.18.
 - Upgrade devcpu-data-amd to v20240116.
-- Upgrade devcpu-data-intel to v20240312.
 - Upgrade bash to v5.2p26.
 - Upgrade pecl-APCu to v5.1.23.
 - Upgrade sudo to v1.9.15p5.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade php8 to v8.3.7.
 - Upgrade e2fsprogs to v1.47.1.
 - Upgrade nut to v20240603.
+- Upgrade devcpu-data-intel to v20240531.
 
 Fixes:
 
