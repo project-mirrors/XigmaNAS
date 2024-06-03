@@ -114,7 +114,7 @@ pre-configure:
 	@(cd ${WRKSRC} && ${SETENV} MAKE=${MAKE_CMD} ./buildconf --force)
 
 post-build:
-	@${ECHO_CMD} "PHP_VER=82" > ${WRKDIR}/php.conf
+	@${ECHO_CMD} "PHP_VER=83" > ${WRKDIR}/php.conf
 	@${ECHO_CMD} "PHP_VERSION=${PORTVERSION}" >> ${WRKDIR}/php.conf
 	@${ECHO_CMD} "PHP_SAPI=${PHP_SAPI}" >> ${WRKDIR}/php.conf
 	@${ECHO_CMD} "PHP_EXT_INC=hash pcre spl" >> ${WRKDIR}/php.conf
