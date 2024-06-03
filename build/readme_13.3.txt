@@ -123,7 +123,6 @@ Changes:
 - Upgrade arconf to B26540.
 - Upgrade cdialog to v1.3-20240307.
 - Upgrade iperf3 to v3.17.
-- Upgrade nut to v20240407.
 - Upgrade rsync to v3.3.0.
 - Upgrade py-wsdd to v0.8.0.
 - Upgrade tmux to v3.4.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade mariadb to v10.11.7.
 - Upgrade php8 to v8.3.7.
 - Upgrade e2fsprogs to v1.47.1.
+- Upgrade nut to v20240603.
 
 Fixes:
 
