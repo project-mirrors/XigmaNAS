@@ -11,7 +11,7 @@ DISTNAME=		${PORTNAME}-${PORTVERSION}
 LIB_DEPENDS+=		libsqlite3.so:databases/sqlite3 \
 			libtag.so:audio/taglib \
 			libcurl.so:ftp/curl \
-			libpcre2-8.so:devel/pcre2 \
+			libpcre.so:devel/pcre \
 			libuuid.so:misc/e2fsprogs-libuuid \
 			libmp3lame.so:audio/lame \
 			libtwolame.so:audio/twolame \
