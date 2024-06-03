@@ -33,6 +33,7 @@ Changes:
 - Upgrade py-wsdd to v0.8.0.
 - Upgrade tmux to v3.4.
 - Upgrade transmission to v4.0.6.
+- Upgrade mariadb to v10.11.7.
 
 Fixes:
 
