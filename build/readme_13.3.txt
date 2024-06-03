@@ -121,7 +121,6 @@ Changes:
 - Upgrade nano to v8.0.
 - Upgrade msmtp to v1.8.26.
 - Upgrade arconf to B26540.
-- Upgrade php8 to v8.2.19.
 - Upgrade cdialog to v1.3-20240307.
 - Upgrade iperf3 to v3.17.
 - Upgrade nut to v20240407.
@@ -130,6 +129,7 @@ Changes:
 - Upgrade tmux to v3.4.
 - Upgrade transmission to v4.0.6.
 - Upgrade mariadb to v10.11.7.
+- Upgrade php8 to v8.3.7.
 
 Fixes:
 
