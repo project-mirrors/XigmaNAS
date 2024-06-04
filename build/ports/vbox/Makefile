@@ -1,6 +1,6 @@
 PORTNAME=		xigmanas-virtualbox
 PORTVERSION=		1.0
-PORTREVISION=		3
+PORTREVISION=		4
 CATEGORIES=		emulators
 
 COMMENT=		VirtualBox
@@ -44,9 +44,9 @@ do-install:
 	@${RM} -rf ${XIGMANAS_ROOTFS}/usr/local/share/virtualbox-ose
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/share/virtualbox-ose ${XIGMANAS_ROOTFS}/usr/local/share
 # misc
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
-	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/python3.9/site-packages/vboxapi ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
-	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/python3.9/site-packages/xpcom ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/python3.11/site-packages
+	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/python3.11/site-packages/vboxapi ${XIGMANAS_ROOTFS}/usr/local/lib/python3.11/site-packages
+	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/python3.11/site-packages/xpcom ${XIGMANAS_ROOTFS}/usr/local/lib/python3.11/site-packages
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 

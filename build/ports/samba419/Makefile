@@ -1,5 +1,6 @@
 PORTNAME=			${SAMBA4_BASENAME}419
 PORTVERSION=			${SAMBA4_VERSION}
+PORTREVISION=			1
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
@@ -756,10 +757,10 @@ post-install-DOCS-on:
 
 # python3.9
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
-	for file in talloc.cpython-39.so tdb.cpython-39.so ldb.cpython-39.so; do \
-		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.9/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages; \
+	for file in talloc.cpython-311.so tdb.cpython-311.so ldb.cpython-311.so; do \
+		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.11/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages; \
 	done
-	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}${PREFIX}/bin
 # libexec
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/libexec/samba
@@ -824,9 +825,9 @@ post-install-DOCS-on:
 		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/private; \
 	done
 # py-markdown importlib_metadata zipp.py
-	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/markdown ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
-	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/importlib_metadata ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
-	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/zipp ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
+#	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/markdown ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
+#	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/importlib_metadata ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
+#	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/zipp ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
 
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"

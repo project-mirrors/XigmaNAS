@@ -36,6 +36,7 @@ Changes:
 - Upgrade e2fsprogs to v1.47.1.
 - Upgrade nut to v20240603.
 - Upgrade devcpu-data-intel to v20240531.
+- Upgrade python to v3.11.9.
 
 Fixes:
 
