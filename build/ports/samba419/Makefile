@@ -755,10 +755,10 @@ post-install-DOCS-on:
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/include
 	@${CP} -Rpv ${STAGEDIR}${PREFIX}/include/samba4 ${XIGMANAS_ROOTFS}${PREFIX}/include/
 
-# python3.9
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages
+# python3.11
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
 	for file in talloc.cpython-311.so tdb.cpython-311.so ldb.cpython-311.so; do \
-		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.11/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.9/site-packages; \
+		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.11/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages; \
 	done
 	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}${PREFIX}/bin
