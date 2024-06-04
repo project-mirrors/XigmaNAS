@@ -194,3 +194,7 @@ usr/local/www/css/login.css.php
 # 9773
 usr/local/www/css/navbar-full-no-lev1.css
 usr/local/www/css/navbar-until-2022-12-31.css
+# 10024
+usr/local/lib/python3.9
+usr/local/lib/libpython3.9.so.1
+usr/local/lib/libpython3.9.so.1.0
