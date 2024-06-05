@@ -36,7 +36,7 @@ LIB_DEPENDS+=		libzip.so:archivers/libzip
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-DU_USING_ICU_NAMESPACE=1
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include"
-USES+=          autoreconf:build gettext ssl
+USES+=          autoreconf:build ssl
 
 AUTOTOOLSFILES=	 scripts/phpize.in
 USE_GNOME=	 libxml2
