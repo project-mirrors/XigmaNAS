@@ -1,6 +1,6 @@
 PORTNAME=		php83
 PORTVERSION=	8.3.7
-PORTREVISION?=	0
+PORTREVISION?=	1
 CATEGORIES?=		lang
 COMMENT=		PHP Scripting Language
 WWW=			https://www.php.net/
@@ -36,7 +36,7 @@ LIB_DEPENDS+=		libzip.so:archivers/libzip
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-DU_USING_ICU_NAMESPACE=1
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include"
-USES+=          autoreconf:build ssl
+USES+=          autoreconf:build gettext ssl
 
 AUTOTOOLSFILES=	 scripts/phpize.in
 USE_GNOME=	 libxml2
@@ -84,7 +84,8 @@ CONFIGURE_ARGS+=	\
 		--enable-sysvshm \
 		--enable-tokenizer \
 		--enable-simplexml \
-		--with-zip --with-zlib-dir=/usr \
+		--with-zip \
+		--with-zlib=/usr \
 		--enable-opcache \
 
 OPTIONS=	CGI "Build CGI version" on \
