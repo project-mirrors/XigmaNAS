@@ -41,7 +41,6 @@ ipfw_nat/ipfw_nat.ko
 libalias/libalias/libalias.ko
 
 # Misc.
-iscsi_initiator/iscsi_initiator.ko
 iscsi/iscsi.ko
 iser/iser.ko
 ctl/ctl.ko
