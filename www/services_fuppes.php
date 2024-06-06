@@ -388,7 +388,7 @@ endswitch;
 				html_titleline2(gettext('Fuppes Media Server Administration'));
 				$if = get_ifname($sphere->row['if']);
 				$ipaddr = get_ipaddr($if);
-				$url = sprintf('http://%s:%s',htmlspecialchars($ipaddr),htmlspecialchars($sphere->row['port']));
+				$url = sprintf('http://%s:%s',htmlspecialchars($ipaddr ?? ''),htmlspecialchars($sphere->row['port'] ?? ''));
 				$text = sprintf('<a href="%s" target="_blank" rel="noreferrer">%s</a>',$url,$url);
 				html_textinfo2('url',gettext('URL'),$text);
 			endif;
