@@ -1,10 +1,10 @@
 PORTNAME=		isboot
-PORTVERSION=	0.3.3
+PORTVERSION=	0.3.4
 PORTREVISION=   0
 CATEGORIES=		net
 COMMENT=		iSCSI boot driver by Daisuke Aoyama (aoyama@peach.ne.jp)
 
-MAINTAINER=		aoyama@peach.ne.jp
+MAINTAINER=		zoon01@xigmanas.com
 #MASTER_SITES=		http://www.peach.ne.jp/archives/isboot/
 
 WRKSRC=                 ${WRKDIR}/${DISTNAME}/src
