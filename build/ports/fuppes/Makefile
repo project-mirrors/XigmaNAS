@@ -100,8 +100,6 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libencoder_pcm.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
 	@${CP} -Rpv ${WRKSRC}/src/plugins/.libs/libencoder_wav.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libencoder_wav.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
-#	@${CP} -Rpv ${WRKSRC}/src/plugins/.libs/libmetadata_libavformat.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
-#	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libmetadata_libavformat.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
 	@${CP} -Rpv ${WRKSRC}/src/plugins/.libs/libmetadata_libmp4v2.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libmetadata_libmp4v2.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
 	@${CP} -Rpv ${WRKSRC}/src/plugins/.libs/libmetadata_taglib.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
