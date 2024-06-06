@@ -172,11 +172,11 @@ update_sources() {
 
 #	Choose what to do.
 	$DIALOG --ascii-lines --title "$XIGMANAS_PRODUCTNAME - Update Sources" --checklist "Please select what to update." 12 60 5 \
-		"git_clone" "Get src source tree" OFF \
-		"git_pull" "Update src source tree" OFF \
-		"freebsd-update" "Fetch and install binary updates" OFF \
-		"portsnap" "Update ports collection" OFF \
-		"portupgrade" "Upgrade ports on host" OFF 2> $tempfile
+		"Git_src-source" "Get src source tree" OFF \
+		"Git_src-update" "Update src source tree" OFF \
+		"FreeBSD_update" "Fetch and install binary updates" OFF \
+		"Git_port-update" "Update ports collection" OFF \
+		"pkg_upgrade" "Upgrade pkg on host" OFF 2> $tempfile
 	if [ 0 != $? ]; then # successful?
 		rm $tempfile
 		return 1
@@ -187,17 +187,17 @@ update_sources() {
 
 	for choice in $(echo $choices | tr -d '"'); do
 		case $choice in
-			freebsd-update)
-				freebsd-update fetch install;;
-			portsnap)
-				portsnap fetch update;;
-			git_clone)
+			Git_src-source)
 				rm -rf /usr/src;
 				mkdir /usr/src; git clone -b ${XIGMANAS_GIT_BRANCH} ${XIGMANAS_GIT_SRCTREE} /usr/src;;
-			git_pull)
+			Git_src-update)
 				cd /usr/src; git pull;;
-			portupgrade)
-				portupgrade -aFP;;
+			FreeBSD_update)
+				freebsd-update fetch install;;
+			Git_port-update)
+				git -C /usr/ports pull;;
+			pkg_upgrade)
+				pkg update && pkg upgrade;;
 		esac
 	done
 
