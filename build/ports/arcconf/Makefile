@@ -24,7 +24,7 @@ USE_GCC=        yes
 
 .include <bsd.port.pre.mk>
 
-DIST_TYPE=	13_x86_64
+DIST_TYPE=	14_x86_64
 NO_BUILD=	yes
 NO_WRKSUBDIR=	yes
 
