@@ -1,8 +1,8 @@
 PORTNAME=		fdisk
-PORTVERSION=	1.1
+PORTVERSION=	1.2
 CATEGORIES=		sysutils
 COMMENT=		PC slice table maintenance utility
-MAINTAINER=		zoon01@xigmanas.01
+MAINTAINER=		zoon01@xigmanas.com
 DISTFILES=
 
 NO_PKG_REGISTER=yes
