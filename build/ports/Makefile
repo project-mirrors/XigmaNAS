@@ -40,6 +40,7 @@
     SUBDIR += nut-devel
     SUBDIR += open-vm-tools
     SUBDIR += openssh-portable
+    SUBDIR += opie
     SUBDIR += pam_ldap
     SUBDIR += pam_mkhomedir
     SUBDIR += php83
