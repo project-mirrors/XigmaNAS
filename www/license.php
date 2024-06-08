@@ -144,7 +144,7 @@ $software = [
 	]],
 	['MiniDLNA',[
 		'Media server software, with the aim of being fully compliant with DLNA/UPnP-AV clients. (<a href="https://sourceforge.net/projects/minidlna/" target="_blank" rel="noreferrer">https://sourceforge.net/projects/minidlna</a>).',
-		'Copyright © 2008-2017  Justin Maggard. All Rights Reserved.'
+		'Copyright © 2008-2023  Justin Maggard. All Rights Reserved.'
 	]],
 	['m0n0wall',[
 		'm0n0wall (<a href="https://m0n0.ch/wall/index.php" target="_blank" rel="noreferrer">https://m0n0.ch/wall/index.php</a>).',
@@ -184,7 +184,7 @@ $software = [
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
-		'Copyright © 2003-2023 phpMyAdmin contributors. All Rights Reserved.'
+		'Copyright © 2003-2024 phpMyAdmin contributors. All Rights Reserved.'
 	]],
 	['phpVirtualBox',[
 		'phpVirtualBox (<a href="https://github.com/phpvirtualbox/phpvirtualbox/" target="_blank" rel="noreferrer">https://github.com/phpvirtualbox/phpvirtualbox</a>).',
@@ -275,6 +275,7 @@ $software_licenses = [
 	sprintf('<a href="third-party_licenses/gpl3-license.txt">%s</a>)',gettext('GPLv3')),
 	sprintf('<a href="third-party_licenses/mit-license.txt">%s</a>)',gettext('MIT License')),
 	sprintf('<a href="third-party_licenses/lgpl-license.txt">%s</a>',gettext('GNU Lesser General Public License (LGPL)')),
+	sprintf('<a href="third-party_licenses/License.TIN.txt">%s</a>)',gettext('The Inner Net License, Version 2')),	
 	sprintf('<a href="third-party_licenses/mpl2-license.txt">%s</a>',gettext('Mozilla Public License Version 2.0 (MPLv2)')),
 	sprintf('<a href="third-party_licenses/apple-license.txt">%s</a>',gettext('Apple Public Source License')),
 	sprintf('<a href="third-party_licenses/php-license.txt">%s</a>',gettext('PHP License'))
