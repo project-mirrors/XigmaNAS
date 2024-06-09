@@ -1,6 +1,6 @@
 PORTNAME=		php83
-PORTVERSION=	8.3.7
-PORTREVISION?=	1
+PORTVERSION=	8.3.8
+PORTREVISION?=	0
 CATEGORIES?=		lang
 COMMENT=		PHP Scripting Language
 WWW=			https://www.php.net/
