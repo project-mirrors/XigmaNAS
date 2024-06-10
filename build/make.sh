@@ -75,7 +75,7 @@ echo "XIGMANAS_TMPDIR=${XIGMANAS_TMPDIR}" >> ${XIGMANAS_MK}
 #	Local variables
 XIGMANAS_URL=$(cat $XIGMANAS_SVNDIR/etc/prd.url)
 XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/trunk"
-XIGMANAS_GIT_SRCTREE="https://git.FreeBSD.org/src.git"
+XIGMANAS_GIT_SRCTREE="https://git.freebsd.org/src.git"
 XIGMANAS_GIT_BRANCH="releng/14.1"
 
 #	Size in MB of the MFS Root filesystem that will include all FreeBSD binary
