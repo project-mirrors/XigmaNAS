@@ -1,9 +1,8 @@
 XigmaNAS® 14.1.0.5 - BETA1
 --------------------------
 Changes:
-
-
-Fixes:
+- Upgrade to FreeBSD 14.1-RELEASE P0.
+- Upgrade mariadb to v11.4.2.
 
 
 Permanent restrictions:
