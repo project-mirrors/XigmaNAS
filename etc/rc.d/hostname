@@ -55,8 +55,9 @@ hostname_start()
 
 	# All right, it is safe to invoke hostname(1) now.
 	#
-	[ -z "${rc_quiet}" ] && echo "Setting hostname: ${hostname}."
+	startmsg -n "Setting hostname: ${hostname}"
 	/bin/hostname "${hostname}"
+	startmsg '.'
 }
 
 hostname_restart()
