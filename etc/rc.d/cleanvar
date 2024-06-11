@@ -1,13 +1,10 @@
 #!/bin/sh
 #
-# $FreeBSD$
-#
 # Part of XigmaNAS® (https://www.xigmanas.com).
 # Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 # Purge /var directory
-# $FreeBSD: main libexec/rc/rc.d/cleanvar	commit/57c37babde3664c81bc30ec5086092ae950aab49
 # ---> Change: Skip over *.hints files, otherwise 'xml' cmd will fail!
 #
 
