@@ -24,7 +24,6 @@
 #
 # XigmaNAS®
 #   Checked:  libexec/rc/rc.d/bridge
-#   Revision: git 0696600, 2018-10-17
 #   Changes:
 #       - Remove requirement ppp stf
 #

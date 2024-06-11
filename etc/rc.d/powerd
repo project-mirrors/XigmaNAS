@@ -6,8 +6,6 @@
 #
 # Modify the power profile
 #
-# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/powerd		Revision 339434
-#
 
 # PROVIDE: powerd
 # REQUIRE: DAEMON

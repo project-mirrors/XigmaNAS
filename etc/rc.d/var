@@ -6,7 +6,6 @@
 #
 # Populate /var directory
 #
-# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/var	revision 339434
 # XigmaNAS® Changes: - Remove useless code
 #    	       ToDo: - Relocate code to populate /var from /etc/rc to this file ASAP
 #

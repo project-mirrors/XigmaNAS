@@ -3,7 +3,7 @@
 # Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# Files required for XIGMANAS.
+# Files required for Building World.
 #
 # Lines with colons (':') in them list files that should be soft-linked
 # to each other, e.g.
@@ -183,9 +183,6 @@ sbin/ifconfig
 
 ## init -- process control initialization
 sbin/init
-
-## iscontrol -- login/negotiator/control for an iSCSI initiator session
-sbin/iscontrol
 
 ## kldconfig -- display or modify the kernel module search path
 sbin/kldconfig
@@ -990,9 +987,6 @@ usr/libexec/sftp-server
 ## getty -- set terminal mode
 usr/libexec/getty
 
-## make_index
-usr/libexec/make_index
-
 ## phttpget
 usr/libexec/phttpget
 
@@ -1186,11 +1180,6 @@ etc/rc.d/power_profile
 etc/rc.d/random
 etc/rc.d/securelevel
 etc/rc.d/swap
-etc/rc.d/zfs
-etc/rc.d/zfsd
-etc/rc.d/zfsbe
-etc/rc.d/zfskeys
-etc/rc.d/zpoolreguid
 
 ####### contents of /usr/share/snmp/defs
 usr/share/snmp/defs/bridge_tree.def
@@ -1241,10 +1230,10 @@ usr/share/doc/legal/intel_wpi.LICENSE
 usr/share/doc/legal/realtek.LICENSE
 
 ####### iSCSI initiator daemon / management utility
-etc/rc.d/iscsid
 #etc/rc.d/iscsictl
-usr/sbin/iscsid
+etc/rc.d/iscsid
 usr/bin/iscsictl
+usr/sbin/iscsid
 
 # XXX need move to ports
 # pkg -- a utility for manipulating packages

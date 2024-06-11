@@ -6,8 +6,8 @@
 #
 # NFS file locking daemon
 #
-# XigmaNAS® Checked: /stable/13/libexec/rc/rc.d/lockd		commit/92ecb030d2547a95956b3a6e5240e895ad4eed4e
-# XigmaNAS® Changes:	- Remove nfsclient
+# XigmaNAS®
+# XigmaNAS® Changes: - Remove: nfsclient
 #
 
 # PROVIDE: lockd

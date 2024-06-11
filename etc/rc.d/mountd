@@ -13,7 +13,7 @@
 
 # PROVIDE: mountd
 # REQUIRE: NETWORKING rpcbind
-# KEYWORD: nojail shutdown
+# KEYWORD: nojailvnet shutdown
 # XQUERY: --if 'count(//nfsd/enable) > 0' --output '0' --else --output '1'  --break
 # RCVAR: mountd
 

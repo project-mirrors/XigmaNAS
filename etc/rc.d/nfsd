@@ -6,13 +6,13 @@
 #
 # Remote NFS server
 #
-# XigmaNAS® Checked: libexec/rc/rc.d/nfsd		commit/2cd26a286a9e6339a3c6782a7101cbbd5d166666
+# XigmaNAS®
 # XigmaNAS® Changes: modified for XigmaNAS®, removed REQUIRE: gssd
 #
 
 # PROVIDE: nfsd
 # REQUIRE: mountcritremote mountd hostname nfsuserd
-# KEYWORD: nojail shutdown
+# KEYWORD: nojailvnet shutdown
 # XQUERY: -i "count(//nfsd/enable) > 0" -o "0" -b
 # RCVAR: nfs_server
 
@@ -45,7 +45,7 @@ nfsd_precmd()
 	# oids are available.
 	load_kld nfsd || return 1
 
-	if [ -n "${nfs_server_maxio}" ]; then
+	if [ -n "${nfs_server_maxio}" ] && ! check_jail jailed; then
 		if ! sysctl vfs.nfsd.srvmaxio=${nfs_server_maxio} >/dev/null; then
 			warn "Failed to set server max I/O"
 		fi

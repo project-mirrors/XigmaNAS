@@ -6,8 +6,6 @@
 #
 # WPA/802.11i Supplicant for wireless network devices
 #
-# $FreeBSD: /libexec/rc/rc.d/wpa_supplicant		commit/116679b39cb94fdb94c02dceb1c2cae719bd3f42
-#
 
 # PROVIDE: wpa_supplicant
 # REQUIRE: mountcritremote

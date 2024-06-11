@@ -198,3 +198,8 @@ usr/local/www/css/navbar-until-2022-12-31.css
 usr/local/lib/python3.9
 usr/local/lib/libpython3.9.so.1
 usr/local/lib/libpython3.9.so.1.0
+# 10024
+sbin/iscontrol
+usr/libexec/make_index
+usr/sbin/ancontrol
+usr/sbin/portsnap

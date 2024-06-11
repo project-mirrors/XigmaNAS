@@ -6,7 +6,6 @@
 #
 # Mount and share ZFS datasets
 #
-# XigmaNAS® Checked: libexec/rc/rc.d/zfs	commit/97aeda2243568b386d792514996a06daec55eece
 # XigmaNAS® Changes: - Add function zfs_init: Import zpool's if necessary
 #
 

@@ -6,7 +6,6 @@
 #
 # Set the date and time via NTP
 #
-# XigmaNAS® Checked: /etc/rc.d/ntpdate		Revision 314531
 # XigmaNAS® Changes: - Remove requirement 'named'
 # 		     - Add mkconf command
 #
