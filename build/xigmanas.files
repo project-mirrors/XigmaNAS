@@ -737,9 +737,6 @@ usr/sbin/acpidb
 ## acpidump -- dump ACPI tables and ASL
 usr/sbin/acpidump
 
-## ancontrol -- configure Aironet 4500/4800 devices
-usr/sbin/ancontrol
-
 ## arp -- address resolution display and control
 usr/sbin/arp
 
