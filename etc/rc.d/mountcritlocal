@@ -6,7 +6,7 @@
 #
 # Mount critical local file systems
 #
-# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/mountcritlocal		Revision 339434
+# XigmaNAS®
 #
 
 # PROVIDE: mountcritlocal
