@@ -1523,8 +1523,8 @@ create_full() {
 
 #	Cleanup.
 	echo "Cleaning temp .o file(s)"
-	if [ -f $XIGMANAS_TMPDIR/usr/lib/librt.so.1 ]; then
-		chflags -R noschg $XIGMANAS_TMPDIR/usr/lib/*
+	if [ -f $XIGMANAS_TMPDIR/lib/librt.so.* ]; then
+		chflags -R noschg $XIGMANAS_TMPDIR/lib/*
 	fi
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
 
