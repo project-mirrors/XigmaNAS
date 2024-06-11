@@ -199,6 +199,7 @@ usr/local/lib/python3.9
 usr/local/lib/libpython3.9.so.1
 usr/local/lib/libpython3.9.so.1.0
 # 10024
+lib/casper
 sbin/iscontrol
 usr/libexec/make_index
 usr/sbin/ancontrol
