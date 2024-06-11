@@ -7,7 +7,6 @@
 # All rights reserved.
 #
 
-
 MINIBSD_DIR=${XIGMANAS_ROOTFS};
 
 # Initialize variables.
@@ -88,7 +87,6 @@ mkdir etc/rc.d ;
 mkdir etc/rc.d.php ;
 mkdir etc/zfs ;
 mkdir lib ;
-mkdir lib/casper ;
 mkdir lib/geom ;
 mkdir libexec ;
 mkdir -m 0755 mnt ;
