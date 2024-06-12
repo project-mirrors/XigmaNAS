@@ -18,6 +18,7 @@
     SUBDIR += fusefs-exfat
     SUBDIR += fusefs-ext4fuse
     SUBDIR += fusefs-ntfs
+    SUBDIR += gettext
     SUBDIR += grub2-bhyve
     SUBDIR += gzip
     SUBDIR += icu
