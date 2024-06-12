@@ -81,6 +81,20 @@ fi
 [ ! -d "${samba_lockdir}" ] && mkdir "${samba_lockdir}"
 [ ! -d "${samba_lockdir}/private" ] && mkdir "${samba_lockdir}/private"
 
+can_mount() {
+    local kld
+    kld=$1
+    if ! load_kld $kld; then
+        return 1
+    fi
+    if [ $(${SYSCTL_N} security.jail.jailed) -eq 0 ] ||
+        [ $(${SYSCTL_N} security.jail.mount_allowed) -eq 1 ] ||
+        [ $(${SYSCTL_N} security.jail.mount_${kld}_allowed) -eq 1 ]; then
+            return 0
+    fi
+    return 1
+}
+
 # Setup dependent variables
 if [ -n "${rcvar}" ] && checkyesno "${rcvar}"; then
 	nmbd_enable="${nmbd_enable=YES}"
