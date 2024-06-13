@@ -115,7 +115,6 @@ Changes:
 - Upgrade proftpd to v1.3.8b.
 - Upgrade minidlna to v1.3.3.
 - Upgrade lighttpd to v1.4.76.
-- Upgrade samba to v4.19.6.
 - Upgrade syncthing to v1.27.7.
 - Upgrade nano to v8.0.
 - Upgrade msmtp to v1.8.26.
@@ -132,6 +131,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20240531.
 - Upgrade python to v3.11.9.
 - Upgrade php8 to v8.3.8.
+- Upgrade samba to v4.19.7.
 
 Fixes:
 
