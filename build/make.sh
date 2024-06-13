@@ -1631,6 +1631,7 @@ copy_files() {
 	echo ">>> Copy needed sources to distfiles directory usr/ports/distfiles.";
 	echo "-------------------------------------------------------------------";
 	echo "===> Start copy sources"
+	mkdir /usr/ports/distfiles
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip /usr/ports/distfiles
 	echo "===> Copy CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/isboot-0.3.4.tar.gz /usr/ports/distfiles
