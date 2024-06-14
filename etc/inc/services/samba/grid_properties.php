@@ -56,50 +56,6 @@ class grid_properties extends myp\container {
 	final public function get_security(): myp\property_list {
 		return $this->x_security ?? $this->init_security();
 	}
-	protected $x_maxprotocol;
-	public function init_maxprotocol(): myp\property_list {
-		$property = $this->x_maxprotocol = new myp\property_list($this);
-		$property->
-			set_name('maxprotocol')->
-			set_title(gettext('Server Max. Protocol'));
-		return $property;
-	}
-	final public function get_maxprotocol(): myp\property_list {
-		return $this->x_maxprotocol ?? $this->init_maxprotocol();
-	}
-	protected $x_minprotocol;
-	public function init_minprotocol(): myp\property_list {
-		$property = $this->x_minprotocol = new myp\property_list($this);
-		$property->
-			set_name('minprotocol')->
-			set_title(gettext('Server Min. Protocol'));
-		return $property;
-	}
-	final public function get_minprotocol(): myp\property_list {
-		return $this->x_minprotocol ?? $this->init_minprotocol();
-	}
-	protected $x_clientmaxprotocol;
-	public function init_clientmaxprotocol(): myp\property_list {
-		$property = $this->x_clientmaxprotocol = new myp\property_list($this);
-		$property->
-			set_name('clientmaxprotocol')->
-			set_title(gettext('Client Max. Protocol'));
-		return $property;
-	}
-	final public function get_clientmaxprotocol(): myp\property_list {
-		return $this->x_clientmaxprotocol ?? $this->init_clientmaxprotocol();
-	}
-	protected $x_clientminprotocol;
-	public function init_clientminprotocol(): myp\property_list {
-		$property = $this->x_clientminprotocol = new myp\property_list($this);
-		$property->
-			set_name('clientminprotocol')->
-			set_title(gettext('Client Min. Protocol'));
-		return $property;
-	}
-	final public function get_clientminprotocol(): myp\property_list {
-		return $this->x_clientminprotocol ?? $this->init_clientminprotocol();
-	}
 	protected $x_netbiosname;
 	public function init_netbiosname(): myp\property_text {
 		$property = $this->x_netbiosname = new myp\property_text($this);
@@ -396,6 +352,83 @@ class grid_properties extends myp\container {
 	}
 	final public function get_aiowsize(): myp\property_int {
 		return $this->x_aiowsize ?? $this->init_aiowsize();
+	}
+	protected $x_maxprotocol;
+	public function init_maxprotocol(): myp\property_list {
+		$property = $this->x_maxprotocol = new myp\property_list($this);
+		$property->
+			set_name('maxprotocol')->
+			set_title(gettext('Server Max. Protocol'));
+		return $property;
+	}
+	final public function get_maxprotocol(): myp\property_list {
+		return $this->x_maxprotocol ?? $this->init_maxprotocol();
+	}
+	protected $x_minprotocol;
+	public function init_minprotocol(): myp\property_list {
+		$property = $this->x_minprotocol = new myp\property_list($this);
+		$property->
+			set_name('minprotocol')->
+			set_title(gettext('Server Min. Protocol'));
+		return $property;
+	}
+	final public function get_minprotocol(): myp\property_list {
+		return $this->x_minprotocol ?? $this->init_minprotocol();
+	}
+	protected $x_clientmaxprotocol;
+	public function init_clientmaxprotocol(): myp\property_list {
+		$property = $this->x_clientmaxprotocol = new myp\property_list($this);
+		$property->
+			set_name('clientmaxprotocol')->
+			set_title(gettext('Client Max. Protocol'));
+		return $property;
+	}
+	final public function get_clientmaxprotocol(): myp\property_list {
+		return $this->x_clientmaxprotocol ?? $this->init_clientmaxprotocol();
+	}
+	protected $x_clientminprotocol;
+	public function init_clientminprotocol(): myp\property_list {
+		$property = $this->x_clientminprotocol = new myp\property_list($this);
+		$property->
+			set_name('clientminprotocol')->
+			set_title(gettext('Client Min. Protocol'));
+		return $property;
+	}
+	final public function get_clientminprotocol(): myp\property_list {
+		return $this->x_clientminprotocol ?? $this->init_clientminprotocol();
+	}
+	protected $x_serversigning;
+	public function init_serversigning(): myp\property_list {
+		$property = $this->x_serversigning = new myp\property_list($this);
+		$property->
+			set_name('serversigning')->
+			set_title(gettext('Server Signing'));
+		return $property;
+	}
+	final public function get_serversigning(): myp\property_list {
+		return $this->x_serversigning ?? $this->init_serversigning();
+	}
+	protected $x_serversmbencrypt;
+	public function init_serversmbencrypt(): myp\property_list {
+		$property = $this->x_serversmbencrypt = new myp\property_list($this);
+		$property->
+			set_name('serversmbencrypt')->
+			set_title(gettext('Server SMB Encryption'));
+		return $property;
+	}
+	final public function get_serversmbencrypt(): myp\property_list {
+		return $this->x_serversmbencrypt ?? $this->init_serversmbencrypt();
+	}
+	protected $x_clientsmbencrypt;
+	public function init_clientsmbencrypt(): myp\property_list {
+		$property = $this->x_clientsmbencrypt = new myp\property_list($this);
+		$property->
+			set_name('clientsmbencrypt')->
+			set_title(gettext('Client SMB Encryption'));
+		return $property;
+	}
+	final public function get_clientsmbencrypt(): myp\property_list {
+		return $this->x_clientsmbencrypt ?? $this->init_clientsmbencrypt();
 	}
 	protected $x_auxparam;
 	public function init_auxparam(): myp\property_auxparam {

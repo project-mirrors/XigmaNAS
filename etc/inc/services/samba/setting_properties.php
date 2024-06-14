@@ -143,6 +143,60 @@ class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
+	public function init_serversigning(): myp\property_list {
+		$description = gettext('This controls whether the client is allowed or required to use SMB1 and SMB2 signing.');
+		$options = [
+			'default' => gettext('Default'),
+			'auto' => gettext('Auto'),
+			'mandatory' => gettext('Mandatory'),
+			'disabled' => gettext('Disabled')
+		];
+		$property = parent::init_serversigning();
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('serversigning')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
+			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_serversmbencrypt(): myp\property_list {
+		$description = gettext('This parameter controls whether a remote client is allowed or required to use SMB encryption. (Effects for SMB3 and newer).');
+		$options = [
+			'default' => gettext('Default'),
+			'desired' => gettext('Desired'),
+			'required' => gettext('Required '),
+			'off' => gettext('Disabled')
+		];
+		$property = parent::init_serversmbencrypt();
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('serversmbencrypt')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
+			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_clientsmbencrypt(): myp\property_list {
+		$description = gettext('This parameter controls whether a client should try or is required to use SMB encryption. (Effects for SMB3 and newer).');
+		$options = [
+			'default' => gettext('Default'),
+			'desired' => gettext('Desired'),
+			'required' => gettext('Required '),
+			'off' => gettext('Disabled')
+		];
+		$property = parent::init_clientsmbencrypt();
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('clientsmbencrypt')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
+			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
 	public function init_netbiosname(): myp\property_text {
 		$description = gettext('The NetBIOS name of this Samba server.');
 		$regexp = '/^([a-z0-9_\-]+\.?)*$/i';
@@ -256,7 +310,7 @@ class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_loglevel(): myp\property_list {
-		$description = gettext('The value of the parameter allows the debug level (logging level) to be specified');
+		$description = gettext('The value of the parameter allows the debug level (logging level) to be specified.');
 		$options = [
 			'0' => gettext('Disabled'),
 			'1' => gettext('Minimum'),

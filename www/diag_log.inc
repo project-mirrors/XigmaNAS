@@ -39,6 +39,8 @@ require_once 'rc.inc';
 $clogdir = rc_getenv_ex('clog_logdir',$g['varlog_path']);
 $rsync_client_logfile = rc_getenv_ex('rsync_client_logfile',"{$g['varlog_path']}/rsync_client.log");
 $rsync_local_logfile = rc_getenv_ex('rsync_local_logfile',"{$g['varlog_path']}/rsync_local.log");
+$samba_logdir = rc_getenv_ex('samba_logdir',"{$g['varlog_path']}/samba4");
+$samba_logfile = "{$samba_logdir}/log.samba";
 $fuppes_logdir = rc_getenv_ex('fuppes_logdir',"{$g['varlog_path']}/fuppes");
 $fuppes_logfile = "{$fuppes_logdir}/fuppes.log";
 $minidlna_logdir = rc_getenv_ex('minidlna_logdir',"{$g['varlog_path']}/minidlna");
@@ -132,6 +134,17 @@ $loginfo = [
 //			['title' => gtext('File'),'hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 'filename'],
 //			['title' => gtext('Filesize'),'hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 'filesize'],
 			['title' => gtext('Event'),'width' => '65%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
+		]],
+	[
+		'visible' => true,
+		'desc' => gtext('SAMBA'),
+		'logfile' => $samba_logfile,
+		'filename' => 'log.samba',
+		'type' => 'plain',
+		'pattern' => '/^(?<msg>.*)$/',
+		'test.rfc5424' => false,
+		'columns' => [
+			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
