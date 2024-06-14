@@ -295,18 +295,6 @@ samba_mkconf_cmd() {
 		--if 'string-length(//samba/security) > 0' \
 			--value-of 'concat("security = ",//samba/security)' --nl \
 		--break \
-		--if 'string-length(//samba/maxprotocol) > 0' \
-			--value-of 'concat("server max protocol = ",//samba/maxprotocol)' --nl \
-		--break \
-		--if 'string-length(//samba/minprotocol) > 0' \
-			--value-of 'concat("server min protocol = ",//samba/minprotocol)' --nl \
-		--break \
-		--if 'string-length(//samba/clientmaxprotocol) > 0' \
-			--value-of 'concat("client max protocol = ",//samba/clientmaxprotocol)' --nl \
-		--break \
-		--if 'string-length(//samba/clientminprotocol) > 0' \
-			--value-of 'concat("client min protocol = ",//samba/clientminprotocol)' --nl \
-		--break \
 		--output 'dns proxy = no' --nl \
 		--output '# Settings to enhance performance:' --nl \
 		--output 'strict locking = no' --nl \
@@ -386,8 +374,9 @@ samba_mkconf_cmd() {
 		--else \
 			--output "directory mask = ${samba_directory_mask}" --nl \
 		--break \
-		--output 'max log size = 100' --nl \
-		--output 'logging = syslog' --nl \
+		--output 'max log size = 250' --nl \
+		--output 'logging = file' --nl \
+		--output 'log file = /var/log/samba4/log.samba' --nl \
 		--if 'string-length(//samba/loglevel) > 0' \
 			--value-of 'concat("loglevel = ",//samba/loglevel)' --nl \
 		--break \
@@ -462,6 +451,27 @@ samba_mkconf_cmd() {
 			--if 'string-length(//samba/aiowsize) > 0' \
 				--value-of "concat('aio write size = ',//samba/aiowsize)" --nl \
 			--break \
+		--break \
+		--if 'string-length(//samba/maxprotocol) > 0' \
+			--value-of 'concat("server max protocol = ",//samba/maxprotocol)' --nl \
+		--break \
+		--if 'string-length(//samba/minprotocol) > 0' \
+			--value-of 'concat("server min protocol = ",//samba/minprotocol)' --nl \
+		--break \
+		--if 'string-length(//samba/clientmaxprotocol) > 0' \
+			--value-of 'concat("client max protocol = ",//samba/clientmaxprotocol)' --nl \
+		--break \
+		--if 'string-length(//samba/clientminprotocol) > 0' \
+			--value-of 'concat("client min protocol = ",//samba/clientmaxprotocol)' --nl \
+		--break \
+		--if 'string-length(//samba/serversigning) > 0' \
+			--value-of 'concat("server signing = ",//samba/serversigning)' --nl \
+		--break \
+		--if 'string-length(//samba/serversmbencrypt) > 0' \
+			--value-of 'concat("server smb encrypt = ",//samba/serversmbencrypt)' --nl \
+		--break \
+		--if 'string-length(//samba/clientsmbencrypt) > 0' \
+			--value-of 'concat("client smb encrypt = ",//samba/clientsmbencrypt)' --nl \
 		--break \
 		--if '//samba/if[. = "lan"]' \
 			--output 'bind interfaces only = yes' --nl \

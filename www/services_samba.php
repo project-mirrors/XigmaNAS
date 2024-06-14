@@ -56,6 +56,9 @@ $cops = [
 	$cop->get_auxparam(),
 	$cop->get_clientmaxprotocol(),
 	$cop->get_clientminprotocol(),
+	$cop->get_serversigning(),
+	$cop->get_serversmbencrypt(),
+	$cop->get_clientsmbencrypt(),
 	$cop->get_createmask(),
 	$cop->get_directorymask(),
 	$cop->get_doscharset(),
@@ -339,6 +342,9 @@ $tbody2->
 	c2($cop->get_directorymask(),$sphere,false,$is_readonly)->
 	c2($cop->get_maxprotocol(),$sphere,false,$is_readonly)->
 	c2($cop->get_minprotocol(),$sphere,false,$is_readonly)->
+	c2($cop->get_serversigning(),$sphere,false,$is_readonly)->
+	c2($cop->get_serversmbencrypt(),$sphere,false,$is_readonly)->
+	c2($cop->get_clientsmbencrypt(),$sphere,false,$is_readonly)->
 	c2($cop->get_clientmaxprotocol(),$sphere,false,$is_readonly)->
 	c2($cop->get_clientminprotocol(),$sphere,false,$is_readonly)->
 	c2($cop->get_auxparam(),$sphere,false,$is_readonly);

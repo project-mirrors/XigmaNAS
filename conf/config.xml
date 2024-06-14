@@ -984,6 +984,12 @@
 		<aiorsize>1024</aiorsize>
 		<aiowsize>1024</aiowsize>
 		<aiowbehind/>
+		<minprotocol/>
+		<clientmaxprotocol/>
+		<clientminprotocol/>
+		<clientsmbencrypt>default</clientsmbencrypt>
+		<serversmbencrypt>default</serversmbencrypt>
+		<serversigning>default</serversigning>
 		<!--
 		// createmask and directorymask can be used to overwrite default values when security=share
 		<createmask>0666</createmask>
