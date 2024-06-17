@@ -1,4 +1,4 @@
-		README & CHANGELOG FOR XIGMANAS® 14.1.0.5 - BETA1
+		README & CHANGELOG FOR XIGMANAS® 14.1.0.5 - BETA2
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
@@ -101,6 +101,7 @@ Changes:
 - Upgrade mariadb to v11.4.2.
 - Upgrade iperf3 to v3.17.1.
 - Upgrade mDNSResponder to v2200.120.24.
+- Upgrade syncthing to v1.27.8.
 
 Default login credentials:
 ==========================
