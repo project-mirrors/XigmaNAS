@@ -1,6 +1,6 @@
 PORTNAME=		inadyn
 PORTVERSION=	2.12.0
-PORTREVISION?=  0
+PORTREVISION?=  1
 CATEGORIES=	dns
 COMMENT=	Dynamic DNS update client
 MAINTAINER=	zoon01@xigmanas.com
@@ -20,6 +20,7 @@ RUN_DEPENDS=			ca_root_nss>=0:security/ca_root_nss
 USES=				pkgconfig tar:xz
 
 GNU_CONFIGURE=			yes
+GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 
 USERS=				inadyn
 GROUPS=				inadyn
