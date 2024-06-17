@@ -109,7 +109,6 @@ Changes:
 - Upgrade dmidecode to v3.5.
 - Upgrade gzip to v1.13.
 - Upgrade inadyn to v2.12.0.
-- Upgrade mDNSResponder to v2200.80.16.
 - Upgrade smartmontools to v7.4.
 - Upgrade proftpd to v1.3.8b.
 - Upgrade minidlna to v1.3.3.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade php8 to v8.3.8.
 - Upgrade samba to v4.19.7.
 - Upgrade iperf3 to v3.17.1.
+- Upgrade mDNSResponder to v2200.120.24.
 
 Fixes:
 
