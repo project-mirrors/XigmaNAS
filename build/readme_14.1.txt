@@ -99,6 +99,7 @@ BUILD 14.1.0.5.10xxx
 Changes:
 - Upgrade to FreeBSD 14.1-RELEASE P0.
 - Upgrade mariadb to v11.4.2.
+- Upgrade iperf3 to v3.17.1.
 
 Default login credentials:
 ==========================
