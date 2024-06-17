@@ -67,8 +67,7 @@ SAMBA4_LOGDIR=			${VARDIR}/log/${SAMBA4_PORTNAME}
 SAMBA4_LOCKDIR=			${VARDIR}/db/${SAMBA4_PORTNAME}
 SAMBA4_BINDDNSDIR=		${SAMBA4_LOCKDIR}/bind-dns
 SAMBA4_PRIVATEDIR=		${SAMBA4_LOCKDIR}/private
-SAMBA4_PAMDIR=			${PREFIX}/lib
-SAMBA4_LIBDIR=			${PREFIX}/lib/${SAMBA4_PORTNAME}
+SAMBA4_LIBDIR=			${PREFIX}/lib
 SAMBA4_INCLUDEDIR=		${PREFIX}/include/${SAMBA4_PORTNAME}
 SAMBA4_CONFDIR=			${PREFIX}/etc
 SAMBA4_CONFIG=			smb4.conf
@@ -80,8 +79,8 @@ CONFIGURE_ARGS=			--mandir="${PREFIX}/share/man" \
 				--includedir="${SAMBA4_INCLUDEDIR}" \
 				--datadir="${DATADIR}" \
 				--libdir="${SAMBA4_LIBDIR}" \
-				--with-privatelibdir="${SAMBA4_LIBDIR}/private" \
-				--with-pammodulesdir="${SAMBA4_PAMDIR}" \
+				--with-privatelibdir="${SAMBA4_LIBDIR}/samba" \
+				--with-pammodulesdir="${SAMBA4_LIBDIR}" \
 				--with-modulesdir="${SAMBA4_MODULEDIR}" \
 				--with-pkgconfigdir="${PKGCONFIGDIR}" \
 				--localstatedir="${VARDIR}" \
@@ -549,7 +548,7 @@ DEBUG_FLAGS?=			-g -ggdb3 -O0
 .	if defined(SAMBA4_BUNDLED_LDB) && ${SAMBA4_BUNDLED_LDB} == yes && (${PORT_OPTIONS:MAD_DC} || ${PORT_OPTIONS:MDEVELOPER})
 # LMDB
 SAMBA4_LMDB_DEPENDS=		lmdb>=0.9.16:databases/lmdb
-PLIST_FILES+=			${SAMBA4_LIBDIR}/private/libldb-mdb-int-samba4.so \
+PLIST_FILES+=			${SAMBA4_LIBDIR}/samba/libldb-mdb-int-samba4.so \
 				${SAMBA4_MODULEDIR}/ldb/mdb.so
 .	endif
 .endif
@@ -737,8 +736,7 @@ post-install-DOCS-on:
 	@${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin
 .endfor
 # lib
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/*; do \
+	for file in ${STAGEDIR}${PREFIX}/lib/*; do \
 		[ -h "$${file}" ] && continue; \
 		[ -f "$${file}" ] && ${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib; \
 		[ -d "$${file}" ] && ${CP} -Rpv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib; \
@@ -756,8 +754,8 @@ post-install-DOCS-on:
 	@${CP} -Rpv ${STAGEDIR}${PREFIX}/include/samba4 ${XIGMANAS_ROOTFS}${PREFIX}/include/
 
 # python3.11
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
-	for file in talloc.cpython-311.so tdb.cpython-311.so ldb.cpython-311.so; do \
+	${CP} -Rpv ${STAGEDIR}${PREFIX}/lib/python3.11/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages; \
+	for file in ldb.cpython-311.so talloc.cpython-311.so tdb.cpython-311.so; do \
 		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.11/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages; \
 	done
 	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
@@ -770,65 +768,6 @@ post-install-DOCS-on:
 	for file in samba-ldbadd samba-ldbdel samba-ldbedit samba-ldbmodify samba-ldbrename samba-ldbsearch; do \
 		${CP} -pv ${STAGEDIR}${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin; \
 	done
-# modules bind9
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/bind9
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/bind9/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/bind9; \
-	done
-# modules gensec
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/gensec
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/gensec/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/gensec; \
-	done
-# modules idmap
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/idmap
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/idmap/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/idmap; \
-	done
-# modules krb5
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/krb5
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/krb5/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/krb5; \
-	done
-# modules ldb
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/ldb
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/ldb/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/ldb; \
-	done
-	for file in tdbbackup tdbdump tdbrestore tdbtool; do \
-		${CP} -pv ${STAGEDIR}${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin; \
-	done
-
-# modules nss_info
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/nss_info
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/nss_info/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/nss_info; \
-	done
-# modules process_model
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/process_model
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/process_model/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/process_model; \
-	done
-# modules service
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/service
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/service/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/service; \
-	done
-# modules vfs
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/vfs
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/modules/vfs/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/vfs; \
-	done
-# private
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/private
-	for file in ${STAGEDIR}${PREFIX}/lib/samba4/private/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/private; \
-	done
-# py-markdown importlib_metadata zipp.py
-#	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/markdown ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
-#	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/importlib_metadata ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
-#	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/zipp ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
-
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
