@@ -1,5 +1,5 @@
 PORTNAME=		mDNSResponder
-PORTVERSION=	2200.80.16
+PORTVERSION=	2200.120.24
 PORTREVISION=	0
 CATEGORIES=	net dns
 MASTER_SITES=	https://opensource.apple.com/tarballs/mDNSResponder/
@@ -41,7 +41,5 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${BUILD_WRKSRC}/build/prod/mDNSProxyResponderPosix ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${BUILD_WRKSRC}/build/prod/mDNSResponderPosix ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${BUILD_WRKSRC}/build/prod/mdnsd ${XIGMANAS_ROOTFS}/usr/local/sbin
-
-
 
 .include <bsd.port.post.mk>
