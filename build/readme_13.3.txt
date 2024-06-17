@@ -109,7 +109,6 @@ Changes:
 - Upgrade dmidecode to v3.5.
 - Upgrade gzip to v1.13.
 - Upgrade inadyn to v2.12.0.
-- Upgrade iperf3 to v3.16.
 - Upgrade mDNSResponder to v2200.80.16.
 - Upgrade smartmontools to v7.4.
 - Upgrade proftpd to v1.3.8b.
@@ -120,7 +119,6 @@ Changes:
 - Upgrade msmtp to v1.8.26.
 - Upgrade arconf to B26540.
 - Upgrade cdialog to v1.3-20240307.
-- Upgrade iperf3 to v3.17.
 - Upgrade rsync to v3.3.0.
 - Upgrade py-wsdd to v0.8.0.
 - Upgrade tmux to v3.4.
@@ -132,6 +130,7 @@ Changes:
 - Upgrade python to v3.11.9.
 - Upgrade php8 to v8.3.8.
 - Upgrade samba to v4.19.7.
+- Upgrade iperf3 to v3.17.1.
 
 Fixes:
 
