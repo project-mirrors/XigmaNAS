@@ -113,7 +113,6 @@ Changes:
 - Upgrade proftpd to v1.3.8b.
 - Upgrade minidlna to v1.3.3.
 - Upgrade lighttpd to v1.4.76.
-- Upgrade syncthing to v1.27.7.
 - Upgrade nano to v8.0.
 - Upgrade msmtp to v1.8.26.
 - Upgrade arconf to B26540.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade samba to v4.19.7.
 - Upgrade iperf3 to v3.17.1.
 - Upgrade mDNSResponder to v2200.120.24.
+- Upgrade syncthing to v1.27.8.
 
 Fixes:
 
