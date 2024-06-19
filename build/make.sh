@@ -92,7 +92,7 @@ if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_MFSROOT_SIZE=136
 	XIGMANAS_MDLOCAL_SIZE=1312
 	XIGMANAS_MDLOCAL_MINI_SIZE=52
-	XIGMANAS_IMG_SIZE=480
+	XIGMANAS_IMG_SIZE=490
 fi
 
 #	Set compression level from 1 to 9
@@ -653,7 +653,7 @@ create_image() {
 	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/image.bin -x ${XIGMANAS_IMG_SECTS} -y ${XIGMANAS_IMG_HEADS}`
 	diskinfo -v ${md}
 
-	IMGSIZEM=460
+	IMGSIZEM=470
 
 #	create 1MB aligned MBR image
 	echo "===> Creating MBR partition on this memory disk"
