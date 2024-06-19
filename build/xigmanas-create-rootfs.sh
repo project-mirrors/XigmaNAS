@@ -84,7 +84,6 @@ mkdir etc/periodic/weekly ;
 mkdir etc/ssh ;
 mkdir etc/ssl ;
 mkdir etc/ssl/certs ;
-mkdir etc/ssl/certs ;
 mkdir etc/ssl/untrusted ;
 mkdir etc/rc.d ;
 mkdir etc/rc.d.php ;
