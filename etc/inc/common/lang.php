@@ -54,7 +54,7 @@ class lang {
 		foreach($dirite as $diriterow):
 			if($diriterow->isDir() && !$diriterow->isDot()):
 				$key = $diriterow->getFilename();
-				$list[$key] = strtolower($key);
+				$list[$key] = mb_strtolower($key);
 			endif;
 		endforeach;
 		return($list);
@@ -72,7 +72,7 @@ class lang {
 		foreach($dirite as $diriterow):
 			if($diriterow->isDir() && !$diriterow->isDot()):
 				$key = $diriterow->getFilename();
-				$list[strtolower($key)] = $key;
+				$list[mb_strtolower($key)] = $key;
 			endif;
 		endforeach;
 		return($list);
