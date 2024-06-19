@@ -91,7 +91,7 @@ XIGMANAS_IMG_SIZE=460
 if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_MFSROOT_SIZE=136
 	XIGMANAS_MDLOCAL_SIZE=1312
-	XIGMANAS_MDLOCAL_MINI_SIZE=50
+	XIGMANAS_MDLOCAL_MINI_SIZE=52
 	XIGMANAS_IMG_SIZE=480
 fi
 
@@ -438,7 +438,7 @@ create_checksum_file() {
 #	Creating mdlocal-mini
 create_mdlocal_mini() {
 	echo "--------------------------------------------------------------"
-	echo ">>> Generating MDLOCAL mini"
+	echo ">>> Generating MDLOCAL-MINI Filesystem"
 	echo "--------------------------------------------------------------"
 
 	cd $XIGMANAS_WORKINGDIR
