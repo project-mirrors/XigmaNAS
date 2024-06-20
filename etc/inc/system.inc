@@ -152,18 +152,43 @@ function get_language_of_webgui(): string {
 /**
  *	Init language environment
  *	@param string $language_to_try
+ *	Not all programs have translations for all languages. By default, an English message is shown
+ *	in place of a nonexistent translation. If you understand other languages, you can set up a
+ *	priority list of languages. This is done through a different environment variable, called LANGUAGE.
+ *	GNU gettext gives preference to LANGUAGE over LC_ALL and LANG for the purpose of message handling,
+ *	but you still need to have LANG (or LC_ALL) set to the primary language; this is required by other parts of the system libraries.
+ *	For example, some Swedish users who would rather read translations in German than English for when Swedish is not available,
+ *	set LANGUAGE to ‘sv:de’ while leaving LANG to ‘sv_SE’.
+ *
+ *	Special advice for Norwegian users: The language code for Norwegian bokmål changed from ‘no’ to ‘nb’ recently (in 2003).
+ *	During the transition period, while some message catalogs for this language are installed under ‘nb’ and
+ *	some older ones under ‘no’, it is recommended for Norwegian users to set LANGUAGE to ‘nb:no’ so that both
+ *	newer and older translations are used.
+ *
+ *	In the LANGUAGE environment variable, but not in the other environment variables,
+ *	‘ll_CC’ combinations can be abbreviated as ‘ll’ to denote the language’s main dialect.
+ *	For example, ‘de’ is equivalent to ‘de_DE’ (German as spoken in Germany), and
+ *	‘pt’ to ‘pt_PT’ (Portuguese as spoken in Portugal) in this context.
+ *
+ *	Note: The variable LANGUAGE is ignored if the locale is set to ‘C’.
+ *	In other words, you have to first enable localization, by setting LANG (or LC_ALL) to a value other than ‘C’,
+ *	before you can use a language priority list through the LANGUAGE variable.
+ *
  */
 function system_language_load(string $language_to_try = null) {
+	$directory = '/usr/local/share/locale';
+	$domain = strtolower(get_product_name());
+	$lang = 'en_US';
+	$codeset = 'UTF-8';
 	if(is_null($language_to_try)):
 		$language = $_SESSION['userlang'] ?? get_language_of_webgui();
 	else:
 		$language = get_supported_language_of($language_to_try);
 	endif;
-	$domain = strtolower(get_product_name());
-	$codeset = 'UTF-8';
-	putenv(sprintf('LANG=%s.%s','en_US',$codeset));
-	putenv(sprintf('LANGUAGE=%s.%s',$language,$codeset));
-	bindtextdomain($domain,'/usr/local/share/locale');
+	putenv(sprintf('LANG=%s.%s',$lang,$codeset));
+	setlocale(LC_ALL,'');
+	putenv(sprintf('LANGUAGE=%s',$language));
+	bindtextdomain($domain,$directory);
 	bind_textdomain_codeset($domain,$codeset);
 	textdomain($domain);
 	if(isset($_SESSION)):
