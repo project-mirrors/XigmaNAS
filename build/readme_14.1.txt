@@ -1,4 +1,4 @@
-		README & CHANGELOG FOR XIGMANAS® 14.1.0.5 - BETA2
+		README & CHANGELOG FOR XIGMANAS® 14.1.0.5 - BETA3
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
@@ -97,11 +97,15 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 14.1.0.5.10xxx
 ====================
 Changes:
-- Upgrade to FreeBSD 14.1-RELEASE P0.
+- Upgrade to FreeBSD 14.1-RELEASE P1.
 - Upgrade mariadb to v11.4.2.
 - Upgrade iperf3 to v3.17.1.
 - Upgrade mDNSResponder to v2200.120.24.
 - Upgrade syncthing to v1.27.8.
+- Fix starting samba-tool.
+- Fix missing system certs.
+- Fix WebGUI language issue.
+
 
 Default login credentials:
 ==========================
