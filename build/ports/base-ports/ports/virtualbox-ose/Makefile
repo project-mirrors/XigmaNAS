@@ -1,10 +1,13 @@
 PORTNAME=	virtualbox-ose
 PORTVERSION=	6.1.50
-PORTREVISION?=	1
+PORTREVISION?=	2
 CATEGORIES=	emulators
-MASTER_SITES=	https://download.virtualbox.org/virtualbox/${PORTVERSION}/
-DISTFILES=	VirtualBox-${PORTVERSION}${EXTRACT_SUFX} ${GUESTADDITIONS}
-EXTRACT_ONLY=	VirtualBox-${PORTVERSION}${EXTRACT_SUFX}
+MASTER_SITES=	https://download.virtualbox.org/virtualbox/${PORTVERSION}/:src \
+		LOCAL/bofh/emulators/virtualbox-ose:docs
+DISTFILES=	VirtualBox-${PORTVERSION}${EXTRACT_SUFX}:src \
+		VirtualBox-docs-${PORTVERSION}${EXTRACT_SUFX}:docs
+EXTRACT_ONLY=	VirtualBox-${PORTVERSION}${EXTRACT_SUFX} \
+		VirtualBox-docs-${PORTVERSION}${EXTRACT_SUFX}
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	General-purpose full virtualizer for x86 hardware
@@ -31,7 +34,7 @@ CPE_VENDOR=	oracle
 CPE_PRODUCT=	vm_virtualbox
 
 HAS_CONFIGURE=	yes
-CONFIGURE_ARGS=	--disable-java --passive-mesa
+CONFIGURE_ARGS=	--disable-java --passive-mesa --disable-docs
 CONFIGURE_ARGS+=	--with-gcc="${CC}" --with-g++="${CXX}"
 
 CONFLICTS_INSTALL=	virtualbox-ose-additions-* \
@@ -58,7 +61,7 @@ VBOX_UTILS=	VBoxExtPackHelperApp VBoxNetAdpCtl VBoxNetDHCP VBoxNetNAT \
 SUB_FILES=	pkg-message
 
 OPTIONS_DEFINE=		AIO ALSA DBUS DEBUG DOCS GUESTADDITIONS NLS OPUS PULSEAUDIO \
-			PYTHON QT5 R0LOGGING UDPTUNNEL VDE VNC WEBSERVICE VPX X11
+			PYTHON QT5 R0LOGGING UDPTUNNEL VBOXIMG VDE VNC WEBSERVICE VPX X11
 OPTIONS_DEFAULT=	AIO DBUS QT5 UDPTUNNEL VNC WEBSERVICE X11
 # Since version 6.1.24 pulseaudio is broken at runtime, preventing
 # virtual machines from starting if configured to use it.
@@ -73,6 +76,7 @@ OPUS_DESC=		Use libvpx for audio recording (requires VPX)
 QT5_DESC=		Build with QT5 frontend (requires X11)
 R0LOGGING_DESC=		Enable R0 logging (requires DEBUG)
 UDPTUNNEL_DESC=		Build with UDP tunnel support
+VBOXIMG_DESC=		Build vboximg-mount (requires fuse-libs)
 VDE_DESC=		Build with VDE support
 VNC_DESC=		Build with VNC support
 VPX_DESC=		Use libvpx for video recording
@@ -83,12 +87,6 @@ ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
 DBUS_CONFIGURE_OFF=	--disable-dbus
 DBUS_LIB_DEPENDS=	libdbus-1.so:devel/dbus
 DEBUG_CONFIGURE_ON=	--build-debug
-DOCS_USES=		tex
-DOCS_USE=		TEX=dvipsk:build,formats:build
-DOCS_BUILD_DEPENDS=	${LOCALBASE}/share/xml/docbook/4.4/docbookx.dtd:textproc/docbook-xml
-DOCS_CONFIGURE_OFF=	--disable-docs
-DOCS_VARS=		dbkxmldir=${LOCALBASE}/share/xml/docbook/4.4 \
-			dbkxsldir=${LOCALBASE}/share/xsl/docbook
 NLS_IMPLIES=		QT5
 OPUS_CONFIGURE_OFF=	--disable-libopus
 OPUS_LIB_DEPENDS=	libopus.so:audio/opus
@@ -108,6 +106,7 @@ QT5_CONFIGURE_OFF=	--disable-qt
 QT5_IMPLIES=		X11
 R0LOGGING_IMPLIES=	DEBUG
 UDPTUNNEL_CONFIGURE_OFF=	--disable-udptunnel
+VBOXIMG_LIB_DEPENDS=	libfuse.so.2:sysutils/fusefs-libs
 VDE_CONFIGURE_ON=	--enable-vde
 VDE_RUN_DEPENDS=	vde_switch:net/vde2
 VNC_CONFIGURE_ON=	--enable-vnc
@@ -144,13 +143,13 @@ CONFLICTS_INSTALL+=	virtualbox-ose
 .if ${PORT_OPTIONS:MDEBUG}
 KMK_BUILDTYPE=	debug
 KMK_FLAGS+=	BUILD_TYPE=debug
-WITH_DEBUG=	yes
 .else
 KMK_BUILDTYPE=	release
 .endif
 
 .if ${PORT_OPTIONS:MGUESTADDITIONS}
 GUESTADDITIONS=	VBoxGuestAdditions_${PORTVERSION}.iso
+DISTFILES+=	${GUESTADDITIONS}:src
 LICENSE+=	Additions
 LICENSE_COMB=	multi
 LICENSE_NAME_Additions=	Guest Additions
@@ -183,6 +182,14 @@ PLIST_SUB+=	SDK=""
 PLIST_SUB+=	SDK="@comment "
 .endif
 
+.if ${PORT_OPTIONS:MVBOXIMG}
+EXTRA_PATCHES+=	${PATCHDIR}/extrapatch-vboximg-Config.kmk
+VBOX_UTILS+=	vboximg-mount
+PLIST_SUB+=	VBOXIMG=""
+.else
+PLIST_SUB+=	VBOXIMG="@comment "
+.endif
+
 KMK_ARCH=	freebsd.${ARCH}
 PLIST_SUB+=	ARCH="${KMK_ARCH}"
 
@@ -191,11 +198,6 @@ KMK_CONFIG=	VBOX_LIBPATH_X11=${LOCALBASE} VBOX_FREEBSD_SRC=${SRC_BASE}/sys
 KMK_FLAGS+=	-j${MAKE_JOBS_NUMBER}
 
 .include <bsd.port.pre.mk>
-
-.if ${OPSYS} == FreeBSD && \
-    (${OSVERSION} < 1300513 || ${OSVERSION} >= 1400000 && ${OSVERSION} < 1400026)
-EXTRA_PATCHES+=	${PATCHDIR}/extrapatch-src_VBox_Devices_PC_DevFwCommon.cpp
-.endif
 
 .if ${CHOSEN_COMPILER_TYPE} == clang
 # 1) llvm10 in FreeBSD before r364284 miscompiles virtualbox 6.1 causing errors.
@@ -371,7 +373,7 @@ do-install:
 
 .if ${PORT_OPTIONS:MDOCS}
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
-	${INSTALL_DATA} ${KMK_BUILDDIR}/bin/UserManual*.pdf \
+	${INSTALL_DATA} ${WRKDIR}/VirtualBox-docs-${PORTVERSION}/UserManual.pdf \
 	    ${STAGEDIR}${DOCSDIR}
 .endif
 
@@ -408,6 +410,10 @@ do-install:
 	    ${STAGEDIR}${VBOX_DIR}/ExtensionPacks/VNC/
 	${INSTALL_LIB} ${KMK_BUILDDIR}/bin/ExtensionPacks/VNC/${KMK_ARCH}/* \
 	    ${STAGEDIR}${VBOX_DIR}/ExtensionPacks/VNC/${KMK_ARCH}/
+.endif
+
+.if ${PORT_OPTIONS:MVBOXIMG}
+	${LN} -fs ../${VBOX_DIR_REL}/vboximg-mount ${STAGEDIR}${PREFIX}/bin/
 .endif
 
 .if ${PORT_OPTIONS:MWEBSERVICE}
