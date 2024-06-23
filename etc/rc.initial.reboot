@@ -1,10 +1,10 @@
 #!/bin/sh
 #
-# rc.initial.reboot
-#
 # Part of XigmaNAS® (https://www.xigmanas.com).
 # Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
+#
+# rc.initial.reboot
 #
 
 # Display dialog

@@ -1,9 +1,10 @@
-# configxml.subr
-# functions used by various rc scripts
 #
 # Part of XigmaNAS® (https://www.xigmanas.com).
 # Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
+#
+# configxml.subr
+# functions used by various rc scripts
 #
 
 configxml_file=${configxml_file:-"/conf/config.xml"}

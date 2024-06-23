@@ -1,12 +1,11 @@
 #!/bin/sh
 #
-# rc.initial.ping
-#
 # Part of XigmaNAS® (https://www.xigmanas.com).
 # Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-
+# rc.initial.ping
+#
 . /etc/util.subr
 
 tmpfile=`tmpfile 2>/dev/null` || tmpfile=/tmp/tui$$

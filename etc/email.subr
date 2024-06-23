@@ -1,11 +1,11 @@
-# Subroutines for email support in scripts.
-# Requires that rc.conf is loaded first!
 #
 # Part of XigmaNAS® (https://www.xigmanas.com).
 # Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-
+# Subroutines for email support in scripts.
+# Requires that rc.conf is loaded first!
+#
 . /etc/configxml.subr
 
 # send_email [to] [subject] [message]
