@@ -1,4 +1,4 @@
-		README & CHANGELOG FOR XIGMANAS® 14.1.0.5 - BETA3
+		README & CHANGELOG FOR XIGMANAS® 14.1.0.5 - RC1
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
@@ -102,9 +102,6 @@ Changes:
 - Upgrade iperf3 to v3.17.1.
 - Upgrade mDNSResponder to v2200.120.24.
 - Upgrade syncthing to v1.27.8.
-- Fix starting samba-tool.
-- Fix missing system certs.
-- Fix WebGUI language issue.
 - New samba use its own log file.
 - New SMB Server Signing and Server/Client Encryption added to WebGUI.
 
