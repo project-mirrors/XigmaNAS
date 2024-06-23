@@ -52,7 +52,8 @@ CONFIGURE_ARGS+=	\
 		--with-openssl \
 		--with-imap-ssl=${OPENSSLBASE} \
 		--with-imap=${LOCALBASE} \
-		--with-gettext=${LOCALBASE} \
+		--with-gettext \
+		--with-external-pcre \
 		--with-libxml \
 		--with-mysqli \
 		--with-pdo-mysql=mysqlnd \
