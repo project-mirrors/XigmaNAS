@@ -105,6 +105,8 @@ Changes:
 - Fix starting samba-tool.
 - Fix missing system certs.
 - Fix WebGUI language issue.
+- New samba use its own log file.
+- New SMB Server Signing and Server/Client Encryption added to WebGUI.
 
 
 Default login credentials:

@@ -9,7 +9,8 @@ Changes:
 - Fix starting samba-tool.
 - Fix missing system certs.
 - Fix WebGUI language issue.
-
+- New samba use its own log file.
+- New SMB Server Signing and Server/Client Encryption added to WebGUI.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
