@@ -21,6 +21,7 @@ LIB_DEPENDS+=		libsqlite3.so:databases/sqlite3 \
 
 BUILD_DEPENDS=		libxml2>0:textproc/libxml2
 
+USES+=		autoreconf libtool gettext-tools pkgconfig
 USE_AUTOTOOLS=	autoconf
 USE_GNOME=		libxml2
 USE_ICONV=		yes
