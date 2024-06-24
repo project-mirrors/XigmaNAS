@@ -19,13 +19,6 @@ The LiveCD/USB image contains a file called embedded.img.xz. Do not extract this
 Upgrade notes!
 ==============
 
-GEOM RAID5
-==========
-This is for current GEOM RAID5 users running on 12.x series!
-XigmaNAS 13.x releases will no longer support GEOM RAID5, code was removed from the code base.
-You will NOT have access to your DATA!
-Migrate your data to ZFS first before upgrade.
-
 Post-upgrade tasks:
 ===================
 - You may need to clear your browser's cache to circumvent display issues.
