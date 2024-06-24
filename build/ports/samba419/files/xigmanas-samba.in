@@ -42,9 +42,12 @@ samba_config="${samba_config:-${samba_config_default}}"
 command_args="${samba_config:+-s "${samba_config}"}"
 samba_daemons="nmbd smbd winbindd"
 smbcontrol_command="/usr/local/bin/smbcontrol"
+samba_maxlogsize="${samba_maxlogsize:-250}"
+samba_logging="${samba_logging:-file}"
 samba_logdir="${samba_logdir:-/var/log/samba4}"
+samba_logfilename="${samba_logfilename}:-log.%m}"
 samba_lockdir="${samba_lockdir:-/var/db/samba4}"
-samba_piddir="${samba_piddir=/var/run/samba4}"
+samba_piddir="${samba_piddir:-/var/run/samba4}"
 samba_recycle_repository="${samba_recycle_repository:-".recycle/%U"}"
 samba_recycle_directory_mode="${samba_recycle_directory_mode:-"0777"}"
 samba_recycle_subdir_mode="${samba_recycle_subdir_mode:-"0700"}"
@@ -374,9 +377,9 @@ samba_mkconf_cmd() {
 		--else \
 			--output "directory mask = ${samba_directory_mask}" --nl \
 		--break \
-		--output 'max log size = 250' --nl \
-		--output 'logging = file' --nl \
-		--output 'log file = /var/log/samba4/log.samba' --nl \
+		--output "max log size = ${samba_maxlogsize}" --nl \
+		--output "logging = ${samba_logging}" --nl \
+		--output "log file = ${samba_logdir}/${samba_logfilename}" --nl \
 		--if 'string-length(//samba/loglevel) > 0' \
 			--value-of 'concat("loglevel = ",//samba/loglevel)' --nl \
 		--break \
