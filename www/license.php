@@ -250,7 +250,7 @@ $software = [
 	]],
 	['Transmission',[
 		'A fast, easy, and free multi-platform BitTorrent client (<a href="https://transmissionbt.com" target="_blank" rel="noreferrer">https://transmissionbt.com</a>).',
-		'Copyright © 2008-2024 Transmission Project. All Rights Reserved.'
+		'Copyright © 2005-2024 Transmission Project. All Rights Reserved.'
 	]],
 	['VirtualBox',[
 		'Open Source Edition (OSE) & (Guest Additions) (<a href="https://www.virtualbox.org" target="_blank" rel="noreferrer">https://www.virtualbox.org</a>).',
