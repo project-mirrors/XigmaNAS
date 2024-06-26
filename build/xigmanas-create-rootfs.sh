@@ -84,6 +84,8 @@ mkdir etc/periodic/security ;
 mkdir etc/periodic/weekly ;
 mkdir etc/ssh ;
 mkdir etc/ssl ;
+mkdir etc/ssl/certs ;
+mkdir etc/ssl/untrusted
 mkdir etc/rc.d ;
 mkdir etc/rc.d.php ;
 mkdir etc/zfs ;
@@ -121,6 +123,9 @@ mkdir usr/local/www/syntaxhighlighter ;
 mkdir usr/local/www/third-party_licenses ;
 mkdir usr/sbin ;
 mkdir usr/share ;
+mkdir usr/share/certs ;
+mkdir usr/share/certs/trusted ;
+mkdir usr/share/certs/untrusted ;
 mkdir usr/share/bsdconfig ;
 mkdir usr/share/examples ;
 mkdir usr/share/examples/bhyve ;

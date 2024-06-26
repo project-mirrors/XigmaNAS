@@ -1139,6 +1139,8 @@ etc/network.subr
 etc/pccard_ether
 etc/gettytab
 etc/devd/*
+etc/ssl/certs/*
+etc/ssl/untrusted/*
 etc/ssl/openssl.cnf
 etc/devfs.conf
 etc/dhclient.conf
@@ -1192,6 +1194,9 @@ etc/rc.d/zfsbe
 etc/rc.d/zfskeys
 etc/rc.d/zpoolreguid
 
+####### contents of /usr/share/certs
+usr/share/certs/trusted/*
+usr/share/certs/untrusted/*
 ####### contents of /usr/share/snmp/defs
 usr/share/snmp/defs/bridge_tree.def
 usr/share/snmp/defs/hast_tree.def

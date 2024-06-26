@@ -91,8 +91,8 @@ XIGMANAS_IMG_SIZE=460
 if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_MFSROOT_SIZE=136
 	XIGMANAS_MDLOCAL_SIZE=1312
-	XIGMANAS_MDLOCAL_MINI_SIZE=48
-	XIGMANAS_IMG_SIZE=480
+	XIGMANAS_MDLOCAL_MINI_SIZE=52
+	XIGMANAS_IMG_SIZE=490
 fi
 
 #	Set compression level from 1 to 9
@@ -653,7 +653,7 @@ create_image() {
 	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/image.bin -x ${XIGMANAS_IMG_SECTS} -y ${XIGMANAS_IMG_HEADS}`
 	diskinfo -v ${md}
 
-	IMGSIZEM=460
+	IMGSIZEM=470
 
 #	create 1MB aligned MBR image
 	echo "===> Creating MBR partition on this memory disk"
@@ -1641,6 +1641,8 @@ copy_files() {
 	echo "===> Copy SAS3IRCU_P16.zip done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/fuppes-0.692.tar.gz /usr/ports/distfiles
 	echo "===> Copy fuppes-0.692.tar.gz done!"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/transmission-4.0.6.1.tar.gz /usr/ports/distfiles
+	echo "===> Copy transmission-4.0.6.1.tar.gz done!"
 	echo;
 #	Delete/Adding base-ports files to FreeBSD ports directory.
 	echo "----------------------------------------------------------";
