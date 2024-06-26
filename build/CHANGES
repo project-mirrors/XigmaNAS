@@ -41,6 +41,8 @@ Changes:
 
 Fixes:
 - Fix WebGUI language issue.
+- Fix missing certs.
+
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.

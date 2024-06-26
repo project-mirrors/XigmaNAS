@@ -136,6 +136,7 @@ Changes:
 
 Fixes:
 - Fix WebGUI language issue.
+- Fix missing certs.
 
 Default login credentials:
 ==========================
