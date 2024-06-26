@@ -99,7 +99,7 @@ post-install:
 
 # XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
-	@${INSTALL_SCRIPT} -v ${FILESDIR}/xigmanas-netatalk.in ${XIGMANAS_ROOTFS}/etc/rc.d/netatalk
+	@${INSTALL_SCRIPT} -v ${FILESDIR}/netatalk.in ${XIGMANAS_ROOTFS}/etc/rc.d/netatalk
 # bin
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/dbd ${XIGMANAS_ROOTFS}${PREFIX}/bin
 # sbin
