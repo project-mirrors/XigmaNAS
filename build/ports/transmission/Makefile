@@ -1,8 +1,8 @@
 PORTNAME=		transmission
 DISTVERSION=	4.0.6
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	net-p2p
-MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/${DISTVERSION}/
+#MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/${DISTVERSION}/
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Transmission BitTorrent client
@@ -37,7 +37,8 @@ CPE_VENDOR=	transmissionbt
 CPE_PRODUCT=	transmission
 
 USE_OPENSSL=	yes
-EXTRACT_SUFX=	.tar.xz
+#EXTRACT_SUFX=	.tar.xz
+EXTRACT_SUFX=	.1.tar.gz
 GNU_CONFIGURE=	yes
 CPPFLAGS=	-I${LOCALBASE}/include
 LDFLAGS=	-L${LOCALBASE}/lib
