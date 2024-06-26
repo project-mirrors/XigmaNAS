@@ -100,7 +100,6 @@ Changes:
 - Upgrade to FreeBSD 13.3-RELEASE P2.
 - Upgrade jquery to v3.7.1.
 - Upgrade zoneinfo to v2024a.
-- Upgrade netatalk to v3.1.18.
 - Upgrade devcpu-data-amd to v20240116.
 - Upgrade bash to v5.2p26.
 - Upgrade pecl-APCu to v5.1.23.
@@ -131,8 +130,10 @@ Changes:
 - Upgrade iperf3 to v3.17.1.
 - Upgrade mDNSResponder to v2200.120.24.
 - Upgrade syncthing to v1.27.8.
+- Upgrade netatalk to v3.1.20.
 - New samba use its own log file.
 - New SMB Server Signing and Server/Client Encryption added to WebGUI.
+
 
 Fixes:
 - Fix WebGUI language issue.
