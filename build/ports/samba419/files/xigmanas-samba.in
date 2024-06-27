@@ -462,7 +462,7 @@ samba_mkconf_cmd() {
 			--value-of 'concat("client max protocol = ",//samba/clientmaxprotocol)' --nl \
 		--break \
 		--if 'string-length(//samba/clientminprotocol) > 0' \
-			--value-of 'concat("client min protocol = ",//samba/clientmaxprotocol)' --nl \
+			--value-of 'concat("client min protocol = ",//samba/clientminprotocol)' --nl \
 		--break \
 		--if 'string-length(//samba/serversigning) > 0' \
 			--value-of 'concat("server signing = ",//samba/serversigning)' --nl \
