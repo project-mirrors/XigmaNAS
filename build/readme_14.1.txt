@@ -90,7 +90,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 14.1.0.5.10107 RC1
 ========================
 Changes:
-- Upgrade to FreeBSD 14.1-RELEASE P1.
+- Upgrade to FreeBSD 14.1-RELEASE P2.
 - Update translations.
 - Upgrade python311 v3.11.9..
 - Upgrade mariadb to v11.4.2.
