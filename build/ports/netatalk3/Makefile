@@ -1,95 +1,130 @@
-PORTNAME=		netatalk
-PORTVERSION=	3.1.18
-PORTREVISION=	3
+PORTNAME=	netatalk
+PORTVERSION=	3.2.1
+PORTREVISION=	0
 PORTEPOCH=	1
-MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}-${PORTVERSION:S/./-/g}
 CATEGORIES=	net
-PKGNAMESUFFIX=  3
+MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/netatalk-${PORTVERSION:S/./-/g}/
+PKGNAMESUFFIX=	3
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	File server for Mac OS X
+WWW=		https://netatalk.io/
 
+# XigmaNAS® contains license files
+NO_LICENSES_DIALOGS= yes
 LICENSE=	GPLv2
 
 LIB_DEPENDS=	libgcrypt.so:security/libgcrypt \
 		libevent.so:devel/libevent
 
-USES=           bdb:18 gettext gmake iconv libtool perl5 pkgconfig shebangfix ssl tar:bzip2
-GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
+USES=		bdb:18 gettext iconv meson perl5 pkgconfig shebangfix ssl tar:xz
 USE_LDCONFIG=	yes
-#USE_RC_SUBR=	netatalk
-SHEBANG_GLOB=   afpstats
+USE_RC_SUBR=	netatalk
+#INSTALL_TARGET=install-strip
+CPE_VENDOR=	netatalk_project
 
-CONFIGURE_ARGS+=	--with-pkgconfdir=${PREFIX}/etc \
-			--with-libgcrypt-dir=${LOCALBASE} \
-			--with-uams-path=/etc/uams \
-			--with-bdb=${LOCALBASE} \
-			${ICONV_CONFIGURE_BASE} \
-			--localstatedir=/var/db \
-			--sysconfdir=/var/etc \
-			--disable-bundled-libevent \
-			--with-libevent-header=${LOCALBASE}/include \
-			--with-libevent-lib=${LOCALBASE}/lib \
-			--with-ssl-dir=${OPENSSLBASE}
++MESON_ARGS=		-Dwith-libgcrypt-path=${LOCALBASE} \
+			-Dwith-bdb-path=${LOCALBASE} \
+			-Dwith-libiconv-path=${LOCALBASE} \
+			-Dwith-dtrace=false \
+			-Dwith-init-hooks=false \
+			-Dpkg_config_path=${LOCALBASE}/libdata/pkgconfig \
+			-Dwith-shadow=false \
+			-Dwith-pgp-uam=false \
+			--localstatedir=/var/etc \
+			--infodir=${PREFIX}/share/info
 
-LIB_DEPENDS+=	libsunacl.so:sysutils/libsunacl
+OPTIONS_DEFINE= PAM KERBEROS5 LDAP SENDFILE KERBEROS DBUS MYSQL ACL LIBWRAP SPOTLIGHT
+OPTIONS_DEFAULT= ACL MDNSRESPONDER PAM
+OPTIONS_RADIO=ZEROCONF
+OPTIONS_RADIO_ZEROCONF= AVAHI MDNSRESPONDER
+ZEROCONF_DESC=		Zeroconf(Bonjour) support
+MYSQL_DESC=		Enable MySQL CNID backend support
+SENDFILE_DESC=		Enable Sendfile support
+ACL_DESC=		Enable ACL support
+SPOTLIGHT_DESC=		Enable Spotlight search support
+OPTIONS_SUB=	yes
+KERBEROS5_MESON_ON=	-Dwith-krbV-uam=true \
+			-Dwith-kerberos=true
+KERBEROS5_MESON_OFF=	-Dwith-krbV-uam=false \
+			-Dwith-kerberos=false
+KERBEROS_LIB_DEPENDS=libgpg-error.so:security/libgpg-error
+PAM_MESON_ON=		-Dwith-pam-path=${LOCALBASE}
+PAM_MESON_OFF=		-Dwith-pam=false
+AVAHI_CFLAGS=		-I${LOCALBASE}/include -L${LOCALBASE}/lib
+AVAHI_LIB_DEPENDS=		libavahi-client.so:net/avahi-app
+AVAHI_SUB_LIST=		ZEROCONF="avahi_daemon"
+MDNSRESPONDER_CFLAGS=		-I${LOCALBASE}/include -L${LOCALBASE}/lib
+MDNSRESPONDER_LIB_DEPENDS=		libdns_sd.so:net/mDNSResponder
+MDNSRESPONDER_SUB_LIST=	ZEROCONF="mdnsd"
+LDAP_MESON_ON=		-Dwith-ldap-path=${LOCALBASE}
+LDAP_MESON_OFF=		-Dwith-ldap=false
+LDAP_CFLAGS=		-I${LOCALBASE}/include -L${LOCALBASE}/lib
+LDAP_USES=		ldap
+SENDFILE_MESON_OFF=	-Dwith-sendfile=false
+DBUS_USES=		gnome python
+DBUS_USE=		GNOME=glib20
+DBUS_LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib \
+			libdbus-1.so:devel/dbus
+DBUS_RUN_DEPENDS=	${PYTHON_SITELIBDIR}/dbus/_dbus.py:devel/py-dbus@${PY_FLAVOR}
+DBUS_MESON_ON=		-Dwith-dbus-daemon-path=${LOCALBASE}/bin/dbus-daemon \
+			-Dwith-dbus-sysconf-path=${LOCALBASE}/etc/dbus-1/system.d
+DBUS_MESON_OFF=		-Dwith-afpstats=false
+MYSQL_USES=		mysql
+MYSQL_MESON_OFF=	-Dwith-mysql-config=/nonexistent
+ACL_LIB_DEPENDS=	libsunacl.so:sysutils/libsunacl
+ACL_MESON_OFF=		-Dwith-acls=false
+LIBWRAP_MESON_OFF=-Dwith-tcp-wrappers=false
+SPOTLIGHT_LIB_DEPENDS=	libtracker-sparql-3.0.so:sysutils/tracker3
+SPOTLIGHT_MESON_OFF=	-Dwith-spotlight=false
 
-CONFIGURE_ARGS+= 	--without-dtrace \
-			--without-kerberos \
-			--with-pam \
-			--disable-zeroconf \
-			--without-ldap \
-			--disable-sendfile \
-			--with-mysql-config=/nonexistent \
-			--with-acls \
-			--disable-tcp-wrappers
+SHEBANG_GLOB=	afpstats
 
-.include <bsd.port.options.mk>
+CONFLICTS=	jday yudit # bin/dbd man/man1/uniconv.1.gz
 
-#CONFLICTS=	bigloo-2.* cap-6.0.* tct-1.* netatalk-[12]* yudit-[0-9]*
+.include <bsd.port.pre.mk>
+
+.if ${PORT_OPTIONS:MAVAHI}=="" && ${PORT_OPTIONS:MMDNSRESPONDER}==""
+SUB_LIST+=	ZEROCONF=""
+MESON_ARGS+=-Dwith-zeroconf=false
+.endif
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|%%DB_NAME%%|${BDB_INCLUDE_DIR:T}| ; \
-	    	s|%%DB_LIB%%|-l${BDB_LIB_NAME}|g ; \
-		s|%%LOCALBASE%%|${LOCALBASE}|g' \
-		${WRKSRC}/configure
-
-post-stage:
-	@${RM} -f ${STAGEDIR}${PREFIX}/etc/afp.conf \
-		${STAGEDIR}${PREFIX}/etc/extmap.conf
+	@${REINPLACE_CMD} -e 's|%%DB_NAME%%|${BDB_INCLUDE_DIR:T}|' \
+		${WRKSRC}/meson.build
 
 post-install:
-	${INSTALL_SCRIPT} ${WRKSRC}/contrib/macusers/macusers \
+	${INSTALL_SCRIPT} ${BUILD_WRKSRC}/contrib/macusers/macusers \
 		${STAGEDIR}${PREFIX}/bin/macusers
-	[ -f ${STAGEDIR}${PREFIX}/etc/afp.conf ] || \
-		${INSTALL_DATA} -c ${STAGEDIR}${PREFIX}/etc/afp.conf.sample ${STAGEDIR}${PREFIX}/etc/afp.conf
-	[ -f ${STAGEDIR}${PREFIX}/etc/extmap.conf ] || \
-		${INSTALL_DATA} -c ${STAGEDIR}${PREFIX}/etc/extmap.conf.sample ${STAGEDIR}${PREFIX}/etc/extmap.conf
 
 # XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/netatalk.in ${XIGMANAS_ROOTFS}/etc/rc.d/netatalk
-
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/dbd ${XIGMANAS_ROOTFS}/usr/local/bin
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/afpd ${XIGMANAS_ROOTFS}/usr/local/sbin
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/cnid_metad ${XIGMANAS_ROOTFS}/usr/local/sbin
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/cnid_dbd ${XIGMANAS_ROOTFS}/usr/local/sbin
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/netatalk ${XIGMANAS_ROOTFS}/usr/local/sbin
-	@${INSTALL_LIB} -v ${STAGEDIR}${PREFIX}/lib/libatalk.so.0 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${INSTALL_DATA} -v ${STAGEDIR}${PREFIX}/etc/extmap.conf.sample ${XIGMANAS_ROOTFS}/usr/local/etc/extmap.conf
-
-	@${MKDIR} -v ${XIGMANAS_ROOTFS}/etc/uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}/etc/uams/uams_dhx_pam.so ${XIGMANAS_ROOTFS}/etc/uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}/etc/uams/uams_dhx_passwd.so ${XIGMANAS_ROOTFS}/etc/uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}/etc/uams/uams_dhx2_pam.so ${XIGMANAS_ROOTFS}/etc/uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}/etc/uams/uams_dhx2_passwd.so ${XIGMANAS_ROOTFS}/etc/uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}/etc/uams/uams_guest.so ${XIGMANAS_ROOTFS}/etc/uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}/etc/uams/uams_pam.so ${XIGMANAS_ROOTFS}/etc/uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}/etc/uams/uams_passwd.so ${XIGMANAS_ROOTFS}/etc/uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}/etc/uams/uams_randnum.so ${XIGMANAS_ROOTFS}/etc/uams
-
-	@cd ${XIGMANAS_ROOTFS}/etc/uams && ${LN} -fsv uams_passwd.so uams_clrtxt.so && ${LN} -fsv uams_dhx_passwd.so uams_dhx.so && ${LN} -fsv uams_dhx2_passwd.so uams_dhx2.so
+# bin
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/dbd ${XIGMANAS_ROOTFS}${PREFIX}/bin
+# sbin
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/afpd ${XIGMANAS_ROOTFS}${PREFIX}/sbin
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/cnid_dbd ${XIGMANAS_ROOTFS}${PREFIX}/sbin
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/cnid_metad ${XIGMANAS_ROOTFS}${PREFIX}/sbin
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/netatalk ${XIGMANAS_ROOTFS}${PREFIX}/sbin
+# lib
+	@${INSTALL_LIB} -v ${STAGEDIR}${PREFIX}/lib/libatalk.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib
+	@${LN} -f -v -s libatalk.so.18 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libatalk.so
+# etc
+	@${INSTALL_DATA} -v ${STAGEDIR}${PREFIX}/etc/extmap.conf.sample ${XIGMANAS_ROOTFS}${PREFIX}/etc/extmap.conf
+# lib
+	@${MKDIR} -v ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_dhx_pam.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_dhx_passwd.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_dhx2_pam.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_dhx2_passwd.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+#	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_gss.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_guest.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_pam.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_passwd.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+#	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_pgp.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_randnum.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+	@cd ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams && ${LN} -fsv uams_passwd.so uams_clrtxt.so && ${LN} -fsv uams_dhx_passwd.so uams_dhx.so && ${LN} -fsv uams_dhx2_passwd.so uams_dhx2.so
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
