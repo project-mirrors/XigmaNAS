@@ -524,7 +524,7 @@ create_mdlocal_mini() {
 	mdconfig -d -u ${md}
 
 	echo "Compressing mdlocal-mini"
-	xz -${XIGMANAS_COMPLEVEL}v -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT $XIGMANAS_WORKINGDIR/mdlocal-mini
+	xz -${XIGMANAS_COMPLEVEL}v -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT $XIGMANAS_WORKINGDIR/image.bin
 	[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.files ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.files
 
 	return 0
@@ -1523,9 +1523,9 @@ create_full() {
 	echo "FULL: Creating ${EXTENSION} compressed file"
 	cd $XIGMANAS_ROOTDIR
 	if [ "${EXTENSION}" = "tgz" ]; then
-		tar -c -f - -C ${XIGMANAS_TMPDIR} ./ | xz -8 -v -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT  > ${FULLFILENAME}
+		tar cvfz ${FULLFILENAME} -C ${XIGMANAS_TMPDIR} ./
 	elif [ "${EXTENSION}" = "txz" ]; then
-		tar -c -f - -C ${XIGMANAS_TMPDIR} ./ | xz -8 -v --threads=0 > ${FULLFILENAME}
+		xz -${XIGMANAS_COMPLEVEL}v -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT $XIGMANAS_WORKINGDIR/image.bin
 	fi
 
 	# Cleanup.
