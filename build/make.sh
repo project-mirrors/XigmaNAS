@@ -100,12 +100,12 @@ fi
 XIGMANAS_COMPLEVEL=8
 XIGMANAS_KERNCOMPLEVEL=9
 
-+#	Specify the number of worker threads to use.  
-+#	Setting threads to a special value 0 makes xz use as many threads as there are CPU cores on the system.
-+XIGMANAS_XZ_THREADS=0
-+
-+#	Set a memory usage limit for compression/decompression.
-+XIGMANAS_XZ_MEM_LIMIT=75%
+#	Specify the number of worker threads to use.  
+#	Setting threads to a special value 0 makes xz use as many threads as there are CPU cores on the system.
+XIGMANAS_XZ_THREADS=0
+
+#	Set a memory usage limit for compression/decompression.
+XIGMANAS_XZ_MEM_LIMIT=75%
 
 #	Media geometry, only relevant if bios doesn't understand LBA.
 XIGMANAS_IMG_SIZE_SEC=`expr ${XIGMANAS_IMG_SIZE} \* 2048`
