@@ -1,5 +1,5 @@
 PORTNAME=	netatalk
-PORTVERSION=	3.2.0
+PORTVERSION=	3.2.1
 PORTREVISION=	0
 PORTEPOCH=	1
 CATEGORIES=	net
@@ -23,15 +23,14 @@ USE_RC_SUBR=	netatalk
 #INSTALL_TARGET=install-strip
 CPE_VENDOR=	netatalk_project
 
-MESON_ARGS=	-Dwith-libgcrypt-dir=${LOCALBASE} \
-			-Dwith-bdb=${LOCALBASE} \
-			-Dwith-libiconv=${LOCALBASE} \
-			-Dwith-ssl-dir=${OPENSSLBASE} \
++MESON_ARGS=		-Dwith-libgcrypt-path=${LOCALBASE} \
+			-Dwith-bdb-path=${LOCALBASE} \
+			-Dwith-libiconv-path=${LOCALBASE} \
 			-Dwith-dtrace=false \
-			-Ddisable-init-hooks=true \
+			-Dwith-init-hooks=false \
 			-Dpkg_config_path=${LOCALBASE}/libdata/pkgconfig \
-			-Dwith-shadow=disabled \
-			-Denable-pgp-uam=enabled \
+			-Dwith-shadow=false \
+			-Dwith-pgp-uam=false \
 			--localstatedir=/var/etc \
 			--infodir=${PREFIX}/share/info
 
@@ -45,38 +44,39 @@ SENDFILE_DESC=		Enable Sendfile support
 ACL_DESC=		Enable ACL support
 SPOTLIGHT_DESC=		Enable Spotlight search support
 OPTIONS_SUB=	yes
-KERBEROS5_MESON_ON=	-Denable-krbV-uam=enabled \
-			-Dwith-kerberos=enabled
-KERBEROS5_MESON_OFF=	-Denable-krbV-uam=disabled \
-			-Dwith-kerberos=disabled
+KERBEROS5_MESON_ON=	-Dwith-krbV-uam=true \
+			-Dwith-kerberos=true
+KERBEROS5_MESON_OFF=	-Dwith-krbV-uam=false \
+			-Dwith-kerberos=false
 KERBEROS_LIB_DEPENDS=libgpg-error.so:security/libgpg-error
-PAM_MESON_ON=		-Dwith-pam=${LOCALBASE}
-PAM_MESON_OFF=		-Dwithout-pam=true
+PAM_MESON_ON=		-Dwith-pam-path=${LOCALBASE}
+PAM_MESON_OFF=		-Dwith-pam=false
 AVAHI_CFLAGS=		-I${LOCALBASE}/include -L${LOCALBASE}/lib
 AVAHI_LIB_DEPENDS=		libavahi-client.so:net/avahi-app
 AVAHI_SUB_LIST=		ZEROCONF="avahi_daemon"
 MDNSRESPONDER_CFLAGS=		-I${LOCALBASE}/include -L${LOCALBASE}/lib
 MDNSRESPONDER_LIB_DEPENDS=		libdns_sd.so:net/mDNSResponder
 MDNSRESPONDER_SUB_LIST=	ZEROCONF="mdnsd"
-LDAP_MESON_ON=	-Dwith-ldap=${LOCALBASE}
+LDAP_MESON_ON=		-Dwith-ldap-path=${LOCALBASE}
+LDAP_MESON_OFF=		-Dwith-ldap=false
 LDAP_CFLAGS=		-I${LOCALBASE}/include -L${LOCALBASE}/lib
-LDAP_USES=	ldap
-SENDFILE_MESON_OFF=-Ddisable-sendfile=true
-DBUS_USES=	gnome python
-DBUS_USE=	GNOME=glib20
+LDAP_USES=		ldap
+SENDFILE_MESON_OFF=	-Dwith-sendfile=false
+DBUS_USES=		gnome python
+DBUS_USE=		GNOME=glib20
 DBUS_LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib \
 			libdbus-1.so:devel/dbus
 DBUS_RUN_DEPENDS=	${PYTHON_SITELIBDIR}/dbus/_dbus.py:devel/py-dbus@${PY_FLAVOR}
-DBUS_MESON_ON=		-Dwith-dbus-daemon=${LOCALBASE}/bin/dbus-daemon \
-			-Dwith-dbus-sysconf-dir=${LOCALBASE}/etc/dbus-1/system.d
-DBUS_MESON_OFF=		-Dwith-afpstats=disabled
-MYSQL_USES=	mysql
-MYSQL_MESON_OFF=-Dwith-mysql-config=/nonexistent
+DBUS_MESON_ON=		-Dwith-dbus-daemon-path=${LOCALBASE}/bin/dbus-daemon \
+			-Dwith-dbus-sysconf-path=${LOCALBASE}/etc/dbus-1/system.d
+DBUS_MESON_OFF=		-Dwith-afpstats=false
+MYSQL_USES=		mysql
+MYSQL_MESON_OFF=	-Dwith-mysql-config=/nonexistent
 ACL_LIB_DEPENDS=	libsunacl.so:sysutils/libsunacl
-ACL_MESON_ENABLED=with-acls
-LIBWRAP_MESON_OFF=-Ddisable-tcp-wrappers=true
+ACL_MESON_OFF=		-Dwith-acls=false
+LIBWRAP_MESON_OFF=-Dwith-tcp-wrappers=false
 SPOTLIGHT_LIB_DEPENDS=	libtracker-sparql-3.0.so:sysutils/tracker3
-SPOTLIGHT_MESON_OFF=	-Dwith-spotlight=disabled
+SPOTLIGHT_MESON_OFF=	-Dwith-spotlight=false
 
 SHEBANG_GLOB=	afpstats
 
@@ -86,7 +86,7 @@ CONFLICTS=	jday yudit # bin/dbd man/man1/uniconv.1.gz
 
 .if ${PORT_OPTIONS:MAVAHI}=="" && ${PORT_OPTIONS:MMDNSRESPONDER}==""
 SUB_LIST+=	ZEROCONF=""
-MESON_ARGS+=-Denable-zeroconf=disabled
+MESON_ARGS+=-Dwith-zeroconf=false
 .endif
 
 post-patch:
@@ -118,11 +118,11 @@ post-install:
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_dhx_passwd.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_dhx2_pam.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_dhx2_passwd.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_gss.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+#	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_gss.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_guest.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_pam.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_passwd.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_pgp.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
+#	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_pgp.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/netatalk-uams/uams_randnum.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams
 	@cd ${XIGMANAS_ROOTFS}${PREFIX}/libexec/netatalk-uams && ${LN} -fsv uams_passwd.so uams_clrtxt.so && ${LN} -fsv uams_dhx_passwd.so uams_dhx.so && ${LN} -fsv uams_dhx2_passwd.so uams_dhx2.so
 # XigmaNAS® end install
