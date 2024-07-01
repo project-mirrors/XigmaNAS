@@ -29,7 +29,7 @@ extra_commands="mkconf"
 
 # Defaults
 netatalk_enable=${netatalk_enable-"NO"}
-netatalk_config=${netatalk_config-"/var/etc/afp.conf"}
+netatalk_config=${netatalk_config-"/var/etc/netatalk/afp.conf"}
 command="/usr/local/sbin/${name}"
 command_args="-F ${netatalk_config}"
 
