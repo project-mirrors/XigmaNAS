@@ -107,6 +107,20 @@
      )
  endif
  
+@@ -1679,11 +1676,11 @@ enable_shadow = get_option('with-shadow')
+ 
+ enable_shadow = get_option('with-shadow')
+ 
+-if enable_shadow
++if not enable_shadow
+     have_shadow = false
+ else
+     have_shadow = (cc.has_header('shadow.h'))
+-    if with_shadow
++    if enable_shadow
+         cdata.set('SHADOWPW', 1)
+         uams_options += ' SHADOW'
+     else
 @@ -1926,6 +1923,8 @@ int deny_severity = 0;
      tcpwrap_code = '''
  int allow_severity = 0;

@@ -1,6 +1,6 @@
 PORTNAME=	netatalk
 PORTVERSION=	3.2.1
-PORTREVISION=	0
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	net
 MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/netatalk-${PORTVERSION:S/./-/g}/
@@ -23,7 +23,7 @@ USE_RC_SUBR=	netatalk
 #INSTALL_TARGET=install-strip
 CPE_VENDOR=	netatalk_project
 
-+MESON_ARGS=		-Dwith-libgcrypt-path=${LOCALBASE} \
+MESON_ARGS=		-Dwith-libgcrypt-path=${LOCALBASE} \
 			-Dwith-bdb-path=${LOCALBASE} \
 			-Dwith-libiconv-path=${LOCALBASE} \
 			-Dwith-dtrace=false \
@@ -31,6 +31,8 @@ CPE_VENDOR=	netatalk_project
 			-Dpkg_config_path=${LOCALBASE}/libdata/pkgconfig \
 			-Dwith-shadow=false \
 			-Dwith-pgp-uam=false \
+			-Dwith-quota=false \
+			-Dwith-zeroconf=false \
 			--localstatedir=/var/etc \
 			--infodir=${PREFIX}/share/info
 
