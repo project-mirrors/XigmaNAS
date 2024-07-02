@@ -106,6 +106,7 @@ Fixed:
 - Fix missing system certs.
 - Fix WebGUI language issue.
 - Fix undefined symbol" bug.
+- Fix  SATA NCQ error recovery after 25375b1415.
 
 Default login credentials:
 ==========================
