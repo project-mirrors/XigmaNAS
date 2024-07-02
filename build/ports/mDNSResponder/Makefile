@@ -1,6 +1,6 @@
 PORTNAME=		mDNSResponder
 PORTVERSION=	2200.120.24
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	net dns
 MASTER_SITES=	https://opensource.apple.com/tarballs/mDNSResponder/
 
@@ -12,6 +12,8 @@ WWW=		https://developer.apple.com/bonjour/ \
 DISTNAME=	${PORTNAME}-${PORTVERSION}
 
 USE_LDCONFIG=	YES
+
+NO_PKG_REGISTER=yes
 
 MAKE_ARGS+=	os=freebsd LOCALBASE=${PREFIX}
 BUILD_WRKSRC=	${WRKSRC}/mDNSPosix
@@ -25,6 +27,7 @@ CONFLICTS_INSTALL?=	avahi-libdns openmdns # lib/libdns_sd.so.1 sbin/mdnsd
 OPTIONS_DEFINE= IPV6
 
 CPE_VENDOR=	apple
+
 
 .include <bsd.port.pre.mk>
 
