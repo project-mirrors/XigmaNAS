@@ -25,35 +25,37 @@ fi
 # Change directory to given root.
 cd $ROOTDIR
 
-# usr/bin/su
-echo "usr/bin/su"
-chflags -RH noschg usr/bin/su
-chmod 4755 usr/bin/su
+files="
+usr/bin/su
+usr/bin/passwd
+sbin/init
+libexec/ld-elf.so.1
+lib/libc.so.7
+lib/libcrypt.so.5
+lib/libthr.so.3
+"
 
-# usr/bin/passwd
-echo "usr/bin/passwd"
-chflags -RH noschg usr/bin/passwd
+for file in $files; do
+    echo "$file"
 
-# sbin/init
-echo "sbin/init"
-chflags -RH noschg sbin/init
+    # Change flags recursively, handling symlinks:
+    # removing the system immutable flag (schg,schange,simmutable)
 
-# libexec/ld-elf.so.1
-echo "libexec/ld-elf.so.1"
-chflags -RH noschg libexec/ld-elf.so.1
+    #  CHFLAGS(1) 
+    #  Putting the letters “no” before or removing the letters “no” from a
+    #  keyword causes the flag to be cleared.             
+    #
+    #  -H      If the -R option is specified, symbolic links on the command line
+    #          are followed and hence unaffected by the command.  (Symbolic
+    #          links encountered during traversal are not followed.)
+    chflags -RH noschg "$file"  
 
-# lib/libc.so.7
-echo "lib/libc.so.7"
-chflags -RH noschg lib/libc.so.7
+    # Set permissions for usr/bin/su
+    if [ "$file" = "usr/bin/su" ]; then
+        chmod 4755 "$file"
+    fi
+done
 
-# lib/libcrypt.so.5
-echo "lib/libcrypt.so.5"
-chflags -RH noschg lib/libcrypt.so.5
-
-# lib/libthr.so.3
-echo "lib/libthr.so.3"
-chflags -RH noschg lib/libthr.so.3
-
-# rc.d/files*
+# Set permissions for rc.d files
 echo "etc/rc.d/files*"
 chmod -R 0555 etc/rc.d/*
