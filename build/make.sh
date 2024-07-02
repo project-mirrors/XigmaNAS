@@ -1525,7 +1525,7 @@ create_full() {
 	if [ "${EXTENSION}" = "tgz" ]; then
 		tar cvfz ${FULLFILENAME} -C ${XIGMANAS_TMPDIR} ./
 	elif [ "${EXTENSION}" = "txz" ]; then
-		xz -${XIGMANAS_COMPLEVEL}v -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT $XIGMANAS_WORKINGDIR/image.bin
+		tar -c -f - -C ${XIGMANAS_TMPDIR} ./ | xz -8 -v -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT  > ${FULLFILENAME}
 	fi
 
 	# Cleanup.
