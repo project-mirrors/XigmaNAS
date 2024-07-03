@@ -98,6 +98,7 @@ Changes:
 - Upgrade mDNSResponder to v2200.120.24.
 - Upgrade syncthing to v1.27.8.
 - Upgrade netatalk to v3.2.1.
+- Upgrade open-vm-tools to v12.4.5.
 - New SMB use its own log file.
 - New SMB Server Signing and Server/Client Encryption option settings added WebGUI.
 

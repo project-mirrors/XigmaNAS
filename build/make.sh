@@ -1670,6 +1670,14 @@ copy_files() {
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/nss_ldap /usr/ports/net
 	echo "===> New port nss_ldap has been created!"
 	echo ""
+	echo "===> Delete current open-vm-tools from base OS"
+	rm -rf /usr/ports/emulators/vopen-vm-tools
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Adding new port open-vm-tools to ports/emulators/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/open-vm-tools /usr/ports/emulators
+	echo "===> New port open-vm-tools has been created!"
+	echo ""
 	echo "===> Delete current pecl-APCu port from base OS"
 	rm -rf /usr/ports/devel/pecl-APCu
 	echo "===> Delete completed!"
