@@ -1,7 +1,7 @@
 XigmaNAS® 13.3.0.5 - Hesterion
 ------------------------------
 Changes:
-- Upgrade to FreeBSD 13.3-RELEASE P2.
+- Upgrade underlying OS to FreeBSD 13.3-RELEASE P4.
 - Upgrade jquery to v3.7.1.
 - Upgrade zoneinfo to v2024a.
 - Upgrade devcpu-data-amd to v20240116.
