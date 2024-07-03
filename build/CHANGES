@@ -24,7 +24,6 @@ Changes:
 - Upgrade rsync to v3.3.0.
 - Upgrade py-wsdd to v0.8.0.
 - Upgrade tmux to v3.4.
-- Upgrade transmission to v4.0.6.
 - Upgrade mariadb to v10.11.7.
 - Upgrade e2fsprogs to v1.47.1.
 - Upgrade nut to v20240603.
@@ -36,6 +35,7 @@ Changes:
 - Upgrade mDNSResponder to v2200.120.24.
 - Upgrade syncthing to v1.27.8.
 - Upgrade netatalk to v3.2.1.
+- Downgrade transmission to v3.0.0.
 - New samba use its own log file.
 - New SMB Server Signing and Server/Client Encryption added to WebGUI.
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Part of XigmaNAS® (https://www.xigmanas.com).
-# Copyright © 2018-2023 XigmaNAS® <info@xigmanas.com>.
+# Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 # transmission service
@@ -37,6 +37,7 @@ transmission_preallocation=${transmission_preallocation:-"1"}
 transmission_messagelevel=${transmission_messagelevel:-"2"}
 transmission_rpchostwhitelistenabled=${transmission_rpchostwhitelistenabled:-"true"}
 transmission_rpchostwhitelist=${transmission_rpchostwhitelist:-""}
+transmission_web_home="/usr/local/share/transmission/web/"
 
 command="/usr/local/bin/${name}-daemon"
 command_args="-a ${transmission_allowed}"
