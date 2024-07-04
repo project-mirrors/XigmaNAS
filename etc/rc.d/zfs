@@ -30,7 +30,7 @@ extra_commands="init"
 required_modules="zfs"
 
 # Defaults
-zfs_preferredsearchprovider="${zfs_preferredsearchprovider:-enum}"
+zfs_preferredsearchprovider="${zfs_preferredsearchprovider:-gpt}"
 
 zfs_init()
 {
