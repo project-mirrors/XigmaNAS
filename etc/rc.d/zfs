@@ -30,6 +30,9 @@ init_cmd="zfs_init"
 extra_commands="init"
 required_modules="zfs"
 
+# Defaults
+zfs_preferredsearchprovider="${zfs_preferredsearchprovider:-gpt}"
+
 zfs_init()
 {
 	local _aft4kdevs _dev _cmd
@@ -59,8 +62,19 @@ zfs_init()
 	if [ -r /etc/zfs/zpool.cache -o -r /boot/zfs/zpool.cache -o -r /cf/etc/zfs/zpool.cache -o -r /cf/boot/zfs/zpool.cache ]; then
 		# nothing to do
 	else
-		info Importing ZFS pools found under /dev/gpt...
-		zpool import -d /dev/gpt -f -a -N
+		if [ "${zfs_preferredsearchprovider}" = "gpt" -a -d /dev/gpt ]; then
+			info Importing ZFS pools found under /dev/gpt...
+			zpool import -d /dev/gpt -f -a -N
+		elif [ "${zfs_preferredsearchprovider}" = "gptid" -a -d /dev/gptid ]; then
+			info Importing ZFS pools found under /dev/gptid...
+			zpool import -d /dev/gptid -f -a -N
+		elif [ "${zfs_preferredsearchprovider}" = "ufs" -a -d /dev/ufs ]; then
+			info Importing ZFS pools found under /dev/ufs...
+			zpool import -d /dev/ufs -f -a -N
+		elif [ "${zfs_preferredsearchprovider}" = "ufsid" -a -d /dev/ufsid ]; then
+			info Importing ZFS pools found under /dev/ufsid...
+			zpool import -d /dev/ufsid -f -a -N
+		fi
 		info Importing ZFS pools found under /dev...
 		zpool import -d /dev -f -a -N
 		# if cache is created, write it to boot device
