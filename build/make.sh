@@ -100,6 +100,14 @@ fi
 XIGMANAS_COMPLEVEL=8
 XIGMANAS_KERNCOMPLEVEL=9
 
+#	Specify the number of worker threads to use.  
+#	Setting threads to a special value 0 makes xz use as many threads as there are CPU cores on the system.
+XIGMANAS_XZ_THREADS=0
+
+#	Set a memory usage limit for compression/decompression.
+XIGMANAS_XZ_MEM_LIMIT=75%
+
+
 #	Media geometry, only relevant if bios doesn't understand LBA.
 XIGMANAS_IMG_SIZE_SEC=`expr ${XIGMANAS_IMG_SIZE} \* 2048`
 XIGMANAS_IMG_SECTS=63
@@ -278,7 +286,7 @@ create_rootfs() {
 	echo "Factory" > $XIGMANAS_TMPDIR/zoneinfo.exlude
 	echo "posixrules" >> $XIGMANAS_TMPDIR/zoneinfo.exlude
 	echo "zone.tab" >> $XIGMANAS_TMPDIR/zoneinfo.exlude
-	tar -c -v -f - -X $XIGMANAS_TMPDIR/zoneinfo.exlude -C /usr/share/zoneinfo/ . | xz -cv > $XIGMANAS_ROOTFS/usr/share/zoneinfo.txz
+	tar -c -v -f - -X $XIGMANAS_TMPDIR/zoneinfo.exlude -C /usr/share/zoneinfo/ . | xz -cv -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT > $XIGMANAS_ROOTFS/usr/share/zoneinfo.txz
 	rm $XIGMANAS_TMPDIR/zoneinfo.exlude
 
 	return 0
@@ -517,7 +525,7 @@ create_mdlocal_mini() {
 	mdconfig -d -u ${md}
 
 	echo "Compressing mdlocal-mini"
-	xz -${XIGMANAS_COMPLEVEL}v $XIGMANAS_WORKINGDIR/mdlocal-mini
+	xz -${XIGMANAS_COMPLEVEL}v -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT $XIGMANAS_WORKINGDIR/mdlocal-mini
 	[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.files ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.files
 
 	return 0
@@ -571,7 +579,7 @@ create_mfsroot() {
 	echo "Compressing mfsroot"
 	gzip -${XIGMANAS_COMPLEVEL}kfnv $XIGMANAS_WORKINGDIR/mfsroot
 	echo "Compressing mdlocal"
-	xz -${XIGMANAS_COMPLEVEL}kv $XIGMANAS_WORKINGDIR/mdlocal
+	xz -${XIGMANAS_COMPLEVEL}kv -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT $XIGMANAS_WORKINGDIR/mdlocal
 
 	create_mdlocal_mini;
 
@@ -758,7 +766,7 @@ create_image() {
 	echo "===> Detach memory disk"
 	mdconfig -d -u ${md}
 	echo "===> Compress the IMG file"
-	xz -${XIGMANAS_COMPLEVEL}v $XIGMANAS_WORKINGDIR/image.bin
+	xz -${XIGMANAS_COMPLEVEL}v -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT $XIGMANAS_WORKINGDIR/image.bin
 	cp $XIGMANAS_WORKINGDIR/image.bin.xz $XIGMANAS_ROOTDIR/${IMGFILENAME}.xz
 
 #	Cleanup.
@@ -1518,7 +1526,7 @@ create_full() {
 	if [ "${EXTENSION}" = "tgz" ]; then
 		tar cvfz ${FULLFILENAME} -C ${XIGMANAS_TMPDIR} ./
 	elif [ "${EXTENSION}" = "txz" ]; then
-		tar -c -f - -C ${XIGMANAS_TMPDIR} ./ | xz -8 -v --threads=0 > ${FULLFILENAME}
+		tar -c -f - -C ${XIGMANAS_TMPDIR} ./ | xz -8 -v -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT  > ${FULLFILENAME}
 	fi
 
 #	Cleanup.
