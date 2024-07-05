@@ -87,10 +87,10 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 14.1.0.5.10107 RC1
+BUILD 14.1.0.5.10142 RC1
 ========================
 Changes:
-- Upgrade to FreeBSD 14.1-RELEASE P2.
+- Upgrade underlying OS to 14.1-RELEASE P2.
 - Update translations.
 - Upgrade python311 v3.11.9..
 - Upgrade mariadb to v11.4.2.
@@ -99,6 +99,7 @@ Changes:
 - Upgrade syncthing to v1.27.8.
 - Upgrade netatalk to v3.2.1.
 - Upgrade open-vm-tools to v12.4.5.
+- Upgrade php8 to v8.3.9.
 - New SMB use its own log file.
 - New SMB Server Signing and Server/Client Encryption option settings added WebGUI.
 
