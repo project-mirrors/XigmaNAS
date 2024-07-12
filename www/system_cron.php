@@ -340,6 +340,9 @@ $document->render();
 		<tbody>
 <?php
 			foreach($sphere_array as $sphere_record):
+				if(!array_key_exists('uuid',$sphere_record)):
+					continue;
+				endif;
 				$notificationmode = updatenotify_get_mode($sphere_notifier,$sphere_record['uuid']);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
 				$enabled = isset($sphere_record['enable']);
@@ -359,8 +362,8 @@ $document->render();
 						endif;
 ?>
 					</td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['command']);?>&nbsp;</td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['who']);?>&nbsp;</td>
+					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['command'] ?? '');?></td>
+					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['who'] ?? '');?></td>
 					<td class="<?=$enabled ? "lcell" : "lcelld";?>">
 <?php
 						if ($enabled):
@@ -374,7 +377,7 @@ $document->render();
 						endif;
 ?>
 					</td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['desc']);?>&nbsp;</td>
+					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['desc'] ?? '');?></td>
 					<td class="lcebld">
 						<table class="area_data_selection_toolbox"><tbody><tr>
 							<td>
