@@ -159,6 +159,31 @@ mdnsresponder_mkconf()
 			-v "//bittorrent/port" -n \
 			-n \
 		-b \
+		--match '//mdnsresponder[enable]' \
+			--match 'auxparam' \
+				--if 'position() < last() or string-length(.) > 0' \
+					--value-of '.' --nl \
+				--break \
+			--break \
+			--nl \
+			--match 'param[enable]' \
+				--value-of 'name' --nl \
+				--value-of 'concat("_",type,"._",protocol,". ")' \
+				--if 'string-length(domain) > 0' \
+					--value-of 'concat(domain,".")' \
+				--else \
+					--output "${_domain}" \
+				--break \
+				--nl \
+				--value-of 'port' --nl \
+				--match 'auxparam' \
+					--if 'position() < last() or string-length(.) > 0' \
+						--value-of '.' --nl \
+					--break \
+				--break \
+				--nl \
+			--break \
+		--break \
 		${configxml_file} | /usr/local/bin/xml unesc >> ${mdnsresponder_config}
 }
 
