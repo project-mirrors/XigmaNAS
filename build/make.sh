@@ -9,6 +9,9 @@
 # Debug script
 # set -x
 #
+#
+# Check and install pigz as requirement for make.sh
+pigz -h 2&>/dev/null || pkg install -y pigz
 
 ################################################################################
 #	Settings
@@ -108,26 +111,26 @@ XIGMANAS_XZ_THREADS=0
 XIGMANAS_XZ_MEM_LIMIT=75%
 
 #	Media geometry, only relevant if bios doesn't understand LBA.
-XIGMANAS_IMG_SIZE_SEC=`expr ${XIGMANAS_IMG_SIZE} \* 2048`
+XIGMANAS_IMG_SIZE_SEC=$(expr ${XIGMANAS_IMG_SIZE} \* 2048)
 XIGMANAS_IMG_SECTS=63
 #	XIGMANAS_IMG_HEADS=16
 XIGMANAS_IMG_HEADS=255
 #	cylinder alignment
-XIGMANAS_IMG_SIZE_SEC=`expr \( $XIGMANAS_IMG_SIZE_SEC / \( $XIGMANAS_IMG_SECTS \* $XIGMANAS_IMG_HEADS \) \) \* \( $XIGMANAS_IMG_SECTS \* $XIGMANAS_IMG_HEADS \)`
+XIGMANAS_IMG_SIZE_SEC=$(expr \( $XIGMANAS_IMG_SIZE_SEC / \( $XIGMANAS_IMG_SECTS \* $XIGMANAS_IMG_HEADS \) \) \* \( $XIGMANAS_IMG_SECTS \* $XIGMANAS_IMG_HEADS \))
 
 #	aligned BSD partition on MBR slice
 XIGMANAS_IMG_SSTART=$XIGMANAS_IMG_SECTS
-XIGMANAS_IMG_SSIZE=`expr $XIGMANAS_IMG_SIZE_SEC - $XIGMANAS_IMG_SSTART`
+XIGMANAS_IMG_SSIZE=$(expr $XIGMANAS_IMG_SIZE_SEC - $XIGMANAS_IMG_SSTART)
 #	aligned by BLKSEC: 8=4KB, 64=32KB, 128=64KB, 2048=1MB
 XIGMANAS_IMG_BLKSEC=8
 #	XIGMANAS_IMG_BLKSEC=64
-XIGMANAS_IMG_BLKSIZE=`expr $XIGMANAS_IMG_BLKSEC \* 512`
+XIGMANAS_IMG_BLKSIZE=$(expr $XIGMANAS_IMG_BLKSEC \* 512)
 #	PSTART must BLKSEC aligned in the slice.
 XIGMANAS_IMG_POFFSET=16
-XIGMANAS_IMG_PSTART=`expr \( \( \( $XIGMANAS_IMG_SSTART + $XIGMANAS_IMG_POFFSET + $XIGMANAS_IMG_BLKSEC - 1 \) / $XIGMANAS_IMG_BLKSEC \) \* $XIGMANAS_IMG_BLKSEC \) - $XIGMANAS_IMG_SSTART`
-XIGMANAS_IMG_PSIZE0=`expr $XIGMANAS_IMG_SSIZE - $XIGMANAS_IMG_PSTART`
-if [ `expr $XIGMANAS_IMG_PSIZE0 % $XIGMANAS_IMG_BLKSEC` -ne 0 ]; then
-	XIGMANAS_IMG_PSIZE=`expr $XIGMANAS_IMG_PSIZE0 - \( $XIGMANAS_IMG_PSIZE0 % $XIGMANAS_IMG_BLKSEC \)`
+XIGMANAS_IMG_PSTART=$(expr \( \( \( $XIGMANAS_IMG_SSTART + $XIGMANAS_IMG_POFFSET + $XIGMANAS_IMG_BLKSEC - 1 \) / $XIGMANAS_IMG_BLKSEC \) \* $XIGMANAS_IMG_BLKSEC \) - $XIGMANAS_IMG_SSTART)
+XIGMANAS_IMG_PSIZE0=$(expr $XIGMANAS_IMG_SSIZE - $XIGMANAS_IMG_PSTART)
+if [ $(expr $XIGMANAS_IMG_PSIZE0 % $XIGMANAS_IMG_BLKSEC) -ne 0 ]; then
+	XIGMANAS_IMG_PSIZE=$(expr $XIGMANAS_IMG_PSIZE0 - \( $XIGMANAS_IMG_PSIZE0 % $XIGMANAS_IMG_BLKSEC \))
 else
 	XIGMANAS_IMG_PSIZE=$XIGMANAS_IMG_PSIZE0
 fi
@@ -139,14 +142,14 @@ XIGMANAS_IMG_BLKSEC=1
 XIGMANAS_IMG_BLKSIZE=512
 XIGMANAS_IMG_POFFSET=16
 XIGMANAS_IMG_PSTART=$XIGMANAS_IMG_POFFSET
-XIGMANAS_IMG_PSIZE=`expr $XIGMANAS_IMG_SSIZE - $XIGMANAS_IMG_PSTART`
+XIGMANAS_IMG_PSIZE=$(expr $XIGMANAS_IMG_SSIZE - $XIGMANAS_IMG_PSTART)
 
 #	newfs parameters
 XIGMANAS_IMGFMT_SECTOR=512
 XIGMANAS_IMGFMT_FSIZE=2048
 #	XIGMANAS_IMGFMT_SECTOR=4096
 #	XIGMANAS_IMGFMT_FSIZE=4096
-XIGMANAS_IMGFMT_BSIZE=`expr $XIGMANAS_IMGFMT_FSIZE \* 8`
+XIGMANAS_IMGFMT_BSIZE=$(expr $XIGMANAS_IMGFMT_FSIZE \* 8)
 
 #	echo "IMAGE=$XIGMANAS_IMG_SIZE_SEC"
 #	echo "SSTART=$XIGMANAS_IMG_SSTART"
@@ -189,7 +192,7 @@ update_sources() {
 		return 1
 	fi
 
-	choices=`cat $tempfile`
+	choices=$(cat $tempfile)
 	rm $tempfile
 
 	for choice in $(echo $choices | tr -d '"'); do
@@ -303,9 +306,9 @@ $DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Kernel Patches\" \\
 
 	for s in $XIGMANAS_SVNDIR/build/kernel-patches/*; do
 		[ ! -d "$s" ] && continue
-		package=`basename $s`
-		desc=`cat $s/pkg-descr`
-		state=`cat $s/pkg-state`
+		package=$(basename $s)
+		desc=$(cat $s/pkg-descr)
+		state=$(cat $s/pkg-state)
 		echo "\"$package\" \"$desc\" $state \\" >> $tempfile
 	done
 
@@ -351,7 +354,7 @@ build_kernel() {
 		return 1
 	fi
 
-	choices=`cat $tempfile`
+	choices=$(cat $tempfile)
 	rm $tempfile
 
 	for choice in $(echo $choices | tr -d '"'); do
@@ -369,7 +372,7 @@ build_kernel() {
 				# Compiling and compressing the kernel.
 				cd /usr/src;
 				env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j 4 buildkernel KERNCONF=${XIGMANAS_KERNCONF};
-				gzip -${XIGMANAS_KERNCOMPLEVEL}cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;;
+				pigz -${XIGMANAS_KERNCOMPLEVEL}cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;;
 			install)
 				# Installing the modules.
 				echo "--------------------------------------------------------------";
@@ -411,7 +414,7 @@ add_libs() {
 			if [ ! -d ${DESTDIR} ]; then
 				DESTDIR=${XIGMANAS_ROOTFS}/usr/local/lib
 			fi
-			FILE=`basename ${i}`
+			FILE=$(basename ${i})
 			if [ -L "${DESTDIR}/${FILE}" ]; then
 				# do not remove symbolic link
 				echo "link: ${i}"
@@ -431,6 +434,100 @@ add_libs() {
 	rm -f /tmp/lib.list
 
 	return 0
+}
+
+#   Delete static libraries (.a files)
+del_libs() {
+	echo
+	echo "Deleting static libs:"
+
+    if [ -n "${XIGMANAS_ROOTFS}" ]; then
+        find "${XIGMANAS_ROOTFS}" -path '*/lib/*' -name '*.a' -print -delete
+    fi
+
+    return 0
+}
+
+#	Replace duplicate libraries with symlinks (ie: librrd.so -> librrd.so.8)
+sym_libs() {
+	echo
+	echo "Linking duplicate libs:"
+	
+	cd "$XIGMANAS_ROOTFS"/usr/local/lib || exit 
+
+    # Save checksums, file sizes, and filenames
+    find . -type f -exec sh -c 'md5 -q "$1" ; stat -f "%z" "$1"; echo "$1"' sh {} \; \
+        | paste - - - | sort > /tmp/checksums_sizes.txt
+
+    # Find duplicates based on the checksum and file size
+    awk '{print $1 " " $2}' /tmp/checksums_sizes.txt | uniq -d \
+        > /tmp/duplicate_checksums_sizes.txt
+
+    # Process duplicates
+    while read -r checksum size; do
+        # Get the names of the files with the same checksum and size
+        files=$(awk -v cks="$checksum" -v sz="$size" '$1==cks && $2==sz {print $3}' \
+            /tmp/checksums_sizes.txt)
+        longest_file=""
+        max_len=0
+        for file in $files; do
+            file_len=$(echo "$file" | wc -c | tr -d ' ')
+            if [ "$file_len" -gt $max_len ]; then
+            max_len=$file_len
+            longest_file=$file
+            fi
+        done
+
+        for file in $files; do
+            if [ "$file" != "$longest_file" ]; then
+                # Replace other files with symlinks to the longest filename
+                echo "Linking $file to $longest_file"
+                rm "$file"
+                ln -s "$longest_file" "$file"
+            fi
+        done
+    done < /tmp/duplicate_checksums_sizes.txt
+
+    # Cleanup temporary files
+    rm /tmp/checksums_sizes.txt /tmp/duplicate_checksums_sizes.txt
+
+    return 0
+}
+
+#	Display menu for handling libraries
+lib_menu() {
+    # Define options for the checklist (tag item status text)
+    options=(
+        add_libs    "Add required libraries" on
+        del_libs    "Delete static libraries (.a files) [optional]" off
+        sym_libs    "Link duplicate libs (ie: librrd.so -> librrd.so.8) [optional]" off
+    )
+
+    # Show a checklist using dialog
+    # The output is captured into the variable `choices`
+    choices=$($DIALOG --ascii-lines --title "$XIGMANAS_PRODUCTNAME - Handle Libraries" \
+    --checklist "Select library handling options:" 10 85 3 \
+    "${options[@]}" \
+    2>&1 >/dev/tty)
+
+    # If no choices were selected, return 1
+    if [ -z "$choices" ]; then
+        return 1
+    fi
+
+    # Output choices
+    for choice in $choices; do
+        case $choice in
+            add_libs)  
+                add_libs;;
+            del_libs)
+                del_libs;;
+            sym_libs)
+                sym_libs;;            
+        esac
+    done
+
+    return $?
 }
 
 #	Create checksum file
@@ -458,7 +555,7 @@ create_mdlocal_mini() {
 	# Make mfsroot to have the size of the XIGMANAS_MFSROOT_SIZE variable
 	dd if=/dev/zero of=$XIGMANAS_WORKINGDIR/mdlocal-mini bs=1k seek=$(expr ${XIGMANAS_MDLOCAL_MINI_SIZE} \* 1024) count=0
 	# Configure this file as a memory disk
-	md=`mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mdlocal-mini`
+	md=$(mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mdlocal-mini)
 	# Format memory disk using UFS
 	newfs -S $XIGMANAS_IMGFMT_SECTOR -b $XIGMANAS_IMGFMT_BSIZE -f $XIGMANAS_IMGFMT_FSIZE -O2 -o space -m 0 -U -t /dev/${md}
 	# Umount memory disk (if already used)
@@ -474,14 +571,14 @@ create_mdlocal_mini() {
 	# Copy selected files
 	cd $XIGMANAS_TMPDIR
 	for i in $(cat $XIGMANAS_WORKINGDIR/mdlocal-mini.files | grep -v "^#"); do
-		d=`dirname $i`
-		b=`basename $i`
+		d=$(dirname $i)
+		b=$(basename $i)
 		echo "cp $XIGMANAS_ROOTFS/$d/$b  ->  $XIGMANAS_TMPDIR/$d/$b"
 		cp $XIGMANAS_ROOTFS/$d/$b $XIGMANAS_TMPDIR/$d/$b
 		# Copy required libraries
 		for j in $(ldd $XIGMANAS_ROOTFS/$d/$b | cut -w -f 4 | grep /usr/local | sed -e '/:/d' -e 's/^\///'); do
-			d=`dirname $j`
-			b=`basename $j`
+			d=$(dirname $j)
+			b=$(basename $j)
 			if [ ! -e $XIGMANAS_TMPDIR/$d/$b ]; then
 				echo "cp $XIGMANAS_ROOTFS/$d/$b  ->  $XIGMANAS_TMPDIR/$d/$b"
 				cp $XIGMANAS_ROOTFS/$d/$b $XIGMANAS_TMPDIR/$d/$b
@@ -501,8 +598,8 @@ create_mdlocal_mini() {
 	# Copy identified libs.
 	for i in $(sort -u /tmp/lib.list); do
 		if [ -e "${XIGMANAS_WORLD}${i}" ]; then
-			d=`dirname $i`
-			b=`basename $i`
+			d=$(dirname $i)
+			b=$(basename $i)
 			if [ "$d" = "/lib" -o "$d" = "/usr/lib" ]; then
 				# skip lib in mfsroot
 				[ -e ${XIGMANAS_ROOTFS}${i} ] && continue
@@ -550,8 +647,8 @@ create_mfsroot() {
 	dd if=/dev/zero of=$XIGMANAS_WORKINGDIR/mfsroot bs=1k seek=$(expr ${XIGMANAS_MFSROOT_SIZE} \* 1024) count=0
 	dd if=/dev/zero of=$XIGMANAS_WORKINGDIR/mdlocal bs=1k seek=$(expr ${XIGMANAS_MDLOCAL_SIZE} \* 1024) count=0
 	# Configure this file as a memory disk
-	md=`mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mfsroot`
-	md2=`mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mdlocal`
+	md=$(mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mfsroot)
+	md2=$(mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mdlocal)
 	# Format memory disk using UFS
 	newfs -S $XIGMANAS_IMGFMT_SECTOR -b $XIGMANAS_IMGFMT_BSIZE -f $XIGMANAS_IMGFMT_FSIZE -O2 -o space -m 0 /dev/${md}
 	newfs -S $XIGMANAS_IMGFMT_SECTOR -b $XIGMANAS_IMGFMT_BSIZE -f $XIGMANAS_IMGFMT_FSIZE -O2 -o space -m 0 -U -t /dev/${md2}
@@ -576,7 +673,7 @@ create_mfsroot() {
 	mdconfig -d -u ${md}
 
 	echo "Compressing mfsroot"
-	gzip -${XIGMANAS_COMPLEVEL}kfnv $XIGMANAS_WORKINGDIR/mfsroot
+	pigz -${XIGMANAS_COMPLEVEL}kfnv $XIGMANAS_WORKINGDIR/mfsroot
 	echo "Compressing mdlocal"
 	xz -${XIGMANAS_COMPLEVEL}kv -T $XIGMANAS_XZ_THREADS -M $XIGMANAS_XZ_MEM_LIMIT $XIGMANAS_WORKINGDIR/mdlocal
 
@@ -601,7 +698,7 @@ update_mfsroot() {
 	[ -f $XIGMANAS_WORKINGDIR/mfsroot.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.uzip
 
 	cd $XIGMANAS_WORKINGDIR
-	gzip -${XIGMANAS_COMPLEVEL}kfnv $XIGMANAS_WORKINGDIR/mfsroot
+	pigz -${XIGMANAS_COMPLEVEL}kfnv $XIGMANAS_WORKINGDIR/mfsroot
 
 	return 0
 }
@@ -609,14 +706,14 @@ update_mfsroot() {
 copy_kmod() {
 	local kmodlist
 	echo "Copy kmod to $XIGMANAS_TMPDIR/boot/kernel"
-	kmodlist=`(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; find . -name '*.ko' | sed -e 's/\.\///')`
+	kmodlist=$( (cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; find . -name '*.ko' | sed -e 's/\.\///') )
 	for f in $kmodlist; do
 		if grep -q "^${f}" $XIGMANAS_SVNDIR/build/xigmanas.kmod.exclude > /dev/null; then
 			echo "skip: $f"
 			continue;
 		fi
-		b=`basename ${f}`
-		# (cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; gzip -${XIGMANAS_COMPLEVEL} $XIGMANAS_TMPDIR/boot/kernel/${b})
+		b=$(basename ${f})
+		# (cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; pigz -${XIGMANAS_COMPLEVEL} $XIGMANAS_TMPDIR/boot/kernel/${b})
 		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b})
 	done
 	return 0;
@@ -655,9 +752,9 @@ create_image() {
 	create_mfsroot;
 
 	echo "===> Creating Empty image File"
-	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/image.bin bs=512 seek=`expr ${XIGMANAS_IMG_SIZE_SEC}` count=0
+	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/image.bin bs=512 seek=$(expr ${XIGMANAS_IMG_SIZE_SEC}) count=0
 	echo "===> Use IMG as a memory disk"
-	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/image.bin -x ${XIGMANAS_IMG_SECTS} -y ${XIGMANAS_IMG_HEADS}`
+	md=$(mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/image.bin -x ${XIGMANAS_IMG_SECTS} -y ${XIGMANAS_IMG_HEADS})
 	diskinfo -v ${md}
 
 	IMGSIZEM=470
@@ -816,7 +913,7 @@ create_iso () {
 		create_mfsroot;
 	elif [ -z "$FORCE_MFSROOT" -o "$FORCE_MFSROOT" != "0" ]; then
 		# Mount mfsroot/mdlocal created by create_image
-		md=`mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mfsroot`
+		md=$(mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mfsroot)
 		mount /dev/${md} ${XIGMANAS_TMPDIR}
 		# Update mfsroot/mdlocal
 		echo $PLATFORM > ${XIGMANAS_TMPDIR}/etc/platform
@@ -1003,7 +1100,7 @@ create_usb () {
 	mkdir $XIGMANAS_TMPDIR
 	if [ -z "$FORCE_MFSROOT" -o "$FORCE_MFSROOT" != "0" ]; then
 		# Mount mfsroot/mdlocal created by create_image
-		md=`mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mfsroot`
+		md=$(mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mfsroot)
 		mount /dev/${md} ${XIGMANAS_TMPDIR}
 		# Update mfsroot/mdlocal
 		echo $PLATFORM > ${XIGMANAS_TMPDIR}/etc/platform
@@ -1033,7 +1130,7 @@ create_usb () {
 	echo "USB: Creating Empty IMG File"
 	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/usb-image.bin bs=1m seek=${USBIMGSIZEM} count=0
 	echo "USB: Use IMG as a memory disk"
-	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/usb-image.bin -x ${USB_SECTS} -y ${USB_HEADS}`
+	md=$(mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/usb-image.bin -x ${USB_SECTS} -y ${USB_HEADS})
 	diskinfo -v ${md}
 
 	echo "USB: Creating BSD partition on this memory disk"
@@ -1146,7 +1243,7 @@ create_usb () {
 	mdconfig -d -u ${md}
 	cp $XIGMANAS_WORKINGDIR/usb-image.bin $XIGMANAS_ROOTDIR/$IMGFILENAME
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
-	gzip -${XIGMANAS_COMPLEVEL}n $XIGMANAS_ROOTDIR/$IMGFILENAME
+	pigz -${XIGMANAS_COMPLEVEL}n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
 	create_checksum_file;
 
@@ -1200,7 +1297,7 @@ create_usb_gpt() {
 	mkdir $XIGMANAS_TMPDIR
 	if [ -z "$FORCE_MFSROOT" -o "$FORCE_MFSROOT" != "0" ]; then
 		# Mount mfsroot/mdlocal created by create_image.
-		md=`mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mfsroot`
+		md=$(mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mfsroot)
 		mount /dev/${md} ${XIGMANAS_TMPDIR}
 		# Update mfsroot/mdlocal.
 		echo $PLATFORM > ${XIGMANAS_TMPDIR}/etc/platform
@@ -1239,7 +1336,7 @@ create_usb_gpt() {
 	echo "USB: Creating Empty IMG File"
 	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/usb-image.bin bs=1m seek=${USBIMGSIZEM} count=0
 	echo "USB: Use IMG as a memory disk"
-	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/usb-image.bin -x ${USB_SECTS} -y ${USB_HEADS}`
+	md=$(mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/usb-image.bin -x ${USB_SECTS} -y ${USB_HEADS})
 	diskinfo -v /dev/${md}
 
 	echo "USB: Creating GPT partition on this memory disk"
@@ -1373,7 +1470,7 @@ create_usb_gpt() {
 	mdconfig -d -u ${md}
 	cp $XIGMANAS_WORKINGDIR/usb-image.bin $XIGMANAS_ROOTDIR/$IMGFILENAME
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
-	gzip -${XIGMANAS_COMPLEVEL}n $XIGMANAS_ROOTDIR/$IMGFILENAME
+	pigz -${XIGMANAS_COMPLEVEL}n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
 	create_checksum_file;
 
@@ -1442,7 +1539,7 @@ create_full() {
 	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
-	gunzip $XIGMANAS_TMPDIR/boot/kernel/kernel.gz
+	unpigz $XIGMANAS_TMPDIR/boot/kernel/kernel.gz
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.4th $XIGMANAS_TMPDIR/boot
@@ -1622,7 +1719,7 @@ Press # '
 						opt="$opt -s"
 					fi;
 					$XIGMANAS_SVNDIR/build/xigmanas-create-bootdir.sh $opt $XIGMANAS_BOOTDIR;;
-			8)	add_libs;;
+			8)	lib_menu;;
 			9)	$XIGMANAS_SVNDIR/build/xigmanas-modify-permissions.sh $XIGMANAS_ROOTFS;;
 			*)	main; return $?;;
 		esac
@@ -1742,7 +1839,7 @@ build_ports() {
 		return 1
 	fi
 
-	choice=`cat $tempfile`
+	choice=$(cat $tempfile)
 	rm $tempfile
 
 	# Create list of available ports.
@@ -1752,14 +1849,14 @@ $DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 
 	for s in $XIGMANAS_SVNDIR/build/ports/*; do
 		[ ! -d "$s" ] && continue
-		port=`basename $s`
-		state=`cat $s/pkg-state`
+		port=$(basename $s)
+		state=$(cat $s/pkg-state)
 		case ${choice} in
 			nosel)
 				state="OFF"
 				;;
 			rebuild)
-				t=`echo $s/work/.build_done.*`
+				t=$(echo $s/work/.build_done.*)
 				if [ -e "$t" ]; then
 					state="OFF"
 				fi
@@ -1769,7 +1866,7 @@ $DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 			[hH][iI][dD][eE])
 				;;
 			*)
-				desc=`cat $s/pkg-descr`;
+				desc=$(cat $s/pkg-descr);
 				echo "\"$port\" \"$desc\" $state \\" >> $tempfile;
 				;;
 		esac
