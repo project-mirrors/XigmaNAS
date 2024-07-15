@@ -101,6 +101,9 @@ Changes:
 - Upgrade open-vm-tools to v12.4.5.
 - Upgrade php8 to v8.3.9.
 - Upgrade dialog to v1.3.20240619.
+- Upgrade nano to v8.1.
+
+New:
 - New SMB use its own log file.
 - New SMB Server Signing and Server/Client Encryption option settings added WebGUI.
 
