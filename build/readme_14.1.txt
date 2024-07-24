@@ -87,7 +87,7 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 14.1.0.5.10142 RC1
+BUILD 14.1.0.5.10xxx RC1
 ========================
 Changes:
 - Upgrade underlying OS to 14.1-RELEASE P2.
@@ -102,6 +102,7 @@ Changes:
 - Upgrade dialog to v1.3.20240619.
 - Upgrade nano to v8.1.
 - Upgrade syncthing to v1.27.9.
+- Upgrade devcpu-data-amd to v20240710.
 
 New:
 - New SMB use its own log file.

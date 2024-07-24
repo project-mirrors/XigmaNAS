@@ -13,6 +13,7 @@ Changes:
 - Upgrade dialog to v1.3.20240619.
 - Upgrade nano to v8.1.
 - Upgrade syncthing to v1.27.9.
+- Upgrade devcpu-data-amd to v20240710.
 
 New:
 - New SMB use its own log file.
