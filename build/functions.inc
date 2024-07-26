@@ -337,8 +337,37 @@ $DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Kernel Patches\" \\
 	rm $patches
 }
 
-#	Build/Install the kernel.
 build_kernel() {
+	# Copy kernel configuration.
+	cd /sys/${XIGMANAS_ARCH}/conf;
+	cp -f $XIGMANAS_SVNDIR/build/kernel-config/${XIGMANAS_KERNCONF} .;
+	# Clean object directory.
+	rm -f -r ${XIGMANAS_OBJDIRPREFIX};
+	# Compiling and compressing the kernel.
+	cd /usr/src;
+	env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j $(sysctl -n hw.ncpu) buildkernel KERNCONF=${XIGMANAS_KERNCONF}; 
+	env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make installkernel KERNCONF=${XIGMANAS_KERNCONF}; 
+	pigz -${XIGMANAS_KERNCOMPLEVEL}cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;
+
+}
+
+install_kernel_modules() {
+	# Installing the modules.
+	echo "--------------------------------------------------------------";
+	echo ">>> Install Kernel Modules";
+	echo "--------------------------------------------------------------";
+
+	[ -f ${XIGMANAS_WORKINGDIR}/modules.files ] && rm -f ${XIGMANAS_WORKINGDIR}/modules.files;
+	cp ${XIGMANAS_SVNDIR}/build/kernel-config/modules.files ${XIGMANAS_WORKINGDIR};
+
+	modulesdir=${XIGMANAS_WORLD}/boot/kernel
+	for module in $(grep -v "^#" ${XIGMANAS_WORKINGDIR}/modules.files | xargs basename); do
+		install -v -o root -g wheel -m 555 ${modulesdir}/${module} ${XIGMANAS_ROOTFS}/boot/kernel
+	done
+
+}
+#	Build/Install the kernel menu.
+build_kernel_menu() {
 	tempfile=$XIGMANAS_WORKINGDIR/tmp$$
 
 	# Make sure kernel directory exists.
@@ -364,29 +393,9 @@ build_kernel() {
 				pre_build_kernel;
 				[ 0 != $? ] && return 1;; # successful?
 			build)
-				# Copy kernel configuration.
-				cd /sys/${XIGMANAS_ARCH}/conf;
-				cp -f $XIGMANAS_SVNDIR/build/kernel-config/${XIGMANAS_KERNCONF} .;
-				# Clean object directory.
-				rm -f -r ${XIGMANAS_OBJDIRPREFIX};
-				# Compiling and compressing the kernel.
-				cd /usr/src;
-				env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j 4 buildkernel KERNCONF=${XIGMANAS_KERNCONF};
-				pigz -${XIGMANAS_KERNCOMPLEVEL}cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;;
+				build_kernel;;
 			install)
-				# Installing the modules.
-				echo "--------------------------------------------------------------";
-				echo ">>> Install Kernel Modules";
-				echo "--------------------------------------------------------------";
-
-				[ -f ${XIGMANAS_WORKINGDIR}/modules.files ] && rm -f ${XIGMANAS_WORKINGDIR}/modules.files;
-				cp ${XIGMANAS_SVNDIR}/build/kernel-config/modules.files ${XIGMANAS_WORKINGDIR};
-
-				modulesdir=${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules;
-				for module in $(cat ${XIGMANAS_WORKINGDIR}/modules.files | grep -v "^#"); do
-					install -v -o root -g wheel -m 555 ${modulesdir}/${module} ${XIGMANAS_ROOTFS}/boot/kernel
-				done
-				;;
+				install_kernel_modules;;
 		esac
 	done
 
@@ -706,7 +715,7 @@ update_mfsroot() {
 copy_kmod() {
 	local kmodlist
 	echo "Copy kmod to $XIGMANAS_TMPDIR/boot/kernel"
-	kmodlist=$( (cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; find . -name '*.ko' | sed -e 's/\.\///') )
+	kmodlist=$( (cd ${XIGMANAS_WORLD}/boot/kernel; find . -name '*.ko' | sed -e 's/\.\///') )
 	for f in $kmodlist; do
 		if grep -q "^${f}" $XIGMANAS_SVNDIR/build/xigmanas.kmod.exclude > /dev/null; then
 			echo "skip: $f"
@@ -714,7 +723,7 @@ copy_kmod() {
 		fi
 		b=$(basename ${f})
 		# (cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; pigz -${XIGMANAS_COMPLEVEL} $XIGMANAS_TMPDIR/boot/kernel/${b})
-		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b})
+		(cd ${XIGMANAS_WORLD}/boot/kernel; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b})
 	done
 	return 0;
 }
@@ -836,16 +845,16 @@ create_image() {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# copy kernel modules
 	copy_kmod
 
@@ -985,16 +994,16 @@ create_iso () {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# copy kernel modules
 	copy_kmod
 
@@ -1213,16 +1222,16 @@ create_usb () {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# copy kernel modules
 	copy_kmod
 
@@ -1440,16 +1449,16 @@ create_usb_gpt() {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver.
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# Preload kernel drivers.
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# Copy kernel modules.
 	copy_kmod
 
@@ -1570,16 +1579,16 @@ create_full() {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		cp ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && cp apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# copy kernel modules
 	copy_kmod
 
@@ -1704,7 +1713,7 @@ Press # '
 		case $choice in
 			1)	update_sources;;
 			2)	create_rootfs;;
-			3)	build_kernel;;
+			3)	build_kernel_menu;;
 			4)	build_world;;
 			5)	copy_files;;
 			6)	build_ports;;
