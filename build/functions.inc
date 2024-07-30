@@ -347,13 +347,8 @@ build_kernel() {
 	cd /usr/src;
 	env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j $(sysctl -n hw.ncpu) buildkernel KERNCONF=${XIGMANAS_KERNCONF}; 
 	env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make installkernel KERNCONF=${XIGMANAS_KERNCONF}; 
+	pigz -${XIGMANAS_KERNCOMPLEVEL}cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;
 
-	compress_kernel
-}
-
-# compress system kernel (/boot/kernel/kernel)
-compress_kernel() {
-	pigz -${XIGMANAS_KERNCOMPLEVEL}cnv ${XIGMANAS_WORLD}/boot/kernel/kernel  > ${XIGMANAS_WORKINGDIR}/kernel.gz
 }
 
 install_kernel_modules() {
@@ -871,6 +866,7 @@ create_image() {
 	echo "===> Creating linker.hints"
 	kldxref -R $XIGMANAS_TMPDIR/boot
 
+	cd $XIGMANAS_WORKINGDIR
 	echo "===> Unmount memory disk"
 	umount $XIGMANAS_TMPDIR
 	echo "===> Detach memory disk"
