@@ -345,10 +345,15 @@ build_kernel() {
 	rm -f -r ${XIGMANAS_OBJDIRPREFIX};
 	# Compiling and compressing the kernel.
 	cd /usr/src;
-	env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j $(sysctl -n hw.ncpu) buildkernel KERNCONF=${XIGMANAS_KERNCONF}; 
-	env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make installkernel KERNCONF=${XIGMANAS_KERNCONF}; 
-	pigz -${XIGMANAS_KERNCOMPLEVEL}cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;
+	env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j $(sysctl -n hw.ncpu) buildkernel KERNCONF=${XIGMANAS_KERNCONF};
+	env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make installkernel KERNCONF=${XIGMANAS_KERNCONF};
 
+	compress_kernel
+}
+
+# compress system kernel (/boot/kernel/kernel)
+compress_kernel() {
+	pigz -${XIGMANAS_KERNCOMPLEVEL}cnv ${XIGMANAS_WORLD}/boot/kernel/kernel  > ${XIGMANAS_WORKINGDIR}/kernel.gz
 }
 
 install_kernel_modules() {
