@@ -1,6 +1,6 @@
 PORTNAME=		fuppes
 PORTVERSION=	0.692
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=		net
 COMMENT=		Free UPnP Entertainment Service
 MAINTAINER=		zoon01@xigmanas.com
@@ -19,10 +19,12 @@ LIB_DEPENDS+=		libsqlite3.so:databases/sqlite3 \
 			libmp4v2.so:multimedia/mp4v2 \
 			libavformat.so:multimedia/ffmpeg4
 
-BUILD_DEPENDS=		libxml2>0:textproc/libxml2
+BUILD_DEPENDS=		libxml2>0:textproc/libxml2 \
+				automake>=1.15:devel/automake \
+				libtoolize:devel/libtool
 
-USES+=		autoreconf libtool gettext-tools pkgconfig
 USE_AUTOTOOLS=	autoconf
+USES=			gmake libtool pkgconfig gettext-tools
 USE_GNOME=		libxml2
 USE_ICONV=		yes
 USE_GMAKE=		yes
