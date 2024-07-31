@@ -588,7 +588,7 @@ function enable_change(enable_change) {
 					</tr>
 <?php
 					html_inputbox2('partitionnum',gettext('Partition number'),$pconfig['partitionnum'],'',true,3);
-					html_combobox2('fstype',gettext('File system'),!empty($pconfig['fstype']) ? $pconfig['fstype'] : '',['ufs' => 'UFS','msdosfs' => 'FAT','cd9660' => 'CD/DVD','ntfs' => 'NTFS','ext2fs' => 'EXT2/3','ext4fuse' => 'EXT4','exfat' => 'exFAT'],'',true,false,'fstype_change()');
+					html_combobox2('fstype',gettext('File system'),!empty($pconfig['fstype']) ? $pconfig['fstype'] : '',['ufs' => 'UFS','msdosfs' => 'FAT','cd9660' => 'CD/DVD','ntfs' => 'NTFS','ext2fs' => 'EXT2/3','exfat' => 'exFAT'],'',true,false,'fstype_change()');
 					html_filechooser2('filename','Filename',!empty($pconfig['filename']) ? $pconfig['filename'] : '',gettext('ISO file to be mounted.'),$g['media_path'],true);
 					html_inputbox2('sharename',gettext('Mount point name'),!empty($pconfig['sharename']) ? $pconfig['sharename'] : '','',true,20);
 					html_inputbox2('desc',gettext('Description'),!empty($pconfig['desc']) ? $pconfig['desc'] : '',gettext('You may enter a description here for your reference.'),false,40);

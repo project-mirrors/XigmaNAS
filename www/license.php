@@ -81,10 +81,6 @@ $software = [
 		'e2fsprogs (<a href="http://e2fsprogs.sourceforge.net" target="_blank" rel="noreferrer">http://e2fsprogs.sourceforge.net</a>).',
 		"Copyright © 2007 Theodore Ts'o. All Rights Reserved."
 	]],
-	['ext4fuse',[
-		'EXT4 implementation for FUSE (<a href="https://github.com/gerard/ext4fuse" target="_blank" rel="noreferrer">https://github.com/gerard/ext4fuse</a>).',
-		'Copyright © 1989, 1991 Free Software Foundation. All Rights Reserved.'
-	]],
 	['FreeBSD',[
 		'The FreeBSD Project (<a href="https://www.freebsd.org" target="_blank" rel="noreferrer">https://www.freebsd.org</a>).',
 		'Copyright © 1995-2024 The FreeBSD Project. All Rights Reserved.'

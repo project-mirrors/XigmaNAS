@@ -11,7 +11,7 @@ export BATCH=yes
 mkdir -p $XIGMANAS_LOGDIR
 
 # ports to build
-BUILT_PORTS=(arcconf ataidle autosnapshot devcpu-data-amd devcpu-data-intel fdisk firefly fuppes fusefs-ext4fuse isboot lcdproc-devel locale mkpw phpvirtualbox rconf sas2ircu sas3ircu tw_cli)
+BUILT_PORTS=(arcconf ataidle autosnapshot devcpu-data-amd devcpu-data-intel fdisk firefly fuppes isboot lcdproc-devel locale mkpw phpvirtualbox rconf sas2ircu sas3ircu tw_cli)
 INSTALLED_PACKAGES="bash bsnmp-ucd ca_root_nss cdialog clog dmidecode e2fsprogs-core fusefs-exfat exfat-utils fusefs-ntfs grub2-bhyve gzip icu inadyn iperf3 ipmitool istgt lighttpd mDNSResponder mariadb114-server mariadb114-client minidlna msmtp nano netatalk3 nss_ldap nut-devel open-vm-tools openssh-portable opie pam_ldap pam_mkhomedir php83 php83-pecl-APCu phpMyAdmin-php83 proftpd python311 py311-wsdd rrdtool rsync samba419 dns/samba-nsupdate scponly sipcalc smartmontools spindown sudo syncthing tftp-hpa tmux transmission-cli transmission-web transmission-daemon transmission-utils unison virtualbox-ose-nox11 virtualbox-ose-additions-nox11 wait_on wol xmlstarlet zoneinfo php83-bcmath php83-bz2 php83-ctype php83-curl php83-dom php83-exif php83-filter php83-ftp php83-gd php83-gettext php83-gmp php83-iconv php83-imap php83-intl php83-ldap php83-mbstring php83-mysqli php83-opcache php83-pdo php83-pdo_mysql php83-pdo_sqlite php83-pear php83-pecl-APCu php83-pecl-mcrypt php83-session php83-simplexml php83-soap php83-sockets php83-sqlite3 php83-sysvmsg php83-sysvsem php83-sysvshm php83-tokenizer php83-xml php83-zip php83-zlib py311-markdown py311-importlib-metadata py311-zipp py311-rrdtool"
 
 ### functions ###
@@ -43,11 +43,6 @@ pkg_build() {
         cd ${XIGMANAS_PORTS_DIR}/"${port}" && \
         (make build do-install 2>&1 | tee -a ${XIGMANAS_LOGDIR}/pkg-build-"${port}".log) &
     done
-
-    # ext4fuse need a plain "make"
-    echo cd "${XIGMANAS_PORTS_DIR}/fusefs-ext4fuse" 
-    cd "${XIGMANAS_PORTS_DIR}/fusefs-ext4fuse" || exit
-    (make ; make do-install) 2>&1 | tee ${XIGMANAS_LOGDIR}/pkg-build-ext4fuse2.log
 
     wait # wait for builds to finish
 }

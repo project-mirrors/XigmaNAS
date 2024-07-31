@@ -254,19 +254,6 @@ function disks_mount($mount) {
 				$result = 1;
 			endif;
 			break;
-		case 'ext4fuse':
-//			Load the kernel FUSE module
-			mwexec('/sbin/kldload /boot/kernel/fuse.ko');
-			$result = mwexec("/usr/local/bin/ext4fuse {$readonly} {$devicespecialfile} '{$mountname}'",true);
-			if($result == 0):
-				write_log("Disk {$devicespecialfile} mounted using EXT4 on '{$mountname}'");
-//				$result = 0;
-			else:
-				@rmdir("{$mountname}");
-				write_log("Error: Failed to mount {$devicespecialfile} using EXT4");
-				$result = 1;
-			endif;
-			break;
 		case 'exfat':
 //			Load the kernel FUSE module
 			mwexec('/sbin/kldload /boot/kernel/fuse.ko');
@@ -315,7 +302,7 @@ function disks_mount($mount) {
 //	For ISO's this may be 'chmod: /mnt/xxx: Read-only file system)'
 	if(file_exists($mountname) && is_writable($mountname)):
 		if(!@chmod($mountname,octdec($mode)) || !@chown($mountname,$owner) || !@chgrp($mountname,$group)):
-			if($mount['fstype'] != 'ntfs' && $mount['fstype'] != 'exfat' && $mount['fstype'] != 'ext4fuse'):
+			if($mount['fstype'] != 'ntfs' && $mount['fstype'] != 'exfat'):
 				write_log("Error: Failed to set access restrictions on directory '{$mountname}'");
 			endif;
 		endif;
