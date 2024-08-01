@@ -145,6 +145,9 @@ prereq() {
 
     mkdir -p /usr/ports/distfiles
     cp /usr/local/xigmanas/svn/build/ports/distfiles/*.{gz,zip} /usr/ports/distfiles/
+
+    # wait for pkg
+    wait
 }
 
 # create all images using the build process from make.sh
