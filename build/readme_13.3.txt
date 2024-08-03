@@ -100,7 +100,6 @@ Changes:
 - Upgrade underlying OS to FreeBSD 13.3-RELEASE P4.
 - Upgrade jquery to v3.7.1.
 - Upgrade zoneinfo to v2024a.
-- Upgrade bash to v5.2p26.
 - Upgrade pecl-APCu to v5.1.23.
 - Upgrade sudo to v1.9.15p5.
 - Upgrade virtualbox-ose to v6.1.50.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade syncthing to v1.27.8.
 - Upgrade netatalk to v3.2.1.
 - Upgrade devcpu-data-amd to v20240710.
+- Upgrade bash to v5.2p32.
 - New samba use its own log file.
 - New SMB Server Signing and Server/Client Encryption added to WebGUI.
 
