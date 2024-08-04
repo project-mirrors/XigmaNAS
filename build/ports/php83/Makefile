@@ -1,5 +1,5 @@
 PORTNAME=		php83
-PORTVERSION=	8.3.8
+PORTVERSION=	8.3.10
 PORTREVISION?=	0
 CATEGORIES?=		lang
 COMMENT=		PHP Scripting Language
@@ -13,6 +13,7 @@ DISTFILES=			${DISTNAME}${EXTRACT_SUFX}:release
 USES+=			compiler:c11 cpe gnome localbase pkgconfig tar:xz
 CPE_PRODUCT=		php
 PHP_VER=	83
+IGNORE_WITH_PHP=	81 82 84
 CONFLICTS_INSTALL?=	php[0-9][0-9]${PKGNAMESUFFIX}
 
 NO_OPTIONS_SORT=	yes
