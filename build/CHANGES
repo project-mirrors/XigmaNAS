@@ -9,12 +9,12 @@ Changes:
 - Upgrade mDNSResponder to v2200.120.24.
 - Upgrade netatalk to v3.2.1.
 - Upgrade open-vm-tools to v12.4.5.
-- Upgrade php8 to v8.3.9.
 - Upgrade dialog to v1.3.20240619.
 - Upgrade nano to v8.1.
 - Upgrade syncthing to v1.27.9.
 - Upgrade devcpu-data-amd to v20240710.
 - Upgrade bash to v5.2p32.
+- Upgrade php8 to v8.3.10.
 
 New:
 - New SMB use its own log file.
