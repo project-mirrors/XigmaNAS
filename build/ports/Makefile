@@ -16,6 +16,7 @@
     SUBDIR += firefly
     SUBDIR += fuppes
     SUBDIR += fusefs-exfat
+    SUBDIR += fusefs-ext2
     SUBDIR += fusefs-ntfs
     SUBDIR += grub2-bhyve
     SUBDIR += gzip
