@@ -121,7 +121,6 @@ Changes:
 - Upgrade mariadb to v10.11.7.
 - Upgrade e2fsprogs to v1.47.1.
 - Upgrade nut to v20240603.
-- Upgrade devcpu-data-intel to v20240531.
 - Upgrade python to v3.11.9.
 - Upgrade samba to v4.19.7.
 - Upgrade iperf3 to v3.17.1.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade php8 to v8.3.10.
 - Upgrade netatalk to v3.2.5.
 - Upgrade syncthing to v1.27.10.
+- Upgrade devcpu-data-intel to v20240813.
 - New samba use its own log file.
 - New SMB Server Signing and Server/Client Encryption added to WebGUI.
 
