@@ -53,7 +53,6 @@ $cops = [
 	$cop->get_enable(),
 	$cop->get_port(),
 	$cop->get_allowpa(),
-	$cop->get_allowcra(),
 	$cop->get_allowkia(),
 	$cop->get_allowpka(),
 	$cop->get_permitrootlogin(),
@@ -276,7 +275,6 @@ $tbody->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
 	c2($cop->get_port(),$sphere,false,$is_readonly)->
 	c2($cop->get_allowpa(),$sphere,false,$is_readonly)->
-	c2($cop->get_allowcra(),$sphere,false,$is_readonly)->
 	c2($cop->get_allowkia(),$sphere,false,$is_readonly)->
 	c2($cop->get_allowpka(),$sphere,false,$is_readonly)->
 	c2($cop->get_permitrootlogin(),$sphere,false,$is_readonly)->

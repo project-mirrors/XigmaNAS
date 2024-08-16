@@ -72,16 +72,6 @@ class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_allowcra(): myp\property_bool {
-		$caption = gettext('Allow challenge-response authentication.');
-		$property = parent::init_allowcra();
-		$property->
-			set_id('challengeresponseauthentication')->
-			set_caption($caption)->
-			set_defaultvalue(true)->
-			filter_use_default();
-		return $property;
-	}
 	public function init_allowkia(): myp\property_bool {
 		$caption = gettext('Allow keyboard-interactive authentication.');
 		$property = parent::init_allowkia();

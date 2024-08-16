@@ -49,10 +49,10 @@ sshd_mkconf()
 			--else \
 				--output 'Subsystem sftp /usr/libexec/sftp-server' --nl \
 			--break \
-			--if 'count(challengeresponseauthentication) > 0' \
-				--output 'ChallengeResponseAuthentication yes' --nl \
+			--if 'count(kbdinteractiveauthentication) > 0' \
+				--output 'KbdInteractiveAuthentication yes' --nl \
 			--else \
-				--output 'ChallengeResponseAuthentication no' --nl \
+				--output 'KbdInteractiveAuthentication no' --nl \
 			--break \
 			--if 'string-length(port) > 0' \
 				--value-of 'concat("Port ",port)' --nl \

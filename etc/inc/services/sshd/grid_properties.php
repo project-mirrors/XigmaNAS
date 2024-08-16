@@ -67,17 +67,6 @@ class grid_properties extends myp\container {
 	final public function get_allowpa(): myp\property_bool {
 		return $this->x_allowpa ?? $this->init_allowpa();
 	}
-	protected $x_allowcra;
-	public function init_allowcra(): myp\property_bool {
-		$property = $this->x_allowcra = new myp\property_bool($this);
-		$property->
-			set_name('challengeresponseauthentication')->
-			set_title(gettext('Challenge-Response Authentication'));
-		return $property;
-	}
-	final public function get_allowcra(): myp\property_bool {
-		return $this->x_allowcra ?? $this->init_allowcra();
-	}
 	protected $x_allowkia;
 	public function init_allowkia(): myp\property_bool {
 		$property = $this->x_allowkia = new myp\property_bool($this);
