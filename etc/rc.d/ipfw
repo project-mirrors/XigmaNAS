@@ -16,7 +16,7 @@
 # REQUIRE: netif
 # BEFORE: NETWORKING
 # KEYWORD: nojailvnet
-# XQUERY: -i "count(//system/firewall/enable) > 0" -o "0" -b
+# XQUERY: --if "count(//system/firewall/enable) > 0" --output "0" --break
 # RCVAR: firewall
 
 . /etc/rc.subr
@@ -58,21 +58,47 @@ ipfw_mkconf()
 	cat /dev/null > ${firewall_script_auxrules}
 
 	# Add rules
-	/usr/local/bin/xml sel -t -m "//system/firewall/rule[enable]" -s A:N:- "ruleno" \
-		-v "concat('\${fwcmd} add ',ruleno,' ',action)" \
-		-i "count(log) > 0" -o " log" -b \
-		-v "concat(' ',protocol,' from ')" \
-		-i "string-length(src) > 0" -v "src" -b \
-		-i "string-length(src) = 0" -o "any" -b \
-		-i "string-length(srcport) > 0" -v "concat(' ',srcport)" -b \
-		-o " to " \
-		-i "string-length(dst) > 0" -v "dst" -b \
-		-i "string-length(dst) = 0" -o "any" -b \
-		-i "string-length(dstport) > 0" -v "concat(' ',dstport)" -b \
-		-i "string-length(direction) > 0" -v "concat(' ',direction)" -b \
-		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
-		-i "string-length(if) > 0" -v "concat(' via ',if)" -b \
-		-n \
+	/usr/local/bin/xml sel --text --template \
+		--match "//system/firewall/rule[enable]" -s A:N:- "ruleno" \
+			--value-of "concat('\${fwcmd} add ',ruleno)" \
+			--if "string-length(setno) > 0" \
+				--value-of "concat(' set ',setno)" \
+			--else \
+				--output ' set 1' \
+			--break \
+			--value-of "concat(' ',action)" \
+			--if "count(log) > 0" \
+				--output ' log' \
+			--break \
+			--value-of "concat(' ',protocol,' from ')" \
+			--if "string-length(src) > 0" \
+				--value-of "src" \
+			--else \
+				--output 'any' \
+			--break \
+			--if "string-length(srcport) > 0" \
+				--value-of "concat(' ',srcport)" \
+			--break \
+			--output ' to ' \
+			--if "string-length(dst) > 0" \
+				--value-of "dst" \
+			--else \
+				--output "any" \
+			--break \
+			--if "string-length(dstport) > 0" \
+				--value-of "concat(' ',dstport)" \
+			--break \
+			--if "string-length(direction) > 0" \
+				--value-of "concat(' ',direction)" \
+			--break \
+			--if "string-length(extraoptions) > 0" \
+				--value-of "concat(' ',extraoptions)" \
+			--break \
+			--if "string-length(if) > 0" \
+				--value-of "concat(' via ',if)" \
+			--break \
+			--nl \
+		--break \
 		${configxml_file} | /usr/local/bin/xml unesc > ${firewall_script_auxrules}
 
 		# Set verbose logging limit
@@ -98,7 +124,7 @@ ipfw_start()
 {
 	local   _firewall_type
 
-	_firewall_type=$1 
+	_firewall_type=$1
 
 	# set the firewall rules script if none was specified
 	[ -z "${firewall_script}" ] && firewall_script=/etc/rc.firewall
