@@ -1,9 +1,32 @@
 #!/bin/sh -
+# Copyright (c) 1996  Poul-Henning Kamp
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+
+#
 # Part of XigmaNAS® (https://www.xigmanas.com).
 # Copyright © 2018-2024 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
-#
-# $FreeBSD: /etc/rc.firewall commit 61e7e50
 #
 
 #
@@ -202,9 +225,6 @@ case ${firewall_type} in
 	if [ -n "$net6" ]; then
 		${fwcmd} add pass all from me to ${net6}
 		${fwcmd} add pass all from ${net6} to me
-	fi
-
-	if [ -n "$net6" ]; then
 		# Allow any link-local multicast traffic
 		${fwcmd} add pass all from fe80::/10 to ff02::/16
 		${fwcmd} add pass all from ${net6} to ff02::/16
@@ -236,11 +256,6 @@ case ${firewall_type} in
 	# Everything else is denied by default, unless the
 	# IPFIREWALL_DEFAULT_TO_ACCEPT option is set in your kernel
 	# config file.
-
-	# Load auxiliary rules.
-	if [ -f ${firewall_script_auxrules} ]; then
-		. ${firewall_script_auxrules}
-	fi
 	;;
 
 [Ss][Ii][Mm][Pp][Ll][Ee])
@@ -407,8 +422,8 @@ case ${firewall_type} in
 
 [Ww][Oo][Rr][Kk][Ss][Tt][Aa][Tt][Ii][Oo][Nn])
 	# Configuration:
-	#  firewall_myservices:         List of ports/protocols on which this
-	#			 	 host offers services.
+	#  firewall_myservices:		List of ports/protocols on which this
+	#				 host offers services.
 	#  firewall_allowservices:	List of IPv4 and/or IPv6 addresses
 	#				 that have access to
 	#				 $firewall_myservices.
@@ -479,18 +494,18 @@ case ${firewall_type} in
 	    [0-9A-Za-z]*/[Tt][Cc][Pp])
 	      ${fwcmd} add pass tcp from $i to me ${j%/[Tt][Cc][Pp]}
 	    ;;
-	   [0-9A-Za-z]*/[Uu][Dd][Pp])
-	     ${fwcmd} add pass udp from $i to me ${j%/[Uu][Dd][Pp]}
-	   ;;
-	   *[0-9A-Za-z])
-	     echo "Consider using ${j}/tcp in firewall_myservices." \
-	      > /dev/stderr
-	     ${fwcmd} add pass tcp from $i to me $j
-	   ;;
-	   *)
-	     echo "Invalid port in firewall_myservices: $j" > /dev/stderr
-	   ;;
-	   esac
+	    [0-9A-Za-z]*/[Uu][Dd][Pp])
+	      ${fwcmd} add pass udp from $i to me ${j%/[Uu][Dd][Pp]}
+	    ;;
+	    *[0-9A-Za-z])
+	      echo "Consider using ${j}/tcp in firewall_myservices." \
+	        > /dev/stderr
+	      ${fwcmd} add pass tcp from $i to me $j
+	    ;;
+	    *)
+	      echo "Invalid port in firewall_myservices: $j" > /dev/stderr
+	    ;;
+	    esac
 	  done
 	done
 
@@ -537,6 +552,48 @@ case ${firewall_type} in
 *)
 	if [ -r "${firewall_type}" ]; then
 		${fwcmd} ${firewall_flags} ${firewall_type}
+	fi
+	;;
+esac
+
+# XigmaNAS amendments
+# Load user defined rules
+case ${firewall_type} in
+[Oo][Pp][Ee][Nn])
+	if [ -f ${firewall_script_auxrules} ]; then
+		. ${firewall_script_auxrules}
+	fi
+	;;
+[Cc][Ll][Ii][Ee][Nn][Tt])
+	if [ -f ${firewall_script_auxrules} ]; then
+		. ${firewall_script_auxrules}
+	fi
+	;;
+[Ss][Ii][Mm][Pp][Ll][Ee])
+	if [ -f ${firewall_script_auxrules} ]; then
+		. ${firewall_script_auxrules}
+	fi
+	;;
+[Ww][Oo][Rr][Kk][Ss][Tt][Aa][Tt][Ii][Oo][Nn])
+	if [ -f ${firewall_script_auxrules} ]; then
+		. ${firewall_script_auxrules}
+	fi
+	;;
+[Cc][Ll][Oo][Ss][Ee][Dd])
+	if [ -f ${firewall_script_auxrules} ]; then
+		. ${firewall_script_auxrules}
+	fi
+	;;
+[Uu][Nn][Kk][Nn][Oo][Ww][Nn])
+	if [ -f ${firewall_script_auxrules} ]; then
+		. ${firewall_script_auxrules}
+	fi
+	;;
+*)
+	if [ ! -r "${firewall_type}" ]; then
+		if [ -f ${firewall_script_auxrules} ]; then
+			. ${firewall_script_auxrules}
+		fi
 	fi
 	;;
 esac
