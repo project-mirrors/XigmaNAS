@@ -192,6 +192,7 @@ lighttpd_mkconf()
 server.modules = (
   "mod_access",
   "mod_auth",
+  "mod_authn_file",
   "mod_expire",
   "mod_cgi",
   "mod_fastcgi",

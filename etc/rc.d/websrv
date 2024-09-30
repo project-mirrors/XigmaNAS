@@ -113,6 +113,7 @@ websrv_mkconf()
 				--output '  "mod_webdav",' --nl \
 			--break \
 			--output '  "mod_auth",' --nl \
+			--output '  "mod_authn_file",' --nl \
 			--output '  "mod_expire",' --nl \
 			--output '  "mod_cgi",' --nl \
 			--output '  "mod_fastcgi",' --nl \
