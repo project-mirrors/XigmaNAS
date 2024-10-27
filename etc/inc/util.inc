@@ -2370,7 +2370,7 @@ function get_conf_all_disks_list_filtered() {
 //		check ZFS virtual devices
 		foreach($a_zfsvdevice as $vdisk):
 			if(array_search($disk['devicespecialfile'],$vdisk['device']) !== false):
-					$unused = false;
+				$unused = false;
 				break;
 			endif;
 			if(array_search($disk['devicespecialfile'] . ($disk['zfsgpt'] ?? ''),$vdisk['device']) !== false):
@@ -2637,7 +2637,7 @@ function util_is_iso_image($filename) {
 	$magic[] = fgets($fh,6);
 	fclose($fh);
 	foreach($validmagic as $validmagick => $validmagicv):
-		if(array_search($validmagick,$magic !== false)):
+		if(array_search($validmagick,$magic) !== false):
 			$return = $validmagicv;
 			break;
 		endif;
