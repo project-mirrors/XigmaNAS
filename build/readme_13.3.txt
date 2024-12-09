@@ -111,7 +111,6 @@ Changes:
 - Upgrade minidlna to v1.3.3.
 - Upgrade lighttpd to v1.4.76.
 - Upgrade nano to v8.0.
-- Upgrade msmtp to v1.8.26.
 - Upgrade arconf to B26540.
 - Upgrade cdialog to v1.3-20240307.
 - Upgrade rsync to v3.3.0.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade syncthing to v1.27.10.
 - Upgrade devcpu-data-intel to v20240813.
 - Upgrade php8 to v8.3.14.
+- Upgrade msmtp to v1.8.27.
 - New samba use its own log file.
 - New SMB Server Signing and Server/Client Encryption added to WebGUI.
 
