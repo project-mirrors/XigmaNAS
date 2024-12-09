@@ -18,6 +18,7 @@ Changes:
 - Upgrade pecl-APCu to v5.1.24.
 - Upgrade msmtp to v1.8.27.
 - Upgrade nano to v8.2.
+- Upgrade zoneinfo to v2024b.
 
 New:
 - New SMB use its own log file.
