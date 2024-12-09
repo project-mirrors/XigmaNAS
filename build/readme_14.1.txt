@@ -98,7 +98,6 @@ Changes:
 - Upgrade mDNSResponder to v2200.120.24.
 - Upgrade open-vm-tools to v12.4.5.
 - Upgrade dialog to v1.3.20240619.
-- Upgrade nano to v8.1.
 - Upgrade devcpu-data-amd to v20240710.
 - Upgrade bash to v5.2p32.
 - Upgrade netatalk to v3.2.5.
@@ -106,6 +105,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20240813.
 - Upgrade php8 to v8.3.14.
 - Upgrade msmtp to v1.8.27.
+- Upgrade nano to v8.2.
 
 New:
 - New SMB use its own log file.
