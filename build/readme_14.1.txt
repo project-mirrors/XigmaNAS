@@ -101,10 +101,10 @@ Changes:
 - Upgrade nano to v8.1.
 - Upgrade devcpu-data-amd to v20240710.
 - Upgrade bash to v5.2p32.
-- Upgrade php8 to v8.3.10.
 - Upgrade netatalk to v3.2.5.
 - Upgrade syncthing to v1.27.10.
 - Upgrade devcpu-data-intel to v20240813.
+- Upgrade php8 to v8.3.14.
 
 New:
 - New SMB use its own log file.
