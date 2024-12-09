@@ -15,6 +15,7 @@ Changes:
 - Upgrade syncthing to v1.27.10.
 - Upgrade devcpu-data-intel to v20240813.
 - Upgrade php8 to v8.3.14.
+- Upgrade pecl-APCu to v5.1.24.
 - Upgrade msmtp to v1.8.27.
 - Upgrade nano to v8.2.
 
