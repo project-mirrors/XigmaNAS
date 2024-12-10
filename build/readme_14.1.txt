@@ -1,4 +1,4 @@
-		README & CHANGELOG FOR XIGMANAS® 14.1.0.5 - RC1
+		README & CHANGELOG FOR XIGMANAS® 14.2.0.5 - RC1
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
@@ -87,10 +87,10 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 14.1.0.5.10xxx RC1
+BUILD 14.2.0.5.10xxx RC1
 ========================
 Changes:
-- Upgrade underlying OS to 14.1-RELEASE P2.
+- Upgrade underlying OS to 14.2-RELEASE P0.
 - Update translations.
 - Upgrade python311 v3.11.9..
 - Upgrade mariadb to v11.4.2.

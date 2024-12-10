@@ -1,7 +1,7 @@
-XigmaNAS® 14.1.0.5 - RC1
+XigmaNAS® 14.2.0.5 - RC1
 ------------------------
 Changes:
-- Upgrade underlying OS to 14.1-RELEASE P2.
+- Upgrade underlying OS to 14.2-RELEASE P0.
 - Update translations.
 - Upgrade python311 v3.11.9..
 - Upgrade mariadb to v11.4.2.
