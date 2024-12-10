@@ -122,7 +122,6 @@ Changes:
 - Upgrade iperf3 to v3.17.1.
 - Upgrade mDNSResponder to v2200.120.24.
 - Upgrade devcpu-data-amd to v20240710.
-- Upgrade bash to v5.2p32.
 - Upgrade netatalk to v3.2.5.
 - Upgrade syncthing to v1.27.10.
 - Upgrade devcpu-data-intel to v20240813.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade msmtp to v1.8.27.
 - Upgrade nano to v8.2.
 - Upgrade zoneinfo to v2024b.
+- Upgrade bash to v5.2p37.
 - New samba use its own log file.
 - New SMB Server Signing and Server/Client Encryption added to WebGUI.
 
