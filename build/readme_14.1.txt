@@ -96,7 +96,6 @@ Changes:
 - Upgrade mariadb to v11.4.2.
 - Upgrade iperf3 to v3.17.1.
 - Upgrade mDNSResponder to v2200.120.24.
-- Upgrade open-vm-tools to v12.4.5.
 - Upgrade dialog to v1.3.20240619.
 - Upgrade devcpu-data-amd to v20240710.
 - Upgrade netatalk to v3.2.5.
@@ -108,6 +107,7 @@ Changes:
 - Upgrade nano to v8.2.
 - Upgrade zoneinfo to v2024b.
 - Upgrade bash to v5.2p37.
+- Upgrade open-vm-tools to v12.5.0.
 
 New:
 - New SMB use its own log file.
