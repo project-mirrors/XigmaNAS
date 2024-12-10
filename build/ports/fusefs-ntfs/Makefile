@@ -1,8 +1,8 @@
-PORTNAME=			fusefs-ntfs
+PORTNAME=		fusefs-ntfs
 PORTVERSION=	1.0
-PORTREVISION=	2
-CATEGORIES=		sysutils
-COMMENT=			Mount NTFS partitions and disk images
+PORTREVISION=	3
+CATEGORIES=		filesystems
+COMMENT=		Mount NTFS partitions and disk images
 MAINTAINER=		zoon01@xigmanas.com
 
 # No files are needed to be fetched.
@@ -15,11 +15,11 @@ NO_PKG_REGISTER?=	yes
 #ALWAYS_BUILD_DEPENDS=	yes
 DEPENDS_TARGET=	clean build stage
 
-BUILD_DEPENDS=	${NONEXISTENT}:sysutils/fusefs-ntfs
+BUILD_DEPENDS=	${NONEXISTENT}:filesystems/ntfs
 
 .include <bsd.port.pre.mk>
 
-BUILD_DEPENDS+=	${NONEXISTENT}:sysutils/fusefs-libs \
+BUILD_DEPENDS+=	${NONEXISTENT}:filesystems/fusefs-libs \
 		${NONEXISTENT}:devel/libublio
 
 do-install:
@@ -30,13 +30,13 @@ do-install:
 # sbin
 	@${CP} -pv /sbin/mount_fusefs ${XIGMANAS_ROOTFS}/sbin
 # bin
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/sysutils/fusefs-ntfs/work/ntfs-3g*/src/.libs/ntfs-3g ${XIGMANAS_ROOTFS}/usr/local/bin
+	@${INSTALL_PROGRAM} -v ${PORTSDIR}/filesystems/ntfs/work/ntfs-3g*/src/.libs/ntfs-3g ${XIGMANAS_ROOTFS}/usr/local/bin
 # kernel
 	@${CP} -pv /boot/kernel/fusefs.ko ${XIGMANAS_ROOTFS}/boot/kernel
 # lib
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/sysutils/fusefs-ntfs/work/ntfs-3g*/libntfs-3g/.libs/libntfs-3g.so.89 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/sysutils/fusefs-libs/work/stage/usr/local/lib/lib*.so ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/sysutils/fusefs-libs/work/stage/usr/local/lib/lib*.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${INSTALL_PROGRAM} -v ${PORTSDIR}/filesystems/ntfs/work/ntfs-3g*/libntfs-3g/.libs/libntfs-3g.so.89 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${INSTALL_PROGRAM} -v ${PORTSDIR}/filesystems/fusefs-libs/work/stage/usr/local/lib/lib*.so ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${INSTALL_PROGRAM} -v ${PORTSDIR}/filesystems/fusefs-libs/work/stage/usr/local/lib/lib*.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/devel/libublio/work/libublio-*/libubl*.so ${XIGMANAS_ROOTFS}/usr/local/lib
 # link
 	@${LN} -s -f -v /usr/local/bin/ntfs-3g ${XIGMANAS_ROOTFS}/sbin/mount_ntfs
