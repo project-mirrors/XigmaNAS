@@ -96,7 +96,6 @@ Changes:
 - Upgrade mariadb to v11.4.2.
 - Upgrade iperf3 to v3.17.1.
 - Upgrade dialog to v1.3.20240619..
-- Upgrade netatalk to v3.2.5.
 - Upgrade syncthing to v1.27.10.
 - Upgrade devcpu-data-intel to v20240813.
 - Upgrade php8 to v8.3.14.
@@ -112,6 +111,7 @@ Changes:
 - Upgrade devcpu-data-amd to v20240810.
 - Upgrade devcpu-data-intel to v20241112.
 - Upgrade mDNSResponder to v2200.140.11.
+- Upgrade netatalk to v3.2.10.
 
 New:
 - New SMB use its own log file.

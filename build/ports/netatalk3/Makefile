@@ -1,6 +1,6 @@
 PORTNAME=	netatalk
-PORTVERSION=	3.2.5
-PORTREVISION=	0
+PORTVERSION=	3.2.10
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	net
 MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/netatalk-${PORTVERSION:S/./-/g}/
@@ -17,7 +17,7 @@ LICENSE=	GPLv2
 LIB_DEPENDS=	libgcrypt.so:security/libgcrypt \
 		libevent.so:devel/libevent
 
-USES=		bdb:18 gettext iconv meson perl5 pkgconfig shebangfix ssl tar:xz
+USES=		bdb:18 gettext iconv:wchar_t meson perl5 pkgconfig shebangfix ssl tar:xz
 USE_LDCONFIG=	yes
 USE_RC_SUBR=	netatalk
 #INSTALL_TARGET=install-strip
@@ -73,7 +73,7 @@ DBUS_MESON_ON=		-Dwith-dbus-daemon-path=${LOCALBASE}/bin/dbus-daemon \
 			-Dwith-dbus-sysconf-path=${LOCALBASE}/etc/dbus-1/system.d
 DBUS_MESON_OFF=		-Dwith-afpstats=false
 MYSQL_USES=		mysql
-MYSQL_MESON_ON=		-Dwith-cnid-mysql-backend=true
+MYSQL_MESON_OFF=	-Dwith-cnid-mysql-backend=false
 ACL_LIB_DEPENDS=	libsunacl.so:sysutils/libsunacl
 ACL_MESON_OFF=		-Dwith-acls=false
 LIBWRAP_MESON_OFF=-Dwith-tcp-wrappers=false
