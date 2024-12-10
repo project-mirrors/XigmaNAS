@@ -99,7 +99,6 @@ BUILD 13.3.0.5.10xxx
 Changes:
 - Upgrade underlying OS to FreeBSD 13.3-RELEASE P4.
 - Upgrade jquery to v3.7.1.
-- Upgrade sudo to v1.9.15p5.
 - Upgrade virtualbox-ose to v6.1.50.
 - Upgrade dmidecode to v3.5.
 - Upgrade gzip to v1.13.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade nano to v8.2.
 - Upgrade zoneinfo to v2024b.
 - Upgrade bash to v5.2p37.
+- Upgrade sudo to v1.9.16p2.
 - New samba use its own log file.
 - New SMB Server Signing and Server/Client Encryption added to WebGUI.
 
