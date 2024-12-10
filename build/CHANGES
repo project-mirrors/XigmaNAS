@@ -22,6 +22,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20241112.
 - Upgrade mDNSResponder to v2200.140.11.
 - Upgrade netatalk to v3.2.10.
+- Upgrade exfat to v1.4.0.
 
 New:
 - New SMB use its own log file.

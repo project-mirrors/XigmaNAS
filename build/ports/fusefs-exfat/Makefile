@@ -1,14 +1,18 @@
 PORTNAME=		exfat
 DISTVERSIONPREFIX= v
-PORTVERSION=	   1.2.8
+PORTVERSION=	   1.4.0
 PORTREVISION=	   0
-CATEGORIES=	   sysutils
+CATEGORIES=	   filesystems
 PKGNAMEPREFIX=	fusefs-
 
 COMMENT=	Full-featured exFAT FS implementation as a FUSE module
+WWW=		https://github.com/relan/exfat
 MAINTAINER=	zoon01@xigmanas.com
 
-LICENSE=	GPLv2
+# XigmaNAS® contains license files
+NO_LICENSES_INSTALL=	yes
+NO_LICENSES_DIALOGS=	yes
+LICENSE=		GPLv2
 
 LIB_DEPENDS=	libublio.so:devel/libublio
 
