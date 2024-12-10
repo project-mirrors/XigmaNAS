@@ -1,5 +1,5 @@
 PORTNAME=	data
-PORTVERSION=	20240710
+PORTVERSION=	20240810
 PORTREVISION=	0
 CATEGORIES=	sysutils
 MASTER_SITES=	https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/amd-ucode/

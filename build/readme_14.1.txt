@@ -96,8 +96,7 @@ Changes:
 - Upgrade mariadb to v11.4.2.
 - Upgrade iperf3 to v3.17.1.
 - Upgrade mDNSResponder to v2200.120.24.
-- Upgrade dialog to v1.3.20240619.
-- Upgrade devcpu-data-amd to v20240710.
+- Upgrade dialog to v1.3.20240619..
 - Upgrade netatalk to v3.2.5.
 - Upgrade syncthing to v1.27.10.
 - Upgrade devcpu-data-intel to v20240813.
@@ -111,6 +110,8 @@ Changes:
 - Upgrade rrdtool to v1.9.0.
 - Upgrade sudo to v1.9.16p2.
 - Upgrade arconf to vB26842.
+- Upgrade devcpu-data-amd to v20240810.
+- Upgrade devcpu-data-intel to v20241112.
 
 New:
 - New SMB use its own log file.
