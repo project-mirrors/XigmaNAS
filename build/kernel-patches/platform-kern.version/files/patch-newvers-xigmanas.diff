@@ -1,11 +1,11 @@
---- sys/conf/newvers.sh.orig	2024-06-06 20:22:53.014600000 +0200
-+++ sys/conf/newvers.sh	2024-06-06 20:48:49.000000000 +0200
+--- sys/conf/newvers.sh.orig	2024-12-10 19:26:14.742692000 +0100
++++ sys/conf/newvers.sh	2024-12-10 19:39:03.000000000 +0100
 @@ -296,7 +296,7 @@
  	VERINFO="${VERSION}${svn}${git}${gitup}${hg} ${i}"
  	VERSTR="${VERINFO}\\n"
  else
 -	VERINFO="${VERSION} #${v}${svn}${git}${gitup}${hg}: ${t}"
-+	VERINFO="${VERSION} #XigmaNAS Kernel: ${t}"
++	VERINFO="${VERSION} / XigmaNAS Kernel: ${t}"
  	VERSTR="${VERINFO}\\n    ${u}@${h}:${d}\\n"
  fi
  
