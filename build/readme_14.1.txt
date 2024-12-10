@@ -108,6 +108,7 @@ Changes:
 - Upgrade zoneinfo to v2024b.
 - Upgrade bash to v5.2p37.
 - Upgrade open-vm-tools to v12.5.0.
+- Upgrade rrdtool to v1.9.0.
 
 New:
 - New SMB use its own log file.
