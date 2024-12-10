@@ -99,7 +99,6 @@ Changes:
 - Upgrade open-vm-tools to v12.4.5.
 - Upgrade dialog to v1.3.20240619.
 - Upgrade devcpu-data-amd to v20240710.
-- Upgrade bash to v5.2p32.
 - Upgrade netatalk to v3.2.5.
 - Upgrade syncthing to v1.27.10.
 - Upgrade devcpu-data-intel to v20240813.
@@ -108,6 +107,7 @@ Changes:
 - Upgrade msmtp to v1.8.27.
 - Upgrade nano to v8.2.
 - Upgrade zoneinfo to v2024b.
+- Upgrade bash to v5.2p37.
 
 New:
 - New SMB use its own log file.
