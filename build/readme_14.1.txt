@@ -109,6 +109,7 @@ Changes:
 - Upgrade bash to v5.2p37.
 - Upgrade open-vm-tools to v12.5.0.
 - Upgrade rrdtool to v1.9.0.
+- Upgrade sudo to v1.9.16p2.
 
 New:
 - New SMB use its own log file.
