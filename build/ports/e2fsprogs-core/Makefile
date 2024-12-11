@@ -1,7 +1,7 @@
 PORTNAME=	e2fsprogs
 PORTVERSION=	1.47.1
 PORTREVISION?=	0
-CATEGORIES?=	filesystems sysutils
+CATEGORIES?=	filesystems
 MASTER_SITES=	KERNEL_ORG/linux/kernel/people/tytso/${PORTNAME}/v${PORTVERSION}
 
 MAINTAINER?=	zoon01@xigmanas.com
@@ -296,22 +296,11 @@ post-build:
 	@${ECHO_CMD} '===>  SKIPPING e2fsprogs self-test suite (DISCOURAGED!)'
 .endif
 
-post-install:
-	${INSTALL_PROGRAM} ${WRKSRC}/fsck_ext2fs ${STAGEDIR}${PREFIX}/sbin/
-#	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext2
-#	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext3
-#	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext4
-	# now the remainder of the usual post-install jobs:
-	${INSTALL_MAN} ${FILESDIR}/fsck_ext2fs.8 ${STAGEDIR}${PREFIX}/share/man/man8/
-.if ${PORT_OPTIONS:MDOCS}
-	${MKDIR} ${STAGEDIR}${DOCSDIR}
-.for i in ${PORTDOCS}
-	${INSTALL_DATA} ${WRKSRC}/${i} ${STAGEDIR}${DOCSDIR}
-.endfor
-.endif
+NO_PKG_REGISTER=yes
 
 # the next line closes .if ${MASTERDIR} == ${.CURDIR}
 .endif
+
 do-install:
 # XigmaNAS® Install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
