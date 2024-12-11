@@ -131,6 +131,7 @@ Changes:
 - Upgrade mDNSResponder to v2200.140.11.
 - Upgrade python to v3.11.10.
 - Upgrade samba to v4.19.9.
+- Upgrade syncthing to v1.28.1.
 - New samba use its own log file.
 - New SMB Server Signing and Server/Client Encryption added to WebGUI.
 
