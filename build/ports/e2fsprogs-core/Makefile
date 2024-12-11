@@ -1,12 +1,12 @@
 PORTNAME=	e2fsprogs
 PORTVERSION=	1.47.1
 PORTREVISION?=	0
-CATEGORIES?=	sysutils
+CATEGORIES?=	filesystems
 MASTER_SITES=	KERNEL_ORG/linux/kernel/people/tytso/${PORTNAME}/v${PORTVERSION}
 
 MAINTAINER?=	zoon01@xigmanas.com
 COMMENT?=	Utilities & library to manipulate ext2/3/4 filesystems
-WWW=		http://e2fsprogs.sourceforge.net/
+WWW=		https://e2fsprogs.sourceforge.net/
 
 # XigmaNAS® contains license files
 NO_LICENSES_INSTALL=	yes
@@ -34,10 +34,10 @@ CONFIGURE_ARGS?=--disable-fsck \
 		--enable-libblkid \
 		--enable-elf-shlibs \
 		--libdir='${PREFIX}/lib/e2fsprogs/' \
+		--includedir='${PREFIX}/include/e2fsprogs/' \
 		--with-root-prefix='${PREFIX}' \
 		LDFLAGS='${LDFLAGS} -L${LOCALBASE}/lib -Wl,--rpath -Wl,${LOCALBASE}/lib/e2fsprogs'
 CONFIGURE_ENV?=	LIBS='-Wl,--as-needed ${LIBS} -lexecinfo -lelf'
-# apparently HAVE_PTHREAD_H checks go missing if the FUSEFS option is unset, force it:
 CPPFLAGS+=	${_FUSEFS_CFLAGS} -I${WRKSRC}/lib -I${LOCALBASE}/include
 CFLAGS+=	-Wno-unused-command-line-argument # -D_FILE_OFFSET_BITS=64 # the latter for fuse-libs
 MAKE_ARGS+=	pkgconfigdir='${PREFIX}/libdata/pkgconfig'
@@ -78,7 +78,7 @@ NLS_USES=		gettext iconv:build
 BASHTESTS_BUILD_DEPENDS=	${BASH_CMD}:shells/bash
 BASH_CMD=	${LOCALBASE}/bin/bash
 
-LIB_DEPENDS+=	libblkid.so:misc/e2fsprogs-libblkid
+LIB_DEPENDS+=	libblkid.so:filesystems/e2fsprogs-libblkid
 LIB_DEPENDS+=	libuuid.so:misc/e2fsprogs-libuuid
 
 LIBUNWIND_LIB_DEPENDS=	libunwind.so:devel/libunwind
@@ -203,7 +203,7 @@ post-patch::
 .if ${MASTERDIR} == ${.CURDIR}
 # NOTE: The previous .if block goes all the way to the end of the file.
 
-.if !empty(PORT_OPTIONS:MNOTESTS) && (${OPSYS} == FreeBSD) && (${OSVERSION} >= 1400000 || ((${ARCH} != i386) && (${ARCH} != amd64)))
+.if !empty(PORT_OPTIONS:MNOTESTS) && (${OPSYS} == FreeBSD) && (${OSVERSION} >= 1500000 || (${ARCH} != amd64))
 BROKEN=	it was not tested on your system by the maintainer; you must run self-tests
 .endif
 
@@ -296,22 +296,11 @@ post-build:
 	@${ECHO_CMD} '===>  SKIPPING e2fsprogs self-test suite (DISCOURAGED!)'
 .endif
 
-post-install:
-	${INSTALL_PROGRAM} ${WRKSRC}/fsck_ext2fs ${STAGEDIR}${PREFIX}/sbin/
-#	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext2
-#	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext3
-#	${LN} -fs e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext4
-	# now the remainder of the usual post-install jobs:
-	${INSTALL_MAN} ${FILESDIR}/fsck_ext2fs.8 ${STAGEDIR}${PREFIX}/share/man/man8/
-.if ${PORT_OPTIONS:MDOCS}
-	${MKDIR} ${STAGEDIR}${DOCSDIR}
-.for i in ${PORTDOCS}
-	${INSTALL_DATA} ${WRKSRC}/${i} ${STAGEDIR}${DOCSDIR}
-.endfor
-.endif
+NO_PKG_REGISTER=yes
 
 # the next line closes .if ${MASTERDIR} == ${.CURDIR}
 .endif
+
 do-install:
 # XigmaNAS® Install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
