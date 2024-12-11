@@ -19,7 +19,7 @@ LICENSE=	MPL20
 
 #BUILD_DEPENDS=	${LOCALBASE}/bin/go:lang/go
 
-USES=		cpe go:1.21,modules
+USES=		cpe go:1.22,modules
 BINS=		syncthing stdiscosrv strelaysrv strelaypoolsrv
 
 .for x in ${BINS}
