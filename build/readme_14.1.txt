@@ -92,11 +92,8 @@ BUILD 14.2.0.5.10xxx RC1
 Changes:
 - Upgrade underlying OS to 14.2-RELEASE P0.
 - Update translations.
-- Upgrade python311 v3.11.9..
-- Upgrade mariadb to v11.4.2.
 - Upgrade iperf3 to v3.17.1.
-- Upgrade dialog to v1.3.20240619..
-- Upgrade syncthing to v1.27.10.
+- Upgrade dialog to v1.3.20240619.
 - Upgrade devcpu-data-intel to v20240813.
 - Upgrade php8 to v8.3.14.
 - Upgrade pecl-APCu to v5.1.24.
@@ -114,7 +111,10 @@ Changes:
 - Upgrade netatalk to v3.2.10.
 - Upgrade exfat to v1.4.0.
 - Upgrade nut to v2024.12.04.
+- Upgrade mariadb to v11.4.4.
+- Upgrade python311 v3.11.10.
 - Upgrade samba to v4.19.9.
+- Upgrade syncthing to v1.28.1
 
 New:
 - New SMB use its own log file.
