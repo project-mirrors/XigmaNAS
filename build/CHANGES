@@ -23,6 +23,7 @@ Changes:
 - Upgrade mDNSResponder to v2200.140.11.
 - Upgrade netatalk to v3.2.10.
 - Upgrade exfat to v1.4.0.
+- Upgrade nut to v2024.12.04.
 
 New:
 - New SMB use its own log file.
