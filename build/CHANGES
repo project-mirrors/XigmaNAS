@@ -24,6 +24,7 @@ Changes:
 - Upgrade netatalk to v3.2.10.
 - Upgrade exfat to v1.4.0.
 - Upgrade nut to v2024.12.04.
+- Upgrade samba to v4.19.9.
 
 New:
 - New SMB use its own log file.
