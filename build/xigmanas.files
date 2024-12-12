@@ -740,6 +740,9 @@ usr/sbin/acpidump
 ## arp -- address resolution display and control
 usr/sbin/arp
 
+## automount -- update autofs mounts
+usr/sbin/automount
+
 #boot0cfg -- boot manager installation/configuration utility
 usr/sbin/boot0cfg
 
