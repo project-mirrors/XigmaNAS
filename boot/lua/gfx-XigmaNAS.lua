@@ -6,7 +6,7 @@
 -- XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
 -- All Rights Reserved.
 --
--- SPDX-License-Identifier: BSD-2-Clause-FreeBSD
+-- SPDX-License-Identifier: BSD-2-Clause
 --
 -- Copyright (c) 2018 Kyle Evans <kevans@FreeBSD.org>
 --
@@ -30,8 +30,6 @@
 -- LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
 -- OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 -- SUCH DAMAGE.
---
--- $FreeBSD$
 --
 
 return {
