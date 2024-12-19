@@ -32,8 +32,12 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use common\arr;
+use common\uuid;
 
 if(isset($_GET['uuid'])):
 	$uuid = $_GET['uuid'];
@@ -42,10 +46,10 @@ if(isset($_POST['uuid'])):
 	$uuid = $_POST['uuid'];
 endif;
 $pgtitle = [gtext('Disks'),gtext('Mount Point'),isset($uuid) ? gtext('Edit') : gtext('Add')];
-$a_mount = &array_make_branch($config,'mounts','mount');
+$a_mount = &arr::make_branch($config,'mounts','mount');
 if(empty($a_mount)):
 else:
-	array_sort_key($a_mount,'devicespecialfile');
+	arr::sort_key($a_mount,'devicespecialfile');
 endif;
 function get_all_hast() {
 	$a = [];
@@ -72,7 +76,8 @@ $a_disk = get_conf_all_disks_list_filtered();
 //	Load the /etc/cfdevice file to find out on which disk the OS is installed.
 $cfdevice = trim(file_get_contents("{$g['etc_path']}/cfdevice"));
 $cfdevice = "/dev/{$cfdevice}";
-if(isset($uuid) && (FALSE !== ($cnid = array_search_ex($uuid,$a_mount,'uuid')))):
+$cnid = isset($uuid) ? arr::search_ex($uuid,$a_mount,'uuid') : false;
+if(isset($uuid) && ($cnid !== false)):
 	$pconfig['uuid'] = $a_mount[$cnid]['uuid'];
 	$pconfig['type'] = $a_mount[$cnid]['type'];
 	$pconfig['mdisk'] = $a_mount[$cnid]['mdisk'];
@@ -90,7 +95,7 @@ if(isset($uuid) && (FALSE !== ($cnid = array_search_ex($uuid,$a_mount,'uuid'))))
 	$pconfig['hvol'] = $pconfig['mdisk'];
 	$pconfig['devname'] = $pconfig['mdisk'];
 else:
-	$pconfig['uuid'] = uuid();
+	$pconfig['uuid'] = uuid::create_v4();
 	$pconfig['type'] = 'disk';
 	$pconfig['devname'] = '';
 	$pconfig['partition'] = 'p1';
@@ -257,7 +262,7 @@ if($_POST):
 //	Check for duplicates.
 	if($_POST['type'] === 'disk'):
 		foreach($a_mount as $mount):
-			if (isset($uuid) && (FALSE !== $cnid) && ($mount['uuid'] === $uuid)):
+			if (isset($uuid) && ($cnid !== false) && ($mount['uuid'] === $uuid)):
 				continue;
 			endif;
 			if(($mount['mdisk'] === $_POST['mdisk']) && ($mount['partition'] === $_POST['partition'])):
@@ -278,7 +283,7 @@ if($_POST):
 		endforeach;
 	endif;
 //	Check whether the mount point name is already in use.
-	$index = array_search_ex($_POST['sharename'],$a_mount,'sharename');
+	$index = arr::search_ex($_POST['sharename'],$a_mount,'sharename');
 	if($index !== false):
 //		Ensure we do not check the current processed mount point itself.
 		if(!(($cnid !== false) && ($a_mount[$cnid]['uuid'] === $a_mount[$index]['uuid']))):
@@ -294,30 +299,30 @@ if($_POST):
 				$mount['mdisk'] = $_POST['mdisk'];
 				$mount['partition'] = $_POST['partition'];
 				$mount['fstype'] = $_POST['fstype'];
-				$mount['gpt'] = ($_POST['partitiontype'] == 'p') ? true : false;
+				$mount['gpt'] = ($_POST['partitiontype'] == 'p');
 				$mount['rawuuid'] = $rawuuid;
 				if($mount['fstype'] == 'ufs'):
 					$mount['devicespecialfile'] = $device;
 				else:
 					$mount['devicespecialfile'] = trim("{$mount['mdisk']}{$mount['partition']}");
 				endif;
-				$mount['readonly'] = isset($_POST['readonly']) ? true : false;
-				$mount['fsck'] = isset($_POST['fsck']) ? true : false;
+				$mount['readonly'] = isset($_POST['readonly']);
+				$mount['fsck'] = isset($_POST['fsck']);
 				break;
 			case 'hvol':
 				$mount['mdisk'] = $_POST['hvol'];
 				$mount['partition'] = $_POST['partition'];
 				$mount['fstype'] = $_POST['fstype'];
 				$mount['voltype'] = 'hast';
-				$mount['gpt'] = ($_POST['partitiontype'] == 'p') ? true : false;
+				$mount['gpt'] = ($_POST['partitiontype'] == 'p');
 				$mount['rawuuid'] = $rawuuid;
 				if($mount['fstype'] == 'ufs'):
 					$mount['devicespecialfile'] = $device;
 				else:
 					$mount['devicespecialfile'] = trim("{$mount['mdisk']}{$mount['partition']}");
 				endif;
-				$mount['readonly'] = isset($_POST['readonly']) ? true : false;
-				$mount['fsck'] = isset($_POST['fsck']) ? true : false;
+				$mount['readonly'] = isset($_POST['readonly']);
+				$mount['fsck'] = isset($_POST['fsck']);
 				break;
 			case 'iso':
 				$mount['filename'] = $_POST['filename'];
@@ -330,8 +335,8 @@ if($_POST):
 				$mount['gpt'] = false;
 				$mount['rawuuid'] = '';
 				$mount['devicespecialfile'] = trim("{$mount['mdisk']}");
-				$mount['readonly'] = isset($_POST['readonly']) ? true : false;
-				$mount['fsck'] = isset($_POST['fsck']) ? true : false;
+				$mount['readonly'] = isset($_POST['readonly']);
+				$mount['fsck'] = isset($_POST['fsck']);
 				break;
 		endswitch;
 		$mount['sharename'] = $_POST['sharename'];
@@ -339,7 +344,7 @@ if($_POST):
 		$mount['accessrestrictions']['owner'] = $_POST['owner'];
 		$mount['accessrestrictions']['group'] = $_POST['group'];
 		$mount['accessrestrictions']['mode'] = getmodectrl($pconfig['mode_owner'],$pconfig['mode_group'],$pconfig['mode_others']);
-		if(isset($uuid) && (FALSE !== $cnid)):
+		if(isset($uuid) && ($cnid !== false)):
 			$mode = UPDATENOTIFY_MODE_MODIFIED;
 			$a_mount[$cnid] = $mount;
 		else:
@@ -420,7 +425,7 @@ function getmodectrl($owner,$group,$others) {
 }
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 function type_change() {
   switch (document.iform.type.selectedIndex) {
@@ -588,12 +593,12 @@ function enable_change(enable_change) {
 					</tr>
 <?php
 					html_inputbox2('partitionnum',gettext('Partition number'),$pconfig['partitionnum'],'',true,3);
-					html_combobox2('fstype',gettext('File system'),!empty($pconfig['fstype']) ? $pconfig['fstype'] : '',['ufs' => 'UFS','msdosfs' => 'FAT','cd9660' => 'CD/DVD','ntfs' => 'NTFS','ext2fs' => 'EXT2/3','fusefs-ext2 => 'EXT4','exfat' => 'exFAT'],'',true,false,'fstype_change()');
+					html_combobox2('fstype',gettext('File system'),!empty($pconfig['fstype']) ? $pconfig['fstype'] : '',['ufs' => 'UFS','msdosfs' => 'FAT','cd9660' => 'CD/DVD','ntfs' => 'NTFS','ext2fs' => 'EXT2/3','fusefs-ext2' => 'EXT4','exfat' => 'exFAT'],'',true,false,'fstype_change()');
 					html_filechooser2('filename','Filename',!empty($pconfig['filename']) ? $pconfig['filename'] : '',gettext('ISO file to be mounted.'),$g['media_path'],true);
 					html_inputbox2('sharename',gettext('Mount point name'),!empty($pconfig['sharename']) ? $pconfig['sharename'] : '','',true,20);
 					html_inputbox2('desc',gettext('Description'),!empty($pconfig['desc']) ? $pconfig['desc'] : '',gettext('You may enter a description here for your reference.'),false,40);
-					html_checkbox2('readonly',gettext('Read only'),!empty($pconfig['readonly']) ? true : false,gettext('Mount the file system read-only (even the super-user may not write it).'),'',false);
-					html_checkbox2('fsck',gettext('File system check'),$pconfig['fsck'] ? true : false,gettext('Enable foreground/background file system consistency check during boot process.'),'',false);
+					html_checkbox2('readonly',gettext('Read only'),!empty($pconfig['readonly']),gettext('Mount the file system read-only (even the super-user may not write it).'),'',false);
+					html_checkbox2('fsck',gettext('File system check'),!empty($pconfig['fsck']),gettext('Enable foreground/background file system consistency check during boot process.'),'',false);
 					html_separator2();
 					html_titleline2(gettext('Access Restrictions'));
 					$a_owner = [];
@@ -641,7 +646,7 @@ function enable_change(enable_change) {
 					</tr>
 				</table>
 				<div id="submit">
-					<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && (false !== $cnid)) ? gtext('Save') : gtext('Add')?>" onclick="enable_change(true)" />
+					<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && ($cnid !== false)) ? gtext('Save') : gtext('Add')?>" onclick="enable_change(true)" />
 					<input name="Cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>" />
 					<input name="uuid" type="hidden" value="<?=$pconfig['uuid'];?>" />
 				</div>
@@ -661,13 +666,13 @@ function enable_change(enable_change) {
 			</form>
 	</td></tr>
 </table>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 type_change();
 <?php
-if(isset($uuid) && (false !== $cnid)):
+if(isset($uuid) && ($cnid !== false)):
+//	Disable controls that should not be modified anymore in edit mode.
 ?>
-<!-- Disable controls that should not be modified anymore in edit mode. -->
 enable_change(false);
 <?php
 endif;
