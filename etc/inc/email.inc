@@ -119,9 +119,7 @@ function email_send($address,$subject,$message,&$error) {
 		$address = strtr($address,[';' => ' ',',' => ' ']);
 //		generate message content
 		$data = '';
-		foreach(explode(' ',$address) as $addressv):
-			$data .= 'To: ' . $addressv . "\n";
-		endforeach;
+		$data .= 'To: ' . implode(',',explode(' ',$address)) . "\n";
 		$data .= 'From: ' . $email_from . "\n";
 		$data .= $subject_final . "\n";
 		$data .= 'Date: ' . $rfcdate . "\n";

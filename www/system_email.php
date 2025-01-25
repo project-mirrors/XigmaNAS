@@ -262,7 +262,7 @@ $document->render();
 		<tbody>
 <?php
 			html_inputbox2('from',gettext('From Email Address'),$pconfig['from'],gettext('From email address for sending system messages.'),true,62);
-			html_inputbox2('sendto',gettext('To Email Address'),$pconfig['sendto'],gettext('Destination email address. Separate email addresses by semi-colon.'),true,62);
+			html_inputbox2('sendto',gettext('To Email Address'),$pconfig['sendto'],gettext('Destination email address. Multiple email addresses are separated by a comma.'),true,62);
 			html_inputbox2('server',gettext('SMTP Server'),$pconfig['server'],gettext('Outgoing SMTP mail server address.'),true,62);
 			html_inputbox2('port',gettext('Port'),$pconfig['port'],gettext('The default SMTP mail server port, usually port 25 or port 587.'),true,5);
 ?>
