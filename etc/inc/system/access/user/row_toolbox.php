@@ -66,6 +66,14 @@ class row_toolbox extends myt\row_toolbox {
 		return myr\rmo_row_templates::rmo_with_clone();
 	}
 /**
+ *	Create the properties object
+ *	@return row_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new row_properties();
+		return $cop;
+	}
+/**
  *	Get the next available uid from system
  *	@global array $config System configuration
  *	@return int uid
