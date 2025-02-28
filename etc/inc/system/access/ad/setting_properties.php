@@ -74,7 +74,7 @@ class setting_properties extends grid_properties {
 		return $property;
 	}
 /**
- *	https://support.microsoft.com/en-us/topic/2dc5c4b9-0881-2e0a-48df-f120493a2d3e
+ *	https://learn.microsoft.com/en-gb/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou
  *	@param mixed $test
  *	@return ?string
  */
@@ -84,11 +84,11 @@ class setting_properties extends grid_properties {
 			return null;
 		endif;
 //		NETBIOS name cannot have more than 15 characters
-		if(strlen($test) > 15):
+		if(mb_strlen(string: $test) > 15):
 			return null;
 		endif;
 //		minimum name length is 1
-		if(strlen($test) < 1):
+		if(mb_strlen(string: $test) < 1):
 			return null;
 		endif;
 //		NETBIOS name cannot contain digits only (DNS restriction).
