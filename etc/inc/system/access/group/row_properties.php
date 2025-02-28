@@ -54,7 +54,7 @@ class row_properties extends grid_properties {
 				$regexp = '/^[0-9A-Za-z\.;\[\]_\{\}][0-9A-Za-z\-\.;\[\]_\{\}]*\$?$/';
 				$result = null;
 				if(is_string($subject)):
-					if(strlen($subject) > 0 && strlen($subject) < 17):
+					if(mb_strlen(string: $subject) > 0 && mb_strlen(string: $subject) < 17):
 						if(preg_match($regexp,$subject) === 1):
 							return $subject;
 						endif;
