@@ -1,6 +1,6 @@
 PORTNAME=		openssh-portable
 PORTVERSION=	1.0
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=		security
 COMMENT=		The portable version of OpenBSD's OpenSSH
 MAINTAINER=		zoon01@xigmanas.com
@@ -23,8 +23,8 @@ do-install:
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/sshd ${XIGMANAS_ROOTFS}/usr/sbin
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/ssh ${XIGMANAS_ROOTFS}/usr/bin
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/sshd-session ${XIGMANAS_ROOTFS}/usr/libexec
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/sftp-server ${XIGMANAS_ROOTFS}/usr/libexec
+	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/sshd-session ${XIGMANAS_ROOTFS}/usr/local/libexec
+	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/sftp-server ${XIGMANAS_ROOTFS}/usr/local/libexec
 	@${CP} -pv ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/moduli ${XIGMANAS_ROOTFS}/etc/ssh
 
 # Create link to moduli file to prevent log entry:

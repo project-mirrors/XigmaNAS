@@ -41,13 +41,13 @@ sshd_mkconf()
 #	create sshd_config file
 	/usr/local/bin/xml sel --template \
 		--match '(//sshd[enable])[1]' \
-			--output 'HostKeyAlgorithms +ssh-rsa,ssh-dss' --nl \
+			--output 'HostKeyAlgorithms +ssh-rsa' --nl \
 			--output 'SyslogFacility LOCAL3' --nl \
 			--output 'UseDNS no' --nl \
 			--if 'string-length(subsystem) > 0' \
 				--value-of 'concat("Subsystem ",subsystem)' --nl \
 			--else \
-				--output 'Subsystem sftp /usr/libexec/sftp-server' --nl \
+				--output 'Subsystem sftp /usr/local/libexec/sftp-server' --nl \
 			--break \
 			--if 'count(kbdinteractiveauthentication) > 0' \
 				--output 'KbdInteractiveAuthentication yes' --nl \
