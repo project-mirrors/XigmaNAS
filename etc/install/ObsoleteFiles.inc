@@ -204,3 +204,6 @@ sbin/iscontrol
 usr/libexec/make_index
 usr/sbin/ancontrol
 usr/sbin/portsnap
+# 10243
+usr/libexec/sftp-server
+usr/libexec/sshd-session
