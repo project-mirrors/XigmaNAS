@@ -1,16 +1,15 @@
 PORTNAME=		unison
 PORTVERSION=	2.52.1
+PORTREVISION=	1
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
 COMMENT=	A user-level file synchronization tool
 MAINTAINER=	zoon01@xigmanas.com
 
 PLIST_SUB=	PORTVERSION=${PORTVERSION}
-USES=		gmake
+USES=		gmake ocaml:build
 NO_PKG_REGISTER=yes
-USE_OCAML=	yes
 WRKSRC_SUBDIR=	src
-NO_OCAML_RUNDEPENDS=yes
 WANT_GNOME=	yes
 MAKE_ARGS=	CFLAGS=""
 CONFLICTS?=	unison-devel-[0-9]* unison-nox11-[0-9]*
