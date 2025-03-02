@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2024-06-23 12:29+0000\n"
-"PO-Revision-Date: 2024-03-29 18:36+0000\n"
-"Last-Translator: eFeS <Unknown>\n"
+"PO-Revision-Date: 2025-01-24 15:07+0000\n"
+"Last-Translator: Peter Kovacs <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-07-01 12:37+0000\n"
-"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"X-Launchpad-Export-Date: 2025-03-02 18:13+0000\n"
+"X-Generator: Launchpad (build aa29ae0fff49e4e804b39147c9f259d2fb023199)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -19,6 +19,7 @@ msgstr "Címtárszolgáltatás (AD)"
 
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
+"Az Active Directory használatához engedélyezni kell az SMB szolgáltatást"
 
 msgid "The following services will use AD authentication:"
 msgstr "A következő szolgáltatások használnak AD hitelesítést:"
@@ -278,7 +279,7 @@ msgid "Reload page"
 msgstr "Oldal újratöltése"
 
 msgid "SMB"
-msgstr ""
+msgstr "SMB"
 
 msgid "testparm"
 msgstr ""
@@ -396,7 +397,7 @@ msgid "FTP User Information & Status"
 msgstr "FTP felhasználók információi és állapota"
 
 msgid "IPMI Statistics"
-msgstr ""
+msgstr "IPMI statisztika"
 
 msgid "Sensor Information"
 msgstr "Érzékelőinformáció"
@@ -477,7 +478,7 @@ msgid "No RSYNC Client configured."
 msgstr "RSYNC kliens nincs konfigurálva."
 
 msgid "SMB is disabled."
-msgstr ""
+msgstr "SMB letiltva"
 
 msgid "No information available."
 msgstr "Nem érhető el információ."
@@ -1123,7 +1124,7 @@ msgid "Raw Value"
 msgstr "Nyers adat"
 
 msgid "Unknown or undocumented attribute."
-msgstr ""
+msgstr "Ismeretlen vagy nem dokumentált tulajdonság"
 
 msgid "Sockstat"
 msgstr "Sockstat"
@@ -1144,7 +1145,7 @@ msgid "UPS is disabled."
 msgstr "Szünetmentes kikapcsolva."
 
 msgid "Selected UPS"
-msgstr ""
+msgstr "Kiválasztott szünetmentes"
 
 msgid "ERROR:"
 msgstr "HIBA:"
@@ -1584,7 +1585,7 @@ msgid "User"
 msgstr "Felhasználó"
 
 msgid "SAMBA"
-msgstr ""
+msgstr "SAMBA"
 
 msgid "RSYNC - Server"
 msgstr "RSYNC - Kiszolgáló"
@@ -2117,7 +2118,7 @@ msgid "Unknown or Unformatted"
 msgstr "Ismeretlen vagy formázatlan"
 
 msgid "N/A"
-msgstr ""
+msgstr "Nem érhető el"
 
 msgid "Command output"
 msgstr "Parancskimenet"
@@ -2299,7 +2300,7 @@ msgid "Maximum Performance, Maximum Acoustic Output"
 msgstr "Maximális teljesítmény, maximális zajszint kimenet"
 
 msgid "Acoustic Level"
-msgstr ""
+msgstr "Akkusztikus szint"
 
 msgid "This allows you to set how loud the drive is while it's operating."
 msgstr ""
@@ -2315,7 +2316,7 @@ msgid "Please check the documentation."
 msgstr "Ellenőrizd a dokumentációt."
 
 msgid "S.M.A.R.T. Options"
-msgstr ""
+msgstr "S.M.A.R.T. beállítások"
 
 msgid ""
 "This option allows you to set the file system of already formatted disks "
@@ -2764,10 +2765,10 @@ msgid "Unmounting..."
 msgstr "Leválasztás..."
 
 msgid "GEOM not found."
-msgstr ""
+msgstr "GEOM nem található"
 
 msgid "GEOM details not available."
-msgstr ""
+msgstr "GEOM részletei nem érhetőek el"
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -2782,13 +2783,13 @@ msgid "Maintenance"
 msgstr "Karbantartás"
 
 msgid "JBOD Status"
-msgstr ""
+msgstr "JBOD állapot"
 
 msgid "JBOD Details"
-msgstr ""
+msgstr "JBOD részletek"
 
 msgid "Details"
-msgstr ""
+msgstr "Részletek"
 
 msgid "Volume Name"
 msgstr "Kötetnév"
@@ -2944,10 +2945,10 @@ msgid "RAID1"
 msgstr "RAID1"
 
 msgid "RAID1 Status"
-msgstr ""
+msgstr "RAID1 állapot"
 
 msgid "RAID1 Details"
-msgstr ""
+msgstr "RAID1 részletek"
 
 msgid "Rebuild the selected device forcibly."
 msgstr "A kiválasztott eszközök kierőszakolt újraépítése."
@@ -2995,10 +2996,10 @@ msgid "RAID5"
 msgstr "RAID5"
 
 msgid "RAID5 Status"
-msgstr ""
+msgstr "RAID5 állapot"
 
 msgid "RAID5 Details"
-msgstr ""
+msgstr "RAID5 részletek"
 
 msgid "RAID-5"
 msgstr "RAID-5"
@@ -3013,10 +3014,10 @@ msgid "RAID0"
 msgstr "RAID0"
 
 msgid "RAID0 Status"
-msgstr ""
+msgstr "RAID0 állapot"
 
 msgid "RAID0 Details"
-msgstr ""
+msgstr "RAID0 részletek"
 
 msgid "RAID-0"
 msgstr "RAID-0"
@@ -3074,7 +3075,7 @@ msgid "ZFS"
 msgstr "ZFS"
 
 msgid "Configuration"
-msgstr "Beállítások"
+msgstr "Konfiguráció"
 
 msgid "Detected"
 msgstr "Észlelt"
@@ -3092,7 +3093,7 @@ msgid "Snapshots"
 msgstr "Pillanatképek"
 
 msgid "Scheduler"
-msgstr ""
+msgstr "Ütemező"
 
 msgid "Current"
 msgstr "Aktuális"
@@ -3454,19 +3455,19 @@ msgid "Clone Configuration"
 msgstr "Konfiguráció másolása"
 
 msgid "ZFS filesystem not found."
-msgstr ""
+msgstr "ZFS fájlrendszer nem található"
 
 msgid "ZFS filesystem properties not available."
-msgstr ""
+msgstr "ZFS fájlrendszer beállításai nem érhető el"
 
 msgid "ZFS Filesystem Information & Status"
-msgstr ""
+msgstr "ZFS fájlrendszer információk és állapota"
 
 msgid "Information & Status"
 msgstr "Információ és állapot"
 
 msgid "ZFS Filesystem Properties"
-msgstr ""
+msgstr "ZFS fájlrendszer beállításai"
 
 msgid "Properties"
 msgstr "Tulajdonságok"
@@ -3505,16 +3506,16 @@ msgid "All"
 msgstr "Minden"
 
 msgid "Today"
-msgstr ""
+msgstr "Ma"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Tegnap"
 
 msgid "Older than yesterday"
-msgstr ""
+msgstr "Régebbi, mint a tegnapi"
 
 msgid "This week"
-msgstr ""
+msgstr "Ez a hét"
 
 msgid "Last week"
 msgstr "Múlt hét"
@@ -3523,7 +3524,7 @@ msgid "Older than last week"
 msgstr "Egy hétnél régebben"
 
 msgid "This month"
-msgstr ""
+msgstr "Az a hónap"
 
 msgid "Last month"
 msgstr "Múlt hónap"
@@ -3538,22 +3539,22 @@ msgid "Current quarter"
 msgstr "Jelenlegi negyedév"
 
 msgid "Previous quarter"
-msgstr ""
+msgstr "Előző negyed"
 
 msgid "Older than previous quarter"
-msgstr ""
+msgstr "Régebbi, mint az előző negyed"
 
 msgid "Current year"
 msgstr "Jelenlegi év"
 
 msgid "Previous year"
-msgstr ""
+msgstr "Előző év"
 
 msgid "Current and previous year"
 msgstr "A mostani és az előző év"
 
 msgid "Older than previous year"
-msgstr ""
+msgstr "Régebbi, mint az előző évi"
 
 msgid "Snapshot"
 msgstr "Pillanatkép"
@@ -3728,10 +3729,10 @@ msgid "Apply"
 msgstr "Alkalmaz"
 
 msgid "ZFS volume not found."
-msgstr ""
+msgstr "ZFS kötet nem található"
 
 msgid "ZFS volume properties not available."
-msgstr ""
+msgstr "ZFS kötet beállításai nem érhetőek el"
 
 msgid "ZFS Volume Information & Status"
 msgstr "ZFS kötetinformáció és -állapot"
@@ -3825,13 +3826,13 @@ msgid "Virtual Device List"
 msgstr "Virtuális eszközök listája"
 
 msgid "ZFS pool not found."
-msgstr ""
+msgstr "ZFS pool nem található"
 
 msgid "ZFS pool properties not available."
-msgstr ""
+msgstr "ZFS pool beállításai nem érhetőek el"
 
 msgid "ZFS Pool Information & Status"
-msgstr ""
+msgstr "ZFS pool információk & állapot"
 
 msgid "ZFS Pool Properties"
 msgstr "ZFS tároló tulajdonságai"
@@ -3876,10 +3877,10 @@ msgid "Display ZFS command history"
 msgstr "ZFS parancstörténelem megjelenítése"
 
 msgid "Import pools"
-msgstr ""
+msgstr "Tárolók (pools) importálása"
 
 msgid "List pools available to import"
-msgstr ""
+msgstr "Elérhető készletek listázása importáláshoz"
 
 msgid "Remove ZFS label information from a device"
 msgstr "ZFS címkeinformációk eltávolítása az eszközről"
@@ -3909,7 +3910,7 @@ msgid "Scrub a pool"
 msgstr "Tároló ellenőrzése"
 
 msgid "Initiate TRIM of free space in a pool"
-msgstr ""
+msgstr "TRIM futtatása egy tároló (pool) szabad területén"
 
 msgid "Upgrade ZFS and add all supported feature flags on a pool"
 msgstr ""
@@ -3985,7 +3986,7 @@ msgid "Do you want to delete selected virtual devices?"
 msgstr "Biztos, hogy törlöd a kiválasztott virtuális eszközöket?"
 
 msgid "Do you want to create a virtual device from selected disk?"
-msgstr ""
+msgstr "Létre akar hozni egy virtuális eszközt a kiválasztott lemezről?"
 
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
@@ -3998,22 +3999,22 @@ msgstr ""
 "lemezekből?"
 
 msgid "Do you want to create a RAIDZ1 from selected disks?"
-msgstr ""
+msgstr "Létre akar hozni egy RAIDZ1 kötetet a kiválasztott lemezről?"
 
 msgid "Do you want to create a RAIDZ2 from selected disks?"
-msgstr ""
+msgstr "Létre akar hozni egy RAIDZ2 kötetet a kiválasztott lemezről?"
 
 msgid "Do you want to create a RAIDZ3 from selected disks?"
-msgstr ""
+msgstr "Létre akar hozni egy RAIDZ3 kötetet a kiválasztott lemezről?"
 
 msgid "Do you want to create a DRAID1 device from selected disk?"
-msgstr ""
+msgstr "Létre akar hozni egy RAID 1 kötetet a kiválasztott lemezről?"
 
 msgid "Do you want to create a DRAID2 device from selected disk?"
-msgstr ""
+msgstr "Létre akar hozni egy RAID 2 kötetet a kiválasztott lemezről?"
 
 msgid "Do you want to create a DRAID3 device from selected disk?"
-msgstr ""
+msgstr "Létre akar hozni egy RAID 3 kötetet a kiválasztott lemezről?"
 
 msgid "Do you want to create a hot spare device from selected disk?"
 msgstr "Biztos, hogy gyors tartalékot hozol létre a kiválasztott lemezekből?"
@@ -4032,11 +4033,13 @@ msgstr ""
 "lemezekből?"
 
 msgid "Do you want to create a dedup device from selected disks?"
-msgstr ""
+msgstr "Létre akar hozni egy dedup eszközt a kiválasztott lemezről?"
 
 msgid ""
 "Do you want to create a special allocation device from selected disks?"
 msgstr ""
+"Létre akar hozni egy speciális felosztású eszközt erről a kiválasztott "
+"lemezről?"
 
 msgid "No disks available."
 msgstr "Egy lemez sem érhető el."
@@ -4072,13 +4075,14 @@ msgid "Create 4KB wrapper (nop device)."
 msgstr "4KB csomagoló létrehozása (nop eszköz)"
 
 msgid "Create a virtual device containing a single device"
-msgstr ""
+msgstr "Egyetlen eszközt tartalmazó virtuális eszköz létrehozása"
 
 msgid "DISK"
-msgstr ""
+msgstr "LEMEZ"
 
 msgid "Create a virtual device containing concatenated devices"
 msgstr ""
+"Virtuális eszköz létrehozása, amely összekapcsolt eszközöket tartalmaz"
 
 msgid "STRIPE"
 msgstr "CSÍKOZÁS"
@@ -4111,13 +4115,13 @@ msgid "RAID-Z3"
 msgstr "RAID-Z3"
 
 msgid "DRAID-1"
-msgstr ""
+msgstr "DRAID-1"
 
 msgid "DRAID-2"
-msgstr ""
+msgstr "DRAID-2"
 
 msgid "DRAID-3"
-msgstr ""
+msgstr "DRAID-3"
 
 msgid "Create a spare device"
 msgstr "Egy tartalék eszköz létrehozása"
@@ -4147,13 +4151,13 @@ msgid "Create a dedup device"
 msgstr ""
 
 msgid "DEDUP"
-msgstr ""
+msgstr "DEDUP"
 
 msgid "Create a special allocation device"
-msgstr ""
+msgstr "Speciálisan felosztott eszköz létrehozása"
 
 msgid "SPECIAL"
-msgstr ""
+msgstr "SPECIÁLIS"
 
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr "Ez egy nagyon erőteljes eszköz, csak saját felelősségre használd!"
@@ -4329,7 +4333,7 @@ msgid "Error Code"
 msgstr "Hibakód"
 
 msgid "Home"
-msgstr ""
+msgstr "Saját mappa"
 
 msgid "General"
 msgstr "Általános"
@@ -4389,7 +4393,7 @@ msgid "Samba AD"
 msgstr "Samba AD"
 
 msgid "WSD"
-msgstr ""
+msgstr "WSD"
 
 msgid "TFTP"
 msgstr "TFTP"
@@ -4518,7 +4522,7 @@ msgid "Disk Space Usage"
 msgstr "Lemezhasználat"
 
 msgid "Pool Space Usage"
-msgstr ""
+msgstr "Terület helykihasználtsága"
 
 msgid " | State: "
 msgstr " | Állapot: "
@@ -4533,7 +4537,7 @@ msgid "Show UPS Information"
 msgstr "Szünetmentes információk megjelenítése"
 
 msgid "Status:"
-msgstr ""
+msgstr "Állapot:"
 
 msgid "Load:"
 msgstr "Terhelés:"
@@ -4542,7 +4546,7 @@ msgid "Battery Level:"
 msgstr "Akkumulátor szint:"
 
 msgid "Remaining:"
-msgstr ""
+msgstr "Fennmaradó:"
 
 #, php-format
 msgid "Wrong permission on %s."
@@ -4617,7 +4621,7 @@ msgid "Port"
 msgstr "Port"
 
 msgid "was assigned to"
-msgstr ""
+msgstr "hozzárendelt"
 
 msgid " interfaces:"
 msgstr " interfészek:"
@@ -4638,7 +4642,7 @@ msgid "CARP"
 msgstr "CARP"
 
 msgid "Network Port"
-msgstr ""
+msgstr "Hálózati port"
 
 msgid "Delete interface"
 msgstr "Interfész törlése"
@@ -4925,7 +4929,7 @@ msgid "Wake On LAN"
 msgstr "Hálózati ébresztés"
 
 msgid "Not available"
-msgstr ""
+msgstr "Nem elérhető"
 
 msgid ""
 "After you click \"Save\" you may also have to do one or more of the "
@@ -5088,13 +5092,13 @@ msgid "GPLv3"
 msgstr "GPLv3"
 
 msgid "MIT License"
-msgstr ""
+msgstr "MIT licensz"
 
 msgid "GNU Lesser General Public License (LGPL)"
 msgstr "GNU Lesser Általános Nyilvános Licenc (LGPL)"
 
 msgid "The Inner Net License, Version 2"
-msgstr ""
+msgstr "Az Inner Net licensz, második verzió"
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Közösségi Licenc Verzió 2.0 (MPLv2)"
@@ -5158,7 +5162,7 @@ msgid "Scheduled"
 msgstr "Ütemezett"
 
 msgid "Enhanced Scheduler"
-msgstr ""
+msgstr "Továbbfejlesztett ütemező"
 
 msgid "The server is rebooting now."
 msgstr "A szerver újraindul."
@@ -5376,7 +5380,7 @@ msgid "Service Active"
 msgstr "A szolgáltatás aktív"
 
 msgid "Transmission Web Interface"
-msgstr ""
+msgstr "Transmission web interfész"
 
 msgid "URL"
 msgstr "URL"
@@ -5552,7 +5556,7 @@ msgstr "A maximális tétlenségi idő értéke szám kell, hogy legyen."
 
 #, php-format
 msgid "The attribute %s must be in the range from %d to %d."
-msgstr ""
+msgstr "Az attribútumnak %s a tartományban kell lennie től %d ig %d."
 
 msgid "Min. Passive Port"
 msgstr "Legkisebb passzív port"
@@ -5562,7 +5566,7 @@ msgstr "Legnagyobb passzív port"
 
 #, php-format
 msgid "The attribute %s must be less than %s."
-msgstr ""
+msgstr "Az attribútumnak %s kevesebbnek kell lennie, mint %s."
 
 msgid ""
 "It is impossible to enable 'Anonymous Users' and 'Authenticated Users' both "
@@ -5737,7 +5741,7 @@ msgstr ""
 "állomásnév NAT átjáróként vagy port továbbítóként viselkedik a szerveren."
 
 msgid "Passive Port Min."
-msgstr ""
+msgstr "Passzív port Min."
 
 msgid ""
 "The minimum port to allocate for PASV style data connections (0 = use any "
@@ -5747,7 +5751,7 @@ msgstr ""
 "port)."
 
 msgid "Passive Port Max."
-msgstr ""
+msgstr "Passzív port Max."
 
 msgid ""
 "The maximum port to allocate for PASV style data connections (0 = use any "
@@ -6104,7 +6108,7 @@ msgid "Node B Settings"
 msgstr "'B' csomópont beállításai"
 
 msgid "Dynamic DNS Settings"
-msgstr ""
+msgstr "Dinamikus DNS beállítás"
 
 msgid "Node Base"
 msgstr "Node alap"
@@ -6946,11 +6950,15 @@ msgid ""
 "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
 "services can cause problems."
 msgstr ""
+"Egy másik DLNA/UPnP szolgáltatás már engedélyezve van. Több DLNA/UPnP "
+"szolgáltatás egyidejű futtatása hibákhoz vezethet."
 
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
 msgstr ""
+"Több DNLA/UPnP szolgáltatás engedélyezve van. Különböző DNLA/UPnP "
+"szolgáltatások egyidejű futtatása hibákhoz vezethetnek."
 
 msgid "MiniDLNA Media Server WebGUI"
 msgstr "MiniDLNA Médiaszerver WebGUI"
@@ -7026,7 +7034,7 @@ msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Biztos, hogy átkapcsolod a kijelölt rsync feladatokat?"
 
 msgid "Remote Module"
-msgstr ""
+msgstr "Távoli Modul"
 
 msgid "Remote Address"
 msgstr "Távoli cím"
@@ -7318,7 +7326,7 @@ msgstr ""
 "Ezek a paraméterek hozzáadódnak a modulbeállításokhoz az rsyncd.conf fájlban."
 
 msgid "SMB Settings"
-msgstr ""
+msgstr "SMB beállítások"
 
 msgid "Advanced SMB Settings"
 msgstr "haladó SMB beállítások"
@@ -7363,6 +7371,8 @@ msgstr "Ezek a paraméterek hozzáadódnak a következő [Global] részéhez: %s
 msgid ""
 "When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
+"Ha a Samba AD engedélyezve van, akkor a sima SMB fájlmegosztás nem "
+"használható."
 
 msgid "NTP must be enabled."
 msgstr "NTP-t be kell kapcsolni."
@@ -7380,7 +7390,7 @@ msgid "No DNS server have been configured."
 msgstr "Nincs beállítva DNS szerver."
 
 msgid "SMB is enabled."
-msgstr ""
+msgstr "SMB engedélyezve van."
 
 msgid "Path not found."
 msgstr "Útvonal nem található."
@@ -7410,13 +7420,13 @@ msgid "Permanent samba data path (e.g. %s)."
 msgstr "Állandó Samba-adatútvonal (pl. %s)."
 
 msgid "Use zfsacl"
-msgstr ""
+msgstr "zfsacl használata"
 
 msgid "Use the ZFS ACL driver."
-msgstr ""
+msgstr "ZFS ACL eszközillesztő használata."
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Felhasználó által megadott megosztások elfogadása."
 
 msgid "Initializing..."
 msgstr "Inicializálás..."
@@ -7425,6 +7435,8 @@ msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
 msgstr ""
+"Az összes adat a kiválasztott könyvtárban felülírásra került. Üres USF mappa "
+"vagy üres ZFS dataset használata ajánlott."
 
 msgid "Check System|General Setup before initializing"
 msgstr "Rendszerellenőrzés|Általános beállítások inicializálás előtt"
@@ -7510,11 +7522,11 @@ msgstr "A kapcsolódó MIB fájlok megtalálható a következő helyen: %s."
 
 #, php-format
 msgid "The path %s does not exist."
-msgstr ""
+msgstr "Az útvonal %s nem létezik."
 
 #, php-format
 msgid "The path %s is not a directory."
-msgstr ""
+msgstr "Az útvonal %s nem könyvtár."
 
 msgid ""
 "Enter the path to the database directory. The config files will be created "
@@ -7793,7 +7805,7 @@ msgid "All Interfaces"
 msgstr "Valamennyi interfész"
 
 msgid "Web Service Discovery Settings"
-msgstr ""
+msgstr "Web Service Discovery beállítások"
 
 msgid "The server is shutting down now."
 msgstr "A szerver most leáll."
@@ -7882,64 +7894,64 @@ msgid "RRDGraphs Monthly CPU Temperature Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs éves processzor hőmérsékleti grafikon"
 
 msgid "RRDGraphs Daily CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs napi processzor használati grafikon"
 
 msgid "RRDGraphs Weekly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs heti processzor használati grafikon"
 
 msgid "RRDGraphs Monthly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs havi processzor használati grafikon"
 
 msgid "RRDGraphs Yearly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs éves processzor használati grafikon"
 
 msgid "Disk Usage"
 msgstr "Lemezhasználat"
 
 msgid "Reporting Disk"
-msgstr ""
+msgstr "Lemez jelentése"
 
 msgid "RRDGraphs Daily Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs napi lemezhasználati grafikon"
 
 msgid "RRDGraphs Weekly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs heti lemezhasználati grafikon"
 
 msgid "RRDGraphs Monthly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs havi lemezhasználati grafikon"
 
 msgid "RRDGraphs Yearly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs éves lemezhasználati grafikon"
 
 msgid "Network Latency"
 msgstr "Hálózati késlekedés"
 
 msgid "RRDGraphs Daily Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs napi hálózati késleltetési grafikon"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs heti hálózati késleltetési grafikon"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs havi hálózati késleltetési grafikon"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs éves hálózati késleltetési grafikon"
 
 msgid "RRDGraphs Daily Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs napi átlagos terhelés grafikon"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs heti átlagos terhelés grafikon"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs havi átlagos terhelés grafikon"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs éves átlagos terhelés grafikon"
 
 msgid "Detailed"
 msgstr "Részletes"
@@ -7948,76 +7960,76 @@ msgid "Level"
 msgstr "Szint"
 
 msgid "Reporting Level"
-msgstr ""
+msgstr "Jelentés szintje"
 
 msgid "RRDGraphs Daily Memory Graph"
-msgstr ""
+msgstr "RRDGraphs napi memória grafikon"
 
 msgid "RRDGraphs Weekly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs heti memória grafikon"
 
 msgid "RRDGraphs Monthly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs havi memória graikon"
 
 msgid "RRDGraphs Yearly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs éves memória grafikon"
 
 msgid "Network Traffic"
 msgstr "Hálózati forgalom"
 
 msgid "Reporting Interface"
-msgstr ""
+msgstr "Jelentéskészítő interfész"
 
 msgid "RRDGraphs Daily Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs napi sávszélesség grafikon"
 
 msgid "RRDGraphs Weekly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs heti sávszélesség grafikon"
 
 msgid "RRDGraphs Monthly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs havi sávszélesség grafikon"
 
 msgid "RRDGraphs Yearly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs éves sávszélesség grafikon"
 
 msgid "RRDGraphs Daily Processes Graph"
-msgstr ""
+msgstr "RRDGraphs napi folyamat grafikon"
 
 msgid "RRDGraphs Weekly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs heti folyamat grafikon"
 
 msgid "RRDGraphs Monthly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs havi folyamat grafikon"
 
 msgid "RRDGraphs Yearly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs éves folyamat grafikon"
 
 msgid "RRDGraphs Daily UPS Graph"
-msgstr ""
+msgstr "RRDGraphs napi UPS grafikon"
 
 msgid "RRDGraphs Weekly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs heti UPS grafikon"
 
 msgid "RRDGraphs Monthly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs havi UPS grafikon"
 
 msgid "RRDGraphs Yearly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs éves UPS grafikon"
 
 msgid "Uptime"
 msgstr "Működési idő"
 
 msgid "RRDGraphs Daily Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs napi üzemidő grafikon"
 
 msgid "RRDGraphs Weekly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs heti üzemidő grafikon"
 
 msgid "RRDGraphs Monthly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs havi üzemidő grafikon"
 
 msgid "RRDGraphs Yearly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs éves üzemidő grafikon"
 
 msgid "ZFS ARC"
 msgstr "ZFS ARC"
@@ -8342,6 +8354,8 @@ msgid ""
 "Current system password is using a default password. You should choose a "
 "different password."
 msgstr ""
+"A jelenlegi jelszó alapértelmezettként van használva. Ajánlatos egy másik "
+"jelszót választani,"
 
 msgid "Backup Configuration"
 msgstr "Beállítások biztonsági mentése"
@@ -8459,10 +8473,10 @@ msgid "File Path"
 msgstr "Elérési út"
 
 msgid "Open File"
-msgstr ""
+msgstr "Fájl megnyitása"
 
 msgid "Save File"
-msgstr ""
+msgstr "Fájl mentése"
 
 msgid "Rows"
 msgstr "Sorok"
@@ -8471,7 +8485,7 @@ msgid "Cols"
 msgstr "Oszlopok"
 
 msgid "Set"
-msgstr ""
+msgstr "Beállítás"
 
 msgid "Highlight View"
 msgstr ""
@@ -8566,7 +8580,7 @@ msgid "Use Default TLS Trust File"
 msgstr "Alapértelmezett TLS bizalmi fájl használata"
 
 msgid "Use default TLS trust file."
-msgstr ""
+msgstr "Az alapértelmezett megbízható TLS fájl használata"
 
 msgid "TLS Trust File"
 msgstr "TLS  Megbízható Fájl"
@@ -8708,7 +8722,7 @@ msgid "Firewall Rules"
 msgstr "Tűzfal-szabályok"
 
 msgid "Rule #"
-msgstr ""
+msgstr "Szabály #"
 
 msgid "The unique rule number is already used."
 msgstr "Az egyedi szabályazonosító már létezik."
@@ -8783,7 +8797,7 @@ msgid "Failed to access in-memory file system."
 msgstr "Memóriabeli fájlrendszer-hozzáférési hiba"
 
 msgid "Invalid firmware file."
-msgstr ""
+msgstr "Érvénytelen firmware fájl"
 
 msgid "The file you try to flash is not for this platform"
 msgstr "A frissítési fájl nem ehhez a platformhoz készült."
@@ -8814,13 +8828,13 @@ msgid "Firmware upgrade check has been disabled."
 msgstr "A firmwarefrissítés-ellenőrzést kikapcsolták."
 
 msgid "Regular Product Updates"
-msgstr ""
+msgstr "Rendszeres termékfrissítés"
 
 msgid "There are no regular product updates available."
-msgstr ""
+msgstr "Jelenleg nincs elérhető termékfrissítés"
 
 msgid "Product Version Updates"
-msgstr ""
+msgstr "Termék verzió frissítések"
 
 msgid "Major Product Version Updates"
 msgstr "Fő program verzió frissítések"
@@ -9011,11 +9025,11 @@ msgid "Height of the graphs. (default %s pixels)"
 msgstr "A diagramok magassága (alapértelmezetten %s pixel)."
 
 msgid "Graphs Width"
-msgstr ""
+msgstr "Grafikon szélesség"
 
 #, php-format
 msgid "Width of the graphs. (default %s pixels)"
-msgstr ""
+msgstr "Grafikon szélessége. (default %s pixels)"
 
 msgid "Autoscale"
 msgstr "Automatikus skálázás"
@@ -9136,7 +9150,7 @@ msgid "Enable collecting ZFS L2ARC usage statistics."
 msgstr "ZFS L2ARC használati statisztika gyűjtésének engedélyezése."
 
 msgid "Enable collecting ZFS cache efficiency statistics."
-msgstr ""
+msgstr "ZFS gyorsítótár hatékonysági statisztika gyűjtésének engedélyezése"
 
 msgid "Reset Graphs"
 msgstr "Grafikonon alaphelyzetbe állítása"
@@ -9323,7 +9337,7 @@ msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "A cserehelyként (swap) használandó eszköz neve, pl.: %s."
 
 msgid "Sysctl Setting"
-msgstr ""
+msgstr "Sysctl beállítások"
 
 msgid "Current Setting"
 msgstr "Jelenlegi beállítás"
@@ -9347,7 +9361,7 @@ msgid "CSS Settings"
 msgstr "CSS beállítások"
 
 msgid "Landing Pages"
-msgstr ""
+msgstr "Landoló oldalak"
 
 msgid "Current password"
 msgstr "Jelenlegi jelszó"
@@ -9651,55 +9665,55 @@ msgid "Add Filesystem"
 msgstr "Filerendszer felvétele"
 
 msgid "Edit Filesystem"
-msgstr ""
+msgstr "Fájlrendszer szerkesztése"
 
 msgid "Filesystem is marked for deletion"
-msgstr ""
+msgstr "Fájlrendszer törlésre kijelölve"
 
 msgid "Filesystem is locked"
-msgstr ""
+msgstr "Fájlrendszer zárolva"
 
 msgid "Filesystem is unlocked"
-msgstr ""
+msgstr "Fájlrendszer feloldva"
 
 msgid "Delete Selected Filesystems"
-msgstr ""
+msgstr "Kijelölt fájlrendszer törlése"
 
 msgid "Do you want to delete selected filesystems?"
-msgstr ""
+msgstr "Biztos törölni akarod a kijelölt fájlrendszert?"
 
 msgid "Disable Selected Schedules"
-msgstr ""
+msgstr "Kijelölt ütemezések letiltása"
 
 msgid "Do you want to disable selected filesystems?"
-msgstr ""
+msgstr "Biztos le akarod tiltani a kijelölt fájlrendszereket?"
 
 msgid "Enable Selected Schedules"
-msgstr ""
+msgstr "Kijelölt ütemezések engedélyezése"
 
 msgid "Do you want to enable selected filesystems?"
-msgstr ""
+msgstr "Biztos engedélyezni akarod a kijelölt fájlrendszert?"
 
 msgid "Toggle Selected Schedules"
-msgstr ""
+msgstr "Váltás a kijelölt ütemezésre"
 
 msgid "Do you want to toggle selected filesystems?"
-msgstr ""
+msgstr "Be akarja kapcsolni a kiválasztott fájlrendszereket?"
 
 msgid "Filesystem Name"
-msgstr ""
+msgstr "Fájlrendszer név"
 
 msgid "unknown"
 msgstr "ismeretlen"
 
 msgid "No ZFS filesystem information available."
-msgstr ""
+msgstr "Nincs elérhető ZFS fájlrendszer információ"
 
 msgid "Filesystems"
-msgstr ""
+msgstr "Fájlrendszerek"
 
 msgid "Dataset Name"
-msgstr ""
+msgstr "Adatkészlet neve"
 
 msgid ""
 "File System - can be mounted within the standard system namespace and "
@@ -9716,6 +9730,8 @@ msgid ""
 "Snapshot - A read-only version of a file system or volume at a given point "
 "in time."
 msgstr ""
+"Snapshot - Egy olvasható verzió a fájlrendszerről vagy kötetről az adott "
+"időpontról"
 
 msgid "Bookmark - Creates a bookmark of a given snapshot."
 msgstr "Könyvjelző - Könyvjelző létrehozása az adott snapshothoz."
@@ -9724,7 +9740,7 @@ msgid "Dataset Type"
 msgstr "Adattár típusa"
 
 msgid "Pool Name"
-msgstr ""
+msgstr "Tároló (pool) neve"
 
 msgid "Clones"
 msgstr "Klónok"
@@ -9733,19 +9749,19 @@ msgid "Compression Ratio"
 msgstr "Tömörítés mértéke"
 
 msgid "Defer Destroy"
-msgstr ""
+msgstr "Megszüntetés elhalasztása"
 
 msgid "Encryption Root"
-msgstr ""
+msgstr "Titkosítási gyökér"
 
 msgid "Filesystem Count"
-msgstr ""
+msgstr "Fájlrendszer számoló"
 
 msgid "GUID"
-msgstr ""
+msgstr "GUID"
 
 msgid "Key Status"
-msgstr ""
+msgstr "Kulcs állapot"
 
 msgid "Logical Referenced"
 msgstr ""
@@ -9754,7 +9770,7 @@ msgid "Logical Used"
 msgstr ""
 
 msgid "Mounted"
-msgstr ""
+msgstr "Felcsatolt"
 
 msgid "Obj Set ID"
 msgstr ""
@@ -9769,34 +9785,34 @@ msgid "Refcompressratio"
 msgstr ""
 
 msgid "Referenced"
-msgstr ""
+msgstr "Hivatkozott"
 
 msgid "Snapshot Count"
-msgstr ""
+msgstr "Pillanatkép számoló"
 
 msgid "Used by Children"
 msgstr ""
 
 msgid "Used by Dataset"
-msgstr ""
+msgstr "Adathalmazok által használt"
 
 msgid "Used by Refreservation"
 msgstr ""
 
 msgid "Used by Snapshots"
-msgstr ""
+msgstr "Pillanatképek által használt"
 
 msgid "Userrefs"
 msgstr ""
 
 msgid "Written"
-msgstr ""
+msgstr "Kiírt"
 
 msgid "Normalization"
 msgstr "Normalizálás"
 
 msgid "UTF-8 File Names"
-msgstr ""
+msgstr "UTF-8 fájlnevek"
 
 msgid "ACL Type"
 msgstr "ACL Típus"
@@ -9811,13 +9827,13 @@ msgid "Checksum"
 msgstr "Ellenőrző összeg"
 
 msgid "GZIP Compression Level"
-msgstr ""
+msgstr "GZIP tömörítési szint"
 
 msgid "Zstandard Compression Level"
-msgstr ""
+msgstr "Zstandard tömörítési szint"
 
 msgid "Fast Zstandard Compression Level"
-msgstr ""
+msgstr "Fast Zstandard tömörítési szint"
 
 msgid "Copies"
 msgstr "Másolatok"
@@ -9826,28 +9842,28 @@ msgid "Dedup Method"
 msgstr "Egyszeresítés eljárás"
 
 msgid "Dnode Size"
-msgstr ""
+msgstr "Dnode méret"
 
 msgid "Execute Processes"
-msgstr ""
+msgstr "Fiolyamatok kibontása"
 
 msgid "Filesystem Limit"
-msgstr ""
+msgstr "Fájlrendszer limit"
 
 msgid "Jailed"
 msgstr "Jail-ben van"
 
 msgid "Key Format"
-msgstr ""
+msgstr "Kulcs formátum"
 
 msgid "Key Location"
-msgstr ""
+msgstr "Kulcs helyzet"
 
 msgid "Logbias"
 msgstr "Logbias"
 
 msgid "Mountpoint Type"
-msgstr ""
+msgstr "Csatolási típus"
 
 msgid "Non-blocking Mandatory Locks"
 msgstr ""
@@ -9862,7 +9878,7 @@ msgid "Primary Cache"
 msgstr "Elsődleges gyorsítótár"
 
 msgid "Record Size"
-msgstr ""
+msgstr "Rekord méret"
 
 msgid "Redundant Metadata"
 msgstr "Redundáns metaadat"
@@ -9880,10 +9896,10 @@ msgid "Refreservation Type"
 msgstr ""
 
 msgid "Relatime"
-msgstr ""
+msgstr "Valós idő"
 
 msgid "Reservation Type"
-msgstr ""
+msgstr "Foglalási mód"
 
 msgid "Secondary Cache"
 msgstr "Másodlagos gyorsítótár"
@@ -9892,25 +9908,25 @@ msgid "Setuid"
 msgstr ""
 
 msgid "Share NFS Options"
-msgstr ""
+msgstr "NFS beállitások megosztása"
 
 msgid "Share NFS Type"
-msgstr ""
+msgstr "NFS tipus megosztása"
 
 msgid "Share SMB Options"
-msgstr ""
+msgstr "SMB beállitások megosztása"
 
 msgid "Share SMB Type"
-msgstr ""
+msgstr "SMB tipusok megosztása"
 
 msgid "Snapshot Device Visibility"
-msgstr ""
+msgstr "Pillanatkép eszköz láthatósága"
 
 msgid "Snapshot Folder Visibility"
-msgstr ""
+msgstr "Pillanatkép mappa láthatósága"
 
 msgid "Snapshot Limit"
-msgstr ""
+msgstr "Pillanatkép limit"
 
 msgid "Threshold Small Block Size"
 msgstr ""
@@ -9925,13 +9941,13 @@ msgid "Volume Size"
 msgstr "Kötet mérete"
 
 msgid "Virus Scan"
-msgstr ""
+msgstr "Vírus ellenőrzés"
 
 msgid "The name of the filesystem."
-msgstr ""
+msgstr "A fájlrendszer neve"
 
 msgid "Enter filesystem name"
-msgstr ""
+msgstr "Add meg a fájlrendszer nevét"
 
 msgid "Controls the type of the ZFS dataset."
 msgstr "A ZFS adattár típusát határozza meg."
@@ -10038,7 +10054,7 @@ msgid "Controls whether ACLs are enabled and if so what type of ACL to use."
 msgstr ""
 
 msgid "Do not use ACLs"
-msgstr ""
+msgstr "ACL-ek használatának mellőzése"
 
 msgid "Use NFSv4-style ZFS ACLs"
 msgstr ""
@@ -10257,7 +10273,7 @@ msgid "Raw"
 msgstr ""
 
 msgid "Hex"
-msgstr ""
+msgstr "Hex"
 
 msgid ""
 "Provide a hint to ZFS about handling of synchronous requests in this dataset."
@@ -10500,10 +10516,10 @@ msgid "Do you want to toggle selected schedules?"
 msgstr ""
 
 msgid "Invalid"
-msgstr ""
+msgstr "Érvénytelen"
 
 msgid "Select pool."
-msgstr ""
+msgstr "Tároló (pool) kijelölése."
 
 msgid ""
 "Commands are executed by the scheduler when the minute, hour, and month of "
@@ -10519,22 +10535,22 @@ msgid "Presets"
 msgstr ""
 
 msgid "Daily"
-msgstr ""
+msgstr "Napi"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Hetente"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Havi"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Évi"
 
 msgid "Custom Setting"
 msgstr ""
 
 msgid "Schedule"
-msgstr ""
+msgstr "Ütemezés"
 
 msgid "Weekdays"
 msgstr "Hétköznapok"
@@ -10558,19 +10574,19 @@ msgid "Scrub"
 msgstr ""
 
 msgid "Create Snapshot"
-msgstr ""
+msgstr "Pillanatkép létrehozása"
 
 msgid "Destroy Snapshot"
-msgstr ""
+msgstr "Pillanatkép törlése"
 
 msgid "Scrub Pool"
 msgstr ""
 
 msgid "Hourly"
-msgstr ""
+msgstr "Óránként"
 
 msgid "Create"
-msgstr ""
+msgstr "Létrehozás"
 
 msgid "Select Pool, Filesystem or Volume"
 msgstr ""
@@ -10591,28 +10607,28 @@ msgid "Lifetime"
 msgstr ""
 
 msgid "Second(s)"
-msgstr ""
+msgstr "Másodperc(ek)"
 
 msgid "Minute(s)"
-msgstr ""
+msgstr "Perc(ek)"
 
 msgid "Hour(s)"
-msgstr ""
+msgstr "Óra (órák)"
 
 msgid "Day(s)"
-msgstr ""
+msgstr "Nap(ok)"
 
 msgid "Week(s)"
-msgstr ""
+msgstr "Het(ek)"
 
 msgid "Month(s)"
-msgstr ""
+msgstr "Hónap(ok)"
 
 msgid "Year(s)"
-msgstr ""
+msgstr "Év(ek)"
 
 msgid "Destroy"
-msgstr ""
+msgstr "Megsemmisítés"
 
 msgid "Show Used/Avail"
 msgstr "Használt/Elérhető megjelenítése"
@@ -10689,7 +10705,7 @@ msgid "No ZFS zpool information available."
 msgstr ""
 
 msgid "Selected..."
-msgstr ""
+msgstr "Kiválasztott..."
 
 msgid "Directory"
 msgstr "Mappa"
@@ -10701,13 +10717,13 @@ msgid "Parent Directory"
 msgstr "Szülőmappa"
 
 msgid "You are not allowed to use this function."
-msgstr ""
+msgstr "Ezt a funkciót nem használhatja."
 
 msgid "Copy item(s)"
-msgstr ""
+msgstr "Elemem(ek) másolása"
 
 msgid "Move item(s)"
-msgstr ""
+msgstr "Elemem(ek) áthelyezése"
 
 #, php-format
 msgid "Copy from /%s to /%s "
@@ -10718,16 +10734,16 @@ msgid "Move from /%s to /%s "
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "Másol"
 
 msgid "Move"
-msgstr ""
+msgstr "Áthelyez"
 
 msgid "The target directory doesn't exist."
-msgstr ""
+msgstr "A célkönyvtár nem létezik."
 
 msgid "You are not allowed to access the target directory."
-msgstr ""
+msgstr "Nem férhet hozzá a célkönyvtárhoz."
 
 msgid "The target directory may not be above the home directory."
 msgstr ""
@@ -10736,43 +10752,43 @@ msgid "You must supply a name."
 msgstr ""
 
 msgid "This item doesn't exist."
-msgstr ""
+msgstr "Ez az elem nem létezik."
 
 msgid "You are not allowed to access this item."
-msgstr ""
+msgstr "Nem férhet hozzá ehhez az elemhez."
 
 msgid "The target item already exists."
-msgstr ""
+msgstr "Ez az elem már létezik."
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Másolás sikertelen."
 
 msgid "Moving failed."
-msgstr ""
+msgstr "Áthelyezés sikertelen."
 
 msgid "File saving failed."
 msgstr ""
 
 msgid "This file doesn't exist."
-msgstr ""
+msgstr "Ez a fájl nem létezik."
 
 msgid "You are not allowed to access this file."
-msgstr ""
+msgstr "Nincs hozzéférése ehhez a fájlhoz."
 
 msgid "This item already exists."
-msgstr ""
+msgstr "Az elem már létezik."
 
 msgid "File opening failed."
-msgstr ""
+msgstr "Hiba a fájl megnyitásakor."
 
 msgid "Edit file"
-msgstr ""
+msgstr "Fájl szerkesztése"
 
 msgid "Wrap text:"
-msgstr ""
+msgstr "Szöveg tördelése:"
 
 msgid "Reset"
-msgstr ""
+msgstr "Visszaállítás"
 
 msgid "Close"
 msgstr "Bezár"
@@ -10784,37 +10800,37 @@ msgid "Unable to open source directory."
 msgstr ""
 
 msgid "Unable to open directory."
-msgstr ""
+msgstr "A könyvtárat nem lehet megyitni."
 
 msgid "Unable to read directory."
-msgstr ""
+msgstr "A könyvtár nem olvasható."
 
 msgid "Executable File"
 msgstr ""
 
 msgid "Link"
-msgstr ""
+msgstr "Hivatkozás"
 
 msgid "Text File"
-msgstr ""
+msgstr "Szövegfájl"
 
 msgid "PHP Script"
-msgstr ""
+msgstr "PHP Script"
 
 msgid "SQL File"
-msgstr ""
+msgstr "SQL Fájl"
 
 msgid "PERL Script"
-msgstr ""
+msgstr "PERL Script"
 
 msgid "HTML Page"
-msgstr ""
+msgstr "HTML Oldal"
 
 msgid "XML File"
-msgstr ""
+msgstr "XML fájl"
 
 msgid "Javascript File"
-msgstr ""
+msgstr "Javascript Fájl"
 
 msgid "CSS File"
 msgstr "CSS fájl"
@@ -10823,10 +10839,10 @@ msgid "CGI Script"
 msgstr "CGI szkript"
 
 msgid "Python Script"
-msgstr ""
+msgstr "Python-szkript"
 
 msgid "Shell Script"
-msgstr ""
+msgstr "Shell Script"
 
 msgid "C File"
 msgstr "C fájl"
@@ -10838,28 +10854,28 @@ msgid "C++ Header File"
 msgstr "C++ header fájl"
 
 msgid "Java Source File"
-msgstr ""
+msgstr "Java-forrásfájl"
 
 msgid "Java Class File"
 msgstr ""
 
 msgid "Pascal File"
-msgstr ""
+msgstr "Pascal-fájl"
 
 msgid "GIF Image"
-msgstr ""
+msgstr "GIF kép"
 
 msgid "JPG Image"
-msgstr ""
+msgstr "JPG kép"
 
 msgid "BMP Image"
 msgstr "BMP kép"
 
 msgid "PNG Image"
-msgstr ""
+msgstr "PNG-kép"
 
 msgid "TIF Image"
-msgstr ""
+msgstr "TIF-kép"
 
 msgid "Photoshop File"
 msgstr ""
@@ -10931,16 +10947,16 @@ msgid "TS File"
 msgstr ""
 
 msgid "Word Document"
-msgstr ""
+msgstr "Word dokumentum"
 
 msgid "Excel Sheet"
-msgstr ""
+msgstr "Excel táblázat"
 
 msgid "Powerpoint Presentation"
-msgstr ""
+msgstr "Powerpoint bemutató"
 
 msgid "PDF File"
-msgstr ""
+msgstr "PDF fájl"
 
 msgid "You haven't selected any item(s)."
 msgstr ""
@@ -10949,19 +10965,19 @@ msgid "ERROR(S)"
 msgstr ""
 
 msgid "Go Back"
-msgstr ""
+msgstr "Vissza"
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "Hiba a könyvtár létrehozásakor"
 
 msgid "File creation failed."
-msgstr ""
+msgstr "Hiba a fájl létrehozásakor"
 
 msgid "Extracting"
-msgstr ""
+msgstr "Kicsamagolás"
 
 msgid "Unzip"
-msgstr ""
+msgstr "Unzip"
 
 msgid "Failed to extract archive."
 msgstr ""
@@ -10973,7 +10989,7 @@ msgid "Search Directory"
 msgstr ""
 
 msgid "Search Filter"
-msgstr ""
+msgstr "Keresési szűrő"
 
 msgid "Search subfolder"
 msgstr ""
@@ -10989,7 +11005,7 @@ msgid "No results available."
 msgstr ""
 
 msgid "HOME"
-msgstr ""
+msgstr "HOME"
 
 msgid "Permission-change failed."
 msgstr ""
@@ -11001,7 +11017,7 @@ msgid "Change permissions"
 msgstr "Jogosultságok megváltoztatása"
 
 msgid "Public"
-msgstr ""
+msgstr "Nyilvános"
 
 msgid "CHANGE PERMISSIONS"
 msgstr "JOGOSULTSÁGOK MEGVÁLTOZTATÁSA"
@@ -11010,16 +11026,16 @@ msgid "You are not allowed to access this directory."
 msgstr ""
 
 msgid "UP"
-msgstr ""
+msgstr "FEL"
 
 msgid "RELOAD"
-msgstr ""
+msgstr "ÚJRATÖLT"
 
 msgid "SEARCH"
-msgstr ""
+msgstr "KERESÉS"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Engedélyek"
 
 msgid "Actions"
 msgstr "Műveletek"
@@ -11028,19 +11044,19 @@ msgid "COPY"
 msgstr "MÁSOLÁS"
 
 msgid "MOVE"
-msgstr ""
+msgstr "MOZGAT"
 
 msgid "DELETE"
-msgstr ""
+msgstr "TÖRÖL"
 
 msgid "EDIT"
-msgstr ""
+msgstr "SZERKESZT"
 
 msgid "UNZIP"
-msgstr ""
+msgstr "UNZIP"
 
 msgid "DOWNLOAD"
-msgstr ""
+msgstr "LETÖLT"
 
 msgid "The following errors were detected"
 msgstr "A következő hibákat észleltük"
@@ -11055,19 +11071,19 @@ msgid "Choose..."
 msgstr "Válassz..."
 
 msgid "Running"
-msgstr ""
+msgstr "Fut"
 
 msgid "Active"
 msgstr "Aktív"
 
 msgid "Inactive"
-msgstr ""
+msgstr "Inaktív"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 msgid "No records found."
 msgstr "Egy bejegyzés sem található."
@@ -15877,7 +15893,7 @@ msgid "More than a day"
 msgstr ""
 
 msgid "No data"
-msgstr ""
+msgstr "Nincs adat"
 
 #, php-format
 msgid "%u hour"
@@ -15908,7 +15924,7 @@ msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
 msgstr ""
 
 msgid "Unkown"
-msgstr ""
+msgstr "Ismeretlen"
 
 msgid "Unformated"
 msgstr "Formázatlan"

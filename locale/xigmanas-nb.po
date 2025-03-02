@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2024-06-23 12:29+0000\n"
-"PO-Revision-Date: 2018-07-06 10:29+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2025-01-24 15:08+0000\n"
+"Last-Translator: Marius Lund <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-07-01 12:37+0000\n"
-"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"X-Launchpad-Export-Date: 2025-03-02 18:13+0000\n"
+"X-Generator: Launchpad (build aa29ae0fff49e4e804b39147c9f259d2fb023199)\n"
 "X-Poedit-Country: NORWAY\n"
 "Language: \n"
 "X-Poedit-Language: Norwegian Bokmal\n"
@@ -20,7 +20,7 @@ msgid "Active Directory"
 msgstr "Active Directory"
 
 msgid "To use Active Directory the SMB service will be enabled as well."
-msgstr ""
+msgstr "For å bruke Active Direcory så vil SMB tjenesten bli skrudd på også."
 
 msgid "The following services will use AD authentication:"
 msgstr ""
@@ -71,6 +71,8 @@ msgid ""
 "Password does not match the confirmation password. Please ensure both "
 "passwords are the same."
 msgstr ""
+"Passordet samsvarer ikke med bekreftelsespassordet. Sørg for at begge "
+"passordene er like."
 
 msgid "Access"
 msgstr "Tilgang"
@@ -88,44 +90,46 @@ msgid "Enable"
 msgstr "Aktiver"
 
 msgid "The space-separated list of URIs for the LDAP server."
-msgstr ""
+msgstr "Den mellomromsdelte listen over URIer for LDAP-serveren."
 
 #, php-format
 msgid "The default base distinguished name (DN) to use for searches, e.g. %s"
-msgstr ""
+msgstr "Standard grunnnavn (DN) som skal brukes til søk, f.eks. %s"
 
 msgid "Anonymous Bind"
-msgstr ""
+msgstr "Anonyme binding"
 
 msgid "Enable anonymous bind."
 msgstr "Slå på anonyme bindinger."
 
 #, php-format
 msgid "The distinguished name to bind to the directory server, e.g. %s"
-msgstr ""
+msgstr "Det fornemme navnet som skal bindes til katalogserveren, f.eks. %s"
 
 msgid "The cleartext credentials with which to bind."
-msgstr ""
+msgstr "Klartekst-legitimasjonen som du kan binde med."
 
 #, php-format
 msgid ""
 "The distinguished name with which to bind to the directory server, e.g. %s"
-msgstr ""
+msgstr "Det fornemme navnet som skal bindes til katalogtjeneren, f.eks. %s"
 
 msgid "The credentials with which to bind."
-msgstr ""
+msgstr "Påloggingsinformasjonen å binde seg til."
 
 msgid "Password Encryption"
 msgstr ""
 
 msgid "The password encryption protocol to use."
-msgstr ""
+msgstr "Passordkrypteringsprotokollen som skal brukes."
 
 #, php-format
 msgid ""
 "This parameter specifies the suffix that is used for users when these are "
 "added to the LDAP directory, e.g. %s"
 msgstr ""
+"Denne parameteren spesifiserer suffikset som brukes for brukere når disse "
+"legges til LDAP-katalogen, f.eks. %s"
 
 #, php-format
 msgid ""
@@ -138,15 +142,19 @@ msgid ""
 "This parameter specifies the suffix that is used for passwords when these "
 "are added to the LDAP directory, e.g. %s"
 msgstr ""
+"Denne parameteren spesifiserer suffikset som brukes for passord når disse "
+"legges til LDAP-katalogen, f.eks. %s"
 
 #, php-format
 msgid ""
 "This parameter specifies the suffix that is used for machines when these are "
 "added to the LDAP directory, e.g. %s"
 msgstr ""
+"Denne parameteren spesifiserer suffikset som brukes for maskiner når disse "
+"legges til LDAP-katalogen, f.eks. %s"
 
 msgid "Additional Parameters"
-msgstr ""
+msgstr "Ytterligere parametere"
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -156,13 +164,13 @@ msgid "Save"
 msgstr "Lagre"
 
 msgid "Public Key Settings"
-msgstr ""
+msgstr "Offentlig nøkkelinnstillinger"
 
 msgid "User Settings"
-msgstr ""
+msgstr "Brukerinnstillinger"
 
 msgid "User Portal"
-msgstr ""
+msgstr "Brukerportal"
 
 msgid "File Manager"
 msgstr "Filhåndterer"
@@ -171,7 +179,7 @@ msgid "Password"
 msgstr "Passord"
 
 msgid "Set User Password"
-msgstr ""
+msgstr "Angi brukerpassord"
 
 msgid "Help"
 msgstr "Hjelp"
@@ -201,10 +209,10 @@ msgid "ARP Tables List"
 msgstr "ARP tabell-liste"
 
 msgid "IP Address"
-msgstr ""
+msgstr "IP-adresse"
 
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC-adresse"
 
 msgid "Hostname"
 msgstr "Vertsnavn"
@@ -213,7 +221,7 @@ msgid "Interface"
 msgstr "Grensesnitt"
 
 msgid "Toolbox"
-msgstr ""
+msgstr "Verktøykasse"
 
 msgid "Delete ARP entry"
 msgstr "Slett ARP innslag"
@@ -224,9 +232,10 @@ msgstr "Slett alle innslag fra ARP tabellen"
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
 msgstr ""
+"IP-adresser konverteres til vertsnavn når følgende alternativ er aktivert:"
 
 msgid "Resolve IP addresses to hostnames."
-msgstr ""
+msgstr "Vis IP-adresser til vertsnavn."
 
 msgid "Hint"
 msgstr "Hint"
@@ -235,10 +244,10 @@ msgid "MS Active Directory"
 msgstr "MS Active Directory"
 
 msgid "Disks"
-msgstr "Disker"
+msgstr "Harddisker"
 
 msgid "Disks (Info)"
-msgstr ""
+msgstr "Hardisk (Info)"
 
 msgid "Partitions"
 msgstr "Partisjoner"
@@ -268,7 +277,7 @@ msgid "Reload page"
 msgstr "Last inn siden på nytt"
 
 msgid "SMB"
-msgstr ""
+msgstr "SMB"
 
 msgid "testparm"
 msgstr ""
@@ -280,31 +289,31 @@ msgid "RSYNC Client"
 msgstr "RSYNC Klient"
 
 msgid "Netstat"
-msgstr ""
+msgstr "Netstat"
 
 msgid "Sockets"
 msgstr "Kontakter"
 
 msgid "IPMI Stats"
-msgstr ""
+msgstr "IPMI-statistikk"
 
 msgid "UPS"
 msgstr "UPS"
 
 msgid "MS Active Directory Information & Status"
-msgstr ""
+msgstr "MS Active Directory informasjon og status"
 
 msgid "Result of testjoin"
-msgstr ""
+msgstr "Resultat av testsammenføyning"
 
 msgid "Winbindd Availability"
-msgstr ""
+msgstr "Winbindd Tilgjengelighet"
 
 msgid "Trust Account Status"
-msgstr ""
+msgstr "Status for tillitskonto"
 
 msgid "Imported Users"
-msgstr ""
+msgstr "Importerte brukere"
 
 msgid "AD authentication is disabled."
 msgstr ""

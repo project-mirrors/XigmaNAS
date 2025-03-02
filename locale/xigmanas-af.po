@@ -8,20 +8,21 @@ msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2024-06-23 12:29+0000\n"
-"PO-Revision-Date: 2024-07-01 12:30+0000\n"
+"PO-Revision-Date: 2024-07-16 10:56+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2024-07-01 12:36+0000\n"
-"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"X-Launchpad-Export-Date: 2025-03-02 18:12+0000\n"
+"X-Generator: Launchpad (build aa29ae0fff49e4e804b39147c9f259d2fb023199)\n"
 
 msgid "Active Directory"
 msgstr "Aktiewe Lêergids"
 
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
+"Om Active Directory te gebruik, sal die SMB diens ook geaktiveer word."
 
 msgid "The following services will use AD authentication:"
 msgstr "Die volgende dienste sal AD toestemming gebruik:"
@@ -4423,7 +4424,7 @@ msgid "Samba AD"
 msgstr "Samba AD"
 
 msgid "WSD"
-msgstr ""
+msgstr "WSD"
 
 msgid "TFTP"
 msgstr "TFTP"
@@ -5139,7 +5140,7 @@ msgid "GNU Lesser General Public License (LGPL)"
 msgstr "GNU Lesser Algemene Publieke Lisensie (LGPL)"
 
 msgid "The Inner Net License, Version 2"
-msgstr ""
+msgstr "The Inner Net License, Version 2"
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Publieke Lisensie Weergawe 2.0 (MPLv2)"
@@ -5597,7 +5598,7 @@ msgstr "Die maksimum ledige tyd moet 'n getal wees."
 
 #, php-format
 msgid "The attribute %s must be in the range from %d to %d."
-msgstr ""
+msgstr "Die kenmerk %s moet tussen %d en %d wees."
 
 msgid "Min. Passive Port"
 msgstr "Min. Passiewe Poort"
