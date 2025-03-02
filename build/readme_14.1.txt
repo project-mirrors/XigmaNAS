@@ -114,7 +114,8 @@ Changes:
 - Upgrade mariadb to v11.4.4.
 - Upgrade python311 v3.11.10.
 - Upgrade samba to v4.19.9.
-- Upgrade syncthing to v1.28.1
+- Upgrade syncthing to v1.28.1.
+- Upgrade transmission to 4.1.0-beta.1+rc3a8106077.
 
 New:
 - New SMB use its own log file.
