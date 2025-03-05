@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'config.inc';
 
 /**
@@ -43,39 +44,32 @@ require_once 'config.inc';
 function services_is_port_used($port,string $except = '') {
 	global $config;
 
-	//	integer between 0 and 65535
+//	integer between 0 and 65535
 	$regex_port = '/^(?:6553[0-5]|655[0-2][0-9]|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{0,3}|0)$/';
-	//	services and their default ports
+//	services and their default ports
 	$services = [
 		['name' => 'daap','default_port' => '3689'],
 		['name' => 'websrv','default_port' => ''],
-		['name' => 'upnp','default_port' => '49152'],
 		['name' => 'minidlna','default_port' => '8200'],
 		['name' => 'rsyncd','default_port' => '873'],
 		['name' => 'bittorrent','default_port' => '9091']
 	];
-	//	list of ports
+//	list of ports
 	$a_port = [];
-	//	webgui port
+//	webgui port
 	$test_port = is_string($test = $config['system']['webgui']['port'] ?? '') ? $test : '';
-	if(1 === preg_match($regex_port,$test_port)):
+	if(preg_match($regex_port,$test_port) === 1):
 		$a_port['webguiport'] = $test_port;
 	else:
 		$webgui_protocol = is_string($test = $config['system']['webgui']['protocol'] ?? '') ? $test : '';
-		switch($webgui_protocol):
-			case 'https':
-				$a_port['webguiport'] = '443';
-				break;
-			default:
-				$a_port['webguiport'] = '80';
-				break;
-		endswitch;
+		$a_port['webguiport'] = ($webgui_protocol === 'https') ? '443' : '80';
 	endif;
+//	services
 	foreach($services as $service):
 		$test_port = is_string($test = $config[$service['name']]['port'] ?? '') ? $test : '';
-		$a_port[$service['name']] = (1 === preg_match($regex_port,$test_port)) ? $test_port : $service['default_port'];
+		$a_port[$service['name']] = (preg_match($regex_port,$test_port) === 1) ? $test_port : $service['default_port'];
 	endforeach;
-	if(0 < strlen($except)):
+	if(strlen($except) > 0):
 		unset($a_port[$except]);
 	endif;
 	return in_array($port,$a_port);
