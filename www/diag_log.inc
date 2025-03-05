@@ -42,8 +42,6 @@ $rsync_local_logfile = rc_getenv_ex('rsync_local_logfile',"{$g['varlog_path']}/r
 $samba_logdir = rc_getenv_ex('samba_logdir',"{$g['varlog_path']}/samba4");
 $samba_logfilename = rc_getenv_ex('samba_logfilename','samba.log');
 $samba_logfile = sprintf('%s/%s',$samba_logdir,$samba_logfilename);
-$fuppes_logdir = rc_getenv_ex('fuppes_logdir',"{$g['varlog_path']}/fuppes");
-$fuppes_logfile = "{$fuppes_logdir}/fuppes.log";
 $minidlna_logdir = rc_getenv_ex('minidlna_logdir',"{$g['varlog_path']}/minidlna");
 $minidlna_logfile = "{$minidlna_logdir}/minidlna.log";
 $mtdaapd_logdir = rc_getenv_ex('mtdaapd_logdir',"{$g['varlog_path']}/mt-daapd");
@@ -191,17 +189,6 @@ $loginfo = [
 		'desc' => gtext('RSYNC - Local'),
 		'logfile' => $rsync_local_logfile,
 		'filename' => 'rsync_local.log',
-		'type' => 'plain',
-		'pattern' => '/^(?<msg>.*)$/',
-		'test.rfc5424' => false,
-		'columns' => [
-			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
-		]],
-	[
-		'visible' => true,
-		'desc' => gtext('UPnP/DLNA - Fuppes'),
-		'logfile' => $fuppes_logfile,
-		'filename' => 'fuppes.log',
 		'type' => 'plain',
 		'pattern' => '/^(?<msg>.*)$/',
 		'test.rfc5424' => false,
