@@ -42,8 +42,8 @@
     SUBDIR += opie
     SUBDIR += pam_ldap
     SUBDIR += pam_mkhomedir
-    SUBDIR += php83
-    SUBDIR += php83-APCu
+    SUBDIR += php84
+    SUBDIR += php84-APCu
     SUBDIR += phpmyadmin
     SUBDIR += phpvirtualbox
     SUBDIR += proftpd

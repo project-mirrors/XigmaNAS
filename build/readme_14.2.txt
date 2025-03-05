@@ -93,7 +93,6 @@ Changes:
 - Upgrade underlying OS to 14.2-RELEASE P2.
 - Update translations.
 - Upgrade iperf3 to v3.17.1.
-- Upgrade php8 to v8.3.14.
 - Upgrade pecl-APCu to v5.1.24.
 - Upgrade bash to v5.2p37.
 - Upgrade open-vm-tools to v12.5.0.
@@ -119,6 +118,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20250211.
 - Upgrade netatalk to v4.1.2.
 - Upgrade phpmyadmin to v5.2.2.
+- Upgrade php8 to v8.4.4.
 
 New:
 - New SMB use its own log file.
