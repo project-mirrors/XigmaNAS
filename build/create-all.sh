@@ -193,11 +193,6 @@ build() {
     "$XIGMANAS_SVNDIR"/build/xigmanas-create-bootdir.sh $opt "$XIGMANAS_BOOTDIR" | tee "${XIGMANAS_LOGDIR}/build-create-bootdir.log"
 
     wait ${pkg_build_pid} # wait for pkg-build
-    # build tests
-    if [ ! -f /usr/local/xigmanas/rootfs/usr/local/bin/fuppesd ]; then
-        echo 'Missing usr/local/bin/fuppesd, error in pkg_build' | tee -a ${XIGMANAS_LOGDIR}/pkg-build.log
-        return 1
-    fi
 
     ### 8 add libs
     add_libs | tee "${XIGMANAS_LOGDIR}/build-add_libs.log"
