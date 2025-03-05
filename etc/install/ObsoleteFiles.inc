@@ -207,3 +207,5 @@ usr/sbin/portsnap
 # 10243
 usr/libexec/sftp-server
 usr/libexec/sshd-session
+# 10269
+usr/local/www/services_fuppes.php
