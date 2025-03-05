@@ -84,7 +84,6 @@ class shared_toolbox {
 			add_area_tabnav()->
 				push()->
 				add_tabnav_upper()->
-					ins_tabnav_record('services_fuppes.php',gettext('Fuppes'))->
 					ins_tabnav_record('services_minidlna.php',gettext('MiniDLNA'),gettext('Reload page'),true)->
 				pop()->
 				add_tabnav_lower()->
