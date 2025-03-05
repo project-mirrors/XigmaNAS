@@ -17,6 +17,8 @@ LIB_DEPENDS+=	libpcre2-8.so:devel/pcre2 \
 		libbrotlicommon.so:archivers/brotli \
 		libzstd.so:archivers/zstd
 
+BUILD_DEPENDS=		libxml2>0:textproc/libxml2
+
 GNU_CONFIGURE=	yes
 USES=		autoreconf compiler:c11 gmake libtool pkgconfig tar:xz
 USE_BZIP2=	yes
