@@ -1,7 +1,7 @@
 PORTNAME=	libvncserver
-PORTVERSION=	0.9.14
+PORTVERSION=	0.9.15
 DISTVERSIONPREFIX=	LibVNCServer-
-PORTREVISION=	1
+PORTREVISION=	0
 CATEGORIES=	net devel
 
 MAINTAINER=	zoon01@xigmanas.com
@@ -47,8 +47,5 @@ GNUTLS_CMAKE_BOOL=	WITH_GNUTLS
 
 OPENSSL_CMAKE_BOOL=	WITH_OPENSSL
 OPENSSL_USES=		ssl
-
-post-install:
-	${INSTALL_DATA} ${WRKSRC}/rfb/default8x16.h ${STAGEDIR}${PREFIX}/include/rfb
 
 .include <bsd.port.mk>
