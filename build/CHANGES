@@ -10,8 +10,6 @@ Changes:
 - Upgrade open-vm-tools to v12.5.0.
 - Upgrade rrdtool to v1.9.0.
 - Upgrade sudo to v1.9.16p2.
-- Upgrade devcpu-data-amd to v20240810.
-- Upgrade devcpu-data-intel to v20241112.
 - Upgrade mDNSResponder to v2200.140.11.
 - Upgrade netatalk to v3.2.10.
 - Upgrade exfat to v1.4.0.
@@ -29,6 +27,8 @@ Changes:
 - Upgrade arconf to vB27147.
 - Upgrade e2fsprogs to v1.47.2.
 - Upgrade lighttpd to v1.4.77.
+- Upgrade devcpu-data-amd to v20240810.
+- Upgrade devcpu-data-intel to v20241112.
 
 New:
 - New SMB use its own log file.

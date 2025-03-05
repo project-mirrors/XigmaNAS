@@ -119,6 +119,8 @@ Changes:
 - Upgrade arconf to vB27147.
 - Upgrade e2fsprogs to v1.47.2.
 - Upgrade lighttpd to v1.4.77.
+- Upgrade devcpu-data-amd to v20241121.
+- Upgrade devcpu-data-intel to v20250211.
 
 New:
 - New SMB use its own log file.
