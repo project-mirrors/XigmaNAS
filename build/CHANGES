@@ -29,6 +29,7 @@ Changes:
 - Upgrade devcpu-data-amd to v20240810.
 - Upgrade devcpu-data-intel to v20241112.
 - Upgrade netatalk to v4.1.2.
+- Upgrade phpmyadmin to v5.2.2.
 
 New:
 - New SMB use its own log file.
