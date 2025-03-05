@@ -1,9 +1,7 @@
 PORTNAME=		minidlna
 PORTVERSION=	1.3.3
-PORTREVISION=   0
-PORTEPOCH=      1
+PORTREVISION=   1
 CATEGORIES=	net multimedia www
-MASTER_SITES=	SF
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Media-server compatible with "Digital Life Network Alliance"
@@ -31,6 +29,10 @@ LDFLAGS+=	-L${LOCALBASE}/ffmpeg4/lib -L${LOCALBASE}/lib
 CFLAGS+=	-DXigmaNAS
 LIBS+=		-L${LOCALBASE}/lib
 USES+=		autoreconf cpe gettext-tools iconv jpeg
+
+USE_GITHUB=     yes
+GH_ACCOUNT=     glebius
+GH_TAGNAME=     ae2141d
 
 CPE_VENDOR=	minidlna_project
 
