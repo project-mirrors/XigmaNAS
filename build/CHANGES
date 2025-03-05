@@ -28,6 +28,7 @@ Changes:
 - Upgrade zoneinfo to v2025a.
 - Upgrade arconf to vB27147.
 - Upgrade e2fsprogs to v1.47.2.
+- Upgrade lighttpd to v1.4.77.
 
 New:
 - New SMB use its own log file.
