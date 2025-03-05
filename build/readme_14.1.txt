@@ -93,12 +93,9 @@ Changes:
 - Upgrade underlying OS to 14.2-RELEASE P2.
 - Update translations.
 - Upgrade iperf3 to v3.17.1.
-- Upgrade dialog to v1.3.20240619.
 - Upgrade devcpu-data-intel to v20240813.
 - Upgrade php8 to v8.3.14.
 - Upgrade pecl-APCu to v5.1.24.
-- Upgrade msmtp to v1.8.27.
-- Upgrade nano to v8.2.
 - Upgrade zoneinfo to v2024b.
 - Upgrade bash to v5.2p37.
 - Upgrade open-vm-tools to v12.5.0.
@@ -115,7 +112,11 @@ Changes:
 - Upgrade python311 v3.11.10.
 - Upgrade samba to v4.19.9.
 - Upgrade syncthing to v1.28.1.
+- Upgrade msmtp to v1.8.28.
+- Upgrade nano to v8.3.
 - Upgrade transmission to 4.1.0-beta.1+rc3a8106077.
+- Upgrade libvncserver v0.9.15.
+- Upgrade cdialog to v1.3.20250116.
 
 New:
 - New SMB use its own log file.
