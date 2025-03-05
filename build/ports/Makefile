@@ -14,7 +14,6 @@
     SUBDIR += e2fsprogs-core
     SUBDIR += fdisk
     SUBDIR += firefly
-    SUBDIR += fuppes
     SUBDIR += fusefs-exfat
     SUBDIR += fusefs-ext2
     SUBDIR += fusefs-ntfs
