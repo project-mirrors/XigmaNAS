@@ -119,6 +119,7 @@ Changes:
 - Upgrade netatalk to v4.1.2.
 - Upgrade phpmyadmin to v5.2.2.
 - Upgrade php8 to v8.4.4.
+- Upgrade proftpd to v1.3.8c.
 
 New:
 - New SMB use its own log file.
