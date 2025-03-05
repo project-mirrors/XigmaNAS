@@ -103,7 +103,7 @@ fi
 XIGMANAS_COMPLEVEL=8
 XIGMANAS_KERNCOMPLEVEL=9
 
-#	Specify the number of worker threads to use.  
+#	Specify the number of worker threads to use.
 #	Setting threads to a special value 0 makes xz use as many threads as there are CPU cores on the system.
 XIGMANAS_XZ_THREADS=0
 
@@ -466,8 +466,8 @@ del_libs() {
 sym_libs() {
 	echo
 	echo "Linking duplicate libs:"
-	
-	cd "$XIGMANAS_ROOTFS"/usr/local/lib || exit 
+
+	cd "$XIGMANAS_ROOTFS"/usr/local/lib || exit
 
     # Save checksums, file sizes, and filenames
     find . -type f -exec sh -c 'md5 -q "$1" ; stat -f "%z" "$1"; echo "$1"' sh {} \; \
@@ -532,12 +532,12 @@ lib_menu() {
     # Output choices
     for choice in $choices; do
         case $choice in
-            add_libs)  
+            add_libs)
                 add_libs;;
             del_libs)
                 del_libs;;
             sym_libs)
-                sym_libs;;            
+                sym_libs;;
         esac
     done
 
@@ -1759,8 +1759,6 @@ copy_files() {
 	echo "===> Copy istgt-20180521.tar.gz done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/SAS3IRCU_P16.zip /usr/ports/distfiles
 	echo "===> Copy SAS3IRCU_P16.zip done!"
-	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/fuppes-0.692.tar.gz /usr/ports/distfiles
-	echo "===> Copy fuppes-0.692.tar.gz done!"
 	echo;
 	# Delete/Adding base-ports files to FreeBSD ports directory.
 	echo "----------------------------------------------------------";
