@@ -11,7 +11,6 @@ Changes:
 - Upgrade rrdtool to v1.9.0.
 - Upgrade sudo to v1.9.16p2.
 - Upgrade mDNSResponder to v2200.140.11.
-- Upgrade netatalk to v3.2.10.
 - Upgrade exfat to v1.4.0.
 - Upgrade nut to v2024.12.04.
 - Upgrade python311 v3.11.10.
@@ -29,6 +28,7 @@ Changes:
 - Upgrade lighttpd to v1.4.77.
 - Upgrade devcpu-data-amd to v20240810.
 - Upgrade devcpu-data-intel to v20241112.
+- Upgrade netatalk to v4.1.2.
 
 New:
 - New SMB use its own log file.

@@ -93,17 +93,13 @@ Changes:
 - Upgrade underlying OS to 14.2-RELEASE P2.
 - Update translations.
 - Upgrade iperf3 to v3.17.1.
-- Upgrade devcpu-data-intel to v20240813.
 - Upgrade php8 to v8.3.14.
 - Upgrade pecl-APCu to v5.1.24.
 - Upgrade bash to v5.2p37.
 - Upgrade open-vm-tools to v12.5.0.
 - Upgrade rrdtool to v1.9.0.
 - Upgrade sudo to v1.9.16p2.
-- Upgrade devcpu-data-amd to v20240810.
-- Upgrade devcpu-data-intel to v20241112.
 - Upgrade mDNSResponder to v2200.140.11.
-- Upgrade netatalk to v3.2.10.
 - Upgrade exfat to v1.4.0.
 - Upgrade nut to v2024.12.04.
 - Upgrade mariadb to v11.4.4.
@@ -121,6 +117,7 @@ Changes:
 - Upgrade lighttpd to v1.4.77.
 - Upgrade devcpu-data-amd to v20241121.
 - Upgrade devcpu-data-intel to v20250211.
+- Upgrade netatalk to v4.1.2.
 
 New:
 - New SMB use its own log file.

@@ -34,7 +34,7 @@
     SUBDIR += mkpw
     SUBDIR += msmtp
     SUBDIR += nano
-    SUBDIR += netatalk3
+    SUBDIR += netatalk4
     SUBDIR += nss-ldap
     SUBDIR += nut-devel
     SUBDIR += open-vm-tools
