@@ -31,215 +31,208 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-array_make_branch($config,'hast','auxparam');
-//	array_make_branch($config,'hast','hastresource');
-array_make_branch($config,'vinterfaces','carp');
+use common\arr;
 
+arr::make_branch($config,'hast','auxparam');
+//	arr::make_branch($config,'hast','hastresource');
+arr::make_branch($config,'vinterfaces','carp');
 $pconfig['enable'] = isset($config['hast']['enable']);
-//$pconfig['role'] = $config['hast']['role'];
-$pconfig['auxparam'] = implode("\n", $config['hast']['auxparam']);
-
+//	$pconfig['role'] = $config['hast']['role'];
+$pconfig['auxparam'] = implode("\n",$config['hast']['auxparam']);
 $nodeid = @exec("/sbin/sysctl -q -n kern.hostuuid");
-if (empty($nodeid))
-	$nodeid = "unknown";
+if(empty($nodeid)):
+	$nodeid = 'unknown';
+endif;
 $nodename = system_get_hostname();
-if (empty($nodename))
-	$nodename = "unknown";
-
+if(empty($nodename)):
+	$nodename = 'unknown';
+endif;
 $a_carp = &$config['vinterfaces']['carp'];
-array_sort_key($a_carp, "if");
-
-if (!sizeof($a_carp)) {
+arr::sort_key($a_carp,'if');
+if(!sizeof($a_carp)):
 	$errormsg = gtext('No configured CARP interfaces.')
 		. ' '
 		. '<a href="' . 'interfaces_carp.php' . '">'
 		. gtext('Please add a new CARP interface first')
 		. '</a>.';
-}
-
-if ($_POST) {
+endif;
+if($_POST):
 	unset($input_errors);
 	unset($errormsg);
-
 	$pconfig = $_POST;
-
 	$preempt = @exec("/sbin/sysctl -q -n net.inet.carp.preempt");
-	if (isset($_POST['switch_backup']) && $_POST['switch_backup']) {
-		// down all carp
-		foreach ($a_carp as $carp) {
-			//system("/sbin/ifconfig {$carp['if']} down");
+	if(isset($_POST['switch_backup']) && $_POST['switch_backup']):
+//		down all carp
+		foreach($a_carp as $carp):
+//			system("/sbin/ifconfig {$carp['if']} down");
 			mwexec("/etc/rc.d/netif stop {$carp['if']}");
-			if ($carp['advskew'] <= 1) {
+			if($carp['advskew'] <= 1):
 				system("/sbin/ifconfig {$carp['if']} vhid {$carp['vhid']} state backup advskew 240");
-			} else {
+			else:
 				system("/sbin/ifconfig {$carp['if']} vhid {$carp['vhid']} state backup");
-			}
-			//system("/sbin/ifconfig {$carp['if']} up");
+			endif;
+//			system("/sbin/ifconfig {$carp['if']} up");
 			mwexec("/etc/rc.d/netif start {$carp['if']}");
-		}
-		// waits for the primary disk to disappear
+		endforeach;
+//		wait for the primary disk to disappear
 		$retry = 60;
-		while ($retry > 0) {
+		while($retry > 0):
 			$result = mwexec("pgrep -lf 'hastd: .* \(primary\)' > /dev/null 2>&1");
-			if ($result != 0)
+			if($result != 0):
 				break;
+			endif;
 			$retry--;
 			sleep(1);
-		}
-		if ($retry <= 0) {
-			write_log("error: still hasted primary exists!");
-		}
-		// up and set backup all carp
-		if ($preempt == 0 || (isset($a_carp[0]) && $a_carp[0]['advskew'] > 1)) {
-			foreach ($a_carp as $carp) {
-				//system("/sbin/ifconfig {$carp['if']} up vhid {$carp['vhid']} state backup");
-			}
-		}
-		header("Location: services_hast.php");
+		endwhile;
+		if($retry <= 0):
+			write_log('error: still hasted primary exists!');
+		endif;
+//		up and set backup all carp
+		if($preempt == 0 || (isset($a_carp[0]) && $a_carp[0]['advskew'] > 1)):
+			foreach($a_carp as $carp):
+//				system("/sbin/ifconfig {$carp['if']} up vhid {$carp['vhid']} state backup");
+			endforeach;
+		endif;
+		header('Location: services_hast.php');
 		exit;
-	}
-	if (isset($_POST['switch_master']) && $_POST['switch_master']) {
-		// up and set master all carp
+	endif;
+	if(isset($_POST['switch_master']) && $_POST['switch_master']):
+//		up and set master all carp
 		$role = get_hast_role();
-		foreach ($a_carp as $carp) {
+		foreach($a_carp as $carp):
 			$state = @exec("/sbin/ifconfig {$carp['if']} | grep  'carp:' | awk '{ print tolower($2) }'");
-			if ($carp['advskew'] <= 1) {
+			if($carp['advskew'] <= 1):
 				system("/sbin/ifconfig {$carp['if']} up vhid {$carp['vhid']} state master advskew {$carp['advskew']}");
-			} else {
+			else:
 				system("/sbin/ifconfig {$carp['if']} up vhid {$carp['vhid']} state master");
-			}
-			// if already master, use linkup action
-			if ($state == "master" && $role != "primary") {
+			endif;
+//			if already master, use linkup action
+			if($state == 'master' && $role != 'primary'):
 				$action = $carp['linkup'];
 				$result = mwexec($action);
-			}
-		}
-		// waits for the secondary disk to disappear
+			endif;
+		endforeach;
+//		wait for the secondary disk to disappear
 		$retry = 60;
-		while ($retry > 0) {
+		while($retry > 0):
 			$result = mwexec("pgrep -lf 'hastd: .* \(secondary\)' > /dev/null 2>&1");
-			if ($result != 0)
+			if($result != 0):
 				break;
+			endif;
 			$retry--;
 			sleep(1);
-		}
-		if ($retry <= 0) {
-			write_log("error: still hasted secondary exists!");
-		}
-		header("Location: services_hast.php");
+		endwhile;
+		if($retry <= 0):
+			write_log('error: still hasted secondary exists!');
+		endif;
+		header('Location: services_hast.php');
 		exit;
-	}
-
-	// Input validation.
+	endif;
+//	Input validation.
 /*
 	$reqdfields = ['role'];
 	$reqdfieldsn = [gtext('HAST role')];
 	$reqdfieldst = ['string'];
-	do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
-	do_input_validation_type($_POST, $reqdfields, $reqdfieldsn, $reqdfieldst, $input_errors);
+	do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
+	do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
 */
-
-	if (empty($input_errors)) {
-		$old_enable = isset($config['hast']['enable']) ? true : false;
-		$config['hast']['enable'] = isset($_POST['enable']) ? true : false;
-		//$config['hast']['role'] = $_POST['role'];
-
+	if(empty($input_errors)):
+		$old_enable = isset($config['hast']['enable']);
+		$config['hast']['enable'] = isset($_POST['enable']);
+//		$config['hast']['role'] = $_POST['role'];
 		unset($config['hast']['auxparam']);
-		foreach (explode("\n", $_POST['auxparam']) as $auxparam) {
-			$auxparam = trim($auxparam, "\t\n\r");
-			if (!empty($auxparam))
+		foreach(explode("\n",$_POST['auxparam']) as $auxparam):
+			$auxparam = trim($auxparam,"\t\n\r");
+			if(!empty($auxparam)):
 				$config['hast']['auxparam'][] = $auxparam;
-		}
-
+			endif;
+		endforeach;
 		$retval = 0;
-
-		if ($old_enable == false && $config['hast']['enable'] == true) {
-			// disable services
-			array_make_branch($config,'samba');
+		if($old_enable == false && $config['hast']['enable'] == true):
+//			disable services
+			arr::make_branch($config,'samba');
 			$config['samba']['enable'] = false;
-			array_make_branch($config,'ftpd');
+			arr::make_branch($config,'ftpd');
 			$config['ftpd']['enable'] = false;
-			array_make_branch($config,'tftpd');
+			arr::make_branch($config,'tftpd');
 			$config['tftpd']['enable'] = false;
-			//	array_make_branch($config,'sshd');
-			//	$config['sshd']['enable'] = false;
-			array_make_branch($config,'nfsd');
+//			arr::make_branch($config,'sshd');
+//			$config['sshd']['enable'] = false;
+			arr::make_branch($config,'nfsd');
 			$config['nfsd']['enable'] = false;
-			array_make_branch($config,'afp');
+			arr::make_branch($config,'afp');
 			$config['afp']['enable'] = false;
-			array_make_branch($config,'rsyncd');
+			arr::make_branch($config,'rsyncd');
 			$config['rsyncd']['enable'] = false;
-			array_make_branch($config,'unison');
+			arr::make_branch($config,'unison');
 			$config['unison']['enable'] = false;
-			array_make_branch($config,'iscsitarget');
+			arr::make_branch($config,'iscsitarget');
 			$config['iscsitarget']['enable'] = false;
-			array_make_branch($config,'upnp');
+			arr::make_branch($config,'upnp');
 			$config['upnp']['enable'] = false;
-			array_make_branch($config,'daap');
+			arr::make_branch($config,'daap');
 			$config['daap']['enable'] = false;
-			array_make_branch($config,'dynamicdns');
+			arr::make_branch($config,'dynamicdns');
 			$config['dynamicdns']['enable'] = false;
-			array_make_branch($config,'snmpd');
+			arr::make_branch($config,'snmpd');
 			$config['snmpd']['enable'] = false;
-			array_make_branch($config,'ups');
+			arr::make_branch($config,'ups');
 			$config['ups']['enable'] = false;
-			array_make_branch($config,'websrv');
+			arr::make_branch($config,'websrv');
 			$config['websrv']['enable'] = false;
-			array_make_branch($config,'bittorrent');
+			arr::make_branch($config,'bittorrent');
 			$config['bittorrent']['enable'] = false;
-			array_make_branch($config,'lcdproc');
+			arr::make_branch($config,'lcdproc');
 			$config['lcdproc']['enable'] = false;
-
-			// update config
+//			update config
 			write_config();
-
-			// stop services
+//			stop services
 			config_lock();
-			$retval |= rc_update_service("samba");
-			$retval |= rc_update_service("proftpd");
-			$retval |= rc_update_service("tftpd");
-			//$retval |= rc_update_service("sshd");
-			$retval |= rc_update_service("rpcbind");
-			$retval |= rc_update_service("mountd");
-			$retval |= rc_update_service("nfsd");
-			$retval |= rc_update_service("statd");
-			$retval |= rc_update_service("lockd");
-			$retval |= rc_update_service("netatalk");
-			$retval |= rc_update_service("rsyncd");
-			$retval |= rc_update_service("unison");
-			$retval |= rc_update_service("iscsi_target");
-			$retval |= rc_update_service("fuppes");
-			$retval |= rc_update_service("mt-daapd");
-			$retval |= rc_update_service("inadyn");
-			$retval |= rc_update_service("bsnmpd");
-			$retval |= rc_update_service("nut");
-			$retval |= rc_update_service("nut_upslog");
-			$retval |= rc_update_service("nut_upsmon");
-			$retval |= rc_exec_service("websrv_htpasswd");
-			$retval |= rc_update_service("websrv");
-			$retval |= rc_update_service("transmission");
-			$retval |= rc_update_service("mdnsresponder");
+			$retval |= rc_update_service('samba');
+			$retval |= rc_update_service('proftpd');
+			$retval |= rc_update_service('tftpd');
+//			$retval |= rc_update_service('sshd');
+			$retval |= rc_update_service('rpcbind');
+			$retval |= rc_update_service('mountd');
+			$retval |= rc_update_service('nfsd');
+			$retval |= rc_update_service('statd');
+			$retval |= rc_update_service('lockd');
+			$retval |= rc_update_service('netatalk');
+			$retval |= rc_update_service('rsyncd');
+			$retval |= rc_update_service('unison');
+			$retval |= rc_update_service('iscsi_target');
+			$retval |= rc_update_service('mt-daapd');
+			$retval |= rc_update_service('inadyn');
+			$retval |= rc_update_service('bsnmpd');
+			$retval |= rc_update_service('nut');
+			$retval |= rc_update_service('nut_upslog');
+			$retval |= rc_update_service('nut_upsmon');
+			$retval |= rc_exec_service('websrv_htpasswd');
+			$retval |= rc_update_service('websrv');
+			$retval |= rc_update_service('transmission');
+			$retval |= rc_update_service('mdnsresponder');
 			config_unlock();
-		} else {
+		else:
 			write_config();
-		}
-
-		if (!file_exists($d_sysrebootreqd_path)) {
+		endif;
+		if(!file_exists($d_sysrebootreqd_path)):
 			config_lock();
 			$retval |= rc_update_service("hastd");
 			config_unlock();
-		}
-
+		endif;
 		$savemsg = get_std_save_message($retval);
-	}
-}
+	endif;
+endif;
 $pgtitle = [gtext('Services'),gtext('HAST')];
+include 'fbegin.inc';
 ?>
-<?php include 'fbegin.inc';?>
-<script type="text/javascript">//<![CDATA[
+<script>
+//<![CDATA[
 $(document).ready(function(){
 	function enable_change(enable_change) {
 		var val = !($('#enable').prop('checked') || enable_change);
@@ -268,52 +261,69 @@ $(document).ready(function(){
 	<tr>
 		<td class="tabcont">
 			<form action="services_hast.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-				<?php if (!empty($errormsg)) print_error_box($errormsg);?>
-				<?php if (!empty($input_errors)) print_input_errors($input_errors);?>
-				<?php if (!empty($savemsg)) print_info_box($savemsg);?>
+<?php
+				if(!empty($errormsg)):
+					print_error_box($errormsg);
+				endif;
+				if(!empty($input_errors)):
+					print_input_errors($input_errors);
+				endif;
+				if(!empty($savemsg)):
+					print_info_box($savemsg);
+				endif;
+?>
 				<table width="100%" border="0" cellpadding="6" cellspacing="0">
-					<?php html_titleline_checkbox("enable", gtext("HAST (Highly Available Storage)"), !empty($pconfig['enable']) ? true : false, gtext("Enable"), "");?>
-					<?php echo html_text("nodeid", gtext("Node ID"), htmlspecialchars($nodeid)); ?>
-					<?php echo html_text("nodename", gtext("Node Name"), htmlspecialchars($nodename)); ?>
-					<?php
+<?php
+					html_titleline_checkbox2('enable',gettext('HAST (Highly Available Storage)'),!empty($pconfig['enable']),gettext('Enable'),'');
+					echo html_text2('nodeid',gettext('Node ID'),htmlspecialchars($nodeid));
+					echo html_text2('nodename',gettext('Node Name'),htmlspecialchars($nodename));
 					$a_vipaddrs = [];
-					foreach ($a_carp as $carp) {
+					foreach ($a_carp as $carp):
 						$ifinfo = get_carp_info($carp['if']);
-						//$a_vipaddrs[] = $carp['vipaddr']." ({$ifinfo['state']},{$ifinfo['advskew']})";
+//						$a_vipaddrs[] = $carp['vipaddr']." ({$ifinfo['state']},{$ifinfo['advskew']})";
 						$a_vipaddrs[] = $carp['vipaddr']." ({$ifinfo['state']})";
-					}
-					?>
-					<?php echo html_text("vipaddr", gtext("Virtual IP Address"), (!empty($a_vipaddrs) ? htmlspecialchars(join(', ', $a_vipaddrs)) : sprintf("<span class='red'>%s</span>", gtext("No configured CARP interfaces.")))); ?>
-					<?php //html_combobox("role", gtext("HAST role"), $pconfig['role'], ['primary' => gtext('Primary'),'secondary' => gtext('Secondary')], "", true);?>
+					endforeach;
+					echo html_text2('vipaddr',gettext('Virtual IP Address'),(!empty($a_vipaddrs) ? htmlspecialchars(join(', ',$a_vipaddrs)) : sprintf("<span class='red'>%s</span>",gettext('No configured CARP interfaces.'))));
+//					html_combobox2('role',gettext('HAST role'),$pconfig['role'],['primary' => gettext('Primary'),'secondary' => gettext('Secondary')],'',true);
+?>
 					<tr id="control_btn">
 						<td colspan="2">
 							<input id="switch_backup" name="switch_backup" type="submit" class="formbtn" value="<?php echo gtext("Switch VIP to BACKUP"); ?>" />
-							<?php if (isset($a_carp[0]) && $a_carp[0]['advskew'] <= 1) { ?>
-							&nbsp;<input id="switch_master" name="switch_master" type="submit" class="formbtn" value="<?php echo gtext("Switch VIP to MASTER"); ?>" />
-							<?php } ?>
+<?php
+							if(isset($a_carp[0]) && $a_carp[0]['advskew'] <= 1):
+?>
+								&nbsp;<input id="switch_master" name="switch_master" type="submit" class="formbtn" value="<?php echo gtext("Switch VIP to MASTER"); ?>" />
+<?php
+							endif;
+?>
 						</td>
 					</tr>
-					<?php
-					html_separator();
-					html_titleline(gtext("Advanced Settings"));
-					
-					$helpinghand = '<a href="'
-					. 'http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html'
-					. '" target="_blank">'
-					. gtext('Please check the documentation')
-					. '</a>.';
-					html_textarea("auxparam", gtext("Additional Parameters"), $pconfig['auxparam'], sprintf(gtext("These parameters are added to %s."), "hast.conf") . " " . $helpinghand, false, 65, 5, false, false);
-					?>
+<?php
+					html_separator2();
+					html_titleline2(gettext('Advanced Settings'));
+					$helpinghand = '<a'
+						. ' href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html"'
+						. ' target="_blank"'
+						. ' rel="noreferrer">'
+						. gettext('Please check the documentation')
+						. '</a>.';
+					html_textarea2('auxparam',gettext('Additional Parameters'),$pconfig['auxparam'],sprintf(gettext("These parameters are added to %s."),'hast.conf') . ' ' . $helpinghand,false,65,5,false,false);
+?>
 				</table>
 				<div id="submit">
 					<input name="Submit" type="submit" class="formbtn" value="<?=gtext("Save & Restart");?>" />
 				</div>
 				<div id="remarks">
-					<?php html_remark("note", gtext('Note'), sprintf("<div id='enumeration'><ul><li>%s</li><li>%s</li><li>%s</li></ul></div>", gtext("When HAST is enabled, the local devices, the local services and the additional packages which do not support HAST volume cannot be used."), gtext("The HAST volumes can not be accessed until HAST node becomes Primary."), gtext("Dynamic IP (DHCP) can not be used for HAST resources.")));?>
+<?php
+					html_remark2('note',gettext('Note'),sprintf("<div id='enumeration'><ul><li>%s</li><li>%s</li><li>%s</li></ul></div>",gettext('When HAST is enabled, the local devices, the local services and the additional packages which do not support HAST volume cannot be used.'), gettext('The HAST volumes can not be accessed until HAST node becomes Primary.'),gettext('Dynamic IP (DHCP) can not be used for HAST resources.')));
+?>
 				</div>
-				<?php include 'formend.inc';?>
+<?php
+				include 'formend.inc';
+?>
 			</form>
 		</td>
 	</tr>
 </table>
-<?php include 'fend.inc';?>
+<?php
+include 'fend.inc';
