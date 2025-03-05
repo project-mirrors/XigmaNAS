@@ -89,10 +89,6 @@ $software = [
 		'Freenas 7 (<a href="https://github.com/freenas/freenas7" target="_blank" rel="noreferrer">https://github.com/freenas/freenas7</a>).',
 		'Copyright © 2005-2011 by Olivier Cochard (olivier@freenas.org). All Rights Reserved.'
 	]],
-	['FUPPES',[
-		'Free UPnP Entertainment Service (<a href="http://fuppes.ulrich-voelkel.de" target="_blank" rel="noreferrer">http://fuppes.ulrich-voelkel.de</a>).',
-		'Copyright © 2005 - 2011 Ulrich Völkel (<a href="mailto:mail@ulrich-voelkel.de">mail@ulrich-voelkel.de</a>). All Rights Reserved.'
-	]],
 	['Fuse',[
 		'Filesystem in Userspace (<a href="https://github.com/libfuse/libfuse" target="_blank" rel="noreferrer">https://github.com/libfuse/libfuse</a>).',
 		'Copyright © GNU General Public License. All Rights Reserved.'
@@ -271,7 +267,7 @@ $software_licenses = [
 	sprintf('<a href="third-party_licenses/gpl3-license.txt">%s</a>)',gettext('GPLv3')),
 	sprintf('<a href="third-party_licenses/mit-license.txt">%s</a>)',gettext('MIT License')),
 	sprintf('<a href="third-party_licenses/lgpl-license.txt">%s</a>',gettext('GNU Lesser General Public License (LGPL)')),
-	sprintf('<a href="third-party_licenses/License.TIN.txt">%s</a>)',gettext('The Inner Net License, Version 2')),	
+	sprintf('<a href="third-party_licenses/License.TIN.txt">%s</a>)',gettext('The Inner Net License, Version 2')),
 	sprintf('<a href="third-party_licenses/mpl2-license.txt">%s</a>',gettext('Mozilla Public License Version 2.0 (MPLv2)')),
 	sprintf('<a href="third-party_licenses/apple-license.txt">%s</a>',gettext('Apple Public Source License')),
 	sprintf('<a href="third-party_licenses/php-license.txt">%s</a>',gettext('PHP License'))
