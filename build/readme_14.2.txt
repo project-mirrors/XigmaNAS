@@ -96,7 +96,6 @@ Changes:
 - Upgrade devcpu-data-intel to v20240813.
 - Upgrade php8 to v8.3.14.
 - Upgrade pecl-APCu to v5.1.24.
-- Upgrade zoneinfo to v2024b.
 - Upgrade bash to v5.2p37.
 - Upgrade open-vm-tools to v12.5.0.
 - Upgrade rrdtool to v1.9.0.
@@ -117,6 +116,7 @@ Changes:
 - Upgrade transmission to 4.1.0-beta.1+rc3a8106077.
 - Upgrade libvncserver v0.9.15.
 - Upgrade cdialog to v1.3.20250116.
+- Upgrade zoneinfo to v2025a.
 
 New:
 - New SMB use its own log file.
