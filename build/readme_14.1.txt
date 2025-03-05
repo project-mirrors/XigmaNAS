@@ -90,7 +90,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 14.2.0.5.10xxx RC1
 ========================
 Changes:
-- Upgrade underlying OS to 14.2-RELEASE P0.
+- Upgrade underlying OS to 14.2-RELEASE P2.
 - Update translations.
 - Upgrade iperf3 to v3.17.1.
 - Upgrade dialog to v1.3.20240619.
