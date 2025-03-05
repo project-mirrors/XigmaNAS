@@ -25,12 +25,13 @@ Changes:
 - Upgrade arconf to vB27147.
 - Upgrade e2fsprogs to v1.47.2.
 - Upgrade lighttpd to v1.4.77.
-- Upgrade devcpu-data-amd to v20240810.
-- Upgrade devcpu-data-intel to v20241112.
+- Upgrade devcpu-data-amd to v20241121.
+- Upgrade devcpu-data-intel to v20250211.
 - Upgrade netatalk to v4.1.2.
 - Upgrade phpmyadmin to v5.2.2.
 - Upgrade php8 to v8.4.4.
 - Upgrade proftpd to v1.3.8c.
+- Upgrade rsync to v3.4.1.
 
 New:
 - New SMB use its own log file.

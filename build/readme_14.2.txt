@@ -101,8 +101,8 @@ Changes:
 - Upgrade mDNSResponder to v2200.140.11.
 - Upgrade exfat to v1.4.0.
 - Upgrade nut to v2024.12.04.
-- Upgrade mariadb to v11.4.4.
 - Upgrade python311 v3.11.10.
+- Upgrade mariadb to v11.4.4.
 - Upgrade samba to v4.19.9.
 - Upgrade syncthing to v1.28.1.
 - Upgrade msmtp to v1.8.28.
@@ -120,6 +120,7 @@ Changes:
 - Upgrade phpmyadmin to v5.2.2.
 - Upgrade php8 to v8.4.4.
 - Upgrade proftpd to v1.3.8c.
+- Upgrade rsync to v3.4.1.
 
 New:
 - New SMB use its own log file.
