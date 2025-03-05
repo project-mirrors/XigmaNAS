@@ -173,8 +173,6 @@ if($_POST):
 			$config['unison']['enable'] = false;
 			arr::make_branch($config,'iscsitarget');
 			$config['iscsitarget']['enable'] = false;
-			arr::make_branch($config,'upnp');
-			$config['upnp']['enable'] = false;
 			arr::make_branch($config,'daap');
 			$config['daap']['enable'] = false;
 			arr::make_branch($config,'dynamicdns');
