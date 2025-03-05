@@ -117,6 +117,7 @@ Changes:
 - Upgrade cdialog to v1.3.20250116.
 - Upgrade zoneinfo to v2025a.
 - Upgrade arconf to vB27147.
+- Upgrade e2fsprogs to v1.47.2.
 
 New:
 - New SMB use its own log file.
