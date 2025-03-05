@@ -36,7 +36,6 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr;
 use services\minidlnad\setting_toolbox as toolbox;
 use services\minidlnad\shared_toolbox;
 
@@ -226,28 +225,6 @@ switch($page_action):
 		else:
 			$page_mode = PAGE_MODE_EDIT;
 		endif;
-		break;
-endswitch;
-//	add warning message if more than one DLNA service is enabled
-$dlna_services = ['minidlna','upnp'];
-$dlna_service_me = 'minidlna';
-$dlna_status = 0;
-foreach($dlna_services as $dlna_service):
-	if($dlna_service === $dlna_service_me):
-		$test = $sphere->row[$cop->get_enable()->get_name()] ?? false;
-		$dlna_status |= is_bool($test) ? ($test ? 1 : 0) : 1;
-	else:
-		arr::make_branch($config,$dlna_service);
-		$test = $config[$dlna_service]['enable'] ?? false;
-		$dlna_status |= is_bool($test) ? ($test ? 2 : 0) : 2;
-	endif;
-endforeach;
-switch($dlna_status):
-	case 2:
-		$warnmsg[] = gettext('Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP services can cause problems.');
-		break;
-	case 3:
-		$warnmsg[] = gettext('Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services can cause problems.');
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
