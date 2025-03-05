@@ -121,6 +121,8 @@ Changes:
 - Upgrade php8 to v8.4.4.
 - Upgrade proftpd to v1.3.8c.
 - Upgrade rsync to v3.4.1.
+- Upgrade tmux to v3.5a.
+
 
 New:
 - New SMB use its own log file.

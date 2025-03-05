@@ -1,5 +1,5 @@
 PORTNAME=		tmux
-PORTVERSION=	3.4
+PORTVERSION=	3.5a
 PORTREVISION=	0
 CATEGORIES=	sysutils
 MASTER_SITES=	https://github.com/tmux/tmux/releases/download/${PORTVERSION}/
@@ -16,7 +16,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 USES=		pkgconfig ncurses
 
 USE_GITHUB=	nodefault
-GH_TUPLE=	imomaliev:tmux-bash-completion:ef56d3e:bash
+GH_TUPLE=	imomaliev:tmux-bash-completion:8da7f79:bash
 
 GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
