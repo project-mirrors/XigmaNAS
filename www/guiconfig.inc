@@ -883,7 +883,7 @@ function get_headermenu(): array {
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Unison'),'link' => '/services_unison.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('iSCSI Target CTL'),'link' => '/services_ctl.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('iSCSI Target ISTGT'),'link' => '/services_iscsitarget.php'];
-			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('DLNA/UPnP'),'link' => '/services_fuppes.php'];
+			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('DLNA/UPnP'),'link' => '/services_minidlna.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('iTunes/DAAP'),'link' => '/services_daap.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Dynamic DNS'),'link' => '/services_inadyn.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('SNMP'),'link' => '/services_snmp.php'];
