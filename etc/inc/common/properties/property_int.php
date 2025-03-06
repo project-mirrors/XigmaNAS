@@ -38,11 +38,11 @@ namespace common\properties;
  *	Int property
  */
 class property_int extends abstract_property_numeric {
-	public function set_min(int $min = null) {
+	public function set_min(?int $min = null) {
 		$this->x_min = $min;
 		return $this;
 	}
-	public function set_max(int $max = null) {
+	public function set_max(?int $max = null) {
 		$this->x_max = $max;
 		return $this;
 	}

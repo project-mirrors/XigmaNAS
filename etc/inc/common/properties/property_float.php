@@ -38,11 +38,11 @@ namespace common\properties;
  *	Float property
  */
 class property_float extends abstract_property_numeric {
-	public function set_min(float $min = null) {
+	public function set_min(?float $min = null) {
 		$this->x_min = $min;
 		return $this;
 	}
-	public function set_max(float $max = null) {
+	public function set_max(?float $max = null) {
 		$this->x_max = $max;
 		return $this;
 	}
