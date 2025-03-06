@@ -38,7 +38,7 @@ require_once 'guiconfig.inc';
 
 use gui\document;
 
-function zfs_get_snapshot_list(string $entity_name = NULL) {
+function zfs_get_snapshot_list(?string $entity_name = null) {
 	if(isset($entity_name)):
 		$cmd = sprintf('zfs list -t snapshot %s 2>&1',escapeshellarg($entity_name));
 	else:
@@ -46,9 +46,9 @@ function zfs_get_snapshot_list(string $entity_name = NULL) {
 	endif;
 	unset($output);
 	mwexec2($cmd,$output);
-	return implode(PHP_EOL,$output);
+	return implode("\n",$output);
 }
-function zfs_get_snapshot_properties(string $entity_name = NULL) {
+function zfs_get_snapshot_properties(?string $entity_name = null) {
 	if(isset($entity_name)):
 		$cmd = sprintf('zfs list -H -o name -t snapshot %s 2>&1',escapeshellarg($entity_name));
 	else:
@@ -64,9 +64,9 @@ function zfs_get_snapshot_properties(string $entity_name = NULL) {
 	else:
 		$output = [gtext('No snapshot information available.')];
 	endif;
-	return implode(PHP_EOL,$output);
+	return implode("\n",$output);
 }
-$entity_name = NULL;
+$entity_name = null;
 if(isset($_GET['uuid']) && is_string($_GET['uuid'])):
 	$entity_name = sprintf('%s',$_GET['uuid']);
 endif;
