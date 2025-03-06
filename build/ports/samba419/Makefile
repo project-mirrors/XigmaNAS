@@ -1,6 +1,6 @@
 PORTNAME=			${SAMBA4_BASENAME}419
 PORTVERSION=			${SAMBA4_VERSION}
-PORTREVISION=			0
+PORTREVISION=			2
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
@@ -119,7 +119,7 @@ OPTIONS_SUB=			yes
 
 OPTIONS_DEFINE=			AD_DC ADS CLUSTER CUPS DOCS FAM GPGME \
 				LDAP MANDOC PROFILE PYTHON3 QUOTAS \
-				SPOTLIGHT SYSLOG UTMP
+				SYSLOG UTMP
 #OPTIONS_DEFINE+=		DEVELOPER MEMORY_DEBUG
 
 OPTIONS_GROUP=			VFS
@@ -314,7 +314,8 @@ CONFIGURE_ARGS+=		\
 				--with-libarchive \
 				--with-acl-support \
 				--with-sendfile-support \
-				--disable-ctdb-tests
+				--disable-ctdb-tests \
+				--disable-spotlight
 #				${ICONV_CONFIGURE_BASE}
 ##############################################################################
 FRUIT_PREVENTS=			ZEROCONF_NONE
@@ -414,14 +415,6 @@ PROFILE_CONFIGURE_WITH=		profiling-data
 
 QUOTAS_CONFIGURE_WITH=		quotas
 
-SPOTLIGHT_CONFIGURE_ENABLE=	spotlight
-SPOTLIGHT_BUILD_DEPENDS=	tracker>=1.4.1:sysutils/tracker
-SPOTLIGHT_RUN_DEPENDS=		tracker>=1.4.1:sysutils/tracker
-# ICU
-SPOTLIGHT_LIB_DEPENDS=		libicuuc.so:devel/icu
-SPOTLIGHT_USES=			bison gnome
-SPOTLIGHT_USE=			gnome=glib20
-
 SYSLOG_CONFIGURE_WITH=		syslog
 
 UTMP_CONFIGURE_WITH=		utmp
@@ -429,10 +422,6 @@ UTMP_CONFIGURE_WITH=		utmp
 ##############################################################################
 .include <bsd.port.options.mk>
 ##############################################################################
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1300076
-IGNORE=runs only on FreeBSD 13.1 and above due use of O_EMPTY_PATH
-.endif
-
 .if !${PORT_OPTIONS:MADS} && ${PORT_OPTIONS:MAD_DC}
 IGNORE=To disable ADS option you also need to disable AD_DC option
 .endif
