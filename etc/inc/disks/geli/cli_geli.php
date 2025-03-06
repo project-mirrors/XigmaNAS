@@ -35,7 +35,7 @@ namespace disks\geli;
 /**
  *	Class to compose and execute geli commands
  */
-final class cli_geli {
+class cli_geli {
 	static $cli2cfg_aalgo = [
 		'hmac/md5' => 'hmac/md5',
 		'hmac/sha1' => 'hmac/sha1',
@@ -205,7 +205,7 @@ final class cli_geli {
  *	@param string $aalgo Data integrity verification algorithm
  *	@return $this
  */
-	public function set_aalgo(string $aalgo = null) {
+	public function set_aalgo(?string $aalgo = null) {
 		if(is_null($aalgo)):
 			$this->aalgo = $aalgo;
 		else:
@@ -228,7 +228,7 @@ final class cli_geli {
  *	@param string $keylen Encryption key length
  *	@return $this
  */
-	public function set_ealgo(string $ealgo = null,string $keylen = null) {
+	public function set_ealgo(?string $ealgo = null,?string $keylen = null) {
 		if(is_null($ealgo)):
 			$this->ealgo = null;
 		else:
@@ -259,7 +259,7 @@ final class cli_geli {
  *	@param string $sectorsize Sector size
  *	@return $this
  */
-	public function set_sectorsize(string $sectorsize = null) {
+	public function set_sectorsize(?string $sectorsize = null) {
 		if(is_null($sectorsize)):
 			$this->sectorsize = null;
 		else:
@@ -279,7 +279,7 @@ final class cli_geli {
  *	@param bool $decrypt_before_loading_rootfs Set to true to decrypt
  *	@return $this
  */
-	public function set_decrypt_before_loading_rootfs(bool $decrypt_before_loading_rootfs = null) {
+	public function set_decrypt_before_loading_rootfs(?bool $decrypt_before_loading_rootfs = null) {
 		$this->decrypt_before_loading_rootfs = $decrypt_before_loading_rootfs;
 		return $this;
 	}
@@ -290,7 +290,7 @@ final class cli_geli {
  *	@param bool $enable_boot_rootfs Set to true to enable boot
  *	@return $this
  */
-	public function set_enable_boot_rootfs(bool $enable_boot_rootfs = null) {
+	public function set_enable_boot_rootfs(?bool $enable_boot_rootfs = null) {
 		$this->enable_boot_rootfs = $enable_boot_rootfs;
 		return $this;
 	}
@@ -299,7 +299,7 @@ final class cli_geli {
  *	@param bool $passthru_trim Set to true to enable passthru
  *	@return $this
  */
-	public function set_passthru_trim(bool $passthru_trim = null) {
+	public function set_passthru_trim(?bool $passthru_trim = null) {
 		$this->passthru_trim = $passthru_trim;
 		return $this;
 	}
@@ -397,10 +397,10 @@ final class cli_geli {
 			else:
 				$this->tmp_filename_passphrase = $tmp_filename_passphrase;
 			endif;
-			if(false === $tmp_filename_passphrase):
+			if($tmp_filename_passphrase === false):
 				write_log(sprintf('geli %s: failed to create passphrase file',$this->action));
 				return 1;
-			elseif(false === file_put_contents($tmp_filename_passphrase,$this->passphrase)):
+			elseif(file_put_contents($tmp_filename_passphrase,$this->passphrase) === false):
 				write_log(sprintf('geli %s: failed to write passphrase',$this->action));
 				return 1;
 			endif;
@@ -433,10 +433,10 @@ final class cli_geli {
 			else:
 				$this->tmp_filename_key = $tmp_filename_key;
 			endif;
-			if(false === $tmp_filename_key):
+			if($tmp_filename_key === false):
 				write_log(sprintf('geli %s: failed to create key file',$this->action));
 				return 1;
-			elseif(false === file_put_contents($tmp_filename_key,$this->key)):
+			elseif(file_put_contents($tmp_filename_key,$this->key) === false):
 				write_log(sprintf('geli %s: failed to write key',$this->action));
 				return 1;
 			endif;
@@ -739,7 +739,7 @@ final class cli_geli {
  *	@param bool $be_verbose Be verbose, default is false
  *	@return int Return 0 if successful, 1 if error
  */
-	public function setkey(int $slot = null,bool $be_verbose = false) {
+	public function setkey(?int $slot = null,bool $be_verbose = false) {
 		$result = 1;
 		$this->cmd_new('setkey');
 		if($be_verbose):
