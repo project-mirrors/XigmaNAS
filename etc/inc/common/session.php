@@ -117,7 +117,7 @@ class session {
  *	@param bool $admin
  *	@param string $timezone
  */
-	public static function init(string $uid,string $uname,bool $admin = false,string $timezone = null) {
+	public static function init(string $uid,string $uname,bool $admin = false,?string $timezone = null) {
 		switch(session_status()):
 //			case PHP_SESSION_DISABLED:
 //				break;
