@@ -1,6 +1,6 @@
 PORTNAME=		sudo
 PORTVERSION=		1.9.16p2
-PORTREVISION=		0
+PORTREVISION=		1
 CATEGORIES=		security
 
 COMMENT=		Allow others to run commands as root
@@ -14,7 +14,7 @@ NO_PKG_REGISTER=	yes
 DEPENDS_TARGET=	clean build stage
 
 BUILD_DEPENDS=		${NONEXISTENT}:security/sudo
-DEP_STAGEDIR=		${PORTSDIR}/security/sudo/work/stage
+DEP_STAGEDIR=		${PORTSDIR}/security/sudo/work-default/stage
 
 do-install:
 # XigmaNAS® install
