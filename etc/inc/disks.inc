@@ -818,7 +818,7 @@ function disks_geli_detach($provider,$verbose = false) {
  *	@param string $provider The name of the provider, i.e. da5
  *	@return int Returns 0 if successful, 1 if error.
  */
-function disks_geli_kill(string $provider = null) {
+function disks_geli_kill(?string $provider = null) {
 	if(isset($provider)):
 		$esa_provider = escapeshellarg($provider);
 		mwexec(sprintf('/sbin/geli configure -B -G %s',$esa_provider));
