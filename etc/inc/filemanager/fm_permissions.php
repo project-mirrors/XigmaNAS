@@ -52,7 +52,7 @@ trait fm_permissions {
  *	provide the $dir and $file parameters so the code does not have to be chaned
  *	if the permission engine will support this features in the future.
  */
-	public function permissions_grant(string $dir = null,string $file = null,string $action = '') {
+	public function permissions_grant(?string $dir = null,?string $file = null,string $action = '') {
 		global $config;
 
 		$has_permission = false;
