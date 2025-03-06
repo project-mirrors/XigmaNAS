@@ -70,21 +70,21 @@ abstract class property {
 	public function get_owner() {
 		return $this->x_owner;
 	}
-	public function set_id(string $id = null) {
+	public function set_id(?string $id = null) {
 		$this->x_id = $id;
 		return $this;
 	}
 	public function get_id() {
 		return $this->x_id;
 	}
-	public function set_name(string $name = null) {
+	public function set_name(?string $name = null) {
 		$this->x_name = $name;
 		return $this;
 	}
 	public function get_name() {
 		return $this->x_name;
 	}
-	public function set_title(string $title = null) {
+	public function set_title(?string $title = null) {
 		$this->x_title = $title;
 		return $this;
 	}
@@ -98,7 +98,7 @@ abstract class property {
 	public function get_description() {
 		return $this->x_description;
 	}
-	public function set_caption(string $caption = null) {
+	public function set_caption(?string $caption = null) {
 		$this->x_caption = $caption;
 		return $this;
 	}
@@ -126,7 +126,7 @@ abstract class property {
 	public function get_editableonmodify() {
 		return $this->x_editableonmodify;
 	}
-	public function set_message_error(string $message_error = null) {
+	public function set_message_error(?string $message_error = null) {
 		$this->x_message_error = $message_error;
 		return $this;
 	}
@@ -136,14 +136,14 @@ abstract class property {
 		endif;
 		return $this->x_message_error;
 	}
-	public function set_message_info(string $message_info = null) {
+	public function set_message_info(?string $message_info = null) {
 		$this->x_message_info = $message_info;
 		return $this;
 	}
 	public function get_message_info() {
 		return $this->x_message_info;
 	}
-	public function set_message_warning(string $message_warning = null) {
+	public function set_message_warning(?string $message_warning = null) {
 		$this->x_message_warning = $message_warning;
 		return $this;
 	}
@@ -497,14 +497,14 @@ class property_text extends property {
 	public function get_maxlength() {
 		return $this->x_maxlength;
 	}
-	public function set_placeholder(string $placeholder = null) {
+	public function set_placeholder(?string $placeholder = null) {
 		$this->x_placeholder = $placeholder;
 		return $this;
 	}
 	public function get_placeholder() {
 		return $this->x_placeholder;
 	}
-	public function set_placeholderv(string $placeholderv = null) {
+	public function set_placeholderv(?string $placeholderv = null) {
 		$this->x_placeholderv = $placeholderv;
 		return $this;
 	}
@@ -582,14 +582,14 @@ class property_textarea extends property {
 	public function get_maxlength() {
 		return $this->x_maxlength;
 	}
-	public function set_placeholder(string $placeholder = null) {
+	public function set_placeholder(?string $placeholder = null) {
 		$this->x_placeholder = $placeholder;
 		return $this;
 	}
 	public function get_placeholder() {
 		return $this->x_placeholder;
 	}
-	public function set_placeholderv(string $placeholderv = null) {
+	public function set_placeholderv(?string $placeholderv = null) {
 		$this->x_placeholderv = $placeholderv;
 		return $this;
 	}
@@ -759,14 +759,14 @@ class property_int extends property_text {
 	public $x_min = null;
 	public $x_max = null;
 
-	public function set_min(int $min = null) {
+	public function set_min(?int $min = null) {
 		$this->x_min = $min;
 		return $this;
 	}
 	public function get_min() {
 		return $this->x_min;
 	}
-	public function set_max(int $max = null) {
+	public function set_max(?int $max = null) {
 		$this->x_max = $max;
 		return $this;
 	}
@@ -830,7 +830,7 @@ class property_uuid extends property_text {
 class property_list extends property {
 	public $x_options = null;
 
-	public function set_options(array $options = null) {
+	public function set_options(?array $options = null) {
 		$this->x_options = $options;
 		return $this;
 	}

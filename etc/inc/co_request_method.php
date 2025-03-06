@@ -59,7 +59,7 @@ class co_request_method {
 	 *	@param mixed $value An additional value on return, usually a PAGE_MODE constant.
 	 *	@return $this
 	 */
-	public function set_default(string $method = null,string $submit = null,$value = null) {
+	public function set_default(?string $method = null,?string $submit = null,$value = null) {
 		$this->x_default = [$method,$submit,$value];
 		return $this;
 	}
