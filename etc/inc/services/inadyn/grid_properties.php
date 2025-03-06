@@ -117,7 +117,7 @@ class grid_properties extends myp\container {
 	final public function get_period(): myp\property_int {
 		return $this->x_period ?? $this->init_period();
 	}
-	protected $x_forcedupdate;
+	protected $x_forceupdate;
 	public function init_forceupdate(): myp\property_int {
 		$title = gettext('Force Update Interval');
 		$property = $this->x_forceupdate = new myp\property_int($this);
