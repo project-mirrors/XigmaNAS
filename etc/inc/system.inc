@@ -175,7 +175,7 @@ function get_language_of_webgui(): string {
  *	before you can use a language priority list through the LANGUAGE variable.
  *
  */
-function system_language_load(string $language_to_try = null) {
+function system_language_load(?string $language_to_try = null) {
 	$directory = '/usr/local/share/locale';
 	$domain = strtolower(get_product_name());
 	$lang = 'en_US';
@@ -488,7 +488,7 @@ function get_datetime_locale_samples() {
 	return $retval;
 }
 
-function get_datetime_locale(int $timestamp = null,string $format = null) {
+function get_datetime_locale(?int $timestamp = null,?string $format = null) {
 	global $config;
 
 	$t_timestamp = $timestamp ?? time();

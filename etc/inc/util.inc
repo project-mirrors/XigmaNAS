@@ -281,7 +281,7 @@ function is_valid_certificate($certificate) {
  *	@param string $type Check for specific private key label, i.e. RSA or for any private key (null)
  *	@return boolean
  */
-function is_valid_privatekey($privatekey,string $type = null) {
+function is_valid_privatekey($privatekey,?string $type = null) {
 //	RFC 7468, https://www.rfc-editor.org/rfc/rfc7468
 	$result = false;
 	if(is_string($privatekey)):

@@ -1305,7 +1305,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
  *		sorter-checkbox
  *		sorter-radio
  */
-function new_page(array $page_title = [],string $action_url = null,string ...$options) {
+function new_page(array $page_title = [],?string $action_url = null,string ...$options) {
 	$document = new document();
 	$document->
 		loadHTML('<!DOCTYPE html>',LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
