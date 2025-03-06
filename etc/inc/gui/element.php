@@ -69,10 +69,10 @@ class element extends DOMElement {
 	public function get_hooks() {
 		return $this->ownerDocument->get_hooks();
 	}
-	public function add_js_on_load(string $jcode = '',string $key = null) {
+	public function add_js_on_load(string $jcode = '',?string $key = null) {
 		return $this->ownerDocument->add_js_on_load(jcode: $jcode,key: $key);
 	}
-	public function add_js_document_ready(string $jcode = '',string $key = null) {
+	public function add_js_document_ready(string $jcode = '',?string $key = null) {
 		return $this->ownerDocument->add_js_document_ready(jcode: $jcode,key: $key);
 	}
 }

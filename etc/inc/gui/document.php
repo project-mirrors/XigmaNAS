@@ -80,7 +80,7 @@ class document extends DOMDocument {
 	public function get_hooks() {
 		return $this->hook_stack;
 	}
-	public function add_js_on_load(string $jcode = '',string $key = null) {
+	public function add_js_on_load(string $jcode = '',?string $key = null) {
 		$preg_match_result = preg_match(pattern: '/\S/',subject: $jcode);
 		if($preg_match_result === 1):
 			if(isset($key)):
@@ -91,7 +91,7 @@ class document extends DOMDocument {
 		endif;
 		return $this;
 	}
-	public function add_js_document_ready(string $jcode = '',string $key = null) {
+	public function add_js_document_ready(string $jcode = '',?string $key = null) {
 		$preg_match_result= preg_match(pattern: '/\S/',subject: $jcode);
 		if($preg_match_result === 1):
 			if(isset($key)):

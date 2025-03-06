@@ -56,7 +56,7 @@ trait tools {
  *	@param string $namespaceURI
  *	@return DOMNode $subnode
  */
-	public function addElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = '') {
+	public function addElement(string $name,array $attributes = [],?string $value = null,string $namespaceURI = '') {
 		$subnode = $this->appendChild(node: new element(qualifiedName: $name,namespace: $namespaceURI));
 		$check_for_html = $this->check_for_html(name: $name);
 		$subnode->import_soup(value: $value,check_for_html: $check_for_html);
@@ -71,7 +71,7 @@ trait tools {
  *	@param string $namespaceURI
  *	@return DOMNode $this
  */
-	public function insElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = '') {
+	public function insElement(string $name,array $attributes = [],?string $value = null,string $namespaceURI = '') {
 		$subnode = $this->appendChild(node: new element(qualifiedName: $name,namespace: $namespaceURI));
 		$check_for_html = $this->check_for_html(name: $name);
 		$subnode->import_soup(value: $value,check_for_html: $check_for_html);
@@ -86,7 +86,7 @@ trait tools {
  *	@param string $namespaceURI
  *	@return DOMNode $subnode
  */
-	public function prepend_element(string $name,array $attributes = [],string $value = null,string $namespaceURI = '') {
+	public function prepend_element(string $name,array $attributes = [],?string $value = null,string $namespaceURI = '') {
 		if(is_null(value: $this->firstChild)):
 			$subnode = $this->appendChild(node: new element(qualifiedName: $name,namespace: $namespaceURI));
 		else:
@@ -107,7 +107,7 @@ trait tools {
  *	@param string $value The text/html string
  *	@return $this
  */
-	public function import_soup(string $value = null,bool $check_for_html = true) {
+	public function import_soup(?string $value = null,bool $check_for_html = true) {
 		if(!is_null(value: $value)):
 //			rough check if value contains html code, if found try to import as HTML, otherwise add as text
 			$html_import_successful = false;
@@ -166,86 +166,86 @@ trait tools {
 		return $this;
 	}
 //	tags
-	public function addA(array $attributes = [],string $value = null) {
+	public function addA(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'a',attributes: $attributes,value: $value);
 	}
-	public function insA(array $attributes = [],string $value = null) {
+	public function insA(array $attributes = [],?string $value = null) {
 		return $this->insElement(name: 'a',attributes: $attributes,value: $value);
 	}
 	public function insCOL(array $attributes = []) {
 		return $this->insElement(name: 'col',attributes: $attributes);
 	}
-	public function addDIV(array $attributes = [],string $value = null) {
+	public function addDIV(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'div',attributes: $attributes,value: $value);
 	}
-	public function insDIV(array $attributes = [],string $value = null) {
+	public function insDIV(array $attributes = [],?string $value = null) {
 		return $this->insElement(name: 'div',attributes: $attributes,value: $value);
 	}
-	public function addFORM(array $attributes = [],string $value = null) {
+	public function addFORM(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'form',attributes: $attributes,value: $value);
 	}
 	public function insIMG(array $attributes = []) {
 		return $this->insElement(name: 'img',attributes: $attributes);
 	}
-	public function insINPUT(array $attributes = [],string $value = null) {
+	public function insINPUT(array $attributes = [],?string $value = null) {
 		return $this->insElement(name: 'input',attributes: $attributes,value: $value);
 	}
-	public function addLI(array $attributes = [],string $value = null) {
+	public function addLI(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'li',attributes: $attributes,value: $value);
 	}
-	public function addP(array $attributes = [],string $value = null) {
+	public function addP(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'p',attributes: $attributes,value: $value);
 	}
-	public function addSPAN(array $attributes = [],string $value = null) {
+	public function addSPAN(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'span',attributes: $attributes,value: $value);
 	}
-	public function insSPAN(array $attributes = [],string $value = null) {
+	public function insSPAN(array $attributes = [],?string $value = null) {
 		return $this->insElement(name: 'span',attributes: $attributes,value: $value);
 	}
-	public function addUL(array $attributes = [],string $value = null) {
+	public function addUL(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'ul',attributes: $attributes,value: $value);
 	}
 //	table tags
-	public function addTABLE(array $attributes = [],string $value = null) {
+	public function addTABLE(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'table',attributes: $attributes,value: $value);
 	}
-	public function addCOLGROUP(array $attributes = [],string $value = null) {
+	public function addCOLGROUP(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'colgroup',attributes: $attributes,value: $value);
 	}
-	public function addTHEAD(array $attributes = [],string $value = null) {
+	public function addTHEAD(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'thead',attributes: $attributes,value: $value);
 	}
-	public function addTBODY(array $attributes = [],string $value = null) {
+	public function addTBODY(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'tbody',attributes: $attributes,value: $value);
 	}
-	public function addTFOOT(array $attributes = [],string $value = null) {
+	public function addTFOOT(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'tfoot',attributes: $attributes,value: $value);
 	}
-	public function addTR(array $attributes = [],string $value = null) {
+	public function addTR(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'tr',attributes: $attributes,value: $value);
 	}
-	public function addTD(array $attributes = [],string $value = null) {
+	public function addTD(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'td',attributes: $attributes,value: $value);
 	}
-	public function insTD(array $attributes = [],string $value = null) {
+	public function insTD(array $attributes = [],?string $value = null) {
 		return $this->insElement(name: 'td',attributes: $attributes,value: $value);
 	}
-	public function addTDwC(string $class,string $value = null) {
+	public function addTDwC(string $class,?string $value = null) {
 		return $this->addElement(name: 'td',attributes: ['class' => $class],value: $value);
 	}
-	public function insTDwC(string $class,string $value = null) {
+	public function insTDwC(string $class,?string $value = null) {
 		return $this->insElement(name: 'td',attributes: ['class' => $class],value: $value);
 	}
-	public function addTH(array $attributes = [],string $value = null) {
+	public function addTH(array $attributes = [],?string $value = null) {
 		return $this->addElement(name: 'th',attributes: $attributes,value: $value);
 	}
-	public function insTH(array $attributes = [],string $value = null) {
+	public function insTH(array $attributes = [],?string $value = null) {
 		return $this->insElement(name: 'th',attributes: $attributes,value: $value);
 	}
-	public function addTHwC(string $class,string $value = null) {
+	public function addTHwC(string $class,?string $value = null) {
 		return $this->addElement(name: 'th',attributes: ['class' => $class],value: $value);
 	}
-	public function insTHwC(string $class,string $value = null) {
+	public function insTHwC(string $class,?string $value = null) {
 		return $this->insElement(name: 'th',attributes: ['class' => $class],value: $value);
 	}
 //	tab menu fragments and macros
@@ -376,7 +376,7 @@ trait tools {
  *	@param string $message_type e)rror, i)info, w)arning
  *	@return $this
  */
-	private function ins_message_box($message,string $message_type = null) {
+	private function ins_message_box($message,?string $message_type = null) {
 		global $g_img;
 
 		$this->reset_hooks();
@@ -490,7 +490,7 @@ trait tools {
 		return $this;
 	}
 //	title macros
-	public function ins_titleline(string $title = null,int $colspan = 0,string $id = null) {
+	public function ins_titleline(?string $title = null,int $colspan = 0,?string $id = null) {
 		if(!is_null(value: $id) && preg_match(pattern: '/\S/',subject: $id)):
 			$tr_attributes = ['id' => sprintf('%s_tr',$id)];
 		else:
@@ -736,7 +736,7 @@ trait tools {
 		endswitch;
 		return $this;
 	}
-	public function ins_input_hidden(string $name = null,$value = '') {
+	public function ins_input_hidden(?string $name = null,$value = '') {
 		if(isset($name) && preg_match(pattern: '/\S/',subject: $name) && is_scalar(value: $value)):
 			$input_attributes = ['type' => 'hidden'];
 			if(preg_match(pattern: '/\S/',subject: $name)):
@@ -995,7 +995,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_separator(int $colspan = 0,string $id = null) {
+	public function ins_separator(int $colspan = 0,?string $id = null) {
 		$tr_attributes = [];
 		if($this->option_exists(option: 'tablesort')):
 			$tr_attributes = ['class' => 'tablesorter-ignoreRow'];
@@ -1079,7 +1079,7 @@ EOJ;
 		endswitch;
 		return $this;
 	}
-	public function ins_textinfo(string $id = null,string $value = null) {
+	public function ins_textinfo(?string $id = null,?string $value = null) {
 		if(isset($value)):
 			$span_attributes = [];
 			if(isset($id)):
@@ -1256,7 +1256,7 @@ EOJ;
 				addA(attributes: ['href' => $link,'class' => 'spin oneemhigh monotoolbox','title' => $sphere->getmsg_sym_add()],value: $g_img['unicode.add']);
 		return $this;
 	}
-	public function ins_no_records_found(int $colspan = 0,string $message = null) {
+	public function ins_no_records_found(int $colspan = 0,?string $message = null) {
 		if(is_null(value: $message)):
 			$message = gettext(message: 'No records found.');
 		endif;
@@ -1505,7 +1505,7 @@ EOJ;
  *	@param int $n_rows
  *	@return $this
  */
-	public function cr_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = null,int $n_rows = null) {
+	public function cr_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,?int $n_cols = null,?int $n_rows = null) {
 		$property->set_cols(cols: $n_cols);
 		$property->set_rows(rows: $n_rows);
 		$this->
@@ -1711,7 +1711,7 @@ EOJ;
  *	@param int $n_rows
  *	@return $this
  */
-	public function c2_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = null,int $n_rows = null) {
+	public function c2_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,?int $n_cols = null,?int $n_rows = null) {
 		$this->c2_row(property: $property,is_required: $is_required,is_readonly: $is_readonly,tagaslabel: true)->cr_textarea(property: $property,value: $value,is_required: $is_required,is_readonly: $is_readonly,n_cols: $n_cols,n_rows: $n_rows);
 		return $this;
 	}
@@ -1833,7 +1833,7 @@ EOJ;
 		endif;
 		return $subnode;
 	}
-	public function ins_button_submit(string $id = null,string $name = null,string $value = null,string $content = null,array $attributes = null) {
+	public function ins_button_submit(?string $id = null,?string $name = null,?string $value = null,?string $content = null,?array $attributes = null) {
 		$element = 'button';
 		$class_button = 'formbtn';
 		$value ??= 'cancel';
@@ -1871,7 +1871,7 @@ EOJ;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
 	}
-	public function ins_button_apply(string $content = null) {
+	public function ins_button_apply(?string $content = null) {
 		$id = null;
 		$name = null;
 		$value = 'apply';
@@ -1880,7 +1880,7 @@ EOJ;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
 	}
-	public function ins_button_cancel(string $content = null) {
+	public function ins_button_cancel(?string $content = null) {
 		$id = null;
 		$name = null;
 		$value = 'cancel';
@@ -1889,7 +1889,7 @@ EOJ;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
 	}
-	public function ins_button_clone(string $content = null) {
+	public function ins_button_clone(?string $content = null) {
 		$id = null;
 		$name = null;
 		$value = 'clone';
@@ -1898,7 +1898,7 @@ EOJ;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
 	}
-	public function ins_button_edit(string $content = null) {
+	public function ins_button_edit(?string $content = null) {
 		$id = null;
 		$name = null;
 		$value = 'edit';
@@ -1907,7 +1907,7 @@ EOJ;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
 	}
-	public function ins_button_enadis(bool $enable = false,string $content_on = null,string $content_off = null) {
+	public function ins_button_enadis(bool $enable = false,?string $content_on = null,?string $content_off = null) {
 		$id = null;
 		$name = null;
 		$value = $enable ? 'enable' : 'disable';
@@ -1918,7 +1918,7 @@ EOJ;
 			$this->ins_button_submit(id: $id,name: $name,value: $value,content: $content,attributes: $attributes);
 		return $this;
 	}
-	public function ins_button_reload(bool $enable = false,string $content = null) {
+	public function ins_button_reload(bool $enable = false,?string $content = null) {
 		if($enable):
 			$id = null;
 			$name = null;
@@ -1929,7 +1929,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_button_reorder(bool $enable = false,string $content = null) {
+	public function ins_button_reorder(bool $enable = false,?string $content = null) {
 		if($enable):
 			$id = null;
 			$name = null;
@@ -1940,7 +1940,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_button_rescan(bool $enable = false,string $content = null) {
+	public function ins_button_rescan(bool $enable = false,?string $content = null) {
 		if($enable):
 			$id = null;
 			$name = null;
@@ -1951,7 +1951,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_button_restart(bool $enable = false,string $content = null) {
+	public function ins_button_restart(bool $enable = false,?string $content = null) {
 		if($enable):
 			$id = null;
 			$name = null;
@@ -1962,7 +1962,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_button_save(string $content = null) {
+	public function ins_button_save(?string $content = null) {
 		$id = null;
 		$name = null;
 		$value = 'save';
@@ -2060,7 +2060,7 @@ EOJ;
  *	@param string $action_url If $action_url empty no form element will be created.
  *	@return DOMNode $this
  */
-	public function ins_body(array $page_title = [],string $action_url = null) {
+	public function ins_body(array $page_title = [],?string $action_url = null) {
 		$is_login = $this->option_exists(option: 'login');
 		$is_multipart = $this->option_exists(option: 'multipart');
 		$is_tablesort = $this->option_exists(option: 'tablesort');
