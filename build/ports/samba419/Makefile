@@ -48,8 +48,8 @@ EXTRA_PATCHES=			\
 				${PATCHDIR}/0026-vfs-add-a-compatibility-option-to-the-vfs_streams_xa.patch:-p1 \
 				${PATCHDIR}/0027-Add-VFS-module-vfs_freebsd-that-implements-FreeBSD-s.patch:-p1 \
 				${PATCHDIR}/0028-Fix-rl_completion_func_t.patch:-p1 \
+				${PATCHDIR}/0028-s3-lib-system-add-FreeBSD-proc_fd_pattern.patch:-p1 \
 				${PATCHDIR}/0100-Fix-pathref-handling-for-FreeBSD-13plus.patch
-
 SAMBA4_BASENAME=		samba
 SAMBA4_PORTNAME=		${SAMBA4_BASENAME}4
 SAMBA4_VERSION=			4.19.9
@@ -135,7 +135,7 @@ OPTIONS_SINGLE_ZEROCONF=	ZEROCONF_NONE AVAHI MDNSRESPONDER
 OPTIONS_DEFAULT+=		NSUPDATE
 
 OPTIONS_RADIO=			DNS
-OPTIONS_RADIO_DNS=		NSUPDATE BIND916 BIND918
+OPTIONS_RADIO_DNS=		NSUPDATE BIND918 BIND920
 # Make those default options
 OPTIONS_DEFAULT=		AD_DC ADS DOCS FAM LDAP \
 				PROFILE PYTHON3 QUOTAS SYSLOG UTMP \
@@ -167,8 +167,8 @@ ZEROCONF_DESC=			Zero configuration networking
 ZEROCONF_NONE_DESC=		Zeroconf support is absent
 
 DNS_DESC=			DNS frontend
-BIND916_DESC=			Use Bind 9.16 as AD DC DNS server frontend
 BIND918_DESC=			Use Bind 9.18 as AD DC DNS server frontend
+BIND920_DESC=			Use Bind 9.20 as AD DC DNS server frontend
 NSUPDATE_DESC=			Use samba NSUPDATE utility for AD DC
 ##############################################################################
 # XXX: Unconditional dependencies which can't be switched off(if present in
@@ -338,8 +338,8 @@ MDNSRESPONDER_CONFIGURE_ENABLE=	dnssd
 MDNSRESPONDER_LIB_DEPENDS=	libdns_sd.so:net/mDNSResponder
 MDNSRESPONDER_VARS=		SAMBA4_SERVICES+=mdnsd
 ##############################################################################
-BIND916_RUN_DEPENDS=		bind916>=9.16.0.0:dns/bind916
 BIND918_RUN_DEPENDS=		bind918>=9.18.0.0:dns/bind918
+BIND920_RUN_DEPENDS=		bind920>=9.20.0.0:dns/bind920
 NSUPDATE_RUN_DEPENDS=		samba-nsupdate:dns/samba-nsupdate
 ##############################################################################
 MEMORY_DEBUG_IMPLIES=		DEBUG
