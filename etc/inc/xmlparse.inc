@@ -125,11 +125,10 @@ class config_xml_reader {
 //		Create XML parser.
 		$this->parser = xml_parser_create('UTF-8');
 		if($this->parser !== false):
-			xml_set_object($this->parser,$this);
 //			Initialize start element handler and end element handler.
-			xml_set_element_handler($this->parser,'startelementhandler','endelementhandler');
+			xml_set_element_handler($this->parser,[$this,'startelementhandler'],[$this,'endelementhandler']);
 //			Initialize data handler.
-			xml_set_character_data_handler($this->parser,'datahandler');
+			xml_set_character_data_handler($this->parser,[$this,'datahandler']);
 		endif;
 	}
 	public function __destruct() {
