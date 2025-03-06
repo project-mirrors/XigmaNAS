@@ -51,7 +51,7 @@ class property_text extends property {
 		return $this->x_maxlength;
 	}
 	protected $x_placeholder = null;
-	public function set_placeholder(string $placeholder = null) {
+	public function set_placeholder(?string $placeholder = null) {
 		$this->x_placeholder = $placeholder;
 		return $this;
 	}
@@ -59,7 +59,7 @@ class property_text extends property {
 		return $this->x_placeholder;
 	}
 	protected $x_placeholderv = null;
-	public function set_placeholderv(string $placeholderv = null) {
+	public function set_placeholderv(?string $placeholderv = null) {
 		$this->x_placeholderv = $placeholderv;
 		return $this;
 	}

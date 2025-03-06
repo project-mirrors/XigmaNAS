@@ -43,7 +43,7 @@ class property_textarea extends property {
 		$this->set_input_type(self::INPUT_TYPE_TEXTAREA);
 	}
 	protected $x_cols = null;
-	public function set_cols(int $cols = null) {
+	public function set_cols(?int $cols = null) {
 		$this->x_cols = $cols;
 		return $this;
 	}
@@ -59,7 +59,7 @@ class property_textarea extends property {
 		return $this->x_maxlength;
 	}
 	protected $x_placeholder = null;
-	public function set_placeholder(string $placeholder = null) {
+	public function set_placeholder(?string $placeholder = null) {
 		$this->x_placeholder = $placeholder;
 		return $this;
 	}
@@ -67,7 +67,7 @@ class property_textarea extends property {
 		return $this->x_placeholder;
 	}
 	protected $x_placeholderv = null;
-	public function set_placeholderv(string $placeholderv = null) {
+	public function set_placeholderv(?string $placeholderv = null) {
 		$this->x_placeholderv = $placeholderv;
 		return $this;
 	}
@@ -75,7 +75,7 @@ class property_textarea extends property {
 		return $this->x_placeholderv;
 	}
 	protected $x_rows = null;
-	public function set_rows(int $rows = null) {
+	public function set_rows(?int $rows = null) {
 		$this->x_rows = $rows;
 		return $this;
 	}

@@ -89,21 +89,21 @@ abstract class property {
 	public function get_input_type() {
 		return $this->x_input_type;
 	}
-	public function set_id(string $id = null) {
+	public function set_id(?string $id = null) {
 		$this->x_id = $id;
 		return $this;
 	}
 	public function get_id() {
 		return $this->x_id;
 	}
-	public function set_name(string $name = null) {
+	public function set_name(?string $name = null) {
 		$this->x_name = $name;
 		return $this;
 	}
 	public function get_name() {
 		return $this->x_name;
 	}
-	public function set_title(string $title = null) {
+	public function set_title(?string $title = null) {
 		$this->x_title = $title;
 		return $this;
 	}
@@ -117,7 +117,7 @@ abstract class property {
 	public function get_description() {
 		return $this->x_description;
 	}
-	public function set_caption(string $caption = null) {
+	public function set_caption(?string $caption = null) {
 		$this->x_caption = $caption;
 		return $this;
 	}
@@ -145,7 +145,7 @@ abstract class property {
 	public function get_editableonmodify() {
 		return $this->x_editableonmodify;
 	}
-	public function set_message_error(string $message_error = null) {
+	public function set_message_error(?string $message_error = null) {
 		$this->x_message_error = $message_error;
 		return $this;
 	}
@@ -155,14 +155,14 @@ abstract class property {
 		endif;
 		return $this->x_message_error;
 	}
-	public function set_message_info(string $message_info = null) {
+	public function set_message_info(?string $message_info = null) {
 		$this->x_message_info = $message_info;
 		return $this;
 	}
 	public function get_message_info() {
 		return $this->x_message_info;
 	}
-	public function set_message_warning(string $message_warning = null) {
+	public function set_message_warning(?string $message_warning = null) {
 		$this->x_message_warning = $message_warning;
 		return $this;
 	}
