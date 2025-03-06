@@ -722,7 +722,7 @@ function html_folderbox2($ctrlname,$title,$value,$desc,$path,$required = false,$
 	$ctrl->Compose()->render();
 }
 
-function html_button(string $value = null,string $content = null,string $id = null) {
+function html_button(?string $value = null,?string $content = null,?string $id = null) {
 	$element = 'button';
 	$class = 'formbtn';
 	if(is_null($value)):
