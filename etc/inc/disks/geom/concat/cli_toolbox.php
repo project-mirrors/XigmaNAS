@@ -41,13 +41,13 @@ use function escapeshellarg,
 /**
  *	Wrapper class for autoloading functions
  */
-final class cli_toolbox {
+class cli_toolbox {
 /**
  *	Returns details of a single gconcat or all gconcats.
  *	@param string $entity_name If provided, only details of this specific gconcat are returned.
  *	@return string An unescaped string.
  */
-	public static function get_list(string $entity_name = null): string {
+	public static function get_list(?string $entity_name = null): string {
 		$a_cmd = ['/sbin/geom','concat','list'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
@@ -61,7 +61,7 @@ final class cli_toolbox {
  *	Returns the status of a single gconcat or all gconcats.
  *	@return string An unescaped string.
  */
-	public static function get_status(string $entity_name = null): string {
+	public static function get_status(?string $entity_name = null): string {
 		$a_cmd = ['/sbin/geom','concat','status'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);

@@ -41,7 +41,7 @@ use function is_string;
 /**
  *	Wrapper class for autoloading functions
  */
-final class cfg_toolbox {
+class cfg_toolbox {
 /**
  *	Returns the  gstripe name of $uuid or null.
  *	@global array $config The global config file.

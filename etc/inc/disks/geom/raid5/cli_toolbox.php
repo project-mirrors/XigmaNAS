@@ -41,13 +41,13 @@ use function escapeshellarg,
 /**
  *	Wrapper class for autoloading functions
  */
-final class cli_toolbox {
+class cli_toolbox {
 /**
  *	Returns details of a single graid5 or all graid5s.
  *	@param string $entity_name If provided, only details of this specific graid5 are returned.
  *	@return string An unescaped string.
  */
-	public static function get_list(string $entity_name = null): string {
+	public static function get_list(?string $entity_name = null): string {
 		$a_cmd = ['/sbin/geom','raid5','list'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
@@ -61,7 +61,7 @@ final class cli_toolbox {
  *	Returns the status of a single graid5 or all graid5s.
  *	@return string An unescaped string.
  */
-	public static function get_status(string $entity_name = null): string {
+	public static function get_status(?string $entity_name = null): string {
 		$a_cmd = ['/sbin/geom','raid5','status'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
