@@ -239,7 +239,7 @@ class HTMLBaseControl2 {
 		endif;
 		return $description_output;
 	}
-	function Compose(DOMNode &$anchor = null) {
+	function Compose(?DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new document();
@@ -966,7 +966,7 @@ class HTMLSeparator2 extends HTMLBaseControl2 {
 	function GetClassOfSeparator() {
 		return $this->GetClassSeparator();
 	}
-	function Compose(DOMNode &$anchor = null) {
+	function Compose(?DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new document();
@@ -1004,7 +1004,7 @@ class HTMLTitleLine2 extends HTMLBaseControl2 {
 	function GetClassOfTopic() {
 		return $this->GetClassTopic();
 	}
-	function Compose(DOMNode &$anchor = null) {
+	function Compose(?DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new document();
@@ -1051,7 +1051,7 @@ class HTMLTitleLineCheckBox2 extends HTMLCheckBox2 {
 	function GetClassOfTopic() {
 		return $this->GetClassTopic();
 	}
-	function Compose(DOMNode &$anchor = null) {
+	function Compose(?DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new document();
@@ -1098,7 +1098,7 @@ class HTMLTextInfo2 extends HTMLBaseControl2 {
 		$this->SetTitle($title);
 		$this->SetValue($text);
 	}
-	function Compose(DOMNode &$anchor = null) {
+	function Compose(?DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new document();
@@ -1123,7 +1123,7 @@ class HTMLRemark2 extends HTMLBaseControl2 {
 		$this->SetTitle($title);
 		$this->SetValue($text);
 	}
-	function Compose(DOMNode &$anchor = null) {
+	function Compose(?DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new document();
