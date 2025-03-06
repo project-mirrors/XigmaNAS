@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'config.inc';
 require_once 'util.inc';
 require_once 'properties_zfs_dataset.php';
+
+use common\arr;
+use	common\uuid;
 
 /**
  *	Get list of available zpools
@@ -99,7 +104,7 @@ function zfs_get_pool_list() {
  *	@param string $zpool_properties A comma separated list of zpool properties.
  *	@return array Array with zpool properties of all zpools or the given zpool.
  */
-function cli_zpool_info(string $poolname = null,string $zpool_properties = 'name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot') {
+function cli_zpool_info(?string $poolname = null,string $zpool_properties = 'name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot') {
 //	initialize return value
 	$a_return_result = [];
 //	poolname must contain at least one printable character
@@ -269,10 +274,10 @@ function zfs_zpool_configure(string $uuid) {
 	];
 	$running_index = 0;
 	$a_param = [];
-	$sphere_grid = array_make_branch($config,'zfs','pools','pool');
-	$a_vdevices = array_make_branch($config,'zfs','vdevices','vdevice');
+	$sphere_grid = arr::make_branch($config,'zfs','pools','pool');
+	$a_vdevices = arr::make_branch($config,'zfs','vdevices','vdevice');
 //	get pool
-	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	$sphere_row_id = arr::search_ex($uuid,$sphere_grid,'uuid');
 	if($sphere_row_id === false):
 		return 1;
 	endif;
@@ -321,7 +326,7 @@ function zfs_zpool_configure(string $uuid) {
 	$a_param[] = escapeshellarg($pool_name);
 //	add pool vdevs
 	foreach($pool['vdevice'] as $vdevicev):
-		$index = array_search_ex($vdevicev,$a_vdevices,'name');
+		$index = arr::search_ex($vdevicev,$a_vdevices,'name');
 		if($index === false):
 			return 1;
 		endif;
@@ -448,11 +453,11 @@ function zfs_zpool_destroy(string $uuid) {
 	global $config;
 
 	$result = 1;
-	if(is_uuid_v4($uuid)):
-		$sphere_grid = array_make_branch($config,'zfs','pools','pool');
-		$a_vdevices = array_make_branch($config,'zfs','vdevices','vdevice');
+	if(uuid::is_v4($uuid)):
+		$sphere_grid = arr::make_branch($config,'zfs','pools','pool');
+		$a_vdevices = arr::make_branch($config,'zfs','vdevices','vdevice');
 //		get pool configuration
-		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+		$sphere_row_id = arr::search_ex($uuid,$sphere_grid,'uuid');
 		if($sphere_row_id !== false):
 			$sphere_row = $sphere_grid[$sphere_row_id];
 			if(is_array($sphere_row)):
@@ -480,13 +485,13 @@ function zfs_zpool_destroy(string $uuid) {
 					@rmdir($mountpoint);
 					if($result == 0):
 //					destroy gnop devices
-						array_make_branch($sphere_row,'vdevice');
+						arr::make_branch($sphere_row,'vdevice');
 						foreach($sphere_row['vdevice'] as $vdevice_name):
-							$a_vdevices_row_key = array_search_ex($vdevice_name,$a_vdevices,'name');
+							$a_vdevices_row_key = arr::search_ex($vdevice_name,$a_vdevices,'name');
 							if($a_vdevices_row_key !== false):
 								$a_vdevice = $a_vdevices[$a_vdevices_row_key];
 								if(isset($a_vdevice['aft4k'])):
-									array_make_branch($a_vdevice,'device');
+									arr::make_branch($a_vdevice,'device');
 									foreach($a_vdevice['device'] as $device_name):
 										$device_name_nop = sprintf('%s.nop',$device_name);
 										$cmd_gnop = sprintf('gnop destroy %s',escapeshellarg($device_name_nop));
@@ -526,9 +531,9 @@ function zfs_zpool_properties(string $uuid) {
 	$supported_properties = [
 		'mountpoint'
 	];
-	if(is_uuid_v4($uuid)):
-		$sphere_grid = array_make_branch($config,'zfs','pools','pool');
-		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	if(uuid::is_v4($uuid)):
+		$sphere_grid = arr::make_branch($config,'zfs','pools','pool');
+		$sphere_row_id = arr::search_ex($uuid,$sphere_grid,'uuid');
 		if($sphere_row_id !== false):
 			$sphere_row = $sphere_grid[$sphere_row_id];
 			if(is_array($sphere_row)):
@@ -623,8 +628,8 @@ function zfs_dataset_configure(string $uuid) {
 	global $config;
 
 //	get dataset
-	$sphere_grid = array_make_branch($config,'zfs','datasets','dataset');
-	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	$sphere_grid = arr::make_branch($config,'zfs','datasets','dataset');
+	$sphere_row_id = arr::search_ex($uuid,$sphere_grid,'uuid');
 	if($sphere_row_id === false):
 		return 1;
 	endif;
@@ -700,7 +705,7 @@ function zfs_dataset_configure(string $uuid) {
 		endswitch;
 	endforeach;
 //	options
-	$mounted = isset($sphere_row['canmount']) ? true : false;
+	$mounted = isset($sphere_row['canmount']);
 //	add filesystem name
 	$a_param[] = escapeshellarg($fq_filesystem_name);
 //	create dataset
@@ -745,10 +750,10 @@ function zfs_dataset_configure(string $uuid) {
 function zfs_dataset_destroy(string $uuid,bool $recursively = false) {
 	global $config;
 
-	if(is_uuid_v4($uuid)):
+	if(uuid::is_v4($uuid)):
 //		get dataset
-		$sphere_grid = array_make_branch($config,'zfs','datasets','dataset');
-		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+		$sphere_grid = arr::make_branch($config,'zfs','datasets','dataset');
+		$sphere_row_id = arr::search_ex($uuid,$sphere_grid,'uuid');
 		if($sphere_row_id !== false):
 			$sphere_row = $sphere_grid[$sphere_row_id];
 			if(is_array($sphere_row)):
@@ -792,9 +797,9 @@ function zfs_dataset_destroy(string $uuid,bool $recursively = false) {
 function zfs_dataset_properties(string $uuid) {
 	global $config;
 
-	$sphere_grid = array_make_branch($config,'zfs','datasets','dataset');
+	$sphere_grid = arr::make_branch($config,'zfs','datasets','dataset');
 //	get dataset
-	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	$sphere_row_id = arr::search_ex($uuid,$sphere_grid,'uuid');
 	if($sphere_row_id === false):
 		return 1;
 	endif;
@@ -938,7 +943,7 @@ function zfs_dataset_properties(string $uuid) {
 function zfs_volume_configure(string $uuid) {
 	global $config;
 
-	$sphere_grid = array_make_branch($config,'zfs','volumes','volume');
+	$sphere_grid = arr::make_branch($config,'zfs','volumes','volume');
 	$prop = new properties_zfs_dataset();
 	$supported_properties = [
 		'sparse',
@@ -954,7 +959,7 @@ function zfs_volume_configure(string $uuid) {
 		'volsize'
 	];
 //	get volume
-	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	$sphere_row_id = arr::search_ex($uuid,$sphere_grid,'uuid');
 	if($sphere_row_id === false):
 		return 1;
 	endif;
@@ -1031,10 +1036,10 @@ function zfs_volume_configure(string $uuid) {
 function zfs_volume_destroy(string $uuid,bool $recursively = false) {
 	global $config;
 
-	if(is_uuid_v4($uuid)):
+	if(uuid::is_v4($uuid)):
 //		get volume
-		$sphere_grid = array_make_branch($config,'zfs','volumes','volume');
-		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+		$sphere_grid = arr::make_branch($config,'zfs','volumes','volume');
+		$sphere_row_id = arr::search_ex($uuid,$sphere_grid,'uuid');
 		if($sphere_row_id !== false):
 			$sphere_row = $sphere_grid[$sphere_row_id];
 			if(is_array($sphere_row)):
@@ -1099,10 +1104,10 @@ function zfs_get_volume_reservation($volsize) {
 function zfs_volume_properties(string $uuid) {
 	global $config;
 
-	$sphere_grid = array_make_branch($config,'zfs','volumes','volume');
+	$sphere_grid = arr::make_branch($config,'zfs','volumes','volume');
 	$prop = new properties_zfs_dataset();
 //	get volume
-	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	$sphere_row_id = arr::search_ex($uuid,$sphere_grid,'uuid');
 	if($sphere_row_id === false):
 		return 1;
 	endif;
