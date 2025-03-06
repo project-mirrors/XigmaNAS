@@ -34,19 +34,18 @@
 
 namespace disks\zfs\filesystem;
 
-use function array_map,count,escapeshellarg,gettext,implode,is_array,sprintf,
-		mwexec2;
+use function mwexec2;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class cli_toolbox {
+class cli_toolbox {
 /**
  *	Returns basic properties of a single zfs filesystem or all zfs filesystems.
  *	@param string $entity_name If provided, only basic information of the specified zfs filesystem is returned.
  *	@return string An unescaped string.
  */
-	public static function get_list(string $entity_name = NULL): string {
+	public static function get_list(?string $entity_name = null): string {
 		$a_cmd = ['zfs','list','-t','filesystem','-o','name,used,avail,refer,mountpoint'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
@@ -61,7 +60,7 @@ final class cli_toolbox {
  *	@param string $entity_name If provided, the properties of the specified zfs filesystem are returned.
  *	@return string An unescaped string.
  */
-	public static function get_properties(string $entity_name = NULL): string {
+	public static function get_properties(?string $entity_name = null): string {
 		$a_cmd = ['zfs','list','-H','-o','name','-t','filesystem'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
@@ -77,5 +76,26 @@ final class cli_toolbox {
 			$output = [gettext('No ZFS filesystem information available.')];
 		endif;
 		return implode("\n",$output);
+	}
+/**
+ *	Returns the dataset name of a given guid
+ *	@param string $test_guid
+ *	@return string|null
+ */
+	public static function get_name_by_guid(string $test_guid): ?string {
+		$a_cmd = ['zfs','list','-Hp','-o','name,guid'];
+		$cmd = implode(' ',$a_cmd);
+		$a_result = null;
+		$exitstatus = 0;
+		mwexec2($cmd,$a_result,$exitstatus);
+		if($exitstatus === 0 && is_array($a_result)):
+			foreach($a_result as $r_result):
+				[$entity_name,$guid] =  explode("\t",$r_result);
+				if($test_guid === $guid):
+					return $entity_name;
+				endif;
+			endforeach;
+		endif;
+		return null;
 	}
 }

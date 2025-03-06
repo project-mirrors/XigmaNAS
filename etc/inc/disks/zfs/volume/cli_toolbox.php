@@ -34,19 +34,18 @@
 
 namespace disks\zfs\volume;
 
-use function array_map,count,escapeshellarg,gettext,implode,is_array,sprintf,
-		mwexec2;
+use function mwexec2;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class cli_toolbox {
+class cli_toolbox {
 /**
  *	Returns basic properties of a single zfs volume or all zfs volumes.
  *	@param string $entity_name If provided, only basic information of the specified zfs volume is returned.
  *	@return string An unescaped string.
  */
-	public static function get_list(string $entity_name = null): string {
+	public static function get_list(?string $entity_name = null): string {
 		$a_cmd = ['zfs','list','-t','volume','-o','name,used,avail,refer'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
@@ -61,7 +60,7 @@ final class cli_toolbox {
  *	@param string $entity_name If provided, the properties of the specified zfs volume are returned.
  *	@return string An unescaped string.
  */
-	public static function get_properties(string $entity_name = null): string {
+	public static function get_properties(?string $entity_name = null): string {
 		$a_cmd = ['zfs','list','-H','-o','name','-t','volume'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
