@@ -111,7 +111,7 @@ class co_geom_info {
 		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
-	public function get_provider_by_name(array &$a_ret = [],string $name = NULL) {
+	public function get_provider_by_name(array &$a_ret = [],?string $name = null) {
 		if(!is_null($name)):
 			$x_query_string = sprintf('//provider[@id and name="%s"]',$name);
 			if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
@@ -171,7 +171,7 @@ class co_geom_info {
 		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
-	public function gather_part_by_name(string $name = NULL,array &$a_ret = []) {
+	public function gather_part_by_name(?string $name = null,array &$a_ret = []) {
 		$x_query_string = (is_null($name) ? '/mesh/class[name="PART"]/geom' : sprintf('/mesh/class[name="PART"]/geom[name="%s"]',$name));
 		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
 			foreach($a_query_result as $r_query_result):
@@ -181,7 +181,7 @@ class co_geom_info {
 		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
-	public function gather_provider_by_name(string $name = NULL,array &$a_ret = []) {
+	public function gather_provider_by_name(?string $name = null,array &$a_ret = []) {
 		$x_query_string = (is_null($name) ? sprintf('//provider[@id]"]') : sprintf('//provider[@id and name="%s"]',$name));
 		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
 			foreach($a_query_result as $r_query_result):
@@ -191,7 +191,7 @@ class co_geom_info {
 		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
-	public function gather_disk_by_name(string $name = NULL,array &$a_ret = []) {
+	public function gather_disk_by_name(?string $name = null,array &$a_ret = []) {
 		$x_query_string = (is_null($name) ? '/mesh/class[name="DISK"]/geom' : sprintf('/mesh/class[name="DISK"]/geom[name="%s"]',$name));
 		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
 			foreach($a_query_result as $r_query_result):
