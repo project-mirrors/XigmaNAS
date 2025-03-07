@@ -188,7 +188,7 @@ class setting_properties extends grid_properties {
 		$property->
 			set_id('navbartoplevelstyle')->
 			set_description($description)->
-			set_defaultvalue('')->
+			set_defaultvalue('text')->
 			set_options($options)->
 			filter_use_default();
 		return $property;
