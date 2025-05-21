@@ -71,11 +71,14 @@ else
 		echo "8) Shutdown Server"
 		case ${PLATFORM} in
 			*-live[cC][dD]|*-live[uU][sS][bB])
+				echo
+				echo "YOU HAVE BOOTED THE LIVE VERSION"
+				echo
 				echo "9) Install/Upgrade from LiveCD/LiveUSB";;
 		esac
 
 		echo
-		read -p "Enter a number: 
+		read -p "Enter a number:
 " opmode
 
 		# see what the user has chosen
