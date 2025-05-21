@@ -73,6 +73,7 @@ else
 			*-live[cC][dD]|*-live[uU][sS][bB])
 				echo
 				echo "YOU HAVE BOOTED THE LIVE VERSION"
+				echo "use this option to create a permanently installed version"
 				echo
 				echo "9) Install/Upgrade from LiveCD/LiveUSB";;
 		esac
