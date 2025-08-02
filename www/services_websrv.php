@@ -31,10 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'services.inc';
-require_once 'autoload.php';
 
 use gui\document;
 use common\arr;
@@ -55,7 +56,7 @@ $pconfig['authentication'] = isset($config['websrv']['authentication']['enable']
 $pconfig['dirlisting'] = isset($config['websrv']['dirlisting']);
 $pconfig['auxparam'] = '';
 if(isset($config['websrv']['auxparam']) && is_array($config['websrv']['auxparam'])):
-	$pconfig['auxparam'] = implode(PHP_EOL,$config['websrv']['auxparam']);
+	$pconfig['auxparam'] = implode("\n",$config['websrv']['auxparam']);
 endif;
 if($_POST):
 	unset($input_errors);
@@ -82,7 +83,7 @@ if($_POST):
 		endif;
 	endif;
 	if(empty($input_errors)):
-		$config['websrv']['enable'] = isset($_POST['enable']) ? true : false;
+		$config['websrv']['enable'] = isset($_POST['enable']);
 		$config['websrv']['protocol'] = $_POST['protocol'];
 		$config['websrv']['port'] = $_POST['port'];
 		$config['websrv']['documentroot'] = $_POST['documentroot'];
@@ -90,11 +91,11 @@ if($_POST):
 		$config['websrv']['runasuser'] = $_POST['runasuser'];
 		$config['websrv']['privatekey'] = base64_encode($_POST['privatekey']);
 		$config['websrv']['certificate'] = base64_encode($_POST['certificate']);
-		$config['websrv']['authentication']['enable'] = isset($_POST['authentication']) ? true : false;
-		$config['websrv']['dirlisting'] = isset($_POST['dirlisting']) ? true : false;
-		//	Write additional parameters.
+		$config['websrv']['authentication']['enable'] = isset($_POST['authentication']);
+		$config['websrv']['dirlisting'] = isset($_POST['dirlisting']);
+//		Write additional parameters.
 		unset($config['websrv']['auxparam']);
-		foreach(explode(PHP_EOL,$_POST['auxparam']) as $auxparam):
+		foreach(explode("\n",$_POST['auxparam']) as $auxparam):
 			$auxparam = trim($auxparam,"\t\n\r");
 			if(!empty($auxparam)):
 				$config['websrv']['auxparam'][] = $auxparam;
@@ -110,7 +111,7 @@ if($_POST):
 			config_unlock();
 		endif;
 		$savemsg = get_std_save_message($retval);
-		if(0 == $retval):
+		if($retval == 0):
 			updatenotify_delete('websrvauth');
 		endif;
 	endif;
@@ -130,7 +131,7 @@ function websrvauth_process_updatenotification($mode,$data) {
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
 			$cnid = arr::search_ex($data,$config['websrv']['authentication']['url'],'uuid');
-			if(false !== $cnid):
+			if($cnid !== false):
 				unset($config['websrv']['authentication']['url'][$cnid]);
 				write_config();
 			endif;
@@ -141,7 +142,7 @@ function websrvauth_process_updatenotification($mode,$data) {
 $pgtitle = [gtext('Services'),gtext('Webserver')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	$("#protocol").click(function() { protocol_change(); });
@@ -186,115 +187,146 @@ $document->
 $document->render();
 ?>
 <form action="services_websrv.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-	<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="tabcont">
+	<table id="area_data">
+		<tbody>
+			<tr>
+				<td id="area_data_frame">
 <?php
-		if(!empty($input_errors)):
-			print_input_errors($input_errors);
-		endif;
-		if(!empty($savemsg)):
-			print_info_box($savemsg);
-		endif;
-		if(updatenotify_exists('websrvauth')):
-			print_config_change_box();
-		endif;
+					if(!empty($input_errors)):
+						print_input_errors($input_errors);
+					endif;
+					if(!empty($savemsg)):
+						print_info_box($savemsg);
+					endif;
+					if(updatenotify_exists('websrvauth')):
+						print_config_change_box();
+					endif;
 ?>
-		<table width="100%" border="0" cellpadding="6" cellspacing="0">
+					<table class="area_data_settings">
+						<colgroup>
+							<col class="area_data_settings_col_tag">
+							<col class="area_data_settings_col_data">
+						</colgroup>
+						<thead>
 <?php
-			html_titleline_checkbox2('enable',gettext('Webserver'),!empty($pconfig['enable']) ? true : false,gettext('Enable'));
-			$l_protocol = [
-				'http' => gettext('HTTP'),
-				'https' => gettext('HTTPS')
-			];
-			html_combobox2('protocol',gettext("Protocol"),$pconfig['protocol'],$l_protocol,'',true,false);
-			html_inputbox2('port',gettext('Port'),$pconfig['port'],gettext('TCP port to bind the server to.'),true,5);
-			$helpinghand = gettext('Select the permission for running this service. (www by default).')
-				. '<br><b>'
-				. '<font color="red">' . gettext('NOTE') . '</font>: '
-				. gettext('Running this service as root is not recommended for security reasons, use at your own risk!')
-				. '</b></br>';
-			$l_permission = [
-				'server.username = "www"' => 'www',
-				'' => 'root'
-			];
-			html_combobox2('runasuser',gettext('Permission'),$pconfig['runasuser'],$l_permission,$helpinghand,true);
-			html_textarea2('certificate',gettext('Certificate'),$pconfig['certificate'],gettext('Paste a signed certificate in X.509 PEM format here.'),true,76,7,false,false);
-			html_textarea2('privatekey',gettext('Private key'),$pconfig['privatekey'],gettext('Paste an private key in PEM format here.'),true,76,7,false,false);
-			html_filechooser2('documentroot',gettext('Document Root'),$pconfig['documentroot'],gettext('Document root of the webserver. Home of the web page files.'),$g['media_path'],true,76);
-			html_filechooser2('uploaddir',gettext('Upload Directory'),$pconfig['uploaddir'],sprintf(gettext('Upload directory of the webserver. The default is %s.'),$default_uploaddir),$default_uploaddir,true,76);
-			html_checkbox2('authentication',gettext('Authentication'),!empty($pconfig['authentication']) ? true : false,gettext('Enable authentication.'),gettext('Give only local users access to the web page.'),false,false);
+							html_titleline_checkbox2('enable',gettext('Webserver'),!empty($pconfig['enable']),gettext('Enable'));
 ?>
-			<tr id="authdirs_tr">
-				<td class="celltag">&nbsp;</td>
-				<td class="celldata">
-					<table width="100%" border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td width="45%" class="listhdrlr"><?=gtext("URL");?></td>
-							<td width="45%" class="listhdrr"><?=gtext("Realm");?></td>
-							<td width="10%" class="list"></td>
-						</tr>
+						</thead>
+						<tbody>
 <?php
-						$url_grid = $config['websrv']['authentication']['url'] ?? [];
-						foreach($url_grid as $urlv):
-							$notificationmode = updatenotify_get_mode("websrvauth",$urlv['uuid']);
+							$l_protocol = [
+								'http' => gettext('HTTP'),
+								'https' => gettext('HTTPS')
+							];
+							html_combobox2('protocol',gettext('Protocol'),$pconfig['protocol'],$l_protocol,'',true,false);
+							html_inputbox2('port',gettext('Port'),$pconfig['port'],gettext('TCP port to bind the server to.'),true,5);
+							$helpinghand = gettext('Select the permission for running this service. (www by default).')
+								. '<br>'
+								. sprintf('<b style="color: red;">%s</b><b>: %s</b>',gettext('NOTE'),gettext('Running this service as root is not recommended for security reasons, use at your own risk!'));
+							$l_permission = [
+								'server.username = "www"' => 'www',
+								'' => 'root'
+							];
+							html_combobox2('runasuser',gettext('Permission'),$pconfig['runasuser'],$l_permission,$helpinghand,true);
+							html_textarea2('certificate',gettext('Certificate'),$pconfig['certificate'],gettext('Paste a signed certificate in X.509 PEM format here.'),true,76,7,false,false);
+							html_textarea2('privatekey',gettext('Private key'),$pconfig['privatekey'],gettext('Paste a private key in PEM format here.'),true,76,7,false,false);
+							html_filechooser2('documentroot',gettext('Document Root'),$pconfig['documentroot'],gettext('Document root of the webserver. Home of the web page files.'),$g['media_path'],true,76);
+							html_filechooser2('uploaddir',gettext('Upload Directory'),$pconfig['uploaddir'],sprintf(gettext('Upload directory of the webserver. The default is %s.'),$default_uploaddir),$default_uploaddir,true,76);
+							html_checkbox2('authentication',gettext('Authentication'),!empty($pconfig['authentication']),gettext('Enable authentication.'),gettext('Give only local users access to the web page.'),false,false);
 ?>
-							<tr>
-								<td class="listlr"><?=htmlspecialchars($urlv['path']);?>&nbsp;</td>
-								<td class="listr"><?=htmlspecialchars($urlv['realm']);?>&nbsp;</td>
+							<tr id="authdirs_tr">
+								<td class="celltag">&nbsp;</td>
+								<td class="celldata">
+									<table class="area_data_selection">
+										<colgroup>
+											<col style="width:45%">
+											<col style="width:45%">
+											<col style="width:10%">
+										</colgroup>
+										<thead>
+											<tr>
+												<th class="lhell"><?=gtext('URL');?></th>
+												<th class="lhell"><?=gtext('Realm');?></th>
+												<th class="lhebl"><?=gtext('Toolbox');?></th>
+											</tr>
+										</thead>
+										<tbody>
 <?php
-								if(UPDATENOTIFY_MODE_DIRTY != $notificationmode):
+											$url_grid = $config['websrv']['authentication']['url'] ?? [];
+											foreach($url_grid as $urlv):
+												$notificationmode = updatenotify_get_mode('websrvauth',$urlv['uuid']);
 ?>
-									<td valign="middle" nowrap="nowrap" class="list">
+												<tr>
+													<td class="lcell"><?=htmlspecialchars($urlv['path']);?>&nbsp;</td>
+													<td class="lcell"><?=htmlspecialchars($urlv['realm']);?>&nbsp;</td>
+													<td class="lcebld">
+														<table class="area_data_selection_toolbox">
+															<colgroup>
+																<col style="width:33%">
+																<col style="width:34%">
+																<col style="width:33%">
+															</colgroup>
+															<tbody>
+																<tr>
 <?php
-										if(isset($config['websrv']['enable'])):
+																	if($notificationmode != UPDATENOTIFY_MODE_DIRTY):
 ?>
-											<a href="services_websrv_authurl.php?uuid=<?=$urlv['uuid'];?>"><img src="images/edit.png" title="<?=gtext("Edit URL");?>" border="0" alt="<?=gtext("Edit URL");?>" /></a>&nbsp;
-											<a href="services_websrv.php?act=del&amp;uuid=<?=$urlv['uuid'];?>" onclick="return confirm('<?=gtext("Do you really want to delete this URL?");?>')"><img src="images/delete.png" title="<?=gtext("Delete URL");?>" border="0" alt="<?=gtext("Delete URL");?>" /></a>
+																		<td><a href="services_websrv_authurl.php?uuid=<?=$urlv['uuid'];?>" title="<?=gtext('Edit URL');?>"><?=$g_img['unicode.mod'];?></a></td>
+																		<td><a href="services_websrv.php?act=del&amp;uuid=<?=$urlv['uuid'];?>" title="<?=gtext('Delete URL');?>" onclick="return confirm('<?=gtext('Do you really want to delete this URL?');?>')"><?=$g_img['unicode.del'];?></a></td>
+																		<td></td>
 <?php
-										endif;
+																	else:
 ?>
-									</td>
+																		<td><?=$g_img['unicode.del'];?></td>
+																		<td></td>
+																		<td></td>
 <?php
-								else:
+																	endif;
 ?>
-									<td valign="middle" nowrap="nowrap" class="list">
-										<img src="images/delete.png" border="0" alt="" />
-									</td>
+																</tr>
+															</tbody>
+														</table>
+													</td>
+												</tr>
 <?php
-								endif;
+											endforeach;
 ?>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td class="lcenl" colspan="2"></td>
+												<td class="lceadd">
+													<a href="services_websrv_authurl.php" title="<?=gtext('Add URL');?>"><?=$g_img['unicode.add'];?></a>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+									<span class="vexpl"><?=gtext("Define directories/URL's that require authentication.");?></span>
+								</td>
 							</tr>
 <?php
-						endforeach;
+							html_checkbox2("dirlisting",gettext('Directory listing'),!empty($pconfig['dirlisting']),gettext('Enable directory listing.'),gettext('A directory listing is generated when no index-files (index.php, index.html, index.htm or default.htm) are found in a directory.'),false);
+							$helpinghand = '<a'
+								. ' href="https://redmine.lighttpd.net/projects/lighttpd/wiki"'
+								. ' target="_blank"'
+								. ' rel="noreferrer"'
+								. '>'
+								. gettext('Please check the documentation')
+								. '</a>.';
+							html_textarea2('auxparam',gettext('Additional Parameters'),!empty($pconfig['auxparam']) ? $pconfig['auxparam'] : '',sprintf(gettext('These parameters will be added to %s.'),'websrv.conf')  . ' ' . $helpinghand,false,85,7,false,false);
 ?>
-						<tr>
-							<td class="list" colspan="2"></td>
-							<td class="list">
-								<a href="services_websrv_authurl.php"><img src="images/add.png" title="<?=gtext("Add URL");?>" border="0" alt="<?=gtext("Add URL");?>" /></a>
-							</td>
-						</tr>
+						</tbody>
 					</table>
-					<span class="vexpl"><?=gtext("Define directories/URL's that require authentication.");?></span>
+					<div id="submit">
+						<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save & Restart');?>">
+					</div>
+<?php
+					include 'formend.inc';
+?>
 				</td>
 			</tr>
-<?php
-			html_checkbox2("dirlisting",gettext("Directory listing"),!empty($pconfig['dirlisting']) ? true : false,gettext("Enable directory listing."),gettext("A directory listing is generated when no index-files (index.php, index.html, index.htm or default.htm) are found in a directory."),false);
-			$helpinghand = '<a'
-				. ' href="https://redmine.lighttpd.net/projects/lighttpd/wiki"'
-				. ' target="_blank"'
-				. ' rel="noreferrer"'
-				. '>'
-				. gettext('Please check the documentation')
-				. '</a>.';
-			html_textarea2("auxparam",gettext("Additional Parameters"),!empty($pconfig['auxparam']) ? $pconfig['auxparam'] : "",sprintf(gettext("These parameters will be added to %s."),"websrv.conf")  . " " . $helpinghand,false,85,7,false,false);
-?>
-		</table>
-		<div id="submit">
-			<input name="Submit" type="submit" class="formbtn" value="<?=gtext("Save & Restart");?>"/>
-		</div>
-<?php
-		include 'formend.inc';
-?>
-	</td></tr></table>
+		</tbody>
+	</table>
 </form>
 <?php
 include 'fend.inc';
