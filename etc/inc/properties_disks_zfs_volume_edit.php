@@ -31,12 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'properties_disks_zfs_volume.php';
 
 class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 	const REGEXP_SIZE = '/^(0*[1-9][\d]*(\.\d*)?|0*\.0*[1-9]\d*)[kmgtpezy]?b?$/i';
 	const REGEXP_SIZEORNONE = '/^((0*[1-9]\d*(\.\d*)?|0*\.0*[1-9]\d*)[kmgtpezy]?b?|none)$/i';
-	const REGEXP_SIZEORNONEORNOTHING = '/^((0*[1-9][\d]*(\.\d*)?|0*\.0*[1-9]\d*)[kmgtpezy]?b?|none|^$)$/i';	
+	const REGEXP_SIZEORNONEORNOTHING = '/^((0*[1-9][\d]*(\.\d*)?|0*\.0*[1-9]\d*)[kmgtpezy]?b?|none|^$)$/i';
 
 	public function init_description() {
 		$property = parent::init_description();
@@ -49,8 +50,6 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(1024)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_UNSAFE_RAW)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => ''])->
@@ -77,8 +76,6 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
@@ -88,6 +85,7 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 		$options = [
 			'on' => gettext('On'),
 			'off' => gettext('Off'),
+//			'zstd' => gettext(' Z Standard'),
 			'lz4' => 'lz4',
 			'lzjb' => 'lzjb',
 			'gzip' => 'gzip',
@@ -108,14 +106,12 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function init_dedup() {
 		$property = parent::init_dedup();
-		$description = 
+		$description =
 			sprintf('<div>%s</div>',gettext('Controls the dedup method.')) .
 			'<div style="font-weight: bold;">' .
 			sprintf('<span style="color: red;">%s</span>: ',gettext('WARNING')) .
@@ -141,8 +137,6 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('off')->
 			set_options($options)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
@@ -159,24 +153,22 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('latency')->
 			set_options($options)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function test_name(string $value = '') {
-		//	must not be empty
-		if(1 === preg_match('/^$/',$value)):
-			return NULL;
+//		must not be empty
+		if(preg_match('/^$/',$value) === 1):
+			return null;
 		endif;
-		//	must not be greater than 256 characters
+//		must not be greater than 256 characters
 		if(strlen($value) > 256):
-			return NULL;
+			return null;
 		endif;
 		$a_component = explode('/',$value);
 		foreach($a_component as $component):
-			if(1 !== preg_match(sprintf('/^[a-z\d][a-z\d%1$s]+$/i',preg_quote('.:-_','/')),$component)):
-				return NULL;
+			if(preg_match(sprintf('/^[a-z\d][a-z\d%1$s]+$/i',preg_quote('.:-_','/')),$component) !== 1):
+				return null;
 			endif;
 		endforeach;
 		return $value;
@@ -192,9 +184,9 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_placeholder($placeholder)->
 			set_size(60)->
 			set_maxlength(256)->
-			set_editableonadd(true)->
 			set_editableonmodify(false)->
-			set_filter(FILTER_CALLBACK)->set_filter_options([$this,'test_name'])->
+			set_filter(FILTER_CALLBACK)->
+			set_filter_options([$this,'test_name'])->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
@@ -205,7 +197,6 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_id('pool')->
 			set_description($description)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
 			set_editableonmodify(false)->
 			filter_use_default()->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
@@ -225,8 +216,6 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('all')->
 			set_options($options)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
@@ -244,8 +233,6 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('all')->
 			set_options($options)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
@@ -270,8 +257,6 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('standard')->
 			set_options($options)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
@@ -295,7 +280,6 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('8K')->
 			set_options($options)->
 			filter_use_default()->
-			set_editableonadd(true)->
 			set_editableonmodify(false)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
@@ -315,8 +299,6 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('default')->
 			set_options($options)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
@@ -329,11 +311,9 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 			set_defaultvalue('')->
 			set_size(20)->
 			set_maxlength(20)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $this::REGEXP_SIZE])->
+			set_filter_options(['default' => null,'regexp' => $this::REGEXP_SIZE])->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
