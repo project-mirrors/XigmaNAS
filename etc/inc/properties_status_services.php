@@ -31,13 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'properties.php';
+
+use function gettext;
 
 class status_services_properties extends co_property_container_param {
 	protected $x_name;
-	public function get_name() {
-		return $this->x_name ?? $this->init_name();
-	}
 	public function init_name() {
 		$property = $this->x_name = new property_text($this);
 		$property->
@@ -45,10 +45,10 @@ class status_services_properties extends co_property_container_param {
 			set_title(gettext('Service'));
 		return $property;
 	}
-	protected $x_enabled;
-	public function get_enabled() {
-		return $this->x_enabled ?? $this->init_enabled();
+	public function get_name() {
+		return $this->x_name ?? $this->init_name();
 	}
+	protected $x_enabled;
 	public function init_enabled() {
 		$property = $this->x_enabled = new property_text($this);
 		$property->
@@ -56,10 +56,10 @@ class status_services_properties extends co_property_container_param {
 			set_title(gettext('Enabled'));
 		return $property;
 	}
-	protected $x_status;
-	public function get_status() {
-		return $this->x_status ?? $this->init_status();
+	public function get_enabled() {
+		return $this->x_enabled ?? $this->init_enabled();
 	}
+	protected $x_status;
 	public function init_status() {
 		$property = $this->x_status = new property_text($this);
 		$property->
@@ -67,15 +67,18 @@ class status_services_properties extends co_property_container_param {
 			set_title(gettext('Status'));
 		return $property;
 	}
-	protected $x_toolbox;
-	public function get_toolbox() {
-		return $this->x_toolbox ?? $this->init_toolbox();
+	public function get_status() {
+		return $this->x_status ?? $this->init_status();
 	}
+	protected $x_toolbox;
 	public function init_toolbox() {
 		$property = $this->x_toolbox = new property_text($this);
 		$property->
 			set_name('toolbox')->
 			set_title(gettext('Toolbox'));
 		return $property;
+	}
+	public function get_toolbox() {
+		return $this->x_toolbox ?? $this->init_toolbox();
 	}
 }
