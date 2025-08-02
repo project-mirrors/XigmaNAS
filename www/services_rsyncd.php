@@ -31,9 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+
+use common\arr;
 
 function services_rsyncd_get_sphere() {
 	global $config;
@@ -45,14 +49,14 @@ function services_rsyncd_get_sphere() {
 		'rsyncd_user' => 'ftp',
 		'auxparam' => []
 	];
-	$sphere->grid = &array_make_branch($config,'rsyncd');
-	array_make_branch($sphere->grid,'auxparam');
+	$sphere->grid = &arr::make_branch($config,'rsyncd');
+	arr::make_branch($sphere->grid,'auxparam');
 	return $sphere;
 }
 $sphere = services_rsyncd_get_sphere();
 $gt_button_apply_confirm = gtext('Do you want to apply these settings?');
-array_make_branch($config,'access','user');
-array_sort_key($config['access']['user'],'login');
+arr::make_branch($config,'access','user');
+arr::sort_key($config['access']['user'],'login');
 $a_user = &$config['access']['user'];
 $input_errors = [];
 $a_message = [];
@@ -130,7 +134,7 @@ switch($page_action):
 			$sphere->row['motd'] = base64_encode($sphere->row['motd']);
 			$helpinghand = [];
 			foreach(explode("\n",$sphere->row['auxparam']) as $auxparam):
-				$auxparam = trim($auxparam, "\t\n\r");
+				$auxparam = trim($auxparam,"\t\n\r");
 				if(preg_match('/\S/',$auxparam)):
 					$helpinghand[] = $auxparam;
 				endif;
@@ -168,7 +172,7 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 //  prepare lookups
 $l_user = ['ftp' => gettext('Guest')];
 foreach ($a_user as $r_user):
@@ -184,7 +188,7 @@ include 'fbegin.inc';
 switch($page_mode):
 	case PAGE_MODE_VIEW:
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	$("#iform").submit(function() { spinner(); });
@@ -196,7 +200,7 @@ $(window).on("load", function() {
 		break;
 	case PAGE_MODE_EDIT:
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	$("#iform").submit(function() {	spinner(); });
