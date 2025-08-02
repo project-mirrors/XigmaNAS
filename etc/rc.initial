@@ -72,8 +72,9 @@ else
 		case ${PLATFORM} in
 			*-live[cC][dD]|*-live[uU][sS][bB])
 				echo
-				echo "YOU HAVE BOOTED THE LIVE VERSION"
-				echo "use this option to create a permanently installed version"
+				echo "   YOU HAVE BOOTED THE LIVE VERSION"
+				echo "   ATTENTION: changes made in this session will not persist a reboot."
+				echo "   This option is used to create a permanently installed version, for testing or recovery."
 				echo
 				echo "9) Install/Upgrade from LiveCD/LiveUSB";;
 		esac
