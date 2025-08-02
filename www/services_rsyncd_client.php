@@ -31,9 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+
+use common\arr;
 
 function services_rsyncd_client_get_sphere() {
 	global $config;
@@ -58,7 +62,7 @@ function services_rsyncd_client_get_sphere() {
 		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected rsync jobs?'))->
 		setmsg_cbm_toggle(gettext('Toggle Selected Rsync Jobs'))->
 		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected rsync jobs?'));
-	$sphere->grid = &array_make_branch($config,'rsync','rsyncclient');
+	$sphere->grid = &arr::make_branch($config,'rsync','rsyncclient');
 	return $sphere;
 }
 function rsyncclient_process_updatenotification($mode,$data) {
@@ -71,13 +75,15 @@ function rsyncclient_process_updatenotification($mode,$data) {
 		case UPDATENOTIFY_MODE_MODIFIED:
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if($sphere->row_id !== false):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
 			endif;
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if($sphere->row_id !== false):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
 			endif;
@@ -108,7 +114,8 @@ if($_POST):
 			case $sphere->get_cbm_button_val_delete():
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 						switch ($mode_updatenotify):
 							case UPDATENOTIFY_MODE_NEW:
@@ -132,7 +139,8 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						if(isset($sphere->grid[$sphere->row_id]['enable'])):
 							unset($sphere->grid[$sphere->row_id]['enable']);
 							$updateconfig = true;
@@ -154,7 +162,8 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						if(!(isset($sphere->grid[$sphere->row_id]['enable']))):
 							$sphere->grid[$sphere->row_id]['enable'] = true;
 							$updateconfig = true;
@@ -176,7 +185,8 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						if(isset($sphere->grid[$sphere->row_id]['enable'])):
 							unset($sphere->grid[$sphere->row_id]['enable']);
 						else:
@@ -184,7 +194,7 @@ if($_POST):
 						endif;
 						$updateconfig = true;
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
-						if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+						if($mode_updatenotify == UPDATENOTIFY_MODE_UNKNOWN):
 							updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 						endif;
 					endif;
