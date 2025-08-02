@@ -148,7 +148,7 @@ endif;
 $pgtitle = [gtext('Services'),gtext('UPS')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load",function() {
 <?php // Init spinner.?>
@@ -306,7 +306,7 @@ function ups2_change() {
 ?>
 				<table width="100%" border="0" cellpadding="6" cellspacing="0">
 <?php
-					html_titleline_checkbox2('enable',gettext('Uninterruptible Power Supply'),!empty($pconfig['enable']) ? true : false,gettext('Enable'),'enable_change(false)');
+					html_titleline_checkbox2('enable',gettext('Uninterruptible Power Supply'),!empty($pconfig['enable']),gettext('Enable'),'enable_change(false)');
 					$l_mode = [
 						'master' => gettext('Master'),
 						'slave'=> gettext('Slave')
@@ -324,7 +324,7 @@ function ups2_change() {
 					html_inputbox2('port',gettext('Port'),$pconfig['port'],gettext('The serial or USB port where your UPS is connected.'),true,30);
 					html_textarea2('auxparam',gettext('Additional Parameters'),!empty($pconfig['auxparam']) ? $pconfig['auxparam'] : '',gettext('These parameters are added to the hardware-specific part of the driver.'),false,65,5,false,false);
 					html_inputbox2('desc',gettext('Description'),$pconfig['desc'],gettext('You may enter a description here for your reference.'),false,65);
-					html_checkbox2('ups2',gettext('UPS') . ' 2',!empty($pconfig['ups2']) ? true : false,gettext('Enable second local connected UPS.'),'',false,false,'ups2_change()');
+					html_checkbox2('ups2',gettext('UPS') . ' 2',!empty($pconfig['ups2']),gettext('Enable second local connected UPS.'),'',false,false,'ups2_change()');
 					html_inputbox2('ups2_upsname',gettext('Identifier'),$pconfig['ups2_upsname'],gettext('This name is used to uniquely identify your second UPS on this system.') . ' ' . gettext('In slave mode it is the UPS name (Identifier) at the UPS master.'),true,30);
 					$helpinghand = gettext('The driver used to communicate with your second UPS.')
 						. ' '
@@ -342,11 +342,11 @@ function ups2_change() {
 					];
 					html_combobox2('shutdownmode',gettext('Shutdown Mode'),$pconfig['shutdownmode'],$l_shutdownmode,gettext('Defines when the shutdown is initiated.'),true,false,'shutdownmode_change()');
 					html_inputbox2('shutdowntimer',gettext('Shutdown Timer'),$pconfig['shutdowntimer'],gettext('The time in seconds until shutdown is initiated. If the UPS happens to come back before the time is up the shutdown is canceled.'),true,3);
-					html_checkbox2('remotemonitor',gettext('Remote Monitoring'),!empty($pconfig['remotemonitor']) ? true : false,gettext('Enable remote monitoring of the local connected UPS.'),'',false,false,'monitoring_change()');
+					html_checkbox2('remotemonitor',gettext('Remote Monitoring'),!empty($pconfig['remotemonitor']),gettext('Enable remote monitoring of the local connected UPS.'),'',false,false,'monitoring_change()');
 					html_inputbox2('monitoruser',gettext('Monitoring User'),$pconfig['monitoruser'],gettext('Remote monitoring username. Must be equal on both master and slave system.'),true,25);
 					html_passwordbox2('monitorpassword',gettext('Monitoring Password'),$pconfig['monitorpassword'],gettext('Remote monitoring password. Must be equal on both master and slave system.'),true,25);
 					html_separator2();
-					html_titleline_checkbox2('email_enable',gettext('Email Report'),!empty($pconfig['email_enable']) ? true : false,gettext('Activate'),'enable_change(this)');
+					html_titleline_checkbox2('email_enable',gettext('Email Report'),!empty($pconfig['email_enable']),gettext('Activate'),'enable_change(this)');
 					html_inputbox2('email_to',gettext('To Email Address'),$pconfig['email_to'],sprintf('%s %s',gettext('Destination email address.'),gettext('Separate email addresses by semi-colon.')),true,65);
 					html_inputbox2('email_subject',gettext('Subject'),$pconfig['email_subject'],gettext('The subject of the email.') . ' ' . gettext('You can use the following parameters for substitution:') . '</span><div id="enumeration"><ul><li>%d - ' . gettext('Date') . '</li><li>%h - ' . gettext('Hostname') . '</li></ul></div><span>',true,65);
 ?>
@@ -371,7 +371,7 @@ function ups2_change() {
 		</td>
 	</tr>
 </table>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 monitoring_change();
 mode_change();
