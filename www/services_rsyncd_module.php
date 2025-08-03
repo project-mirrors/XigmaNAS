@@ -31,9 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+
+use common\arr;
 
 function services_rsyncd_module_get_sphere() {
 	global $config;
@@ -57,7 +61,7 @@ function services_rsyncd_module_get_sphere() {
 		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected rsync modules?'))->
 		setmsg_cbm_toggle(gettext('Toggle Selected Rsync Modules'))->
 		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected rsync modules?'));
-	$sphere->grid = &array_make_branch($config,'rsyncd','module');
+	$sphere->grid = &arr::make_branch($config,'rsyncd','module');
 	return $sphere;
 }
 function rsyncd_process_updatenotification($mode,$data) {
@@ -70,7 +74,8 @@ function rsyncd_process_updatenotification($mode,$data) {
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
 		case UPDATENOTIFY_MODE_DIRTY:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if($sphere->row_id !== false):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
 			endif;
@@ -99,7 +104,8 @@ if($_POST):
 			case $sphere->get_cbm_button_val_delete():
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 						switch ($mode_updatenotify):
 							case UPDATENOTIFY_MODE_NEW:
@@ -123,7 +129,8 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						if(isset($sphere->grid[$sphere->row_id]['enable'])):
 							unset($sphere->grid[$sphere->row_id]['enable']);
 							$updateconfig = true;
@@ -145,7 +152,8 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						if(!(isset($sphere->grid[$sphere->row_id]['enable']))):
 							$sphere->grid[$sphere->row_id]['enable'] = true;
 							$updateconfig = true;
@@ -167,7 +175,8 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						if(isset($sphere->grid[$sphere->row_id]['enable'])):
 							unset($sphere->grid[$sphere->row_id]['enable']);
 						else:
@@ -190,7 +199,7 @@ if($_POST):
 		endswitch;
 	endif;
 endif;
-array_sort_key($sphere->grid,'name');
+arr::sort_key($sphere->grid,'name');
 $pgtitle = [gtext('Services'),gtext('Rsync'),gtext('Server'),gtext('Modules')];
 include 'fbegin.inc';
 echo $sphere->doj();
