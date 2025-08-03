@@ -32,13 +32,13 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
-require_once 'autoload.php';
 
-use gui\document;
 use common\arr;
+use gui\document;
 
 /**
  *	Create sphere
@@ -73,7 +73,7 @@ function status_disks_render($root = null) {
 	$cfg_disks = arr::make_branch($config,'disks','disk');
 	if(empty($cfg_disks)):
 	else:
-		array_sort_key($cfg_disks,'name');
+		arr::sort_key($cfg_disks,'name');
 	endif;
 	foreach($cfg_disks as $cfg_disk):
 //		init loop values
