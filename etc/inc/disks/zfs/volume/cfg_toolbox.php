@@ -41,7 +41,7 @@ use function is_string,sprintf;
 /**
  *	Wrapper class for autoloading functions
  */
-final class cfg_toolbox {
+class cfg_toolbox {
 /**
  *	Returns the full qualified ZFS volume name of $_GET['uuid'] or null.
  *	@global array $config The global config file.
