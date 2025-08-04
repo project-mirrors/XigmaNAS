@@ -49,7 +49,7 @@ use function write_config;
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_toolbox {
+class shared_toolbox {
 	private const NOTIFICATION_NAME = __NAMESPACE__;
 	private const NOTIFICATION_PROCESSOR = 'process_notification';
 	private const ROW_IDENTIFIER = 'uuid';
@@ -63,7 +63,7 @@ final class shared_toolbox {
 		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
 		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
-		if(false !== $sphere->row_id):
+		if($sphere->row_id !== false):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
 				case UPDATENOTIFY_MODE_MODIFIED:
@@ -81,7 +81,7 @@ final class shared_toolbox {
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	@param mys\root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
 		global $config;
