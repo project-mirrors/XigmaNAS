@@ -65,4 +65,12 @@ class row_toolbox extends myt\row_toolbox {
 		$rmo = myr\rmo_row_templates::rmo_with_clone();
 		return $rmo;
 	}
+/**
+ *	Create the properties object
+ *	@return row_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new row_properties();
+		return $cop;
+	}
 }
