@@ -38,9 +38,7 @@ namespace system\cron;
 
 use common\properties as myp;
 
-use function gettext;
-
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_scheduler(): myp\property_text {
 		$property = parent::init_scheduler();
 		$property->
@@ -72,6 +70,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('root')->
 			set_description($description)->
 			set_id('who')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			filter_use_default();
 		return $property;
 	}
