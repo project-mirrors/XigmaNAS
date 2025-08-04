@@ -77,6 +77,13 @@ class property_list extends property {
 	public function get_options() {
 		return $this->x_options;
 	}
+	public function get_option_value($key) {
+		if(is_scalar($key) && array_key_exists($key,$this->x_options)):
+			return $this->x_options[$key];
+		else:
+			return null;
+		endif;
+	}
 	public function validate($option) {
 		if(array_key_exists($option,$this->get_options())):
 			return $option;
