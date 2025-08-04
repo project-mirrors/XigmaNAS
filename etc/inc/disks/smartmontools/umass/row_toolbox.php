@@ -36,15 +36,16 @@ namespace disks\smartmontools\umass;
 
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox {
+class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		$sphere = new mys\row();
@@ -56,7 +57,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo() {
 		return myr\rmo_row_templates::rmo_with_clone();

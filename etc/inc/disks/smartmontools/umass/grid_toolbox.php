@@ -38,6 +38,7 @@ use common\arr;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 use const UPDATENOTIFY_MODE_DIRTY;
 use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
@@ -56,30 +57,17 @@ use function write_config;
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
 		shared_toolbox::init_sphere($sphere);
 		$sphere->
 			set_script('smartmontools_umass')->
-			set_modify('smartmontools_umass_edit')->
-			setmsg_sym_add(gettext('Add Record'))->
-			setmsg_sym_mod(gettext('Edit Record'))->
-			setmsg_sym_del(gettext('Record is marked for deletion'))->
-			setmsg_sym_loc(gettext('Record is locked'))->
-			setmsg_sym_unl(gettext('Record is unlocked'))->
-			setmsg_cbm_delete(gettext('Delete Selected Records'))->
-			setmsg_cbm_delete_confirm(gettext('Do you want to delete selected records?'))->
-			setmsg_cbm_disable(gettext('Disable Selected Records'))->
-			setmsg_cbm_disable_confirm(gettext('Do you want to disable selected records?'))->
-			setmsg_cbm_enable(gettext('Enable Selected Records'))->
-			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected records?'))->
-			setmsg_cbm_toggle(gettext('Toggle Selected Records'))->
-			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected records?'));
+			set_modify('smartmontools_umass_edit');
 		if(count($sphere->grid) > 1):
 			arr::sort_key($sphere->grid,'name');
 		endif;
@@ -89,15 +77,15 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
 	}
 /**
- *	Create the property object
- *	@return grid_properties
+ *	Create the properties object
+ *	@return grid_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -109,7 +97,7 @@ final class grid_toolbox {
  *	@global string $errormsg
  *	@global string $savemsg
  *	@param grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
@@ -211,11 +199,11 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
-	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
 		global $input_errors;
 		global $errormsg;
