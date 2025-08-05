@@ -36,12 +36,10 @@ namespace system\proxy\ftp;
 
 use common\arr;
 
-use function is_bool,is_null,putenv,sprintf;
-
 /**
  *	Wrapper class for autoloading functions
  */
-final class cfg_toolbox {
+class cfg_toolbox {
 /**
  *	Read ftp proxy information from config and set environment variables for request
  *	@global type $config
