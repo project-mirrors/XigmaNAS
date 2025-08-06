@@ -36,9 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr,
-	system\access\group\row_toolbox as toolbox,
-	system\access\group\shared_toolbox;
+use common\arr;
+use system\access\group\row_toolbox as toolbox;
+use system\access\group\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
