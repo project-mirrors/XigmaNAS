@@ -76,4 +76,12 @@ class setting_toolbox extends myt\setting_toolbox {
 			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
 		return $rmo;
 	}
+/**
+ *	Creates the property object
+ *	@return setting_properties
+ */
+	public static function init_properties() {
+		$cop = new setting_properties();
+		return $cop;
+	}
 }
