@@ -36,9 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\uuid,
-	disks\geom\concat\cfg_toolbox as cfg,
-	disks\geom\concat\cli_toolbox as cli;
+use common\uuid;
+use disks\geom\concat\cfg_toolbox as cfg;
+use disks\geom\concat\cli_toolbox as cli;
 
 if(isset($_GET['uuid']) && is_string($_GET['uuid']) && uuid::is_v4($_GET['uuid'])):
 //	collect information from a single geom (via uuid)
