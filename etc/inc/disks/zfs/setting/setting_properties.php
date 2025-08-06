@@ -113,4 +113,16 @@ class setting_properties extends grid_properties {
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Must be a number between 90 and 95.')));
 		return $property;
 	}
+	public function init_destroy_dependents(): myp\property_bool {
+		$caption = gettext('Destroy dataset and its dependents.');
+		$description = gettext('When enabled, destroying a dataset will also destroy all dependents (datasets, snapshots and clones).');
+		$property = parent::init_destroy_dependents();
+		$property->
+			set_id('destroy_dependents')->
+			set_caption($caption)->
+			set_description($description)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
 }

@@ -85,4 +85,16 @@ class grid_properties extends myp\container {
 	final public function get_capacity_critical(): myp\property_int {
 		return $this->x_capacity_critical ?? $this->init_capacity_critical();
 	}
+	protected $x_destroy_dependents;
+	public function init_destroy_dependents(): myp\property_bool {
+		$title = gettext('Extended Destroy');
+		$property = $this->x_destroy_dependents = new myp\property_bool($this);
+		$property->
+			set_name('destroy_dependents')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_destroy_dependents(): myp\property_bool {
+		return $this->x_destroy_dependents ?? $this->init_destroy_dependents();
+	}
 }
