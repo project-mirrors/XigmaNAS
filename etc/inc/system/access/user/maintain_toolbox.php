@@ -75,4 +75,12 @@ class maintain_toolbox extends myt\maintain_toolbox {
 			add('POST','save',PAGE_MODE_POST);
 		return $rmo;
 	}
+/**
+ *	Create the properties object
+ *	@return maintain_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new maintain_properties();
+		return $cop;
+	}
 }
