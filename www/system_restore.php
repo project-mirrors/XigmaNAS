@@ -141,7 +141,7 @@ $document->render();
 		</tbody>
 	</table>
 	<div id="submit">
-		<strong><?=gtext('Select configuration file:');?></strong>&nbsp;<input name="conffile" type="file" class="formfld" id="conffile" size="40"/>
+		<strong><?=gtext('Select configuration file:');?></strong>&nbsp;<input name="conffile" type="file" class="formfld" id="conffile" size="40">
 	</div>
 	<div id="submit">
 <?php
