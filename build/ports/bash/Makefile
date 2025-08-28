@@ -1,7 +1,6 @@
 PORTNAME=		bash
-PATCHLEVEL=		37
-PORTVERSION=		5.2.${PATCHLEVEL:S/^0//g}
-PORTREVISION=		1
+PATCHLEVEL=		3
+PORTVERSION=		5.3.${PATCHLEVEL:S/^0//g}
 CATEGORIES=		shells
 MASTER_SITES=		GNU
 DISTNAME=		${PORTNAME}-${PORTVERSION:R}
@@ -53,14 +52,16 @@ HELP_CONFIGURE_ENABLE=	help-builtin
 NLS_USES=		gettext
 NLS_CONFIGURE_ENABLE=	nls
 
-PORTS_READLINE_BUILD_DEPENDS=	readline>=8.2:devel/readline
-PORTS_READLINE_USES=	readline
-PORTS_READLINE_CONFIGURE_WITH=	installed-readline
+# Needs readline 8.3
+# See: 288208, 288207
+#PORTS_READLINE_BUILD_DEPENDS=	readline>=8.2:devel/readline
+#PORTS_READLINE_USES=	readline
+#PORTS_READLINE_CONFIGURE_WITH=	installed-readline
 
 .if empty(PKGNAMESUFFIX)
-CONFLICTS+=	bash-static bash52-static
+CONFLICTS+=	bash-static
 .else
-CONFLICTS+=	bash bash52
+CONFLICTS+=	bash
 .endif
 CONFLICTS+=	bashc
 
