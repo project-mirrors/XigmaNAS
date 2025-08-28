@@ -1,4 +1,4 @@
-		README & CHANGELOG FOR XIGMANAS® 14.2.0.5 - RC1
+		README & CHANGELOG FOR XIGMANAS® 14.3.0.5 - RC1
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
@@ -90,7 +90,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 14.2.0.5.10xxx RC1
 ========================
 Changes:
-- Upgrade underlying OS to 14.2-RELEASE P2.
+- Upgrade underlying OS to 14.3-RELEASE P2.
 - Update translations.
 - Upgrade iperf3 to v3.17.1.
 - Upgrade pecl-APCu to v5.1.24.
