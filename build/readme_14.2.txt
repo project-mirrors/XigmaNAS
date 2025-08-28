@@ -100,7 +100,6 @@ Changes:
 - Upgrade sudo to v1.9.16p2.
 - Upgrade mDNSResponder to v2200.140.11.
 - Upgrade exfat to v1.4.0.
-- Upgrade nut to v2024.12.04.
 - Upgrade python311 v3.11.10.
 - Upgrade mariadb to v11.4.4.
 - Upgrade samba to v4.19.9.
@@ -123,6 +122,7 @@ Changes:
 - Upgrade syncthing to v1.29.2.
 - Upgrade zoneinfo to v2025b.
 - Upgrade smartmontools to v7.5.
+- Upgrade nut to v2025.08.14.
 
 New:
 - New SMB use its own log file.

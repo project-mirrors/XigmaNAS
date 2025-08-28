@@ -12,8 +12,8 @@ CONFLICTS=	nut-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	851445188 
-NUT_COMMIT_DATE=	2024.12.04
+GH_TAGNAME=	0459ffb8d 
+NUT_COMMIT_DATE=	2025.08.14
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build
@@ -109,6 +109,7 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/bestfortress ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/bestuferrups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/bestups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/bicker_ser ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/blazer_ser ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/blazer_usb ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/clone ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
@@ -124,6 +125,7 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/ivtscd ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/liebert ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/liebert-esp2 ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/liebert-gxe ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/masterguard ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/metasys ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/mge-shut ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
@@ -135,11 +137,15 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nutdrv_qx ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nutdrv_siemens-sitop ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nut-ipmipsu ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nutdrv_hashx ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/oneac ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/optiups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/phoenixcontact_modbus ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powercom ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powerman-pdu ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powervar_cx_ser ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powerpanel ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powervar_cx_usb ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/rhino ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/richcomm_usb ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/riello_ser ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
@@ -157,10 +163,10 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/usbhid-ups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/victronups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/libupsclient.so.6 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${LN} -f -v -s /usr/local/lib/libupsclient.so.6 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
-#	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
-#	@${LN} -f -v -s /usr/local/lib/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/libupsclient.so.7 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${LN} -f -v -s /usr/local/lib/libupsclient.so.7 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
+#	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/libnutscan.so.4 ${XIGMANAS_ROOTFS}/usr/local/lib
+#	@${LN} -f -v -s /usr/local/lib/libnutscan.so.4 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upsc ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upscmd ${XIGMANAS_ROOTFS}/usr/local/bin
