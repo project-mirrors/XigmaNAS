@@ -1,5 +1,5 @@
 PORTNAME=		smartmontools
-PORTVERSION=	7.4
+PORTVERSION=	7.5
 PORTREVISION?=	0
 CATEGORIES=		sysutils
 COMMENT=		S.M.A.R.T. disk monitoring tools

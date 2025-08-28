@@ -122,6 +122,7 @@ Changes:
 - Upgrade tmux to v3.5a.
 - Upgrade syncthing to v1.29.2.
 - Upgrade zoneinfo to v2025b.
+- Upgrade smartmontools to v7.5.
 
 New:
 - New SMB use its own log file.
