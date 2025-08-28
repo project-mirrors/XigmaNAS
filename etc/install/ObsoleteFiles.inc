@@ -209,3 +209,5 @@ usr/libexec/sftp-server
 usr/libexec/sshd-session
 # 10269
 usr/local/www/services_fuppes.php
+# 10366
+usr/local/lib/libupsclient.so.6
