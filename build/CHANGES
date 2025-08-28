@@ -20,7 +20,6 @@ Changes:
 - Upgrade transmission to 4.1.0-beta.1+rc3a8106077.
 - Upgrade libvncserver v0.9.15.
 - Upgrade cdialog to v1.3.20250116.
-- Upgrade zoneinfo to v2025a.
 - Upgrade arconf to vB27147.
 - Upgrade e2fsprogs to v1.47.2.
 - Upgrade lighttpd to v1.4.77.
@@ -33,6 +32,7 @@ Changes:
 - Upgrade rsync to v3.4.1.
 - Upgrade tmux to v3.5a.
 - Upgrade syncthing to v1.29.2.
+- Upgrade zoneinfo to v2025b.
 
 New:
 - New SMB use its own log file.
