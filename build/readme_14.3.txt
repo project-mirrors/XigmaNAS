@@ -93,7 +93,6 @@ Changes:
 - Upgrade underlying OS to 14.3-RELEASE P2.
 - Update translations.
 - Upgrade iperf3 to v3.17.1.
-- Upgrade pecl-APCu to v5.1.24.
 - Upgrade bash to v5.2p37.
 - Upgrade rrdtool to v1.9.0.
 - Upgrade sudo to v1.9.16p2.
@@ -123,6 +122,7 @@ Changes:
 - Upgrade nut to v2025.08.14.
 - Upgrade msmtp to v1.8.30.
 - Upgrade open-vm-tools to v12.5.2.
+- Upgrade pecl-APCu to v5.1.27.
 
 New:
 - New SMB use its own log file.
