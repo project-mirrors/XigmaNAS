@@ -103,7 +103,6 @@ Changes:
 - Upgrade python311 v3.11.10.
 - Upgrade mariadb to v11.4.4.
 - Upgrade samba to v4.19.9.
-- Upgrade msmtp to v1.8.28.
 - Upgrade nano to v8.3.
 - Upgrade transmission to 4.1.0-beta.1+rc3a8106077.
 - Upgrade libvncserver v0.9.15.
@@ -123,6 +122,7 @@ Changes:
 - Upgrade zoneinfo to v2025b.
 - Upgrade smartmontools to v7.5.
 - Upgrade nut to v2025.08.14.
+- Upgrade msmtp to v1.8.30.
 
 New:
 - New SMB use its own log file.
