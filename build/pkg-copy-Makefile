@@ -25,7 +25,7 @@ XZ_CMD = xz
 TAR = tar
 WRKSRC = /tmp/work-zone
 
-all: pkg-copy phpmyadmin php83-mods mariadb114 vbox vbox-additions py-wsdd minidlna python311 gettext opie
+all: pkg-copy phpmyadmin php84-mods mariadb114 vbox vbox-additions py-wsdd minidlna python311 gettext opie
 pkg-copy:
 
 ### bash/Makefile
@@ -61,12 +61,6 @@ pkg-copy:
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${PREFIX}/bin/cdialog ${XIGMANAS_ROOTFS}${PREFIX}/bin/cdialog
 	@${INSTALL_PROGRAM} -v ${PREFIX}/lib/libcdialog.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib
-	
-
-### clog/Makefile
-	@echo "Start install to ${XIGMANAS_ROOTFS}"
-	@${INSTALL_PROGRAM} -v /usr/sbin/syslogd ${XIGMANAS_ROOTFS}/usr/sbin
-	@${INSTALL_PROGRAM} -v /usr/local/sbin/clog ${XIGMANAS_ROOTFS}/usr/sbin
 
 
 ### dmidecode/Makefile
@@ -240,10 +234,10 @@ pkg-copy:
 	${INSTALL_PROGRAM} -v /usr/local/bin/nano ${XIGMANAS_ROOTFS}/usr/local/bin;
 
 
-### netatalk3/Makefile
+### netatalk4/Makefile
 # upgrade
-	@echo "Start install netatalk3 to ${XIGMANAS_ROOTFS}"
-	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/netatalk3/files/netatalk.in ${XIGMANAS_ROOTFS}/etc/rc.d/netatalk
+	@echo "Start install netatalk4 to ${XIGMANAS_ROOTFS}"
+	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/netatalk4/files/netatalk.in ${XIGMANAS_ROOTFS}/etc/rc.d/netatalk
 
 	@${INSTALL_PROGRAM} -v /usr/local/bin/dbd ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v /usr/local/sbin/afpd ${XIGMANAS_ROOTFS}/usr/local/sbin
@@ -392,8 +386,8 @@ pkg-copy:
 	@${INSTALL_PROGRAM} -v ${PREFIX}/lib/open-vm-tools/plugins/vmsvc/libvmbackup.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/open-vm-tools/plugins/vmsvc
 
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/vmware-tools/modules/drivers
-	@${INSTALL_KLD} -v ${PREFIX}/lib/vmware-tools/modules/drivers/vmblock.ko ${XIGMANAS_ROOTFS}${PREFIX}/lib/vmware-tools/modules/drivers/vmblock.ko
-	@${INSTALL_KLD} -v ${PREFIX}/lib/vmware-tools/modules/drivers/vmmemctl.ko ${XIGMANAS_ROOTFS}${PREFIX}/lib/vmware-tools/modules/drivers/vmmemctl.ko
+	@${INSTALL_KLD} -v /boot/modules/vmblock.ko ${XIGMANAS_ROOTFS}/boot/modules/vmblock.ko
+	@${INSTALL_KLD} -v /boot/modules/vmmemctl.ko ${XIGMANAS_ROOTFS}/boot/modules/vmmemctl.ko
 
 	@${INSTALL_PROGRAM} -v ${PREFIX}/bin/vmtoolsd ${XIGMANAS_ROOTFS}${PREFIX}/bin
 	@${INSTALL_SCRIPT} -v ${PREFIX}/bin/vmware-checkvm ${XIGMANAS_ROOTFS}${PREFIX}/bin
@@ -418,7 +412,8 @@ pkg-copy:
 	@echo "Start install openssh-portable to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v /usr/local/sbin/sshd ${XIGMANAS_ROOTFS}/usr/sbin
 	@${INSTALL_PROGRAM} -v /usr/local/bin/ssh ${XIGMANAS_ROOTFS}/usr/bin
-	@${INSTALL_PROGRAM} -v /usr/local/libexec/sftp-server ${XIGMANAS_ROOTFS}/usr/libexec
+	@${INSTALL_PROGRAM} -v /usr/local/libexec/sshd-session ${XIGMANAS_ROOTFS}/usr/local/libexec
+	@${INSTALL_PROGRAM} -v /usr/local/libexec/sftp-server ${XIGMANAS_ROOTFS}/usr/local/libexec
 	@${CP} -pv ${PREFIX}/etc/ssh/moduli.sample ${XIGMANAS_ROOTFS}/etc/ssh/moduli
 
 # Create link to moduli file to prevent log entry:
@@ -440,32 +435,32 @@ pkg-copy:
 	@${LN} -fsv /usr/local/lib/pam_mkhomedir.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib/pam_mkhomedir.so
 
 
-### php83/Makefile
-	@echo "Start install php83 to ${XIGMANAS_ROOTFS}"
+### php84/Makefile
+	@echo "Start install php84 to ${XIGMANAS_ROOTFS}"
 	#@${INSTALL_SCRIPT} -v ${PREFIX}/bin/php-cgi-websrv ${XIGMANAS_ROOTFS}${PREFIX}/bin
-	@${CP} -pv ${XIGMANAS_PORTS}/php83/files/php.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc
+	@${CP} -pv ${XIGMANAS_PORTS}/php84/files/php.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc
 
 	@${INSTALL_PROGRAM} -v ${PREFIX}/bin/php-cgi ${XIGMANAS_ROOTFS}${PREFIX}/bin
 	@${INSTALL_PROGRAM} -v ${PREFIX}/bin/php ${XIGMANAS_ROOTFS}${PREFIX}/bin
 
-### php83-opcache
-	@echo "Start install php83-opcache to ${XIGMANAS_ROOTFS}"
+### php84-opcache
+	@echo "Start install php84-opcache to ${XIGMANAS_ROOTFS}"
 #	 @${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20220829
-#	 ${INSTALL_DATA} ${PREFIX}/lib/php/20230831/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20220829
+#	 ${INSTALL_DATA} ${PREFIX}/lib/php/20240924/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20220829
 
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20230831
-	${INSTALL_DATA} ${PREFIX}/lib/php/20230831/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20230831
-#	@${CP} -pv ${XIGMANAS_PORTS}/php83/files/opcache.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php
-	@${CP} -pv ${XIGMANAS_PORTS}/php83/files/opcache.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php/ext-10-opcache.ini
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20240924
+	${INSTALL_DATA} ${PREFIX}/lib/php/20240924/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20240924
+#	@${CP} -pv ${XIGMANAS_PORTS}/php84/files/opcache.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php
+	@${CP} -pv ${XIGMANAS_PORTS}/php84/files/opcache.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php/ext-10-opcache.ini
 
-### php83-pecl-APCu
-	@echo "Start install php83-pecl-APCu to ${XIGMANAS_ROOTFS}"
-	@${CP} -pv ${XIGMANAS_PORTS}/php83-APCu/files/apcu.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php/ext-20-apcu.ini
+### php84-pecl-APCu
+	@echo "Start install php84-pecl-APCu to ${XIGMANAS_ROOTFS}"
+	@${CP} -pv ${XIGMANAS_PORTS}/php84-APCu/files/apcu.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php/ext-20-apcu.ini
 
 #	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20220829
-#	${INSTALL_DATA} ${PREFIX}/lib/php/20230831/apcu.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20220829
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20230831
-	${INSTALL_DATA} ${PREFIX}/lib/php/20230831/apcu.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20230831
+#	${INSTALL_DATA} ${PREFIX}/lib/php/20240924/apcu.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20220829
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20240924
+	${INSTALL_DATA} ${PREFIX}/lib/php/20240924/apcu.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20240924
 
 
 ### phpvirtualbox/Makefile
@@ -576,7 +571,7 @@ pkg-copy:
 	@${INSTALL_SCRIPT} -v ${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 .endfor
 # bin
-.for file in cifsdd dbwrap_tool dumpmscat gentest locktest masktest mdsearch mvxattr ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-ldbdump samba-ldbadd samba-ldbdel samba-ldbedit samba-ldbmodify samba-ldbrename samba-ldbsearch samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree testparm vfstest vlp wbinfo
+.for file in cifsdd dbwrap_tool dumpmscat gentest locktest masktest mdsearch mvxattr ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree testparm vfstest vlp wbinfo
 	@${INSTALL_PROGRAM} -v ${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin
 .endfor
 .for file in samba-log-parser samba-tool smbtar
@@ -615,58 +610,15 @@ pkg-copy:
 	@${CP} -Rpv ${PREFIX}/libexec/samba ${XIGMANAS_ROOTFS}${PREFIX}/libexec/
 # lib modules
 # ldb/tdb
-	for file in samba-ldbadd samba-ldbdel samba-ldbedit samba-ldbmodify samba-ldbrename samba-ldbsearch; do \
-		${CP} -pv ${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin; \
-	done
-# modules bind9
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/bind9
-	for file in ${PREFIX}/lib/samba4/modules/bind9/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/bind9; \
-	done
-# modules gensec
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/gensec
-	for file in ${PREFIX}/lib/samba4/modules/gensec/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/gensec; \
-	done
-# modules idmap
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/idmap
-	for file in ${PREFIX}/lib/samba4/modules/idmap/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/idmap; \
-	done
-# modules krb5
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/krb5
-	for file in ${PREFIX}/lib/samba4/modules/krb5/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/krb5; \
-	done
+
+# lib shared-modules
+	@${CP} -Rpv ${PREFIX}/lib/shared-modules ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+
 # modules ldb
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/ldb
-	for file in ${PREFIX}/lib/samba4/modules/ldb/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/ldb; \
-	done
 	for file in tdbbackup tdbdump tdbrestore tdbtool; do \
 		${CP} -pv ${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin; \
 	done
 
-# modules nss_info
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/nss_info
-	for file in ${PREFIX}/lib/samba4/modules/nss_info/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/nss_info; \
-	done
-# modules process_model
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/process_model
-	for file in ${PREFIX}/lib/samba4/modules/process_model/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/process_model; \
-	done
-# modules service
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/service
-	for file in ${PREFIX}/lib/samba4/modules/service/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/service; \
-	done
-# modules vfs
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/vfs
-	for file in ${PREFIX}/lib/samba4/modules/vfs/*; do \
-		${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/modules/vfs; \
-	done
 # private
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/samba4/private
 	for file in ${PREFIX}/lib/samba4/private/*; do \
@@ -884,34 +836,35 @@ minidlna:
 	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/minidlna/files/minidlna.in ${XIGMANAS_ROOTFS}/etc/rc.d/minidlna
 
 
-### php83 configured modules
-php83-mods:
-	@echo "Start install php83-mods to ${XIGMANAS_ROOTFS}"
+### php84 configured modules
+php84-mods:
+	@echo "Start install php84-mods to ${XIGMANAS_ROOTFS}"
 ### configure args
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20230831
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20240924
 .	for file in bcmath bz2 ctype curl dom exif filter ftp gd gettext gmp iconv imap intl ldap mbstring mcrypt mysqli pdo pdo_mysql pdo_sqlite session simplexml soap sockets sqlite3 sysvmsg sysvsem sysvshm tokenizer xml zip zlib
 		echo ${file}
-		@${INSTALL_DATA} ${PREFIX}/lib/php/20230831/${file}.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20230831
+		@${INSTALL_DATA} ${PREFIX}/lib/php/20240924/${file}.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20240924
 		@${CP} -pv ${PREFIX}/etc/php/ext-??-${file}.ini.sample ${XIGMANAS_ROOTFS}${PREFIX}/etc/php/		
 .	endfor
 # 18
 .	for file in session
 		echo ${file}
-		@${INSTALL_DATA} ${PREFIX}/lib/php/20230831/${file}.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20230831
+		@${INSTALL_DATA} ${PREFIX}/lib/php/20240924/${file}.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20240924
 		@${CP} -pv ${PREFIX}/etc/php/ext-18-${file}.ini.sample ${XIGMANAS_ROOTFS}${PREFIX}/etc/php/ext-18-${file}.ini		
 .	endfor
 # 20
 .	for file in bcmath bz2 ctype curl dom exif filter ftp gd gettext gmp iconv intl ldap mbstring mcrypt mysqli pdo simplexml soap sockets sqlite3 sysvmsg sysvsem sysvshm tokenizer xml zip zlib
 		echo ${file}
-		@${INSTALL_DATA} ${PREFIX}/lib/php/20230831/${file}.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20230831
+		@${INSTALL_DATA} ${PREFIX}/lib/php/20240924/${file}.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20240924
 		@${CP} -pv ${PREFIX}/etc/php/ext-20-${file}.ini.sample ${XIGMANAS_ROOTFS}${PREFIX}/etc/php/ext-20-${file}.ini
 .	endfor
 # 30
-.	for file in imap pdo_mysql pdo_sqlite
+.	for file in pdo_mysql pdo_sqlite
 		echo ${file}
-		@${INSTALL_DATA} ${PREFIX}/lib/php/20230831/${file}.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20230831
+		@${INSTALL_DATA} ${PREFIX}/lib/php/20240924/${file}.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/20240924
 		@${CP} -pv ${PREFIX}/etc/php/ext-30-${file}.ini.sample ${XIGMANAS_ROOTFS}${PREFIX}/etc/php/ext-30-${file}.ini
 .	endfor
+	@${CP} -pv ${PREFIX}/etc/php/ext-20-imap.ini.sample ${XIGMANAS_ROOTFS}${PREFIX}/etc/php/ext-20-imap.ini
 
 ### gettext
 gettext:

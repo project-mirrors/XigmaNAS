@@ -11,8 +11,8 @@ export BATCH=yes
 mkdir -p $XIGMANAS_LOGDIR
 
 # ports to build
-BUILT_PORTS=(arcconf ataidle autosnapshot devcpu-data-amd devcpu-data-intel fdisk firefly isboot lcdproc-devel locale mkpw phpvirtualbox rconf sas2ircu sas3ircu tw_cli)
-INSTALLED_PACKAGES="bash bsnmp-ucd ca_root_nss cdialog clog dmidecode e2fsprogs-core fusefs-exfat exfat-utils fusefs-ext2 fusefs-ntfs grub2-bhyve gzip icu inadyn iperf3 ipmitool istgt lighttpd mDNSResponder mariadb114-server mariadb114-client minidlna msmtp nano netatalk3 nss_ldap nut-devel open-vm-tools openssh-portable opie pam_ldap pam_mkhomedir php83 php83-pecl-APCu phpMyAdmin-php83 proftpd python311 py311-wsdd rrdtool rsync samba419 dns/samba-nsupdate scponly sipcalc smartmontools spindown sudo syncthing tftp-hpa tmux transmission-cli transmission-web transmission-daemon transmission-utils unison virtualbox-ose-nox11 virtualbox-ose-additions-nox11 wait_on wol xmlstarlet zoneinfo php83-bcmath php83-bz2 php83-ctype php83-curl php83-dom php83-exif php83-filter php83-ftp php83-gd php83-gettext php83-gmp php83-iconv php83-imap php83-intl php83-ldap php83-mbstring php83-mysqli php83-opcache php83-pdo php83-pdo_mysql php83-pdo_sqlite php83-pear php83-pecl-APCu php83-pecl-mcrypt php83-session php83-simplexml php83-soap php83-sockets php83-sqlite3 php83-sysvmsg php83-sysvsem php83-sysvshm php83-tokenizer php83-xml php83-zip php83-zlib py311-markdown py311-importlib-metadata py311-zipp py311-rrdtool"
+BUILT_PORTS=(arcconf ataidle autosnapshot clog devcpu-data-amd devcpu-data-intel fdisk firefly isboot lcdproc-devel locale mkpw phpvirtualbox rconf sas2ircu sas3ircu tw_cli)
+INSTALLED_PACKAGES="bash bsnmp-ucd ca_root_nss cdialog dmidecode e2fsprogs-core fusefs-exfat exfat-utils fusefs-ext2 fusefs-ntfs grub2-bhyve gzip icu inadyn iperf3 ipmitool istgt lighttpd mDNSResponder mariadb114-server mariadb114-client minidlna msmtp nano netatalk4 nss_ldap nut-devel open-vm-tools openssh-portable opie pam_ldap pam_mkhomedir php84 php84-pecl-APCu phpMyAdmin-php84 proftpd python311 py311-wsdd rrdtool rsync samba419 dns/samba-nsupdate scponly sipcalc smartmontools spindown sudo syncthing tftp-hpa tmux transmission-cli transmission-web transmission-daemon transmission-utils unison virtualbox-ose-nox11 virtualbox-ose-additions-nox11 wait_on wol xmlstarlet zoneinfo php84-bcmath php84-bz2 php84-ctype php84-curl php84-dom php84-exif php84-filter php84-ftp php84-gd php84-gettext php84-gmp php84-iconv php84-pecl-imap php84-intl php84-ldap php84-mbstring php84-mysqli php84-opcache php84-pdo php84-pdo_mysql php84-pdo_sqlite php84-pear php84-pecl-APCu php84-pecl-mcrypt php84-session php84-simplexml php84-soap php84-sockets php84-sqlite3 php84-sysvmsg php84-sysvsem php84-sysvshm php84-tokenizer php84-xml php84-zip php84-zlib py311-markdown py311-importlib-metadata py311-zipp py311-rrdtool"
 
 ### functions ###
 
@@ -30,7 +30,7 @@ pkg_deps() {
     done
 
     # shellcheck disable=SC2046
-    pkg install -fyr FreeBSD $( sort "$DEPS_FILE" | uniq ) 2>&1 | tee -a ${XIGMANAS_LOGDIR}/pkg-deps.log
+    pkg install -fyr latest $( sort "$DEPS_FILE" | uniq ) 2>&1 | tee -a ${XIGMANAS_LOGDIR}/pkg-deps.log
 }
 
 # build ports that aren't installed by pkg
@@ -51,10 +51,11 @@ pkg_build() {
 pkg_copy() {
     echo "Installing files from INSTALLED_PACKAGES: $INSTALLED_PACKAGES" | tee ${XIGMANAS_LOGDIR}/pkg-copy-install.log
     # shellcheck disable=SC2086
-    pkg install -yr FreeBSD $INSTALLED_PACKAGES 2>&1 | tee -a ${XIGMANAS_LOGDIR}/pkg-copy-install.log
+#    pkg install -yr FreeBSD $INSTALLED_PACKAGES 2>&1 | tee -a ${XIGMANAS_LOGDIR}/pkg-copy-install.log
 
     # upgrade to latest (starting with latest causes errors)
-    pkg upgrade -yr latest | tee ${XIGMANAS_LOGDIR}/pkg-copy-upgrade.log
+#   pkg upgrade -yr latest | tee ${XIGMANAS_LOGDIR}/pkg-copy-upgrade.log
+    pkg install -yr latest $INSTALLED_PACKAGES 2>&1 | tee -a ${XIGMANAS_LOGDIR}/pkg-copy-install.log
 
     make -f "$(dirname "$0")"/pkg-copy-Makefile 2>&1 | tee ${XIGMANAS_LOGDIR}/pkg-copy-make.log
 }
@@ -68,7 +69,7 @@ sys_upgrade() {
 
     # create/enable pkg base repo if doesn't exit/isn't enabled
     grep enabled /usr/local/etc/pkg/repos/base.conf || echo 'base: {
-    url: "pkg+https://pkg.FreeBSD.org/${ABI}/base_release_1",
+    url: "pkg+https://pkg.FreeBSD.org/${ABI}/base_release_2",
     mirror_type: "srv",
     signature_type: "fingerprints",
     fingerprints: "/usr/share/keys/pkg",
@@ -85,10 +86,14 @@ sys_upgrade() {
     }' >/usr/local/etc/pkg/repos/latest.conf
 
     # update pkg to see packages from base and latest
-    pkg update
+    IGNORE_OSVERSION=yes pkg update
 
     # find security patches. filter unnecessary and current patch-level packages
-    pkg search -r base -g 'FreeBSD-*p?' | awk '!/-(lib32|dbg|dev|src|tests|mmccam|minimal)-/ {print $1}' | fgrep -v $(uname -r | awk -F- '{ print $1$3}') | xargs pkg install -y -r base
+    ### pkg search -r base -g 'FreeBSD-*p?' | awk '!/-(lib32|dbg|dev|src|tests|mmccam|minimal)-/ {print $1}' | fgrep -v $(uname -r | awk -F- '{ print $1$3}') | xargs pkg install -y -r base
+ 
+    # upgrade to 14.2-RELEASE (from 14.1)
+    pkg search -r base -g 'FreeBSD-*' | awk '!/-(lib32|dbg|dev|src|tests|mmccam|minimal|man)-/ {print $1}' | xargs pkg install -y -r base
+    pkg info | awk '/^FreeBSD-/ { print $1 }' | xargs pkg lock -y
 
     # restore conf files overwritten by pkg base upgrade
     cp -p /etc/shells.pkgsave /etc/shells
@@ -138,6 +143,9 @@ prereq() {
     # install kernel source
     pkg install -yr base FreeBSD-src-sys 2>&1 | tee ${XIGMANAS_LOGDIR}/prereq-sys_upgrade-src.log &
 
+    # install FreeBSD source (for clog/syslogd)
+    pkg install -yr base FreeBSD-src 2>&1 | tee ${XIGMANAS_LOGDIR}/prereq-sys_upgrade-src.log &
+ 
 
     cd /usr/local/xigmanas/
     svn co https://svn.code.sf.net/p/xigmanas/code/trunk svn 2>&1 | tee ${XIGMANAS_LOGDIR}/prereq-svn.log
