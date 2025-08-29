@@ -13,7 +13,6 @@ Changes:
 - Upgrade nano to v8.3.
 - Upgrade transmission to 4.1.0-beta.1+rc3a8106077.
 - Upgrade libvncserver v0.9.15.
-- Upgrade cdialog to v1.3.20250116.
 - Upgrade arconf to vB27147.
 - Upgrade e2fsprogs to v1.47.2.
 - Upgrade lighttpd to v1.4.77.
@@ -34,6 +33,7 @@ Changes:
 - Upgrade pecl-APCu to v5.1.27.
 - Upgrade sudo to v1.9.17p2.
 - Upgrade bash to v5.3p3.
+- Upgrade cdialog to v1.3.20250817.
 
 New:
 - New SMB use its own log file.
