@@ -92,7 +92,6 @@ BUILD 14.3.0.5.10xxx RC1
 Changes:
 - Upgrade underlying OS to 14.3-RELEASE P2.
 - Update translations.
-- Upgrade iperf3 to v3.17.1.
 - Upgrade rrdtool to v1.9.0.
 - Upgrade mDNSResponder to v2200.140.11.
 - Upgrade exfat to v1.4.0.
@@ -124,6 +123,7 @@ Changes:
 - Upgrade microcode intel to v20250812.
 - Upgrade e2fsprogs to v1.47.3.
 - Upgrade gzip to v1.14.
+- Upgrade iperf3 to v3.19.1.
 
 New:
 - New SMB use its own log file.
