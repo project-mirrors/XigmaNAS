@@ -123,6 +123,7 @@ Changes:
 - Upgrade microcode amd to v20250729.
 - Upgrade microcode intel to v20250812.
 - Upgrade e2fsprogs to v1.47.3.
+- Upgrade gzip to v1.14.
 
 New:
 - New SMB use its own log file.
