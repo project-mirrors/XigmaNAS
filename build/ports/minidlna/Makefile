@@ -1,6 +1,7 @@
 PORTNAME=		minidlna
 PORTVERSION=	1.3.3
-PORTREVISION=   1
+PORTREVISION=   8
+PORTEPOCH=	1
 CATEGORIES=	net multimedia www
 
 MAINTAINER=	zoon01@xigmanas.com
@@ -11,6 +12,7 @@ WWW=		http://minidlna.sourceforge.net
 NO_LICENSES_INSTALL=	yes
 NO_LICENSES_DIALOGS=	yes
 LICENSE=	GPLv2
+
 CFLAGS+=	-I${LOCALBASE}/ffmpeg4/include
 LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
 		libexif.so:graphics/libexif \
@@ -32,7 +34,7 @@ USES+=		autoreconf cpe gettext-tools iconv jpeg
 
 USE_GITHUB=     yes
 GH_ACCOUNT=     glebius
-GH_TAGNAME=     ae2141d
+GH_TAGNAME=     967337d
 
 CPE_VENDOR=	minidlna_project
 
