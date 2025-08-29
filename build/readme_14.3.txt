@@ -103,7 +103,6 @@ Changes:
 - Upgrade transmission to 4.1.0-beta.1+rc3a8106077.
 - Upgrade libvncserver v0.9.15.
 - Upgrade arconf to vB27147.
-- Upgrade e2fsprogs to v1.47.2.
 - Upgrade lighttpd to v1.4.77.
 - Upgrade netatalk to v4.1.2.
 - Upgrade phpmyadmin to v5.2.2.
@@ -123,6 +122,7 @@ Changes:
 - Upgrade cdialog to v1.3.20250817.
 - Upgrade microcode amd to v20250729.
 - Upgrade microcode intel to v20250812.
+- Upgrade e2fsprogs to v1.47.3.
 
 New:
 - New SMB use its own log file.
