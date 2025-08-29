@@ -1,9 +1,9 @@
 PORTNAME=		bsnmp-ucd
 PORTVERSION=	0.4.5
 PORTREVISION=	1
-CATEGORIES=		net-mgmt
-COMMENT=			A bsnmpd module that implements parts of UCD-SNMP-MIB
-MAINTAINER=		zoon01@xigmanas.com
+CATEGORIES=	net-mgmt
+COMMENT=	A bsnmpd module that implements parts of UCD-SNMP-MIB
+MAINTAINER=	zoon01@xigmanas.com
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	trociny
