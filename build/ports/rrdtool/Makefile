@@ -1,6 +1,6 @@
 PORTNAME=		rrdtool
-PORTVERSION=		1.8.0
-PORTREVISION=		2
+PORTVERSION=		1.9.0
+PORTREVISION=		1
 CATEGORIES=		databases graphics
 
 COMMENT=		Round Robin Database Tools
