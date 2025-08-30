@@ -1,36 +1,37 @@
 PORTNAME=		rsync
 PORTVERSION=	3.4.1
-PORTREVISION=	0
+PORTREVISION=	3
 CATEGORIES=		net
 MAINTAINER=		zoon01@xigmanas.com
 COMMENT=		A network file distribution/sync utility
 WWW: 			http://rsync.samba.org/
 
-MASTER_SITES=		https://rsync.samba.org/ftp/%SUBDIR%/ \
-							ftp://ftp.fu-berlin.de/pub/unix/network/%SUBDIR%/ \
-							https://www.mirrorservice.org/sites/rsync.samba.org/ \
-							CRITICAL
-MASTER_SITE_SUBDIR=	rsync
-DISTFILES=		${DISTNAME}${EXTRACT_SUFX}
-DISTFILES+=		${PORTNAME}-patches-${PORTVERSION}${EXTRACT_SUFX}
+MASTER_SITES=	https://www.mirrorservice.org/sites/rsync.samba.org/src/ \
+		http://rsync.mirror.garr.it/src/ \
+		http://www.mirrorservice.org/sites/rsync.samba.org/src/ \
+		https://download.samba.org/pub/rsync/src/
+DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 
 EXTRA_PATCHES=	${FILESDIR}/extrapatch-main.c
+
+LIB_DEPENDS=	libxxhash.so:devel/xxhash
+
 
 GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 NO_PKG_REGISTER=yes
-CONFIGURE_ARGS+=		--disable-debug \
-							--enable-ipv6 \
-							--with-rsyncd-conf=/var/etc/rsyncd.conf \
-							--with-included-popt \
-							--enable-largefile
+CONFIGURE_ARGS+=	--disable-debug \
+					--enable-ipv6 \
+					--with-rsyncd-conf=/var/etc/rsyncd.conf \
+					--with-included-popt \
+					--enable-largefile
 
 # Enable iconv support.
 ICONV_USES=	iconv
 CFLAGS+=		-I${LOCALBASE}/include
 LDFLAGS+=		-L${LOCALBASE}/lib
 CONFIGURE_ENV=	CFLAGS="${CFLAGS}" \
-								LDFLAGS="${LDFLAGS}"
+					LDFLAGS="${LDFLAGS}"
 
 # Install on host system too, otherwise depending ports fail during ./configure process (e.g. scponly).
 FORCE_PKG_REGISTER=	yes
