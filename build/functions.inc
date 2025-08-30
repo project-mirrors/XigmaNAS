@@ -1751,6 +1751,8 @@ copy_files() {
 	echo "-------------------------------------------------------------------";
 	echo "===> Start copy sources"
 	mkdir /usr/ports/distfiles
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/arcconf_B27147.zip /usr/ports/distfiles
+	echo "===> Copy arcconf_B27147.zip done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip /usr/ports/distfiles
 	echo "===> Copy CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/isboot-0.3.4.tar.gz /usr/ports/distfiles
