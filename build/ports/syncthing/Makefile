@@ -1,5 +1,5 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.29.2
+PORTVERSION=	2.0.3
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
@@ -17,10 +17,10 @@ NO_LICENSES_DIALOGS=	yes
 LICENSE=	MPL20
 #LICENSE_FILE=	${WRKSRC}/${PORTNAME}/LICENSE
 
-#BUILD_DEPENDS=	${LOCALBASE}/bin/go:lang/go
-
-USES=		cpe go:1.22,modules
+USES=		cpe go:modules
 BINS=		syncthing stdiscosrv strelaysrv strelaypoolsrv
+
+CONFLICTS_INSTALL=	syncthing1
 
 .for x in ${BINS}
 # XigmaNAS

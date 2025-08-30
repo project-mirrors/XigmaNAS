@@ -104,7 +104,6 @@ Changes:
 - Upgrade phpmyadmin to v5.2.2.
 - Upgrade rsync to v3.4.1.
 - Upgrade tmux to v3.5a.
-- Upgrade syncthing to v1.29.2.
 - Upgrade zoneinfo to v2025b.
 - Upgrade smartmontools to v7.5.
 - Upgrade nut to v2025.08.14.
@@ -124,6 +123,7 @@ Changes:
 - Upgrade mDNSResponder to v2600.120.12.
 - Upgrade php8 to v8.4.12.
 - Upgrade proftpd to v1.3.8d.
+- Upgrade syncthing to v2.0.3.
 
 New:
 - New SMB use its own log file.
