@@ -1,4 +1,4 @@
-TIMESTAMP = 1756482669
+TIMESTAMP = 1756590418
 SHA256 (devcpu-data-amd-20250729/microcode_amd.bin?id=3768c184de68a85b9df6697e7f93a2f61de90a99) = 8a9d9e8b788e31e61cddc03cb1eeab5db99e0f667128943ff0780e6437d2e43e
 SIZE (devcpu-data-amd-20250729/microcode_amd.bin?id=3768c184de68a85b9df6697e7f93a2f61de90a99) = 12684
 SHA256 (devcpu-data-amd-20250729/microcode_amd_fam15h.bin?id=3768c184de68a85b9df6697e7f93a2f61de90a99) = 9d4a668410e72a4bdb86dc23e4261eca04daa83456ada02504115223f356981a
@@ -9,3 +9,5 @@ SHA256 (devcpu-data-amd-20250729/microcode_amd_fam17h.bin?id=3768c184de68a85b9df
 SIZE (devcpu-data-amd-20250729/microcode_amd_fam17h.bin?id=3768c184de68a85b9df6697e7f93a2f61de90a99) = 22596
 SHA256 (devcpu-data-amd-20250729/microcode_amd_fam19h.bin?id=3768c184de68a85b9df6697e7f93a2f61de90a99) = 4fe8cfa98c36b1804e2961a0cfa602b92a3bd6189f937e526c834b801b3d271e
 SIZE (devcpu-data-amd-20250729/microcode_amd_fam19h.bin?id=3768c184de68a85b9df6697e7f93a2f61de90a99) = 100684
+SHA256 (devcpu-data-amd-20250729/microcode_amd_fam1ah.bin?id=3768c184de68a85b9df6697e7f93a2f61de90a99) = 9a2eca6301cc763287279afc31cd276e39de2d59d704c82e500c885b0ba1e775
+SIZE (devcpu-data-amd-20250729/microcode_amd_fam1ah.bin?id=3768c184de68a85b9df6697e7f93a2f61de90a99) = 28812
