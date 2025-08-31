@@ -13,6 +13,7 @@ NO_LICENSES_INSTALL=	yes
 NO_LICENSES_DIALOGS=	yes
 LICENSE=		GPLv2+
 
+NO_PKG_REGISTER=yes
 USES=		compiler:c11 cpe gmake makeinfo pkgconfig tar:xz
 CPE_VENDOR=	e2fsprogs_project
 USE_CSTD=	gnu11
