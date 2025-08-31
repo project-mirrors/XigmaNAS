@@ -97,7 +97,6 @@ Changes:
 - Upgrade python311 v3.11.10.
 - Upgrade mariadb to v11.4.4.
 - Upgrade samba to v4.19.9.
-- Upgrade transmission to 4.1.0-beta.1+rc3a8106077.
 - Upgrade libvncserver v0.9.15.
 - Upgrade arconf to vB27147.
 - Upgrade netatalk to v4.1.2.
@@ -124,6 +123,7 @@ Changes:
 - Upgrade php8 to v8.4.12.
 - Upgrade proftpd to v1.3.8d.
 - Upgrade syncthing to v2.0.3.
+- Upgrade transmission to 4.1.0-beta.2
 
 New:
 - New SMB use its own log file.
