@@ -34,10 +34,8 @@ do-install:
 # kernel
 	@${CP} -pv /boot/kernel/fusefs.ko ${XIGMANAS_ROOTFS}/boot/kernel
 # lib
+	@${INSTALL_PROGRAM} -v ${PORTSDIR}/filesystems/ntfs/work/ntfs-3g_ntfsprogs-2022.10.3/libntfs-3g/.libs/libntfs-3g.so ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/filesystems/ntfs/work/ntfs-3g*/libntfs-3g/.libs/libntfs-3g.so.89 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/filesystems/fusefs-libs/work/stage/usr/local/lib/lib*.so ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/filesystems/fusefs-libs/work/stage/usr/local/lib/lib*.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/devel/libublio/work/libublio-*/libubl*.so ${XIGMANAS_ROOTFS}/usr/local/lib
 # link
 	@${LN} -s -f -v /usr/local/bin/ntfs-3g ${XIGMANAS_ROOTFS}/sbin/mount_ntfs
 	@${LN} -s -f -v /usr/local/bin/ntfs-3g ${XIGMANAS_ROOTFS}/sbin/mount_ntfs-3g
