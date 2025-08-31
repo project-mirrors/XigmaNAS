@@ -1,5 +1,5 @@
---- src/xml_escape.c.orig	2013-03-17 00:27:32.000000000 +0100
-+++ src/xml_escape.c	2018-10-21 23:52:04.000000000 +0200
+--- src/xml_escape.c.orig	2025-08-31 18:13:34.952550000 +0200
++++ src/xml_escape.c	2025-08-31 18:20:24.000000000 +0200
 @@ -59,9 +59,6 @@
      exit(status);
  }
@@ -23,7 +23,7 @@
                  semicolon_off++;
              }
              entity_len = semicolon_off - i;
--            if (entity_len < MAX_ENTITY_NAME) {
+-            if (entity_len <= MAX_ENTITY_NAME) {
 +            if (entity_len < sizeof entity) {
                  memcpy(entity, &str[i], entity_len);
                  entity[entity_len] = '\0';

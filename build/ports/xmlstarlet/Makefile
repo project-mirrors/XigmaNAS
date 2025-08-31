@@ -7,11 +7,15 @@ MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Command line XML toolkit
 WWW=		https://xmlstar.sourceforge.net/
 
-MASTER_SITES=		SF/xmlstar/${PORTNAME}/${PORTVERSION}
+MASTER_SITES=	SF/xmlstar/${PORTNAME}/${DISTVERSION}
 
-USE_GNOME=	libxslt
-USE_ICONV=	yes
+USES=		autoreconf gnome iconv pkgconfig
+USE_GNOME=	libxml2 libxslt
+
 GNU_CONFIGURE=	yes
+
+CFLAGS+=	-Wno-incompatible-function-pointer-types
+
 NO_PKG_REGISTER=yes
 
 CONFIGURE_ARGS=	--with-libxml-prefix=${LOCALBASE} \
@@ -19,8 +23,10 @@ CONFIGURE_ARGS=	--with-libxml-prefix=${LOCALBASE} \
 			--with-libiconv-prefix=${LOCALBASE}
 
 post-patch:
-	@${REINPLACE_CMD} -e "s|%%PTHREAD%%|${PTHREAD_LIBS}|g" \
-		${WRKSRC}/configure
+	@${REINPLACE_CMD} -e 's|%%DISTVERSION%%|${DISTVERSION}|g' \
+	    ${PATCH_WRKSRC}/configure.ac
+	@${REINPLACE_CMD} -e 's/ATTRIBUTE_UNUSED/__attribute__((unused))/g' \
+	    ${PATCH_WRKSRC}/src/xml_pyx.c
 
 do-install:
 # XigmaNAS® install
