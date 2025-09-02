@@ -47,8 +47,14 @@ class co_geom_info {
 		$a_row = [];
 		$retval = 0;
 		mwexec2($cmd,$a_row,$retval);
-		$c_xml = implode('',$a_row);
-		$this->a_xml = new SimpleXMLElement($c_xml);
+		$c_xml = '';
+//		bug in FreeBSD 14.3, additional characters in sysctl output
+//		$c_xml = implode('',$a_row);
+		foreach($a_row as $l_row):
+			$c_xml .= trim($l_row);
+		endforeach;
+//		bug in FreeBSD 14.3, additional characters in sysctl output
+		$this->a_xml = new SimpleXMLElement($c_xml,LIBXML_BIGLINES);
 		unset($c_xml,$retval,$a_row,$cmd);
 		return true;
 	}
