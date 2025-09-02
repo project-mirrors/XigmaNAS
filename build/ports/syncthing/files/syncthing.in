@@ -28,12 +28,12 @@ load_rc_config "${name}"
 : ${syncthing_group:="syncthing"}
 : ${syncthing_dir:="/var/db/syncthing"}
 
-homedir=`configxml_get "//syncthing/homedir"`
+homedir=$( configxml_get "//syncthing/homedir" )
 logfile="${homedir}/syncthing.log"
 pidfile=/var/run/syncthing.pid
 procname="/usr/local/bin/syncthing"
 command="/usr/sbin/daemon"
-command_args="-p ${pidfile} ${procname} -home=${homedir} -no-browser ${syncthing_args} > ${logfile} 2>&1"
+command_args="-p ${pidfile} ${procname} --home=${homedir} --no-browser ${syncthing_args} > ${logfile} 2>&1"
 
 start_precmd=syncthing_startprecmd
 extra_commands="mkconf"
