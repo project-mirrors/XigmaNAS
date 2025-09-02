@@ -34,8 +34,6 @@
 
 require_once 'properties.php';
 
-use function gettext;
-
 class status_services_properties extends co_property_container_param {
 	protected $x_name;
 	public function init_name() {
