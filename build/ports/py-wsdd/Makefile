@@ -1,6 +1,6 @@
 PORTNAME=		wsdd
 DISTVERSIONPREFIX= v
-DISTVERSION=	0.8.0
+DISTVERSION=	0.9.0
 PORTREVISION=	0
 CATEGORIES=	net python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -12,21 +12,17 @@ COMMENT=	Web Service Discovery (WSD) host daemon for Samba
 NO_LICENSES_INSTALL=	yes
 NO_LICENSES_DIALOGS=	yes
 LICENSE=	MIT
-#LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		python:3.5+,run shebangfix
 USE_GITHUB=	yes
 GH_ACCOUNT=	christgau
-GH_TAGNAME=	c9cffc5e
+GH_TAGNAME=	e9325b5
 SHEBANG_FILES=	src/${PORTNAME}.py
 NO_ARCH=	yes
 NO_BUILD=	yes
 
 USERS=		_wsdd
 GROUPS=		_wsdd
-
-post-patch:
-	${REINPLACE_CMD} 's|PYTHON|${PYTHON_CMD}|' ${WRKSRC}/etc/rc.d/${PORTNAME}
 
 do-install:
 # XigmaNAS® install

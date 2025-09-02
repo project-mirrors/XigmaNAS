@@ -124,6 +124,7 @@ Changes:
 - Upgrade proftpd to v1.3.8d.
 - Upgrade transmission to 4.1.0-beta.2
 - Upgrade syncthing to v2.0.4.
+- Upgrade wsdd to v0.9.0.
 
 New:
 - New SMB use its own log file.
