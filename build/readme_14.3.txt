@@ -122,8 +122,8 @@ Changes:
 - Upgrade mDNSResponder to v2600.120.12.
 - Upgrade php8 to v8.4.12.
 - Upgrade proftpd to v1.3.8d.
-- Upgrade syncthing to v2.0.3.
 - Upgrade transmission to 4.1.0-beta.2
+- Upgrade syncthing to v2.0.4.
 
 New:
 - New SMB use its own log file.
