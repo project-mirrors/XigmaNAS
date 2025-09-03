@@ -903,9 +903,6 @@ usr/sbin/tcpdump
 ## getextattr, lsextattr, rmextattr, setextattr -- manipulate extended attributes
 usr/sbin/rmextattr:usr/sbin/getextattr:usr/sbin/setextattr:usr/sbin/lsextattr
 
-## portsnap -- fetch and extract compressed snapshots of the ports tree
-usr/sbin/portsnap
-
 ## iasl -- Intel ACPI compiler/decompiler
 usr/sbin/iasl
 

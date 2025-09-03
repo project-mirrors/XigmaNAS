@@ -67,13 +67,26 @@ You should now have these directories:
 /usr/local/xigmanas
 /usr/local/xigmanas/svn
 
-3.2 Update your ports collection:
+3.2 Update your ports collection: Git must be used to check out the ports tree. 
 
-Using portsnap the first time:
-portsnap fetch extract
+Install Git like this:
 
-To update the ports collection next time:
-portsnap fetch update
+# cd /usr/ports/devel/git
+# make install clean
+
+If the ports tree is not available yet, Git can be installed as a package:
+
+# pkg install git
+
+
+Now Git is installed we check out a copy of the HEAD branch of the ports tree:
+
+# git clone --depth 1 https://git.FreeBSD.org/ports.git /usr/ports
+
+
+As needed, update the current ports tree after the initial Git checkout:
+
+# git -C /usr/ports pull
 
 3.3 Use the building script:
 

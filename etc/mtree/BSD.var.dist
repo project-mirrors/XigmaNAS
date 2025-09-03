@@ -22,8 +22,6 @@
         ..
         ports
         ..
-        portsnap
-        ..
         xen
             xenpaging
             ..
