@@ -37,9 +37,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 use common\arr;
-use common\session;
 use common\uuid;
-use gui\document;
 
 $use_si = is_sidisksizevalues();
 $zfs = [
@@ -48,8 +46,7 @@ $zfs = [
 	'datasets' => ['dataset' => []],
 	'volumes' => ['volume' => []],
 ];
-
-if(isset($_POST['import'])):
+if(isset($_POST['import']) or isset($_POST['import_force'])):
 	$param = [];
 	$param['cmd'] = 'zpool';
 	$param['sub'] = 'import';
@@ -167,7 +164,7 @@ if($retval == 0):
 				'compression' => $compress,
 				'dedup' => $dedup,
 				'sync' => $sync,
-				'sparse' => ($refreservation == "none") ? true : false,
+				'sparse' => ($refreservation == 'none'),
 				'desc' => '',
 			];
 		endif;
@@ -304,40 +301,23 @@ foreach($rawdata as $line):
 		endswitch;
 	endif;
 endforeach;
+$show_button = 'none';
 if(count($zfs['pools']['pool']) <= 0):
-	$import_button_value = gtext('Import on-disk ZFS config');
-	if(isset($_POST['import'])):
-		$message_box_type = 'warning';
-		$message_box_text = gtext('No pool was found.');
+	if(isset($_POST['import_force'])):
 		if(isset($retval) && $retval != 0):
-			if(isset($_POST['import_force'])):
-				$message_box_text = 'error';
-			else:
-				$authToken = session::get_authtoken();
-				$message_box_text .= ' ';
-				$message_box_text .= gtext('Try to force import.');
-				$message_box_text = <<<HTML
-<br />
-<form action="disks_zfs_config.php" method="post">
-	{$message_box_text}<br />
-	<input type="submit" name="import" value="{$import_button_value}" />
-	<input type="hidden" name="import_force" value="true" />
-	<input name="authtoken" type="hidden" value="{$authToken}" autocomplete="off">
-</form>
-HTML;
-			endif;
+			$message_box_type = 'error';
+			$message_box_text = gettext('No pool was found.');
+		endif;
+	elseif(isset($_POST['import'])):
+		if(isset($retval) && $retval != 0):
+			$show_button = 'import_force';
+			$message_box_type = 'warning';
+			$message_box_text = gettext('No pool was found. Try to force import from on-disk ZFS configuration.');
 		endif;
 	else:
-		$authToken = session::get_authtoken();
+		$show_button = 'import';
 		$message_box_type = 'info';
-		$text = gtext('No pool was found.').' '.gtext('Try to import from on-disk ZFS config.');
-		$message_box_text = <<<HTML
-<form action="disks_zfs_config.php" method="post">
-	{$text}<br />
-	<input type="submit" name="import" value="{$import_button_value}" />
-	<input name="authtoken" type="hidden" value="{$authToken}" autocomplete="off">
-</form>
-HTML;
+		$message_box_text = gettext('No pool was found. Try to import from on-disk ZFS configuration.');
 	endif;
 endif;
 $health = true;
@@ -347,12 +327,23 @@ if(!empty($zfs['extra']) && !empty($zfs['extra']['pools']) && !empty($zfs['extra
 endif;
 if(!$health):
 	$message_box_type = 'warning';
-	$message_box_text = gtext('Your ZFS system is not healthy.');
+	$message_box_text = gettext('Your ZFS system is not healthy.');
 endif;
 $showusedavail = isset($config['zfs']['settings']['showusedavail']);
-$pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Configuration'),gtext('Detected')];
-include 'fbegin.inc';
-$document = new document();
+$pgtitle = [gettext('Disks'),gettext('ZFS'),gettext('Configuration'),gettext('Detected')];
+switch($show_button):
+	case 'import':
+	case 'import_force':
+		$document = new_page(page_title: $pgtitle,action_url: 'disks_zfs_config.php');
+		break;
+	default:
+		$document = new_page(page_title: $pgtitle);
+		break;
+endswitch;
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
 $document->
 	add_area_tabnav()->
 		push()->
@@ -369,248 +360,191 @@ $document->
 			ins_tabnav_record('disks_zfs_config_current.php',gettext('Current'))->
 			ins_tabnav_record('disks_zfs_config.php',gettext('Detected'),gettext('Reload page'),true)->
 			ins_tabnav_record('disks_zfs_config_sync.php',gettext('Synchronize'));
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+if(!empty($message_box_text)):
+	switch($message_box_type):
+		case 'info':
+			$content->ins_info_box(message: $message_box_text);
+			break;
+		case 'warning':
+			$content->ins_warning_box(message: $message_box_text);
+			break;
+		case 'error':
+			$content->ins_error_box(message: $message_box_text);
+			break;
+	endswitch;
+endif;
+$table = $content->add_table_data_selection();
+$a_col_width = ['16%','10%','9%','9%','9%','9%','9%','9%','10%','10%'];
+$n_col_width = count($a_col_width);
+$table->
+	ins_colgroup_with_styles('width',$a_col_width);
+$thead = $table->addTHEAD();
+$tbody = $table->addTBODY();
+$tfoot = $table->addTFOOT();
+$thead->
+	ins_titleline(sprintf('%s (%d)',gettext('Pools'),count($zfs['pools']['pool'])),$n_col_width);
+$tr = $thead->addTR();
+$tr->
+	insTHwC('lhell',gettext('Name'))->
+	insTHwC('lhell',gettext('Size'));
+if($showusedavail):
+	$tr->
+		insTHwC('lhell',gettext('Used'))->
+		insTHwC('lhell',gettext('Avail'));
+else:
+	$tr->
+		insTHwC('lhell',gettext('Alloc'))->
+		insTHwC('lhell',gettext('Free'));
+endif;
+$tr->
+	insTHwC('lhell',gettext('Expandsz'))->
+	insTHwC('lhell',gettext('Frag'))->
+	insTHwC('lhell',gettext('Dedup'))->
+	insTHwC('lhell',gettext('Health'))->
+	insTHwC('lhell',gettext('Mount Point'))->
+	insTHwC('lhebl',gettext('AltRoot'));
+foreach($zfs['pools']['pool'] as $key => $pool):
+	$tr = $tbody->addTR();
+	$tr->
+		insTDwC('lcell',$pool['name'])->
+		insTDwC('lcell',$zfs['extra']['pools']['pool'][$key]['size']);
+		if($showusedavail):
+			$tr->
+				insTDwC('lcell',$zfs['extra']['pools']['pool'][$key]['used'])->
+				insTDwC('lcell',$zfs['extra']['pools']['pool'][$key]['avail']);
+		else:
+			$tr->
+				insTDwC('lcell',sprintf('%s (%s)',$zfs['extra']['pools']['pool'][$key]['alloc'],$zfs['extra']['pools']['pool'][$key]['cap']))->
+				insTDwC('lcell',$zfs['extra']['pools']['pool'][$key]['free']);
+		endif;
+	$tr->
+		insTDwC('lcell',$zfs['extra']['pools']['pool'][$key]['expandsz'])->
+		insTDwC('lcell',$zfs['extra']['pools']['pool'][$key]['frag'])->
+		insTDwC('lcell',$zfs['extra']['pools']['pool'][$key]['dedup'])->
+		insTDwC('lcell',$zfs['extra']['pools']['pool'][$key]['health'])->
+		insTDwC('lcell',empty($pool['mountpoint']) ? sprintf('/mnt/%s',$pool['name']) : $pool['mountpoint'])->
+		insTDwC('lcebl',empty($pool['root']) ? '-' : $pool['root']);
+endforeach;
+$tfoot->
+	addTR()->
+		addTD(['class' => 'lcenl','colspan' => $n_col_width]);
+$table = $content->add_table_data_selection();
+$a_col_width = ['16%','21%','21%','42%'];
+$n_col_width = count($a_col_width);
+$table->
+	ins_colgroup_with_styles('width',$a_col_width);
+$thead = $table->addTHEAD();
+$tbody = $table->addTBODY();
+$tfoot = $table->addTFOOT();
+$thead->
+	ins_titleline(sprintf('%s (%d)',gettext('Virtual Devices'),count($zfs['vdevices']['vdevice'])),$n_col_width);
+$thead->
+	addTR()->
+		insTHwC('lhell',gettext('Name'))->
+		insTHwC('lhell',gettext('Type'))->
+		insTHwC('lhell',gettext('Pool'))->
+		insTHwC('lhebl',gettext('Devices'));
+foreach($zfs['vdevices']['vdevice'] as $key => $vdevice):
+	$tbody->
+		addTR()->
+			insTDwC('lcell',$vdevice['name'])->
+			insTDwC('lcell',$vdevice['type'])->
+			insTDwC('lcell',$zfs['extra']['vdevices']['vdevice'][$key]['pool'])->
+			insTDwC('lcebl',implode(',',$vdevice['device']));
+endforeach;
+$tfoot->
+	addTR()->
+		addTD(['class' => 'lcenl','colspan' => $n_col_width]);
+$table = $content->add_table_data_selection();
+$a_col_width = ['14%','14%','7%','7%','9%','9%','9%','7%','8%','7%','9%'];
+$n_col_width = count($a_col_width);
+$table->
+	ins_colgroup_with_styles('width',$a_col_width);
+$thead = $table->addTHEAD();
+$thead->
+	ins_titleline(sprintf('%s (%d)',gettext('Datasets'),count($zfs['datasets']['dataset'])),$n_col_width);
+$thead->
+	addTR()->
+		insTHwC('lhell',gettext('Name'))->
+		insTHwC('lhell',gettext('Pool'))->
+		insTHwC('lhell',gettext('Compression'))->
+		insTHwC('lhell',gettext('Dedup'))->
+		insTHwC('lhell',gettext('Sync'))->
+		insTHwC('lhell',gettext('ACL Inherit'))->
+		insTHwC('lhell',gettext('ACL Mode'))->
+		insTHwC('lhell',gettext('Canmount'))->
+		insTHwC('lhell',gettext('Quota'))->
+		insTHwC('lhell',gettext('Readonly'))->
+		insTHwC('lhebl',gettext('Snapshot Visibility'));
+$tbody = $table->addTBODY();
+foreach($zfs['datasets']['dataset'] as $dataset):
+	$tbody->
+		addTR()->
+			insTDwC('lcell',$dataset['name'])->
+			insTDwC('lcell',$dataset['pool'])->
+			insTDwC('lcell',$dataset['compression'])->
+			insTDwC('lcell',$dataset['dedup'])->
+			insTDwC('lcell',$dataset['sync'])->
+			insTDwC('lcell',$dataset['aclinherit'])->
+			insTDwC('lcell',$dataset['aclmode'])->
+			insTDwC('lcell',empty($dataset['canmount']) ? gettext('on') : gettext($dataset['canmount']))->
+			insTDwC('lcell',empty($dataset['quota']) ? gettext('none') : $dataset['quota'])->
+			insTDwC('lcell',empty($dataset['readonly']) ? gettext('off') : gettext('on'))->
+			insTDwC('lcebl',empty($dataset['snapdir']) ? gettext('hidden') : gettext('visible'));
+endforeach;
+$tfoot = $table->addTFOOT();
+$tfoot->
+	addTR()->
+		addTD(['class' => 'lcenl','colspan' => $n_col_width]);
+$table = $content->add_table_data_selection();
+$a_col_width = ['16%','12%','12%','12%','12%','12%','12%','12%'];
+$n_col_width = count($a_col_width);
+$table->
+	ins_colgroup_with_styles('width',$a_col_width);
+$thead = $table->addTHEAD();
+$tbody = $table->addTBODY();
+$thead->
+	ins_titleline(sprintf('%s (%d)',gettext('Volumes'),count($zfs['volumes']['volume'])),$n_col_width);
+$thead->
+	addTR()->
+		insTHwC('lhell',gettext('Name'))->
+		insTHwC('lhell',gettext('Pool'))->
+		insTHwC('lhell',gettext('Size'))->
+		insTHwC('lhell',gettext('Blocksize'))->
+		insTHwC('lhell',gettext('Sparse'))->
+		insTHwC('lhell',gettext('Compression'))->
+		insTHwC('lhell',gettext('Dedup'))->
+		insTHwC('lhebl',gettext('Sync'));
+foreach($zfs['volumes']['volume'] as $volume):
+	$tbody->
+		addTR()->
+			insTDwC('lcell',$volume['name'])->
+			insTDwC('lcell',$volume['pool'])->
+			insTDwC('lcell',$volume['volsize'])->
+			insTDwC('lcell',$volume['volblocksize'])->
+			insTDwC('lcell',empty($volume['sparse']) ? '-' : gettext('on'))->
+			insTDwC('lcell',$volume['compression'])->
+			insTDwC('lcell',$volume['dedup'])->
+			insTDwC('lcebl',$volume['sync']);
+endforeach;
+$content->
+	add_area_remarks()->
+		ins_remark('note',gettext('Note'),gettext('This page reflects the current system configuration. It may be different to the configuration which has been created with the WebGUI if changes has been done via command line'));
+switch($show_button):
+	case'import':
+		$import_button_value = gettext('Import on-disk ZFS configuration');
+		$document->
+			add_area_buttons()->
+				ins_button_submit(name: 'import',value: 'import',content: $import_button_value);
+		break;
+	case 'import_force':
+		$import_button_value = gettext('Force import on-disk ZFS configuration');
+		$document->
+			add_area_buttons()->
+				ins_button_submit(name: 'import_force',value: 'import_force',content: $import_button_value);
+		break;
+endswitch;
 $document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
-	if(!empty($message_box_text)):
-		print_core_box($message_box_type,$message_box_text);
-	endif;
-?>
-	<table class="area_data_selection">
-		<colgroup>
-			<col style="width:16%">
-			<col style="width:10%">
-			<col style="width:9%">
-			<col style="width:9%">
-			<col style="width:9%">
-			<col style="width:9%">
-			<col style="width:9%">
-			<col style="width:9%">
-			<col style="width:10%">
-			<col style="width:10%">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(sprintf('%s (%d)',gettext('Pools'),count($zfs['pools']['pool'])),10);
-?>
-			<tr>
-				<th class="lhell"><?=gtext('Name');?></th>
-				<th class="lhell"><?=gtext('Size');?></th>
-<?php
-				if($showusedavail):
-?>
-					<th class="lhell"><?=gtext('Used');?></th>
-					<th class="lhell"><?=gtext('Avail');?></th>
-<?php
-				else:
-?>
-					<th class="lhell"><?=gtext('Alloc');?></th>
-					<th class="lhell"><?=gtext('Free');?></th>
-<?php
-				endif;
-?>
-				<th class="lhell"><?=gtext('Expandsz');?></th>
-				<th class="lhell"><?=gtext('Frag');?></th>
-				<th class="lhell"><?=gtext('Dedup');?></th>
-				<th class="lhell"><?=gtext('Health');?></th>
-				<th class="lhell"><?=gtext('Mount Point');?></th>
-				<th class="lhebl"><?=gtext('AltRoot');?></th>
-			</tr>
-		</thead>
-		<tbody>
-<?php
-			foreach ($zfs['pools']['pool'] as $key => $pool):
-?>
-				<tr>
-					<td class="lcell"><?=$pool['name'];?></td>
-					<td class="lcell"><?=$zfs['extra']['pools']['pool'][$key]['size'];?></td>
-<?php
-				if($showusedavail):
-?>
-					<td class="lcell"><?=$zfs['extra']['pools']['pool'][$key]['used'];?></td>
-					<td class="lcell"><?=$zfs['extra']['pools']['pool'][$key]['avail'];?></td>
-<?php
-				else:
-?>
-					<td class="lcell"><?=$zfs['extra']['pools']['pool'][$key]['alloc'];?> (<?=$zfs['extra']['pools']['pool'][$key]['cap'];?>)</td>
-					<td class="lcell"><?=$zfs['extra']['pools']['pool'][$key]['free'];?></td>
-<?php
-				endif;
-?>
-					<td class="lcell"><?=$zfs['extra']['pools']['pool'][$key]['expandsz'];?></td>
-					<td class="lcell"><?=$zfs['extra']['pools']['pool'][$key]['frag'];?></td>
-					<td class="lcell"><?=$zfs['extra']['pools']['pool'][$key]['dedup'];?></td>
-					<td class="lcell"><?=$zfs['extra']['pools']['pool'][$key]['health'];?></td>
-					<td class="lcell"><?=empty($pool['mountpoint']) ? "/mnt/{$pool['name']}" : $pool['mountpoint'];?></td>
-					<td class="lcebl"><?=empty($pool['root']) ? '-' : $pool['root'];?></td>
-				</tr>
-<?php
-			endforeach;
-?>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td class="lcenl" colspan="10"></td>
-			</tr>
-		</tfoot>
-	</table>
-	<table class="area_data_selection">
-		<colgroup>
-			<col style="width:16%">
-			<col style="width:21%">
-			<col style="width:21%">
-			<col style="width:42%">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(sprintf('%s (%d)',gettext('Virtual Devices'),count($zfs['vdevices']['vdevice'])),4);
-?>
-			<tr>
-				<th class="lhell"><?=gtext('Name');?></th>
-				<th class="lhell"><?=gtext('Type');?></th>
-				<th class="lhell"><?=gtext('Pool');?></th>
-				<th class="lhebl"><?=gtext('Devices');?></th>
-			</tr>
-		</thead>
-		<tbody>
-<?php
-			foreach ($zfs['vdevices']['vdevice'] as $key => $vdevice):
-?>
-				<tr>
-					<td class="lcell"><?=$vdevice['name'];?></td>
-					<td class="lcell"><?=$vdevice['type'];?></td>
-					<td class="lcell"><?=$zfs['extra']['vdevices']['vdevice'][$key]['pool'];?></td>
-					<td class="lcebl"><?=implode(',',$vdevice['device']);?></td>
-				</tr>
-<?php
-			endforeach;
-?>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td class="lcenl" colspan="4"></td>
-			</tr>
-		</tfoot>
-	</table>
-	<table class="area_data_selection">
-		<colgroup>
-			<col style="width:14%">
-			<col style="width:14%">
-			<col style="width:7%">
-			<col style="width:7%">
-			<col style="width:9%">
-			<col style="width:9%">
-			<col style="width:9%">
-			<col style="width:7%">
-			<col style="width:8%">
-<!--
-			<col style="width:8%">
--->
-			<col style="width:7%"><!-- // Readonly -->
-			<col style="width:9%"><!-- // Snapshot Visibility -->
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(sprintf('%s (%d)',gettext('Datasets'),count($zfs['datasets']['dataset'])),11);
-?>
-			<tr>
-				<th class="lhell"><?=gtext('Name');?></th>
-				<th class="lhell"><?=gtext('Pool');?></th>
-				<th class="lhell"><?=gtext('Compression');?></th>
-				<th class="lhell"><?=gtext('Dedup');?></th>
-				<th class="lhell"><?=gtext('Sync');?></th>
-				<th class="lhell"><?=gtext('ACL Inherit');?></th>
-				<th class="lhell"><?=gtext('ACL Mode');?></th>
-				<th class="lhell"><?=gtext('Canmount');?></th>
-				<th class="lhell"><?=gtext('Quota');?></th>
-<!--
-				<th class="lhell"><?=gtext('Extended Attributes');?></th>
--->
-				<th class="lhell"><?=gtext('Readonly');?></th>
-				<th class="lhebl"><?=gtext('Snapshot Visibility');?></th>
-			</tr>
-		</thead>
-		<tbody>
-<?php
-			foreach ($zfs['datasets']['dataset'] as $dataset):
-?>
-				<tr>
-					<td class="lcell"><?=$dataset['name'];?></td>
-					<td class="lcell"><?=$dataset['pool'];?></td>
-					<td class="lcell"><?=$dataset['compression'];?></td>
-					<td class="lcell"><?=$dataset['dedup'];?></td>
-					<td class="lcell"><?=$dataset['sync'];?></td>
-					<td class="lcell"><?=$dataset['aclinherit'];?></td>
-					<td class="lcell"><?=$dataset['aclmode'];?></td>
-					<td class="lcell"><?=empty($dataset['canmount']) ? 'on' : $dataset['canmount'];?></td>
-					<td class="lcell"><?=empty($dataset['quota']) ? 'none' : $dataset['quota'];?></td>
-<!--
-					<td class="lcell"><?=empty($dataset['xattr']) ? 'off' : 'on';?></td>
--->
-					<td class="lcell"><?=empty($dataset['readonly']) ? 'off' : 'on';?></td>
-					<td class="lcebl"><?=empty($dataset['snapdir']) ? 'hidden' : 'visible';?></td>
-				</tr>
-<?php
-			endforeach;
-?>
-		</tbody>
-		<tfoot>
-			<tr>
-				<th class="lcenl" colspan="11"></th>
-			</tr>
-		</tfoot>
-	</table>
-	<table class="area_data_selection">
-		<colgroup>
-			<col style="width:16%">
-			<col style="width:12%">
-			<col style="width:12%">
-			<col style="width:12%">
-			<col style="width:12%">
-			<col style="width:12%">
-			<col style="width:12%">
-			<col style="width:12%">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(sprintf('%s (%d)',gettext('Volumes'),count($zfs['volumes']['volume'])),8);
-?>
-			<tr>
-				<th class="lhell"><?=gtext('Name');?></th>
-				<th class="lhell"><?=gtext('Pool');?></th>
-				<th class="lhell"><?=gtext('Size');?></th>
-				<th class="lhell"><?=gtext('Blocksize');?></th>
-				<th class="lhell"><?=gtext('Sparse');?></th>
-				<th class="lhell"><?=gtext('Compression');?></th>
-				<th class="lhell"><?=gtext('Dedup');?></th>
-				<th class="lhebl"><?=gtext('Sync');?></th>
-			</tr>
-		</thead>
-		<tbody>
-<?php
-			foreach ($zfs['volumes']['volume'] as $volume):
-?>
-				<tr>
-					<td class="lcell"><?=$volume['name'];?></td>
-					<td class="lcell"><?=$volume['pool'];?></td>
-					<td class="lcell"><?=$volume['volsize'];?></td>
-					<td class="lcell"><?=$volume['volblocksize'];?></td>
-					<td class="lcell"><?=empty($volume['sparse']) ? '-' : 'on';?></td>
-					<td class="lcell"><?=$volume['compression'];?></td>
-					<td class="lcell"><?=$volume['dedup'];?></td>
-					<td class="lcebl"><?=$volume['sync'];?></td>
-				</tr>
-<?php
-			endforeach;
-?>
-		</tbody>
-	</table>
-	<div id="remarks">
-<?php
-		html_remark2('note',gettext('Note'),gettext('This page reflects the current system configuration. It may be different to the configuration which has been created with the WebGUI if changes has been done via command line'));
-?>
-	</div>
-</td></tr></tbody></table>
-<?php
-include 'fend.inc';
