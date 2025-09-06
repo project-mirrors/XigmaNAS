@@ -75,7 +75,7 @@ if($_POST):
 			chown($dir,$user);
 			chgrp($dir,$group);
 //			create default config
-			$cmd = "/usr/local/bin/sudo -u {$user} /usr/local/bin/syncthing -generate=\"{$dir}\"";
+			$cmd = "/usr/local/bin/sudo -u {$user} /usr/local/bin/syncthing generate --home=\"{$dir}\"";
 			mwexec2("$cmd 2>&1",$rawdata,$result);
 //			fix GUI address
 			$cmd = "/usr/local/bin/sudo -u {$user} /usr/bin/sed -i '' 's/127.0.0.1:8384/{$gui_ipaddr}:{$gui_port}/' {$dir}/config.xml";
