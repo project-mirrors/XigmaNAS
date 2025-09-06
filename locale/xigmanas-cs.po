@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2024-06-23 12:29+0000\n"
+"POT-Creation-Date: 2025-09-06 21:13+0000\n"
 "PO-Revision-Date: 2023-02-04 12:27+0000\n"
 "Last-Translator: rama <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-08-28 09:22+0000\n"
-"X-Generator: Launchpad (build 919009172d854f2b8e4e8262db447f12f11d25eb)\n"
+"X-Launchpad-Export-Date: 2025-09-06 19:57+0000\n"
+"X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -428,6 +428,15 @@ msgstr "Snížit"
 
 msgid "Upper"
 msgstr "Horní"
+
+msgid "No IPMI Sensor data available."
+msgstr ""
+
+msgid "FRU Information"
+msgstr ""
+
+msgid "No IPMI FRU data available."
+msgstr ""
 
 msgid "iSCSI Target Information & Status"
 msgstr "Informace o a stav iSCSI cíle"
@@ -1655,9 +1664,6 @@ msgstr "RSYNC – klient"
 
 msgid "RSYNC - Local"
 msgstr "RSYNC – místní"
-
-msgid "UPnP/DLNA - Fuppes"
-msgstr "UPnP/DLNA – Fuppes"
 
 msgid "UPnP/DLNA - MiniDLNA"
 msgstr "UPnP/DLNA – MiniDLNA"
@@ -3129,19 +3135,15 @@ msgstr "Název objektu"
 msgid "RAID 0/1/5 Maintenance"
 msgstr "RAID 0/1/5 Údržba"
 
-msgid "Import on-disk ZFS config"
-msgstr "Import nastavení ZFS přímo z disku"
-
 msgid "No pool was found."
 msgstr "Nebyl nalezen žádný fond."
 
-msgid "Try to force import."
-msgstr "Pokusit se vynutit import."
-
-msgid "Try to import from on-disk ZFS config."
+msgid ""
+"No pool was found. Try to force import from on-disk ZFS configuration."
 msgstr ""
-"Pokusit se o import nastavení ZFS, uloženého přímo na jednotkách datového "
-"úložiště."
+
+msgid "No pool was found. Try to import from on-disk ZFS configuration."
+msgstr ""
 
 msgid "Your ZFS system is not healthy."
 msgstr "Tento ZFS souborový systém není v pořádku."
@@ -3230,14 +3232,26 @@ msgstr "Lze připojit"
 msgid "Quota"
 msgstr "Kvóta"
 
-msgid "Extended Attributes"
-msgstr "Rozšířené atributy"
-
 msgid "Readonly"
 msgstr "Pouze čtení"
 
 msgid "Snapshot Visibility"
 msgstr "Viditelnost zachyceného stavu"
+
+msgid "on"
+msgstr "zapnuto"
+
+msgid "none"
+msgstr "žádné"
+
+msgid "off"
+msgstr "vypnuto"
+
+msgid "hidden"
+msgstr "skryté"
+
+msgid "visible"
+msgstr "viditelné"
 
 msgid "Blocksize"
 msgstr "Velikost bloku"
@@ -3254,20 +3268,11 @@ msgstr ""
 "provedeny změny prostřednictvím rozhraní příkazového řádku, bude se lišit od "
 "toho, provedeného prostřednictvím webového správního rozhraní."
 
-msgid "on"
-msgstr "zapnuto"
+msgid "Import on-disk ZFS configuration"
+msgstr ""
 
-msgid "off"
-msgstr "vypnuto"
-
-msgid "none"
-msgstr "žádné"
-
-msgid "visible"
-msgstr "viditelné"
-
-msgid "hidden"
-msgstr "skryté"
+msgid "Force import on-disk ZFS configuration"
+msgstr ""
 
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
@@ -3284,6 +3289,9 @@ msgstr ""
 
 msgid "Nothing to synchronize"
 msgstr "Nic k synchronizaci"
+
+msgid "Extended Attributes"
+msgstr "Rozšířené atributy"
 
 msgid "Options"
 msgstr "Možnosti"
@@ -5986,111 +5994,6 @@ msgstr ""
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Určuje čas v hh:mm:ss, po jehož uplynutí platnost vyloučení skončí."
 
-msgid "Media library"
-msgstr "Multimediální knihovna"
-
-msgid "Database directory"
-msgstr "Složka s databází"
-
-msgid "Device IP"
-msgstr "IP adresa zařízení"
-
-msgid "Temporary directory"
-msgstr "Dočasná složka"
-
-#, php-format
-msgid "The attribute 'Port': port '%ld' is already taken by another service."
-msgstr "Atribut „Port“: port „%ld“ je už zabraný jinou službou."
-
-#, php-format
-msgid "Port number must be in the range between %d and %d."
-msgstr "Je třeba, aby číslo portu bylo z rozahu %d až %d."
-
-msgid ""
-"More than one DLNA/UPnP service is active. This configuration might cause "
-"issues."
-msgstr ""
-"Je aktivní více než jedna DLNA/UPnP služba. Takové nastavení může způsobovat "
-"problémy."
-
-msgid ""
-"Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-"issues."
-msgstr ""
-"Je už spuštěná jiná DLNA/UPnP služba. Zapnutí Fuppes může způsobit problémy."
-
-msgid "DLNA/UPnP Fuppes"
-msgstr "DLNA/UPnP Fuppes"
-
-msgid "Fuppes"
-msgstr "Fuppes"
-
-msgid "MiniDLNA"
-msgstr "MiniDLNA"
-
-msgid "Fuppes Media Server"
-msgstr "Multimediální server Fuppes"
-
-msgid "Interface Selection"
-msgstr "Výběr rozhraní"
-
-msgid "Content Locations"
-msgstr "Umístění obsahu"
-
-msgid "Profile"
-msgstr "Profil"
-
-msgid "Transcoding"
-msgstr "Převod kódování"
-
-msgid "Transcoding Directory"
-msgstr "Složka pro přepočítávání"
-
-msgid "Give your media library a friendly name."
-msgstr "Dejte své knihovně médií nějaký praktický název."
-
-msgid "Media server name"
-msgstr "Název serveru s médii"
-
-msgid ""
-"Select which interface to use. (Only selectable if your server has more than "
-"one interface)"
-msgstr ""
-"Vyberte které rozhraní použít (je k dispozici pouze pokud server má více než "
-"jedno)"
-
-#, php-format
-msgid ""
-"Port to listen on. Only dynamic or private ports can be used (from %d "
-"through %d). Default port is %d."
-msgstr ""
-"Port na kterém očekávat spojení. Je možné použít pouze porty z rozsahu "
-"dynamických či soukromých (od %d po %d). Výchozím portem je %d."
-
-msgid "Location of the media content database."
-msgstr "Umístění databáze s mediálním obsahem."
-
-msgid "Media Library"
-msgstr "Knihovna médií"
-
-msgid "Set the content location(s) to or from the media library."
-msgstr "Nastavte umístění obsahu do nebo z knihovny multimédií."
-
-msgid "Compliant profile to be used."
-msgstr "Odpovídající profil, který má být použit."
-
-msgid "The IP address of the device."
-msgstr "IP adresa zařízení."
-
-msgid "Enable transcoding."
-msgstr "Zapnout převod kódování znaků"
-
-msgid "Temporary directory to store transcoded files."
-msgstr "Dočasná složka pro překódovávané soubory."
-
-msgid "Fuppes Media Server Administration"
-msgstr "Správa media serveru Fuppes"
-
 msgid "No configured CARP interfaces."
 msgstr "Nejsou nastavena žádná CARP rozhraní."
 
@@ -7047,17 +6950,8 @@ msgstr "phpMyAdmin"
 msgid "A rescan has been issued."
 msgstr "Bylo vyvoláno opětovné skenování."
 
-msgid ""
-"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-"services can cause problems."
-msgstr ""
-"Jiná služba DLNA/UPnP je již povolena. Spuštění více služeb DLNA/UPnP může "
-"způsobit problémy."
-
-msgid ""
-"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
-"can cause problems."
-msgstr ""
+msgid "MiniDLNA"
+msgstr "MiniDLNA"
 
 msgid "MiniDLNA Media Server WebGUI"
 msgstr "Webové správní rozhraní MiniDLNA média serveru"
@@ -7847,6 +7741,9 @@ msgstr ""
 msgid "Permission"
 msgstr "Oprávnění"
 
+msgid "Paste a private key in PEM format here."
+msgstr "Sem vložte soukromou část klíče v PEM formátu."
+
 msgid "Document root of the webserver. Home of the web page files."
 msgstr ""
 "Kořen dokumentu webového serveru. Domovská složka souborů webových stránek."
@@ -7875,11 +7772,11 @@ msgstr "Oblast"
 msgid "Edit URL"
 msgstr "Upravit URL adresu"
 
-msgid "Do you really want to delete this URL?"
-msgstr "Opravdu smazat tuto URL adresu?"
-
 msgid "Delete URL"
 msgstr "Odstranit URL adresu"
+
+msgid "Do you really want to delete this URL?"
+msgstr "Opravdu smazat tuto URL adresu?"
 
 msgid "Add URL"
 msgstr "Přidat URL adresu"
@@ -8331,9 +8228,6 @@ msgstr ""
 msgid "Ignore Hosts Allow"
 msgstr "Nevšímat si seznamu strojů kterým je umožněn přístup"
 
-msgid "Paste a private key in PEM format here."
-msgstr "Sem vložte soukromou část klíče v PEM formátu."
-
 msgid "Language"
 msgstr "Jazyk"
 
@@ -8650,10 +8544,9 @@ msgstr "Nastavení systémového e-mailu"
 msgid "From email address for sending system messages."
 msgstr "Z e-mailové adresy pro posílání systémových zpráv."
 
-msgid "Destination email address. Separate email addresses by semi-colon."
+msgid ""
+"Destination email address. Multiple email addresses are separated by a comma."
 msgstr ""
-"Cílová e-mailová adresa. V případě vícero položek oddělujte znakem středník "
-"(;)."
 
 msgid "Outgoing SMTP mail server address."
 msgstr "Adresa odchozího SMTP serveru."
@@ -9195,6 +9088,9 @@ msgstr "Shromažďovat statistiky využití paměti."
 msgid "Enable collecting network latency statistics."
 msgstr "Shromažďovat statistiky prodlevy sítě."
 
+msgid "Interface Selection"
+msgstr "Výběr rozhraní"
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -9681,114 +9577,243 @@ msgstr "Parametry zavádění"
 msgid "Boot argument (e.g. %s)."
 msgstr "Parametry zavádění (např. %s)"
 
-msgid "Undefined"
-msgstr "Neurčeno"
+msgid "Show Used/Avail"
+msgstr "Zobrazit využito / k dispozici"
 
-msgid "The value is invalid."
-msgstr "Zadaná hodnota není platná."
+msgid "On-Disk Configuration"
+msgstr "Nastavení na disku"
 
-msgid "Network Address"
-msgstr "Síťová adresa"
+msgid "Capacity Warning Threshold"
+msgstr "Hranice varování na kapacitu"
 
-msgid "Enter additional parameters"
-msgstr "Zadejte další parametry"
+msgid "Capacity Critical Threshold"
+msgstr "Hranice výstrahy na kapacitu"
 
-msgid "No additional parameters"
-msgstr "Žádné další parametry"
-
-msgid "Enter a description for your reference."
-msgstr "Zadejte popis své předvolby."
-
-msgid "IPv4 Address"
-msgstr "IPv4 adresa"
-
-msgid "Protect"
-msgstr "Chránit"
-
-msgid "Protect Setting"
-msgstr "Nastaení ochrany"
-
-msgid "Enable Setting"
-msgstr "Zapnout nastavení"
-
-msgid "The UUID of the record."
-msgstr "Univerzálně neopakující se identifikátor (UUID) záznamu."
-
-msgid "Enter Universally Unique Identifier"
-msgstr "Zadejte univerzálně neopakující se identifikátor"
-
-msgid "Universally Unique Identifier"
-msgstr "Univerzálně neopakující se identifikátor"
-
-msgid "Delete Selected Records"
-msgstr "Smazat označené záznamy"
-
-msgid "Do you want to delete selected records?"
-msgstr "Opravdu smazat označené záznamy?"
-
-msgid "Disable Selected Records"
-msgstr "Vypnout označené záznamy"
-
-msgid "Do you want to disable selected records?"
-msgstr "Opravdu vypnout označené záznamy?"
-
-msgid "Enable Selected Records"
-msgstr "Zapnout označené záznamy"
-
-msgid "Do you want to enable selected records?"
-msgstr "Opravdu zapnout označené záznamy?"
-
-msgid "Lock Selected Records"
-msgstr "Uzamknout označené záznamy"
-
-msgid "Do you want to lock selected records?"
-msgstr "Opravdu uzamknout označené záznamy?"
-
-msgid "Toggle Selected Records"
-msgstr "Přepnout označené záznamy"
-
-msgid "Do you want to toggle selected records?"
-msgstr "Opravdu přepnout označené záznamy?"
-
-msgid "Unlock Selected Records"
-msgstr "Odemknout označené záznamy"
-
-msgid "Do you want to unlock selected records?"
-msgstr "Opravdu odemknout označené záznamy?"
-
-msgid "Add Record"
-msgstr "Přidat záznam"
-
-msgid "Record is marked for deletion"
-msgstr "Záznam je označen ke smazání"
-
-msgid "Record Information"
-msgstr "Informace o záznamu"
-
-msgid "Record is protected"
-msgstr "Záznam je chráněný"
-
-msgid "Record Maintenance"
-msgstr "Údržba záznamu"
-
-msgid "Edit Record"
-msgstr "Upravit záznam"
-
-msgid "Record is unlocked"
-msgstr "Záznam je odemčen"
-
-msgid "Autodetect"
-msgstr "Automatické rozpoznání"
-
-msgid "The identifier reported as unknown by smartctl, including brackets."
+msgid "Extended Destroy"
 msgstr ""
-"Identifikátor nahlášený smartctl jako neznámý, včetně hranatých závorek."
 
-msgid "Enter Identifier"
-msgstr "Zadejte identifikátor"
+msgid ""
+"Display Used/Avail information from the filesystem instead of the Alloc/Free "
+"information from the pool."
+msgstr ""
+"Zobrazovat informaci využito / k dispozici ze souborového systému namísto "
+"přiděleno/volné z fondu."
 
-msgid "Enter smartctl pass-through type."
-msgstr "Zadejte typ smartctl průchodu (pass-through)"
+msgid ""
+"Used/Avail lists storage information after all redundancy is taken into "
+"account but is impacted by compression, deduplication and quotas. Alloc/Free "
+"lists the raw storage information of a pool."
+msgstr ""
+"Využito/dostupné vypíše informace o úložišti po vzetí v úvahu vší "
+"redundance, ale je ovlivněno kompresí, deduplikací a kvótami. "
+"Přiděleno/volné vypisuje informace o holém úložišti."
+
+msgid "Read on-disk configuration."
+msgstr "Načíst nastavení na disku."
+
+msgid ""
+"Reading the configuration from the disks is slower than reading from cache "
+"file."
+msgstr ""
+"Načítání nastavení z disků je pomalejší než načítání ze souboru s mezipamětí."
+
+msgid "Set the warning threshold to a value between 80 and 89."
+msgstr "Nastavit hranici varování na hodnotu z rozmezí 80 až 89."
+
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the warning "
+"threshold."
+msgstr ""
+"Pokud kapacita fondu poklesne pod varující úroveň, je odeslán varující e-"
+"mail."
+
+msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
+msgstr ""
+"Pro pravidelné spouštění skriptu /etc/capacitycheck.zfs je třeba vytvořit "
+"úlohu v plánovači cron."
+
+msgid "Must be a number between 80 and 89."
+msgstr "Je třeba aby bylo číslo z rozmezí 80 až 89."
+
+msgid "Set the critical threshold to a value between 90 and 95."
+msgstr "Nastavit hranici výstraha na hodnotu z rozmezí 80 až 89."
+
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the critical "
+"threshold."
+msgstr ""
+"Pokud kapacita fondu poklesne pod kritickou úroveň, je odeslán výstražný e-"
+"mail."
+
+msgid "Must be a number between 90 and 95."
+msgstr "Je třeba aby bylo číslo z rozmezí 90 až 95."
+
+msgid "Destroy dataset and its dependents."
+msgstr ""
+
+msgid ""
+"When enabled, destroying a dataset will also destroy all dependents "
+"(datasets, snapshots and clones)."
+msgstr ""
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Second(s)"
+msgstr ""
+
+msgid "Minute(s)"
+msgstr ""
+
+msgid "Hour(s)"
+msgstr ""
+
+msgid "Day(s)"
+msgstr ""
+
+msgid "Week(s)"
+msgstr ""
+
+msgid "Month(s)"
+msgstr ""
+
+msgid "Year(s)"
+msgstr ""
+
+msgid "Hourly"
+msgstr ""
+
+msgid "Daily"
+msgstr ""
+
+msgid "Weekly"
+msgstr ""
+
+msgid "Monthly"
+msgstr ""
+
+msgid "Yearly"
+msgstr ""
+
+msgid "Custom Setting"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Weekdays"
+msgstr "Všední dny"
+
+msgid "All Minutes"
+msgstr "Každou minitu"
+
+msgid "All Hours"
+msgstr "Každou hodinu"
+
+msgid "All Days"
+msgstr "Každý den"
+
+msgid "All Months"
+msgstr "Každý měsíc"
+
+msgid "All Weekdays"
+msgstr "Každý den  z týdne"
+
+msgid "Add Schedule"
+msgstr "Přidat plán"
+
+msgid "Edit Schedule"
+msgstr ""
+
+msgid "Schedule is marked for deletion"
+msgstr ""
+
+msgid "Schedule is locked"
+msgstr ""
+
+msgid "Schedule is unlocked"
+msgstr ""
+
+msgid "Delete Selected Schedules"
+msgstr ""
+
+msgid "Do you want to delete selected schedules?"
+msgstr ""
+
+msgid "Disable Selected Schedules"
+msgstr ""
+
+msgid "Do you want to disable selected schedules?"
+msgstr ""
+
+msgid "Enable Selected Schedules"
+msgstr ""
+
+msgid "Do you want to enable selected schedules?"
+msgstr ""
+
+msgid "Toggle Selected Schedules"
+msgstr ""
+
+msgid "Do you want to toggle selected schedules?"
+msgstr ""
+
+msgid "Invalid"
+msgstr ""
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Create Snapshot"
+msgstr "Vytvořit snímek snapshot"
+
+msgid "Destroy Snapshot"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Příkazy jsou automaticky provedeny, když zvolená minuta, hodina a měsíc v "
+"roce odpovídají aktuálnímu času a zároveň odpovídá aktuálnímu času zvolený "
+"den v měsíci nebo den v týdnu."
+
+msgid "Presets"
+msgstr ""
+
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Scrub"
+msgstr ""
+
+msgid "Select pool."
+msgstr ""
+
+msgid "No ZFS zpool information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
 
 msgid "Add Filesystem"
 msgstr "Přidat souborový systém (FS)"
@@ -9811,19 +9836,10 @@ msgstr ""
 msgid "Do you want to delete selected filesystems?"
 msgstr ""
 
-msgid "Disable Selected Schedules"
-msgstr ""
-
 msgid "Do you want to disable selected filesystems?"
 msgstr ""
 
-msgid "Enable Selected Schedules"
-msgstr ""
-
 msgid "Do you want to enable selected filesystems?"
-msgstr ""
-
-msgid "Toggle Selected Schedules"
 msgstr ""
 
 msgid "Do you want to toggle selected filesystems?"
@@ -9841,236 +9857,6 @@ msgstr ""
 msgid "Filesystems"
 msgstr ""
 
-msgid "Dataset Name"
-msgstr ""
-
-msgid ""
-"File System - can be mounted within the standard system namespace and "
-"behaves like other file systems."
-msgstr ""
-"Souborový systém – je možné ho připojit v rámci standardního systémového "
-"jmenného prostoru a chová se stejně, jako ostatní souborové systémy."
-
-msgid "Volume - A logical volume. Can be exported as a raw or block device."
-msgstr ""
-"Svazek – logický svazek. Je možné ho exportovat jako holé (raw) nebo blokové "
-"zařízení."
-
-msgid ""
-"Snapshot - A read-only version of a file system or volume at a given point "
-"in time."
-msgstr ""
-
-msgid "Bookmark - Creates a bookmark of a given snapshot."
-msgstr "Záložka - vytváří záložku na daný snapshot."
-
-msgid "Dataset Type"
-msgstr "Typ datové sady"
-
-msgid "Pool Name"
-msgstr ""
-
-msgid "Clones"
-msgstr "Klony"
-
-msgid "Compression Ratio"
-msgstr "Kompresní poměr"
-
-msgid "Defer Destroy"
-msgstr ""
-
-msgid "Encryption Root"
-msgstr ""
-
-msgid "Filesystem Count"
-msgstr ""
-
-msgid "GUID"
-msgstr ""
-
-msgid "Key Status"
-msgstr ""
-
-msgid "Logical Referenced"
-msgstr ""
-
-msgid "Logical Used"
-msgstr ""
-
-msgid "Mounted"
-msgstr ""
-
-msgid "Obj Set ID"
-msgstr ""
-
-msgid "Receive Resume Token"
-msgstr ""
-
-msgid "Redact Snaps"
-msgstr ""
-
-msgid "Refcompressratio"
-msgstr ""
-
-msgid "Referenced"
-msgstr ""
-
-msgid "Snapshot Count"
-msgstr ""
-
-msgid "Used by Children"
-msgstr ""
-
-msgid "Used by Dataset"
-msgstr ""
-
-msgid "Used by Refreservation"
-msgstr ""
-
-msgid "Used by Snapshots"
-msgstr ""
-
-msgid "Userrefs"
-msgstr ""
-
-msgid "Written"
-msgstr ""
-
-msgid "Normalization"
-msgstr "Normalizace"
-
-msgid "UTF-8 File Names"
-msgstr ""
-
-msgid "ACL Type"
-msgstr "ACL typ"
-
-msgid "Access Time"
-msgstr "Okamžik přístupu"
-
-msgid "Can Mount"
-msgstr "Je možné připojit"
-
-msgid "Checksum"
-msgstr "Kontrolní součet"
-
-msgid "GZIP Compression Level"
-msgstr ""
-
-msgid "Zstandard Compression Level"
-msgstr ""
-
-msgid "Fast Zstandard Compression Level"
-msgstr ""
-
-msgid "Copies"
-msgstr "Kopie"
-
-msgid "Dedup Method"
-msgstr "Metoda deduplikace"
-
-msgid "Dnode Size"
-msgstr ""
-
-msgid "Execute Processes"
-msgstr ""
-
-msgid "Filesystem Limit"
-msgstr ""
-
-msgid "Jailed"
-msgstr "V odděleném prostředí"
-
-msgid "Key Format"
-msgstr ""
-
-msgid "Key Location"
-msgstr ""
-
-msgid "Logbias"
-msgstr "Logbias"
-
-msgid "Mountpoint Type"
-msgstr ""
-
-msgid "Non-blocking Mandatory Locks"
-msgstr ""
-
-msgid "Overlay Mount"
-msgstr ""
-
-msgid "PBKDF2 Iterations"
-msgstr ""
-
-msgid "Primary Cache"
-msgstr "Hlavní mezipaměť."
-
-msgid "Record Size"
-msgstr ""
-
-msgid "Redundant Metadata"
-msgstr "Záložní kopie metadat"
-
-msgid "Refquota"
-msgstr "Vztažná kvóta"
-
-msgid "Refquota Type"
-msgstr ""
-
-msgid "Refreservation"
-msgstr "Vztažné vyhrazení"
-
-msgid "Refreservation Type"
-msgstr ""
-
-msgid "Relatime"
-msgstr ""
-
-msgid "Reservation Type"
-msgstr ""
-
-msgid "Secondary Cache"
-msgstr "Pomocná mezipaměť"
-
-msgid "Setuid"
-msgstr ""
-
-msgid "Share NFS Options"
-msgstr ""
-
-msgid "Share NFS Type"
-msgstr ""
-
-msgid "Share SMB Options"
-msgstr ""
-
-msgid "Share SMB Type"
-msgstr ""
-
-msgid "Snapshot Device Visibility"
-msgstr ""
-
-msgid "Snapshot Folder Visibility"
-msgstr ""
-
-msgid "Snapshot Limit"
-msgstr ""
-
-msgid "Threshold Small Block Size"
-msgstr ""
-
-msgid "Synchronous Requests Behaviour"
-msgstr ""
-
-msgid "Volume Mode"
-msgstr "Režim svazku"
-
-msgid "Volume Size"
-msgstr "Velikost svazku"
-
-msgid "Virus Scan"
-msgstr ""
-
 msgid "The name of the filesystem."
 msgstr ""
 
@@ -10079,6 +9865,9 @@ msgstr ""
 
 msgid "Controls the type of the ZFS dataset."
 msgstr "Řídí typ ZFS datové sady."
+
+msgid "Pool Name"
+msgstr ""
 
 msgid ""
 "Indicates whether the file name matching algorithm used by the filesystem "
@@ -10624,724 +10413,1691 @@ msgstr ""
 msgid "System attribute based xattrs"
 msgstr ""
 
-msgid "Add Schedule"
-msgstr "Přidat plán"
-
-msgid "Edit Schedule"
-msgstr ""
-
-msgid "Schedule is marked for deletion"
-msgstr ""
-
-msgid "Schedule is locked"
-msgstr ""
-
-msgid "Schedule is unlocked"
-msgstr ""
-
-msgid "Delete Selected Schedules"
-msgstr ""
-
-msgid "Do you want to delete selected schedules?"
-msgstr ""
-
-msgid "Do you want to disable selected schedules?"
-msgstr ""
-
-msgid "Do you want to enable selected schedules?"
-msgstr ""
-
-msgid "Do you want to toggle selected schedules?"
-msgstr ""
-
-msgid "Invalid"
-msgstr ""
-
-msgid "Select pool."
+msgid "Dataset Name"
 msgstr ""
 
 msgid ""
-"Commands are executed by the scheduler when the minute, hour, and month of "
-"year fields match the current time, and when at least one of the two day "
-"fields (day of month, or day of week) matches the current time."
+"File System - can be mounted within the standard system namespace and "
+"behaves like other file systems."
 msgstr ""
-"Příkazy jsou automaticky provedeny, když zvolená minuta, hodina a měsíc v "
-"roce odpovídají aktuálnímu času a zároveň odpovídá aktuálnímu času zvolený "
-"den v měsíci nebo den v týdnu."
+"Souborový systém – je možné ho připojit v rámci standardního systémového "
+"jmenného prostoru a chová se stejně, jako ostatní souborové systémy."
 
-msgid "Presets"
+msgid "Volume - A logical volume. Can be exported as a raw or block device."
 msgstr ""
-
-msgid "Daily"
-msgstr ""
-
-msgid "Weekly"
-msgstr ""
-
-msgid "Monthly"
-msgstr ""
-
-msgid "Yearly"
-msgstr ""
-
-msgid "Custom Setting"
-msgstr ""
-
-msgid "Schedule"
-msgstr ""
-
-msgid "Weekdays"
-msgstr "Všední dny"
-
-msgid "All Minutes"
-msgstr "Každou minitu"
-
-msgid "All Hours"
-msgstr "Každou hodinu"
-
-msgid "All Days"
-msgstr "Každý den"
-
-msgid "All Months"
-msgstr "Každý měsíc"
-
-msgid "All Weekdays"
-msgstr "Každý den  z týdne"
-
-msgid "Scrub"
-msgstr ""
-
-msgid "Create Snapshot"
-msgstr "Vytvořit snímek snapshot"
-
-msgid "Destroy Snapshot"
-msgstr ""
-
-msgid "Scrub Pool"
-msgstr ""
-
-msgid "Hourly"
-msgstr ""
-
-msgid "Create"
-msgstr ""
-
-msgid "Select Pool, Filesystem or Volume"
-msgstr ""
-
-msgid "Recursively create snapshots of all descendent datasets."
-msgstr ""
-
-msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr ""
-
-msgid "Lifetime Value"
-msgstr ""
-
-msgid "Lifetime Units"
-msgstr ""
-
-msgid "Lifetime"
-msgstr ""
-
-msgid "Second(s)"
-msgstr ""
-
-msgid "Minute(s)"
-msgstr ""
-
-msgid "Hour(s)"
-msgstr ""
-
-msgid "Day(s)"
-msgstr ""
-
-msgid "Week(s)"
-msgstr ""
-
-msgid "Month(s)"
-msgstr ""
-
-msgid "Year(s)"
-msgstr ""
-
-msgid "Destroy"
-msgstr ""
-
-msgid "Show Used/Avail"
-msgstr "Zobrazit využito / k dispozici"
-
-msgid "On-Disk Configuration"
-msgstr "Nastavení na disku"
-
-msgid "Capacity Warning Threshold"
-msgstr "Hranice varování na kapacitu"
-
-msgid "Capacity Critical Threshold"
-msgstr "Hranice výstrahy na kapacitu"
+"Svazek – logický svazek. Je možné ho exportovat jako holé (raw) nebo blokové "
+"zařízení."
 
 msgid ""
-"Display Used/Avail information from the filesystem instead of the Alloc/Free "
-"information from the pool."
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
 msgstr ""
-"Zobrazovat informaci využito / k dispozici ze souborového systému namísto "
-"přiděleno/volné z fondu."
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr "Záložka - vytváří záložku na daný snapshot."
+
+msgid "Dataset Type"
+msgstr "Typ datové sady"
+
+msgid "Clones"
+msgstr "Klony"
+
+msgid "Compression Ratio"
+msgstr "Kompresní poměr"
+
+msgid "Defer Destroy"
+msgstr ""
+
+msgid "Encryption Root"
+msgstr ""
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "GUID"
+msgstr ""
+
+msgid "Key Status"
+msgstr ""
+
+msgid "Logical Referenced"
+msgstr ""
+
+msgid "Logical Used"
+msgstr ""
+
+msgid "Mounted"
+msgstr ""
+
+msgid "Obj Set ID"
+msgstr ""
+
+msgid "Receive Resume Token"
+msgstr ""
+
+msgid "Redact Snaps"
+msgstr ""
+
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
+msgid "Userrefs"
+msgstr ""
+
+msgid "Written"
+msgstr ""
+
+msgid "Normalization"
+msgstr "Normalizace"
+
+msgid "UTF-8 File Names"
+msgstr ""
+
+msgid "ACL Type"
+msgstr "ACL typ"
+
+msgid "Access Time"
+msgstr "Okamžik přístupu"
+
+msgid "Can Mount"
+msgstr "Je možné připojit"
+
+msgid "Checksum"
+msgstr "Kontrolní součet"
+
+msgid "GZIP Compression Level"
+msgstr ""
+
+msgid "Zstandard Compression Level"
+msgstr ""
+
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
+msgid "Copies"
+msgstr "Kopie"
+
+msgid "Dedup Method"
+msgstr "Metoda deduplikace"
+
+msgid "Dnode Size"
+msgstr ""
+
+msgid "Execute Processes"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Jailed"
+msgstr "V odděleném prostředí"
+
+msgid "Key Format"
+msgstr ""
+
+msgid "Key Location"
+msgstr ""
+
+msgid "Logbias"
+msgstr "Logbias"
+
+msgid "Mountpoint Type"
+msgstr ""
+
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
+msgid "Overlay Mount"
+msgstr ""
+
+msgid "PBKDF2 Iterations"
+msgstr ""
+
+msgid "Primary Cache"
+msgstr "Hlavní mezipaměť."
+
+msgid "Record Size"
+msgstr ""
+
+msgid "Redundant Metadata"
+msgstr "Záložní kopie metadat"
+
+msgid "Refquota"
+msgstr "Vztažná kvóta"
+
+msgid "Refquota Type"
+msgstr ""
+
+msgid "Refreservation"
+msgstr "Vztažné vyhrazení"
+
+msgid "Refreservation Type"
+msgstr ""
+
+msgid "Relatime"
+msgstr ""
+
+msgid "Reservation Type"
+msgstr ""
+
+msgid "Secondary Cache"
+msgstr "Pomocná mezipaměť"
+
+msgid "Setuid"
+msgstr ""
+
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
+
+msgid "Threshold Small Block Size"
+msgstr ""
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
+
+msgid "Volume Mode"
+msgstr "Režim svazku"
+
+msgid "Volume Size"
+msgstr "Velikost svazku"
+
+msgid "Virus Scan"
+msgstr ""
+
+msgid "The identifier reported as unknown by smartctl, including brackets."
+msgstr ""
+"Identifikátor nahlášený smartctl jako neznámý, včetně hranatých závorek."
+
+msgid "Enter Identifier"
+msgstr "Zadejte identifikátor"
+
+msgid "Enter smartctl pass-through type."
+msgstr "Zadejte typ smartctl průchodu (pass-through)"
+
+msgid "Enter login name."
+msgstr ""
+
+msgid "Enter the full user name."
+msgstr ""
+
+msgid "Full Name"
+msgstr "Úplný název"
+
+msgid "Set user password."
+msgstr ""
+
+msgid "Specify the user/account numeric id."
+msgstr ""
+
+msgid "The recommended range for the user id is between 1000 and 32000."
+msgstr ""
+
+msgid "1000"
+msgstr "1000"
+
+msgid "Set user login shell."
+msgstr "Nastavit přihlašovací shell uživatele."
+
+msgid "No Login"
+msgstr ""
+
+msgid "scponly - Secure Copy Protocol only"
+msgstr ""
+
+msgid "sh - Bourne Shell"
+msgstr ""
+
+msgid "bash - Bourne Again Shell"
+msgstr ""
+
+msgid "csh - C Shell"
+msgstr ""
+
+msgid "tcsh - TENEX C Shell"
+msgstr ""
+
+msgid "Set the account's primary group."
+msgstr ""
+
+msgid "Add user to additional groups."
+msgstr "Přidat uživatele do dalších skupin."
 
 msgid ""
-"Used/Avail lists storage information after all redundancy is taken into "
-"account but is impacted by compression, deduplication and quotas. Alloc/Free "
-"lists the raw storage information of a pool."
+"Enter the path to the home directory of the user. Leave this field empty to "
+"use default path /mnt."
 msgstr ""
-"Využito/dostupné vypíše informace o úložišti po vzetí v úvahu vší "
-"redundance, ale je ovlivněno kompresí, deduplikací a kvótami. "
-"Přiděleno/volné vypisuje informace o holém úložišti."
-
-msgid "Read on-disk configuration."
-msgstr "Načíst nastavení na disku."
-
-msgid ""
-"Reading the configuration from the disks is slower than reading from cache "
-"file."
-msgstr ""
-"Načítání nastavení z disků je pomalejší než načítání ze souboru s mezipamětí."
-
-msgid "Set the warning threshold to a value between 80 and 89."
-msgstr "Nastavit hranici varování na hodnotu z rozmezí 80 až 89."
-
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the warning "
-"threshold."
-msgstr ""
-"Pokud kapacita fondu poklesne pod varující úroveň, je odeslán varující e-"
-"mail."
-
-msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr ""
-"Pro pravidelné spouštění skriptu /etc/capacitycheck.zfs je třeba vytvořit "
-"úlohu v plánovači cron."
-
-msgid "Must be a number between 80 and 89."
-msgstr "Je třeba aby bylo číslo z rozmezí 80 až 89."
-
-msgid "Set the critical threshold to a value between 90 and 95."
-msgstr "Nastavit hranici výstraha na hodnotu z rozmezí 80 až 89."
-
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the critical "
-"threshold."
-msgstr ""
-"Pokud kapacita fondu poklesne pod kritickou úroveň, je odeslán výstražný e-"
-"mail."
-
-msgid "Must be a number between 90 and 95."
-msgstr "Je třeba aby bylo číslo z rozmezí 90 až 95."
-
-msgid "No ZFS volume information available."
-msgstr ""
-
-msgid "No ZFS zpool information available."
-msgstr ""
-
-msgid "Selected..."
-msgstr ""
-
-msgid "Directory"
-msgstr "Složka"
-
-msgid "Modified"
-msgstr "Upraveno"
-
-msgid "Parent Directory"
-msgstr "Nadřazená složka"
-
-msgid "You are not allowed to use this function."
-msgstr ""
-
-msgid "Copy item(s)"
-msgstr "Kopírování položky/položek"
-
-msgid "Move item(s)"
-msgstr ""
-
-#, php-format
-msgid "Copy from /%s to /%s "
-msgstr "Kopírovat z /%s na /%s "
-
-#, php-format
-msgid "Move from /%s to /%s "
-msgstr ""
-
-msgid "Copy"
-msgstr "Kopírovat"
-
-msgid "Move"
-msgstr ""
-
-msgid "The target directory doesn't exist."
-msgstr ""
-
-msgid "You are not allowed to access the target directory."
-msgstr ""
-
-msgid "The target directory may not be above the home directory."
-msgstr ""
-
-msgid "You must supply a name."
-msgstr ""
-
-msgid "This item doesn't exist."
-msgstr ""
-
-msgid "You are not allowed to access this item."
-msgstr ""
-
-msgid "The target item already exists."
-msgstr ""
-
-msgid "Copying failed."
-msgstr "Kopírování se nezdařilo."
-
-msgid "Moving failed."
-msgstr ""
-
-msgid "File saving failed."
-msgstr "Uložení souboru se nezdařilo."
-
-msgid "This file doesn't exist."
-msgstr ""
-
-msgid "You are not allowed to access this file."
-msgstr ""
-
-msgid "This item already exists."
-msgstr ""
-
-msgid "File opening failed."
-msgstr "Otevření souboru se nezdařilo."
-
-msgid "Edit file"
-msgstr ""
-
-msgid "Wrap text:"
-msgstr ""
-
-msgid "Reset"
-msgstr ""
-
-msgid "Close"
-msgstr "Zavřít"
-
-msgid "Deleting failed."
-msgstr "Mazání se nezdařilo."
-
-msgid "Unable to open source directory."
-msgstr ""
-
-msgid "Unable to open directory."
-msgstr ""
-
-msgid "Unable to read directory."
-msgstr ""
-
-msgid "Executable File"
-msgstr ""
-
-msgid "Link"
-msgstr "Odkaz"
-
-msgid "Text File"
-msgstr ""
-
-msgid "PHP Script"
-msgstr ""
-
-msgid "SQL File"
-msgstr ""
-
-msgid "PERL Script"
-msgstr ""
-
-msgid "HTML Page"
-msgstr "HTML stránka"
-
-msgid "XML File"
-msgstr ""
 
-msgid "Javascript File"
-msgstr "Javascript soubor"
+msgid "/mnt"
+msgstr "/mnt"
 
-msgid "CSS File"
-msgstr "soubor CSS"
-
-msgid "CGI Script"
-msgstr "CGI script"
-
-msgid "Python Script"
-msgstr ""
-
-msgid "Shell Script"
-msgstr ""
-
-msgid "C File"
-msgstr "C soubor"
-
-msgid "C++ Source File"
-msgstr "Zdrojový soubor v C++"
-
-msgid "C++ Header File"
-msgstr "hlavičkový soubor C++"
-
-msgid "Java Source File"
-msgstr "Zdrojový soubor v Javě"
-
-msgid "Java Class File"
-msgstr "Java Class soubor"
-
-msgid "Pascal File"
-msgstr ""
-
-msgid "GIF Image"
-msgstr "GIF obrázek"
-
-msgid "JPG Image"
-msgstr "JPG obrázek"
-
-msgid "BMP Image"
-msgstr "obrázek BMP"
-
-msgid "PNG Image"
-msgstr ""
-
-msgid "TIF Image"
-msgstr ""
-
-msgid "Photoshop File"
-msgstr ""
-
-msgid "ZIP Archive"
-msgstr ""
-
-msgid "TAR Archive"
-msgstr ""
-
-msgid "GZIP Archive"
-msgstr "GZIP archiv"
-
-msgid "BZIP2 Archive"
-msgstr "BZIP2 archív"
-
-msgid "RAR Archive"
-msgstr ""
-
-msgid "MP3 Audio File"
-msgstr "MP3 zvukový soubor"
-
-msgid "FLAC Audio File"
-msgstr ""
-
-msgid "WAV Audio File"
-msgstr ""
-
-msgid "MIDI File"
-msgstr "MIDI soubor"
-
-msgid "RealAudio File"
-msgstr ""
-
-msgid "DTS Audio File"
-msgstr "DTS audio sourbor"
-
-msgid "AC3 Audio File"
-msgstr "AC3 zvukový soubor"
-
-msgid "OGG Audio File"
-msgstr ""
-
-msgid "MP3 Playlist"
-msgstr "MP3 seznam stop"
-
-msgid "AVI File"
-msgstr "AVI soubor"
-
-msgid "MPEG File"
-msgstr "MPEG soubor"
-
-msgid "MOV File"
-msgstr "MOV soubor"
-
-msgid "MKV File"
-msgstr "MKV soubor"
-
-msgid "VOB File"
-msgstr ""
-
-msgid "Flash File"
-msgstr ""
-
-msgid "MP4 File"
-msgstr "MP4 soubor"
-
-msgid "TS File"
-msgstr ""
-
-msgid "Word Document"
-msgstr ""
-
-msgid "Excel Sheet"
-msgstr ""
-
-msgid "Powerpoint Presentation"
-msgstr ""
-
-msgid "PDF File"
-msgstr ""
-
-msgid "You haven't selected any item(s)."
-msgstr ""
-
-msgid "ERROR(S)"
-msgstr ""
-
-msgid "Go Back"
-msgstr "Jít zpět"
-
-msgid "Directory creation failed."
-msgstr "Vytvoření složky se nezdaiřlo."
-
-msgid "File creation failed."
-msgstr "Vytvoření souboru se nezdařilo."
-
-msgid "Extracting"
-msgstr ""
-
-msgid "Unzip"
+msgid "User portal permission."
 msgstr ""
 
-msgid "Failed to extract archive."
+msgid "No access to the user portal"
 msgstr ""
 
-msgid "Are you sure you want to delete selected item(s)?"
-msgstr "Chceš opravdu smazat vybranou položku/vybrané položky?"
-
-msgid "Search Directory"
+msgid "User access"
 msgstr ""
 
-msgid "Search Filter"
-msgstr ""
+msgid "Admin access"
+msgstr "Administrátorský přístup"
 
-msgid "Search subfolder"
+msgid "Select the language of the user portal for this user."
 msgstr ""
 
-#, php-format
-msgid "Search Result for %1$s"
+msgid "Select the timezone for this user."
 msgstr ""
-
-msgid "Item(s)"
-msgstr "Položek"
 
-msgid "No results available."
-msgstr ""
+msgid "Grant access to the file manager."
+msgstr "Udělit přístup ke správci souborů."
 
-msgid "HOME"
+msgid "Show hidden items"
 msgstr ""
 
-msgid "Permission-change failed."
-msgstr ""
+msgid "Grant read permission"
+msgstr "Udělit oprávnění pro čtení"
 
-msgid "Getting permissions failed."
-msgstr "Získání oprávnění se nezdařilo."
+msgid "Grant create permission"
+msgstr "Udělit oprávnění pro vytváření"
 
-msgid "Change permissions"
-msgstr "Změnit oprávnění"
+msgid "Grant modify permission"
+msgstr "Udělit oprávnění pro provádění změn"
 
-msgid "Public"
-msgstr ""
+msgid "Grant delete permission"
+msgstr "Udělit oprávnění pro mazání"
 
-msgid "CHANGE PERMISSIONS"
-msgstr "ZMĚNA PRÁV"
+msgid "Add User Account"
+msgstr "Přidat uživatelský účet"
 
-msgid "You are not allowed to access this directory."
-msgstr ""
+msgid "Edit User Account"
+msgstr "Upravit uživatelský účet"
 
-msgid "UP"
-msgstr ""
+msgid "User account is marked for deletion"
+msgstr "Uživatelský účet je označen ke smazání"
 
-msgid "RELOAD"
-msgstr ""
+msgid "User account is protected"
+msgstr "Uživatelský účet je chráněný"
 
-msgid "SEARCH"
-msgstr ""
+msgid "User account is unlocked"
+msgstr "Uživatelský účet je odemčený"
 
-msgid "Permissions"
+msgid "Set password"
 msgstr ""
-
-msgid "Actions"
-msgstr "Akce"
 
-msgid "COPY"
-msgstr "KOPÍROVAT"
+msgid "Delete Selected User Accounts"
+msgstr "Smazat označené uživatelské účty"
 
-msgid "MOVE"
-msgstr ""
+msgid "Do you want to delete selected user accounts?"
+msgstr "Opravdu smazat označené uživatelské účty?"
 
-msgid "DELETE"
-msgstr "DELETE"
+msgid "Disable Selected Users"
+msgstr "Zakázat označené uživatele"
 
-msgid "EDIT"
+msgid "Do you want to disable selected users?"
 msgstr ""
 
-msgid "UNZIP"
+msgid "Enable Selected Users"
 msgstr ""
 
-msgid "DOWNLOAD"
+msgid "Do you want to enable selected users?"
 msgstr ""
 
-msgid "The following errors were detected"
-msgstr "Byly zjištěny následující chyby"
-
-msgid ""
-"If this message persists take a look at the system log for more information."
+msgid "Toggle Selected Users"
 msgstr ""
-"Pokud se tato zpráva pořád objevuje, nahlédněte do dalších podrobností v "
-"záznamu událostí (log) systému"
-
-msgid "Choose..."
-msgstr "Zvolit…"
 
-msgid "Running"
+msgid "Do you want to toggle selected users?"
 msgstr ""
 
 msgid "Active"
 msgstr "Aktivní"
 
-msgid "Inactive"
+msgid "System User"
 msgstr ""
 
-msgid "Online"
+msgid "Show System Users"
 msgstr ""
 
-msgid "Offline"
+msgid "Hide System Users"
+msgstr "Skrýt systémové uživatele"
+
+msgid "Users"
+msgstr "Uživatelé"
+
+msgid "Public Keys"
 msgstr ""
 
-msgid "No records found."
-msgstr "Nebyly nalezeny žádné záznamy."
+msgid "Groups"
+msgstr "Skupiny"
 
-msgid "Apply Changes"
-msgstr "Uplatnit změny"
+msgid "Login Name"
+msgstr "Přihlašovací jméno"
+
+msgid "SHA Password"
+msgstr ""
+
+msgid "MD4 Password"
+msgstr "MD4 heslo"
+
+msgid "Shell"
+msgstr "Terminál"
+
+msgid "Primary Group"
+msgstr "Hlavní skupina"
+
+msgid "Timezone"
+msgstr ""
+
+msgid "File Manager Access"
+msgstr "Přístup ke správci souborů"
+
+msgid "Hidden Items"
+msgstr "Skryté položky"
+
+msgid "Read Permission"
+msgstr ""
+
+msgid "Create Permission"
+msgstr "Vytvořit oprávnění"
+
+msgid "Change Permission"
+msgstr "Změnit oprávnění"
+
+msgid "Delete Permission"
+msgstr ""
+
+msgid "Public key information."
+msgstr ""
+
+msgid "Public Key"
+msgstr ""
+
+msgid "Add Public Key"
+msgstr "Přidat veřejný klíč"
+
+msgid "Edit Public Key"
+msgstr ""
+
+msgid "Public key is marked for deletion"
+msgstr ""
+
+msgid "Public key is protected"
+msgstr ""
+
+msgid "Public key is unlocked"
+msgstr ""
+
+msgid "Delete Selected Public Keys"
+msgstr "Smazat označené veřejné klíče"
+
+msgid "Do you want to delete selected public keys?"
+msgstr "Chcete označené veřejné klíče smazat?"
+
+msgid "Disable Selected Public Keys"
+msgstr "Zakázat označené veřejné klíče"
+
+msgid "Do you want to disable selected public keys?"
+msgstr "Chcete zakázat zvolené veřejné klíče?"
+
+msgid "Enable Selected Public Keys"
+msgstr ""
+
+msgid "Do you want to enable selected public keys?"
+msgstr "Chcete povolit vybrané veřejné klíče?"
+
+msgid "Toggle Selected Public Keys"
+msgstr ""
+
+msgid "Do you want to toggle selected public keys?"
+msgstr ""
 
 msgid "Reload"
 msgstr "Načíst znovu"
 
+msgid "Add Group"
+msgstr "Přidat skupinu"
+
+msgid "Edit Group"
+msgstr "Upravit skupinu"
+
+msgid "Group is marked for deletion"
+msgstr "Skupina je označena ke smazání"
+
+msgid "Group is protected"
+msgstr "Skupina je chráněna"
+
+msgid "Group is unlocked"
+msgstr "Skupina je odemčená"
+
+msgid "Delete Selected Groups"
+msgstr "Smazat označené skupiny"
+
+msgid "Do you want to delete selected groups?"
+msgstr "Opravdu smazat označené skupiny?"
+
+msgid "Disable Selected Groups"
+msgstr "Zakázat označené skupiny"
+
+msgid "Do you want to disable selected groups?"
+msgstr ""
+
+msgid "Enable Selected Groups"
+msgstr ""
+
+msgid "Do you want to enable selected groups?"
+msgstr ""
+
+msgid "Toggle Selected Groups"
+msgstr ""
+
+msgid "Do you want to toggle selected groups?"
+msgstr ""
+
+msgid "System Group"
+msgstr ""
+
+msgid "Show System Groups"
+msgstr ""
+
+msgid "Hide System Groups"
+msgstr "Skrýt systémové skupiny"
+
+msgid "Enter group name."
+msgstr "Zadejte název skupiny."
+
+msgid "Group Name"
+msgstr "Název skupiny"
+
+msgid "Specify the group numeric id."
+msgstr ""
+
+msgid "The recommended range for the group id is between 1000 and 32000."
+msgstr ""
+
+msgid "Domain Controller Name"
+msgstr "Název řadiče domény"
+
+msgid "Domain Name (DNS/Realm-Name)"
+msgstr "Název domény (DNS/Realm)"
+
+msgid "Domain Name (NetBIOS-Name)"
+msgstr "Název domény (NetBIOS)"
+
+msgid "Administrator Name"
+msgstr "Jméno správce"
+
+msgid "Administrator Password"
+msgstr "Heslo správce"
+
+msgid "Enter AD or PDC name."
+msgstr ""
+
+msgid "Controller Name"
+msgstr "Název ovladače"
+
+msgid "Enter the domain name."
+msgstr ""
+
+msgid "example.com"
+msgstr ""
+
+msgid "Enter NetBIOS name."
+msgstr ""
+
+msgid "NETBIOS"
+msgstr ""
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
+
+msgid "Admin"
+msgstr "Správce"
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
+
+msgid "Add Reboot Schedule"
+msgstr "Naplánovat restart"
+
+msgid "Edit Reboot Schedule"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
+msgid "Disable Selected Reboot Schedules"
+msgstr ""
+
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
+msgid "Enable Selected Reboot Schedules"
+msgstr ""
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr ""
+
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr ""
+
+msgid "Daemon Events"
+msgstr "Události v procesu služby"
+
+msgid "Enable Server"
+msgstr "Zapnout server"
+
+msgid "FTP Events"
+msgstr "Události v FTP"
+
+msgid "RSYNC Events"
+msgstr "Události v RSYNC"
+
+msgid "S.M.A.R.T. Events"
+msgstr "Události ve SMART diagnostice datových úložišť"
+
+msgid "SSH Events"
+msgstr "Události v SSH"
+
+msgid "System Events"
+msgstr "Události v systému"
+
+msgid "Send daemon event messages."
+msgstr "Posílat zprávy o událostech v procesu služby."
+
+msgid "Send FTP event messages."
+msgstr "Posílat zprávy o událostech v FTP."
+
+msgid "IP address of the remote syslog server."
+msgstr "IP adresa vzdáleného syslog serveru."
+
+msgid ""
+"Port of the remote syslog server. Leave blank to use the default port."
+msgstr ""
+"Port vzdáleného syslog serveru. Pro použití výchozího portu nevyplňujte."
+
+msgid ""
+"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
+"server. Be sure to set syslogd on the remote server to accept syslog "
+"messages from this server."
+msgstr ""
+"Nástroj syslog posílá UDP datagramy na port 514 na zadaném serveru se "
+"službou syslog. Zajistěte, aby proces služby syslog na protějšku byl "
+"nastaven tak, aby přijímal zprávy z tohoto Nas4Free stroje."
+
+msgid "514"
+msgstr "514"
+
+msgid "Port number must be 514 or a number between 1024 and 65535."
+msgstr ""
+
+msgid "Send RSYNC event messages."
+msgstr "Posílat zprávy o událostech v RSYNC."
+
+msgid "Send S.M.A.R.T. event messages."
+msgstr ""
+"Posílat zprávy o událostech ve SMART diagnostice jednotek datového úložiště."
+
+msgid "Send SSH event messages."
+msgstr "Posílat zprávy o událostech v SSH."
+
+msgid "Send system event messages."
+msgstr "Posílat zprávy o událostech v systému."
+
+msgid "Disable the compression of repeating lines."
+msgstr "Vypnout kompresi opakujících se řádků."
+
+msgid "Accept remote syslog messages."
+msgstr "Přijímat syslog zprávy z ostatních systémů."
+
+msgid ""
+"If this option is checked, IP addresses in the server logs are resolved to "
+"their hostnames where possible."
+msgstr ""
+"Když je tato předvolba označená, IP adresy v záznamech o provozu serveru "
+"jsou překládány na názvy jejich strojů, když je to možné."
+
+msgid "This can cause a huge delay in loading the log page!"
+msgstr ""
+"Toto může způsobit obrovskou prodlevu při načítání stránky se záznamem "
+"událostí!"
+
+msgid "Show log entries in reverse order (newest entries on top)."
+msgstr ""
+"Zobrazit položky záznamu událostí v obráceném pořadí (nejnovější navrchu)."
+
+msgid "Remote Syslog Messages"
+msgstr "Syslog zprávy na protějšku"
+
+msgid "Show Log Entries"
+msgstr "Zobrazit položky záznamu událostí (log)"
+
+msgid "Log Order"
+msgstr "Pořadí záznamů událostí"
+
+msgid "Facility"
+msgstr "Zařízení (facility)"
+
+msgid "Add Option"
+msgstr "Přidat předvolbu"
+
+msgid "Edit Option"
+msgstr "Upravit předvolbu"
+
+msgid "Option is marked for deletion"
+msgstr "Předvolba je označena k vymazání"
+
+msgid "Option is locked"
+msgstr "Předvolba je uzamčena"
+
+msgid "Option is unlocked"
+msgstr "Předvolba je odemčena"
+
+msgid "Delete Selected Options"
+msgstr "Smazat označené předvolby"
+
+msgid "Do you want to delete selected options?"
+msgstr "Opravdu smazat označené předvolby?"
+
+msgid "Disable Selected Options"
+msgstr "Vypnout označené předvolby"
+
+msgid "Do you want to disable selected options?"
+msgstr "Opravdu vypnout označené předvolby?"
+
+msgid "Enable Selected Options"
+msgstr "Zapnout označené předvolby"
+
+msgid "Do you want to enable selected options?"
+msgstr "Opravdu zapnout označené předvolby?"
+
+msgid "Toggle Selected Options"
+msgstr "Přepnout označené předvolby"
+
+msgid "Do you want to toggle selected options?"
+msgstr "Opravdu přepnout označené předvolby?"
+
+msgid "Enter facility name"
+msgstr "Zadejte název zařízení (facility)"
+
+msgid "Enter level name"
+msgstr "Zadejte název úrovně"
+
+msgid "Enter destination"
+msgstr "Zadejte cíl"
+
+msgid "Sort"
+msgstr "Seřadit"
+
 msgid "Reorder"
 msgstr "Přeuspořádat"
 
-msgid "Rescan"
-msgstr "Znovu proskenovat"
+msgid "Add Command"
+msgstr "Přidat příkaz"
 
-msgid "Restart"
-msgstr "Restartovat"
-
-msgid "Add VLAN"
-msgstr "Přidat VLAN síť"
-
-msgid "Edit VLAN"
-msgstr "Upravit VLAN"
-
-msgid "VLAN is marked for deletion"
-msgstr "VLAN je označena ke smazání"
-
-msgid "VLAN is locked"
+msgid "Edit Command"
 msgstr ""
 
-msgid "VLAN is unlocked"
-msgstr "VLAN je odemčena"
+msgid "Command is marked for deletion"
+msgstr "Příkaz je označen k vymazání."
 
-msgid "Delete Selected VLANs"
-msgstr "Smazat označené virt. (VLAN) sítě"
+msgid "Command is locked"
+msgstr "Příkaz je uzamčen."
 
-msgid "Disable Selected VLANs"
+msgid "Command is unlocked"
+msgstr "Příkaz je odemčen"
+
+msgid "Delete Selected Commands"
+msgstr "Smazat označené příkazy"
+
+msgid "Do you want to delete selected commands?"
+msgstr "Opravdu smazat označené příkazy?"
+
+msgid "Disable Selected Commands"
+msgstr "Vypnout označené příkazy"
+
+msgid "Do you want to disable selected commands?"
+msgstr "Opravdu vypnout označené příkazy?"
+
+msgid "Enable Selected Commands"
+msgstr "Používat označené příkazy"
+
+msgid "Do you want to enable selected commands?"
+msgstr "Opravdu zapnout označené příkazy?"
+
+msgid "Toggle Selected Commands"
+msgstr "Přepnout označené příkazy"
+
+msgid "Do you want to toggle selected commands?"
+msgstr "Opravdu přepnout označené příkazy?"
+
+msgid ""
+"These commands will be executed pre or post system initialization (booting) "
+"or before system shutdown."
+msgstr ""
+"Tyto příkazy budou spuštěny před či po spuštění systému, případně před jeho "
+"vypnutím."
+
+msgid "Post Upgrade"
+msgstr "Po aktualizaci"
+
+msgid "Name of the command."
 msgstr ""
 
-msgid "Enable Selected VLANs"
+msgid "The command to be executed."
+msgstr "Příkaz který má být vykonán."
+
+msgid "Select at which stage the command should be executed."
+msgstr "Vyberte která fáze příkazu má být vykonána."
+
+msgid "Add sysctl setting"
+msgstr "Přidat nastavení sysctl"
+
+msgid "Edit sysctl setting"
 msgstr ""
 
-msgid "Toggle Selected VLANs"
+msgid "Sysctl setting is marked for deletion"
 msgstr ""
 
-msgid "Do you want to delete selected VLANs?"
-msgstr "Opravdu smazat označené VLAN?"
-
-msgid "Do you want to disable selected VLANs?"
+msgid "Sysctl setting is locked"
 msgstr ""
 
-msgid "Do you want to enable selected VLANs?"
+msgid "Sysctl setting is unlocked"
 msgstr ""
 
-msgid "Do you want to toggle selected VLANs?"
+msgid "Delete Selected Sysctl Settings"
+msgstr "Smazat označená sysctl nastavení"
+
+msgid "Do you want to delete selected sysctl settings?"
 msgstr ""
 
-msgid "The name of the VLAN interface"
+msgid "Disable Selected Sysctl Settings"
+msgstr "Zakázat označená sysctl nastavení"
+
+msgid "Do you want to disable selected sysctl settings?"
 msgstr ""
 
-msgid "vlan0"
+msgid "Enable Selected Sysctl Settings"
 msgstr ""
 
-msgid "802.1Q VLAN tag (between 1 and 4094)."
-msgstr ""
-"Značka virtuální sítě (VLAN) dle normy 802.1Q – číslo z rozsahu 1 až 4094."
+msgid "Do you want to enable selected sysctl settings?"
+msgstr "Chcete povolit vybraná nastavení sysctl?"
 
-msgid "102"
+msgid "Toggle Selected Sysctl Settings"
+msgstr ""
+
+msgid "Do you want to toggle selected sysctl settings?"
 msgstr ""
 
 msgid ""
-"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
-"class of service and maps to the frame priority level."
+"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
+"make changes to a running system."
 msgstr ""
 
-msgid "Best effort (default)"
+msgid "The value of the setting."
 msgstr ""
 
-msgid "Background (lowest)"
+msgid "Variable"
+msgstr "Proměnná"
+
+msgid "Destination Network"
+msgstr "Cílová síť"
+
+msgid "Choose which interface this route applies to."
+msgstr "Zvolte rozhraní pro které bude tato trasa platit."
+
+msgid "Destination network for this static route."
+msgstr "Cílová síť pro toto statické směrování."
+
+msgid "Gateway to be used to reach the destination network."
+msgstr "Brána do cílové sítě"
+
+msgid "Add Route"
+msgstr "Přidat trasu"
+
+msgid "Edit Route"
+msgstr "Upravit trasu"
+
+msgid "Route is marked for deletion"
+msgstr "Trasa je označena ke smazání"
+
+msgid "Route is locked"
 msgstr ""
 
-msgid "Excellent effort"
+msgid "Route is unlocked"
+msgstr "Trasa"
+
+msgid "Delete Selected Routes"
+msgstr "Smazat označené trasy"
+
+msgid "Do you want to delete selected routes?"
+msgstr "Opravdu smazat označené trasy?"
+
+msgid "Disable Selected Routes"
+msgstr "Zakázat označené trasy"
+
+msgid "Do you want to disable selected routes?"
+msgstr "Chcete zakázat zvolené routy?"
+
+msgid "Enable Selected Routes"
 msgstr ""
 
-msgid "Critical applications"
+msgid "Do you want to enable selected routes?"
 msgstr ""
 
-msgid "Video < 100ms latency"
+msgid "Toggle Selected Routes"
 msgstr ""
 
-msgid "Video < 10ms latency"
+msgid "Do you want to toggle selected routes?"
 msgstr ""
 
-msgid "Internetwork control"
+msgid "Running user"
 msgstr ""
 
-msgid "Network control (highest)"
+msgid "The name of the variable."
 msgstr ""
 
-msgid "Set the VLAN encapsulation protocol."
+msgid "The value of the variable."
+msgstr "Hodnota proměnné."
+
+msgid ""
+"These option(s) will be added to /boot/loader.conf.local. This allows you to "
+"specify parameters to be passed to the kernel and additional modules to be "
+"loaded."
 msgstr ""
 
-msgid "802.1Q (default)"
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr "Názvy vypnutých proměnných budou odebrány z /etc/rc.conf."
+
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr "Zapnuté voby budou přidány do /etc/rc.conf."
+
+msgid "Name of the variable."
+msgstr "Název proměnné"
+
+msgid "Enter Value"
+msgstr "Zadejte hodnotu"
+
+msgid ""
+"Display action buttons in the scrollable area instead of the footer area."
+msgstr "Zobrazit tlačítka akcí v posouvatelné oblasti namísto v zápatí."
+
+msgid "Fully qualified file name of a custom file chooser CSS file."
 msgstr ""
 
-msgid "802.1ad (QinQ)"
+msgid "Select file mode of the custom file chooser CSS file."
 msgstr ""
 
-msgid "VLAN Interface"
+msgid "Replace the default CSS file"
 msgstr ""
 
-msgid "VLAN Tag"
-msgstr "Značka virtuální sítě (VLAN)"
+msgid "Append content to the default CSS file"
+msgstr "Připojit obsah do výchozího CSS souboru"
 
-msgid "PCP"
+msgid "Fully qualified file name of a custom GUI CSS file."
 msgstr ""
 
-msgid "Encapsulation Protocol"
+msgid "Select file mode of the custom GUI CSS file."
 msgstr ""
+
+msgid "Fully qualified file name of a custom navigation bar CSS file."
+msgstr ""
+
+msgid "Select file mode of the custom navigation bar CSS file."
+msgstr ""
+
+msgid "Fully qualified file name of a custom tabs CSS file."
+msgstr ""
+
+msgid "Select file mode of the custom tabs CSS file."
+msgstr ""
+
+msgid "Use toggle button instead of enable/disable buttons."
+msgstr "Použít přepínací tlačítko namísto tlačítek zapnout/vypnout."
+
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
+msgid "Show text only"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid ""
+"Display disk size values using binary prefixes instead of decimal prefixes."
+msgstr "Zobrazovat datové objemy s binárními předponami namísto desítkových."
+
+msgid "Enable this option if you want to display colorful meter states."
+msgstr ""
+
+msgid ""
+"Enable this option if you want to edit configuration pages directly without "
+"the need to switch to edit mode."
+msgstr ""
+"Tuto předvolbu zapněte pokud chcete upravovat stránky s nastavením přímo bez "
+"potřeby přepnutí do režimu úprav."
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr ""
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr ""
+
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
+msgid "Button Location"
+msgstr "Umístění tlačítka"
+
+msgid "File Chooser"
+msgstr ""
+
+msgid "File Mode"
+msgstr "Přístupová práva k souboru"
+
+msgid "GUI"
+msgstr "Grafické uživatelské rozhraní"
+
+msgid "Navigation Bar"
+msgstr ""
+
+msgid "Tabs"
+msgstr ""
+
+msgid "Toggle Mode"
+msgstr "Přepnout režim"
+
+msgid "Navbar Style"
+msgstr ""
+
+msgid "Binary Prefix"
+msgstr "Binární předpony"
+
+msgid "Colorful Meters"
+msgstr "Barevné měřítko"
+
+msgid "Skip View Mode"
+msgstr "Přeskočit prohlížecí režim"
+
+msgid "Show Max CPUs"
+msgstr ""
+
+msgid "Diagnostics Information"
+msgstr ""
+
+msgid "Show Interval"
+msgstr "Zobrazit interval"
+
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables the reminder."
+msgstr ""
+
+msgid "Network Address"
+msgstr "Síťová adresa"
+
+msgid "Enter additional parameters"
+msgstr "Zadejte další parametry"
+
+msgid "No additional parameters"
+msgstr "Žádné další parametry"
+
+msgid "Undefined"
+msgstr "Neurčeno"
+
+msgid "The value is invalid."
+msgstr "Zadaná hodnota není platná."
+
+msgid "Enter a description for your reference."
+msgstr "Zadejte popis své předvolby."
+
+msgid "Enable Setting"
+msgstr "Zapnout nastavení"
+
+msgid "IPv4 Address"
+msgstr "IPv4 adresa"
+
+msgid "Protect"
+msgstr "Chránit"
+
+msgid "Protect Setting"
+msgstr "Nastaení ochrany"
+
+msgid "The UUID of the record."
+msgstr "Univerzálně neopakující se identifikátor (UUID) záznamu."
+
+msgid "Enter Universally Unique Identifier"
+msgstr "Zadejte univerzálně neopakující se identifikátor"
+
+msgid "Universally Unique Identifier"
+msgstr "Univerzálně neopakující se identifikátor"
+
+msgid "Delete Selected Records"
+msgstr "Smazat označené záznamy"
+
+msgid "Do you want to delete selected records?"
+msgstr "Opravdu smazat označené záznamy?"
+
+msgid "Disable Selected Records"
+msgstr "Vypnout označené záznamy"
+
+msgid "Do you want to disable selected records?"
+msgstr "Opravdu vypnout označené záznamy?"
+
+msgid "Enable Selected Records"
+msgstr "Zapnout označené záznamy"
+
+msgid "Do you want to enable selected records?"
+msgstr "Opravdu zapnout označené záznamy?"
+
+msgid "Lock Selected Records"
+msgstr "Uzamknout označené záznamy"
+
+msgid "Do you want to lock selected records?"
+msgstr "Opravdu uzamknout označené záznamy?"
+
+msgid "Toggle Selected Records"
+msgstr "Přepnout označené záznamy"
+
+msgid "Do you want to toggle selected records?"
+msgstr "Opravdu přepnout označené záznamy?"
+
+msgid "Unlock Selected Records"
+msgstr "Odemknout označené záznamy"
+
+msgid "Do you want to unlock selected records?"
+msgstr "Opravdu odemknout označené záznamy?"
+
+msgid "Add Record"
+msgstr "Přidat záznam"
+
+msgid "Record is marked for deletion"
+msgstr "Záznam je označen ke smazání"
+
+msgid "Record Information"
+msgstr "Informace o záznamu"
+
+msgid "Record is protected"
+msgstr "Záznam je chráněný"
+
+msgid "Record Maintenance"
+msgstr "Údržba záznamu"
+
+msgid "Edit Record"
+msgstr "Upravit záznam"
+
+msgid "Record is unlocked"
+msgstr "Záznam je odemčen"
+
+msgid "Autodetect"
+msgstr "Automatické rozpoznání"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
+
+msgid "Select from predefined providers."
+msgstr ""
+
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr ""
+
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+
+msgid "Hostnames"
+msgstr ""
+
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+
+msgid "The password, if applicable."
+msgstr ""
+
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+
+msgid "Server to use for periodic IP address changes"
+msgstr ""
+
+msgid "api.ipify.org"
+msgstr ""
+
+msgid "Optional server path for check IP server"
+msgstr ""
+
+msgid "/"
+msgstr "/"
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
+
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+
+msgid "User agent string"
+msgstr ""
+
+msgid "DDNS server name, not the full URL."
+msgstr ""
+
+msgid "update.example.com"
+msgstr ""
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+
+msgid "/update?domain="
+msgstr ""
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr "Připojte aktuální IP adresu k cestě aktualizace serveru DDNS."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
+
+msgid "These parameters will be added to this provider configuration"
+msgstr ""
+
+msgid "Add Provider"
+msgstr "Přidat poskytovatele"
+
+msgid "Edit Provider"
+msgstr ""
+
+msgid "Provider is marked for deletion"
+msgstr ""
+
+msgid "Provider is locked"
+msgstr ""
+
+msgid "Provider is unlocked"
+msgstr ""
+
+msgid "Delete Selected Providers"
+msgstr ""
+
+msgid "Disable Selected Providers"
+msgstr ""
+
+msgid "Enable Selected Providers"
+msgstr ""
+
+msgid "Toggle Selected Providers"
+msgstr ""
+
+msgid "Do you want to delete selected providers?"
+msgstr ""
+
+msgid "Do you want to disable selected providers?"
+msgstr ""
+
+msgid "Do you want to enable selected providers?"
+msgstr ""
+
+msgid "Do you want to toggle selected providers?"
+msgstr ""
+
+msgid "Missing Provider"
+msgstr ""
+
+msgid "Orphaned Provider"
+msgstr ""
+
+msgid "Undefined Type"
+msgstr ""
+
+msgid "Unknown Provider"
+msgstr ""
+
+msgid "Standard Provider"
+msgstr ""
+
+msgid "Custom Provider"
+msgstr ""
+
+msgid "Record Type"
+msgstr ""
+
+msgid "Provider"
+msgstr "Poskytovatel"
+
+msgid "Provider Name"
+msgstr ""
+
+msgid "Host Names"
+msgstr ""
+
+msgid "Wildcard Domain"
+msgstr ""
+
+msgid "Use HTTPS"
+msgstr ""
+
+msgid "Check IP Server"
+msgstr "Kontrola IP adresy serveru"
+
+msgid "Check IP Path"
+msgstr "Kontrola IP adresy"
+
+msgid "Check IP using HTTPS"
+msgstr "Kontrola IP přes HTTPS"
+
+msgid "Check IP Command"
+msgstr "Kontrola IP příkazu"
+
+msgid "User Agent"
+msgstr ""
+
+msgid "DDNS-Server"
+msgstr ""
+
+msgid "DDNS-Path"
+msgstr ""
+
+msgid "Append my IP"
+msgstr "Připojit moji IP adresu"
+
+msgid "Providers"
+msgstr ""
+
+msgid "Global Settings"
+msgstr "Globální nastavení"
+
+msgid "Verify Address"
+msgstr ""
+
+msgid "Fake Address"
+msgstr ""
+
+msgid "Allow IPv6"
+msgstr "Povolit IPv6"
+
+msgid "Network Interface"
+msgstr ""
+
+msgid "Iterations"
+msgstr ""
+
+msgid "Check Interval"
+msgstr "Interval kontroly"
+
+msgid "Force Update Interval"
+msgstr ""
+
+msgid "Secure SSL"
+msgstr ""
+
+msgid "Broken RTC"
+msgstr "Nefunkční reálný čas RTC"
+
+msgid "CA Trusted Certificates"
+msgstr "Důvěryhodné certifikáty CA"
+
+msgid "Cache Directory"
+msgstr "Cesta/složka pro mezipaměť (cache)"
+
+msgid "Startup Delay"
+msgstr ""
+
+msgid "Log Level"
+msgstr "Podrobnost protokolování"
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
+"Ve výchozím nastavení inadyn ověřuje adresy IPv4 i IPv6 a ujistěte se, že "
+"adresa je platnou internetovou adresou. Neplatné adresy jsou např. adresy "
+"místního odkazu, zpětné smyčky, vícesměrového vysílání a známé "
+"experimentální adresy. Další informace naleznete v RFC3330."
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
+
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
+
+msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+
+msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+
+msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+
+msgid "Initial startup delay. Default is no delay."
+msgstr ""
+
+msgid "no delay"
+msgstr ""
+
+msgid "Set log level"
+msgstr ""
+
+msgid "Errors"
+msgstr ""
+
+msgid "Notice"
+msgstr ""
+
+msgid "Debug"
+msgstr "Režim ladění"
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr ""
+
+msgid "Add Media Folder"
+msgstr "Přidat složku médií"
+
+msgid "Edit Media Folder"
+msgstr ""
+
+msgid "Media Folder is marked for deletion"
+msgstr ""
+
+msgid "Media Folder is locked"
+msgstr ""
+
+msgid "Media Folder is unlocked"
+msgstr ""
+
+msgid "Delete Selected Media Folders"
+msgstr ""
+
+msgid "Disable Selected Media Folders"
+msgstr ""
+
+msgid "Enable Selected Media Folders"
+msgstr ""
+
+msgid "Toggle Selected Media Folders"
+msgstr ""
+
+msgid "Do you want to delete selected media folders?"
+msgstr "Chcete označené složky s médii smazat?"
+
+msgid "Do you want to disable selected media folders?"
+msgstr ""
+
+msgid "Do you want to enable selected media folders?"
+msgstr ""
+
+msgid "Do you want to toggle selected media folders?"
+msgstr ""
+
+msgid "Path to be included."
+msgstr ""
+
+msgid "Restrict folder to a specific media type."
+msgstr ""
+
+msgid "Scan folder for all media types."
+msgstr ""
+
+msgid "Scan folder for audio files."
+msgstr ""
+
+msgid "Scan folder for video files."
+msgstr ""
+
+msgid "Scan folder for image files."
+msgstr ""
+
+msgid "Scan folder for video and image files."
+msgstr ""
+
+msgid "Media Type"
+msgstr ""
+
+msgid "Media Folders"
+msgstr ""
+
+msgid "Media Folder"
+msgstr ""
+
+msgid "Inotify"
+msgstr "Inotify"
+
+msgid "Broadcast Interval"
+msgstr "Interval všesměrového vysílání"
+
+msgid "Strict DLNA"
+msgstr "Striktní DLNA"
+
+msgid "TiVo Support"
+msgstr "Podpora zařízení TiVo"
+
+msgid "Wide Links"
+msgstr "Široké odkazy"
+
+msgid "Container"
+msgstr "Kontejner"
+
+msgid "Sort Criteria"
+msgstr ""
+
+msgid "Disable Subtitles"
+msgstr "Vypnout titulky"
+
+msgid "Media Server Name."
+msgstr ""
+
+msgid "Verbosity of information that is logged."
+msgstr ""
+
+msgid "Fatal"
+msgstr "Fatální"
+
+msgid "Enable inotify."
+msgstr "Zapnout inotify."
+
+msgid "Use inotify monitoring to automatically discover new media files."
+msgstr ""
+
+msgid ""
+"Broadcasts its availability every configured seconds on the network, the "
+"default is 300 seconds."
+msgstr ""
+"Vysílá svou dostupnost v síti se zvolenou periodou. Výchozí hodnota je 300 "
+"sekund."
+
+msgid "300"
+msgstr "300"
+
+msgid ""
+"Port to listen on. Port number must be between 1024 and 65535. Default port "
+"is 8200."
+msgstr ""
+
+msgid "8200"
+msgstr "8200"
+
+msgid "Enable to strictly adhere to DLNA standards."
+msgstr "Zapnutím budou striktně dodržovány standardy pro DLNA."
+
+msgid ""
+"This will allow server-side downscaling of very large JPEG images, it can "
+"impact JPEG serving performance on some DLNA devices."
+msgstr ""
+
+msgid "Enable TiVo support."
+msgstr "Zapnout podporu pro zařízení TiVo."
+
+msgid ""
+"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
+msgstr ""
+"Umožní vysílání .jpg a .mp3 souborů na TiVo zařízení, podporující HMO."
+
+msgid "Location of the media content database."
+msgstr "Umístění databáze s mediálním obsahem."
+
+msgid "Allow symlinks that point outside defined media folders."
+msgstr "Povolit symlinky odkazující mimo definovaný adresář média."
+
+msgid "These parameters will be added to minidlna.conf"
+msgstr ""
+
+msgid "Select a container as the root of the tree exposed to clients."
+msgstr ""
+
+msgid "Use the standard container (this is the default)"
+msgstr ""
+
+msgid "Use the \"Browse Directory\" container"
+msgstr ""
+
+msgid "Use the \"Music\" container"
+msgstr ""
+
+msgid "Use the \"Video\" container"
+msgstr ""
+
+msgid "Use the \"Pictures\" container"
+msgstr ""
+
+msgid "Overwrite the sort criteria passed by the client."
+msgstr ""
+
+msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+
+msgid "Disable subtitle support on unknown clients."
+msgstr "Vypnout podporu titulků pro neznámé klienty."
+
+msgid "Auth Group Name"
+msgstr "Název ověřovací skupiny"
+
+msgid "Auth Type"
+msgstr "Typ ověřování"
 
 msgid "Add Auth Group"
 msgstr "Přidat ověřovací skupinu"
@@ -11382,20 +12138,11 @@ msgstr "Opravdu chcete zapnout označené skupiny ověřování?"
 msgid "Do you want to toggle selected auth groups?"
 msgstr "Opravdu chcete přepnout označené skupiny ověřování?"
 
-msgid "Name of the Auth Group."
-msgstr "Název ověřovací skupiny."
+msgid "Initiator Names"
+msgstr "Názvy iniciátorů"
 
-msgid "Auth Group Name"
-msgstr "Název ověřovací skupiny"
-
-msgid "Sets the authentication type."
-msgstr "Nastaví typ ověřování."
-
-msgid "CHAP-Mutual"
-msgstr "Vzájemný CHAP"
-
-msgid "These parameters will be added to this auth-group."
-msgstr "Tyto parametry budou přidány do této skupiny ověření."
+msgid "Initiator Portals"
+msgstr "Portály iniciátoru"
 
 msgid "No CHAP users found."
 msgstr "Nebyli nalezeni žádní uživatelé pro CHAP."
@@ -11418,170 +12165,23 @@ msgstr "Portál iniciátoru"
 msgid "No initiator portals found."
 msgstr "Nenalezeny žádné portály iniciátoru."
 
-msgid "Auth Type"
-msgstr "Typ ověřování"
+msgid "Name of the Auth Group."
+msgstr "Název ověřovací skupiny."
 
-msgid "Global Settings"
-msgstr "Globální nastavení"
+msgid "Sets the authentication type."
+msgstr "Nastaví typ ověřování."
 
-msgid "Initiator Names"
-msgstr "Názvy iniciátorů"
+msgid "CHAP-Mutual"
+msgstr "Vzájemný CHAP"
 
-msgid "Initiator Portals"
-msgstr "Portály iniciátoru"
-
-msgid "Additional Options for Block Backend"
-msgstr "Další předvolby pro blokovou podpůrnou vrstvu"
-
-msgid "Additional Options for RAM Disk Backend"
-msgstr "Další předvolby pro podpůrnou vrstvu úložiště v operační paměti"
-
-msgid "LUN Name"
-msgstr "Název LUN"
-
-msgid "Backend"
-msgstr "Podpůrná vrstva (backend)"
-
-msgid "CTL LUN"
-msgstr "CTL LUN"
-
-msgid "Device ID"
-msgstr "Identifikátor zařízení"
-
-msgid "Device Type"
-msgstr "Typ zařízení"
-
-msgid "Passthrough Address"
-msgstr "Adresa průchozího"
-
-msgid "LUN Vendor"
-msgstr "Výrobce LUN"
-
-msgid "LUN Product"
-msgstr "Produkt LUN"
-
-msgid "LUN Revision"
-msgstr "Revize LUN"
-
-msgid "LUN SCSI Name"
-msgstr "SCSI název LUN"
-
-msgid "LUN EUI-64\tidentifier"
-msgstr "LUN EUI-64\tidentifikátor"
-
-msgid "LUN NAA Identifier"
-msgstr "LUN NAA identifikátor"
-
-msgid "LUN UUID"
-msgstr ""
-
-msgid "HA Role"
-msgstr "Role v rámci vysoké dostupnosti"
-
-msgid "Insecure TPC"
-msgstr "Nezabezpečené TPC"
-
-msgid "Read Cache"
-msgstr "Mezipaměť čtení"
-
-msgid "Read Only"
-msgstr "Pouze číst"
-
-msgid "Reordering"
-msgstr "Přeuspořádat"
-
-msgid "Serialize Sequence"
-msgstr "Serializovat posloupnost"
-
-msgid "Physical Block Size"
-msgstr "Velikost fyzického bloku"
-
-msgid "Physical Block Offset"
-msgstr "Posun fyzického bloku"
-
-msgid "UNMAP Block Size"
-msgstr "Velikost UNMAP bloku"
-
-msgid "UNMAP Block Offset"
-msgstr "Posun UNMAP bloku"
-
-msgid "RPM"
-msgstr "Otáčky média"
-
-msgid "Form Factor"
-msgstr "Typ skříně"
-
-msgid "Provisioning Type"
-msgstr "Typ poskytování"
-
-msgid "UNMAP"
-msgstr "UNMAP"
-
-msgid "UNMAP Maximum LBA"
-msgstr "UNMAP nejvýše LBA"
-
-msgid "UNMAP Maximum Descriptors"
-msgstr "UNMAP nejvýše popisovačů"
-
-msgid "Write Same Maximum LBA"
-msgstr "Zapsat stejné maximální LBA"
-
-msgid "Avail Threshold"
-msgstr "Práh k dispozici"
-
-msgid "Used Threshold"
-msgstr "Použitá hranice"
-
-msgid "Pool Avail Threshold"
-msgstr "Práh dostupnosti fondu"
-
-msgid "Pool Used Threshold"
-msgstr "Práh využitého fondu"
-
-msgid "Threads"
-msgstr "Vlákna"
-
-msgid "Add LUN"
-msgstr "Přidat LUN"
-
-msgid "Edit LUN"
-msgstr "Upravit LUN"
-
-msgid "LUN is marked for deletion"
-msgstr "LUN je označené ke smazání"
-
-msgid "LUN is locked"
-msgstr "LUN je uzamčené"
-
-msgid "LUN is unlocked"
-msgstr "LUN je odemčené"
-
-msgid "Delete Selected LUNs"
-msgstr "Smazat označená čísla logických jednotek"
-
-msgid "Disable Selected LUNs"
-msgstr "Vypnout označené LUN"
-
-msgid "Enable Selected LUNs"
-msgstr "Zapnout označené LUN"
-
-msgid "Toggle Selected LUNs"
-msgstr "Vyp/zap označené LUN"
-
-msgid "Do you want to delete selected LUNs?"
-msgstr "Opravdu chcete smazat označené LUN?"
-
-msgid "Do you want to disable selected LUNs?"
-msgstr "Opravdu chcete vypnout označené LUN?"
-
-msgid "Do you want to enable selected LUNs?"
-msgstr "Opravdu chcete zapnout označené LUN?"
-
-msgid "Do you want to toggle selected LUNs?"
-msgstr "Opravdu chcete přepnout označené LUN?"
+msgid "These parameters will be added to this auth-group."
+msgstr "Tyto parametry budou přidány do této skupiny ověření."
 
 msgid "Name of the LUN."
 msgstr "Název LUN."
+
+msgid "LUN Name"
+msgstr "Název LUN"
 
 msgid "The CTL backend to use for a given LUN."
 msgstr "CTL podpůrná vrstva kterou použít pro dané LUN."
@@ -11621,6 +12221,9 @@ msgstr "Globální číselný identifikátor který použít pro dané LUN uvnit
 
 msgid "The SCSI Device Identification string presented to the initiator."
 msgstr "Řetězec SCSI identifikátoru zařízení prezentovaný iniciátoru."
+
+msgid "Device ID"
+msgstr "Identifikátor zařízení"
 
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr "Zadejte jaký typ SCSI zařízení použít při vytváření LUN."
@@ -11852,17 +12455,149 @@ msgstr ""
 msgid "These parameters will be added to this lun."
 msgstr "Tyto parametry budou přidány do tohoto LUN."
 
-msgid "Listen"
-msgstr "Očekávat spojení"
+msgid "Additional Options for Block Backend"
+msgstr "Další předvolby pro blokovou podpůrnou vrstvu"
 
-msgid "No listeners found."
-msgstr "Nenalezena žádná očekávání spojení."
+msgid "Additional Options for RAM Disk Backend"
+msgstr "Další předvolby pro podpůrnou vrstvu úložiště v operační paměti"
 
-msgid "Option"
-msgstr "Předvolba"
+msgid "Add LUN"
+msgstr "Přidat LUN"
 
-msgid "No options found."
-msgstr "Nenalezeny žádné předvolby."
+msgid "Edit LUN"
+msgstr "Upravit LUN"
+
+msgid "LUN is marked for deletion"
+msgstr "LUN je označené ke smazání"
+
+msgid "LUN is locked"
+msgstr "LUN je uzamčené"
+
+msgid "LUN is unlocked"
+msgstr "LUN je odemčené"
+
+msgid "Delete Selected LUNs"
+msgstr "Smazat označená čísla logických jednotek"
+
+msgid "Disable Selected LUNs"
+msgstr "Vypnout označené LUN"
+
+msgid "Enable Selected LUNs"
+msgstr "Zapnout označené LUN"
+
+msgid "Toggle Selected LUNs"
+msgstr "Vyp/zap označené LUN"
+
+msgid "Do you want to delete selected LUNs?"
+msgstr "Opravdu chcete smazat označené LUN?"
+
+msgid "Do you want to disable selected LUNs?"
+msgstr "Opravdu chcete vypnout označené LUN?"
+
+msgid "Do you want to enable selected LUNs?"
+msgstr "Opravdu chcete zapnout označené LUN?"
+
+msgid "Do you want to toggle selected LUNs?"
+msgstr "Opravdu chcete přepnout označené LUN?"
+
+msgid "Backend"
+msgstr "Podpůrná vrstva (backend)"
+
+msgid "CTL LUN"
+msgstr "CTL LUN"
+
+msgid "Device Type"
+msgstr "Typ zařízení"
+
+msgid "Passthrough Address"
+msgstr "Adresa průchozího"
+
+msgid "LUN Vendor"
+msgstr "Výrobce LUN"
+
+msgid "LUN Product"
+msgstr "Produkt LUN"
+
+msgid "LUN Revision"
+msgstr "Revize LUN"
+
+msgid "LUN SCSI Name"
+msgstr "SCSI název LUN"
+
+msgid "LUN EUI-64\tidentifier"
+msgstr "LUN EUI-64\tidentifikátor"
+
+msgid "LUN NAA Identifier"
+msgstr "LUN NAA identifikátor"
+
+msgid "LUN UUID"
+msgstr ""
+
+msgid "HA Role"
+msgstr "Role v rámci vysoké dostupnosti"
+
+msgid "Insecure TPC"
+msgstr "Nezabezpečené TPC"
+
+msgid "Read Cache"
+msgstr "Mezipaměť čtení"
+
+msgid "Read Only"
+msgstr "Pouze číst"
+
+msgid "Reordering"
+msgstr "Přeuspořádat"
+
+msgid "Serialize Sequence"
+msgstr "Serializovat posloupnost"
+
+msgid "Physical Block Size"
+msgstr "Velikost fyzického bloku"
+
+msgid "Physical Block Offset"
+msgstr "Posun fyzického bloku"
+
+msgid "UNMAP Block Size"
+msgstr "Velikost UNMAP bloku"
+
+msgid "UNMAP Block Offset"
+msgstr "Posun UNMAP bloku"
+
+msgid "RPM"
+msgstr "Otáčky média"
+
+msgid "Form Factor"
+msgstr "Typ skříně"
+
+msgid "Provisioning Type"
+msgstr "Typ poskytování"
+
+msgid "UNMAP"
+msgstr "UNMAP"
+
+msgid "UNMAP Maximum LBA"
+msgstr "UNMAP nejvýše LBA"
+
+msgid "UNMAP Maximum Descriptors"
+msgstr "UNMAP nejvýše popisovačů"
+
+msgid "Write Same Maximum LBA"
+msgstr "Zapsat stejné maximální LBA"
+
+msgid "Avail Threshold"
+msgstr "Práh k dispozici"
+
+msgid "Used Threshold"
+msgstr "Použitá hranice"
+
+msgid "Pool Avail Threshold"
+msgstr "Práh dostupnosti fondu"
+
+msgid "Pool Used Threshold"
+msgstr "Práh využitého fondu"
+
+msgid "Threads"
+msgstr "Vlákna"
 
 msgid "Name of the Portal Group."
 msgstr "Název skupiny portálu."
@@ -11944,18 +12679,6 @@ msgstr ""
 "Neopakující se 16 bitová hodnota štítku této skupiny portálu. Pokud není "
 "zadáno, hodnota je vytvořena automaticky."
 
-msgid "Discovery Filter"
-msgstr "Filtr zjištování"
-
-msgid "Offload"
-msgstr "Převzetí zátěže"
-
-msgid "Redirect"
-msgstr "Přesměrovat"
-
-msgid "Foreign"
-msgstr "Cizí"
-
 msgid "Add Portal Group"
 msgstr "Přidat skupinu portálu"
 
@@ -11994,6 +12717,46 @@ msgstr "Opravdu chcete zapnout označené skupiny portálu?"
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Opravdu chcete přepnout označené skupiny portálu?"
+
+msgid "Discovery Filter"
+msgstr "Filtr zjištování"
+
+msgid "Offload"
+msgstr "Převzetí zátěže"
+
+msgid "Redirect"
+msgstr "Přesměrovat"
+
+msgid "Foreign"
+msgstr "Cizí"
+
+msgid "Listen"
+msgstr "Očekávat spojení"
+
+msgid "Option"
+msgstr "Předvolba"
+
+msgid "No listeners found."
+msgstr "Nenalezena žádná očekávání spojení."
+
+msgid "No options found."
+msgstr "Nenalezeny žádné předvolby."
+
+msgid "Enter user name."
+msgstr "Zadejte uživatelské jméno"
+
+msgid "Enter secret."
+msgstr "Zadejte tajemství."
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+"Spojit chap ověřování se skupinami ověřování. Poznamenejme, že skupina "
+"ověření může obsahovat buď položky chap nebo vzájemného chap, ale ne obojí."
+
+msgid "No auth groups found."
+msgstr "Nenalezeny žádné skupiny ověření"
 
 msgid "Add CHAP User"
 msgstr "Přidat CHAP uživatele"
@@ -12037,39 +12800,6 @@ msgstr ""
 msgid "Do you want to toggle selected CHAP users?"
 msgstr ""
 "Opravdu chcete přepnout označené účty uživatelů ověřování CHAP protokolem?"
-
-msgid "Enter user name."
-msgstr "Zadejte uživatelské jméno"
-
-msgid "Enter secret."
-msgstr "Zadejte tajemství."
-
-msgid ""
-"Link chap configuration to auth-groups. Note that an auth-group may contain "
-"either chap or chap-mutual entries, but not both."
-msgstr ""
-"Spojit chap ověřování se skupinami ověřování. Poznamenejme, že skupina "
-"ověření může obsahovat buď položky chap nebo vzájemného chap, ale ne obojí."
-
-msgid "No auth groups found."
-msgstr "Nenalezeny žádné skupiny ověření"
-
-msgid ""
-"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
-"contain either chap or chap-mutual entries, but not both."
-msgstr ""
-"Spojit nastavení vzájemného chap se skupinami ověření. Poznamenejme, že "
-"skupina ověření může obsahovat buď položky chap nebo vzájemného chap "
-"ověřování, ale ne obojí."
-
-msgid "Enter mutual user name."
-msgstr "Zadejte uživatelské jméno pro vzájemné"
-
-msgid "Mutual User"
-msgstr "Uživatel pro vzájemné"
-
-msgid "Mutual Secret"
-msgstr "Tajemství pro vzájemné"
 
 msgid "Add Mutual CHAP User"
 msgstr "Přidat uživatele protokolu vzájemný CHAP"
@@ -12119,15 +12849,22 @@ msgstr ""
 "Opravdu chcete přepnout označené účty uživatelů ověřování protokolem "
 "vzájemného CHAP?"
 
-msgid "Enter an iSCSI initiator name."
-msgstr "Zadejte název iSCSI iniciátoru."
-
 msgid ""
-"Link initiator-name to auth-groups. An Initiator with this name will be "
-"allowed to connect to the selected auth-groups."
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
 msgstr ""
-"Spojit název iniciátoru se skupinami ověření. Iniciátoru s tímto názvem bude "
-"umožněno připojení k vybraným skupinám ověření."
+"Spojit nastavení vzájemného chap se skupinami ověření. Poznamenejme, že "
+"skupina ověření může obsahovat buď položky chap nebo vzájemného chap "
+"ověřování, ale ne obojí."
+
+msgid "Enter mutual user name."
+msgstr "Zadejte uživatelské jméno pro vzájemné"
+
+msgid "Mutual User"
+msgstr "Uživatel pro vzájemné"
+
+msgid "Mutual Secret"
+msgstr "Tajemství pro vzájemné"
 
 msgid "Add Initiator Name"
 msgstr "Přidat název iniciátoru"
@@ -12168,6 +12905,32 @@ msgstr "Opravdu chcete zapnout označené názvy iniciátorů?"
 msgid "Do you want to toggle selected initiator names?"
 msgstr "Opravdu chcete přepnout označené názvy iniciátoru?"
 
+msgid "Enter an iSCSI initiator name."
+msgstr "Zadejte název iSCSI iniciátoru."
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+"Spojit název iniciátoru se skupinami ověření. Iniciátoru s tímto názvem bude "
+"umožněno připojení k vybraným skupinám ověření."
+
+msgid "IP Address Prefix"
+msgstr "Předpona IP adresy"
+
+msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr "IPv4 nebo IPv6 adresa portálu iSCSI iniciátoru."
+
+msgid "Enter IP address prefix length."
+msgstr "Zadejte délku předpony IP adresy"
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+"Spojit portál iniciátoru se skupinami ověření. Iniciátoru odpovídajícímu "
+"této adrese bude umožněno připojení k vybraným skupinám ověření."
+
 msgid "Add Initiator Portal"
 msgstr "Přidat portál iniciátoru"
 
@@ -12207,24 +12970,11 @@ msgstr "Opravdu chcete zapnout označené portály iniciátoru?"
 msgid "Do you want to toggle selected initiator portals?"
 msgstr "Opravdu chcete přepnout označené portály iniciátoru?"
 
-msgid "IP Address Prefix"
-msgstr "Předpona IP adresy"
+msgid "IPv4 or IPv6 address of an iSNS server to register on."
+msgstr "IPv4 nebo IPv6 adresa iSNS serveru na kterém zaregistrovat."
 
-msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "IPv4 nebo IPv6 adresa portálu iSCSI iniciátoru."
-
-msgid "Enter IP address prefix length."
-msgstr "Zadejte délku předpony IP adresy"
-
-msgid ""
-"Link initiator-portal to auth-groups. An Initiator matching this address "
-"will be allowed to connect to the selected auth-groups."
-msgstr ""
-"Spojit portál iniciátoru se skupinami ověření. Iniciátoru odpovídajícímu "
-"této adrese bude umožněno připojení k vybraným skupinám ověření."
-
-msgid "iSNS Servers"
-msgstr "iSNS servery"
+msgid "Port number of the iSNS server."
+msgstr "Číslo portu iSNS serveru."
 
 msgid "Add iSNS Server"
 msgstr "Přidat iSNS server"
@@ -12265,11 +13015,8 @@ msgstr "Opravdu chcete používat označené iSNS servery?"
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Opravdu chcete přepnout označené iSNS servery?"
 
-msgid "IPv4 or IPv6 address of an iSNS server to register on."
-msgstr "IPv4 nebo IPv6 adresa iSNS serveru na kterém zaregistrovat."
-
-msgid "Port number of the iSNS server."
-msgstr "Číslo portu iSNS serveru."
+msgid "iSNS Servers"
+msgstr "iSNS servery"
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "IPv4 nebo IPv6 adresa na které očekávat příchozí spojení."
@@ -12326,6 +13073,9 @@ msgstr "Opravdu chcete zapnout označené záznamy očekávání spojení?"
 msgid "Do you want to toggle selected listen records?"
 msgstr "Opravdu chcete přepnout označené záznamy očekávání spojení?"
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
@@ -12340,11 +13090,20 @@ msgstr ""
 "Port pro naslouchání příchozího připojení pomocí protokolu iSER (iSCSI přes "
 "RDMA)."
 
-msgid "Listen (iSER)"
-msgstr ""
-
 msgid "LUN Number"
 msgstr "Číslo LUN"
+
+msgid "LUN number"
+msgstr "Číslo LUN"
+
+msgid "No LUNs found."
+msgstr "Nenalezeny žádné LUN."
+
+msgid "Select targets."
+msgstr "Vybrat cíle."
+
+msgid "No targets found."
+msgstr "Nebyly nalezeny žádné cíle."
 
 msgid "Add LUN Record"
 msgstr "Přidat LUN záznam"
@@ -12385,23 +13144,14 @@ msgstr "Opravdu chcete zapnout označené záznamy pro LUN?"
 msgid "Do you want to toggle selected LUN records?"
 msgstr "Opravdu chcete přepnout označené LUN záznamy?"
 
-msgid "LUN number"
-msgstr "Číslo LUN"
+msgid "Name of the option."
+msgstr "Název volby."
 
-msgid "No LUNs found."
-msgstr "Nenalezeny žádné LUN."
+msgid "Value of the option."
+msgstr "Hodnota volby."
 
-msgid "Select targets."
-msgstr "Vybrat cíle."
-
-msgid "No targets found."
-msgstr "Nebyly nalezeny žádné cíle."
-
-msgid "Option Name"
-msgstr "Název volby"
-
-msgid "Option Value"
-msgstr "Hodnota volby"
+msgid "Link this option to selected portal-groups."
+msgstr "Připojit tuto volbu k vybraným skupinám portálu."
 
 msgid "Add Option Record"
 msgstr "Přidat záznam pro volbu"
@@ -12442,20 +13192,11 @@ msgstr "Opravdu chcete zapnout označené záznamy volby?"
 msgid "Do you want to toggle selected option records?"
 msgstr "Opravdu chcete přepnout označené záznamy volby?"
 
-msgid "Name of the option."
-msgstr "Název volby."
+msgid "Option Name"
+msgstr "Název volby"
 
-msgid "Value of the option."
-msgstr "Hodnota volby."
-
-msgid "Link this option to selected portal-groups."
-msgstr "Připojit tuto volbu k vybraným skupinám portálu."
-
-msgid "Port Name"
-msgstr "Název portu"
-
-msgid "Name of the port."
-msgstr "Název portu."
+msgid "Option Value"
+msgstr "Hodnota volby"
 
 msgid "Add Port Record"
 msgstr "Přidat záznam pro port"
@@ -12496,38 +13237,14 @@ msgstr "Opravdu chcete zapnout označené záznamy pro port?"
 msgid "Do you want to toggle selected port records?"
 msgstr "Opravdu chcete přepnout označené záznamy pro port?"
 
-msgid "Name of the target."
-msgstr "Název cíle."
+msgid "Name of the port."
+msgstr "Název portu."
 
-msgid "These parameters will be added to this target."
-msgstr "Tyto parametry budou přidány do tohoto cíle."
-
-msgid "Assign a human-readable description to the target."
-msgstr "Přiřadit cíli člověku srozumitelný popis."
+msgid "Port Name"
+msgstr "Název portu"
 
 msgid "Alias"
 msgstr "Alternativní název"
-
-msgid "Assign a previously defined authentication group to the target."
-msgstr "Přiřadit cíli dříve určenou skupinu ověřování."
-
-msgid "Permit access without authentication"
-msgstr "Umožnit přístup bez přihlášení"
-
-msgid "Assign a previously defined portal group to the target."
-msgstr "Přiřadit cíli předtím vytvořenou skupinu portálu."
-
-msgid ""
-"IPv4 or IPv6 address to redirect initiators to. When configured, all "
-"initiators attempting to connect to this target will get redirected using "
-"\"Target moved temporarily\" login response."
-msgstr ""
-"IPv4 nebo IPv6 adresa na kterou přesměrovat iniciátory. Pokud je nastaveno, "
-"všechny iniciátory, které se snaží připojit k tomuto portálu, budou "
-"přesměrovány pomocí odpovědi na přihlášení typu „Cíl dočasně přesunut“."
-
-msgid "No ports found."
-msgstr "Nenalezeny žádné porty."
 
 msgid "Add Target"
 msgstr "Přidat cíl"
@@ -12568,6 +13285,36 @@ msgstr "Opravdu chcete zapnout označené cíle?"
 msgid "Do you want to toggle selected targets?"
 msgstr "Opravdu chcete přepnout označené cíle?"
 
+msgid "No ports found."
+msgstr "Nenalezeny žádné porty."
+
+msgid "Name of the target."
+msgstr "Název cíle."
+
+msgid "These parameters will be added to this target."
+msgstr "Tyto parametry budou přidány do tohoto cíle."
+
+msgid "Assign a human-readable description to the target."
+msgstr "Přiřadit cíli člověku srozumitelný popis."
+
+msgid "Assign a previously defined authentication group to the target."
+msgstr "Přiřadit cíli dříve určenou skupinu ověřování."
+
+msgid "Permit access without authentication"
+msgstr "Umožnit přístup bez přihlášení"
+
+msgid "Assign a previously defined portal group to the target."
+msgstr "Přiřadit cíli předtím vytvořenou skupinu portálu."
+
+msgid ""
+"IPv4 or IPv6 address to redirect initiators to. When configured, all "
+"initiators attempting to connect to this target will get redirected using "
+"\"Target moved temporarily\" login response."
+msgstr ""
+"IPv4 nebo IPv6 adresa na kterou přesměrovat iniciátory. Pokud je nastaveno, "
+"všechny iniciátory, které se snaží připojit k tomuto portálu, budou "
+"přesměrovány pomocí odpovědi na přihlášení typu „Cíl dočasně přesunut“."
+
 msgid "Max Processes"
 msgstr "Nejvýše procesů"
 
@@ -12607,332 +13354,74 @@ msgstr "Časový limit pro iSNS požadavky. Výchozí je 5."
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr "Tyto parametry budou přidány do globální části souboru my.cnf"
 
-msgid ""
-"Select \"Custom Provider\" for customizing the DDNS update server details "
-"settings."
-msgstr ""
+msgid "Target Address"
+msgstr "Cílová adresa"
 
-msgid "Select from predefined providers."
-msgstr ""
+msgid "CHAP Name"
+msgstr "CHAP Name"
 
-msgid "Enter an identifier for this custom DDNS configuration."
-msgstr ""
+msgid "CHAP Secret"
+msgstr "CHAP Secret"
 
-msgid ""
-"To support multiple users of the same DDNS provider, an identifier must be "
-"defined. The identifier can be any free form alphanumeric string as long as "
-"the combination is unique."
-msgstr ""
+msgid "Mutual CHAP Name"
+msgstr "Název pro vzájemný CHAP protokol"
 
-msgid "The list of hostnames. Use a comma to separate multiple names."
-msgstr ""
+msgid "Mutual CHAP Secret"
+msgstr "Heslo vzájemného CHAP"
 
-msgid "Hostnames"
-msgstr ""
+msgid "Header Digest"
+msgstr "Otisk hlavičky"
 
-msgid "The username, if applicable. This might be referred to as hash."
-msgstr ""
+msgid "Data Digest"
+msgstr "Otisk dat"
 
-msgid "The password, if applicable."
-msgstr ""
+msgid "Offload Driver"
+msgstr "Ovladač předání na hardware"
 
-msgid ""
-"Enable domain name wildcarding of the domain name, for DDNS providers that "
-"support this."
-msgstr ""
+msgid "Session State"
+msgstr "Stav relace"
 
-msgid ""
-"Use HTTPS, both when checking for IP changes and updating the DNS record. "
-"Default is to use HTTPS."
-msgstr ""
+msgid "Session Type"
+msgstr "Typ relace"
 
-msgid "Server to use for periodic IP address changes"
-msgstr ""
+msgid "Add iSCSI Initiator"
+msgstr "Přidat zavaděč iSCSI"
 
-msgid "api.ipify.org"
-msgstr ""
+msgid "Edit iSCSI Initiator"
+msgstr "Upravit iSCSI iniciátor"
 
-msgid "Optional server path for check IP server"
-msgstr ""
+msgid "iSCSI Initiator is marked for deletion"
+msgstr "iSCSI iniciátor je označen ke smazání"
 
-msgid "/"
-msgstr "/"
+msgid "iSCSI Initiator is locked"
+msgstr "iSCSI iniciátor je uzamčen"
 
-msgid ""
-"This setting usually follows the ssl setting, but can be used to disable "
-"HTTPS for the IP address check."
-msgstr ""
+msgid "iSCSI Initiator is unlocked"
+msgstr "iSCSI iniciátor je odemčen"
 
-msgid ""
-"Shell command, or script, for IP address update checking. The command must "
-"output a text with the IP address to its standard output."
-msgstr ""
+msgid "Delete Selected iSCSI Initiators"
+msgstr "Smazat vybrané iSCSO iniciátory."
 
-msgid ""
-"Same as the global setting, but only for this provider. If omitted it "
-"defaults to the global setting, which if unset uses the default user agent "
-"string."
-msgstr ""
+msgid "Disable Selected iSCSI Initiators"
+msgstr "Vypnout vybrané iSCSI iniciátory"
 
-msgid "User agent string"
-msgstr ""
+msgid "Enable Selected iSCSI Initiators"
+msgstr "Zapnout označené iSCSI iniciátory"
 
-msgid "DDNS server name, not the full URL."
-msgstr ""
+msgid "Toggle Selected iSCSI Initiators"
+msgstr "Vyp/zap označené iSCSI iniciátory"
 
-msgid "update.example.com"
-msgstr ""
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr "Chcete smazat vybrané iSCSI iniciátory ?"
 
-msgid ""
-"DDNS server path. By default the hostname is appended to the path, unless "
-"append-myip is set."
-msgstr ""
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr "Chcete vypnout vybrané iSCSI iniciátory ?"
 
-msgid "/update?domain="
-msgstr ""
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr "Chcete zapnout vybrané iSCSI iniciátory ?"
 
-msgid "Append the current IP to the DDNS server update path."
-msgstr "Připojte aktuální IP adresu k cestě aktualizace serveru DDNS."
-
-msgid ""
-"If this setting is not enabled, the hostname is appended. Unless the ddns-"
-"path is given with format specifiers, in which case this setting is unused."
-msgstr ""
-
-msgid "These parameters will be added to this provider configuration"
-msgstr ""
-
-msgid "Standard Provider"
-msgstr ""
-
-msgid "Custom Provider"
-msgstr ""
-
-msgid "Record Type"
-msgstr ""
-
-msgid "Provider"
-msgstr "Poskytovatel"
-
-msgid "Provider Name"
-msgstr ""
-
-msgid "Host Names"
-msgstr ""
-
-msgid "Wildcard Domain"
-msgstr ""
-
-msgid "Use HTTPS"
-msgstr ""
-
-msgid "Check IP Server"
-msgstr "Kontrola IP adresy serveru"
-
-msgid "Check IP Path"
-msgstr "Kontrola IP adresy"
-
-msgid "Check IP using HTTPS"
-msgstr "Kontrola IP přes HTTPS"
-
-msgid "Check IP Command"
-msgstr "Kontrola IP příkazu"
-
-msgid "User Agent"
-msgstr ""
-
-msgid "DDNS-Server"
-msgstr ""
-
-msgid "DDNS-Path"
-msgstr ""
-
-msgid "Append my IP"
-msgstr "Připojit moji IP adresu"
-
-msgid "Providers"
-msgstr ""
-
-msgid "Add Provider"
-msgstr "Přidat poskytovatele"
-
-msgid "Edit Provider"
-msgstr ""
-
-msgid "Provider is marked for deletion"
-msgstr ""
-
-msgid "Provider is locked"
-msgstr ""
-
-msgid "Provider is unlocked"
-msgstr ""
-
-msgid "Delete Selected Providers"
-msgstr ""
-
-msgid "Disable Selected Providers"
-msgstr ""
-
-msgid "Enable Selected Providers"
-msgstr ""
-
-msgid "Toggle Selected Providers"
-msgstr ""
-
-msgid "Do you want to delete selected providers?"
-msgstr ""
-
-msgid "Do you want to disable selected providers?"
-msgstr ""
-
-msgid "Do you want to enable selected providers?"
-msgstr ""
-
-msgid "Do you want to toggle selected providers?"
-msgstr ""
-
-msgid "Missing Provider"
-msgstr ""
-
-msgid "Orphaned Provider"
-msgstr ""
-
-msgid "Undefined Type"
-msgstr ""
-
-msgid "Unknown Provider"
-msgstr ""
-
-msgid ""
-"IP address validation can be disabled by setting this option to false."
-msgstr ""
-
-msgid ""
-"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
-"address is a valid Internet address. Invalid addresses are, e.g., link "
-"local, loopback, multicast and known experimental addresses. For more "
-"information, see RFC3330."
-msgstr ""
-"Ve výchozím nastavení inadyn ověřuje adresy IPv4 i IPv6 a ujistěte se, že "
-"adresa je platnou internetovou adresou. Neplatné adresy jsou např. adresy "
-"místního odkazu, zpětné smyčky, vícesměrového vysílání a známé "
-"experimentální adresy. Další informace naleznete v RFC3330."
-
-msgid ""
-"Use this option to fake an address update with a \"random\" address in the "
-"203.0.113.0/24 range before updating with the actual IP address."
-msgstr ""
-
-msgid ""
-"This option controls if IPv6 addresses should be allowed or discarded."
-msgstr ""
-
-msgid ""
-"Use this network interface as source of IP address changes instead of "
-"querying an external server."
-msgstr ""
-
-msgid ""
-"Set the number of DNS updates. The default is 0, which means infinity."
-msgstr ""
-
-msgid ""
-"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
-"days."
-msgstr ""
-
-msgid ""
-"How often the IP should be updated even if it is not changed. The time "
-"should be given in seconds. Default is equal to 30 days."
-msgstr ""
-
-msgid ""
-"Enable this option to abort an DDNS update if the HTTPS certificate "
-"validation fails."
-msgstr ""
-
-msgid ""
-"Enable this option only on systems without hardware real-time clock and "
-"default bootup time far in the past."
-msgstr ""
-
-msgid ""
-"This setting overrides the built-in paths and fallback locations and "
-"provides a way to specify the path to a trusted set of CA certificates, in "
-"PEM format, bundled into one file."
-msgstr ""
-
-msgid ""
-"Specify the User-Agent string to send to the DDNS provider on checkip and "
-"update requests."
-msgstr ""
-
-msgid ""
-"Set directory for persistent cache files, The cache files are used to keep "
-"track of which addresses have been successfully sent to their respective "
-"DDNS provider and when."
-msgstr ""
-
-msgid "Initial startup delay. Default is no delay."
-msgstr ""
-
-msgid "no delay"
-msgstr ""
-
-msgid "Set log level"
-msgstr ""
-
-msgid "Errors"
-msgstr ""
-
-msgid "Notice"
-msgstr ""
-
-msgid "Debug"
-msgstr "Režim ladění"
-
-msgid "These parameters are appended to the inadyn.conf file."
-msgstr ""
-
-msgid "Verify Address"
-msgstr ""
-
-msgid "Fake Address"
-msgstr ""
-
-msgid "Allow IPv6"
-msgstr "Povolit IPv6"
-
-msgid "Network Interface"
-msgstr ""
-
-msgid "Iterations"
-msgstr ""
-
-msgid "Check Interval"
-msgstr "Interval kontroly"
-
-msgid "Force Update Interval"
-msgstr ""
-
-msgid "Secure SSL"
-msgstr ""
-
-msgid "Broken RTC"
-msgstr "Nefunkční reálný čas RTC"
-
-msgid "CA Trusted Certificates"
-msgstr "Důvěryhodné certifikáty CA"
-
-msgid "Cache Directory"
-msgstr "Cesta/složka pro mezipaměť (cache)"
-
-msgid "Startup Delay"
-msgstr ""
-
-msgid "Log Level"
-msgstr "Podrobnost protokolování"
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr "Chcete přepnout vybrané iSCSI iniciátory ?"
 
 msgid "This is a nickname and is for information only."
 msgstr "Toto je přezdívka a slouží pouze pro informaci."
@@ -13033,75 +13522,6 @@ msgstr ""
 msgid "Discovery"
 msgstr "Objevování"
 
-msgid "Target Address"
-msgstr "Cílová adresa"
-
-msgid "CHAP Name"
-msgstr "CHAP Name"
-
-msgid "CHAP Secret"
-msgstr "CHAP Secret"
-
-msgid "Mutual CHAP Name"
-msgstr "Název pro vzájemný CHAP protokol"
-
-msgid "Mutual CHAP Secret"
-msgstr "Heslo vzájemného CHAP"
-
-msgid "Header Digest"
-msgstr "Otisk hlavičky"
-
-msgid "Data Digest"
-msgstr "Otisk dat"
-
-msgid "Offload Driver"
-msgstr "Ovladač předání na hardware"
-
-msgid "Session State"
-msgstr "Stav relace"
-
-msgid "Session Type"
-msgstr "Typ relace"
-
-msgid "Add iSCSI Initiator"
-msgstr "Přidat zavaděč iSCSI"
-
-msgid "Edit iSCSI Initiator"
-msgstr "Upravit iSCSI iniciátor"
-
-msgid "iSCSI Initiator is marked for deletion"
-msgstr "iSCSI iniciátor je označen ke smazání"
-
-msgid "iSCSI Initiator is locked"
-msgstr "iSCSI iniciátor je uzamčen"
-
-msgid "iSCSI Initiator is unlocked"
-msgstr "iSCSI iniciátor je odemčen"
-
-msgid "Delete Selected iSCSI Initiators"
-msgstr "Smazat vybrané iSCSO iniciátory."
-
-msgid "Disable Selected iSCSI Initiators"
-msgstr "Vypnout vybrané iSCSI iniciátory"
-
-msgid "Enable Selected iSCSI Initiators"
-msgstr "Zapnout označené iSCSI iniciátory"
-
-msgid "Toggle Selected iSCSI Initiators"
-msgstr "Vyp/zap označené iSCSI iniciátory"
-
-msgid "Do you want to delete selected iSCSI initiators?"
-msgstr "Chcete smazat vybrané iSCSI iniciátory ?"
-
-msgid "Do you want to disable selected iSCSI initiators?"
-msgstr "Chcete vypnout vybrané iSCSI iniciátory ?"
-
-msgid "Do you want to enable selected iSCSI initiators?"
-msgstr "Chcete zapnout vybrané iSCSI iniciátory ?"
-
-msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Chcete přepnout vybrané iSCSI iniciátory ?"
-
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
 msgstr ""
@@ -13130,180 +13550,44 @@ msgstr ""
 "algoritmem – nebudete na ni tázáni. Tajemství by mělo být dlouhé alespoň 32 "
 "znaků"
 
-msgid "Media Type"
+msgid "Add NFS Export"
+msgstr "Přidat NFS export"
+
+msgid "Edit NFS Export"
 msgstr ""
 
-msgid "Path to be included."
+msgid "NFS Export is marked for deletion"
 msgstr ""
 
-msgid "Restrict folder to a specific media type."
+msgid "NFS Export is locked"
 msgstr ""
 
-msgid "Scan folder for all media types."
+msgid "NFS Export is unlocked"
 msgstr ""
 
-msgid "Scan folder for audio files."
+msgid "Delete Selected NFS Exports"
+msgstr "Smazat označené NFS exporty"
+
+msgid "Disable Selected NFS Exports"
+msgstr "Zakázat označené NFS exporty"
+
+msgid "Enable Selected NFS Exports"
 msgstr ""
 
-msgid "Scan folder for video files."
+msgid "Toggle Selected NFS Exports"
 msgstr ""
 
-msgid "Scan folder for image files."
+msgid "Do you want to delete selected NFS exports?"
+msgstr "Chcete označené NFS exporty smazat?"
+
+msgid "Do you want to disable selected NFS exports?"
 msgstr ""
 
-msgid "Scan folder for video and image files."
+msgid "Do you want to enable selected NFS exports?"
 msgstr ""
 
-msgid "Media Folders"
+msgid "Do you want to toggle selected NFS exports?"
 msgstr ""
-
-msgid "Media Folder"
-msgstr ""
-
-msgid "Add Media Folder"
-msgstr "Přidat složku médií"
-
-msgid "Edit Media Folder"
-msgstr ""
-
-msgid "Media Folder is marked for deletion"
-msgstr ""
-
-msgid "Media Folder is locked"
-msgstr ""
-
-msgid "Media Folder is unlocked"
-msgstr ""
-
-msgid "Delete Selected Media Folders"
-msgstr ""
-
-msgid "Disable Selected Media Folders"
-msgstr ""
-
-msgid "Enable Selected Media Folders"
-msgstr ""
-
-msgid "Toggle Selected Media Folders"
-msgstr ""
-
-msgid "Do you want to delete selected media folders?"
-msgstr "Chcete označené složky s médii smazat?"
-
-msgid "Do you want to disable selected media folders?"
-msgstr ""
-
-msgid "Do you want to enable selected media folders?"
-msgstr ""
-
-msgid "Do you want to toggle selected media folders?"
-msgstr ""
-
-msgid "Inotify"
-msgstr "Inotify"
-
-msgid "Broadcast Interval"
-msgstr "Interval všesměrového vysílání"
-
-msgid "Strict DLNA"
-msgstr "Striktní DLNA"
-
-msgid "TiVo Support"
-msgstr "Podpora zařízení TiVo"
-
-msgid "Wide Links"
-msgstr "Široké odkazy"
-
-msgid "Container"
-msgstr "Kontejner"
-
-msgid "Sort Criteria"
-msgstr ""
-
-msgid "Disable Subtitles"
-msgstr "Vypnout titulky"
-
-msgid "Media Server Name."
-msgstr ""
-
-msgid "Verbosity of information that is logged."
-msgstr ""
-
-msgid "Fatal"
-msgstr "Fatální"
-
-msgid "Enable inotify."
-msgstr "Zapnout inotify."
-
-msgid "Use inotify monitoring to automatically discover new media files."
-msgstr ""
-
-msgid ""
-"Broadcasts its availability every configured seconds on the network, the "
-"default is 300 seconds."
-msgstr ""
-"Vysílá svou dostupnost v síti se zvolenou periodou. Výchozí hodnota je 300 "
-"sekund."
-
-msgid "300"
-msgstr "300"
-
-msgid ""
-"Port to listen on. Port number must be between 1024 and 65535. Default port "
-"is 8200."
-msgstr ""
-
-msgid "8200"
-msgstr "8200"
-
-msgid "Enable to strictly adhere to DLNA standards."
-msgstr "Zapnutím budou striktně dodržovány standardy pro DLNA."
-
-msgid ""
-"This will allow server-side downscaling of very large JPEG images, it can "
-"impact JPEG serving performance on some DLNA devices."
-msgstr ""
-
-msgid "Enable TiVo support."
-msgstr "Zapnout podporu pro zařízení TiVo."
-
-msgid ""
-"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
-msgstr ""
-"Umožní vysílání .jpg a .mp3 souborů na TiVo zařízení, podporující HMO."
-
-msgid "Allow symlinks that point outside defined media folders."
-msgstr "Povolit symlinky odkazující mimo definovaný adresář média."
-
-msgid "These parameters will be added to minidlna.conf"
-msgstr ""
-
-msgid "Select a container as the root of the tree exposed to clients."
-msgstr ""
-
-msgid "Use the standard container (this is the default)"
-msgstr ""
-
-msgid "Use the \"Browse Directory\" container"
-msgstr ""
-
-msgid "Use the \"Music\" container"
-msgstr ""
-
-msgid "Use the \"Video\" container"
-msgstr ""
-
-msgid "Use the \"Pictures\" container"
-msgstr ""
-
-msgid "Overwrite the sort criteria passed by the client."
-msgstr ""
-
-msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-
-msgid "Disable subtitle support on unknown clients."
-msgstr "Vypnout podporu titulků pro neznámé klienty."
 
 msgid "Mapping"
 msgstr ""
@@ -13390,45 +13674,6 @@ msgstr ""
 msgid "Root Directory"
 msgstr ""
 
-msgid "Add NFS Export"
-msgstr "Přidat NFS export"
-
-msgid "Edit NFS Export"
-msgstr ""
-
-msgid "NFS Export is marked for deletion"
-msgstr ""
-
-msgid "NFS Export is locked"
-msgstr ""
-
-msgid "NFS Export is unlocked"
-msgstr ""
-
-msgid "Delete Selected NFS Exports"
-msgstr "Smazat označené NFS exporty"
-
-msgid "Disable Selected NFS Exports"
-msgstr "Zakázat označené NFS exporty"
-
-msgid "Enable Selected NFS Exports"
-msgstr ""
-
-msgid "Toggle Selected NFS Exports"
-msgstr ""
-
-msgid "Do you want to delete selected NFS exports?"
-msgstr "Chcete označené NFS exporty smazat?"
-
-msgid "Do you want to disable selected NFS exports?"
-msgstr ""
-
-msgid "Do you want to enable selected NFS exports?"
-msgstr ""
-
-msgid "Do you want to toggle selected NFS exports?"
-msgstr ""
-
 msgid "Add NFS Root"
 msgstr "Přidat NFS kořen"
 
@@ -13471,6 +13716,15 @@ msgstr ""
 msgid "Root Directories"
 msgstr ""
 
+msgid "NFSv4"
+msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
+
+msgid "Servers"
+msgstr "Servery"
+
 msgid "Enable NFSv4 server."
 msgstr "Zapnout NFSv4 server."
 
@@ -13488,15 +13742,6 @@ msgstr ""
 msgid "These parameters are appended to the exports file."
 msgstr "Tyto parametry jsou připojeny k souboru s exporty."
 
-msgid "NFSv4"
-msgstr "NFSv4"
-
-msgid "NFSv4 Only"
-msgstr ""
-
-msgid "Servers"
-msgstr "Servery"
-
 msgid "Driver List"
 msgstr "Seznam ovladačů"
 
@@ -13508,6 +13753,66 @@ msgstr "Název modelu"
 
 msgid "Model Extra"
 msgstr "Další ohledně modelu"
+
+msgid "Enable AFP"
+msgstr "Zapnout AFP"
+
+msgid "Create Mask"
+msgstr "Maska vytváření"
+
+msgid "Force Group"
+msgstr "Vynutit skupinu"
+
+msgid "Force User"
+msgstr "Vynutit uživatele"
+
+msgid "Shadow Copy Format"
+msgstr "Formát stínové kopie"
+
+msgid "VFS fruit:encoding"
+msgstr "VFS fruit:enkódování"
+
+msgid "VFS fruit:locking"
+msgstr "VFS fruit:zamykání"
+
+msgid "VFS fruit:metadata"
+msgstr "VFS fruit:metadata"
+
+msgid "VFS fruit:resource"
+msgstr "VFS fruit:prostředek"
+
+msgid "VFS fruit:time machine"
+msgstr "VFS fruit:time machine"
+
+msgid "ZFS ACL"
+msgstr "ZFS ACL seznamy"
+
+msgid "Inherit ACL"
+msgstr "Převzít ACL seznamy"
+
+msgid "Alternate Data Streams"
+msgstr "Alternativní datové proudy"
+
+msgid "NTFS ACLs"
+msgstr "NTFS ACL seznamy"
+
+msgid "Shadow Copy"
+msgstr "Stínová kopie"
+
+msgid "Browseable"
+msgstr "Možné procházet"
+
+msgid "Guest Only"
+msgstr ""
+
+msgid "Inherit Permissions"
+msgstr "Převzít přístupová práva"
+
+msgid "Recycle Bin"
+msgstr "Koš"
+
+msgid "Hide Dot Files"
+msgstr "Skrýt soubory s názvy začínajícími tečkou"
 
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
@@ -13724,66 +14029,6 @@ msgstr "Zadejte komentář pro sdílení"
 
 msgid "Enter the location of the share"
 msgstr "Zadejte umístění sdílení"
-
-msgid "Enable AFP"
-msgstr "Zapnout AFP"
-
-msgid "Create Mask"
-msgstr "Maska vytváření"
-
-msgid "Force Group"
-msgstr "Vynutit skupinu"
-
-msgid "Force User"
-msgstr "Vynutit uživatele"
-
-msgid "Shadow Copy Format"
-msgstr "Formát stínové kopie"
-
-msgid "VFS fruit:encoding"
-msgstr "VFS fruit:enkódování"
-
-msgid "VFS fruit:locking"
-msgstr "VFS fruit:zamykání"
-
-msgid "VFS fruit:metadata"
-msgstr "VFS fruit:metadata"
-
-msgid "VFS fruit:resource"
-msgstr "VFS fruit:prostředek"
-
-msgid "VFS fruit:time machine"
-msgstr "VFS fruit:time machine"
-
-msgid "ZFS ACL"
-msgstr "ZFS ACL seznamy"
-
-msgid "Inherit ACL"
-msgstr "Převzít ACL seznamy"
-
-msgid "Alternate Data Streams"
-msgstr "Alternativní datové proudy"
-
-msgid "NTFS ACLs"
-msgstr "NTFS ACL seznamy"
-
-msgid "Shadow Copy"
-msgstr "Stínová kopie"
-
-msgid "Browseable"
-msgstr "Možné procházet"
-
-msgid "Guest Only"
-msgstr ""
-
-msgid "Inherit Permissions"
-msgstr "Převzít přístupová práva"
-
-msgid "Recycle Bin"
-msgstr "Koš"
-
-msgid "Hide Dot Files"
-msgstr "Skrýt soubory s názvy začínajícími tečkou"
 
 msgid "Add Samba Share"
 msgstr "Přidat Samba sdílení"
@@ -14194,9 +14439,6 @@ msgstr ""
 msgid "Allow password authentication."
 msgstr "Povolit ověření heslem."
 
-msgid "Allow challenge-response authentication."
-msgstr "Povolit ověřování výzva-odpověď."
-
 msgid "Allow keyboard-interactive authentication."
 msgstr "Povolit interaktivní ověřování pomocí klávesnice."
 
@@ -14274,9 +14516,6 @@ msgstr ""
 msgid "Password Authentication"
 msgstr "Ověřování heslem"
 
-msgid "Challenge-Response Authentication"
-msgstr "Autentizace výzva-odpověď"
-
 msgid "Keyboard-Interactive Authentication"
 msgstr "Ověřování se prostřednictvím klávesnice"
 
@@ -14291,6 +14530,18 @@ msgstr ""
 
 msgid "TCP Forwarding"
 msgstr "Přeposílání TCP"
+
+msgid "Allow New Files"
+msgstr "Umožnit nové soubory"
+
+msgid "Directory"
+msgstr "Složka"
+
+msgid "Max. Block Size"
+msgstr "Nejvyšší velikost bloku"
+
+msgid "Umask"
+msgstr "Umask"
 
 msgid "Allow new files to be created."
 msgstr "Umožnit vytváření nových souborů."
@@ -14359,14 +14610,56 @@ msgid "Specifies the username under which the TFTP service should run."
 msgstr ""
 "Určuje uživatelské jméno pod kterým by měla TFTP služba být spuštěná."
 
-msgid "Allow New Files"
-msgstr "Umožnit nové soubory"
+msgid "Peer Port"
+msgstr "Port na protějšku"
 
-msgid "Max. Block Size"
-msgstr "Nejvyšší velikost bloku"
+msgid "Configuration Folder"
+msgstr "Nastavení složky"
 
-msgid "Umask"
-msgstr "Umask"
+msgid "Incomplete Folder"
+msgstr ""
+
+msgid "Download Folder"
+msgstr ""
+
+msgid "Watch Folder"
+msgstr ""
+
+msgid "Port Forwarding"
+msgstr "Přeposílání portů"
+
+msgid "Peer Exchange"
+msgstr "Výměna stran"
+
+msgid "Distributed Hash Table"
+msgstr "Distribuovaná tabulka otisků"
+
+msgid "Local Peer Discovery"
+msgstr ""
+
+msgid "uTP"
+msgstr ""
+
+msgid "User Mask"
+msgstr "Maska uživatele"
+
+msgid "Preallocation"
+msgstr "Předpřidělení"
+
+msgid "Message Level"
+msgstr ""
+
+msgid "DNS Rebind Protection"
+msgstr ""
+
+msgid "Domain Names"
+msgstr ""
+
+msgid "Start Torrents"
+msgstr ""
+
+msgid "Stop Torrents"
+msgstr ""
 
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
@@ -14485,68 +14778,17 @@ msgstr ""
 msgid "Stop torrents before stopping service."
 msgstr ""
 
-msgid "Peer Port"
-msgstr "Port na protějšku"
+msgid "Work Directory"
+msgstr "Pracovní složka"
 
-msgid "Configuration Folder"
-msgstr "Nastavení složky"
-
-msgid "Incomplete Folder"
-msgstr ""
-
-msgid "Download Folder"
-msgstr ""
-
-msgid "Watch Folder"
-msgstr ""
-
-msgid "Port Forwarding"
-msgstr "Přeposílání portů"
-
-msgid "Peer Exchange"
-msgstr "Výměna stran"
-
-msgid "Distributed Hash Table"
-msgstr "Distribuovaná tabulka otisků"
-
-msgid "Local Peer Discovery"
-msgstr ""
-
-msgid "uTP"
-msgstr ""
-
-msgid "User Mask"
-msgstr "Maska uživatele"
-
-msgid "Preallocation"
-msgstr "Předpřidělení"
-
-msgid "Message Level"
-msgstr ""
-
-msgid "DNS Rebind Protection"
-msgstr ""
-
-msgid "Domain Names"
-msgstr ""
-
-msgid "Start Torrents"
-msgstr ""
-
-msgid "Stop Torrents"
-msgstr ""
+msgid "Create Work Directory"
+msgstr "Vytvoř pracovní adresář"
 
 msgid "Location where work files will be stored."
 msgstr "Umístění, ve kterém budou ukládány pracovní soubory."
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Pokud neexistuje, vytvořit pracovní složku."
-
-msgid "Work Directory"
-msgstr "Pracovní složka"
-
-msgid "Create Work Directory"
-msgstr "Vytvoř pracovní adresář"
 
 msgid "Name of the WebDAV Record."
 msgstr "Název záznamu pro WebDAV."
@@ -14570,6 +14812,12 @@ msgstr "Použít pro zamykání a vlastnosti Sqlite."
 
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr "Tyto parametry budou přidány do této konfigurace WebDAV."
+
+msgid "Read-Only"
+msgstr "Pouze pro čtení"
+
+msgid "Use Sqlite"
+msgstr "Použít Sqlite"
 
 msgid "Add WebDAV Record"
 msgstr "Přidat záznam WebDAV"
@@ -14610,30 +14858,6 @@ msgstr "Opravdu chcete zapnout označené záznamy pro WebDAV?"
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Opravdu chcete přepnout označené WebDAV záznamy?"
 
-msgid "Read-Only"
-msgstr "Pouze pro čtení"
-
-msgid "Use Sqlite"
-msgstr "Použít Sqlite"
-
-msgid "IP Address Family"
-msgstr ""
-
-msgid "NETBIOS Hostname"
-msgstr ""
-
-msgid "Preserve Case"
-msgstr ""
-
-msgid "Server Mode"
-msgstr ""
-
-msgid "Workgroup Name"
-msgstr ""
-
-msgid "Web Service Discovery"
-msgstr ""
-
 msgid "IPv4 only"
 msgstr ""
 
@@ -14659,6 +14883,24 @@ msgstr ""
 msgid "Set workgroup name"
 msgstr ""
 
+msgid "IP Address Family"
+msgstr ""
+
+msgid "NETBIOS Hostname"
+msgstr ""
+
+msgid "Preserve Case"
+msgstr ""
+
+msgid "Server Mode"
+msgstr ""
+
+msgid "Workgroup Name"
+msgstr ""
+
+msgid "Web Service Discovery"
+msgstr ""
+
 msgid "Protected"
 msgstr "Chráněno"
 
@@ -14670,6 +14912,15 @@ msgstr "Složka se zachycenými stavy"
 
 msgid "UTF-8 Only"
 msgstr "Pouze UTF-8"
+
+msgid "Service"
+msgstr "Služba"
+
+msgid "Do you really want to remove the selected item from the list?"
+msgstr "Opravd odebrat vybranou položku ze seznamu?"
+
+msgid "Select item to remove from the list"
+msgstr "Vyberte položku kterou chcete odstranit ze seznamu"
 
 msgid "You may enter a description for your reference."
 msgstr "Sem je možné zapsat popis pro vlastní referenci."
@@ -14698,8 +14949,517 @@ msgstr "Zadejte název svazku"
 msgid "The name of the ZFS pool."
 msgstr "Název ZFS fondu."
 
-msgid "Service"
-msgstr "Služba"
+msgid "You are not allowed to use this function."
+msgstr ""
+
+msgid "Copy item(s)"
+msgstr "Kopírování položky/položek"
+
+msgid "Move item(s)"
+msgstr ""
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Kopírovat z /%s na /%s "
+
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopírovat"
+
+msgid "Move"
+msgstr ""
+
+msgid "The target directory doesn't exist."
+msgstr ""
+
+msgid "You are not allowed to access the target directory."
+msgstr ""
+
+msgid "The target directory may not be above the home directory."
+msgstr ""
+
+msgid "You must supply a name."
+msgstr ""
+
+msgid "This item doesn't exist."
+msgstr ""
+
+msgid "You are not allowed to access this item."
+msgstr ""
+
+msgid "The target item already exists."
+msgstr ""
+
+msgid "Copying failed."
+msgstr "Kopírování se nezdařilo."
+
+msgid "Moving failed."
+msgstr ""
+
+msgid "Deleting failed."
+msgstr "Mazání se nezdařilo."
+
+msgid "File saving failed."
+msgstr "Uložení souboru se nezdařilo."
+
+msgid "This file doesn't exist."
+msgstr ""
+
+msgid "You are not allowed to access this file."
+msgstr ""
+
+msgid "This item already exists."
+msgstr ""
+
+msgid "File opening failed."
+msgstr "Otevření souboru se nezdařilo."
+
+msgid "Edit file"
+msgstr ""
+
+msgid "Wrap text:"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Close"
+msgstr "Zavřít"
+
+msgid "Unable to open source directory."
+msgstr ""
+
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to read directory."
+msgstr ""
+
+msgid "You haven't selected any item(s)."
+msgstr ""
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Chceš opravdu smazat vybranou položku/vybrané položky?"
+
+msgid "Executable File"
+msgstr ""
+
+msgid "Link"
+msgstr "Odkaz"
+
+msgid "Text File"
+msgstr ""
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "SQL File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
+msgid "HTML Page"
+msgstr "HTML stránka"
+
+msgid "XML File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr "Javascript soubor"
+
+msgid "CSS File"
+msgstr "soubor CSS"
+
+msgid "CGI Script"
+msgstr "CGI script"
+
+msgid "Python Script"
+msgstr ""
+
+msgid "Shell Script"
+msgstr ""
+
+msgid "C File"
+msgstr "C soubor"
+
+msgid "C++ Source File"
+msgstr "Zdrojový soubor v C++"
+
+msgid "C++ Header File"
+msgstr "hlavičkový soubor C++"
+
+msgid "Java Source File"
+msgstr "Zdrojový soubor v Javě"
+
+msgid "Java Class File"
+msgstr "Java Class soubor"
+
+msgid "Pascal File"
+msgstr ""
+
+msgid "GIF Image"
+msgstr "GIF obrázek"
+
+msgid "JPG Image"
+msgstr "JPG obrázek"
+
+msgid "BMP Image"
+msgstr "obrázek BMP"
+
+msgid "PNG Image"
+msgstr ""
+
+msgid "TIF Image"
+msgstr ""
+
+msgid "Photoshop File"
+msgstr ""
+
+msgid "ZIP Archive"
+msgstr ""
+
+msgid "TAR Archive"
+msgstr ""
+
+msgid "GZIP Archive"
+msgstr "GZIP archiv"
+
+msgid "BZIP2 Archive"
+msgstr "BZIP2 archív"
+
+msgid "RAR Archive"
+msgstr ""
+
+msgid "MP3 Audio File"
+msgstr "MP3 zvukový soubor"
+
+msgid "FLAC Audio File"
+msgstr ""
+
+msgid "WAV Audio File"
+msgstr ""
+
+msgid "MIDI File"
+msgstr "MIDI soubor"
+
+msgid "RealAudio File"
+msgstr ""
+
+msgid "DTS Audio File"
+msgstr "DTS audio sourbor"
+
+msgid "AC3 Audio File"
+msgstr "AC3 zvukový soubor"
+
+msgid "OGG Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr "MP3 seznam stop"
+
+msgid "AVI File"
+msgstr "AVI soubor"
+
+msgid "MPEG File"
+msgstr "MPEG soubor"
+
+msgid "MOV File"
+msgstr "MOV soubor"
+
+msgid "MKV File"
+msgstr "MKV soubor"
+
+msgid "VOB File"
+msgstr ""
+
+msgid "Flash File"
+msgstr ""
+
+msgid "MP4 File"
+msgstr "MP4 soubor"
+
+msgid "TS File"
+msgstr ""
+
+msgid "Word Document"
+msgstr ""
+
+msgid "Excel Sheet"
+msgstr ""
+
+msgid "Powerpoint Presentation"
+msgstr ""
+
+msgid "PDF File"
+msgstr ""
+
+msgid "ERROR(S)"
+msgstr ""
+
+msgid "Go Back"
+msgstr "Jít zpět"
+
+msgid "Extracting"
+msgstr ""
+
+msgid "Unzip"
+msgstr ""
+
+msgid "Failed to extract archive."
+msgstr ""
+
+msgid "Directory creation failed."
+msgstr "Vytvoření složky se nezdaiřlo."
+
+msgid "File creation failed."
+msgstr "Vytvoření souboru se nezdařilo."
+
+msgid "Search Directory"
+msgstr ""
+
+msgid "Search Filter"
+msgstr ""
+
+msgid "Search subfolder"
+msgstr ""
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr ""
+
+msgid "Item(s)"
+msgstr "Položek"
+
+msgid "No results available."
+msgstr ""
+
+msgid "HOME"
+msgstr ""
+
+msgid "Permission-change failed."
+msgstr ""
+
+msgid "Getting permissions failed."
+msgstr "Získání oprávnění se nezdařilo."
+
+msgid "Change permissions"
+msgstr "Změnit oprávnění"
+
+msgid "Public"
+msgstr ""
+
+msgid "CHANGE PERMISSIONS"
+msgstr "ZMĚNA PRÁV"
+
+msgid "You are not allowed to access this directory."
+msgstr ""
+
+msgid "UP"
+msgstr ""
+
+msgid "RELOAD"
+msgstr ""
+
+msgid "SEARCH"
+msgstr ""
+
+msgid "Modified"
+msgstr "Upraveno"
+
+msgid "Permissions"
+msgstr ""
+
+msgid "Actions"
+msgstr "Akce"
+
+msgid "COPY"
+msgstr "KOPÍROVAT"
+
+msgid "MOVE"
+msgstr ""
+
+msgid "DELETE"
+msgstr "DELETE"
+
+msgid "EDIT"
+msgstr ""
+
+msgid "UNZIP"
+msgstr ""
+
+msgid "DOWNLOAD"
+msgstr ""
+
+msgid "The following errors were detected"
+msgstr "Byly zjištěny následující chyby"
+
+msgid ""
+"If this message persists take a look at the system log for more information."
+msgstr ""
+"Pokud se tato zpráva pořád objevuje, nahlédněte do dalších podrobností v "
+"záznamu událostí (log) systému"
+
+msgid "Choose..."
+msgstr "Zvolit…"
+
+msgid "Running"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Online"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
+
+msgid "No records found."
+msgstr "Nebyly nalezeny žádné záznamy."
+
+msgid "Selected..."
+msgstr ""
+
+msgid "Apply Changes"
+msgstr "Uplatnit změny"
+
+msgid "Rescan"
+msgstr "Znovu proskenovat"
+
+msgid "Restart"
+msgstr "Restartovat"
+
+msgid "Parent Directory"
+msgstr "Nadřazená složka"
+
+msgid "VLAN Interface"
+msgstr ""
+
+msgid "VLAN Tag"
+msgstr "Značka virtuální sítě (VLAN)"
+
+msgid "PCP"
+msgstr ""
+
+msgid "Encapsulation Protocol"
+msgstr ""
+
+msgid "Add VLAN"
+msgstr "Přidat VLAN síť"
+
+msgid "Edit VLAN"
+msgstr "Upravit VLAN"
+
+msgid "VLAN is marked for deletion"
+msgstr "VLAN je označena ke smazání"
+
+msgid "VLAN is locked"
+msgstr ""
+
+msgid "VLAN is unlocked"
+msgstr "VLAN je odemčena"
+
+msgid "Delete Selected VLANs"
+msgstr "Smazat označené virt. (VLAN) sítě"
+
+msgid "Disable Selected VLANs"
+msgstr ""
+
+msgid "Enable Selected VLANs"
+msgstr ""
+
+msgid "Toggle Selected VLANs"
+msgstr ""
+
+msgid "Do you want to delete selected VLANs?"
+msgstr "Opravdu smazat označené VLAN?"
+
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
+msgid "Do you want to enable selected VLANs?"
+msgstr ""
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr ""
+
+msgid "The name of the VLAN interface"
+msgstr ""
+
+msgid "vlan0"
+msgstr ""
+
+msgid "802.1Q VLAN tag (between 1 and 4094)."
+msgstr ""
+"Značka virtuální sítě (VLAN) dle normy 802.1Q – číslo z rozsahu 1 až 4094."
+
+msgid "102"
+msgstr ""
+
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
+msgid "Best effort (default)"
+msgstr ""
+
+msgid "Background (lowest)"
+msgstr ""
+
+msgid "Excellent effort"
+msgstr ""
+
+msgid "Critical applications"
+msgstr ""
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
+
+msgid "Internetwork control"
+msgstr ""
+
+msgid "Network control (highest)"
+msgstr ""
+
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
+msgid "802.1Q (default)"
+msgstr ""
+
+msgid "802.1ad (QinQ)"
+msgstr ""
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid ""
+"Controls whether processes can be executed from within this file system."
+msgstr "Řídí zda z tohoto souborového systému mohou být spouštěny procesy."
+
+msgid "Exec"
+msgstr "Spustit"
+
+msgid ""
+"The minimum amount of space guaranteed to a dataset, not including its "
+"descendents."
+msgstr ""
+"Kolik prostoru je garantováno této datové sadě, ale už ne jí podřízeným "
+"objektům."
 
 msgid "Console Autologin"
 msgstr "Automatické přihlášení na konzoli"
@@ -14808,861 +15568,120 @@ msgstr ""
 "Před zapnutím této funkce je třeba, aby COM port byl zapnut i v BIOS/(U)EFI "
 "stroje."
 
-msgid "1"
-msgstr "1"
+msgid "Second"
+msgstr "Sekunda"
 
-msgid "2"
-msgstr "2"
+msgid "Seconds"
+msgstr "Sekund"
 
-msgid "3"
-msgstr "3"
+msgid "Minute"
+msgstr "Minuta"
+
+msgid "Hour"
+msgstr "Hodina"
+
+msgid "Day"
+msgstr "Den"
+
+#, php-format
+msgid "%1$s managed, %2$s used, %3$s available"
+msgstr "%1$s spravováno, %2$s použito, %3$s k dispozici"
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr ""
+
+#, php-format
+msgid "%2$s used, %3$s available"
+msgstr "%2$s použito, %3$s dostupný"
+
+msgid "Communication Error"
+msgstr "Chyba v komunikaci"
+
+msgid "More than a day"
+msgstr ""
+
+msgid "No data"
+msgstr ""
+
+#, php-format
+msgid "%u hour"
+msgstr "%u hodina"
+
+#, php-format
+msgid "%u hours"
+msgstr "%u hodiny"
+
+#, php-format
+msgid "%u minute"
+msgstr "%u minuta"
+
+#, php-format
+msgid "%u minutes"
+msgstr "%u minut"
+
+#, php-format
+msgid "%u second"
+msgstr "%u sekunda"
+
+#, php-format
+msgid "%u seconds"
+msgstr "%u sekund"
+
+msgid "and"
+msgstr "a"
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+msgid "Deleting MBR and partition table"
+msgstr "Mazání MBR oblasti a tabulky oddílů"
+
+msgid "Creating partition"
+msgstr "Vytváření oddílu"
+
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr ""
+
+#, php-format
+msgid "Using %s bytes fragment size."
+msgstr "S použitím velikosti fragmentu %s bajtů."
+
+msgid "Created UFS file system:"
+msgstr "Vytvořený souborový systém UFS:"
+
+msgid "Deleting GEOM metadata"
+msgstr "Mazání GEOM metadat"
+
+msgid "Creating filesystem"
+msgstr "Vytváření souborového systému"
+
+msgid "Done!"
+msgstr "Hotovo!"
 
 msgid ""
-"Controls whether processes can be executed from within this file system."
-msgstr "Řídí zda z tohoto souborového systému mohou být spouštěny procesy."
-
-msgid "Exec"
-msgstr "Spustit"
-
-msgid ""
-"The minimum amount of space guaranteed to a dataset, not including its "
-"descendents."
-msgstr ""
-"Kolik prostoru je garantováno této datové sadě, ale už ne jí podřízeným "
-"objektům."
-
-msgid "Enter AD or PDC name."
-msgstr ""
-
-msgid "Controller Name"
-msgstr "Název ovladače"
-
-msgid "Enter the domain name."
-msgstr ""
-
-msgid "example.com"
-msgstr ""
-
-msgid "Enter NetBIOS name."
-msgstr ""
-
-msgid "NETBIOS"
-msgstr ""
-
-msgid "Enter user name of a domain administrator account."
-msgstr ""
-
-msgid "Admin"
-msgstr "Správce"
-
-msgid "Enter the password of the domain administrator account."
-msgstr ""
-
-msgid "Domain Controller Name"
-msgstr "Název řadiče domény"
-
-msgid "Domain Name (DNS/Realm-Name)"
-msgstr "Název domény (DNS/Realm)"
-
-msgid "Domain Name (NetBIOS-Name)"
-msgstr "Název domény (NetBIOS)"
-
-msgid "Administrator Name"
-msgstr "Jméno správce"
-
-msgid "Administrator Password"
-msgstr "Heslo správce"
-
-msgid "Add Group"
-msgstr "Přidat skupinu"
-
-msgid "Edit Group"
-msgstr "Upravit skupinu"
-
-msgid "Group is marked for deletion"
-msgstr "Skupina je označena ke smazání"
-
-msgid "Group is protected"
-msgstr "Skupina je chráněna"
-
-msgid "Group is unlocked"
-msgstr "Skupina je odemčená"
-
-msgid "Delete Selected Groups"
-msgstr "Smazat označené skupiny"
-
-msgid "Do you want to delete selected groups?"
-msgstr "Opravdu smazat označené skupiny?"
-
-msgid "Disable Selected Groups"
-msgstr "Zakázat označené skupiny"
-
-msgid "Do you want to disable selected groups?"
-msgstr ""
-
-msgid "Enable Selected Groups"
-msgstr ""
-
-msgid "Do you want to enable selected groups?"
-msgstr ""
-
-msgid "Toggle Selected Groups"
-msgstr ""
-
-msgid "Do you want to toggle selected groups?"
-msgstr ""
-
-msgid "System Group"
-msgstr ""
-
-msgid "Show System Groups"
-msgstr ""
-
-msgid "Hide System Groups"
-msgstr "Skrýt systémové skupiny"
-
-msgid "Enter group name."
-msgstr "Zadejte název skupiny."
-
-msgid "Group Name"
-msgstr "Název skupiny"
-
-msgid "Specify the group numeric id."
-msgstr ""
-
-msgid "The recommended range for the group id is between 1000 and 32000."
-msgstr ""
-
-msgid "1000"
-msgstr "1000"
-
-msgid "Groups"
-msgstr "Skupiny"
-
-msgid "Users"
-msgstr "Uživatelé"
-
-msgid "Public Keys"
-msgstr ""
-
-msgid "Public key information."
-msgstr ""
-
-msgid "Public Key"
-msgstr ""
-
-msgid "Login Name"
-msgstr "Přihlašovací jméno"
-
-msgid "Add Public Key"
-msgstr "Přidat veřejný klíč"
-
-msgid "Edit Public Key"
-msgstr ""
-
-msgid "Public key is marked for deletion"
-msgstr ""
-
-msgid "Public key is protected"
-msgstr ""
-
-msgid "Public key is unlocked"
-msgstr ""
-
-msgid "Delete Selected Public Keys"
-msgstr "Smazat označené veřejné klíče"
-
-msgid "Do you want to delete selected public keys?"
-msgstr "Chcete označené veřejné klíče smazat?"
-
-msgid "Disable Selected Public Keys"
-msgstr "Zakázat označené veřejné klíče"
-
-msgid "Do you want to disable selected public keys?"
-msgstr "Chcete zakázat zvolené veřejné klíče?"
-
-msgid "Enable Selected Public Keys"
-msgstr ""
-
-msgid "Do you want to enable selected public keys?"
-msgstr "Chcete povolit vybrané veřejné klíče?"
-
-msgid "Toggle Selected Public Keys"
-msgstr ""
-
-msgid "Do you want to toggle selected public keys?"
-msgstr ""
-
-msgid "Add User Account"
-msgstr "Přidat uživatelský účet"
-
-msgid "Edit User Account"
-msgstr "Upravit uživatelský účet"
-
-msgid "User account is marked for deletion"
-msgstr "Uživatelský účet je označen ke smazání"
-
-msgid "User account is protected"
-msgstr "Uživatelský účet je chráněný"
-
-msgid "User account is unlocked"
-msgstr "Uživatelský účet je odemčený"
-
-msgid "Set password"
-msgstr ""
-
-msgid "Delete Selected User Accounts"
-msgstr "Smazat označené uživatelské účty"
-
-msgid "Do you want to delete selected user accounts?"
-msgstr "Opravdu smazat označené uživatelské účty?"
-
-msgid "Disable Selected Users"
-msgstr "Zakázat označené uživatele"
-
-msgid "Do you want to disable selected users?"
-msgstr ""
-
-msgid "Enable Selected Users"
-msgstr ""
-
-msgid "Do you want to enable selected users?"
-msgstr ""
-
-msgid "Toggle Selected Users"
-msgstr ""
-
-msgid "Do you want to toggle selected users?"
-msgstr ""
-
-msgid "System User"
-msgstr ""
-
-msgid "Show System Users"
-msgstr ""
-
-msgid "Hide System Users"
-msgstr "Skrýt systémové uživatele"
-
-msgid "Full Name"
-msgstr "Úplný název"
-
-msgid "SHA Password"
-msgstr ""
-
-msgid "MD4 Password"
-msgstr "MD4 heslo"
-
-msgid "Shell"
-msgstr "Terminál"
-
-msgid "Primary Group"
-msgstr "Hlavní skupina"
-
-msgid "Timezone"
-msgstr ""
-
-msgid "File Manager Access"
-msgstr "Přístup ke správci souborů"
-
-msgid "Hidden Items"
-msgstr "Skryté položky"
-
-msgid "Read Permission"
-msgstr ""
-
-msgid "Create Permission"
-msgstr "Vytvořit oprávnění"
-
-msgid "Change Permission"
-msgstr "Změnit oprávnění"
-
-msgid "Delete Permission"
-msgstr ""
-
-msgid "Enter login name."
-msgstr ""
-
-msgid "Enter the full user name."
-msgstr ""
-
-msgid "Set user password."
-msgstr ""
-
-msgid "Specify the user/account numeric id."
-msgstr ""
-
-msgid "The recommended range for the user id is between 1000 and 32000."
-msgstr ""
-
-msgid "Set user login shell."
-msgstr "Nastavit přihlašovací shell uživatele."
-
-msgid "No Login"
-msgstr ""
-
-msgid "scponly - Secure Copy Protocol only"
-msgstr ""
-
-msgid "sh - Bourne Shell"
-msgstr ""
-
-msgid "bash - Bourne Again Shell"
-msgstr ""
-
-msgid "csh - C Shell"
-msgstr ""
-
-msgid "tcsh - TENEX C Shell"
-msgstr ""
-
-msgid "Set the account's primary group."
-msgstr ""
-
-msgid "Add user to additional groups."
-msgstr "Přidat uživatele do dalších skupin."
-
-msgid ""
-"Enter the path to the home directory of the user. Leave this field empty to "
-"use default path /mnt."
-msgstr ""
-
-msgid "/mnt"
-msgstr "/mnt"
-
-msgid "User portal permission."
-msgstr ""
-
-msgid "No access to the user portal"
-msgstr ""
-
-msgid "User access"
-msgstr ""
-
-msgid "Admin access"
-msgstr "Administrátorský přístup"
-
-msgid "Select the language of the user portal for this user."
-msgstr ""
-
-msgid "Select the timezone for this user."
-msgstr ""
-
-msgid "Grant access to the file manager."
-msgstr "Udělit přístup ke správci souborů."
-
-msgid "Show hidden items"
-msgstr ""
-
-msgid "Grant read permission"
-msgstr "Udělit oprávnění pro čtení"
-
-msgid "Grant create permission"
-msgstr "Udělit oprávnění pro vytváření"
-
-msgid "Grant modify permission"
-msgstr "Udělit oprávnění pro provádění změn"
-
-msgid "Grant delete permission"
-msgstr "Udělit oprávnění pro mazání"
-
-msgid "Show Interval"
-msgstr "Zobrazit interval"
-
-msgid ""
-"Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables the reminder."
-msgstr ""
-
-msgid "Running user"
-msgstr ""
-
-msgid "Add Option"
-msgstr "Přidat předvolbu"
-
-msgid "Edit Option"
-msgstr "Upravit předvolbu"
-
-msgid "Option is marked for deletion"
-msgstr "Předvolba je označena k vymazání"
-
-msgid "Option is locked"
-msgstr "Předvolba je uzamčena"
-
-msgid "Option is unlocked"
-msgstr "Předvolba je odemčena"
-
-msgid "Delete Selected Options"
-msgstr "Smazat označené předvolby"
-
-msgid "Do you want to delete selected options?"
-msgstr "Opravdu smazat označené předvolby?"
-
-msgid "Disable Selected Options"
-msgstr "Vypnout označené předvolby"
-
-msgid "Do you want to disable selected options?"
-msgstr "Opravdu vypnout označené předvolby?"
-
-msgid "Enable Selected Options"
-msgstr "Zapnout označené předvolby"
-
-msgid "Do you want to enable selected options?"
-msgstr "Opravdu zapnout označené předvolby?"
-
-msgid "Toggle Selected Options"
-msgstr "Přepnout označené předvolby"
-
-msgid "Do you want to toggle selected options?"
-msgstr "Opravdu přepnout označené předvolby?"
-
-msgid ""
-"These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to the kernel and additional modules to be "
-"loaded."
-msgstr ""
-
-msgid "The name of the variable."
+"The disk is currently mounted! The mount point will be removed temporarily "
+"to perform selected command."
 msgstr ""
+"V současnosti je z této jednotky datového úložiště připojen (mount) nějaký "
+"souborový systém! Kvůli provedení zvoleného příkazu bude přípojný bod "
+"dočasně odebrán."
 
-msgid "The value of the variable."
-msgstr "Hodnota proměnné."
-
-msgid "Sort"
-msgstr "Seřadit"
-
-msgid "Post Upgrade"
-msgstr "Po aktualizaci"
-
-msgid "Name of the command."
-msgstr ""
-
-msgid "The command to be executed."
-msgstr "Příkaz který má být vykonán."
-
-msgid "Select at which stage the command should be executed."
-msgstr "Vyberte která fáze příkazu má být vykonána."
-
-msgid "Add Command"
-msgstr "Přidat příkaz"
-
-msgid "Edit Command"
-msgstr ""
-
-msgid "Command is marked for deletion"
-msgstr "Příkaz je označen k vymazání."
-
-msgid "Command is locked"
-msgstr "Příkaz je uzamčen."
-
-msgid "Command is unlocked"
-msgstr "Příkaz je odemčen"
-
-msgid "Delete Selected Commands"
-msgstr "Smazat označené příkazy"
-
-msgid "Do you want to delete selected commands?"
-msgstr "Opravdu smazat označené příkazy?"
-
-msgid "Disable Selected Commands"
-msgstr "Vypnout označené příkazy"
-
-msgid "Do you want to disable selected commands?"
-msgstr "Opravdu vypnout označené příkazy?"
-
-msgid "Enable Selected Commands"
-msgstr "Používat označené příkazy"
-
-msgid "Do you want to enable selected commands?"
-msgstr "Opravdu zapnout označené příkazy?"
-
-msgid "Toggle Selected Commands"
-msgstr "Přepnout označené příkazy"
-
-msgid "Do you want to toggle selected commands?"
-msgstr "Opravdu přepnout označené příkazy?"
-
-msgid ""
-"These commands will be executed pre or post system initialization (booting) "
-"or before system shutdown."
-msgstr ""
-"Tyto příkazy budou spuštěny před či po spuštění systému, případně před jeho "
-"vypnutím."
-
-msgid "Name of the variable."
-msgstr "Název proměnné"
-
-msgid "Enter Value"
-msgstr "Zadejte hodnotu"
-
-msgid "Variable"
-msgstr "Proměnná"
-
-msgid "Disabled variable names will be removed from /etc/rc.conf."
-msgstr "Názvy vypnutých proměnných budou odebrány z /etc/rc.conf."
-
-msgid "Enabled options will be added to /etc/rc.conf."
-msgstr "Zapnuté voby budou přidány do /etc/rc.conf."
-
-msgid "Add Route"
-msgstr "Přidat trasu"
-
-msgid "Edit Route"
-msgstr "Upravit trasu"
-
-msgid "Route is marked for deletion"
-msgstr "Trasa je označena ke smazání"
-
-msgid "Route is locked"
-msgstr ""
-
-msgid "Route is unlocked"
-msgstr "Trasa"
-
-msgid "Delete Selected Routes"
-msgstr "Smazat označené trasy"
-
-msgid "Do you want to delete selected routes?"
-msgstr "Opravdu smazat označené trasy?"
-
-msgid "Disable Selected Routes"
-msgstr "Zakázat označené trasy"
-
-msgid "Do you want to disable selected routes?"
-msgstr "Chcete zakázat zvolené routy?"
-
-msgid "Enable Selected Routes"
-msgstr ""
-
-msgid "Do you want to enable selected routes?"
-msgstr ""
-
-msgid "Toggle Selected Routes"
-msgstr ""
-
-msgid "Do you want to toggle selected routes?"
-msgstr ""
-
-msgid "Destination Network"
-msgstr "Cílová síť"
-
-msgid "Choose which interface this route applies to."
-msgstr "Zvolte rozhraní pro které bude tato trasa platit."
-
-msgid "Destination network for this static route."
-msgstr "Cílová síť pro toto statické směrování."
-
-msgid "Gateway to be used to reach the destination network."
-msgstr "Brána do cílové sítě"
-
-msgid "Add Reboot Schedule"
-msgstr "Naplánovat restart"
-
-msgid "Edit Reboot Schedule"
-msgstr ""
-
-msgid "Reboot Schedule is marked for deletion"
-msgstr ""
-
-msgid "Reboot Schedule is locked"
-msgstr ""
-
-msgid "Reboot Schedule is unlocked"
-msgstr ""
-
-msgid "Delete Selected Reboot Schedules"
-msgstr ""
-
-msgid "Do you want to delete selected reboot schedules?"
-msgstr ""
-
-msgid "Disable Selected Reboot Schedules"
-msgstr ""
-
-msgid "Do you want to disable selected reboot schedules?"
-msgstr ""
-
-msgid "Enable Selected Reboot Schedules"
-msgstr ""
-
-msgid "Do you want to enable selected reboot schedules?"
-msgstr ""
-
-msgid "Toggle Selected Reboot Schedules"
-msgstr ""
-
-msgid "Do you want to toggle selected reboot schedules?"
-msgstr ""
-
-msgid "Add sysctl setting"
-msgstr "Přidat nastavení sysctl"
-
-msgid "Edit sysctl setting"
-msgstr ""
-
-msgid "Sysctl setting is marked for deletion"
-msgstr ""
-
-msgid "Sysctl setting is locked"
-msgstr ""
-
-msgid "Sysctl setting is unlocked"
-msgstr ""
-
-msgid "Delete Selected Sysctl Settings"
-msgstr "Smazat označená sysctl nastavení"
-
-msgid "Do you want to delete selected sysctl settings?"
-msgstr ""
-
-msgid "Disable Selected Sysctl Settings"
-msgstr "Zakázat označená sysctl nastavení"
-
-msgid "Do you want to disable selected sysctl settings?"
-msgstr ""
-
-msgid "Enable Selected Sysctl Settings"
-msgstr ""
-
-msgid "Do you want to enable selected sysctl settings?"
-msgstr "Chcete povolit vybraná nastavení sysctl?"
-
-msgid "Toggle Selected Sysctl Settings"
-msgstr ""
-
-msgid "Do you want to toggle selected sysctl settings?"
-msgstr ""
-
-msgid ""
-"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
-"make changes to a running system."
-msgstr ""
-
-msgid "The value of the setting."
-msgstr ""
-
-msgid "Send daemon event messages."
-msgstr "Posílat zprávy o událostech v procesu služby."
-
-msgid "Send FTP event messages."
-msgstr "Posílat zprávy o událostech v FTP."
-
-msgid "IP address of the remote syslog server."
-msgstr "IP adresa vzdáleného syslog serveru."
-
-msgid ""
-"Port of the remote syslog server. Leave blank to use the default port."
-msgstr ""
-"Port vzdáleného syslog serveru. Pro použití výchozího portu nevyplňujte."
-
-msgid ""
-"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
-"server. Be sure to set syslogd on the remote server to accept syslog "
-"messages from this server."
-msgstr ""
-"Nástroj syslog posílá UDP datagramy na port 514 na zadaném serveru se "
-"službou syslog. Zajistěte, aby proces služby syslog na protějšku byl "
-"nastaven tak, aby přijímal zprávy z tohoto Nas4Free stroje."
-
-msgid "514"
-msgstr "514"
-
-msgid "Port number must be 514 or a number between 1024 and 65535."
-msgstr ""
-
-msgid "Send RSYNC event messages."
-msgstr "Posílat zprávy o událostech v RSYNC."
-
-msgid "Send S.M.A.R.T. event messages."
-msgstr ""
-"Posílat zprávy o událostech ve SMART diagnostice jednotek datového úložiště."
-
-msgid "Send SSH event messages."
-msgstr "Posílat zprávy o událostech v SSH."
-
-msgid "Send system event messages."
-msgstr "Posílat zprávy o událostech v systému."
-
-msgid "Daemon Events"
-msgstr "Události v procesu služby"
-
-msgid "Enable Server"
-msgstr "Zapnout server"
-
-msgid "FTP Events"
-msgstr "Události v FTP"
-
-msgid "RSYNC Events"
-msgstr "Události v RSYNC"
-
-msgid "S.M.A.R.T. Events"
-msgstr "Události ve SMART diagnostice datových úložišť"
-
-msgid "SSH Events"
-msgstr "Události v SSH"
-
-msgid "System Events"
-msgstr "Události v systému"
-
-msgid "Remote Syslog Messages"
-msgstr "Syslog zprávy na protějšku"
-
-msgid "Show Log Entries"
-msgstr "Zobrazit položky záznamu událostí (log)"
-
-msgid "Log Order"
-msgstr "Pořadí záznamů událostí"
-
-msgid "Disable the compression of repeating lines."
-msgstr "Vypnout kompresi opakujících se řádků."
-
-msgid "Accept remote syslog messages."
-msgstr "Přijímat syslog zprávy z ostatních systémů."
-
-msgid ""
-"If this option is checked, IP addresses in the server logs are resolved to "
-"their hostnames where possible."
-msgstr ""
-"Když je tato předvolba označená, IP adresy v záznamech o provozu serveru "
-"jsou překládány na názvy jejich strojů, když je to možné."
-
-msgid "This can cause a huge delay in loading the log page!"
-msgstr ""
-"Toto může způsobit obrovskou prodlevu při načítání stránky se záznamem "
-"událostí!"
-
-msgid "Show log entries in reverse order (newest entries on top)."
-msgstr ""
-"Zobrazit položky záznamu událostí v obráceném pořadí (nejnovější navrchu)."
-
-msgid "Enter facility name"
-msgstr "Zadejte název zařízení (facility)"
-
-msgid "Enter level name"
-msgstr "Zadejte název úrovně"
-
-msgid "Enter destination"
-msgstr "Zadejte cíl"
-
-msgid "Facility"
-msgstr "Zařízení (facility)"
-
-msgid ""
-"Display action buttons in the scrollable area instead of the footer area."
-msgstr "Zobrazit tlačítka akcí v posouvatelné oblasti namísto v zápatí."
-
-msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr ""
-
-msgid "Select file mode of the custom file chooser CSS file."
-msgstr ""
-
-msgid "Replace the default CSS file"
-msgstr ""
-
-msgid "Append content to the default CSS file"
-msgstr "Připojit obsah do výchozího CSS souboru"
-
-msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr ""
-
-msgid "Select file mode of the custom GUI CSS file."
-msgstr ""
-
-msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr ""
-
-msgid "Select file mode of the custom navigation bar CSS file."
-msgstr ""
-
-msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr ""
-
-msgid "Select file mode of the custom tabs CSS file."
-msgstr ""
-
-msgid "Use toggle button instead of enable/disable buttons."
-msgstr "Použít přepínací tlačítko namísto tlačítek zapnout/vypnout."
-
-msgid "Select the display mode of the top-level items in the navigation bar."
-msgstr ""
-
-msgid "Show text only"
-msgstr ""
-
-msgid "Show symbol only"
-msgstr ""
-
-msgid "Show symbol and text"
-msgstr ""
-
-msgid ""
-"Display disk size values using binary prefixes instead of decimal prefixes."
-msgstr "Zobrazovat datové objemy s binárními předponami namísto desítkových."
-
-msgid "Enable this option if you want to display colorful meter states."
+msgid "Unkown"
 msgstr ""
 
-msgid ""
-"Enable this option if you want to edit configuration pages directly without "
-"the need to switch to edit mode."
-msgstr ""
-"Tuto předvolbu zapněte pokud chcete upravovat stránky s nastavením přímo bez "
-"potřeby přepnutí do režimu úprav."
-
-msgid "Please enter a number between 0 and 256 or leave this field empty."
-msgstr ""
-
-msgid "Limit the maximum number of CPUs to be displayed on the home page."
-msgstr ""
-
-msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr ""
-
-msgid "Button Location"
-msgstr "Umístění tlačítka"
-
-msgid "File Chooser"
-msgstr ""
-
-msgid "File Mode"
-msgstr "Přístupová práva k souboru"
-
-msgid "GUI"
-msgstr "Grafické uživatelské rozhraní"
+msgid "Unformated"
+msgstr "Bez souborového systému"
 
-msgid "Navigation Bar"
-msgstr ""
-
-msgid "Tabs"
-msgstr ""
-
-msgid "Toggle Mode"
-msgstr "Přepnout režim"
-
-msgid "Navbar Style"
-msgstr ""
-
-msgid "Binary Prefix"
-msgstr "Binární předpony"
-
-msgid "Colorful Meters"
-msgstr "Barevné měřítko"
-
-msgid "Skip View Mode"
-msgstr "Přeskočit prohlížecí režim"
-
-msgid "Show Max CPUs"
-msgstr ""
-
-msgid "Diagnostics Information"
-msgstr ""
+msgid "SoftRaid"
+msgstr "SoftwarovyRAID"
 
-msgid "Do you really want to remove the selected item from the list?"
-msgstr "Opravd odebrat vybranou položku ze seznamu?"
+msgid "Encrypted"
+msgstr "Zašifrováno"
 
-msgid "Select item to remove from the list"
-msgstr "Vyberte položku kterou chcete odstranit ze seznamu"
+msgid "System tuning"
+msgstr "Vyladění systému"
 
 msgid "Exported"
 msgstr "Exportováno"
@@ -15681,119 +15700,6 @@ msgstr "Neinicializováno"
 
 msgid "Potentially Active"
 msgstr "Potenciálně aktivní"
-
-msgid "System tuning"
-msgstr "Vyladění systému"
-
-msgid "ZFS Pool Tools"
-msgstr "Nástroje pro ZFS fond úložišť"
-
-msgid "Pool Status"
-msgstr "Stav fondu"
-
-msgid "Success"
-msgstr "Úspěch"
-
-msgid "Command execution was successful"
-msgstr "Příkaz byl úspěšně vykonán"
-
-msgid "Invalid command line option"
-msgstr "Neplatný parametr příkazového řádku"
-
-msgid "Test mode, no command execution"
-msgstr "Testovací režim, bez spouštění příkazu"
-
-msgid "Missing parameter"
-msgstr "Chybějící parametr"
-
-msgid "An error occured."
-msgstr "Vyskytla se chyba."
-
-msgid "Return to Command Page"
-msgstr "Vrátit na stránku příkaz"
-
-msgid "Activity"
-msgstr "Činnost"
-
-msgid "Pool Version"
-msgstr "Verze fondu úložišť"
-
-msgid "Pool State"
-msgstr "Sav fondu"
-
-msgid "No suitable pools found."
-msgstr "Nebyla nalezena žádná vhodná virtuální zařízení."
-
-msgid "and"
-msgstr "a"
-
-msgid "No pools have been selected"
-msgstr "Nebyly vybrány žádné fondy"
-
-msgid "Pool Devices"
-msgstr "Zařízení tvořící fond"
-
-msgid "missing"
-msgstr "chybí"
-
-msgid "No suitable devices found."
-msgstr "Nebyla nalezena žádná vhodná zařízení."
-
-msgid "No pool devices have been selected"
-msgstr "Nebyla vybrána žádná zařízení fondu"
-
-msgid "No suitable virtual devices found."
-msgstr "Nebyla nalezena žádná vhodná virtuální zařízení."
-
-msgid "No virtual devices have been selected"
-msgstr "Nebyla vybrána žádná virtuální zařízení"
-
-msgid "Media Size"
-msgstr "Velikost média"
-
-msgid "No devices have been selected"
-msgstr "Nejsou označená žádná zařízení"
-
-msgid "Expand device to use all available space."
-msgstr "Zvětšit zařízení aby využilo veškerý dostupný prostor"
-
-msgid "Include GPT labels into scan/import"
-msgstr ""
-
-msgid "Include GPT ID into scan/import"
-msgstr ""
-
-msgid "Include UFS labels into scan/import"
-msgstr ""
-
-msgid "Include UFS ID into scan/import"
-msgstr ""
-
-msgid "Include Disk ID into scan/import"
-msgstr ""
-
-msgid "Include /dev into scan/import"
-msgstr ""
-
-msgid "Import pool in read-only mode"
-msgstr "Importovat fond v režimu pouze pro čtení"
-
-msgid "Resize pool to the maximum possible size"
-msgstr "Zvětšit fond na největší možnou velikost"
-
-msgid "Scan/Import destroyed pools only"
-msgstr ""
-
-msgid "Wait until resilvering has finished before returning."
-msgstr ""
-
-msgid ""
-"Reconstruct the new device sequentially to restore redundancy as quickly as "
-"possible."
-msgstr ""
-
-msgid "Parameter"
-msgstr "Parametr"
 
 msgid "January"
 msgstr "leden"
@@ -15945,111 +15851,237 @@ msgstr "Zápis souboru na disk se nezdařil."
 msgid "File upload stopped by extension."
 msgstr "Nahrávání souboru bylo ukončeno rozšiřujícím modulem."
 
-msgid "Deleting MBR and partition table"
-msgstr "Mazání MBR oblasti a tabulky oddílů"
+msgid "ZFS Pool Tools"
+msgstr "Nástroje pro ZFS fond úložišť"
 
-msgid "Creating partition"
-msgstr "Vytváření oddílu"
+msgid "Pool Status"
+msgstr "Stav fondu"
 
-msgid "Creating filesystem with \"Soft Updates\""
+msgid "Success"
+msgstr "Úspěch"
+
+msgid "Command execution was successful"
+msgstr "Příkaz byl úspěšně vykonán"
+
+msgid "Invalid command line option"
+msgstr "Neplatný parametr příkazového řádku"
+
+msgid "Test mode, no command execution"
+msgstr "Testovací režim, bez spouštění příkazu"
+
+msgid "Missing parameter"
+msgstr "Chybějící parametr"
+
+msgid "An error occured."
+msgstr "Vyskytla se chyba."
+
+msgid "Return to Command Page"
+msgstr "Vrátit na stránku příkaz"
+
+msgid "Activity"
+msgstr "Činnost"
+
+msgid "Pool Version"
+msgstr "Verze fondu úložišť"
+
+msgid "Pool State"
+msgstr "Sav fondu"
+
+msgid "No suitable pools found."
+msgstr "Nebyla nalezena žádná vhodná virtuální zařízení."
+
+msgid "No pools have been selected"
+msgstr "Nebyly vybrány žádné fondy"
+
+msgid "Pool Devices"
+msgstr "Zařízení tvořící fond"
+
+msgid "missing"
+msgstr "chybí"
+
+msgid "No suitable devices found."
+msgstr "Nebyla nalezena žádná vhodná zařízení."
+
+msgid "No pool devices have been selected"
+msgstr "Nebyla vybrána žádná zařízení fondu"
+
+msgid "No suitable virtual devices found."
+msgstr "Nebyla nalezena žádná vhodná virtuální zařízení."
+
+msgid "No virtual devices have been selected"
+msgstr "Nebyla vybrána žádná virtuální zařízení"
+
+msgid "Media Size"
+msgstr "Velikost média"
+
+msgid "No devices have been selected"
+msgstr "Nejsou označená žádná zařízení"
+
+msgid "Expand device to use all available space."
+msgstr "Zvětšit zařízení aby využilo veškerý dostupný prostor"
+
+msgid "Include GPT labels into scan/import"
 msgstr ""
 
-#, php-format
-msgid "Using %s bytes fragment size."
-msgstr "S použitím velikosti fragmentu %s bajtů."
+msgid "Include GPT ID into scan/import"
+msgstr ""
 
-msgid "Created UFS file system:"
-msgstr "Vytvořený souborový systém UFS:"
+msgid "Include UFS labels into scan/import"
+msgstr ""
 
-msgid "Deleting GEOM metadata"
-msgstr "Mazání GEOM metadat"
+msgid "Include UFS ID into scan/import"
+msgstr ""
 
-msgid "Creating filesystem"
-msgstr "Vytváření souborového systému"
+msgid "Include Disk ID into scan/import"
+msgstr ""
 
-msgid "Done!"
-msgstr "Hotovo!"
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Import pool in read-only mode"
+msgstr "Importovat fond v režimu pouze pro čtení"
+
+msgid "Resize pool to the maximum possible size"
+msgstr "Zvětšit fond na největší možnou velikost"
+
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid ""
-"The disk is currently mounted! The mount point will be removed temporarily "
-"to perform selected command."
-msgstr ""
-"V současnosti je z této jednotky datového úložiště připojen (mount) nějaký "
-"souborový systém! Kvůli provedení zvoleného příkazu bude přípojný bod "
-"dočasně odebrán."
-
-msgid "Second"
-msgstr "Sekunda"
-
-msgid "Seconds"
-msgstr "Sekund"
-
-msgid "Minute"
-msgstr "Minuta"
-
-msgid "Hour"
-msgstr "Hodina"
-
-msgid "Day"
-msgstr "Den"
-
-#, php-format
-msgid "%1$s managed, %2$s used, %3$s available"
-msgstr "%1$s spravováno, %2$s použito, %3$s k dispozici"
-
-#, php-format
-msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
 
+msgid "Parameter"
+msgstr "Parametr"
+
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "Je už spuštěná jiná DLNA/UPnP služba. Zapnutí Fuppes může způsobit problémy."
+
+#~ msgid "Compliant profile to be used."
+#~ msgstr "Odpovídající profil, který má být použit."
+
+#~ msgid "Content Locations"
+#~ msgstr "Umístění obsahu"
+
+#~ msgid "DLNA/UPnP Fuppes"
+#~ msgstr "DLNA/UPnP Fuppes"
+
+#~ msgid "Database directory"
+#~ msgstr "Složka s databází"
+
+#~ msgid "Destination email address. Separate email addresses by semi-colon."
+#~ msgstr ""
+#~ "Cílová e-mailová adresa. V případě vícero položek oddělujte znakem středník "
+#~ "(;)."
+
+#~ msgid "Device IP"
+#~ msgstr "IP adresa zařízení"
+
+#~ msgid "Enable transcoding."
+#~ msgstr "Zapnout převod kódování znaků"
+
+#~ msgid "Fuppes"
+#~ msgstr "Fuppes"
+
+#~ msgid "Fuppes Media Server"
+#~ msgstr "Multimediální server Fuppes"
+
+#~ msgid "Fuppes Media Server Administration"
+#~ msgstr "Správa media serveru Fuppes"
+
+#~ msgid "Give your media library a friendly name."
+#~ msgstr "Dejte své knihovně médií nějaký praktický název."
+
+#~ msgid "Import on-disk ZFS config"
+#~ msgstr "Import nastavení ZFS přímo z disku"
+
+#~ msgid "Media Library"
+#~ msgstr "Knihovna médií"
+
+#~ msgid "Media library"
+#~ msgstr "Multimediální knihovna"
+
+#~ msgid "Media server name"
+#~ msgstr "Název serveru s médii"
+
+#~ msgid ""
+#~ "More than one DLNA/UPnP service is active. This configuration might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "Je aktivní více než jedna DLNA/UPnP služba. Takové nastavení může způsobovat "
+#~ "problémy."
+
 #, php-format
-msgid "%2$s used, %3$s available"
-msgstr "%2$s použito, %3$s dostupný"
-
-msgid "Communication Error"
-msgstr "Chyba v komunikaci"
-
-msgid "More than a day"
-msgstr ""
-
-msgid "No data"
-msgstr ""
+#~ msgid "Port number must be in the range between %d and %d."
+#~ msgstr "Je třeba, aby číslo portu bylo z rozahu %d až %d."
 
 #, php-format
-msgid "%u hour"
-msgstr "%u hodina"
+#~ msgid ""
+#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
+#~ "through %d). Default port is %d."
+#~ msgstr ""
+#~ "Port na kterém očekávat spojení. Je možné použít pouze porty z rozsahu "
+#~ "dynamických či soukromých (od %d po %d). Výchozím portem je %d."
+
+#~ msgid "Profile"
+#~ msgstr "Profil"
+
+#~ msgid ""
+#~ "Select which interface to use. (Only selectable if your server has more than "
+#~ "one interface)"
+#~ msgstr ""
+#~ "Vyberte které rozhraní použít (je k dispozici pouze pokud server má více než "
+#~ "jedno)"
+
+#~ msgid "Set the content location(s) to or from the media library."
+#~ msgstr "Nastavte umístění obsahu do nebo z knihovny multimédií."
+
+#~ msgid "Temporary directory"
+#~ msgstr "Dočasná složka"
+
+#~ msgid "Temporary directory to store transcoded files."
+#~ msgstr "Dočasná složka pro překódovávané soubory."
+
+#~ msgid "The IP address of the device."
+#~ msgstr "IP adresa zařízení."
 
 #, php-format
-msgid "%u hours"
-msgstr "%u hodiny"
+#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
+#~ msgstr "Atribut „Port“: port „%ld“ je už zabraný jinou službou."
 
-#, php-format
-msgid "%u minute"
-msgstr "%u minuta"
+#~ msgid "Transcoding"
+#~ msgstr "Převod kódování"
 
-#, php-format
-msgid "%u minutes"
-msgstr "%u minut"
+#~ msgid "Transcoding Directory"
+#~ msgstr "Složka pro přepočítávání"
 
-#, php-format
-msgid "%u second"
-msgstr "%u sekunda"
+#~ msgid "Try to force import."
+#~ msgstr "Pokusit se vynutit import."
 
-#, php-format
-msgid "%u seconds"
-msgstr "%u sekund"
+#~ msgid "Try to import from on-disk ZFS config."
+#~ msgstr ""
+#~ "Pokusit se o import nastavení ZFS, uloženého přímo na jednotkách datového "
+#~ "úložiště."
 
-#, php-format
-msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr ""
+#~ msgid "UPnP/DLNA - Fuppes"
+#~ msgstr "UPnP/DLNA – Fuppes"
 
-msgid "Unkown"
-msgstr ""
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+#~ "services can cause problems."
+#~ msgstr ""
+#~ "Jiná služba DLNA/UPnP je již povolena. Spuštění více služeb DLNA/UPnP může "
+#~ "způsobit problémy."
 
-msgid "Unformated"
-msgstr "Bez souborového systému"
+#~ msgid "Allow challenge-response authentication."
+#~ msgstr "Povolit ověřování výzva-odpověď."
 
-msgid "SoftRaid"
-msgstr "SoftwarovyRAID"
-
-msgid "Encrypted"
-msgstr "Zašifrováno"
+#~ msgid "Challenge-Response Authentication"
+#~ msgstr "Autentizace výzva-odpověď"

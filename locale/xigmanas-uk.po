@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2024-06-23 12:29+0000\n"
+"POT-Creation-Date: 2025-09-06 21:13+0000\n"
 "PO-Revision-Date: 2023-02-18 01:18+0000\n"
 "Last-Translator: Олександр Більчук <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-08-28 09:21+0000\n"
-"X-Generator: Launchpad (build 919009172d854f2b8e4e8262db447f12f11d25eb)\n"
+"X-Launchpad-Export-Date: 2025-09-06 19:56+0000\n"
+"X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -430,6 +430,15 @@ msgstr "Нижня"
 
 msgid "Upper"
 msgstr "Верхня"
+
+msgid "No IPMI Sensor data available."
+msgstr ""
+
+msgid "FRU Information"
+msgstr ""
+
+msgid "No IPMI FRU data available."
+msgstr ""
 
 msgid "iSCSI Target Information & Status"
 msgstr "Інформація і статус iSCSI-цілі"
@@ -1647,9 +1656,6 @@ msgstr "Клієнт RSYNC"
 
 msgid "RSYNC - Local"
 msgstr "Локальний RSYNC"
-
-msgid "UPnP/DLNA - Fuppes"
-msgstr "UPnP/DLNA - Fuppes"
 
 msgid "UPnP/DLNA - MiniDLNA"
 msgstr "UPnP/DLNA - MiniDLNA"
@@ -3102,17 +3108,15 @@ msgstr "Назва об'єкта"
 msgid "RAID 0/1/5 Maintenance"
 msgstr "Обслуговування RAID 0/1/5"
 
-msgid "Import on-disk ZFS config"
-msgstr "Імпортувати конфігурацію з дисків ZFS"
-
 msgid "No pool was found."
 msgstr "Жодного пула не знайдено."
 
-msgid "Try to force import."
-msgstr "Спробувати імпортувати примусово."
+msgid ""
+"No pool was found. Try to force import from on-disk ZFS configuration."
+msgstr ""
 
-msgid "Try to import from on-disk ZFS config."
-msgstr "Спробуйте імпортувати з ZFS конфігурації на диску."
+msgid "No pool was found. Try to import from on-disk ZFS configuration."
+msgstr ""
 
 msgid "Your ZFS system is not healthy."
 msgstr "Ваша система ZFS дещо не здорова."
@@ -3201,14 +3205,26 @@ msgstr "Можливість монтування"
 msgid "Quota"
 msgstr "Квота"
 
-msgid "Extended Attributes"
-msgstr "Додаткові атрибути"
-
 msgid "Readonly"
 msgstr "Лише для читання"
 
 msgid "Snapshot Visibility"
 msgstr "Видимість знімка"
+
+msgid "on"
+msgstr "увімкнено"
+
+msgid "none"
+msgstr "немає"
+
+msgid "off"
+msgstr "вимкнено"
+
+msgid "hidden"
+msgstr "прихований"
+
+msgid "visible"
+msgstr "видимий"
 
 msgid "Blocksize"
 msgstr "Розмір блоку"
@@ -3225,20 +3241,11 @@ msgstr ""
 "від конфігурації, яка була створена з веб інтерфейсу, якщо зміни було "
 "зроблено за допомогою командного рядка"
 
-msgid "on"
-msgstr "увімкнено"
+msgid "Import on-disk ZFS configuration"
+msgstr ""
 
-msgid "off"
-msgstr "вимкнено"
-
-msgid "none"
-msgstr "немає"
-
-msgid "visible"
-msgstr "видимий"
-
-msgid "hidden"
-msgstr "прихований"
+msgid "Force import on-disk ZFS configuration"
+msgstr ""
 
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
@@ -3254,6 +3261,9 @@ msgstr ""
 
 msgid "Nothing to synchronize"
 msgstr "Синхронізувати нічого"
+
+msgid "Extended Attributes"
+msgstr "Додаткові атрибути"
 
 msgid "Options"
 msgstr "Опції"
@@ -5947,113 +5957,6 @@ msgstr ""
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Визначає час у форматі гг:хх:сс після якого заборона скасовується."
 
-msgid "Media library"
-msgstr "Медіа бібліотека"
-
-msgid "Database directory"
-msgstr "Каталог бази даних"
-
-msgid "Device IP"
-msgstr "IP адреса пристрою"
-
-msgid "Temporary directory"
-msgstr "Тимчасовий каталог"
-
-#, php-format
-msgid "The attribute 'Port': port '%ld' is already taken by another service."
-msgstr "Атрибут 'Порт': порт '%ld' вже використовується іншим сервісом."
-
-#, php-format
-msgid "Port number must be in the range between %d and %d."
-msgstr "Номер порту повинен бути у діапазоні між %d та %d."
-
-msgid ""
-"More than one DLNA/UPnP service is active. This configuration might cause "
-"issues."
-msgstr ""
-"Більше одного сервісу DLNA/UPnP активно. Така конфігурація може викликати "
-"проблеми."
-
-msgid ""
-"Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-"issues."
-msgstr ""
-"Інша служба DLNA/UPnP вже запущена. Включення Fuppes може викликати проблеми."
-
-msgid "DLNA/UPnP Fuppes"
-msgstr "DLNA/UPnP Fuppes"
-
-msgid "Fuppes"
-msgstr "Fuppes"
-
-msgid "MiniDLNA"
-msgstr "MiniDLNA"
-
-msgid "Fuppes Media Server"
-msgstr "Медіа сервер Fuppes"
-
-msgid "Interface Selection"
-msgstr "Обрання інтерфейсу"
-
-msgid "Content Locations"
-msgstr "Розміщення контенту"
-
-msgid "Profile"
-msgstr "Профіль"
-
-msgid "Transcoding"
-msgstr "Перекодування"
-
-msgid "Transcoding Directory"
-msgstr "Каталог транскодування"
-
-msgid "Give your media library a friendly name."
-msgstr "Вкажіть зручне ім'я для медіа бібліотеки."
-
-msgid "Media server name"
-msgstr "Ім'я медіа серверу"
-
-msgid ""
-"Select which interface to use. (Only selectable if your server has more than "
-"one interface)"
-msgstr ""
-"Обрати інтерфейс для використання (Вибір можливий тільки, якщо ваш сервер "
-"має більше одного інтерфейсу)."
-
-#, php-format
-msgid ""
-"Port to listen on. Only dynamic or private ports can be used (from %d "
-"through %d). Default port is %d."
-msgstr ""
-"Порт для прослуховування. Можна використовувати тільки динамічні або "
-"приватні порти (від %d до %d). За замовчуванням - %d."
-
-msgid "Location of the media content database."
-msgstr "Розміщення бази даних медіа контенту."
-
-msgid "Media Library"
-msgstr "Медіабібліотека"
-
-msgid "Set the content location(s) to or from the media library."
-msgstr ""
-"Вкажіть розташування контенту або його розташування відносно медіа-"
-"бібліотеки."
-
-msgid "Compliant profile to be used."
-msgstr "Відповідний профіль буде використовуватися."
-
-msgid "The IP address of the device."
-msgstr "IP адреси пристроїв."
-
-msgid "Enable transcoding."
-msgstr "Дозволити перекодування."
-
-msgid "Temporary directory to store transcoded files."
-msgstr "Тимчасовий каталог для файлів перекодування"
-
-msgid "Fuppes Media Server Administration"
-msgstr "Адміністрування медіасерверу Fuppes"
-
 msgid "No configured CARP interfaces."
 msgstr "Немає налаштованих CARP інтерфейсів."
 
@@ -6998,19 +6901,8 @@ msgstr "phpMyAdmin"
 msgid "A rescan has been issued."
 msgstr "Повторне сканування було виконано."
 
-msgid ""
-"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-"services can cause problems."
-msgstr ""
-"Інша служба DLNA/UPnP вже дозволена. Запуск декількох служб DLNA/UPnP може "
-"призвести до проблем."
-
-msgid ""
-"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
-"can cause problems."
-msgstr ""
-"Декілька служб DLNA/UPnP вже дозволені. Запуск декількох служб DLNA/UPnP "
-"може призвести до проблем."
+msgid "MiniDLNA"
+msgstr "MiniDLNA"
 
 msgid "MiniDLNA Media Server WebGUI"
 msgstr "WebGUI медіа серверу MiniDLNA"
@@ -7782,6 +7674,9 @@ msgstr ""
 msgid "Permission"
 msgstr "Дозвіл"
 
+msgid "Paste a private key in PEM format here."
+msgstr "Скопіюйте сюди приватний ключ у PEM форматі."
+
 msgid "Document root of the webserver. Home of the web page files."
 msgstr ""
 "Кореневий каталог веб-сервера. Місце розташування файлів веб-сторінки."
@@ -7808,11 +7703,11 @@ msgstr "Сфера"
 msgid "Edit URL"
 msgstr "Редагувати посилання"
 
-msgid "Do you really want to delete this URL?"
-msgstr "Ви підтверджуєте видалення цього посилання?"
-
 msgid "Delete URL"
 msgstr "Видалити URL"
+
+msgid "Do you really want to delete this URL?"
+msgstr "Ви підтверджуєте видалення цього посилання?"
 
 msgid "Add URL"
 msgstr "Додати посилання"
@@ -8259,9 +8154,6 @@ msgstr ""
 msgid "Ignore Hosts Allow"
 msgstr "Ігнорувати дозволені хости"
 
-msgid "Paste a private key in PEM format here."
-msgstr "Скопіюйте сюди приватний ключ у PEM форматі."
-
 msgid "Language"
 msgstr "Мова"
 
@@ -8585,10 +8477,9 @@ msgstr "Налаштування електронної пошти систем�
 msgid "From email address for sending system messages."
 msgstr "З якої адреси електронної пошти відправляти системні повідомлення."
 
-msgid "Destination email address. Separate email addresses by semi-colon."
+msgid ""
+"Destination email address. Multiple email addresses are separated by a comma."
 msgstr ""
-"Адреси електронної пошти призначення. Для розділення адрес використовуйте "
-"\";\"."
 
 msgid "Outgoing SMTP mail server address."
 msgstr "Адреса вихідного SMTP сервера."
@@ -9127,6 +9018,9 @@ msgstr "Увімкнути збір статистики про використ
 msgid "Enable collecting network latency statistics."
 msgstr "Увімкнути збір статистики про затримки мережі."
 
+msgid "Interface Selection"
+msgstr "Обрання інтерфейсу"
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -9616,113 +9510,243 @@ msgstr "Параметри завантаження"
 msgid "Boot argument (e.g. %s)."
 msgstr "Параметри завантаження (напр. %s)."
 
-msgid "Undefined"
-msgstr "Невизначено"
+msgid "Show Used/Avail"
+msgstr "Показувати Використано/Доступно"
 
-msgid "The value is invalid."
-msgstr "Помилкове значення."
+msgid "On-Disk Configuration"
+msgstr "Дискова конфігурація"
 
-msgid "Network Address"
-msgstr "Мережева адреса"
+msgid "Capacity Warning Threshold"
+msgstr "Поріг Попередження про Місткість"
 
-msgid "Enter additional parameters"
-msgstr "Введіть додаткові параметри"
+msgid "Capacity Critical Threshold"
+msgstr "Критичний Поріг Місткості"
 
-msgid "No additional parameters"
-msgstr "Немає додаткових параметрів"
+msgid "Extended Destroy"
+msgstr ""
 
-msgid "Enter a description for your reference."
-msgstr "Введіть опис для вашого посилання."
+msgid ""
+"Display Used/Avail information from the filesystem instead of the Alloc/Free "
+"information from the pool."
+msgstr ""
+"Показувати інформацію 'Використано/Доступно' з файлової системи замість  "
+"інформації 'Розподілено/Вільно' із пулу."
 
-msgid "IPv4 Address"
-msgstr "Адреса IPv4"
+msgid ""
+"Used/Avail lists storage information after all redundancy is taken into "
+"account but is impacted by compression, deduplication and quotas. Alloc/Free "
+"lists the raw storage information of a pool."
+msgstr ""
+"'Використано/Доступно' - інформація списку сховищ взята після врахування "
+"всієї надмірності, але на них впливають стиснення, дедуплікація і квоти. "
+"'Розподілено/Вільно' перераховує інформацію про вихідне сховище пулу."
 
-msgid "Protect"
-msgstr "Захистити"
+msgid "Read on-disk configuration."
+msgstr "Читання дискової конфігурації."
 
-msgid "Protect Setting"
-msgstr "Параметри захисту"
+msgid ""
+"Reading the configuration from the disks is slower than reading from cache "
+"file."
+msgstr ""
+"Читання конфігурації з диску повільніше ніж читання з кешованого файлу."
 
-msgid "Enable Setting"
-msgstr "Дозволити Параметри"
+msgid "Set the warning threshold to a value between 80 and 89."
+msgstr "Задайте значення порогу попередження між 80 та 89."
 
-msgid "The UUID of the record."
-msgstr "UUID запису."
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the warning "
+"threshold."
+msgstr ""
+"Повідомлювальний email відправляється, коли місткість пула перевищує поріг "
+"попередження."
 
-msgid "Enter Universally Unique Identifier"
-msgstr "Введіть Універсальний Унікальний Ідентифікатор (UUI)"
+msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
+msgstr ""
+"Задача cron повинна бути налаштована для запланованого сценарію "
+"/etc/capacitycheck.zfs."
 
-msgid "Universally Unique Identifier"
-msgstr "Універсальний Унікальний Ідентифікатор (UUI)"
+msgid "Must be a number between 80 and 89."
+msgstr "Має бути число від 80 до 89."
 
-msgid "Delete Selected Records"
-msgstr "Видалити обрані записи"
+msgid "Set the critical threshold to a value between 90 and 95."
+msgstr "Задайте значення критичного порога від 90 до 95."
 
-msgid "Do you want to delete selected records?"
-msgstr "Ви підтверджуєте видалення обраних записів?"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the critical "
+"threshold."
+msgstr ""
+"Повідомлювальний email відправляється, коли місткість пула перевищує "
+"критичний поріг."
 
-msgid "Disable Selected Records"
-msgstr "Вимкнути обрані записи"
+msgid "Must be a number between 90 and 95."
+msgstr "Має бути число від 90 до 95."
 
-msgid "Do you want to disable selected records?"
-msgstr "Ви підтверджуєте вимкнення обраних записів?"
+msgid "Destroy dataset and its dependents."
+msgstr ""
 
-msgid "Enable Selected Records"
-msgstr "Дозволити обрані записи"
+msgid ""
+"When enabled, destroying a dataset will also destroy all dependents "
+"(datasets, snapshots and clones)."
+msgstr ""
 
-msgid "Do you want to enable selected records?"
-msgstr "Ви підтверджуєте увімкнення обраних записів?"
+msgid "Lifetime"
+msgstr "Час життя"
 
-msgid "Lock Selected Records"
-msgstr "Заблокувати Обрані Записи"
+msgid "Second(s)"
+msgstr "Сек."
 
-msgid "Do you want to lock selected records?"
-msgstr "Ви підтверджуєте блокування обраних записів?"
+msgid "Minute(s)"
+msgstr "Хв."
 
-msgid "Toggle Selected Records"
-msgstr "Перемикання Обраних Записів"
+msgid "Hour(s)"
+msgstr "Год."
 
-msgid "Do you want to toggle selected records?"
-msgstr "Ви підтверджуєте перемикання вибраних записів?"
+msgid "Day(s)"
+msgstr "Дн."
 
-msgid "Unlock Selected Records"
-msgstr "Розблокувати Обрані Записи"
+msgid "Week(s)"
+msgstr "Тижні(-ів)"
 
-msgid "Do you want to unlock selected records?"
-msgstr "Ви підтверджуєте розблокування вибраних записів?"
+msgid "Month(s)"
+msgstr "Місяці(-ів)"
 
-msgid "Add Record"
-msgstr "Додати запис"
+msgid "Year(s)"
+msgstr "Рк."
 
-msgid "Record is marked for deletion"
-msgstr "Запис позначений для видалення"
+msgid "Hourly"
+msgstr "Щогодини"
 
-msgid "Record Information"
-msgstr "Інформація про Запис"
+msgid "Daily"
+msgstr "Щоденно"
 
-msgid "Record is protected"
-msgstr "Запис захищений"
+msgid "Weekly"
+msgstr "Щотижня"
 
-msgid "Record Maintenance"
-msgstr "Обслуговування Запису"
+msgid "Monthly"
+msgstr "Щомісяця"
 
-msgid "Edit Record"
-msgstr "Редагувати запис"
+msgid "Yearly"
+msgstr "Щороку"
 
-msgid "Record is unlocked"
-msgstr "Запис розблокований"
+msgid "Custom Setting"
+msgstr "Спеціальне налаштування"
 
-msgid "Autodetect"
-msgstr "Автоматичне визначення"
+msgid "Schedule"
+msgstr "Розклад"
 
-msgid "The identifier reported as unknown by smartctl, including brackets."
-msgstr "Smartctl повідомив, що ідентифікатор невідомий, включаючи дужки."
+msgid "Weekdays"
+msgstr "Дні тижня"
 
-msgid "Enter Identifier"
-msgstr "Введіть ідентифікатор"
+msgid "All Minutes"
+msgstr "Всі мінути"
 
-msgid "Enter smartctl pass-through type."
-msgstr "Вкажіть тип проходження smartctl."
+msgid "All Hours"
+msgstr "Всі години"
+
+msgid "All Days"
+msgstr "Всі дні"
+
+msgid "All Months"
+msgstr "Всі місяці"
+
+msgid "All Weekdays"
+msgstr "Всі дні тижня"
+
+msgid "Add Schedule"
+msgstr "Додати розклад"
+
+msgid "Edit Schedule"
+msgstr "Змінити Розклад"
+
+msgid "Schedule is marked for deletion"
+msgstr "Розклад маркований для видалення"
+
+msgid "Schedule is locked"
+msgstr "Розклад заблокований"
+
+msgid "Schedule is unlocked"
+msgstr "Розклад розблокований"
+
+msgid "Delete Selected Schedules"
+msgstr "Видалити обрані розклади"
+
+msgid "Do you want to delete selected schedules?"
+msgstr "Ви дійсно бажаєте видалити обрані розклади?"
+
+msgid "Disable Selected Schedules"
+msgstr "Вимкнути обрані розклади"
+
+msgid "Do you want to disable selected schedules?"
+msgstr "Ви дійсно бажаєте вимкнути обрані розклади?"
+
+msgid "Enable Selected Schedules"
+msgstr "Увімкнути обрані розклади"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "Ви дійсно бажаєте увімкнути обрані розклади?"
+
+msgid "Toggle Selected Schedules"
+msgstr "Перемкнути обрані розклади"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "Ви дійсно бажаєте перемкнути вибрані розклади?"
+
+msgid "Invalid"
+msgstr "Помилковий"
+
+msgid "Destroy"
+msgstr "Знищити"
+
+msgid "Create Snapshot"
+msgstr "Cтворити знімок"
+
+msgid "Destroy Snapshot"
+msgstr "Знищіти знімок"
+
+msgid "Scrub Pool"
+msgstr "Чищення пулу"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Оберіть пул, файлову систему або том"
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr "Рекурсивно знищує знімки всіх нащадкових наборів даних."
+
+msgid "Lifetime Value"
+msgstr "Значення часу життя"
+
+msgid "Lifetime Units"
+msgstr "Одиниці часу життя"
+
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Команди виконуються планувальником, коли поля хвилин, години та місяця року "
+"збігаються з поточним часом і коли принаймні одне з двох полів дня (день "
+"місяця або день тижня) відповідає поточному часу."
+
+msgid "Presets"
+msgstr "Шаблони"
+
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr "Рекурсивно створювати знімки всіх нащадкових наборів даних."
+
+msgid "Create"
+msgstr "Створити"
+
+msgid "Scrub"
+msgstr "Чищення"
+
+msgid "Select pool."
+msgstr "Оберіть пул."
+
+msgid "No ZFS zpool information available."
+msgstr "Доступної інформації про zpool ZFS немає."
+
+msgid "No ZFS volume information available."
+msgstr "Доступної інформації про том ZFS немає."
 
 msgid "Add Filesystem"
 msgstr "Додати файлову систему"
@@ -9745,20 +9769,11 @@ msgstr "Видалити вибрані файлові системи"
 msgid "Do you want to delete selected filesystems?"
 msgstr "Ви бажаєте видалити вибрані файлові системи?"
 
-msgid "Disable Selected Schedules"
-msgstr "Вимкнути обрані розклади"
-
 msgid "Do you want to disable selected filesystems?"
 msgstr "Ви бажаєте вимкнути вибрані файлові системи?"
 
-msgid "Enable Selected Schedules"
-msgstr "Увімкнути обрані розклади"
-
 msgid "Do you want to enable selected filesystems?"
 msgstr "Ви бажаєте увімкнути вибрані файлові системи?"
-
-msgid "Toggle Selected Schedules"
-msgstr "Перемкнути обрані розклади"
 
 msgid "Do you want to toggle selected filesystems?"
 msgstr "Ви бажаєте перемкнути вибрані файлові системи?"
@@ -9775,238 +9790,6 @@ msgstr "Доступної інформації про файлову систе
 msgid "Filesystems"
 msgstr "Файлові системи"
 
-msgid "Dataset Name"
-msgstr "Назва набору даних"
-
-msgid ""
-"File System - can be mounted within the standard system namespace and "
-"behaves like other file systems."
-msgstr ""
-"Файлова система - може бути змонтована до стандартного простору імен системи "
-"та веде себе як інші файлові системи."
-
-msgid "Volume - A logical volume. Can be exported as a raw or block device."
-msgstr ""
-"Том - логічний том. Може експортуватися як необроблений або блоковий "
-"пристрій."
-
-msgid ""
-"Snapshot - A read-only version of a file system or volume at a given point "
-"in time."
-msgstr ""
-"Знімок - доступна лише для читання версія файлової системи або тому на "
-"певний момент часу."
-
-msgid "Bookmark - Creates a bookmark of a given snapshot."
-msgstr "Закладка - Створює закладку у вибраному знімку."
-
-msgid "Dataset Type"
-msgstr "Тип набору даних"
-
-msgid "Pool Name"
-msgstr "Ім`я пулу"
-
-msgid "Clones"
-msgstr "Клони"
-
-msgid "Compression Ratio"
-msgstr "Рівень стиснення"
-
-msgid "Defer Destroy"
-msgstr "Відкласти Знищення"
-
-msgid "Encryption Root"
-msgstr "Корінь шифрування"
-
-msgid "Filesystem Count"
-msgstr "Кількість файлових систем"
-
-msgid "GUID"
-msgstr "GUID"
-
-msgid "Key Status"
-msgstr "Стан ключа"
-
-msgid "Logical Referenced"
-msgstr "Логічні посилання"
-
-msgid "Logical Used"
-msgstr "Логічний вжиток"
-
-msgid "Mounted"
-msgstr "Змонтовано"
-
-msgid "Obj Set ID"
-msgstr "Obj Set ID"
-
-msgid "Receive Resume Token"
-msgstr "Отримання токену відновлення"
-
-msgid "Redact Snaps"
-msgstr "Редагування знімків"
-
-msgid "Refcompressratio"
-msgstr "Refcompressratio"
-
-msgid "Referenced"
-msgstr "Посилаються"
-
-msgid "Snapshot Count"
-msgstr "Кількість знімків"
-
-msgid "Used by Children"
-msgstr "Використовується дочірніми"
-
-msgid "Used by Dataset"
-msgstr "Використовується набором даних"
-
-msgid "Used by Refreservation"
-msgstr "Використовується Refreservation"
-
-msgid "Used by Snapshots"
-msgstr "Використовується знімками"
-
-msgid "Userrefs"
-msgstr "Userrefs"
-
-msgid "Written"
-msgstr "Записано"
-
-msgid "Normalization"
-msgstr "Нормалізація"
-
-msgid "UTF-8 File Names"
-msgstr "Імена файлів UTF-8"
-
-msgid "ACL Type"
-msgstr "Тип ACL"
-
-msgid "Access Time"
-msgstr "Час доступу"
-
-msgid "Can Mount"
-msgstr "Можливо змонтувати"
-
-msgid "Checksum"
-msgstr "Контрольна сума"
-
-msgid "GZIP Compression Level"
-msgstr "Рівень стиснення GZIP"
-
-msgid "Zstandard Compression Level"
-msgstr "Рівень стиснення Zstandard"
-
-msgid "Fast Zstandard Compression Level"
-msgstr "Рівень швидкого стиснення Zstandard"
-
-msgid "Copies"
-msgstr "Копії"
-
-msgid "Dedup Method"
-msgstr "Метод дедуплікації (dedup)"
-
-msgid "Dnode Size"
-msgstr "Розмір Dnode"
-
-msgid "Execute Processes"
-msgstr "Виконувати процеси"
-
-msgid "Filesystem Limit"
-msgstr "Ліміт файлових систем"
-
-msgid "Jailed"
-msgstr "Jailed"
-
-msgid "Key Format"
-msgstr "Формат ключа"
-
-msgid "Key Location"
-msgstr "Місцезнаходження ключа"
-
-msgid "Logbias"
-msgstr "Logbias"
-
-msgid "Mountpoint Type"
-msgstr "Тип точки монтування"
-
-msgid "Non-blocking Mandatory Locks"
-msgstr "Не блокуючі обов`язкові блокування"
-
-msgid "Overlay Mount"
-msgstr "Оверлейне монтування"
-
-msgid "PBKDF2 Iterations"
-msgstr "Ітерації PBKDF2"
-
-msgid "Primary Cache"
-msgstr "Первинний кеш"
-
-msgid "Record Size"
-msgstr "Розмір запису"
-
-msgid "Redundant Metadata"
-msgstr "Надмірні метадані"
-
-msgid "Refquota"
-msgstr "Refquota"
-
-msgid "Refquota Type"
-msgstr "Тип Refquota"
-
-msgid "Refreservation"
-msgstr "Refreservation"
-
-msgid "Refreservation Type"
-msgstr "Тип Refreservation"
-
-msgid "Relatime"
-msgstr "В реальному часі"
-
-msgid "Reservation Type"
-msgstr "Тип резервування"
-
-msgid "Secondary Cache"
-msgstr "Вторинний кеш"
-
-msgid "Setuid"
-msgstr "Setuid"
-
-msgid "Share NFS Options"
-msgstr "Опції спільного ресурсу NFS"
-
-msgid "Share NFS Type"
-msgstr "Тип спільного ресурсу NFS"
-
-msgid "Share SMB Options"
-msgstr "Опції спільного ресурсу SMB"
-
-msgid "Share SMB Type"
-msgstr "Тип спільного ресурсу SMB"
-
-msgid "Snapshot Device Visibility"
-msgstr "Видимість пристрою знімка"
-
-msgid "Snapshot Folder Visibility"
-msgstr "Видимість теки знімків"
-
-msgid "Snapshot Limit"
-msgstr "Ліміт знімків"
-
-msgid "Threshold Small Block Size"
-msgstr "Поріг блоків малого розміру"
-
-msgid "Synchronous Requests Behaviour"
-msgstr "Поведінка синхронних запитів"
-
-msgid "Volume Mode"
-msgstr "Режим тому"
-
-msgid "Volume Size"
-msgstr "Розмір тому"
-
-msgid "Virus Scan"
-msgstr "Сканування на віруси"
-
 msgid "The name of the filesystem."
 msgstr "Ім`я файлової системи."
 
@@ -10015,6 +9798,9 @@ msgstr "Введіть ім`я файлової системи"
 
 msgid "Controls the type of the ZFS dataset."
 msgstr "Управляє типом набору даних ZFS."
+
+msgid "Pool Name"
+msgstr "Ім`я пулу"
 
 msgid ""
 "Indicates whether the file name matching algorithm used by the filesystem "
@@ -10589,725 +10375,1765 @@ msgstr ""
 msgid "System attribute based xattrs"
 msgstr "Xattr на основі системних атрибутів"
 
-msgid "Add Schedule"
-msgstr "Додати розклад"
-
-msgid "Edit Schedule"
-msgstr "Змінити Розклад"
-
-msgid "Schedule is marked for deletion"
-msgstr "Розклад маркований для видалення"
-
-msgid "Schedule is locked"
-msgstr "Розклад заблокований"
-
-msgid "Schedule is unlocked"
-msgstr "Розклад розблокований"
-
-msgid "Delete Selected Schedules"
-msgstr "Видалити обрані розклади"
-
-msgid "Do you want to delete selected schedules?"
-msgstr "Ви дійсно бажаєте видалити обрані розклади?"
-
-msgid "Do you want to disable selected schedules?"
-msgstr "Ви дійсно бажаєте вимкнути обрані розклади?"
-
-msgid "Do you want to enable selected schedules?"
-msgstr "Ви дійсно бажаєте увімкнути обрані розклади?"
-
-msgid "Do you want to toggle selected schedules?"
-msgstr "Ви дійсно бажаєте перемкнути вибрані розклади?"
-
-msgid "Invalid"
-msgstr "Помилковий"
-
-msgid "Select pool."
-msgstr "Оберіть пул."
+msgid "Dataset Name"
+msgstr "Назва набору даних"
 
 msgid ""
-"Commands are executed by the scheduler when the minute, hour, and month of "
-"year fields match the current time, and when at least one of the two day "
-"fields (day of month, or day of week) matches the current time."
+"File System - can be mounted within the standard system namespace and "
+"behaves like other file systems."
 msgstr ""
-"Команди виконуються планувальником, коли поля хвилин, години та місяця року "
-"збігаються з поточним часом і коли принаймні одне з двох полів дня (день "
-"місяця або день тижня) відповідає поточному часу."
+"Файлова система - може бути змонтована до стандартного простору імен системи "
+"та веде себе як інші файлові системи."
 
-msgid "Presets"
-msgstr "Шаблони"
-
-msgid "Daily"
-msgstr "Щоденно"
-
-msgid "Weekly"
-msgstr "Щотижня"
-
-msgid "Monthly"
-msgstr "Щомісяця"
-
-msgid "Yearly"
-msgstr "Щороку"
-
-msgid "Custom Setting"
-msgstr "Спеціальне налаштування"
-
-msgid "Schedule"
-msgstr "Розклад"
-
-msgid "Weekdays"
-msgstr "Дні тижня"
-
-msgid "All Minutes"
-msgstr "Всі мінути"
-
-msgid "All Hours"
-msgstr "Всі години"
-
-msgid "All Days"
-msgstr "Всі дні"
-
-msgid "All Months"
-msgstr "Всі місяці"
-
-msgid "All Weekdays"
-msgstr "Всі дні тижня"
-
-msgid "Scrub"
-msgstr "Чищення"
-
-msgid "Create Snapshot"
-msgstr "Cтворити знімок"
-
-msgid "Destroy Snapshot"
-msgstr "Знищіти знімок"
-
-msgid "Scrub Pool"
-msgstr "Чищення пулу"
-
-msgid "Hourly"
-msgstr "Щогодини"
-
-msgid "Create"
-msgstr "Створити"
-
-msgid "Select Pool, Filesystem or Volume"
-msgstr "Оберіть пул, файлову систему або том"
-
-msgid "Recursively create snapshots of all descendent datasets."
-msgstr "Рекурсивно створювати знімки всіх нащадкових наборів даних."
-
-msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr "Рекурсивно знищує знімки всіх нащадкових наборів даних."
-
-msgid "Lifetime Value"
-msgstr "Значення часу життя"
-
-msgid "Lifetime Units"
-msgstr "Одиниці часу життя"
-
-msgid "Lifetime"
-msgstr "Час життя"
-
-msgid "Second(s)"
-msgstr "Сек."
-
-msgid "Minute(s)"
-msgstr "Хв."
-
-msgid "Hour(s)"
-msgstr "Год."
-
-msgid "Day(s)"
-msgstr "Дн."
-
-msgid "Week(s)"
-msgstr "Тижні(-ів)"
-
-msgid "Month(s)"
-msgstr "Місяці(-ів)"
-
-msgid "Year(s)"
-msgstr "Рк."
-
-msgid "Destroy"
-msgstr "Знищити"
-
-msgid "Show Used/Avail"
-msgstr "Показувати Використано/Доступно"
-
-msgid "On-Disk Configuration"
-msgstr "Дискова конфігурація"
-
-msgid "Capacity Warning Threshold"
-msgstr "Поріг Попередження про Місткість"
-
-msgid "Capacity Critical Threshold"
-msgstr "Критичний Поріг Місткості"
+msgid "Volume - A logical volume. Can be exported as a raw or block device."
+msgstr ""
+"Том - логічний том. Може експортуватися як необроблений або блоковий "
+"пристрій."
 
 msgid ""
-"Display Used/Avail information from the filesystem instead of the Alloc/Free "
-"information from the pool."
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
 msgstr ""
-"Показувати інформацію 'Використано/Доступно' з файлової системи замість  "
-"інформації 'Розподілено/Вільно' із пулу."
+"Знімок - доступна лише для читання версія файлової системи або тому на "
+"певний момент часу."
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr "Закладка - Створює закладку у вибраному знімку."
+
+msgid "Dataset Type"
+msgstr "Тип набору даних"
+
+msgid "Clones"
+msgstr "Клони"
+
+msgid "Compression Ratio"
+msgstr "Рівень стиснення"
+
+msgid "Defer Destroy"
+msgstr "Відкласти Знищення"
+
+msgid "Encryption Root"
+msgstr "Корінь шифрування"
+
+msgid "Filesystem Count"
+msgstr "Кількість файлових систем"
+
+msgid "GUID"
+msgstr "GUID"
+
+msgid "Key Status"
+msgstr "Стан ключа"
+
+msgid "Logical Referenced"
+msgstr "Логічні посилання"
+
+msgid "Logical Used"
+msgstr "Логічний вжиток"
+
+msgid "Mounted"
+msgstr "Змонтовано"
+
+msgid "Obj Set ID"
+msgstr "Obj Set ID"
+
+msgid "Receive Resume Token"
+msgstr "Отримання токену відновлення"
+
+msgid "Redact Snaps"
+msgstr "Редагування знімків"
+
+msgid "Refcompressratio"
+msgstr "Refcompressratio"
+
+msgid "Referenced"
+msgstr "Посилаються"
+
+msgid "Snapshot Count"
+msgstr "Кількість знімків"
+
+msgid "Used by Children"
+msgstr "Використовується дочірніми"
+
+msgid "Used by Dataset"
+msgstr "Використовується набором даних"
+
+msgid "Used by Refreservation"
+msgstr "Використовується Refreservation"
+
+msgid "Used by Snapshots"
+msgstr "Використовується знімками"
+
+msgid "Userrefs"
+msgstr "Userrefs"
+
+msgid "Written"
+msgstr "Записано"
+
+msgid "Normalization"
+msgstr "Нормалізація"
+
+msgid "UTF-8 File Names"
+msgstr "Імена файлів UTF-8"
+
+msgid "ACL Type"
+msgstr "Тип ACL"
+
+msgid "Access Time"
+msgstr "Час доступу"
+
+msgid "Can Mount"
+msgstr "Можливо змонтувати"
+
+msgid "Checksum"
+msgstr "Контрольна сума"
+
+msgid "GZIP Compression Level"
+msgstr "Рівень стиснення GZIP"
+
+msgid "Zstandard Compression Level"
+msgstr "Рівень стиснення Zstandard"
+
+msgid "Fast Zstandard Compression Level"
+msgstr "Рівень швидкого стиснення Zstandard"
+
+msgid "Copies"
+msgstr "Копії"
+
+msgid "Dedup Method"
+msgstr "Метод дедуплікації (dedup)"
+
+msgid "Dnode Size"
+msgstr "Розмір Dnode"
+
+msgid "Execute Processes"
+msgstr "Виконувати процеси"
+
+msgid "Filesystem Limit"
+msgstr "Ліміт файлових систем"
+
+msgid "Jailed"
+msgstr "Jailed"
+
+msgid "Key Format"
+msgstr "Формат ключа"
+
+msgid "Key Location"
+msgstr "Місцезнаходження ключа"
+
+msgid "Logbias"
+msgstr "Logbias"
+
+msgid "Mountpoint Type"
+msgstr "Тип точки монтування"
+
+msgid "Non-blocking Mandatory Locks"
+msgstr "Не блокуючі обов`язкові блокування"
+
+msgid "Overlay Mount"
+msgstr "Оверлейне монтування"
+
+msgid "PBKDF2 Iterations"
+msgstr "Ітерації PBKDF2"
+
+msgid "Primary Cache"
+msgstr "Первинний кеш"
+
+msgid "Record Size"
+msgstr "Розмір запису"
+
+msgid "Redundant Metadata"
+msgstr "Надмірні метадані"
+
+msgid "Refquota"
+msgstr "Refquota"
+
+msgid "Refquota Type"
+msgstr "Тип Refquota"
+
+msgid "Refreservation"
+msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr "Тип Refreservation"
+
+msgid "Relatime"
+msgstr "В реальному часі"
+
+msgid "Reservation Type"
+msgstr "Тип резервування"
+
+msgid "Secondary Cache"
+msgstr "Вторинний кеш"
+
+msgid "Setuid"
+msgstr "Setuid"
+
+msgid "Share NFS Options"
+msgstr "Опції спільного ресурсу NFS"
+
+msgid "Share NFS Type"
+msgstr "Тип спільного ресурсу NFS"
+
+msgid "Share SMB Options"
+msgstr "Опції спільного ресурсу SMB"
+
+msgid "Share SMB Type"
+msgstr "Тип спільного ресурсу SMB"
+
+msgid "Snapshot Device Visibility"
+msgstr "Видимість пристрою знімка"
+
+msgid "Snapshot Folder Visibility"
+msgstr "Видимість теки знімків"
+
+msgid "Snapshot Limit"
+msgstr "Ліміт знімків"
+
+msgid "Threshold Small Block Size"
+msgstr "Поріг блоків малого розміру"
+
+msgid "Synchronous Requests Behaviour"
+msgstr "Поведінка синхронних запитів"
+
+msgid "Volume Mode"
+msgstr "Режим тому"
+
+msgid "Volume Size"
+msgstr "Розмір тому"
+
+msgid "Virus Scan"
+msgstr "Сканування на віруси"
+
+msgid "The identifier reported as unknown by smartctl, including brackets."
+msgstr "Smartctl повідомив, що ідентифікатор невідомий, включаючи дужки."
+
+msgid "Enter Identifier"
+msgstr "Введіть ідентифікатор"
+
+msgid "Enter smartctl pass-through type."
+msgstr "Вкажіть тип проходження smartctl."
+
+msgid "Enter login name."
+msgstr "Введіть логін."
+
+msgid "Enter the full user name."
+msgstr "Введіть повне ім'я користувача."
+
+msgid "Full Name"
+msgstr "Повне ім'я"
+
+msgid "Set user password."
+msgstr "Встановіть пароль користувача."
+
+msgid "Specify the user/account numeric id."
+msgstr "Вкажіть числовий ідентифікатор користувача / облікового запису."
+
+msgid "The recommended range for the user id is between 1000 and 32000."
+msgstr ""
+"Рекомендований діапазон для ідентифікатора користувача - від 1000 до 32000."
+
+msgid "1000"
+msgstr "1000"
+
+msgid "Set user login shell."
+msgstr "Встановить оболонку користувацького входу."
+
+msgid "No Login"
+msgstr "Вхід не виконано"
+
+msgid "scponly - Secure Copy Protocol only"
+msgstr "scponly - лише захищений протокол копіювання"
+
+msgid "sh - Bourne Shell"
+msgstr "sh - Bourne Shell"
+
+msgid "bash - Bourne Again Shell"
+msgstr "bash - Bourne Again Shell"
+
+msgid "csh - C Shell"
+msgstr "csh - C Shell"
+
+msgid "tcsh - TENEX C Shell"
+msgstr "tcsh - TENEX C Shell"
+
+msgid "Set the account's primary group."
+msgstr "Встановіть основну групу облікового запису."
+
+msgid "Add user to additional groups."
+msgstr "Додати користувача до розширених груп."
 
 msgid ""
-"Used/Avail lists storage information after all redundancy is taken into "
-"account but is impacted by compression, deduplication and quotas. Alloc/Free "
-"lists the raw storage information of a pool."
+"Enter the path to the home directory of the user. Leave this field empty to "
+"use default path /mnt."
 msgstr ""
-"'Використано/Доступно' - інформація списку сховищ взята після врахування "
-"всієї надмірності, але на них впливають стиснення, дедуплікація і квоти. "
-"'Розподілено/Вільно' перераховує інформацію про вихідне сховище пулу."
+"Введіть шлях до домашнього каталогу користувача. Залиште пустим, щоб "
+"використовувати шлях /mnt за замовчуванням."
 
-msgid "Read on-disk configuration."
-msgstr "Читання дискової конфігурації."
+msgid "/mnt"
+msgstr "/mnt"
 
-msgid ""
-"Reading the configuration from the disks is slower than reading from cache "
-"file."
-msgstr ""
-"Читання конфігурації з диску повільніше ніж читання з кешованого файлу."
+msgid "User portal permission."
+msgstr "Дозволи порталу користувача."
 
-msgid "Set the warning threshold to a value between 80 and 89."
-msgstr "Задайте значення порогу попередження між 80 та 89."
+msgid "No access to the user portal"
+msgstr "Немає доступу до порталу користувача"
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the warning "
-"threshold."
-msgstr ""
-"Повідомлювальний email відправляється, коли місткість пула перевищує поріг "
-"попередження."
+msgid "User access"
+msgstr "Доступ користувача"
 
-msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr ""
-"Задача cron повинна бути налаштована для запланованого сценарію "
-"/etc/capacitycheck.zfs."
+msgid "Admin access"
+msgstr "Доступ адміністратора"
 
-msgid "Must be a number between 80 and 89."
-msgstr "Має бути число від 80 до 89."
+msgid "Select the language of the user portal for this user."
+msgstr "Оберіть мову цього порталу користувача."
 
-msgid "Set the critical threshold to a value between 90 and 95."
-msgstr "Задайте значення критичного порога від 90 до 95."
+msgid "Select the timezone for this user."
+msgstr "Виберіть часовий пояс для цього користувача."
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the critical "
-"threshold."
-msgstr ""
-"Повідомлювальний email відправляється, коли місткість пула перевищує "
-"критичний поріг."
+msgid "Grant access to the file manager."
+msgstr "Надати доступ файловому менеджеру."
 
-msgid "Must be a number between 90 and 95."
-msgstr "Має бути число від 90 до 95."
+msgid "Show hidden items"
+msgstr "Показати приховані об'єкти"
 
-msgid "No ZFS volume information available."
-msgstr "Доступної інформації про том ZFS немає."
+msgid "Grant read permission"
+msgstr "Надати дозвіл читання"
 
-msgid "No ZFS zpool information available."
-msgstr "Доступної інформації про zpool ZFS немає."
+msgid "Grant create permission"
+msgstr "Надати дозвіл створення"
 
-msgid "Selected..."
-msgstr "Обрані..."
+msgid "Grant modify permission"
+msgstr "Надати дозвіл змінення"
 
-msgid "Directory"
-msgstr "Каталог"
+msgid "Grant delete permission"
+msgstr "Надати дозвіл видалення"
 
-msgid "Modified"
-msgstr "Змінений"
+msgid "Add User Account"
+msgstr "Додати обліковий запис користувача"
 
-msgid "Parent Directory"
-msgstr "Батьківський каталог"
+msgid "Edit User Account"
+msgstr "Редагувати обліковий запис користувача"
 
-msgid "You are not allowed to use this function."
-msgstr "Ви не маєте дозволу на використання цієї функції."
+msgid "User account is marked for deletion"
+msgstr "Обліковий запис користувача позначений для видалення"
 
-msgid "Copy item(s)"
-msgstr "Копіювати елементи"
+msgid "User account is protected"
+msgstr "Обліковий запис користувача захищений"
 
-msgid "Move item(s)"
-msgstr "Перемістити елементи"
+msgid "User account is unlocked"
+msgstr "Обліковий запис користувача розблокований"
 
-#, php-format
-msgid "Copy from /%s to /%s "
-msgstr "Скопіювати з /%s до /%s "
+msgid "Set password"
+msgstr "Встановити пароль"
 
-#, php-format
-msgid "Move from /%s to /%s "
-msgstr "Перемістити з /%s до /%s "
+msgid "Delete Selected User Accounts"
+msgstr "Видалити обрані облікові записи користувачів"
 
-msgid "Copy"
-msgstr "Копіювати"
+msgid "Do you want to delete selected user accounts?"
+msgstr "Ви підтверджуєте видалення обраних облікових записів користувачів"
 
-msgid "Move"
-msgstr "Переміщення"
+msgid "Disable Selected Users"
+msgstr "Вимкнути обраних користувачів"
 
-msgid "The target directory doesn't exist."
-msgstr "Цільовий каталог не існує."
+msgid "Do you want to disable selected users?"
+msgstr "Ви підтверджуєте вимкнення обраних користувачів?"
 
-msgid "You are not allowed to access the target directory."
-msgstr "Ви не маєте дозволу на доступ до цільової директорії."
+msgid "Enable Selected Users"
+msgstr "Дозволити обраних користувачів"
 
-msgid "The target directory may not be above the home directory."
-msgstr "Цільовий каталог не може бути вище домашнього каталогу."
+msgid "Do you want to enable selected users?"
+msgstr "Ви підтверджуєте увімкнення обраних користувачів?"
 
-msgid "You must supply a name."
-msgstr "Ви повинні вказати ім'я."
+msgid "Toggle Selected Users"
+msgstr "Перемкнути обрані користувачі"
 
-msgid "This item doesn't exist."
-msgstr "Цей елемент не існує."
-
-msgid "You are not allowed to access this item."
-msgstr "Ви не маєте дозволу на доступ до цього елементу."
-
-msgid "The target item already exists."
-msgstr "Цільовий елемент вже існує."
-
-msgid "Copying failed."
-msgstr "Відмова копіювання."
-
-msgid "Moving failed."
-msgstr "Відмова переміщення."
-
-msgid "File saving failed."
-msgstr "Відмова збереження файлу."
-
-msgid "This file doesn't exist."
-msgstr "Цей файл не існує."
-
-msgid "You are not allowed to access this file."
-msgstr "Ви не маєте дозволу на доступ до цього файлу."
-
-msgid "This item already exists."
-msgstr "Цей елемент вже існує."
-
-msgid "File opening failed."
-msgstr "Відмова відкриття файлу."
-
-msgid "Edit file"
-msgstr "Редагувати файл"
-
-msgid "Wrap text:"
-msgstr "Переносити текст:"
-
-msgid "Reset"
-msgstr "Скинути"
-
-msgid "Close"
-msgstr "Закрити"
-
-msgid "Deleting failed."
-msgstr "Відмова видалення."
-
-msgid "Unable to open source directory."
-msgstr "Не вдається відкрити вихідну теку."
-
-msgid "Unable to open directory."
-msgstr "Неможливо відкрити каталог."
-
-msgid "Unable to read directory."
-msgstr "Неможливо зчитати каталог."
-
-msgid "Executable File"
-msgstr "Виконуваний файл"
-
-msgid "Link"
-msgstr "Посилання"
-
-msgid "Text File"
-msgstr "Файл Text"
-
-msgid "PHP Script"
-msgstr "Скрипт PHP"
-
-msgid "SQL File"
-msgstr "Файл SQL"
-
-msgid "PERL Script"
-msgstr "Скрипт PERL"
-
-msgid "HTML Page"
-msgstr "Сторінка HTML"
-
-msgid "XML File"
-msgstr "Файл XML"
-
-msgid "Javascript File"
-msgstr "Скрипт Javascript"
-
-msgid "CSS File"
-msgstr "Файл CSS"
-
-msgid "CGI Script"
-msgstr "Скрипт CGI"
-
-msgid "Python Script"
-msgstr "Скрипт Python"
-
-msgid "Shell Script"
-msgstr "Скрипт Shell"
-
-msgid "C File"
-msgstr "Файл С"
-
-msgid "C++ Source File"
-msgstr "Вихідний файл C++"
-
-msgid "C++ Header File"
-msgstr "Файл заголовка C++"
-
-msgid "Java Source File"
-msgstr "Вихідний файл Java"
-
-msgid "Java Class File"
-msgstr "Файл класу Java"
-
-msgid "Pascal File"
-msgstr "Файл Pascal"
-
-msgid "GIF Image"
-msgstr "Зображення GIF"
-
-msgid "JPG Image"
-msgstr "Зображення JPG"
-
-msgid "BMP Image"
-msgstr "Зображення BMP"
-
-msgid "PNG Image"
-msgstr "Зображення PNG"
-
-msgid "TIF Image"
-msgstr "Зображення TIF"
-
-msgid "Photoshop File"
-msgstr "Файл Photoshop"
-
-msgid "ZIP Archive"
-msgstr "Архів ZIP"
-
-msgid "TAR Archive"
-msgstr "Архів TAR"
-
-msgid "GZIP Archive"
-msgstr "Архів GZIP"
-
-msgid "BZIP2 Archive"
-msgstr "Архів BZIP2"
-
-msgid "RAR Archive"
-msgstr "Архів RAR"
-
-msgid "MP3 Audio File"
-msgstr "Аудіофайл MP3"
-
-msgid "FLAC Audio File"
-msgstr "Аудіофайл FLAC"
-
-msgid "WAV Audio File"
-msgstr "Аудіофайл WAV"
-
-msgid "MIDI File"
-msgstr "Файл MIDI"
-
-msgid "RealAudio File"
-msgstr "Аудіофайл RealAudio"
-
-msgid "DTS Audio File"
-msgstr "Аудіофайл DTS"
-
-msgid "AC3 Audio File"
-msgstr "Аудіофайл AC3"
-
-msgid "OGG Audio File"
-msgstr "Аудіофайл OGG"
-
-msgid "MP3 Playlist"
-msgstr "Список відтворення MP3"
-
-msgid "AVI File"
-msgstr "Відеофайл AVI"
-
-msgid "MPEG File"
-msgstr "Відеофайл MPEG"
-
-msgid "MOV File"
-msgstr "Відеофайл MOV"
-
-msgid "MKV File"
-msgstr "Відеофайл MKV"
-
-msgid "VOB File"
-msgstr "Відеофайл VOB"
-
-msgid "Flash File"
-msgstr "Файл Flash"
-
-msgid "MP4 File"
-msgstr "Відеофайл MP4"
-
-msgid "TS File"
-msgstr "Відеофайл TS"
-
-msgid "Word Document"
-msgstr "Документ Word"
-
-msgid "Excel Sheet"
-msgstr "Таблиця Excel"
-
-msgid "Powerpoint Presentation"
-msgstr "Презентація Powerpoint"
-
-msgid "PDF File"
-msgstr "Файл PDF"
-
-msgid "You haven't selected any item(s)."
-msgstr "Ви не обрали жодного елементу."
-
-msgid "ERROR(S)"
-msgstr "ПОМИЛКИ"
-
-msgid "Go Back"
-msgstr "Назад"
-
-msgid "Directory creation failed."
-msgstr "Відмова створення каталогу."
-
-msgid "File creation failed."
-msgstr "Відмова створення файлу."
-
-msgid "Extracting"
-msgstr "Витягнення"
-
-msgid "Unzip"
-msgstr "Розпакування"
-
-msgid "Failed to extract archive."
-msgstr "Не вдалося розпакувати архів."
-
-msgid "Are you sure you want to delete selected item(s)?"
-msgstr "Ви впевнені що бажаєте видалити вибрані елементи?"
-
-msgid "Search Directory"
-msgstr "Каталог пошуку"
-
-msgid "Search Filter"
-msgstr "Фільтр пошуку"
-
-msgid "Search subfolder"
-msgstr "Шукати підкаталогами"
-
-#, php-format
-msgid "Search Result for %1$s"
-msgstr "Результати пошуку для %1$s"
-
-msgid "Item(s)"
-msgstr "Елементи"
-
-msgid "No results available."
-msgstr "Немає результатів."
-
-msgid "HOME"
-msgstr "ГОЛОВНА"
-
-msgid "Permission-change failed."
-msgstr "Відмова зміни дозволу."
-
-msgid "Getting permissions failed."
-msgstr "Відмова отримання дозволів."
-
-msgid "Change permissions"
-msgstr "Змінити дозволи"
-
-msgid "Public"
-msgstr "Загальнодоступне"
-
-msgid "CHANGE PERMISSIONS"
-msgstr "ЗМІНИТИ ДОЗВОЛИ"
-
-msgid "You are not allowed to access this directory."
-msgstr "Ви не маєте дозволу на доступ до цієї директорії."
-
-msgid "UP"
-msgstr "ПІДНЯТИ"
-
-msgid "RELOAD"
-msgstr "ПЕРЕЗАВАНТАЖИТИ"
-
-msgid "SEARCH"
-msgstr "ШУКАТИ"
-
-msgid "Permissions"
-msgstr "Дозволи"
-
-msgid "Actions"
-msgstr "Дії"
-
-msgid "COPY"
-msgstr "КОПІЮВАТИ"
-
-msgid "MOVE"
-msgstr "ПЕРЕМІСТИТИ"
-
-msgid "DELETE"
-msgstr "ВИДАЛИТИ"
-
-msgid "EDIT"
-msgstr "ЗМІНИТИ"
-
-msgid "UNZIP"
-msgstr "РОЗПАКУВАТИ"
-
-msgid "DOWNLOAD"
-msgstr "ЗАВАНТАЖИТИ"
-
-msgid "The following errors were detected"
-msgstr "Були знайдені наступні помилки"
-
-msgid ""
-"If this message persists take a look at the system log for more information."
-msgstr ""
-"Якщо це повідомлення все ще залишається, зверніться для системного журнала "
-"для отримання додаткової інформації."
-
-msgid "Choose..."
-msgstr "Вибрати..."
-
-msgid "Running"
-msgstr "Виконується"
+msgid "Do you want to toggle selected users?"
+msgstr "Ви підтверджуєте перемикання вибраних користувачів?"
 
 msgid "Active"
 msgstr "Активний"
 
-msgid "Inactive"
-msgstr "Неактивний"
+msgid "System User"
+msgstr "Системний користувач"
 
-msgid "Online"
-msgstr "В мережі"
+msgid "Show System Users"
+msgstr "Показати системних користувачів"
 
-msgid "Offline"
-msgstr "Відключено"
+msgid "Hide System Users"
+msgstr "Приховати системних користувачів"
 
-msgid "No records found."
-msgstr "Не знайдено записів."
+msgid "Users"
+msgstr "Користувачі"
 
-msgid "Apply Changes"
-msgstr "Застосувати зміни"
+msgid "Public Keys"
+msgstr "Публічний ключ"
+
+msgid "Groups"
+msgstr "Групи"
+
+msgid "Login Name"
+msgstr "Ім'я користувача"
+
+msgid "SHA Password"
+msgstr "Пароль SHA"
+
+msgid "MD4 Password"
+msgstr "Пароль MD4"
+
+msgid "Shell"
+msgstr "Командна оболонка"
+
+msgid "Primary Group"
+msgstr "Основна група"
+
+msgid "Timezone"
+msgstr "Часовий пояс"
+
+msgid "File Manager Access"
+msgstr "Доступ файлового менеджера"
+
+msgid "Hidden Items"
+msgstr "Приховані об'єкти"
+
+msgid "Read Permission"
+msgstr "Дозвіл читання"
+
+msgid "Create Permission"
+msgstr "Створити дозвіл"
+
+msgid "Change Permission"
+msgstr "Змінити дозвіл"
+
+msgid "Delete Permission"
+msgstr "Видалити дозвіл"
+
+msgid "Public key information."
+msgstr "Інформація про публічний ключ."
+
+msgid "Public Key"
+msgstr "Публічний ключ"
+
+msgid "Add Public Key"
+msgstr "Додати приватний ключ"
+
+msgid "Edit Public Key"
+msgstr "Змінити публічний ключ"
+
+msgid "Public key is marked for deletion"
+msgstr "Публічний ключ позначений для видалення"
+
+msgid "Public key is protected"
+msgstr "Публічний ключ захищений"
+
+msgid "Public key is unlocked"
+msgstr "Публічний ключ розблокований"
+
+msgid "Delete Selected Public Keys"
+msgstr "Видалення обраних публічних ключей"
+
+msgid "Do you want to delete selected public keys?"
+msgstr "Ви підтверджуєте видалення обраних публічних ключів?"
+
+msgid "Disable Selected Public Keys"
+msgstr "Вимкнути обрані публічні ключі"
+
+msgid "Do you want to disable selected public keys?"
+msgstr "Ви підтверджуєте вимкнення обраних публічних ключів?"
+
+msgid "Enable Selected Public Keys"
+msgstr "Дозволити обрані публічні ключі"
+
+msgid "Do you want to enable selected public keys?"
+msgstr "Ви підтверджуєте увімкнення обраних публічних ключів?"
+
+msgid "Toggle Selected Public Keys"
+msgstr "Перемкнути обрані публічні ключі"
+
+msgid "Do you want to toggle selected public keys?"
+msgstr "Ви підтверджуєте перемикання вибраних публічних ключів?"
 
 msgid "Reload"
 msgstr "Перезавантажити"
 
+msgid "Add Group"
+msgstr "Додати групу"
+
+msgid "Edit Group"
+msgstr "Змінити групу"
+
+msgid "Group is marked for deletion"
+msgstr "Група позначена для видалення"
+
+msgid "Group is protected"
+msgstr "Група захищена"
+
+msgid "Group is unlocked"
+msgstr "Група разблокована"
+
+msgid "Delete Selected Groups"
+msgstr "Видалити вибрані групи"
+
+msgid "Do you want to delete selected groups?"
+msgstr "Ви підтверджуєте видалення вибраних груп?"
+
+msgid "Disable Selected Groups"
+msgstr "Вимкнути обрані групи"
+
+msgid "Do you want to disable selected groups?"
+msgstr "Ви підтверджуєте вимкнення обраних груп?"
+
+msgid "Enable Selected Groups"
+msgstr "Дозволити обрані групи"
+
+msgid "Do you want to enable selected groups?"
+msgstr "Ви підтверджуєте увімкнення вибраних груп?"
+
+msgid "Toggle Selected Groups"
+msgstr "Перемкнути обрані групи"
+
+msgid "Do you want to toggle selected groups?"
+msgstr "Ви підтверджуєте перемикання вибраних груп?"
+
+msgid "System Group"
+msgstr "Системна група"
+
+msgid "Show System Groups"
+msgstr "Показати системні групи"
+
+msgid "Hide System Groups"
+msgstr "Приховати системні групи"
+
+msgid "Enter group name."
+msgstr "Введіть ім'я групи."
+
+msgid "Group Name"
+msgstr "Ім'я групи"
+
+msgid "Specify the group numeric id."
+msgstr "Вкажіть числовий ідентифікатор групи."
+
+msgid "The recommended range for the group id is between 1000 and 32000."
+msgstr ""
+"Рекомендований діапазон для ідентифікатора групи - від 1000 до 32000."
+
+msgid "Domain Controller Name"
+msgstr "Ім'я контролера домену"
+
+msgid "Domain Name (DNS/Realm-Name)"
+msgstr "Ім'я домену (DNS/Realm-ім'я)"
+
+msgid "Domain Name (NetBIOS-Name)"
+msgstr "Ім'я домену (NetBIOS-ім'я)"
+
+msgid "Administrator Name"
+msgstr "Ім'я адміністратора"
+
+msgid "Administrator Password"
+msgstr "Пароль адміністратора"
+
+msgid "Enter AD or PDC name."
+msgstr "Введіть назву AD або PDC."
+
+msgid "Controller Name"
+msgstr "Ім'я контролера"
+
+msgid "Enter the domain name."
+msgstr "Введіть ім'я домену."
+
+msgid "example.com"
+msgstr "example.com"
+
+msgid "Enter NetBIOS name."
+msgstr "Введіть назву NetBIOS."
+
+msgid "NETBIOS"
+msgstr "NETBIOS"
+
+msgid "Enter user name of a domain administrator account."
+msgstr "Введіть ім’я користувача облікового запису адміністратора домену."
+
+msgid "Admin"
+msgstr "Адміністратор"
+
+msgid "Enter the password of the domain administrator account."
+msgstr "Введіть пароль облікового запису адміністратора домену."
+
+msgid "Add Reboot Schedule"
+msgstr "Додати розклад перезавантаження"
+
+msgid "Edit Reboot Schedule"
+msgstr "Змінити розклад перезавантаження"
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr "Розклад перезавантаження маркований для видалення"
+
+msgid "Reboot Schedule is locked"
+msgstr "Розклад перезавантаження заблокований"
+
+msgid "Reboot Schedule is unlocked"
+msgstr "Розклад перезавантаження розблокований"
+
+msgid "Delete Selected Reboot Schedules"
+msgstr "Видалити обрані розклади перезавантаження"
+
+msgid "Do you want to delete selected reboot schedules?"
+msgstr "Ви дійсно бажаєте видалити обрані розклади перезавантаження"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr "Вимкнути обрані розклади перезавантаження"
+
+msgid "Do you want to disable selected reboot schedules?"
+msgstr "Ви дійсно бажаєте вимкнути обрані розклади перезавантаження"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr "Увімкнути обрані розклади перезавантаження"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr "Ви дійсно бажаєте увімкнути обрані розклади перезавантаження"
+
+msgid "Toggle Selected Reboot Schedules"
+msgstr "Перемкнути обрані розклади перезавантаження"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr "Ви дійсно бажаєте перемкнути вибрані розклади перезавантаження"
+
+msgid "Daemon Events"
+msgstr "Події демону"
+
+msgid "Enable Server"
+msgstr "Дозволити Сервер"
+
+msgid "FTP Events"
+msgstr "Події FTP"
+
+msgid "RSYNC Events"
+msgstr "Події RSYNC"
+
+msgid "S.M.A.R.T. Events"
+msgstr "Події S.M.A.R.T."
+
+msgid "SSH Events"
+msgstr "Події SSH"
+
+msgid "System Events"
+msgstr "Системні події"
+
+msgid "Send daemon event messages."
+msgstr "Надсилати повідомлення про події демонів."
+
+msgid "Send FTP event messages."
+msgstr "Надсилати повідомлення про події FTP."
+
+msgid "IP address of the remote syslog server."
+msgstr "Адреса IP віддаленого syslog сервера."
+
+msgid ""
+"Port of the remote syslog server. Leave blank to use the default port."
+msgstr ""
+"Порт віддаленого серверу syslog. Залиште пустим щоб використовувати порт за "
+"замовчуванням."
+
+msgid ""
+"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
+"server. Be sure to set syslogd on the remote server to accept syslog "
+"messages from this server."
+msgstr ""
+"Syslog посилає UDP датаграми на порт 514 зазначеного віддаленого сервера "
+"syslog. Переконайтеся, що syslogd встановлений на віддаленому сервері для "
+"прийому syslog повідомлень з цього сервера."
+
+msgid "514"
+msgstr "514"
+
+msgid "Port number must be 514 or a number between 1024 and 65535."
+msgstr "Номер порту повинен бути 514 або мати номер від 1024 до 65535."
+
+msgid "Send RSYNC event messages."
+msgstr "Надсилати повідомлення про події RSYNC."
+
+msgid "Send S.M.A.R.T. event messages."
+msgstr "Надсилати повідомлення про події S.M.A.R.T."
+
+msgid "Send SSH event messages."
+msgstr "Надсилати повідомлення про події SSH."
+
+msgid "Send system event messages."
+msgstr "Надсилати повідомлення про системні події."
+
+msgid "Disable the compression of repeating lines."
+msgstr "Вимкнути стиснення рядків що повторюються"
+
+msgid "Accept remote syslog messages."
+msgstr "Приймати повідомлення віддаленого syslog."
+
+msgid ""
+"If this option is checked, IP addresses in the server logs are resolved to "
+"their hostnames where possible."
+msgstr ""
+"Якщо ця опція включена, IP адреси в журналах сервера вирішуються в їх імена "
+"хостів (там де це можливо)."
+
+msgid "This can cause a huge delay in loading the log page!"
+msgstr ""
+"Це може викликати величезну затримку під час завантаження сторінки журналу!"
+
+msgid "Show log entries in reverse order (newest entries on top)."
+msgstr "Показати записи журналу в зворотному порядку (нові записи зверху)."
+
+msgid "Remote Syslog Messages"
+msgstr "Повідомлення віддаленого Syslog"
+
+msgid "Show Log Entries"
+msgstr "Показувати записи журналу"
+
+msgid "Log Order"
+msgstr "Порядок відображення журналу"
+
+msgid "Facility"
+msgstr "Обладнання"
+
+msgid "Add Option"
+msgstr "Додати опцію"
+
+msgid "Edit Option"
+msgstr "Редагувати налаштування"
+
+msgid "Option is marked for deletion"
+msgstr "Опція позначена для видалення"
+
+msgid "Option is locked"
+msgstr "Опція заблокована"
+
+msgid "Option is unlocked"
+msgstr "Опція разблокована"
+
+msgid "Delete Selected Options"
+msgstr "Видалити вибрані опції"
+
+msgid "Do you want to delete selected options?"
+msgstr "Ви підтверджуєте видалення обраних опцій?"
+
+msgid "Disable Selected Options"
+msgstr "Вимкнути вибрані опції"
+
+msgid "Do you want to disable selected options?"
+msgstr "Ви підтверджуєте вимкнення обраних опцій?"
+
+msgid "Enable Selected Options"
+msgstr "Дозволити обрані налаштування"
+
+msgid "Do you want to enable selected options?"
+msgstr "Ви підтверджуєте увімкнення обраних опцій?"
+
+msgid "Toggle Selected Options"
+msgstr "Переключити обрані опції"
+
+msgid "Do you want to toggle selected options?"
+msgstr "Ви підтверджуєте перемикання вибраних опцій?"
+
+msgid "Enter facility name"
+msgstr "Введіть назву обладнання"
+
+msgid "Enter level name"
+msgstr "Введіть назву рівня"
+
+msgid "Enter destination"
+msgstr "Введіть місце призначення"
+
+msgid "Sort"
+msgstr "Сортування"
+
 msgid "Reorder"
 msgstr "Впорядкувати"
 
-msgid "Rescan"
-msgstr "Пересканувати"
+msgid "Add Command"
+msgstr "Додати команду"
 
-msgid "Restart"
-msgstr "Перезапустити"
+msgid "Edit Command"
+msgstr "Змінити команду"
 
-msgid "Add VLAN"
-msgstr "Додати VLAN"
+msgid "Command is marked for deletion"
+msgstr "Команда позначена для видалення"
 
-msgid "Edit VLAN"
-msgstr "Редагувати VLAN"
+msgid "Command is locked"
+msgstr "Команда заблокована"
 
-msgid "VLAN is marked for deletion"
-msgstr "VLAN позначений для видалення"
+msgid "Command is unlocked"
+msgstr "Команда розблокована"
 
-msgid "VLAN is locked"
-msgstr "VLAN заблоковано"
+msgid "Delete Selected Commands"
+msgstr "Видалити вибрані команди"
 
-msgid "VLAN is unlocked"
-msgstr "VLAN розблокований"
+msgid "Do you want to delete selected commands?"
+msgstr "Ви підтверджуєте видалення обраних команд?"
 
-msgid "Delete Selected VLANs"
-msgstr "Видалити обрані VLAN"
+msgid "Disable Selected Commands"
+msgstr "Вимкнути обрані команди"
 
-msgid "Disable Selected VLANs"
-msgstr "Вимкнути вибрані VLAN"
+msgid "Do you want to disable selected commands?"
+msgstr "Ви підтверджуєте вимкнення обраних команд?"
 
-msgid "Enable Selected VLANs"
-msgstr "Увімкнути вибрані VLAN"
+msgid "Enable Selected Commands"
+msgstr "Дозволити обрані команди"
 
-msgid "Toggle Selected VLANs"
-msgstr "Перемкнути вибрані VLAN"
+msgid "Do you want to enable selected commands?"
+msgstr "Ви підтверджуєте увімкнення обраних команд?"
 
-msgid "Do you want to delete selected VLANs?"
-msgstr "Ви підтверджуєте видалення обраних VLAN?"
+msgid "Toggle Selected Commands"
+msgstr "Переключити обрані команди"
 
-msgid "Do you want to disable selected VLANs?"
-msgstr "Бажаєте вимкнути вибрані VLAN?"
-
-msgid "Do you want to enable selected VLANs?"
-msgstr "Ви бажаєте увімкнути вибрані VLAN?"
-
-msgid "Do you want to toggle selected VLANs?"
-msgstr "Бажаєте перемкнути вибрані VLAN?"
-
-msgid "The name of the VLAN interface"
-msgstr "Ім'я інтерфейсу VLAN"
-
-msgid "vlan0"
-msgstr "vlan0"
-
-msgid "802.1Q VLAN tag (between 1 and 4094)."
-msgstr "802.1Q VLAN тег (між 1 і 4094)."
-
-msgid "102"
-msgstr "102"
+msgid "Do you want to toggle selected commands?"
+msgstr "Ви підтверджуєте перемикання обраних команд?"
 
 msgid ""
-"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
-"class of service and maps to the frame priority level."
+"These commands will be executed pre or post system initialization (booting) "
+"or before system shutdown."
 msgstr ""
-"Пріоритетна точка коду (PCP) — це 3-бітове поле, яке відноситься до класу "
-"сервісу IEEE 802.1p і відповідає рівню пріоритету кадру."
+"Ці команди будуть виконані до або після ініціалізації системи (завантаження) "
+"або перед вимиканням системи."
 
-msgid "Best effort (default)"
-msgstr "Найкраща спроба (за замовчуванням)"
+msgid "Post Upgrade"
+msgstr "Після оновлення"
 
-msgid "Background (lowest)"
-msgstr "Фон (найнижчий)"
+msgid "Name of the command."
+msgstr "Ім'я команди"
 
-msgid "Excellent effort"
-msgstr "Відмінне зусилля"
+msgid "The command to be executed."
+msgstr "Команда для виконання."
 
-msgid "Critical applications"
-msgstr "Критичні програми"
+msgid "Select at which stage the command should be executed."
+msgstr "Оберіть на якому етапі команда повинна бути виконана."
 
-msgid "Video < 100ms latency"
-msgstr "Затримка відео < 100 мс"
+msgid "Add sysctl setting"
+msgstr "Додати налаштування sysctl"
 
-msgid "Video < 10ms latency"
-msgstr "Затримка відео < 10 мс"
+msgid "Edit sysctl setting"
+msgstr "Змінити налаштування sysctl"
 
-msgid "Internetwork control"
-msgstr "Міжмережевий контроль"
+msgid "Sysctl setting is marked for deletion"
+msgstr "Налаштування Sysctl позначене для видалення"
 
-msgid "Network control (highest)"
-msgstr "Контроль мережі (найвищий)"
+msgid "Sysctl setting is locked"
+msgstr "Налаштування Sysctl заблоковано"
 
-msgid "Set the VLAN encapsulation protocol."
-msgstr "Встановіть протокол інкапсуляції VLAN."
+msgid "Sysctl setting is unlocked"
+msgstr "Налаштування Sysctl дозволено"
 
-msgid "802.1Q (default)"
-msgstr "802.1Q (за замовчуванням)"
+msgid "Delete Selected Sysctl Settings"
+msgstr "Видалити обрані налаштування Sysctl"
 
-msgid "802.1ad (QinQ)"
-msgstr "802.1ad (QinQ)"
+msgid "Do you want to delete selected sysctl settings?"
+msgstr "Ви дійсно хочете видалити обрані налаштування Sysctl?"
 
-msgid "VLAN Interface"
-msgstr "Інтерфейс VLAN"
+msgid "Disable Selected Sysctl Settings"
+msgstr "Вимкнути обрані налаштування Sysctl"
 
-msgid "VLAN Tag"
-msgstr "Мітка VLAN"
+msgid "Do you want to disable selected sysctl settings?"
+msgstr "Ви дійсно хочете вимкнути обрані налаштування Sysctl?"
 
-msgid "PCP"
-msgstr "PCP"
+msgid "Enable Selected Sysctl Settings"
+msgstr "Дозволити обрані налаштування sysctl"
 
-msgid "Encapsulation Protocol"
-msgstr "Протокол інкапсуляції"
+msgid "Do you want to enable selected sysctl settings?"
+msgstr "Ви дійсно хочете увімкнути обрані налаштування Sysctl?"
+
+msgid "Toggle Selected Sysctl Settings"
+msgstr "Перемкнути обрані налаштування Sysctl"
+
+msgid "Do you want to toggle selected sysctl settings?"
+msgstr "Ви підтверджуєте перемикання вибраних налаштувань sysctl?"
+
+msgid ""
+"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
+"make changes to a running system."
+msgstr ""
+"Ці змінні sysctl будуть додані до /etc/sysctl.conf. Це дозволить вам зробити "
+"зміни на працюючий системі."
+
+msgid "The value of the setting."
+msgstr "Значення налаштування."
+
+msgid "Variable"
+msgstr "Змінна"
+
+msgid "Destination Network"
+msgstr "Мережа призначення"
+
+msgid "Choose which interface this route applies to."
+msgstr "Виберіть інтерфейси до яких застосувати дане правило"
+
+msgid "Destination network for this static route."
+msgstr "Мережа призначення для цього статичного маршруту."
+
+msgid "Gateway to be used to reach the destination network."
+msgstr "Шлюз до підмережі призначення."
+
+msgid "Add Route"
+msgstr "Додати маршрут"
+
+msgid "Edit Route"
+msgstr "Редагувати маршрут"
+
+msgid "Route is marked for deletion"
+msgstr "Маршрут позначений для видалення"
+
+msgid "Route is locked"
+msgstr "Маршрут заблокований"
+
+msgid "Route is unlocked"
+msgstr "Маршрут розблокований"
+
+msgid "Delete Selected Routes"
+msgstr "Видалити обрані маршрути"
+
+msgid "Do you want to delete selected routes?"
+msgstr "Ви підтверджуєте видалення обраних маршрутів?"
+
+msgid "Disable Selected Routes"
+msgstr "Заборонити обрані маршрути"
+
+msgid "Do you want to disable selected routes?"
+msgstr "Ви дійсно бажаєте заборонити обрані маршрути?"
+
+msgid "Enable Selected Routes"
+msgstr "Дозволити обрані маршрути"
+
+msgid "Do you want to enable selected routes?"
+msgstr "Ви дійсно бажаєте дозволити обрані маршрути?"
+
+msgid "Toggle Selected Routes"
+msgstr "Перемкнути обрані маршрути"
+
+msgid "Do you want to toggle selected routes?"
+msgstr "Ви дійсно бажаєте перемкнути вибрані маршрути?"
+
+msgid "Running user"
+msgstr "Виконати від користувача"
+
+msgid "The name of the variable."
+msgstr "Ім'я змінної"
+
+msgid "The value of the variable."
+msgstr "Значення змінної."
+
+msgid ""
+"These option(s) will be added to /boot/loader.conf.local. This allows you to "
+"specify parameters to be passed to the kernel and additional modules to be "
+"loaded."
+msgstr ""
+"Ці налаштування будуть додані до /boot/loader.conf.local.  Це дозволить вам "
+"передавати ці параметри до ядра та завантажувати розширені модулі."
+
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr "Вимкнені імена змінних будуть видалені з /etc/rc.conf."
+
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr "Увімкнені параметри будуть додані до /etc/rc.conf."
+
+msgid "Name of the variable."
+msgstr "Ім'я змінної."
+
+msgid "Enter Value"
+msgstr "Введіть значення"
+
+msgid ""
+"Display action buttons in the scrollable area instead of the footer area."
+msgstr "Відображати кнопки виконання в зоні прокрутки замість зони виноски."
+
+msgid "Fully qualified file name of a custom file chooser CSS file."
+msgstr "Повне ім'я користувацького CSS файлу вибору файлів."
+
+msgid "Select file mode of the custom file chooser CSS file."
+msgstr "Оберіть режим користувацького CSS файлу для вибору файла."
+
+msgid "Replace the default CSS file"
+msgstr "Замінити файл CSS за замовчуванням"
+
+msgid "Append content to the default CSS file"
+msgstr "Додати вміст до CSS файлу за замовчуванням"
+
+msgid "Fully qualified file name of a custom GUI CSS file."
+msgstr "Повне ім'я користувацького CSS файлу GUI."
+
+msgid "Select file mode of the custom GUI CSS file."
+msgstr "Оберіть режим користувацького CSS файлу для GUI."
+
+msgid "Fully qualified file name of a custom navigation bar CSS file."
+msgstr "Повне ім'я користувацького CSS файлу панелі навігації."
+
+msgid "Select file mode of the custom navigation bar CSS file."
+msgstr "Оберіть режим користувацького CSS файлу для навігаційної панелі."
+
+msgid "Fully qualified file name of a custom tabs CSS file."
+msgstr "Повне ім'я користувацького CSS файлу вкладок."
+
+msgid "Select file mode of the custom tabs CSS file."
+msgstr "Оберіть режим користувацького CSS файлу для вкладок."
+
+msgid "Use toggle button instead of enable/disable buttons."
+msgstr ""
+"Використовувати кнопку-перемикач замість кнопок включити / відключити."
+
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+"Оберіть режим відображення елементів верхнього рівня панелі навігації."
+
+msgid "Show text only"
+msgstr "Показувати тільки текст"
+
+msgid "Show symbol only"
+msgstr "Показувати тільки піктограми"
+
+msgid "Show symbol and text"
+msgstr "Показувати піктограми та текст"
+
+msgid ""
+"Display disk size values using binary prefixes instead of decimal prefixes."
+msgstr ""
+"Відображати значення розміру диску, використовуючи бінарні префікси замість "
+"десятичних префіксів."
+
+msgid "Enable this option if you want to display colorful meter states."
+msgstr ""
+"Увімкніть цю опцію, якщо потрібно відобразити кольорові індикатори стану."
+
+msgid ""
+"Enable this option if you want to edit configuration pages directly without "
+"the need to switch to edit mode."
+msgstr ""
+"Увімкнути цю опцію, якщо ви бажаєте редагувати сторінки конфігурації "
+"безпосередньо без необхідності перемикання до режиму редагування."
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr "Введіть число від 0 до 256 або залиште це поле порожнім."
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr ""
+"Обмежте максимальну кількість процесорів, які відображатимуться на домашній "
+"сторінці."
+
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr "Встановіть цільову сторінку для меню Діагностика > Інформація."
+
+msgid "Button Location"
+msgstr "Розташуваня кнопки"
+
+msgid "File Chooser"
+msgstr "Вибір файлу"
+
+msgid "File Mode"
+msgstr "Режим файлу"
+
+msgid "GUI"
+msgstr "Графічний інтерфейс"
+
+msgid "Navigation Bar"
+msgstr "Панель навігації"
+
+msgid "Tabs"
+msgstr "Вкладки"
+
+msgid "Toggle Mode"
+msgstr "Режим перемикача"
+
+msgid "Navbar Style"
+msgstr "Стиль панелі навігації"
+
+msgid "Binary Prefix"
+msgstr "Бінарний префікс"
+
+msgid "Colorful Meters"
+msgstr "Кольорові індикатори стану"
+
+msgid "Skip View Mode"
+msgstr "Скасувати Режим Огляду"
+
+msgid "Show Max CPUs"
+msgstr "Показати максимальну кількість процесорів"
+
+msgid "Diagnostics Information"
+msgstr "Діагностична інформація"
+
+msgid "Show Interval"
+msgstr "Показати інтервал"
+
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables the reminder."
+msgstr ""
+"Встановіть кількість днів до нагадування про резервування системної "
+"конфігурації. За замовчуванням - 28 днів. Значення '0' вимикає нагадування."
+
+msgid "Network Address"
+msgstr "Мережева адреса"
+
+msgid "Enter additional parameters"
+msgstr "Введіть додаткові параметри"
+
+msgid "No additional parameters"
+msgstr "Немає додаткових параметрів"
+
+msgid "Undefined"
+msgstr "Невизначено"
+
+msgid "The value is invalid."
+msgstr "Помилкове значення."
+
+msgid "Enter a description for your reference."
+msgstr "Введіть опис для вашого посилання."
+
+msgid "Enable Setting"
+msgstr "Дозволити Параметри"
+
+msgid "IPv4 Address"
+msgstr "Адреса IPv4"
+
+msgid "Protect"
+msgstr "Захистити"
+
+msgid "Protect Setting"
+msgstr "Параметри захисту"
+
+msgid "The UUID of the record."
+msgstr "UUID запису."
+
+msgid "Enter Universally Unique Identifier"
+msgstr "Введіть Універсальний Унікальний Ідентифікатор (UUI)"
+
+msgid "Universally Unique Identifier"
+msgstr "Універсальний Унікальний Ідентифікатор (UUI)"
+
+msgid "Delete Selected Records"
+msgstr "Видалити обрані записи"
+
+msgid "Do you want to delete selected records?"
+msgstr "Ви підтверджуєте видалення обраних записів?"
+
+msgid "Disable Selected Records"
+msgstr "Вимкнути обрані записи"
+
+msgid "Do you want to disable selected records?"
+msgstr "Ви підтверджуєте вимкнення обраних записів?"
+
+msgid "Enable Selected Records"
+msgstr "Дозволити обрані записи"
+
+msgid "Do you want to enable selected records?"
+msgstr "Ви підтверджуєте увімкнення обраних записів?"
+
+msgid "Lock Selected Records"
+msgstr "Заблокувати Обрані Записи"
+
+msgid "Do you want to lock selected records?"
+msgstr "Ви підтверджуєте блокування обраних записів?"
+
+msgid "Toggle Selected Records"
+msgstr "Перемикання Обраних Записів"
+
+msgid "Do you want to toggle selected records?"
+msgstr "Ви підтверджуєте перемикання вибраних записів?"
+
+msgid "Unlock Selected Records"
+msgstr "Розблокувати Обрані Записи"
+
+msgid "Do you want to unlock selected records?"
+msgstr "Ви підтверджуєте розблокування вибраних записів?"
+
+msgid "Add Record"
+msgstr "Додати запис"
+
+msgid "Record is marked for deletion"
+msgstr "Запис позначений для видалення"
+
+msgid "Record Information"
+msgstr "Інформація про Запис"
+
+msgid "Record is protected"
+msgstr "Запис захищений"
+
+msgid "Record Maintenance"
+msgstr "Обслуговування Запису"
+
+msgid "Edit Record"
+msgstr "Редагувати запис"
+
+msgid "Record is unlocked"
+msgstr "Запис розблокований"
+
+msgid "Autodetect"
+msgstr "Автоматичне визначення"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
+"Оберіть \"Користувацький постачальник\", щоб налаштувати детальні параметри "
+"оновлення сервера DDNS."
+
+msgid "Select from predefined providers."
+msgstr "Виберіть з наперед визначених постачальників."
+
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr "Введіть ідентифікатор для цієї користувацької конфігурації DDNS."
+
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+"Для підтримки кількох користувачів одного постачальника DDNS потрібно "
+"визначити ідентифікатор. Ідентифікатором може бути будь-яка буквено-цифровий "
+"рядок у вільній формі, тільки би ця комбінація була унікальною."
+
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+"Список імен хостів. Використовуйте кому для відокремлення кількох імен."
+
+msgid "Hostnames"
+msgstr "Імена хостів"
+
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+"Ім'я користувача, якщо якщо застосовується. Це може згадуватися як хеш."
+
+msgid "The password, if applicable."
+msgstr "Пароль, якщо застосовується."
+
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+"Увімкніть знаки підстановки в імені домена для доменного імені для "
+"постачальників DDNS, які це підтримують."
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+"Використовуйте HTTPS як під час перевірки змін IP, так і при оновленні "
+"запису DNS. За замовчуванням використовується HTTPS."
+
+msgid "Server to use for periodic IP address changes"
+msgstr "Сервер для періодичної зміни IP-адреси"
+
+msgid "api.ipify.org"
+msgstr "api.ipify.org"
+
+msgid "Optional server path for check IP server"
+msgstr "Необов’язковий шлях до сервера для перевірки IP-сервера"
+
+msgid "/"
+msgstr "/"
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+"Цей параметр зазвичай відповідає налаштуванням ssl, але може бути "
+"використаний для відключення HTTPS для перевірки IP-адреси."
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
+"Команда оболонки або сценарій для перевірки оновлення IP-адреси. Команда "
+"повинна вивести текст із IP-адресою до стандартного виводу."
+
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+"Те саме, що й глобальне налаштування, але лише для цього постачальника. Якщо "
+"його не вказано, за замовчуванням використовується загальний параметр, який "
+"у разі вимкнення використовує рядок агента користувача за замовчуванням."
+
+msgid "User agent string"
+msgstr "Користувацький рядок агента"
+
+msgid "DDNS server name, not the full URL."
+msgstr "Ім'я сервера DDNS, не повна URL-адреса."
+
+msgid "update.example.com"
+msgstr "update.example.com"
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+"Шлях до сервера DDNS. За замовчуванням ім'я хосту додається до шляху, якщо "
+"не встановлено append-myip."
+
+msgid "/update?domain="
+msgstr "/update?domain="
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr "Додати поточну IP-адресу до шляху оновлення сервера DDNS."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
+"Якщо це налаштування не увімкнено, додається ім’я хосту. Якщо ddns-шлях не "
+"вказаний із специфікаторами формату, у цьому випадку цей параметр не "
+"використовується."
+
+msgid "These parameters will be added to this provider configuration"
+msgstr "Ці параметри будуть додані до конфігурації цього постачальника"
+
+msgid "Add Provider"
+msgstr "Додати Постачальника"
+
+msgid "Edit Provider"
+msgstr "Змінити постачальника"
+
+msgid "Provider is marked for deletion"
+msgstr "Постачальник маркований для видалення"
+
+msgid "Provider is locked"
+msgstr "Постачальник заблокований"
+
+msgid "Provider is unlocked"
+msgstr "Постачальник розблокований"
+
+msgid "Delete Selected Providers"
+msgstr "Видалити обраних постачальників"
+
+msgid "Disable Selected Providers"
+msgstr "Вимкнути обраних постачальників"
+
+msgid "Enable Selected Providers"
+msgstr "Увімкнути обраних постачальників"
+
+msgid "Toggle Selected Providers"
+msgstr "Перемкнути обраних постачальників"
+
+msgid "Do you want to delete selected providers?"
+msgstr "Видалити обраних постачальників?"
+
+msgid "Do you want to disable selected providers?"
+msgstr "Вимкнути обраних постачальників?"
+
+msgid "Do you want to enable selected providers?"
+msgstr "Ви бажаєте увімкнути обраних постачальників?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "Ви бажаєте перемкнути вибраних постачальників?"
+
+msgid "Missing Provider"
+msgstr "Відсутній постачальник"
+
+msgid "Orphaned Provider"
+msgstr "Постачальник, що залишився"
+
+msgid "Undefined Type"
+msgstr "Невизначений тип"
+
+msgid "Unknown Provider"
+msgstr "Невідомий постачальник"
+
+msgid "Standard Provider"
+msgstr "Стандартний постачальник"
+
+msgid "Custom Provider"
+msgstr "Користувацький постачальник"
+
+msgid "Record Type"
+msgstr "Тип запису"
+
+msgid "Provider"
+msgstr "Провайдер"
+
+msgid "Provider Name"
+msgstr "Ім’я провайдера"
+
+msgid "Host Names"
+msgstr "Імена хостів"
+
+msgid "Wildcard Domain"
+msgstr "Знаки підстановки домена"
+
+msgid "Use HTTPS"
+msgstr "Використовувати HTTPS"
+
+msgid "Check IP Server"
+msgstr "Перевірити IP-сервер"
+
+msgid "Check IP Path"
+msgstr "Перевірити шлях IP"
+
+msgid "Check IP using HTTPS"
+msgstr "Перевірити IP за допомогою HTTPS"
+
+msgid "Check IP Command"
+msgstr "Перевірити команлу IP"
+
+msgid "User Agent"
+msgstr "Агент користувача"
+
+msgid "DDNS-Server"
+msgstr "DDNS-Server"
+
+msgid "DDNS-Path"
+msgstr "DDNS-Path"
+
+msgid "Append my IP"
+msgstr "Додати мій IP"
+
+msgid "Providers"
+msgstr "Постачальники"
+
+msgid "Global Settings"
+msgstr "Загальні налаштування"
+
+msgid "Verify Address"
+msgstr "Підтвердження адреси"
+
+msgid "Fake Address"
+msgstr "Фальшива адреса"
+
+msgid "Allow IPv6"
+msgstr "Дозволити IPv6"
+
+msgid "Network Interface"
+msgstr "Мережевий інтерфейс"
+
+msgid "Iterations"
+msgstr "Ітерації"
+
+msgid "Check Interval"
+msgstr "Проміжок перевірок"
+
+msgid "Force Update Interval"
+msgstr "Інтервал примусового оновлення"
+
+msgid "Secure SSL"
+msgstr "Захищений SSL"
+
+msgid "Broken RTC"
+msgstr "Зламаний RTC"
+
+msgid "CA Trusted Certificates"
+msgstr "Довірені сертифікати CA"
+
+msgid "Cache Directory"
+msgstr "Каталог кеша"
+
+msgid "Startup Delay"
+msgstr "Затримка запуску"
+
+msgid "Log Level"
+msgstr "Рівень запису до журналу"
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
+"Перевірку IP-адреси можна вимкнути, встановивши для цього параметра значення "
+"false."
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
+"За замовчуванням inadyn перевіряє адреси IPv4 та IPv6, переконуючись, що "
+"адреса є дійсною адресою в Інтернеті. Недійсні адреси - це, наприклад, "
+"локальна, зворотна, багатоадресна та відомі експериментальні адреси. Для "
+"отримання додаткової інформації див. RFC3330."
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+"Використовуйте цю опцію, щоб підробити оновлення адреси із \"випадковою\" "
+"адресою в діапазоні 203.0.113.0/24 перед оновленням за допомогою фактичної "
+"IP-адреси."
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr "Цей параметр визначає, чи слід дозволяти чи відкидати адреси IPv6."
+
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+"Використовуйте цей мережевий інтерфейс як джерело змін IP-адреси, замість "
+"того, щоб запитувати зовнішній сервер."
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
+"Встановіть кількість оновлень DNS. За замовчуванням - 0, що означає "
+"нескінченність."
+
+msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+"Як часто перевіряти IP, в секундах. За замовчуванням: прибл. 1 хвилина. "
+"Макс: 10 днів."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
+"Як часто слід оновлювати ІР, навіть якщо він не змінений. Час слід вказати в "
+"секундах. За замовчуванням дорівнює 30 дням."
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
+"Увимкніть цю опцію, щоб скасувати оновлення DDNS, якщо перевірка сертифіката "
+"HTTPS не вдається."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+"Увімкніть цю опцію лише в системах без апаратного годинника реального часу "
+"та часу завантаження за замовчуванням, які були в далекому минулому."
+
+msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+"Цей параметр замінює вбудовані шляхи та місця відкату та надає спосіб "
+"вказати шлях до надійного набору сертифікатів CA у форматі PEM, об’єднаних в "
+"один файл."
+
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+"Вкажіть рядок User-Agent для надсилання постачальнику DDNS на запити "
+"перевірки та оновлення."
+
+msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+"Встановлює каталог для постійних файлів кешу. Файли кешу використовуються "
+"для відстеження того, які адреси були успішно надіслані їх відповідному "
+"постачальнику DDNS та коли."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr "Початкова затримка запуску. За замовчуванням затримки немає."
+
+msgid "no delay"
+msgstr "без затримки"
+
+msgid "Set log level"
+msgstr "Встановити рівень протоколювання"
+
+msgid "Errors"
+msgstr "Помилки"
+
+msgid "Notice"
+msgstr "Примітка"
+
+msgid "Debug"
+msgstr "Відлагодження"
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr "Ці параметри додаються до файлу inadyn.conf."
+
+msgid "Add Media Folder"
+msgstr "Додоати каталог медіа"
+
+msgid "Edit Media Folder"
+msgstr "Змінити каталог медіа"
+
+msgid "Media Folder is marked for deletion"
+msgstr "Медіа каталог позначений для видалення"
+
+msgid "Media Folder is locked"
+msgstr "Медіа каталог заблокований"
+
+msgid "Media Folder is unlocked"
+msgstr "Медіа каталог розблокований"
+
+msgid "Delete Selected Media Folders"
+msgstr "Видалення обраних медіа каталогів"
+
+msgid "Disable Selected Media Folders"
+msgstr "Вимкнути обрані каталоги медіа"
+
+msgid "Enable Selected Media Folders"
+msgstr "Дозволити обрані каталоги медіа"
+
+msgid "Toggle Selected Media Folders"
+msgstr "Перемкнути обрані каталоги медіа"
+
+msgid "Do you want to delete selected media folders?"
+msgstr "Ви підтверджуєте видалення обраних каталогів медіа?"
+
+msgid "Do you want to disable selected media folders?"
+msgstr "Ви підтверджуєте вимкнення обраних каталогів медіа?"
+
+msgid "Do you want to enable selected media folders?"
+msgstr "Ви підтверджуєте увімкнення обраних каталогів медіа?"
+
+msgid "Do you want to toggle selected media folders?"
+msgstr "Ви підтверджуєте перемикання вибраних каталогів медіа?"
+
+msgid "Path to be included."
+msgstr "Шлях, що буде доданий."
+
+msgid "Restrict folder to a specific media type."
+msgstr "Обмежити каталог певним типом медіа."
+
+msgid "Scan folder for all media types."
+msgstr "Сканувати каталог на всі типи медіа."
+
+msgid "Scan folder for audio files."
+msgstr "Сканувати каталог на аудіо файли."
+
+msgid "Scan folder for video files."
+msgstr "Сканувати каталог на відеофайли."
+
+msgid "Scan folder for image files."
+msgstr "Сканувати каталог на файли зображень."
+
+msgid "Scan folder for video and image files."
+msgstr "Сканувати каталог на відеофайли та файли зображень."
+
+msgid "Media Type"
+msgstr "Тип медіа"
+
+msgid "Media Folders"
+msgstr "Медіатеки"
+
+msgid "Media Folder"
+msgstr "Каталог медіа"
+
+msgid "Inotify"
+msgstr "Inotify"
+
+msgid "Broadcast Interval"
+msgstr "Інтервал трансляції"
+
+msgid "Strict DLNA"
+msgstr "Строгий DLNA"
+
+msgid "TiVo Support"
+msgstr "Підтримка TiVo"
+
+msgid "Wide Links"
+msgstr "Символічні посилання"
+
+msgid "Container"
+msgstr "Контейнер"
+
+msgid "Sort Criteria"
+msgstr "Критерії впорядкування"
+
+msgid "Disable Subtitles"
+msgstr "Вимкнути субтитри"
+
+msgid "Media Server Name."
+msgstr "Ім'я медіа каталогу."
+
+msgid "Verbosity of information that is logged."
+msgstr "Деталізація інформації, що реєструється."
+
+msgid "Fatal"
+msgstr "Критична помилка"
+
+msgid "Enable inotify."
+msgstr "Дозволити inotify."
+
+msgid "Use inotify monitoring to automatically discover new media files."
+msgstr ""
+"Використовуйте моніторинг inotify для автоматичного виявлення нових "
+"мультимедійних файлів."
+
+msgid ""
+"Broadcasts its availability every configured seconds on the network, the "
+"default is 300 seconds."
+msgstr ""
+"Налаштування часу трансляції доступності в мережі в секундах, за "
+"замовчуванням 300 секунд."
+
+msgid "300"
+msgstr "300"
+
+msgid ""
+"Port to listen on. Port number must be between 1024 and 65535. Default port "
+"is 8200."
+msgstr ""
+"Порт для прослуховування. Номер порту повинен бути між 1024 і 65535. Порт за "
+"замовчуванням - 8200."
+
+msgid "8200"
+msgstr "8200"
+
+msgid "Enable to strictly adhere to DLNA standards."
+msgstr "Увімкнути строге дотримання DLNA стандартів."
+
+msgid ""
+"This will allow server-side downscaling of very large JPEG images, it can "
+"impact JPEG serving performance on some DLNA devices."
+msgstr ""
+"Це дозволить на стороні сервера зменшити масштаб дуже великих зображень у "
+"форматі JPEG, це може вплинути на продуктивність обробки JPEG на деяких "
+"пристроях DLNA."
+
+msgid "Enable TiVo support."
+msgstr "Увімкнути підтримку TiVo."
+
+msgid ""
+"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
+msgstr ""
+"Це забезпечить підтримку потокового .jpeg і MP3 файлів до TiVo з підтримкою "
+"HMO."
+
+msgid "Location of the media content database."
+msgstr "Розміщення бази даних медіа контенту."
+
+msgid "Allow symlinks that point outside defined media folders."
+msgstr ""
+"Дозволити символьні посилання, що дивляться назовні визначених каталогів "
+"медіа."
+
+msgid "These parameters will be added to minidlna.conf"
+msgstr "Ці параметри будуть додані до minidlna.conf"
+
+msgid "Select a container as the root of the tree exposed to clients."
+msgstr "Виберіть контейнер в якості кореня дерева, доступного для клієнтів."
+
+msgid "Use the standard container (this is the default)"
+msgstr "Використовувати стандартний контейнер (за замовчуванням)"
+
+msgid "Use the \"Browse Directory\" container"
+msgstr "Використовувати контейнер \"Перегляд каталогу\""
+
+msgid "Use the \"Music\" container"
+msgstr "Використовувати контейнер \"Музика\""
+
+msgid "Use the \"Video\" container"
+msgstr "Використовувати контейнер \"Відео\""
+
+msgid "Use the \"Pictures\" container"
+msgstr "Використовувати контейнер \"Зображення\""
+
+msgid "Overwrite the sort criteria passed by the client."
+msgstr "Перезаписати критерії сортування, передані клієнтом."
+
+msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+
+msgid "Disable subtitle support on unknown clients."
+msgstr "Вимкнути підтримку субтитрів на невизначених клієнтах."
+
+msgid "Auth Group Name"
+msgstr "Ім'я групи автентифікації"
+
+msgid "Auth Type"
+msgstr "Тип автентифікації"
 
 msgid "Add Auth Group"
 msgstr "Додати групу автентифікації"
@@ -11348,20 +12174,11 @@ msgstr "Ви підтверджуєте увімкнення обраних гр
 msgid "Do you want to toggle selected auth groups?"
 msgstr "Ви підтверджуєте перемикання обраних груп автентифікації?"
 
-msgid "Name of the Auth Group."
-msgstr "Ім'я групи автентифікації."
+msgid "Initiator Names"
+msgstr "Ім'я ініціатора"
 
-msgid "Auth Group Name"
-msgstr "Ім'я групи автентифікації"
-
-msgid "Sets the authentication type."
-msgstr "Встановлює тип автентифікації."
-
-msgid "CHAP-Mutual"
-msgstr "CHAP-Mutual"
-
-msgid "These parameters will be added to this auth-group."
-msgstr "Ці параметри будуть додані до цієї групи автентифікації."
+msgid "Initiator Portals"
+msgstr "Портали ініціатора"
 
 msgid "No CHAP users found."
 msgstr "Жодного користувача CHAP не знайдено."
@@ -11384,170 +12201,23 @@ msgstr "Портал ініціатора"
 msgid "No initiator portals found."
 msgstr "Жодних порталів ініціаторів не знайдено."
 
-msgid "Auth Type"
-msgstr "Тип автентифікації"
+msgid "Name of the Auth Group."
+msgstr "Ім'я групи автентифікації."
 
-msgid "Global Settings"
-msgstr "Загальні налаштування"
+msgid "Sets the authentication type."
+msgstr "Встановлює тип автентифікації."
 
-msgid "Initiator Names"
-msgstr "Ім'я ініціатора"
+msgid "CHAP-Mutual"
+msgstr "CHAP-Mutual"
 
-msgid "Initiator Portals"
-msgstr "Портали ініціатора"
-
-msgid "Additional Options for Block Backend"
-msgstr "Розширені параметри для Block Backend"
-
-msgid "Additional Options for RAM Disk Backend"
-msgstr "Розширені параметри для RAM Disk Backend"
-
-msgid "LUN Name"
-msgstr "Ім'я LUN"
-
-msgid "Backend"
-msgstr "Backend"
-
-msgid "CTL LUN"
-msgstr "CTL LUN"
-
-msgid "Device ID"
-msgstr "ID пристрою"
-
-msgid "Device Type"
-msgstr "Тип пристрою"
-
-msgid "Passthrough Address"
-msgstr "Транзитна адреса"
-
-msgid "LUN Vendor"
-msgstr "Постачальник LUN"
-
-msgid "LUN Product"
-msgstr "Продукт LUN"
-
-msgid "LUN Revision"
-msgstr "Версія LUN"
-
-msgid "LUN SCSI Name"
-msgstr "Ім'я LUN SCSI"
-
-msgid "LUN EUI-64\tidentifier"
-msgstr "LUN EUI-64\tідентифікатор"
-
-msgid "LUN NAA Identifier"
-msgstr "Ідентифікатор LUN NAA"
-
-msgid "LUN UUID"
-msgstr "LUN UUID"
-
-msgid "HA Role"
-msgstr "Роль HA"
-
-msgid "Insecure TPC"
-msgstr "Небезпечний TPC"
-
-msgid "Read Cache"
-msgstr "Кеш читання"
-
-msgid "Read Only"
-msgstr "Тільки для читання"
-
-msgid "Reordering"
-msgstr "Зміна порядку"
-
-msgid "Serialize Sequence"
-msgstr "Серіалізувати послідовність"
-
-msgid "Physical Block Size"
-msgstr "Розмір фізичного блока"
-
-msgid "Physical Block Offset"
-msgstr "Зміщення фізичного блока"
-
-msgid "UNMAP Block Size"
-msgstr "Розмір блоку UNMAP"
-
-msgid "UNMAP Block Offset"
-msgstr "Зміщення блоку UNMAP"
-
-msgid "RPM"
-msgstr "об/хв"
-
-msgid "Form Factor"
-msgstr "Форм фактор"
-
-msgid "Provisioning Type"
-msgstr "Тип забезпечення"
-
-msgid "UNMAP"
-msgstr "UNMAP"
-
-msgid "UNMAP Maximum LBA"
-msgstr "Максимальний LBA UNMAP"
-
-msgid "UNMAP Maximum Descriptors"
-msgstr "Максимум дескрипторів UNMAP"
-
-msgid "Write Same Maximum LBA"
-msgstr "Максимальний LBA WRITE SAME"
-
-msgid "Avail Threshold"
-msgstr "Доступний поріг"
-
-msgid "Used Threshold"
-msgstr "Використаний порог"
-
-msgid "Pool Avail Threshold"
-msgstr "Поріг вільного місця в пулі"
-
-msgid "Pool Used Threshold"
-msgstr "Поріг використання пулу"
-
-msgid "Threads"
-msgstr "Потоки"
-
-msgid "Add LUN"
-msgstr "Додати LUN"
-
-msgid "Edit LUN"
-msgstr "Редагувати LUN"
-
-msgid "LUN is marked for deletion"
-msgstr "LUN позначений для видалення"
-
-msgid "LUN is locked"
-msgstr "LUN заблокований"
-
-msgid "LUN is unlocked"
-msgstr "LUN розблокований"
-
-msgid "Delete Selected LUNs"
-msgstr "Видалити обрані LUN'и"
-
-msgid "Disable Selected LUNs"
-msgstr "Вимкнути обрані LUN'и"
-
-msgid "Enable Selected LUNs"
-msgstr "Дозволити обрані LUN'и"
-
-msgid "Toggle Selected LUNs"
-msgstr "Перемкнути обрані LUN'и"
-
-msgid "Do you want to delete selected LUNs?"
-msgstr "Ви підтверджуєте видалення обраних LUN'ів?"
-
-msgid "Do you want to disable selected LUNs?"
-msgstr "Ви підтверджуєте вимкнення обраних LUN'ів?"
-
-msgid "Do you want to enable selected LUNs?"
-msgstr "Ви підтверджуєте увімкнення обраних LUN'ів?"
-
-msgid "Do you want to toggle selected LUNs?"
-msgstr "Ви підтверджуєте перемикання обраних LUN'ів?"
+msgid "These parameters will be added to this auth-group."
+msgstr "Ці параметри будуть додані до цієї групи автентифікації."
 
 msgid "Name of the LUN."
 msgstr "Ім'я LUN."
+
+msgid "LUN Name"
+msgstr "Ім'я LUN"
 
 msgid "The CTL backend to use for a given LUN."
 msgstr "CTL backend для використання для даного LUN."
@@ -11589,6 +12259,9 @@ msgstr ""
 msgid "The SCSI Device Identification string presented to the initiator."
 msgstr ""
 "Строка ідентифікатора пристрою SCSI, що представляється ініціаторові."
+
+msgid "Device ID"
+msgstr "ID пристрою"
 
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr "Визначає тип пристрою SCSI для використання під час створювання LUN."
@@ -11820,17 +12493,149 @@ msgstr ""
 msgid "These parameters will be added to this lun."
 msgstr "Ці параметри будуть додані до цього LUN."
 
-msgid "Listen"
-msgstr "Прослуховування"
+msgid "Additional Options for Block Backend"
+msgstr "Розширені параметри для Block Backend"
 
-msgid "No listeners found."
-msgstr "Жодних слухачів не знайдено."
+msgid "Additional Options for RAM Disk Backend"
+msgstr "Розширені параметри для RAM Disk Backend"
 
-msgid "Option"
-msgstr "Опція"
+msgid "Add LUN"
+msgstr "Додати LUN"
 
-msgid "No options found."
-msgstr "Жодних параметрів не знайдено."
+msgid "Edit LUN"
+msgstr "Редагувати LUN"
+
+msgid "LUN is marked for deletion"
+msgstr "LUN позначений для видалення"
+
+msgid "LUN is locked"
+msgstr "LUN заблокований"
+
+msgid "LUN is unlocked"
+msgstr "LUN розблокований"
+
+msgid "Delete Selected LUNs"
+msgstr "Видалити обрані LUN'и"
+
+msgid "Disable Selected LUNs"
+msgstr "Вимкнути обрані LUN'и"
+
+msgid "Enable Selected LUNs"
+msgstr "Дозволити обрані LUN'и"
+
+msgid "Toggle Selected LUNs"
+msgstr "Перемкнути обрані LUN'и"
+
+msgid "Do you want to delete selected LUNs?"
+msgstr "Ви підтверджуєте видалення обраних LUN'ів?"
+
+msgid "Do you want to disable selected LUNs?"
+msgstr "Ви підтверджуєте вимкнення обраних LUN'ів?"
+
+msgid "Do you want to enable selected LUNs?"
+msgstr "Ви підтверджуєте увімкнення обраних LUN'ів?"
+
+msgid "Do you want to toggle selected LUNs?"
+msgstr "Ви підтверджуєте перемикання обраних LUN'ів?"
+
+msgid "Backend"
+msgstr "Backend"
+
+msgid "CTL LUN"
+msgstr "CTL LUN"
+
+msgid "Device Type"
+msgstr "Тип пристрою"
+
+msgid "Passthrough Address"
+msgstr "Транзитна адреса"
+
+msgid "LUN Vendor"
+msgstr "Постачальник LUN"
+
+msgid "LUN Product"
+msgstr "Продукт LUN"
+
+msgid "LUN Revision"
+msgstr "Версія LUN"
+
+msgid "LUN SCSI Name"
+msgstr "Ім'я LUN SCSI"
+
+msgid "LUN EUI-64\tidentifier"
+msgstr "LUN EUI-64\tідентифікатор"
+
+msgid "LUN NAA Identifier"
+msgstr "Ідентифікатор LUN NAA"
+
+msgid "LUN UUID"
+msgstr "LUN UUID"
+
+msgid "HA Role"
+msgstr "Роль HA"
+
+msgid "Insecure TPC"
+msgstr "Небезпечний TPC"
+
+msgid "Read Cache"
+msgstr "Кеш читання"
+
+msgid "Read Only"
+msgstr "Тільки для читання"
+
+msgid "Reordering"
+msgstr "Зміна порядку"
+
+msgid "Serialize Sequence"
+msgstr "Серіалізувати послідовність"
+
+msgid "Physical Block Size"
+msgstr "Розмір фізичного блока"
+
+msgid "Physical Block Offset"
+msgstr "Зміщення фізичного блока"
+
+msgid "UNMAP Block Size"
+msgstr "Розмір блоку UNMAP"
+
+msgid "UNMAP Block Offset"
+msgstr "Зміщення блоку UNMAP"
+
+msgid "RPM"
+msgstr "об/хв"
+
+msgid "Form Factor"
+msgstr "Форм фактор"
+
+msgid "Provisioning Type"
+msgstr "Тип забезпечення"
+
+msgid "UNMAP"
+msgstr "UNMAP"
+
+msgid "UNMAP Maximum LBA"
+msgstr "Максимальний LBA UNMAP"
+
+msgid "UNMAP Maximum Descriptors"
+msgstr "Максимум дескрипторів UNMAP"
+
+msgid "Write Same Maximum LBA"
+msgstr "Максимальний LBA WRITE SAME"
+
+msgid "Avail Threshold"
+msgstr "Доступний поріг"
+
+msgid "Used Threshold"
+msgstr "Використаний порог"
+
+msgid "Pool Avail Threshold"
+msgstr "Поріг вільного місця в пулі"
+
+msgid "Pool Used Threshold"
+msgstr "Поріг використання пулу"
+
+msgid "Threads"
+msgstr "Потоки"
 
 msgid "Name of the Portal Group."
 msgstr "Ім'я групи порталу."
@@ -11912,18 +12717,6 @@ msgstr ""
 "Унікальне значення 16-бітового тегу цієї портальної групи. Якщо не вказано, "
 "значення створюється автоматично."
 
-msgid "Discovery Filter"
-msgstr "Фільтр виявляння"
-
-msgid "Offload"
-msgstr "Розвантаження"
-
-msgid "Redirect"
-msgstr "Переспрямувати"
-
-msgid "Foreign"
-msgstr "Зовнішній"
-
 msgid "Add Portal Group"
 msgstr "Додати групу портала"
 
@@ -11962,6 +12755,47 @@ msgstr "Ви підтверджуєте увімкнення обраних гр
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Ви підтверджуєте перемикання вибраних груп портала?"
+
+msgid "Discovery Filter"
+msgstr "Фільтр виявляння"
+
+msgid "Offload"
+msgstr "Розвантаження"
+
+msgid "Redirect"
+msgstr "Переспрямувати"
+
+msgid "Foreign"
+msgstr "Зовнішній"
+
+msgid "Listen"
+msgstr "Прослуховування"
+
+msgid "Option"
+msgstr "Опція"
+
+msgid "No listeners found."
+msgstr "Жодних слухачів не знайдено."
+
+msgid "No options found."
+msgstr "Жодних параметрів не знайдено."
+
+msgid "Enter user name."
+msgstr "Введіть ім'я."
+
+msgid "Enter secret."
+msgstr "Введіть кодову фразу."
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+"Зв'язати конфігурацію chap з групами автентифікації. Зверніть увагу, що "
+"група автентифікації може містити або chap, або взаємні chap записи, але не "
+"обидві."
+
+msgid "No auth groups found."
+msgstr "Жодних груп автентифікації не знайдено."
 
 msgid "Add CHAP User"
 msgstr "Додати користувача CHAP"
@@ -12002,40 +12836,6 @@ msgstr "Ви підтверджуєте увімкнення обраних ко
 msgid "Do you want to toggle selected CHAP users?"
 msgstr "Ви підтверджуєте перемикання обраних користувачів CHAP?"
 
-msgid "Enter user name."
-msgstr "Введіть ім'я."
-
-msgid "Enter secret."
-msgstr "Введіть кодову фразу."
-
-msgid ""
-"Link chap configuration to auth-groups. Note that an auth-group may contain "
-"either chap or chap-mutual entries, but not both."
-msgstr ""
-"Зв'язати конфігурацію chap з групами автентифікації. Зверніть увагу, що "
-"група автентифікації може містити або chap, або взаємні chap записи, але не "
-"обидві."
-
-msgid "No auth groups found."
-msgstr "Жодних груп автентифікації не знайдено."
-
-msgid ""
-"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
-"contain either chap or chap-mutual entries, but not both."
-msgstr ""
-"Зв'язати настройки взаємних chap з групами автентифікації. Зверніть увагу, "
-"що група автентифікації може містити або chap записи, або записи взаємного "
-"chap але не обидва."
-
-msgid "Enter mutual user name."
-msgstr "Введіть ім'я взаємного користувача."
-
-msgid "Mutual User"
-msgstr "Взаємний користувач"
-
-msgid "Mutual Secret"
-msgstr "Взаємна секретна фраза"
-
 msgid "Add Mutual CHAP User"
 msgstr "Додати взаємного користувача CHAP"
 
@@ -12075,15 +12875,22 @@ msgstr "Ви підтверджуєте увімкнення обраних вз
 msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "Ви підтверджуєте перемикання обраних взаємних користувачів CHAP?"
 
-msgid "Enter an iSCSI initiator name."
-msgstr "Введіть ім'я ініціатора iSCSI."
-
 msgid ""
-"Link initiator-name to auth-groups. An Initiator with this name will be "
-"allowed to connect to the selected auth-groups."
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
 msgstr ""
-"Зв'язати ім'я ініціатора з групами аутентифікації. Ініціатору з таким ім'ям "
-"буде дозволено підключитися до обраних груп аутентифікації"
+"Зв'язати настройки взаємних chap з групами автентифікації. Зверніть увагу, "
+"що група автентифікації може містити або chap записи, або записи взаємного "
+"chap але не обидва."
+
+msgid "Enter mutual user name."
+msgstr "Введіть ім'я взаємного користувача."
+
+msgid "Mutual User"
+msgstr "Взаємний користувач"
+
+msgid "Mutual Secret"
+msgstr "Взаємна секретна фраза"
 
 msgid "Add Initiator Name"
 msgstr "Додати ім'я ініціатора"
@@ -12124,6 +12931,32 @@ msgstr "Ви підтверджуєте увімкнення обраних ім
 msgid "Do you want to toggle selected initiator names?"
 msgstr "Ви підтверджуєте перемикання вибраних імен ініціаторів?"
 
+msgid "Enter an iSCSI initiator name."
+msgstr "Введіть ім'я ініціатора iSCSI."
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+"Зв'язати ім'я ініціатора з групами аутентифікації. Ініціатору з таким ім'ям "
+"буде дозволено підключитися до обраних груп аутентифікації"
+
+msgid "IP Address Prefix"
+msgstr "Префікс IP адреси"
+
+msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr "IPv4 або IPv6 адреса портала ініціатора iSCSI."
+
+msgid "Enter IP address prefix length."
+msgstr "Введіть довжину префікса IP адреси."
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+"Зв'язати ім'я ініціатора з групами аутентифікації. Ініціатору з таким ім'ям "
+"буде дозволено підключитися до обраних груп аутентифікації."
+
 msgid "Add Initiator Portal"
 msgstr "Додати портал ініціатора"
 
@@ -12163,24 +12996,11 @@ msgstr "Ви підтверджуєте увімкнення обраних по
 msgid "Do you want to toggle selected initiator portals?"
 msgstr "Ви підтверджуєте перемикання вибраних порталів ініціаторів?"
 
-msgid "IP Address Prefix"
-msgstr "Префікс IP адреси"
+msgid "IPv4 or IPv6 address of an iSNS server to register on."
+msgstr "IPv4 або IPv6 адреса сервера iSNS для реєстрації."
 
-msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "IPv4 або IPv6 адреса портала ініціатора iSCSI."
-
-msgid "Enter IP address prefix length."
-msgstr "Введіть довжину префікса IP адреси."
-
-msgid ""
-"Link initiator-portal to auth-groups. An Initiator matching this address "
-"will be allowed to connect to the selected auth-groups."
-msgstr ""
-"Зв'язати ім'я ініціатора з групами аутентифікації. Ініціатору з таким ім'ям "
-"буде дозволено підключитися до обраних груп аутентифікації."
-
-msgid "iSNS Servers"
-msgstr "Сервери iSNS"
+msgid "Port number of the iSNS server."
+msgstr "Ім'я порту сервера iSNS."
 
 msgid "Add iSNS Server"
 msgstr "Доддати сервер iSNS"
@@ -12221,11 +13041,8 @@ msgstr "Ви підтверджуєте увімкнення обраних се
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Ви підтверджуєте перемикання вибраних серверів iSNS?"
 
-msgid "IPv4 or IPv6 address of an iSNS server to register on."
-msgstr "IPv4 або IPv6 адреса сервера iSNS для реєстрації."
-
-msgid "Port number of the iSNS server."
-msgstr "Ім'я порту сервера iSNS."
+msgid "iSNS Servers"
+msgstr "Сервери iSNS"
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "IPv4 або IPv6 адреса для прослуховування вхідних з'єднань."
@@ -12282,6 +13099,9 @@ msgstr "Ви підтверджуєте увімкнення обраних за
 msgid "Do you want to toggle selected listen records?"
 msgstr "Ви підтверджуєте перемикання вибраних записів прослуховувань?"
 
+msgid "Listen (iSER)"
+msgstr "Слухати (iSER)"
+
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
@@ -12296,11 +13116,20 @@ msgstr ""
 "Порт для прослуховування вхідних з’єднань за допомогою протоколу iSER (iSCSI "
 "через RDMA)."
 
-msgid "Listen (iSER)"
-msgstr "Слухати (iSER)"
-
 msgid "LUN Number"
 msgstr "Номер LUN"
+
+msgid "LUN number"
+msgstr "Номер LUN"
+
+msgid "No LUNs found."
+msgstr "Жодних LUN не знайдено."
+
+msgid "Select targets."
+msgstr "Оберіть цілі."
+
+msgid "No targets found."
+msgstr "Жодних цілій не знайдено."
 
 msgid "Add LUN Record"
 msgstr "Додати запис LUN"
@@ -12341,23 +13170,14 @@ msgstr "Ви підтверджуєте увімкнення обраних за
 msgid "Do you want to toggle selected LUN records?"
 msgstr "Ви підтверджуєте перемикання обраних записів LUN?"
 
-msgid "LUN number"
-msgstr "Номер LUN"
+msgid "Name of the option."
+msgstr "Ім'я опції."
 
-msgid "No LUNs found."
-msgstr "Жодних LUN не знайдено."
+msgid "Value of the option."
+msgstr "Значення опції."
 
-msgid "Select targets."
-msgstr "Оберіть цілі."
-
-msgid "No targets found."
-msgstr "Жодних цілій не знайдено."
-
-msgid "Option Name"
-msgstr "Ім'я опції"
-
-msgid "Option Value"
-msgstr "Значення опції"
+msgid "Link this option to selected portal-groups."
+msgstr "Під'єднати цей параметр до обраних груп порталу."
 
 msgid "Add Option Record"
 msgstr "Додати запис параметра"
@@ -12398,20 +13218,11 @@ msgstr "Ви підтверджуєте увімкнення обраних за
 msgid "Do you want to toggle selected option records?"
 msgstr "Ви підтверджуєте перемикання вибраних записів параметрів?"
 
-msgid "Name of the option."
-msgstr "Ім'я опції."
+msgid "Option Name"
+msgstr "Ім'я опції"
 
-msgid "Value of the option."
-msgstr "Значення опції."
-
-msgid "Link this option to selected portal-groups."
-msgstr "Під'єднати цей параметр до обраних груп порталу."
-
-msgid "Port Name"
-msgstr "Ім'я порту"
-
-msgid "Name of the port."
-msgstr "Ім'я порту."
+msgid "Option Value"
+msgstr "Значення опції"
 
 msgid "Add Port Record"
 msgstr "Додати запис порту"
@@ -12452,38 +13263,14 @@ msgstr "Ви підтверджуєте увімкнення обраних за
 msgid "Do you want to toggle selected port records?"
 msgstr "Ви підтверджуєте перемикання вибраних записів порту?"
 
-msgid "Name of the target."
-msgstr "Ім'я цілі."
+msgid "Name of the port."
+msgstr "Ім'я порту."
 
-msgid "These parameters will be added to this target."
-msgstr "Ці параметри будуть додані до цієї цілі."
-
-msgid "Assign a human-readable description to the target."
-msgstr "Призначає зрозуміле для людини опис цілі."
+msgid "Port Name"
+msgstr "Ім'я порту"
 
 msgid "Alias"
 msgstr "Псевдонім"
-
-msgid "Assign a previously defined authentication group to the target."
-msgstr "Призначає цілі раніше визначену групу автентифікації."
-
-msgid "Permit access without authentication"
-msgstr "Дозволити доступ без автентифікації"
-
-msgid "Assign a previously defined portal group to the target."
-msgstr "Призначає цілі попередньо визначену групу порталу."
-
-msgid ""
-"IPv4 or IPv6 address to redirect initiators to. When configured, all "
-"initiators attempting to connect to this target will get redirected using "
-"\"Target moved temporarily\" login response."
-msgstr ""
-"IPv4 або IPv6 адреса до якої виконується перенаправлення ініціатора. Коли "
-"налаштоване, все ініціатори, які намагаються підключитися до цієї цілі, "
-"перенаправляються за допомогою реакції «Ціль тимчасово переміщена»."
-
-msgid "No ports found."
-msgstr "Жодних портів не знайдено."
 
 msgid "Add Target"
 msgstr "Додати ціль"
@@ -12523,6 +13310,36 @@ msgstr "Ви підтверджуєте увімкнення обраних ці
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Ви підтверджуєте перемикання вибраних цілей?"
+
+msgid "No ports found."
+msgstr "Жодних портів не знайдено."
+
+msgid "Name of the target."
+msgstr "Ім'я цілі."
+
+msgid "These parameters will be added to this target."
+msgstr "Ці параметри будуть додані до цієї цілі."
+
+msgid "Assign a human-readable description to the target."
+msgstr "Призначає зрозуміле для людини опис цілі."
+
+msgid "Assign a previously defined authentication group to the target."
+msgstr "Призначає цілі раніше визначену групу автентифікації."
+
+msgid "Permit access without authentication"
+msgstr "Дозволити доступ без автентифікації"
+
+msgid "Assign a previously defined portal group to the target."
+msgstr "Призначає цілі попередньо визначену групу порталу."
+
+msgid ""
+"IPv4 or IPv6 address to redirect initiators to. When configured, all "
+"initiators attempting to connect to this target will get redirected using "
+"\"Target moved temporarily\" login response."
+msgstr ""
+"IPv4 або IPv6 адреса до якої виконується перенаправлення ініціатора. Коли "
+"налаштоване, все ініціатори, які намагаються підключитися до цієї цілі, "
+"перенаправляються за допомогою реакції «Ціль тимчасово переміщена»."
 
 msgid "Max Processes"
 msgstr "Максимальна кількість процесів"
@@ -12564,380 +13381,74 @@ msgstr "Затримка для запитів iSNS. За замовчуванн
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr "Ці параметри будуть додані до глобальної секції ctl.conf"
 
-msgid ""
-"Select \"Custom Provider\" for customizing the DDNS update server details "
-"settings."
-msgstr ""
-"Оберіть \"Користувацький постачальник\", щоб налаштувати детальні параметри "
-"оновлення сервера DDNS."
-
-msgid "Select from predefined providers."
-msgstr "Виберіть з наперед визначених постачальників."
-
-msgid "Enter an identifier for this custom DDNS configuration."
-msgstr "Введіть ідентифікатор для цієї користувацької конфігурації DDNS."
-
-msgid ""
-"To support multiple users of the same DDNS provider, an identifier must be "
-"defined. The identifier can be any free form alphanumeric string as long as "
-"the combination is unique."
-msgstr ""
-"Для підтримки кількох користувачів одного постачальника DDNS потрібно "
-"визначити ідентифікатор. Ідентифікатором може бути будь-яка буквено-цифровий "
-"рядок у вільній формі, тільки би ця комбінація була унікальною."
-
-msgid "The list of hostnames. Use a comma to separate multiple names."
-msgstr ""
-"Список імен хостів. Використовуйте кому для відокремлення кількох імен."
-
-msgid "Hostnames"
-msgstr "Імена хостів"
-
-msgid "The username, if applicable. This might be referred to as hash."
-msgstr ""
-"Ім'я користувача, якщо якщо застосовується. Це може згадуватися як хеш."
-
-msgid "The password, if applicable."
-msgstr "Пароль, якщо застосовується."
-
-msgid ""
-"Enable domain name wildcarding of the domain name, for DDNS providers that "
-"support this."
-msgstr ""
-"Увімкніть знаки підстановки в імені домена для доменного імені для "
-"постачальників DDNS, які це підтримують."
-
-msgid ""
-"Use HTTPS, both when checking for IP changes and updating the DNS record. "
-"Default is to use HTTPS."
-msgstr ""
-"Використовуйте HTTPS як під час перевірки змін IP, так і при оновленні "
-"запису DNS. За замовчуванням використовується HTTPS."
-
-msgid "Server to use for periodic IP address changes"
-msgstr "Сервер для періодичної зміни IP-адреси"
-
-msgid "api.ipify.org"
-msgstr "api.ipify.org"
-
-msgid "Optional server path for check IP server"
-msgstr "Необов’язковий шлях до сервера для перевірки IP-сервера"
-
-msgid "/"
-msgstr "/"
-
-msgid ""
-"This setting usually follows the ssl setting, but can be used to disable "
-"HTTPS for the IP address check."
-msgstr ""
-"Цей параметр зазвичай відповідає налаштуванням ssl, але може бути "
-"використаний для відключення HTTPS для перевірки IP-адреси."
-
-msgid ""
-"Shell command, or script, for IP address update checking. The command must "
-"output a text with the IP address to its standard output."
-msgstr ""
-"Команда оболонки або сценарій для перевірки оновлення IP-адреси. Команда "
-"повинна вивести текст із IP-адресою до стандартного виводу."
+msgid "Target Address"
+msgstr "Цільова Адреса"
 
-msgid ""
-"Same as the global setting, but only for this provider. If omitted it "
-"defaults to the global setting, which if unset uses the default user agent "
-"string."
-msgstr ""
-"Те саме, що й глобальне налаштування, але лише для цього постачальника. Якщо "
-"його не вказано, за замовчуванням використовується загальний параметр, який "
-"у разі вимкнення використовує рядок агента користувача за замовчуванням."
+msgid "CHAP Name"
+msgstr "І'мя CHAP"
 
-msgid "User agent string"
-msgstr "Користувацький рядок агента"
+msgid "CHAP Secret"
+msgstr "Пароль CHAP"
 
-msgid "DDNS server name, not the full URL."
-msgstr "Ім'я сервера DDNS, не повна URL-адреса."
+msgid "Mutual CHAP Name"
+msgstr "Ім'я взаємного CHAP"
 
-msgid "update.example.com"
-msgstr "update.example.com"
+msgid "Mutual CHAP Secret"
+msgstr "Пароль взаємного CHAP"
 
-msgid ""
-"DDNS server path. By default the hostname is appended to the path, unless "
-"append-myip is set."
-msgstr ""
-"Шлях до сервера DDNS. За замовчуванням ім'я хосту додається до шляху, якщо "
-"не встановлено append-myip."
+msgid "Header Digest"
+msgstr "Заголовок підпису"
 
-msgid "/update?domain="
-msgstr "/update?domain="
+msgid "Data Digest"
+msgstr "Підпис даних"
 
-msgid "Append the current IP to the DDNS server update path."
-msgstr "Додати поточну IP-адресу до шляху оновлення сервера DDNS."
+msgid "Offload Driver"
+msgstr "Драйвер розвантаження"
 
-msgid ""
-"If this setting is not enabled, the hostname is appended. Unless the ddns-"
-"path is given with format specifiers, in which case this setting is unused."
-msgstr ""
-"Якщо це налаштування не увімкнено, додається ім’я хосту. Якщо ddns-шлях не "
-"вказаний із специфікаторами формату, у цьому випадку цей параметр не "
-"використовується."
+msgid "Session State"
+msgstr "Стан сеансу"
 
-msgid "These parameters will be added to this provider configuration"
-msgstr "Ці параметри будуть додані до конфігурації цього постачальника"
+msgid "Session Type"
+msgstr "Тип сеансу"
 
-msgid "Standard Provider"
-msgstr "Стандартний постачальник"
+msgid "Add iSCSI Initiator"
+msgstr "Додати ініціатор iSCSI"
 
-msgid "Custom Provider"
-msgstr "Користувацький постачальник"
+msgid "Edit iSCSI Initiator"
+msgstr "Змінити ініціатора iSCSI"
 
-msgid "Record Type"
-msgstr "Тип запису"
+msgid "iSCSI Initiator is marked for deletion"
+msgstr "Ініціатор iSCSI позначений для видалення"
 
-msgid "Provider"
-msgstr "Провайдер"
+msgid "iSCSI Initiator is locked"
+msgstr "Ініціатор iSCSI заблокований"
 
-msgid "Provider Name"
-msgstr "Ім’я провайдера"
+msgid "iSCSI Initiator is unlocked"
+msgstr "Ініціатор iSCSI розблокований"
 
-msgid "Host Names"
-msgstr "Імена хостів"
+msgid "Delete Selected iSCSI Initiators"
+msgstr "Видалити обрані ініціатори iSCSI"
 
-msgid "Wildcard Domain"
-msgstr "Знаки підстановки домена"
+msgid "Disable Selected iSCSI Initiators"
+msgstr "Вимкнути обрані ініціатори iSCSI"
 
-msgid "Use HTTPS"
-msgstr "Використовувати HTTPS"
+msgid "Enable Selected iSCSI Initiators"
+msgstr "Дозволити обрані ініціатори iSCSI"
 
-msgid "Check IP Server"
-msgstr "Перевірити IP-сервер"
+msgid "Toggle Selected iSCSI Initiators"
+msgstr "Перемкнути обрані ініціатори iSCSI"
 
-msgid "Check IP Path"
-msgstr "Перевірити шлях IP"
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr "Ви підтверджуєте видалення вибраних ініціаторів iSCSI?"
 
-msgid "Check IP using HTTPS"
-msgstr "Перевірити IP за допомогою HTTPS"
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr "Ви підтверджуєте вимкнення обраних ініціаторів iSCSI?"
 
-msgid "Check IP Command"
-msgstr "Перевірити команлу IP"
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr "Ви підтверджуєте увімкнення вибраних ініціаторів iSCSI?"
 
-msgid "User Agent"
-msgstr "Агент користувача"
-
-msgid "DDNS-Server"
-msgstr "DDNS-Server"
-
-msgid "DDNS-Path"
-msgstr "DDNS-Path"
-
-msgid "Append my IP"
-msgstr "Додати мій IP"
-
-msgid "Providers"
-msgstr "Постачальники"
-
-msgid "Add Provider"
-msgstr "Додати Постачальника"
-
-msgid "Edit Provider"
-msgstr "Змінити постачальника"
-
-msgid "Provider is marked for deletion"
-msgstr "Постачальник маркований для видалення"
-
-msgid "Provider is locked"
-msgstr "Постачальник заблокований"
-
-msgid "Provider is unlocked"
-msgstr "Постачальник розблокований"
-
-msgid "Delete Selected Providers"
-msgstr "Видалити обраних постачальників"
-
-msgid "Disable Selected Providers"
-msgstr "Вимкнути обраних постачальників"
-
-msgid "Enable Selected Providers"
-msgstr "Увімкнути обраних постачальників"
-
-msgid "Toggle Selected Providers"
-msgstr "Перемкнути обраних постачальників"
-
-msgid "Do you want to delete selected providers?"
-msgstr "Видалити обраних постачальників?"
-
-msgid "Do you want to disable selected providers?"
-msgstr "Вимкнути обраних постачальників?"
-
-msgid "Do you want to enable selected providers?"
-msgstr "Ви бажаєте увімкнути обраних постачальників?"
-
-msgid "Do you want to toggle selected providers?"
-msgstr "Ви бажаєте перемкнути вибраних постачальників?"
-
-msgid "Missing Provider"
-msgstr "Відсутній постачальник"
-
-msgid "Orphaned Provider"
-msgstr "Постачальник, що залишився"
-
-msgid "Undefined Type"
-msgstr "Невизначений тип"
-
-msgid "Unknown Provider"
-msgstr "Невідомий постачальник"
-
-msgid ""
-"IP address validation can be disabled by setting this option to false."
-msgstr ""
-"Перевірку IP-адреси можна вимкнути, встановивши для цього параметра значення "
-"false."
-
-msgid ""
-"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
-"address is a valid Internet address. Invalid addresses are, e.g., link "
-"local, loopback, multicast and known experimental addresses. For more "
-"information, see RFC3330."
-msgstr ""
-"За замовчуванням inadyn перевіряє адреси IPv4 та IPv6, переконуючись, що "
-"адреса є дійсною адресою в Інтернеті. Недійсні адреси - це, наприклад, "
-"локальна, зворотна, багатоадресна та відомі експериментальні адреси. Для "
-"отримання додаткової інформації див. RFC3330."
-
-msgid ""
-"Use this option to fake an address update with a \"random\" address in the "
-"203.0.113.0/24 range before updating with the actual IP address."
-msgstr ""
-"Використовуйте цю опцію, щоб підробити оновлення адреси із \"випадковою\" "
-"адресою в діапазоні 203.0.113.0/24 перед оновленням за допомогою фактичної "
-"IP-адреси."
-
-msgid ""
-"This option controls if IPv6 addresses should be allowed or discarded."
-msgstr "Цей параметр визначає, чи слід дозволяти чи відкидати адреси IPv6."
-
-msgid ""
-"Use this network interface as source of IP address changes instead of "
-"querying an external server."
-msgstr ""
-"Використовуйте цей мережевий інтерфейс як джерело змін IP-адреси, замість "
-"того, щоб запитувати зовнішній сервер."
-
-msgid ""
-"Set the number of DNS updates. The default is 0, which means infinity."
-msgstr ""
-"Встановіть кількість оновлень DNS. За замовчуванням - 0, що означає "
-"нескінченність."
-
-msgid ""
-"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
-"days."
-msgstr ""
-"Як часто перевіряти IP, в секундах. За замовчуванням: прибл. 1 хвилина. "
-"Макс: 10 днів."
-
-msgid ""
-"How often the IP should be updated even if it is not changed. The time "
-"should be given in seconds. Default is equal to 30 days."
-msgstr ""
-"Як часто слід оновлювати ІР, навіть якщо він не змінений. Час слід вказати в "
-"секундах. За замовчуванням дорівнює 30 дням."
-
-msgid ""
-"Enable this option to abort an DDNS update if the HTTPS certificate "
-"validation fails."
-msgstr ""
-"Увимкніть цю опцію, щоб скасувати оновлення DDNS, якщо перевірка сертифіката "
-"HTTPS не вдається."
-
-msgid ""
-"Enable this option only on systems without hardware real-time clock and "
-"default bootup time far in the past."
-msgstr ""
-"Увімкніть цю опцію лише в системах без апаратного годинника реального часу "
-"та часу завантаження за замовчуванням, які були в далекому минулому."
-
-msgid ""
-"This setting overrides the built-in paths and fallback locations and "
-"provides a way to specify the path to a trusted set of CA certificates, in "
-"PEM format, bundled into one file."
-msgstr ""
-"Цей параметр замінює вбудовані шляхи та місця відкату та надає спосіб "
-"вказати шлях до надійного набору сертифікатів CA у форматі PEM, об’єднаних в "
-"один файл."
-
-msgid ""
-"Specify the User-Agent string to send to the DDNS provider on checkip and "
-"update requests."
-msgstr ""
-"Вкажіть рядок User-Agent для надсилання постачальнику DDNS на запити "
-"перевірки та оновлення."
-
-msgid ""
-"Set directory for persistent cache files, The cache files are used to keep "
-"track of which addresses have been successfully sent to their respective "
-"DDNS provider and when."
-msgstr ""
-"Встановлює каталог для постійних файлів кешу. Файли кешу використовуються "
-"для відстеження того, які адреси були успішно надіслані їх відповідному "
-"постачальнику DDNS та коли."
-
-msgid "Initial startup delay. Default is no delay."
-msgstr "Початкова затримка запуску. За замовчуванням затримки немає."
-
-msgid "no delay"
-msgstr "без затримки"
-
-msgid "Set log level"
-msgstr "Встановити рівень протоколювання"
-
-msgid "Errors"
-msgstr "Помилки"
-
-msgid "Notice"
-msgstr "Примітка"
-
-msgid "Debug"
-msgstr "Відлагодження"
-
-msgid "These parameters are appended to the inadyn.conf file."
-msgstr "Ці параметри додаються до файлу inadyn.conf."
-
-msgid "Verify Address"
-msgstr "Підтвердження адреси"
-
-msgid "Fake Address"
-msgstr "Фальшива адреса"
-
-msgid "Allow IPv6"
-msgstr "Дозволити IPv6"
-
-msgid "Network Interface"
-msgstr "Мережевий інтерфейс"
-
-msgid "Iterations"
-msgstr "Ітерації"
-
-msgid "Check Interval"
-msgstr "Проміжок перевірок"
-
-msgid "Force Update Interval"
-msgstr "Інтервал примусового оновлення"
-
-msgid "Secure SSL"
-msgstr "Захищений SSL"
-
-msgid "Broken RTC"
-msgstr "Зламаний RTC"
-
-msgid "CA Trusted Certificates"
-msgstr "Довірені сертифікати CA"
-
-msgid "Cache Directory"
-msgstr "Каталог кеша"
-
-msgid "Startup Delay"
-msgstr "Затримка запуску"
-
-msgid "Log Level"
-msgstr "Рівень запису до журналу"
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr "Ви підтверджуєте перемикання вибраних ініціаторів iSCSI?"
 
 msgid "This is a nickname and is for information only."
 msgstr "Це псевдонім і він тільки для інформації."
@@ -13044,75 +13555,6 @@ msgstr ""
 msgid "Discovery"
 msgstr "Виявлення"
 
-msgid "Target Address"
-msgstr "Цільова Адреса"
-
-msgid "CHAP Name"
-msgstr "І'мя CHAP"
-
-msgid "CHAP Secret"
-msgstr "Пароль CHAP"
-
-msgid "Mutual CHAP Name"
-msgstr "Ім'я взаємного CHAP"
-
-msgid "Mutual CHAP Secret"
-msgstr "Пароль взаємного CHAP"
-
-msgid "Header Digest"
-msgstr "Заголовок підпису"
-
-msgid "Data Digest"
-msgstr "Підпис даних"
-
-msgid "Offload Driver"
-msgstr "Драйвер розвантаження"
-
-msgid "Session State"
-msgstr "Стан сеансу"
-
-msgid "Session Type"
-msgstr "Тип сеансу"
-
-msgid "Add iSCSI Initiator"
-msgstr "Додати ініціатор iSCSI"
-
-msgid "Edit iSCSI Initiator"
-msgstr "Змінити ініціатора iSCSI"
-
-msgid "iSCSI Initiator is marked for deletion"
-msgstr "Ініціатор iSCSI позначений для видалення"
-
-msgid "iSCSI Initiator is locked"
-msgstr "Ініціатор iSCSI заблокований"
-
-msgid "iSCSI Initiator is unlocked"
-msgstr "Ініціатор iSCSI розблокований"
-
-msgid "Delete Selected iSCSI Initiators"
-msgstr "Видалити обрані ініціатори iSCSI"
-
-msgid "Disable Selected iSCSI Initiators"
-msgstr "Вимкнути обрані ініціатори iSCSI"
-
-msgid "Enable Selected iSCSI Initiators"
-msgstr "Дозволити обрані ініціатори iSCSI"
-
-msgid "Toggle Selected iSCSI Initiators"
-msgstr "Перемкнути обрані ініціатори iSCSI"
-
-msgid "Do you want to delete selected iSCSI initiators?"
-msgstr "Ви підтверджуєте видалення вибраних ініціаторів iSCSI?"
-
-msgid "Do you want to disable selected iSCSI initiators?"
-msgstr "Ви підтверджуєте вимкнення обраних ініціаторів iSCSI?"
-
-msgid "Do you want to enable selected iSCSI initiators?"
-msgstr "Ви підтверджуєте увімкнення вибраних ініціаторів iSCSI?"
-
-msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Ви підтверджуєте перемикання вибраних ініціаторів iSCSI?"
-
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
 msgstr ""
@@ -13141,190 +13583,44 @@ msgstr ""
 "використовуватися внутрішньо алгоритмом AES - Вам не буде пропонуватися "
 "вводити її. Ця фраза повинна містити не менше 32 символів"
 
-msgid "Media Type"
-msgstr "Тип медіа"
+msgid "Add NFS Export"
+msgstr "Додати експорт NFS"
 
-msgid "Path to be included."
-msgstr "Шлях, що буде доданий."
+msgid "Edit NFS Export"
+msgstr "Змінити експорт NFS"
 
-msgid "Restrict folder to a specific media type."
-msgstr "Обмежити каталог певним типом медіа."
+msgid "NFS Export is marked for deletion"
+msgstr "Експорт NFS позначений для видалення"
 
-msgid "Scan folder for all media types."
-msgstr "Сканувати каталог на всі типи медіа."
+msgid "NFS Export is locked"
+msgstr "Експорт NFS заблокований"
 
-msgid "Scan folder for audio files."
-msgstr "Сканувати каталог на аудіо файли."
+msgid "NFS Export is unlocked"
+msgstr "Експорт NFS розблокований"
 
-msgid "Scan folder for video files."
-msgstr "Сканувати каталог на відеофайли."
+msgid "Delete Selected NFS Exports"
+msgstr "Видалення обраних експортів NFS"
 
-msgid "Scan folder for image files."
-msgstr "Сканувати каталог на файли зображень."
+msgid "Disable Selected NFS Exports"
+msgstr "Вимкнути обрані експорти NFS"
 
-msgid "Scan folder for video and image files."
-msgstr "Сканувати каталог на відеофайли та файли зображень."
+msgid "Enable Selected NFS Exports"
+msgstr "Дозволити обрані експорти NFS"
 
-msgid "Media Folders"
-msgstr "Медіатеки"
+msgid "Toggle Selected NFS Exports"
+msgstr "Перемкнути обрані експорти NFS"
 
-msgid "Media Folder"
-msgstr "Каталог медіа"
+msgid "Do you want to delete selected NFS exports?"
+msgstr "Ви підтверджуєте видалення обраних експортів NFS?"
 
-msgid "Add Media Folder"
-msgstr "Додоати каталог медіа"
+msgid "Do you want to disable selected NFS exports?"
+msgstr "Ви підтверджуєте вимкнення обраних експортів NFS?"
 
-msgid "Edit Media Folder"
-msgstr "Змінити каталог медіа"
+msgid "Do you want to enable selected NFS exports?"
+msgstr "Ви підтверджуєте увімкнення обраних експортів NFS?"
 
-msgid "Media Folder is marked for deletion"
-msgstr "Медіа каталог позначений для видалення"
-
-msgid "Media Folder is locked"
-msgstr "Медіа каталог заблокований"
-
-msgid "Media Folder is unlocked"
-msgstr "Медіа каталог розблокований"
-
-msgid "Delete Selected Media Folders"
-msgstr "Видалення обраних медіа каталогів"
-
-msgid "Disable Selected Media Folders"
-msgstr "Вимкнути обрані каталоги медіа"
-
-msgid "Enable Selected Media Folders"
-msgstr "Дозволити обрані каталоги медіа"
-
-msgid "Toggle Selected Media Folders"
-msgstr "Перемкнути обрані каталоги медіа"
-
-msgid "Do you want to delete selected media folders?"
-msgstr "Ви підтверджуєте видалення обраних каталогів медіа?"
-
-msgid "Do you want to disable selected media folders?"
-msgstr "Ви підтверджуєте вимкнення обраних каталогів медіа?"
-
-msgid "Do you want to enable selected media folders?"
-msgstr "Ви підтверджуєте увімкнення обраних каталогів медіа?"
-
-msgid "Do you want to toggle selected media folders?"
-msgstr "Ви підтверджуєте перемикання вибраних каталогів медіа?"
-
-msgid "Inotify"
-msgstr "Inotify"
-
-msgid "Broadcast Interval"
-msgstr "Інтервал трансляції"
-
-msgid "Strict DLNA"
-msgstr "Строгий DLNA"
-
-msgid "TiVo Support"
-msgstr "Підтримка TiVo"
-
-msgid "Wide Links"
-msgstr "Символічні посилання"
-
-msgid "Container"
-msgstr "Контейнер"
-
-msgid "Sort Criteria"
-msgstr "Критерії впорядкування"
-
-msgid "Disable Subtitles"
-msgstr "Вимкнути субтитри"
-
-msgid "Media Server Name."
-msgstr "Ім'я медіа каталогу."
-
-msgid "Verbosity of information that is logged."
-msgstr "Деталізація інформації, що реєструється."
-
-msgid "Fatal"
-msgstr "Критична помилка"
-
-msgid "Enable inotify."
-msgstr "Дозволити inotify."
-
-msgid "Use inotify monitoring to automatically discover new media files."
-msgstr ""
-"Використовуйте моніторинг inotify для автоматичного виявлення нових "
-"мультимедійних файлів."
-
-msgid ""
-"Broadcasts its availability every configured seconds on the network, the "
-"default is 300 seconds."
-msgstr ""
-"Налаштування часу трансляції доступності в мережі в секундах, за "
-"замовчуванням 300 секунд."
-
-msgid "300"
-msgstr "300"
-
-msgid ""
-"Port to listen on. Port number must be between 1024 and 65535. Default port "
-"is 8200."
-msgstr ""
-"Порт для прослуховування. Номер порту повинен бути між 1024 і 65535. Порт за "
-"замовчуванням - 8200."
-
-msgid "8200"
-msgstr "8200"
-
-msgid "Enable to strictly adhere to DLNA standards."
-msgstr "Увімкнути строге дотримання DLNA стандартів."
-
-msgid ""
-"This will allow server-side downscaling of very large JPEG images, it can "
-"impact JPEG serving performance on some DLNA devices."
-msgstr ""
-"Це дозволить на стороні сервера зменшити масштаб дуже великих зображень у "
-"форматі JPEG, це може вплинути на продуктивність обробки JPEG на деяких "
-"пристроях DLNA."
-
-msgid "Enable TiVo support."
-msgstr "Увімкнути підтримку TiVo."
-
-msgid ""
-"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
-msgstr ""
-"Це забезпечить підтримку потокового .jpeg і MP3 файлів до TiVo з підтримкою "
-"HMO."
-
-msgid "Allow symlinks that point outside defined media folders."
-msgstr ""
-"Дозволити символьні посилання, що дивляться назовні визначених каталогів "
-"медіа."
-
-msgid "These parameters will be added to minidlna.conf"
-msgstr "Ці параметри будуть додані до minidlna.conf"
-
-msgid "Select a container as the root of the tree exposed to clients."
-msgstr "Виберіть контейнер в якості кореня дерева, доступного для клієнтів."
-
-msgid "Use the standard container (this is the default)"
-msgstr "Використовувати стандартний контейнер (за замовчуванням)"
-
-msgid "Use the \"Browse Directory\" container"
-msgstr "Використовувати контейнер \"Перегляд каталогу\""
-
-msgid "Use the \"Music\" container"
-msgstr "Використовувати контейнер \"Музика\""
-
-msgid "Use the \"Video\" container"
-msgstr "Використовувати контейнер \"Відео\""
-
-msgid "Use the \"Pictures\" container"
-msgstr "Використовувати контейнер \"Зображення\""
-
-msgid "Overwrite the sort criteria passed by the client."
-msgstr "Перезаписати критерії сортування, передані клієнтом."
-
-msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-
-msgid "Disable subtitle support on unknown clients."
-msgstr "Вимкнути підтримку субтитрів на невизначених клієнтах."
+msgid "Do you want to toggle selected NFS exports?"
+msgstr "Ви підтверджуєте перемикання обраних експортів NFS?"
 
 msgid "Mapping"
 msgstr "Зіставлення"
@@ -13430,45 +13726,6 @@ msgstr ""
 msgid "Root Directory"
 msgstr "Кореневий каталог"
 
-msgid "Add NFS Export"
-msgstr "Додати експорт NFS"
-
-msgid "Edit NFS Export"
-msgstr "Змінити експорт NFS"
-
-msgid "NFS Export is marked for deletion"
-msgstr "Експорт NFS позначений для видалення"
-
-msgid "NFS Export is locked"
-msgstr "Експорт NFS заблокований"
-
-msgid "NFS Export is unlocked"
-msgstr "Експорт NFS розблокований"
-
-msgid "Delete Selected NFS Exports"
-msgstr "Видалення обраних експортів NFS"
-
-msgid "Disable Selected NFS Exports"
-msgstr "Вимкнути обрані експорти NFS"
-
-msgid "Enable Selected NFS Exports"
-msgstr "Дозволити обрані експорти NFS"
-
-msgid "Toggle Selected NFS Exports"
-msgstr "Перемкнути обрані експорти NFS"
-
-msgid "Do you want to delete selected NFS exports?"
-msgstr "Ви підтверджуєте видалення обраних експортів NFS?"
-
-msgid "Do you want to disable selected NFS exports?"
-msgstr "Ви підтверджуєте вимкнення обраних експортів NFS?"
-
-msgid "Do you want to enable selected NFS exports?"
-msgstr "Ви підтверджуєте увімкнення обраних експортів NFS?"
-
-msgid "Do you want to toggle selected NFS exports?"
-msgstr "Ви підтверджуєте перемикання обраних експортів NFS?"
-
 msgid "Add NFS Root"
 msgstr "Додати корінь NFS"
 
@@ -13511,6 +13768,15 @@ msgstr "Ви підтверджуєте перемикання обраних к
 msgid "Root Directories"
 msgstr "Кореневі каталоги"
 
+msgid "NFSv4"
+msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr "тільки NFSv4"
+
+msgid "Servers"
+msgstr "Сервери"
+
 msgid "Enable NFSv4 server."
 msgstr "Увімкнути NFSv4 сервер."
 
@@ -13528,15 +13794,6 @@ msgstr ""
 msgid "These parameters are appended to the exports file."
 msgstr "Ці параметри додаються до файла експортів."
 
-msgid "NFSv4"
-msgstr "NFSv4"
-
-msgid "NFSv4 Only"
-msgstr "тільки NFSv4"
-
-msgid "Servers"
-msgstr "Сервери"
-
 msgid "Driver List"
 msgstr "Список драйверів"
 
@@ -13548,6 +13805,66 @@ msgstr "Назва моделі"
 
 msgid "Model Extra"
 msgstr "Екстра модель"
+
+msgid "Enable AFP"
+msgstr "Дозволити AFP"
+
+msgid "Create Mask"
+msgstr "Створити маску"
+
+msgid "Force Group"
+msgstr "Примусова група"
+
+msgid "Force User"
+msgstr "Примусовий користувач"
+
+msgid "Shadow Copy Format"
+msgstr "Формат Тіньового Копіювання"
+
+msgid "VFS fruit:encoding"
+msgstr "VFS fruit:encoding"
+
+msgid "VFS fruit:locking"
+msgstr "VFS fruit:locking"
+
+msgid "VFS fruit:metadata"
+msgstr "VFS fruit:metadata"
+
+msgid "VFS fruit:resource"
+msgstr "VFS fruit:resource"
+
+msgid "VFS fruit:time machine"
+msgstr "VFS fruit:time machine"
+
+msgid "ZFS ACL"
+msgstr "ZFS ACL"
+
+msgid "Inherit ACL"
+msgstr "Успадкувати ACL"
+
+msgid "Alternate Data Streams"
+msgstr "Альтернативні потоки даних"
+
+msgid "NTFS ACLs"
+msgstr "Списки контролю доступу NTFS"
+
+msgid "Shadow Copy"
+msgstr "Приховане копіювання"
+
+msgid "Browseable"
+msgstr "Доступний для перегляду"
+
+msgid "Guest Only"
+msgstr ""
+
+msgid "Inherit Permissions"
+msgstr "Успадкування Дозволів"
+
+msgid "Recycle Bin"
+msgstr "Смітник"
+
+msgid "Hide Dot Files"
+msgstr "Приховати файли, що починаються з точки (вважаються системними)."
 
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
@@ -13774,66 +14091,6 @@ msgstr "Введіть коментар до спільного ресурсу"
 
 msgid "Enter the location of the share"
 msgstr "Введіть розташування спільного ресурсу"
-
-msgid "Enable AFP"
-msgstr "Дозволити AFP"
-
-msgid "Create Mask"
-msgstr "Створити маску"
-
-msgid "Force Group"
-msgstr "Примусова група"
-
-msgid "Force User"
-msgstr "Примусовий користувач"
-
-msgid "Shadow Copy Format"
-msgstr "Формат Тіньового Копіювання"
-
-msgid "VFS fruit:encoding"
-msgstr "VFS fruit:encoding"
-
-msgid "VFS fruit:locking"
-msgstr "VFS fruit:locking"
-
-msgid "VFS fruit:metadata"
-msgstr "VFS fruit:metadata"
-
-msgid "VFS fruit:resource"
-msgstr "VFS fruit:resource"
-
-msgid "VFS fruit:time machine"
-msgstr "VFS fruit:time machine"
-
-msgid "ZFS ACL"
-msgstr "ZFS ACL"
-
-msgid "Inherit ACL"
-msgstr "Успадкувати ACL"
-
-msgid "Alternate Data Streams"
-msgstr "Альтернативні потоки даних"
-
-msgid "NTFS ACLs"
-msgstr "Списки контролю доступу NTFS"
-
-msgid "Shadow Copy"
-msgstr "Приховане копіювання"
-
-msgid "Browseable"
-msgstr "Доступний для перегляду"
-
-msgid "Guest Only"
-msgstr ""
-
-msgid "Inherit Permissions"
-msgstr "Успадкування Дозволів"
-
-msgid "Recycle Bin"
-msgstr "Смітник"
-
-msgid "Hide Dot Files"
-msgstr "Приховати файли, що починаються з точки (вважаються системними)."
 
 msgid "Add Samba Share"
 msgstr "Додати загальний ресурс Samba"
@@ -14257,9 +14514,6 @@ msgstr ""
 msgid "Allow password authentication."
 msgstr "Дозволити автентифікацію за паролем."
 
-msgid "Allow challenge-response authentication."
-msgstr "Дозволити автентифікацію \"виклик-відповідь\"."
-
 msgid "Allow keyboard-interactive authentication."
 msgstr "Дозволити автентифікацію \"клавіатура-інтерактивно\"."
 
@@ -14340,9 +14594,6 @@ msgstr "Ці параметри додаються до /etc/ssh/sshd_config."
 msgid "Password Authentication"
 msgstr "Автентифікація паролем"
 
-msgid "Challenge-Response Authentication"
-msgstr "Автентифікація за запитом-відповіддю"
-
 msgid "Keyboard-Interactive Authentication"
 msgstr "Автентифікація \"клавіатура-інтерактивно\""
 
@@ -14357,6 +14608,18 @@ msgstr "Кореневий вхід"
 
 msgid "TCP Forwarding"
 msgstr "TCP Forwarding"
+
+msgid "Allow New Files"
+msgstr "Дозволити нові файли"
+
+msgid "Directory"
+msgstr "Каталог"
+
+msgid "Max. Block Size"
+msgstr "Максимальний Розмір Блоку"
+
+msgid "Umask"
+msgstr "Umask"
 
 msgid "Allow new files to be created."
 msgstr "Дозволити створення нових файлів."
@@ -14424,14 +14687,56 @@ msgstr "000"
 msgid "Specifies the username under which the TFTP service should run."
 msgstr "Вказує ім'я користувача, від якого повинна запускатися служба TFTP."
 
-msgid "Allow New Files"
-msgstr "Дозволити нові файли"
+msgid "Peer Port"
+msgstr "Порт, що використовується"
 
-msgid "Max. Block Size"
-msgstr "Максимальний Розмір Блоку"
+msgid "Configuration Folder"
+msgstr "Конфігураційний каталог"
 
-msgid "Umask"
-msgstr "Umask"
+msgid "Incomplete Folder"
+msgstr "Каталог незавершених завантажень"
+
+msgid "Download Folder"
+msgstr "Каталог завантаження"
+
+msgid "Watch Folder"
+msgstr "Каталог спостереження"
+
+msgid "Port Forwarding"
+msgstr "Переадресування портів"
+
+msgid "Peer Exchange"
+msgstr "Обмін пірами"
+
+msgid "Distributed Hash Table"
+msgstr "Розподілена хеш-таблиця DHT"
+
+msgid "Local Peer Discovery"
+msgstr "Дослідження Локальних Пірів"
+
+msgid "uTP"
+msgstr "uTP"
+
+msgid "User Mask"
+msgstr "Маска Користувача"
+
+msgid "Preallocation"
+msgstr "Попереднє виділення простору"
+
+msgid "Message Level"
+msgstr "Рівень сповіщеннь"
+
+msgid "DNS Rebind Protection"
+msgstr "Захист перезв'язування DNS"
+
+msgid "Domain Names"
+msgstr "Імена домена"
+
+msgid "Start Torrents"
+msgstr "Стартувати торенти"
+
+msgid "Stop Torrents"
+msgstr "Зупиняти торенти"
 
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
@@ -14559,68 +14864,17 @@ msgstr "Запустити / відновити раніше зупинені т
 msgid "Stop torrents before stopping service."
 msgstr "Зупинити торенти перед тим, як зупинити службу."
 
-msgid "Peer Port"
-msgstr "Порт, що використовується"
+msgid "Work Directory"
+msgstr "Робочий каталог"
 
-msgid "Configuration Folder"
-msgstr "Конфігураційний каталог"
-
-msgid "Incomplete Folder"
-msgstr "Каталог незавершених завантажень"
-
-msgid "Download Folder"
-msgstr "Каталог завантаження"
-
-msgid "Watch Folder"
-msgstr "Каталог спостереження"
-
-msgid "Port Forwarding"
-msgstr "Переадресування портів"
-
-msgid "Peer Exchange"
-msgstr "Обмін пірами"
-
-msgid "Distributed Hash Table"
-msgstr "Розподілена хеш-таблиця DHT"
-
-msgid "Local Peer Discovery"
-msgstr "Дослідження Локальних Пірів"
-
-msgid "uTP"
-msgstr "uTP"
-
-msgid "User Mask"
-msgstr "Маска Користувача"
-
-msgid "Preallocation"
-msgstr "Попереднє виділення простору"
-
-msgid "Message Level"
-msgstr "Рівень сповіщеннь"
-
-msgid "DNS Rebind Protection"
-msgstr "Захист перезв'язування DNS"
-
-msgid "Domain Names"
-msgstr "Імена домена"
-
-msgid "Start Torrents"
-msgstr "Стартувати торенти"
-
-msgid "Stop Torrents"
-msgstr "Зупиняти торенти"
+msgid "Create Work Directory"
+msgstr "Створення робочого каталогу"
 
 msgid "Location where work files will be stored."
 msgstr "Розташування, де робочі файли будуть зберігатися."
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Створити робочий каталог, якщо він не існує."
-
-msgid "Work Directory"
-msgstr "Робочий каталог"
-
-msgid "Create Work Directory"
-msgstr "Створення робочого каталогу"
 
 msgid "Name of the WebDAV Record."
 msgstr "Ім'я запису WebDAV."
@@ -14645,6 +14899,12 @@ msgstr "Використовувати Sqlite для блокування та �
 
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr "Ці параметри будуть додані до цієї конфігурації WebDAV."
+
+msgid "Read-Only"
+msgstr "Тільки для читання"
+
+msgid "Use Sqlite"
+msgstr "Використання Sqlite"
 
 msgid "Add WebDAV Record"
 msgstr "Додати запис WebDAV"
@@ -14685,30 +14945,6 @@ msgstr "Ви підтверджуєте увімкнення обраних за
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Ви підтверджуєте перемикання обраних записів WebDAV?"
 
-msgid "Read-Only"
-msgstr "Тільки для читання"
-
-msgid "Use Sqlite"
-msgstr "Використання Sqlite"
-
-msgid "IP Address Family"
-msgstr "Сімейство IP-адрес"
-
-msgid "NETBIOS Hostname"
-msgstr "Ім'я хоста NETBIOS"
-
-msgid "Preserve Case"
-msgstr "Враховувати регістр"
-
-msgid "Server Mode"
-msgstr "Режим сервера"
-
-msgid "Workgroup Name"
-msgstr "Назва робочої групи"
-
-msgid "Web Service Discovery"
-msgstr "Виявлення веб-служби"
-
 msgid "IPv4 only"
 msgstr "тільки IPv4"
 
@@ -14734,6 +14970,24 @@ msgstr "Вибирайте між режимом домену та режимо�
 msgid "Set workgroup name"
 msgstr "Встановити назву робочої групи"
 
+msgid "IP Address Family"
+msgstr "Сімейство IP-адрес"
+
+msgid "NETBIOS Hostname"
+msgstr "Ім'я хоста NETBIOS"
+
+msgid "Preserve Case"
+msgstr "Враховувати регістр"
+
+msgid "Server Mode"
+msgstr "Режим сервера"
+
+msgid "Workgroup Name"
+msgstr "Назва робочої групи"
+
+msgid "Web Service Discovery"
+msgstr "Виявлення веб-служби"
+
 msgid "Protected"
 msgstr "Захищено"
 
@@ -14745,6 +14999,15 @@ msgstr "Snapdir"
 
 msgid "UTF-8 Only"
 msgstr "тільки UTF-8"
+
+msgid "Service"
+msgstr "Служба"
+
+msgid "Do you really want to remove the selected item from the list?"
+msgstr "Ви підтверджуєте видалення обраного елементу списку?"
+
+msgid "Select item to remove from the list"
+msgstr "Виберіть елемент для видалення із списку"
 
 msgid "You may enter a description for your reference."
 msgstr "Ви можете ввести описання для вашого посилання."
@@ -14773,8 +15036,519 @@ msgstr "Ввести ім'я тома"
 msgid "The name of the ZFS pool."
 msgstr "Ім'я пулу ZFS."
 
-msgid "Service"
-msgstr "Служба"
+msgid "You are not allowed to use this function."
+msgstr "Ви не маєте дозволу на використання цієї функції."
+
+msgid "Copy item(s)"
+msgstr "Копіювати елементи"
+
+msgid "Move item(s)"
+msgstr "Перемістити елементи"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Скопіювати з /%s до /%s "
+
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "Перемістити з /%s до /%s "
+
+msgid "Copy"
+msgstr "Копіювати"
+
+msgid "Move"
+msgstr "Переміщення"
+
+msgid "The target directory doesn't exist."
+msgstr "Цільовий каталог не існує."
+
+msgid "You are not allowed to access the target directory."
+msgstr "Ви не маєте дозволу на доступ до цільової директорії."
+
+msgid "The target directory may not be above the home directory."
+msgstr "Цільовий каталог не може бути вище домашнього каталогу."
+
+msgid "You must supply a name."
+msgstr "Ви повинні вказати ім'я."
+
+msgid "This item doesn't exist."
+msgstr "Цей елемент не існує."
+
+msgid "You are not allowed to access this item."
+msgstr "Ви не маєте дозволу на доступ до цього елементу."
+
+msgid "The target item already exists."
+msgstr "Цільовий елемент вже існує."
+
+msgid "Copying failed."
+msgstr "Відмова копіювання."
+
+msgid "Moving failed."
+msgstr "Відмова переміщення."
+
+msgid "Deleting failed."
+msgstr "Відмова видалення."
+
+msgid "File saving failed."
+msgstr "Відмова збереження файлу."
+
+msgid "This file doesn't exist."
+msgstr "Цей файл не існує."
+
+msgid "You are not allowed to access this file."
+msgstr "Ви не маєте дозволу на доступ до цього файлу."
+
+msgid "This item already exists."
+msgstr "Цей елемент вже існує."
+
+msgid "File opening failed."
+msgstr "Відмова відкриття файлу."
+
+msgid "Edit file"
+msgstr "Редагувати файл"
+
+msgid "Wrap text:"
+msgstr "Переносити текст:"
+
+msgid "Reset"
+msgstr "Скинути"
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Unable to open source directory."
+msgstr "Не вдається відкрити вихідну теку."
+
+msgid "Unable to open directory."
+msgstr "Неможливо відкрити каталог."
+
+msgid "Unable to read directory."
+msgstr "Неможливо зчитати каталог."
+
+msgid "You haven't selected any item(s)."
+msgstr "Ви не обрали жодного елементу."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Ви впевнені що бажаєте видалити вибрані елементи?"
+
+msgid "Executable File"
+msgstr "Виконуваний файл"
+
+msgid "Link"
+msgstr "Посилання"
+
+msgid "Text File"
+msgstr "Файл Text"
+
+msgid "PHP Script"
+msgstr "Скрипт PHP"
+
+msgid "SQL File"
+msgstr "Файл SQL"
+
+msgid "PERL Script"
+msgstr "Скрипт PERL"
+
+msgid "HTML Page"
+msgstr "Сторінка HTML"
+
+msgid "XML File"
+msgstr "Файл XML"
+
+msgid "Javascript File"
+msgstr "Скрипт Javascript"
+
+msgid "CSS File"
+msgstr "Файл CSS"
+
+msgid "CGI Script"
+msgstr "Скрипт CGI"
+
+msgid "Python Script"
+msgstr "Скрипт Python"
+
+msgid "Shell Script"
+msgstr "Скрипт Shell"
+
+msgid "C File"
+msgstr "Файл С"
+
+msgid "C++ Source File"
+msgstr "Вихідний файл C++"
+
+msgid "C++ Header File"
+msgstr "Файл заголовка C++"
+
+msgid "Java Source File"
+msgstr "Вихідний файл Java"
+
+msgid "Java Class File"
+msgstr "Файл класу Java"
+
+msgid "Pascal File"
+msgstr "Файл Pascal"
+
+msgid "GIF Image"
+msgstr "Зображення GIF"
+
+msgid "JPG Image"
+msgstr "Зображення JPG"
+
+msgid "BMP Image"
+msgstr "Зображення BMP"
+
+msgid "PNG Image"
+msgstr "Зображення PNG"
+
+msgid "TIF Image"
+msgstr "Зображення TIF"
+
+msgid "Photoshop File"
+msgstr "Файл Photoshop"
+
+msgid "ZIP Archive"
+msgstr "Архів ZIP"
+
+msgid "TAR Archive"
+msgstr "Архів TAR"
+
+msgid "GZIP Archive"
+msgstr "Архів GZIP"
+
+msgid "BZIP2 Archive"
+msgstr "Архів BZIP2"
+
+msgid "RAR Archive"
+msgstr "Архів RAR"
+
+msgid "MP3 Audio File"
+msgstr "Аудіофайл MP3"
+
+msgid "FLAC Audio File"
+msgstr "Аудіофайл FLAC"
+
+msgid "WAV Audio File"
+msgstr "Аудіофайл WAV"
+
+msgid "MIDI File"
+msgstr "Файл MIDI"
+
+msgid "RealAudio File"
+msgstr "Аудіофайл RealAudio"
+
+msgid "DTS Audio File"
+msgstr "Аудіофайл DTS"
+
+msgid "AC3 Audio File"
+msgstr "Аудіофайл AC3"
+
+msgid "OGG Audio File"
+msgstr "Аудіофайл OGG"
+
+msgid "MP3 Playlist"
+msgstr "Список відтворення MP3"
+
+msgid "AVI File"
+msgstr "Відеофайл AVI"
+
+msgid "MPEG File"
+msgstr "Відеофайл MPEG"
+
+msgid "MOV File"
+msgstr "Відеофайл MOV"
+
+msgid "MKV File"
+msgstr "Відеофайл MKV"
+
+msgid "VOB File"
+msgstr "Відеофайл VOB"
+
+msgid "Flash File"
+msgstr "Файл Flash"
+
+msgid "MP4 File"
+msgstr "Відеофайл MP4"
+
+msgid "TS File"
+msgstr "Відеофайл TS"
+
+msgid "Word Document"
+msgstr "Документ Word"
+
+msgid "Excel Sheet"
+msgstr "Таблиця Excel"
+
+msgid "Powerpoint Presentation"
+msgstr "Презентація Powerpoint"
+
+msgid "PDF File"
+msgstr "Файл PDF"
+
+msgid "ERROR(S)"
+msgstr "ПОМИЛКИ"
+
+msgid "Go Back"
+msgstr "Назад"
+
+msgid "Extracting"
+msgstr "Витягнення"
+
+msgid "Unzip"
+msgstr "Розпакування"
+
+msgid "Failed to extract archive."
+msgstr "Не вдалося розпакувати архів."
+
+msgid "Directory creation failed."
+msgstr "Відмова створення каталогу."
+
+msgid "File creation failed."
+msgstr "Відмова створення файлу."
+
+msgid "Search Directory"
+msgstr "Каталог пошуку"
+
+msgid "Search Filter"
+msgstr "Фільтр пошуку"
+
+msgid "Search subfolder"
+msgstr "Шукати підкаталогами"
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Результати пошуку для %1$s"
+
+msgid "Item(s)"
+msgstr "Елементи"
+
+msgid "No results available."
+msgstr "Немає результатів."
+
+msgid "HOME"
+msgstr "ГОЛОВНА"
+
+msgid "Permission-change failed."
+msgstr "Відмова зміни дозволу."
+
+msgid "Getting permissions failed."
+msgstr "Відмова отримання дозволів."
+
+msgid "Change permissions"
+msgstr "Змінити дозволи"
+
+msgid "Public"
+msgstr "Загальнодоступне"
+
+msgid "CHANGE PERMISSIONS"
+msgstr "ЗМІНИТИ ДОЗВОЛИ"
+
+msgid "You are not allowed to access this directory."
+msgstr "Ви не маєте дозволу на доступ до цієї директорії."
+
+msgid "UP"
+msgstr "ПІДНЯТИ"
+
+msgid "RELOAD"
+msgstr "ПЕРЕЗАВАНТАЖИТИ"
+
+msgid "SEARCH"
+msgstr "ШУКАТИ"
+
+msgid "Modified"
+msgstr "Змінений"
+
+msgid "Permissions"
+msgstr "Дозволи"
+
+msgid "Actions"
+msgstr "Дії"
+
+msgid "COPY"
+msgstr "КОПІЮВАТИ"
+
+msgid "MOVE"
+msgstr "ПЕРЕМІСТИТИ"
+
+msgid "DELETE"
+msgstr "ВИДАЛИТИ"
+
+msgid "EDIT"
+msgstr "ЗМІНИТИ"
+
+msgid "UNZIP"
+msgstr "РОЗПАКУВАТИ"
+
+msgid "DOWNLOAD"
+msgstr "ЗАВАНТАЖИТИ"
+
+msgid "The following errors were detected"
+msgstr "Були знайдені наступні помилки"
+
+msgid ""
+"If this message persists take a look at the system log for more information."
+msgstr ""
+"Якщо це повідомлення все ще залишається, зверніться для системного журнала "
+"для отримання додаткової інформації."
+
+msgid "Choose..."
+msgstr "Вибрати..."
+
+msgid "Running"
+msgstr "Виконується"
+
+msgid "Inactive"
+msgstr "Неактивний"
+
+msgid "Online"
+msgstr "В мережі"
+
+msgid "Offline"
+msgstr "Відключено"
+
+msgid "No records found."
+msgstr "Не знайдено записів."
+
+msgid "Selected..."
+msgstr "Обрані..."
+
+msgid "Apply Changes"
+msgstr "Застосувати зміни"
+
+msgid "Rescan"
+msgstr "Пересканувати"
+
+msgid "Restart"
+msgstr "Перезапустити"
+
+msgid "Parent Directory"
+msgstr "Батьківський каталог"
+
+msgid "VLAN Interface"
+msgstr "Інтерфейс VLAN"
+
+msgid "VLAN Tag"
+msgstr "Мітка VLAN"
+
+msgid "PCP"
+msgstr "PCP"
+
+msgid "Encapsulation Protocol"
+msgstr "Протокол інкапсуляції"
+
+msgid "Add VLAN"
+msgstr "Додати VLAN"
+
+msgid "Edit VLAN"
+msgstr "Редагувати VLAN"
+
+msgid "VLAN is marked for deletion"
+msgstr "VLAN позначений для видалення"
+
+msgid "VLAN is locked"
+msgstr "VLAN заблоковано"
+
+msgid "VLAN is unlocked"
+msgstr "VLAN розблокований"
+
+msgid "Delete Selected VLANs"
+msgstr "Видалити обрані VLAN"
+
+msgid "Disable Selected VLANs"
+msgstr "Вимкнути вибрані VLAN"
+
+msgid "Enable Selected VLANs"
+msgstr "Увімкнути вибрані VLAN"
+
+msgid "Toggle Selected VLANs"
+msgstr "Перемкнути вибрані VLAN"
+
+msgid "Do you want to delete selected VLANs?"
+msgstr "Ви підтверджуєте видалення обраних VLAN?"
+
+msgid "Do you want to disable selected VLANs?"
+msgstr "Бажаєте вимкнути вибрані VLAN?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr "Ви бажаєте увімкнути вибрані VLAN?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr "Бажаєте перемкнути вибрані VLAN?"
+
+msgid "The name of the VLAN interface"
+msgstr "Ім'я інтерфейсу VLAN"
+
+msgid "vlan0"
+msgstr "vlan0"
+
+msgid "802.1Q VLAN tag (between 1 and 4094)."
+msgstr "802.1Q VLAN тег (між 1 і 4094)."
+
+msgid "102"
+msgstr "102"
+
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+"Пріоритетна точка коду (PCP) — це 3-бітове поле, яке відноситься до класу "
+"сервісу IEEE 802.1p і відповідає рівню пріоритету кадру."
+
+msgid "Best effort (default)"
+msgstr "Найкраща спроба (за замовчуванням)"
+
+msgid "Background (lowest)"
+msgstr "Фон (найнижчий)"
+
+msgid "Excellent effort"
+msgstr "Відмінне зусилля"
+
+msgid "Critical applications"
+msgstr "Критичні програми"
+
+msgid "Video < 100ms latency"
+msgstr "Затримка відео < 100 мс"
+
+msgid "Video < 10ms latency"
+msgstr "Затримка відео < 10 мс"
+
+msgid "Internetwork control"
+msgstr "Міжмережевий контроль"
+
+msgid "Network control (highest)"
+msgstr "Контроль мережі (найвищий)"
+
+msgid "Set the VLAN encapsulation protocol."
+msgstr "Встановіть протокол інкапсуляції VLAN."
+
+msgid "802.1Q (default)"
+msgstr "802.1Q (за замовчуванням)"
+
+msgid "802.1ad (QinQ)"
+msgstr "802.1ad (QinQ)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid ""
+"Controls whether processes can be executed from within this file system."
+msgstr ""
+"Управляє тим, які процеси можуть бути виконані з цієї файлової системи."
+
+msgid "Exec"
+msgstr "Виконати"
+
+msgid ""
+"The minimum amount of space guaranteed to a dataset, not including its "
+"descendents."
+msgstr ""
+"Мінімальний обсяг гарантованого простору для набору даних, не включаючи його "
+"нащадків."
 
 msgid "Console Autologin"
 msgstr "Автоматична автентифікація у консолі"
@@ -14882,877 +15656,119 @@ msgstr "Увімкнути консоль послідовного порту (C
 msgid "The COM port in BIOS has to be enabled before enabling this option."
 msgstr "Перед ввімкненням цієї опції треба увімкнути COM-порт в BIOS."
 
-msgid "1"
-msgstr "1"
+msgid "Second"
+msgstr "Сек."
 
-msgid "2"
-msgstr "2"
+msgid "Seconds"
+msgstr "Сек."
 
-msgid "3"
-msgstr "3"
+msgid "Minute"
+msgstr "Хв."
+
+msgid "Hour"
+msgstr "Год."
+
+msgid "Day"
+msgstr "День"
+
+#, php-format
+msgid "%1$s managed, %2$s used, %3$s available"
+msgstr "%1$s всього, %2$s використано, %3$s доступно"
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr "Всього: %1$s | Використано: %2$s | Доступно: %3$s"
+
+#, php-format
+msgid "%2$s used, %3$s available"
+msgstr "%2$s використано, %3$s доступно"
+
+msgid "Communication Error"
+msgstr "Помилка зв'язку"
+
+msgid "More than a day"
+msgstr "Більше одного дня"
+
+msgid "No data"
+msgstr "Немає даних"
+
+#, php-format
+msgid "%u hour"
+msgstr "%u год."
+
+#, php-format
+msgid "%u hours"
+msgstr "%u год."
+
+#, php-format
+msgid "%u minute"
+msgstr "%u хв."
+
+#, php-format
+msgid "%u minutes"
+msgstr "%u хв."
+
+#, php-format
+msgid "%u second"
+msgstr "%u сек."
+
+#, php-format
+msgid "%u seconds"
+msgstr "%u сек."
+
+msgid "and"
+msgstr "та"
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr "Всього: %1$s | Виділено: %2$s | Вільно: %3$s"
+
+msgid "Deleting MBR and partition table"
+msgstr "Видалення MBR і таблиці розділів"
+
+msgid "Creating partition"
+msgstr "Створення розділу"
+
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr "Створення файлової системи з \"програмними оновленнями\""
+
+#, php-format
+msgid "Using %s bytes fragment size."
+msgstr "Використовується розмір фрагмента в %s байт."
+
+msgid "Created UFS file system:"
+msgstr "Створена файлова система UFS:"
+
+msgid "Deleting GEOM metadata"
+msgstr "Видалення метаданих GEOM"
+
+msgid "Creating filesystem"
+msgstr "Створення файлової системи"
+
+msgid "Done!"
+msgstr "Виконано!"
 
 msgid ""
-"Controls whether processes can be executed from within this file system."
+"The disk is currently mounted! The mount point will be removed temporarily "
+"to perform selected command."
 msgstr ""
-"Управляє тим, які процеси можуть бути виконані з цієї файлової системи."
+"Цей диск змонтований! Точка монтування буде тимчасово видалена для виконання "
+"вибраної команди."
 
-msgid "Exec"
-msgstr "Виконати"
+msgid "Unkown"
+msgstr "Невідомий"
 
-msgid ""
-"The minimum amount of space guaranteed to a dataset, not including its "
-"descendents."
-msgstr ""
-"Мінімальний обсяг гарантованого простору для набору даних, не включаючи його "
-"нащадків."
+msgid "Unformated"
+msgstr "Неформатований"
 
-msgid "Enter AD or PDC name."
-msgstr "Введіть назву AD або PDC."
+msgid "SoftRaid"
+msgstr "Програмний RAID"
 
-msgid "Controller Name"
-msgstr "Ім'я контролера"
+msgid "Encrypted"
+msgstr "Зашифровано"
 
-msgid "Enter the domain name."
-msgstr "Введіть ім'я домену."
-
-msgid "example.com"
-msgstr "example.com"
-
-msgid "Enter NetBIOS name."
-msgstr "Введіть назву NetBIOS."
-
-msgid "NETBIOS"
-msgstr "NETBIOS"
-
-msgid "Enter user name of a domain administrator account."
-msgstr "Введіть ім’я користувача облікового запису адміністратора домену."
-
-msgid "Admin"
-msgstr "Адміністратор"
-
-msgid "Enter the password of the domain administrator account."
-msgstr "Введіть пароль облікового запису адміністратора домену."
-
-msgid "Domain Controller Name"
-msgstr "Ім'я контролера домену"
-
-msgid "Domain Name (DNS/Realm-Name)"
-msgstr "Ім'я домену (DNS/Realm-ім'я)"
-
-msgid "Domain Name (NetBIOS-Name)"
-msgstr "Ім'я домену (NetBIOS-ім'я)"
-
-msgid "Administrator Name"
-msgstr "Ім'я адміністратора"
-
-msgid "Administrator Password"
-msgstr "Пароль адміністратора"
-
-msgid "Add Group"
-msgstr "Додати групу"
-
-msgid "Edit Group"
-msgstr "Змінити групу"
-
-msgid "Group is marked for deletion"
-msgstr "Група позначена для видалення"
-
-msgid "Group is protected"
-msgstr "Група захищена"
-
-msgid "Group is unlocked"
-msgstr "Група разблокована"
-
-msgid "Delete Selected Groups"
-msgstr "Видалити вибрані групи"
-
-msgid "Do you want to delete selected groups?"
-msgstr "Ви підтверджуєте видалення вибраних груп?"
-
-msgid "Disable Selected Groups"
-msgstr "Вимкнути обрані групи"
-
-msgid "Do you want to disable selected groups?"
-msgstr "Ви підтверджуєте вимкнення обраних груп?"
-
-msgid "Enable Selected Groups"
-msgstr "Дозволити обрані групи"
-
-msgid "Do you want to enable selected groups?"
-msgstr "Ви підтверджуєте увімкнення вибраних груп?"
-
-msgid "Toggle Selected Groups"
-msgstr "Перемкнути обрані групи"
-
-msgid "Do you want to toggle selected groups?"
-msgstr "Ви підтверджуєте перемикання вибраних груп?"
-
-msgid "System Group"
-msgstr "Системна група"
-
-msgid "Show System Groups"
-msgstr "Показати системні групи"
-
-msgid "Hide System Groups"
-msgstr "Приховати системні групи"
-
-msgid "Enter group name."
-msgstr "Введіть ім'я групи."
-
-msgid "Group Name"
-msgstr "Ім'я групи"
-
-msgid "Specify the group numeric id."
-msgstr "Вкажіть числовий ідентифікатор групи."
-
-msgid "The recommended range for the group id is between 1000 and 32000."
-msgstr ""
-"Рекомендований діапазон для ідентифікатора групи - від 1000 до 32000."
-
-msgid "1000"
-msgstr "1000"
-
-msgid "Groups"
-msgstr "Групи"
-
-msgid "Users"
-msgstr "Користувачі"
-
-msgid "Public Keys"
-msgstr "Публічний ключ"
-
-msgid "Public key information."
-msgstr "Інформація про публічний ключ."
-
-msgid "Public Key"
-msgstr "Публічний ключ"
-
-msgid "Login Name"
-msgstr "Ім'я користувача"
-
-msgid "Add Public Key"
-msgstr "Додати приватний ключ"
-
-msgid "Edit Public Key"
-msgstr "Змінити публічний ключ"
-
-msgid "Public key is marked for deletion"
-msgstr "Публічний ключ позначений для видалення"
-
-msgid "Public key is protected"
-msgstr "Публічний ключ захищений"
-
-msgid "Public key is unlocked"
-msgstr "Публічний ключ розблокований"
-
-msgid "Delete Selected Public Keys"
-msgstr "Видалення обраних публічних ключей"
-
-msgid "Do you want to delete selected public keys?"
-msgstr "Ви підтверджуєте видалення обраних публічних ключів?"
-
-msgid "Disable Selected Public Keys"
-msgstr "Вимкнути обрані публічні ключі"
-
-msgid "Do you want to disable selected public keys?"
-msgstr "Ви підтверджуєте вимкнення обраних публічних ключів?"
-
-msgid "Enable Selected Public Keys"
-msgstr "Дозволити обрані публічні ключі"
-
-msgid "Do you want to enable selected public keys?"
-msgstr "Ви підтверджуєте увімкнення обраних публічних ключів?"
-
-msgid "Toggle Selected Public Keys"
-msgstr "Перемкнути обрані публічні ключі"
-
-msgid "Do you want to toggle selected public keys?"
-msgstr "Ви підтверджуєте перемикання вибраних публічних ключів?"
-
-msgid "Add User Account"
-msgstr "Додати обліковий запис користувача"
-
-msgid "Edit User Account"
-msgstr "Редагувати обліковий запис користувача"
-
-msgid "User account is marked for deletion"
-msgstr "Обліковий запис користувача позначений для видалення"
-
-msgid "User account is protected"
-msgstr "Обліковий запис користувача захищений"
-
-msgid "User account is unlocked"
-msgstr "Обліковий запис користувача розблокований"
-
-msgid "Set password"
-msgstr "Встановити пароль"
-
-msgid "Delete Selected User Accounts"
-msgstr "Видалити обрані облікові записи користувачів"
-
-msgid "Do you want to delete selected user accounts?"
-msgstr "Ви підтверджуєте видалення обраних облікових записів користувачів"
-
-msgid "Disable Selected Users"
-msgstr "Вимкнути обраних користувачів"
-
-msgid "Do you want to disable selected users?"
-msgstr "Ви підтверджуєте вимкнення обраних користувачів?"
-
-msgid "Enable Selected Users"
-msgstr "Дозволити обраних користувачів"
-
-msgid "Do you want to enable selected users?"
-msgstr "Ви підтверджуєте увімкнення обраних користувачів?"
-
-msgid "Toggle Selected Users"
-msgstr "Перемкнути обрані користувачі"
-
-msgid "Do you want to toggle selected users?"
-msgstr "Ви підтверджуєте перемикання вибраних користувачів?"
-
-msgid "System User"
-msgstr "Системний користувач"
-
-msgid "Show System Users"
-msgstr "Показати системних користувачів"
-
-msgid "Hide System Users"
-msgstr "Приховати системних користувачів"
-
-msgid "Full Name"
-msgstr "Повне ім'я"
-
-msgid "SHA Password"
-msgstr "Пароль SHA"
-
-msgid "MD4 Password"
-msgstr "Пароль MD4"
-
-msgid "Shell"
-msgstr "Командна оболонка"
-
-msgid "Primary Group"
-msgstr "Основна група"
-
-msgid "Timezone"
-msgstr "Часовий пояс"
-
-msgid "File Manager Access"
-msgstr "Доступ файлового менеджера"
-
-msgid "Hidden Items"
-msgstr "Приховані об'єкти"
-
-msgid "Read Permission"
-msgstr "Дозвіл читання"
-
-msgid "Create Permission"
-msgstr "Створити дозвіл"
-
-msgid "Change Permission"
-msgstr "Змінити дозвіл"
-
-msgid "Delete Permission"
-msgstr "Видалити дозвіл"
-
-msgid "Enter login name."
-msgstr "Введіть логін."
-
-msgid "Enter the full user name."
-msgstr "Введіть повне ім'я користувача."
-
-msgid "Set user password."
-msgstr "Встановіть пароль користувача."
-
-msgid "Specify the user/account numeric id."
-msgstr "Вкажіть числовий ідентифікатор користувача / облікового запису."
-
-msgid "The recommended range for the user id is between 1000 and 32000."
-msgstr ""
-"Рекомендований діапазон для ідентифікатора користувача - від 1000 до 32000."
-
-msgid "Set user login shell."
-msgstr "Встановить оболонку користувацького входу."
-
-msgid "No Login"
-msgstr "Вхід не виконано"
-
-msgid "scponly - Secure Copy Protocol only"
-msgstr "scponly - лише захищений протокол копіювання"
-
-msgid "sh - Bourne Shell"
-msgstr "sh - Bourne Shell"
-
-msgid "bash - Bourne Again Shell"
-msgstr "bash - Bourne Again Shell"
-
-msgid "csh - C Shell"
-msgstr "csh - C Shell"
-
-msgid "tcsh - TENEX C Shell"
-msgstr "tcsh - TENEX C Shell"
-
-msgid "Set the account's primary group."
-msgstr "Встановіть основну групу облікового запису."
-
-msgid "Add user to additional groups."
-msgstr "Додати користувача до розширених груп."
-
-msgid ""
-"Enter the path to the home directory of the user. Leave this field empty to "
-"use default path /mnt."
-msgstr ""
-"Введіть шлях до домашнього каталогу користувача. Залиште пустим, щоб "
-"використовувати шлях /mnt за замовчуванням."
-
-msgid "/mnt"
-msgstr "/mnt"
-
-msgid "User portal permission."
-msgstr "Дозволи порталу користувача."
-
-msgid "No access to the user portal"
-msgstr "Немає доступу до порталу користувача"
-
-msgid "User access"
-msgstr "Доступ користувача"
-
-msgid "Admin access"
-msgstr "Доступ адміністратора"
-
-msgid "Select the language of the user portal for this user."
-msgstr "Оберіть мову цього порталу користувача."
-
-msgid "Select the timezone for this user."
-msgstr "Виберіть часовий пояс для цього користувача."
-
-msgid "Grant access to the file manager."
-msgstr "Надати доступ файловому менеджеру."
-
-msgid "Show hidden items"
-msgstr "Показати приховані об'єкти"
-
-msgid "Grant read permission"
-msgstr "Надати дозвіл читання"
-
-msgid "Grant create permission"
-msgstr "Надати дозвіл створення"
-
-msgid "Grant modify permission"
-msgstr "Надати дозвіл змінення"
-
-msgid "Grant delete permission"
-msgstr "Надати дозвіл видалення"
-
-msgid "Show Interval"
-msgstr "Показати інтервал"
-
-msgid ""
-"Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables the reminder."
-msgstr ""
-"Встановіть кількість днів до нагадування про резервування системної "
-"конфігурації. За замовчуванням - 28 днів. Значення '0' вимикає нагадування."
-
-msgid "Running user"
-msgstr "Виконати від користувача"
-
-msgid "Add Option"
-msgstr "Додати опцію"
-
-msgid "Edit Option"
-msgstr "Редагувати налаштування"
-
-msgid "Option is marked for deletion"
-msgstr "Опція позначена для видалення"
-
-msgid "Option is locked"
-msgstr "Опція заблокована"
-
-msgid "Option is unlocked"
-msgstr "Опція разблокована"
-
-msgid "Delete Selected Options"
-msgstr "Видалити вибрані опції"
-
-msgid "Do you want to delete selected options?"
-msgstr "Ви підтверджуєте видалення обраних опцій?"
-
-msgid "Disable Selected Options"
-msgstr "Вимкнути вибрані опції"
-
-msgid "Do you want to disable selected options?"
-msgstr "Ви підтверджуєте вимкнення обраних опцій?"
-
-msgid "Enable Selected Options"
-msgstr "Дозволити обрані налаштування"
-
-msgid "Do you want to enable selected options?"
-msgstr "Ви підтверджуєте увімкнення обраних опцій?"
-
-msgid "Toggle Selected Options"
-msgstr "Переключити обрані опції"
-
-msgid "Do you want to toggle selected options?"
-msgstr "Ви підтверджуєте перемикання вибраних опцій?"
-
-msgid ""
-"These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to the kernel and additional modules to be "
-"loaded."
-msgstr ""
-"Ці налаштування будуть додані до /boot/loader.conf.local.  Це дозволить вам "
-"передавати ці параметри до ядра та завантажувати розширені модулі."
-
-msgid "The name of the variable."
-msgstr "Ім'я змінної"
-
-msgid "The value of the variable."
-msgstr "Значення змінної."
-
-msgid "Sort"
-msgstr "Сортування"
-
-msgid "Post Upgrade"
-msgstr "Після оновлення"
-
-msgid "Name of the command."
-msgstr "Ім'я команди"
-
-msgid "The command to be executed."
-msgstr "Команда для виконання."
-
-msgid "Select at which stage the command should be executed."
-msgstr "Оберіть на якому етапі команда повинна бути виконана."
-
-msgid "Add Command"
-msgstr "Додати команду"
-
-msgid "Edit Command"
-msgstr "Змінити команду"
-
-msgid "Command is marked for deletion"
-msgstr "Команда позначена для видалення"
-
-msgid "Command is locked"
-msgstr "Команда заблокована"
-
-msgid "Command is unlocked"
-msgstr "Команда розблокована"
-
-msgid "Delete Selected Commands"
-msgstr "Видалити вибрані команди"
-
-msgid "Do you want to delete selected commands?"
-msgstr "Ви підтверджуєте видалення обраних команд?"
-
-msgid "Disable Selected Commands"
-msgstr "Вимкнути обрані команди"
-
-msgid "Do you want to disable selected commands?"
-msgstr "Ви підтверджуєте вимкнення обраних команд?"
-
-msgid "Enable Selected Commands"
-msgstr "Дозволити обрані команди"
-
-msgid "Do you want to enable selected commands?"
-msgstr "Ви підтверджуєте увімкнення обраних команд?"
-
-msgid "Toggle Selected Commands"
-msgstr "Переключити обрані команди"
-
-msgid "Do you want to toggle selected commands?"
-msgstr "Ви підтверджуєте перемикання обраних команд?"
-
-msgid ""
-"These commands will be executed pre or post system initialization (booting) "
-"or before system shutdown."
-msgstr ""
-"Ці команди будуть виконані до або після ініціалізації системи (завантаження) "
-"або перед вимиканням системи."
-
-msgid "Name of the variable."
-msgstr "Ім'я змінної."
-
-msgid "Enter Value"
-msgstr "Введіть значення"
-
-msgid "Variable"
-msgstr "Змінна"
-
-msgid "Disabled variable names will be removed from /etc/rc.conf."
-msgstr "Вимкнені імена змінних будуть видалені з /etc/rc.conf."
-
-msgid "Enabled options will be added to /etc/rc.conf."
-msgstr "Увімкнені параметри будуть додані до /etc/rc.conf."
-
-msgid "Add Route"
-msgstr "Додати маршрут"
-
-msgid "Edit Route"
-msgstr "Редагувати маршрут"
-
-msgid "Route is marked for deletion"
-msgstr "Маршрут позначений для видалення"
-
-msgid "Route is locked"
-msgstr "Маршрут заблокований"
-
-msgid "Route is unlocked"
-msgstr "Маршрут розблокований"
-
-msgid "Delete Selected Routes"
-msgstr "Видалити обрані маршрути"
-
-msgid "Do you want to delete selected routes?"
-msgstr "Ви підтверджуєте видалення обраних маршрутів?"
-
-msgid "Disable Selected Routes"
-msgstr "Заборонити обрані маршрути"
-
-msgid "Do you want to disable selected routes?"
-msgstr "Ви дійсно бажаєте заборонити обрані маршрути?"
-
-msgid "Enable Selected Routes"
-msgstr "Дозволити обрані маршрути"
-
-msgid "Do you want to enable selected routes?"
-msgstr "Ви дійсно бажаєте дозволити обрані маршрути?"
-
-msgid "Toggle Selected Routes"
-msgstr "Перемкнути обрані маршрути"
-
-msgid "Do you want to toggle selected routes?"
-msgstr "Ви дійсно бажаєте перемкнути вибрані маршрути?"
-
-msgid "Destination Network"
-msgstr "Мережа призначення"
-
-msgid "Choose which interface this route applies to."
-msgstr "Виберіть інтерфейси до яких застосувати дане правило"
-
-msgid "Destination network for this static route."
-msgstr "Мережа призначення для цього статичного маршруту."
-
-msgid "Gateway to be used to reach the destination network."
-msgstr "Шлюз до підмережі призначення."
-
-msgid "Add Reboot Schedule"
-msgstr "Додати розклад перезавантаження"
-
-msgid "Edit Reboot Schedule"
-msgstr "Змінити розклад перезавантаження"
-
-msgid "Reboot Schedule is marked for deletion"
-msgstr "Розклад перезавантаження маркований для видалення"
-
-msgid "Reboot Schedule is locked"
-msgstr "Розклад перезавантаження заблокований"
-
-msgid "Reboot Schedule is unlocked"
-msgstr "Розклад перезавантаження розблокований"
-
-msgid "Delete Selected Reboot Schedules"
-msgstr "Видалити обрані розклади перезавантаження"
-
-msgid "Do you want to delete selected reboot schedules?"
-msgstr "Ви дійсно бажаєте видалити обрані розклади перезавантаження"
-
-msgid "Disable Selected Reboot Schedules"
-msgstr "Вимкнути обрані розклади перезавантаження"
-
-msgid "Do you want to disable selected reboot schedules?"
-msgstr "Ви дійсно бажаєте вимкнути обрані розклади перезавантаження"
-
-msgid "Enable Selected Reboot Schedules"
-msgstr "Увімкнути обрані розклади перезавантаження"
-
-msgid "Do you want to enable selected reboot schedules?"
-msgstr "Ви дійсно бажаєте увімкнути обрані розклади перезавантаження"
-
-msgid "Toggle Selected Reboot Schedules"
-msgstr "Перемкнути обрані розклади перезавантаження"
-
-msgid "Do you want to toggle selected reboot schedules?"
-msgstr "Ви дійсно бажаєте перемкнути вибрані розклади перезавантаження"
-
-msgid "Add sysctl setting"
-msgstr "Додати налаштування sysctl"
-
-msgid "Edit sysctl setting"
-msgstr "Змінити налаштування sysctl"
-
-msgid "Sysctl setting is marked for deletion"
-msgstr "Налаштування Sysctl позначене для видалення"
-
-msgid "Sysctl setting is locked"
-msgstr "Налаштування Sysctl заблоковано"
-
-msgid "Sysctl setting is unlocked"
-msgstr "Налаштування Sysctl дозволено"
-
-msgid "Delete Selected Sysctl Settings"
-msgstr "Видалити обрані налаштування Sysctl"
-
-msgid "Do you want to delete selected sysctl settings?"
-msgstr "Ви дійсно хочете видалити обрані налаштування Sysctl?"
-
-msgid "Disable Selected Sysctl Settings"
-msgstr "Вимкнути обрані налаштування Sysctl"
-
-msgid "Do you want to disable selected sysctl settings?"
-msgstr "Ви дійсно хочете вимкнути обрані налаштування Sysctl?"
-
-msgid "Enable Selected Sysctl Settings"
-msgstr "Дозволити обрані налаштування sysctl"
-
-msgid "Do you want to enable selected sysctl settings?"
-msgstr "Ви дійсно хочете увімкнути обрані налаштування Sysctl?"
-
-msgid "Toggle Selected Sysctl Settings"
-msgstr "Перемкнути обрані налаштування Sysctl"
-
-msgid "Do you want to toggle selected sysctl settings?"
-msgstr "Ви підтверджуєте перемикання вибраних налаштувань sysctl?"
-
-msgid ""
-"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
-"make changes to a running system."
-msgstr ""
-"Ці змінні sysctl будуть додані до /etc/sysctl.conf. Це дозволить вам зробити "
-"зміни на працюючий системі."
-
-msgid "The value of the setting."
-msgstr "Значення налаштування."
-
-msgid "Send daemon event messages."
-msgstr "Надсилати повідомлення про події демонів."
-
-msgid "Send FTP event messages."
-msgstr "Надсилати повідомлення про події FTP."
-
-msgid "IP address of the remote syslog server."
-msgstr "Адреса IP віддаленого syslog сервера."
-
-msgid ""
-"Port of the remote syslog server. Leave blank to use the default port."
-msgstr ""
-"Порт віддаленого серверу syslog. Залиште пустим щоб використовувати порт за "
-"замовчуванням."
-
-msgid ""
-"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
-"server. Be sure to set syslogd on the remote server to accept syslog "
-"messages from this server."
-msgstr ""
-"Syslog посилає UDP датаграми на порт 514 зазначеного віддаленого сервера "
-"syslog. Переконайтеся, що syslogd встановлений на віддаленому сервері для "
-"прийому syslog повідомлень з цього сервера."
-
-msgid "514"
-msgstr "514"
-
-msgid "Port number must be 514 or a number between 1024 and 65535."
-msgstr "Номер порту повинен бути 514 або мати номер від 1024 до 65535."
-
-msgid "Send RSYNC event messages."
-msgstr "Надсилати повідомлення про події RSYNC."
-
-msgid "Send S.M.A.R.T. event messages."
-msgstr "Надсилати повідомлення про події S.M.A.R.T."
-
-msgid "Send SSH event messages."
-msgstr "Надсилати повідомлення про події SSH."
-
-msgid "Send system event messages."
-msgstr "Надсилати повідомлення про системні події."
-
-msgid "Daemon Events"
-msgstr "Події демону"
-
-msgid "Enable Server"
-msgstr "Дозволити Сервер"
-
-msgid "FTP Events"
-msgstr "Події FTP"
-
-msgid "RSYNC Events"
-msgstr "Події RSYNC"
-
-msgid "S.M.A.R.T. Events"
-msgstr "Події S.M.A.R.T."
-
-msgid "SSH Events"
-msgstr "Події SSH"
-
-msgid "System Events"
-msgstr "Системні події"
-
-msgid "Remote Syslog Messages"
-msgstr "Повідомлення віддаленого Syslog"
-
-msgid "Show Log Entries"
-msgstr "Показувати записи журналу"
-
-msgid "Log Order"
-msgstr "Порядок відображення журналу"
-
-msgid "Disable the compression of repeating lines."
-msgstr "Вимкнути стиснення рядків що повторюються"
-
-msgid "Accept remote syslog messages."
-msgstr "Приймати повідомлення віддаленого syslog."
-
-msgid ""
-"If this option is checked, IP addresses in the server logs are resolved to "
-"their hostnames where possible."
-msgstr ""
-"Якщо ця опція включена, IP адреси в журналах сервера вирішуються в їх імена "
-"хостів (там де це можливо)."
-
-msgid "This can cause a huge delay in loading the log page!"
-msgstr ""
-"Це може викликати величезну затримку під час завантаження сторінки журналу!"
-
-msgid "Show log entries in reverse order (newest entries on top)."
-msgstr "Показати записи журналу в зворотному порядку (нові записи зверху)."
-
-msgid "Enter facility name"
-msgstr "Введіть назву обладнання"
-
-msgid "Enter level name"
-msgstr "Введіть назву рівня"
-
-msgid "Enter destination"
-msgstr "Введіть місце призначення"
-
-msgid "Facility"
-msgstr "Обладнання"
-
-msgid ""
-"Display action buttons in the scrollable area instead of the footer area."
-msgstr "Відображати кнопки виконання в зоні прокрутки замість зони виноски."
-
-msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr "Повне ім'я користувацького CSS файлу вибору файлів."
-
-msgid "Select file mode of the custom file chooser CSS file."
-msgstr "Оберіть режим користувацького CSS файлу для вибору файла."
-
-msgid "Replace the default CSS file"
-msgstr "Замінити файл CSS за замовчуванням"
-
-msgid "Append content to the default CSS file"
-msgstr "Додати вміст до CSS файлу за замовчуванням"
-
-msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr "Повне ім'я користувацького CSS файлу GUI."
-
-msgid "Select file mode of the custom GUI CSS file."
-msgstr "Оберіть режим користувацького CSS файлу для GUI."
-
-msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr "Повне ім'я користувацького CSS файлу панелі навігації."
-
-msgid "Select file mode of the custom navigation bar CSS file."
-msgstr "Оберіть режим користувацького CSS файлу для навігаційної панелі."
-
-msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr "Повне ім'я користувацького CSS файлу вкладок."
-
-msgid "Select file mode of the custom tabs CSS file."
-msgstr "Оберіть режим користувацького CSS файлу для вкладок."
-
-msgid "Use toggle button instead of enable/disable buttons."
-msgstr ""
-"Використовувати кнопку-перемикач замість кнопок включити / відключити."
-
-msgid "Select the display mode of the top-level items in the navigation bar."
-msgstr ""
-"Оберіть режим відображення елементів верхнього рівня панелі навігації."
-
-msgid "Show text only"
-msgstr "Показувати тільки текст"
-
-msgid "Show symbol only"
-msgstr "Показувати тільки піктограми"
-
-msgid "Show symbol and text"
-msgstr "Показувати піктограми та текст"
-
-msgid ""
-"Display disk size values using binary prefixes instead of decimal prefixes."
-msgstr ""
-"Відображати значення розміру диску, використовуючи бінарні префікси замість "
-"десятичних префіксів."
-
-msgid "Enable this option if you want to display colorful meter states."
-msgstr ""
-"Увімкніть цю опцію, якщо потрібно відобразити кольорові індикатори стану."
-
-msgid ""
-"Enable this option if you want to edit configuration pages directly without "
-"the need to switch to edit mode."
-msgstr ""
-"Увімкнути цю опцію, якщо ви бажаєте редагувати сторінки конфігурації "
-"безпосередньо без необхідності перемикання до режиму редагування."
-
-msgid "Please enter a number between 0 and 256 or leave this field empty."
-msgstr "Введіть число від 0 до 256 або залиште це поле порожнім."
-
-msgid "Limit the maximum number of CPUs to be displayed on the home page."
-msgstr ""
-"Обмежте максимальну кількість процесорів, які відображатимуться на домашній "
-"сторінці."
-
-msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr "Встановіть цільову сторінку для меню Діагностика > Інформація."
-
-msgid "Button Location"
-msgstr "Розташуваня кнопки"
-
-msgid "File Chooser"
-msgstr "Вибір файлу"
-
-msgid "File Mode"
-msgstr "Режим файлу"
-
-msgid "GUI"
-msgstr "Графічний інтерфейс"
-
-msgid "Navigation Bar"
-msgstr "Панель навігації"
-
-msgid "Tabs"
-msgstr "Вкладки"
-
-msgid "Toggle Mode"
-msgstr "Режим перемикача"
-
-msgid "Navbar Style"
-msgstr "Стиль панелі навігації"
-
-msgid "Binary Prefix"
-msgstr "Бінарний префікс"
-
-msgid "Colorful Meters"
-msgstr "Кольорові індикатори стану"
-
-msgid "Skip View Mode"
-msgstr "Скасувати Режим Огляду"
-
-msgid "Show Max CPUs"
-msgstr "Показати максимальну кількість процесорів"
-
-msgid "Diagnostics Information"
-msgstr "Діагностична інформація"
-
-msgid "Do you really want to remove the selected item from the list?"
-msgstr "Ви підтверджуєте видалення обраного елементу списку?"
-
-msgid "Select item to remove from the list"
-msgstr "Виберіть елемент для видалення із списку"
+msgid "System tuning"
+msgstr "Налаштування системи"
 
 msgid "Exported"
 msgstr "Експортовано"
@@ -15771,121 +15787,6 @@ msgstr "Не ініціалізований"
 
 msgid "Potentially Active"
 msgstr "Потенційно Активний"
-
-msgid "System tuning"
-msgstr "Налаштування системи"
-
-msgid "ZFS Pool Tools"
-msgstr "Інструменти пулів ZFS"
-
-msgid "Pool Status"
-msgstr "Статус пулу"
-
-msgid "Success"
-msgstr "Виконано"
-
-msgid "Command execution was successful"
-msgstr "Команда виконана успішно"
-
-msgid "Invalid command line option"
-msgstr "Невірна опція командного рядка"
-
-msgid "Test mode, no command execution"
-msgstr "Тестовий режим, команда не виконана"
-
-msgid "Missing parameter"
-msgstr "Відсутній параметр"
-
-msgid "An error occured."
-msgstr "Сталася помилка."
-
-msgid "Return to Command Page"
-msgstr "Повернутися до командної сторінки"
-
-msgid "Activity"
-msgstr "Дія"
-
-msgid "Pool Version"
-msgstr "Версія пулу"
-
-msgid "Pool State"
-msgstr "Стан пулу"
-
-msgid "No suitable pools found."
-msgstr "Відповідних пулів не знайдено."
-
-msgid "and"
-msgstr "та"
-
-msgid "No pools have been selected"
-msgstr "Немає обраних пулів"
-
-msgid "Pool Devices"
-msgstr "Пристрої пулу"
-
-msgid "missing"
-msgstr "відсутній"
-
-msgid "No suitable devices found."
-msgstr "Відповідних пристроїв не знайдено."
-
-msgid "No pool devices have been selected"
-msgstr "Немає обраних пристроїв пулів"
-
-msgid "No suitable virtual devices found."
-msgstr "Відповідних віртуальних пристроїв не знайдено."
-
-msgid "No virtual devices have been selected"
-msgstr "Немає обраних віртуальних пристроїв"
-
-msgid "Media Size"
-msgstr "Розмір носія"
-
-msgid "No devices have been selected"
-msgstr "Немає обраних пристроїв"
-
-msgid "Expand device to use all available space."
-msgstr "Розширити пристрій для використання всього наявного об'єму."
-
-msgid "Include GPT labels into scan/import"
-msgstr "Включити мітки GPT до scan/import"
-
-msgid "Include GPT ID into scan/import"
-msgstr "Включити GPT ID  до scan/import"
-
-msgid "Include UFS labels into scan/import"
-msgstr "Включити мітки UFS до scan/import"
-
-msgid "Include UFS ID into scan/import"
-msgstr "Включити UFS ID до scan/import"
-
-msgid "Include Disk ID into scan/import"
-msgstr "Включити Disk ID до scan/import"
-
-msgid "Include /dev into scan/import"
-msgstr "Включити /dev до scan/import"
-
-msgid "Import pool in read-only mode"
-msgstr "Імпортувати пул у режимі тільки для читання"
-
-msgid "Resize pool to the maximum possible size"
-msgstr "Збільшити пул до максимально можливого розміру"
-
-msgid "Scan/Import destroyed pools only"
-msgstr "Сканувати / Імпортувати лише знищені пули"
-
-msgid "Wait until resilvering has finished before returning."
-msgstr "Перш ніж повернутися, зачекайте, доки завершиться ресінхронізація."
-
-msgid ""
-"Reconstruct the new device sequentially to restore redundancy as quickly as "
-"possible."
-msgstr ""
-"Послідовно перебудовує новий пристрій, щоб якомога швидше відновити "
-"резервування."
-
-msgid "Parameter"
-msgstr "Параметр"
 
 msgid "January"
 msgstr "Січень"
@@ -16033,110 +15934,246 @@ msgstr "Відмова запису файлу на диск."
 msgid "File upload stopped by extension."
 msgstr "Вивантаження файла зупинено розширенням."
 
-msgid "Deleting MBR and partition table"
-msgstr "Видалення MBR і таблиці розділів"
+msgid "ZFS Pool Tools"
+msgstr "Інструменти пулів ZFS"
 
-msgid "Creating partition"
-msgstr "Створення розділу"
+msgid "Pool Status"
+msgstr "Статус пулу"
 
-msgid "Creating filesystem with \"Soft Updates\""
-msgstr "Створення файлової системи з \"програмними оновленнями\""
+msgid "Success"
+msgstr "Виконано"
 
-#, php-format
-msgid "Using %s bytes fragment size."
-msgstr "Використовується розмір фрагмента в %s байт."
+msgid "Command execution was successful"
+msgstr "Команда виконана успішно"
 
-msgid "Created UFS file system:"
-msgstr "Створена файлова система UFS:"
+msgid "Invalid command line option"
+msgstr "Невірна опція командного рядка"
 
-msgid "Deleting GEOM metadata"
-msgstr "Видалення метаданих GEOM"
+msgid "Test mode, no command execution"
+msgstr "Тестовий режим, команда не виконана"
 
-msgid "Creating filesystem"
-msgstr "Створення файлової системи"
+msgid "Missing parameter"
+msgstr "Відсутній параметр"
 
-msgid "Done!"
-msgstr "Виконано!"
+msgid "An error occured."
+msgstr "Сталася помилка."
+
+msgid "Return to Command Page"
+msgstr "Повернутися до командної сторінки"
+
+msgid "Activity"
+msgstr "Дія"
+
+msgid "Pool Version"
+msgstr "Версія пулу"
+
+msgid "Pool State"
+msgstr "Стан пулу"
+
+msgid "No suitable pools found."
+msgstr "Відповідних пулів не знайдено."
+
+msgid "No pools have been selected"
+msgstr "Немає обраних пулів"
+
+msgid "Pool Devices"
+msgstr "Пристрої пулу"
+
+msgid "missing"
+msgstr "відсутній"
+
+msgid "No suitable devices found."
+msgstr "Відповідних пристроїв не знайдено."
+
+msgid "No pool devices have been selected"
+msgstr "Немає обраних пристроїв пулів"
+
+msgid "No suitable virtual devices found."
+msgstr "Відповідних віртуальних пристроїв не знайдено."
+
+msgid "No virtual devices have been selected"
+msgstr "Немає обраних віртуальних пристроїв"
+
+msgid "Media Size"
+msgstr "Розмір носія"
+
+msgid "No devices have been selected"
+msgstr "Немає обраних пристроїв"
+
+msgid "Expand device to use all available space."
+msgstr "Розширити пристрій для використання всього наявного об'єму."
+
+msgid "Include GPT labels into scan/import"
+msgstr "Включити мітки GPT до scan/import"
+
+msgid "Include GPT ID into scan/import"
+msgstr "Включити GPT ID  до scan/import"
+
+msgid "Include UFS labels into scan/import"
+msgstr "Включити мітки UFS до scan/import"
+
+msgid "Include UFS ID into scan/import"
+msgstr "Включити UFS ID до scan/import"
+
+msgid "Include Disk ID into scan/import"
+msgstr "Включити Disk ID до scan/import"
+
+msgid "Include /dev into scan/import"
+msgstr "Включити /dev до scan/import"
+
+msgid "Import pool in read-only mode"
+msgstr "Імпортувати пул у режимі тільки для читання"
+
+msgid "Resize pool to the maximum possible size"
+msgstr "Збільшити пул до максимально можливого розміру"
+
+msgid "Scan/Import destroyed pools only"
+msgstr "Сканувати / Імпортувати лише знищені пули"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr "Перш ніж повернутися, зачекайте, доки завершиться ресінхронізація."
 
 msgid ""
-"The disk is currently mounted! The mount point will be removed temporarily "
-"to perform selected command."
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
-"Цей диск змонтований! Точка монтування буде тимчасово видалена для виконання "
-"вибраної команди."
+"Послідовно перебудовує новий пристрій, щоб якомога швидше відновити "
+"резервування."
 
-msgid "Second"
-msgstr "Сек."
+msgid "Parameter"
+msgstr "Параметр"
 
-msgid "Seconds"
-msgstr "Сек."
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "Інша служба DLNA/UPnP вже запущена. Включення Fuppes може викликати проблеми."
 
-msgid "Minute"
-msgstr "Хв."
+#~ msgid "Compliant profile to be used."
+#~ msgstr "Відповідний профіль буде використовуватися."
 
-msgid "Hour"
-msgstr "Год."
+#~ msgid "Content Locations"
+#~ msgstr "Розміщення контенту"
 
-msgid "Day"
-msgstr "День"
+#~ msgid "DLNA/UPnP Fuppes"
+#~ msgstr "DLNA/UPnP Fuppes"
+
+#~ msgid "Database directory"
+#~ msgstr "Каталог бази даних"
+
+#~ msgid "Destination email address. Separate email addresses by semi-colon."
+#~ msgstr ""
+#~ "Адреси електронної пошти призначення. Для розділення адрес використовуйте "
+#~ "\";\"."
+
+#~ msgid "Device IP"
+#~ msgstr "IP адреса пристрою"
+
+#~ msgid "Enable transcoding."
+#~ msgstr "Дозволити перекодування."
+
+#~ msgid "Fuppes"
+#~ msgstr "Fuppes"
+
+#~ msgid "Fuppes Media Server"
+#~ msgstr "Медіа сервер Fuppes"
+
+#~ msgid "Fuppes Media Server Administration"
+#~ msgstr "Адміністрування медіасерверу Fuppes"
+
+#~ msgid "Give your media library a friendly name."
+#~ msgstr "Вкажіть зручне ім'я для медіа бібліотеки."
+
+#~ msgid "Import on-disk ZFS config"
+#~ msgstr "Імпортувати конфігурацію з дисків ZFS"
+
+#~ msgid "Media Library"
+#~ msgstr "Медіабібліотека"
+
+#~ msgid "Media library"
+#~ msgstr "Медіа бібліотека"
+
+#~ msgid "Media server name"
+#~ msgstr "Ім'я медіа серверу"
+
+#~ msgid ""
+#~ "More than one DLNA/UPnP service is active. This configuration might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "Більше одного сервісу DLNA/UPnP активно. Така конфігурація може викликати "
+#~ "проблеми."
 
 #, php-format
-msgid "%1$s managed, %2$s used, %3$s available"
-msgstr "%1$s всього, %2$s використано, %3$s доступно"
+#~ msgid "Port number must be in the range between %d and %d."
+#~ msgstr "Номер порту повинен бути у діапазоні між %d та %d."
+
+#~ msgid "Profile"
+#~ msgstr "Профіль"
+
+#~ msgid ""
+#~ "Select which interface to use. (Only selectable if your server has more than "
+#~ "one interface)"
+#~ msgstr ""
+#~ "Обрати інтерфейс для використання (Вибір можливий тільки, якщо ваш сервер "
+#~ "має більше одного інтерфейсу)."
+
+#~ msgid "Set the content location(s) to or from the media library."
+#~ msgstr ""
+#~ "Вкажіть розташування контенту або його розташування відносно медіа-"
+#~ "бібліотеки."
+
+#~ msgid "The IP address of the device."
+#~ msgstr "IP адреси пристроїв."
 
 #, php-format
-msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr "Всього: %1$s | Використано: %2$s | Доступно: %3$s"
+#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
+#~ msgstr "Атрибут 'Порт': порт '%ld' вже використовується іншим сервісом."
+
+#~ msgid "Transcoding"
+#~ msgstr "Перекодування"
+
+#~ msgid "Try to force import."
+#~ msgstr "Спробувати імпортувати примусово."
+
+#~ msgid "Try to import from on-disk ZFS config."
+#~ msgstr "Спробуйте імпортувати з ZFS конфігурації на диску."
+
+#~ msgid "UPnP/DLNA - Fuppes"
+#~ msgstr "UPnP/DLNA - Fuppes"
+
+#~ msgid "Transcoding Directory"
+#~ msgstr "Каталог транскодування"
+
+#~ msgid "Temporary directory to store transcoded files."
+#~ msgstr "Тимчасовий каталог для файлів перекодування"
+
+#~ msgid "Temporary directory"
+#~ msgstr "Тимчасовий каталог"
+
+#~ msgid "Allow challenge-response authentication."
+#~ msgstr "Дозволити автентифікацію \"виклик-відповідь\"."
+
+#~ msgid "Challenge-Response Authentication"
+#~ msgstr "Автентифікація за запитом-відповіддю"
 
 #, php-format
-msgid "%2$s used, %3$s available"
-msgstr "%2$s використано, %3$s доступно"
+#~ msgid ""
+#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
+#~ "through %d). Default port is %d."
+#~ msgstr ""
+#~ "Порт для прослуховування. Можна використовувати тільки динамічні або "
+#~ "приватні порти (від %d до %d). За замовчуванням - %d."
 
-msgid "Communication Error"
-msgstr "Помилка зв'язку"
+#~ msgid ""
+#~ "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+#~ "can cause problems."
+#~ msgstr ""
+#~ "Декілька служб DLNA/UPnP вже дозволені. Запуск декількох служб DLNA/UPnP "
+#~ "може призвести до проблем."
 
-msgid "More than a day"
-msgstr "Більше одного дня"
-
-msgid "No data"
-msgstr "Немає даних"
-
-#, php-format
-msgid "%u hour"
-msgstr "%u год."
-
-#, php-format
-msgid "%u hours"
-msgstr "%u год."
-
-#, php-format
-msgid "%u minute"
-msgstr "%u хв."
-
-#, php-format
-msgid "%u minutes"
-msgstr "%u хв."
-
-#, php-format
-msgid "%u second"
-msgstr "%u сек."
-
-#, php-format
-msgid "%u seconds"
-msgstr "%u сек."
-
-#, php-format
-msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr "Всього: %1$s | Виділено: %2$s | Вільно: %3$s"
-
-msgid "Unkown"
-msgstr "Невідомий"
-
-msgid "Unformated"
-msgstr "Неформатований"
-
-msgid "SoftRaid"
-msgstr "Програмний RAID"
-
-msgid "Encrypted"
-msgstr "Зашифровано"
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+#~ "services can cause problems."
+#~ msgstr ""
+#~ "Інша служба DLNA/UPnP вже дозволена. Запуск декількох служб DLNA/UPnP може "
+#~ "призвести до проблем."

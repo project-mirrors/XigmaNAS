@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2024-06-23 12:29+0000\n"
+"POT-Creation-Date: 2025-09-06 21:13+0000\n"
 "PO-Revision-Date: 2024-06-24 03:47+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-08-28 09:21+0000\n"
-"X-Generator: Launchpad (build 919009172d854f2b8e4e8262db447f12f11d25eb)\n"
+"X-Launchpad-Export-Date: 2025-09-06 19:56+0000\n"
+"X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -430,6 +430,15 @@ msgstr "Lägre"
 
 msgid "Upper"
 msgstr "Övre"
+
+msgid "No IPMI Sensor data available."
+msgstr ""
+
+msgid "FRU Information"
+msgstr ""
+
+msgid "No IPMI FRU data available."
+msgstr ""
 
 msgid "iSCSI Target Information & Status"
 msgstr "iSCSI Mål Information & Status"
@@ -1584,9 +1593,6 @@ msgstr "RSYNC - Klient"
 
 msgid "RSYNC - Local"
 msgstr "RSYNC - Lokal"
-
-msgid "UPnP/DLNA - Fuppes"
-msgstr "UPnP/DLNA - Fuppes"
 
 msgid "UPnP/DLNA - MiniDLNA"
 msgstr "UPnP/DLNA - MiniDLNA"
@@ -3031,17 +3037,15 @@ msgstr "Objektnamn"
 msgid "RAID 0/1/5 Maintenance"
 msgstr "RAID 0/1/5 Underhåll"
 
-msgid "Import on-disk ZFS config"
-msgstr "Importera diskbaserad ZFS konfiguration"
-
 msgid "No pool was found."
 msgstr "Ingen pool finns."
 
-msgid "Try to force import."
-msgstr "Försöker tvinga fram en import."
+msgid ""
+"No pool was found. Try to force import from on-disk ZFS configuration."
+msgstr ""
 
-msgid "Try to import from on-disk ZFS config."
-msgstr "Försök att importera från diskbaserad ZFS konfiguration."
+msgid "No pool was found. Try to import from on-disk ZFS configuration."
+msgstr ""
 
 msgid "Your ZFS system is not healthy."
 msgstr "Ditt ZFS-system mår inte bra."
@@ -3130,14 +3134,26 @@ msgstr "Kan montera"
 msgid "Quota"
 msgstr "Kvot"
 
-msgid "Extended Attributes"
-msgstr "Utökade attribut"
-
 msgid "Readonly"
 msgstr "Skrivskyddad"
 
 msgid "Snapshot Visibility"
 msgstr "Synlighet för Avbild"
+
+msgid "on"
+msgstr "på"
+
+msgid "none"
+msgstr "ingen"
+
+msgid "off"
+msgstr "av"
+
+msgid "hidden"
+msgstr "dold"
+
+msgid "visible"
+msgstr "synlig"
 
 msgid "Blocksize"
 msgstr "Blockstorlek"
@@ -3154,20 +3170,11 @@ msgstr ""
 "konfigurationen som visas i webgränssnittet om ändringar gjorts via "
 "kommandoraden."
 
-msgid "on"
-msgstr "på"
+msgid "Import on-disk ZFS configuration"
+msgstr ""
 
-msgid "off"
-msgstr "av"
-
-msgid "none"
-msgstr "ingen"
-
-msgid "visible"
-msgstr "synlig"
-
-msgid "hidden"
-msgstr "dold"
+msgid "Force import on-disk ZFS configuration"
+msgstr ""
 
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
@@ -3182,6 +3189,9 @@ msgstr ""
 
 msgid "Nothing to synchronize"
 msgstr "Inget att synkronisera"
+
+msgid "Extended Attributes"
+msgstr "Utökade attribut"
 
 msgid "Options"
 msgstr "Alternativ"
@@ -5864,110 +5874,6 @@ msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr ""
 "Specificerar tiden till tt:mm:ss (hh:mm:ss) varefter utlåsningen upphör."
 
-msgid "Media library"
-msgstr "Mediebibliotek"
-
-msgid "Database directory"
-msgstr "Databaskatalog"
-
-msgid "Device IP"
-msgstr "Enhetens IP"
-
-msgid "Temporary directory"
-msgstr "Temporär katalog"
-
-#, php-format
-msgid "The attribute 'Port': port '%ld' is already taken by another service."
-msgstr "Fältet 'Port': port '%ld' är redan upptagen av en annan tjänst."
-
-#, php-format
-msgid "Port number must be in the range between %d and %d."
-msgstr "Portnummer måste vara mellan %d och %d."
-
-msgid ""
-"More than one DLNA/UPnP service is active. This configuration might cause "
-"issues."
-msgstr ""
-"Mer än en DLNA/UPnP tjänst är aktiv. Denna konfiguration kan orsaka problem."
-
-msgid ""
-"Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-"issues."
-msgstr ""
-"En annan DLNA/UPnP tjänst körs redan. Att aktivera Fuppes kan orsaka problem"
-
-msgid "DLNA/UPnP Fuppes"
-msgstr "DLNA/UPnP Fuppes"
-
-msgid "Fuppes"
-msgstr "Fuppes"
-
-msgid "MiniDLNA"
-msgstr "MiniDLNA"
-
-msgid "Fuppes Media Server"
-msgstr "Fuppes Media Server"
-
-msgid "Interface Selection"
-msgstr "Val av gränssnitt"
-
-msgid "Content Locations"
-msgstr "Innehållsplatser"
-
-msgid "Profile"
-msgstr "Profil"
-
-msgid "Transcoding"
-msgstr "Omkodning"
-
-msgid "Transcoding Directory"
-msgstr "Omkodningskatalog"
-
-msgid "Give your media library a friendly name."
-msgstr "Ge ditt mediabibliotek ett kortnamn"
-
-msgid "Media server name"
-msgstr "Mediaservernamn"
-
-msgid ""
-"Select which interface to use. (Only selectable if your server has more than "
-"one interface)"
-msgstr ""
-"Välj vilket gränssnitt som skall användas. (Endast valbart om det finns fler "
-"än ett)"
-
-#, php-format
-msgid ""
-"Port to listen on. Only dynamic or private ports can be used (from %d "
-"through %d). Default port is %d."
-msgstr ""
-"Port att lyssna på. Endast dynamiska eller privata portar kan användas (från "
-"%d med %d). Standardporten är %d."
-
-msgid "Location of the media content database."
-msgstr "Placering av mediainnehållsdatabasen."
-
-msgid "Media Library"
-msgstr "Mediabibliotek"
-
-msgid "Set the content location(s) to or from the media library."
-msgstr "Sätt innehållets placering till eller från mediabiblioteket."
-
-msgid "Compliant profile to be used."
-msgstr "Kompatibel profil som skall användas"
-
-msgid "The IP address of the device."
-msgstr "Enhetens IP-adress."
-
-msgid "Enable transcoding."
-msgstr "Aktivera omkodning."
-
-msgid "Temporary directory to store transcoded files."
-msgstr "Temporär katalog för lagring av omkodade filer."
-
-msgid "Fuppes Media Server Administration"
-msgstr "Fuppes Media Server Administration"
-
 msgid "No configured CARP interfaces."
 msgstr "Inga konfigurerade CARP-gränssnitt."
 
@@ -6896,19 +6802,8 @@ msgstr "phpMyAdmin"
 msgid "A rescan has been issued."
 msgstr "En omskanning har gjorts."
 
-msgid ""
-"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-"services can cause problems."
-msgstr ""
-"En annan DLNA/UPnP tjänstär redan aktiverad. Att köra fler DLNA/UPnP "
-"tjänster samtidigt kan orsaka problem."
-
-msgid ""
-"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
-"can cause problems."
-msgstr ""
-"Flera DLNA/UPnP tjänstär redan aktiverade. Att köra fler DLNA/UPnP tjänster "
-"samtidigt kan orsaka problem."
+msgid "MiniDLNA"
+msgstr "MiniDLNA"
 
 msgid "MiniDLNA Media Server WebGUI"
 msgstr "MiniDLNA Media Server Webgränssnitt"
@@ -7683,6 +7578,9 @@ msgstr ""
 msgid "Permission"
 msgstr "Rättighet"
 
+msgid "Paste a private key in PEM format here."
+msgstr "Klistra in den privata nyckeln i PEM format här."
+
 msgid "Document root of the webserver. Home of the web page files."
 msgstr "Dokumentrot för webbservern. Hem till filerna för webbsidorna."
 
@@ -7708,11 +7606,11 @@ msgstr "Rike"
 msgid "Edit URL"
 msgstr "Redigera URL"
 
-msgid "Do you really want to delete this URL?"
-msgstr "Vill du verkligen radera denna URL?"
-
 msgid "Delete URL"
 msgstr "Radera URL"
+
+msgid "Do you really want to delete this URL?"
+msgstr "Vill du verkligen radera denna URL?"
 
 msgid "Add URL"
 msgstr "Lägg till url"
@@ -8162,9 +8060,6 @@ msgstr ""
 msgid "Ignore Hosts Allow"
 msgstr "Ignorera Tillåtna värdar"
 
-msgid "Paste a private key in PEM format here."
-msgstr "Klistra in den privata nyckeln i PEM format här."
-
 msgid "Language"
 msgstr "Språk"
 
@@ -8484,8 +8379,9 @@ msgstr "System e-postinställningar"
 msgid "From email address for sending system messages."
 msgstr "Från E-postadress, för sändning av systemmeddelanden."
 
-msgid "Destination email address. Separate email addresses by semi-colon."
-msgstr "Måle-postadresser, separera adresser med semikolon."
+msgid ""
+"Destination email address. Multiple email addresses are separated by a comma."
+msgstr ""
 
 msgid "Outgoing SMTP mail server address."
 msgstr "Utgående SMTP e-postserveradress."
@@ -9022,6 +8918,9 @@ msgstr "Aktivera insamling av minnesanvändningsstatistik."
 msgid "Enable collecting network latency statistics."
 msgstr "Aktivera insamling av nätverksåtkomsttidstatistik."
 
+msgid "Interface Selection"
+msgstr "Val av gränssnitt"
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -9506,113 +9405,242 @@ msgstr "Startparametrar"
 msgid "Boot argument (e.g. %s)."
 msgstr "Startparameter (ex. %s)"
 
-msgid "Undefined"
-msgstr "Odefinerad"
+msgid "Show Used/Avail"
+msgstr "Visa Använt/Tillgängligt"
 
-msgid "The value is invalid."
-msgstr "Värdet är felaktigt."
+msgid "On-Disk Configuration"
+msgstr "På-Disk konfiguration"
 
-msgid "Network Address"
-msgstr "Nätverksadress"
+msgid "Capacity Warning Threshold"
+msgstr "Utrymmesvarningsgräns"
 
-msgid "Enter additional parameters"
-msgstr "Mata in extra parametrar"
+msgid "Capacity Critical Threshold"
+msgstr "Kritisk utrymmesgräns"
 
-msgid "No additional parameters"
-msgstr "Inga extra parametrar"
+msgid "Extended Destroy"
+msgstr ""
 
-msgid "Enter a description for your reference."
-msgstr "Mata in en beskrivning för din referens."
+msgid ""
+"Display Used/Avail information from the filesystem instead of the Alloc/Free "
+"information from the pool."
+msgstr ""
+"Visa Använd/Tillgänglig information från filsystemet i stället för "
+"Allokerad/Ledigt information från poolen."
 
-msgid "IPv4 Address"
-msgstr "IPv4-adress"
+msgid ""
+"Used/Avail lists storage information after all redundancy is taken into "
+"account but is impacted by compression, deduplication and quotas. Alloc/Free "
+"lists the raw storage information of a pool."
+msgstr ""
+"Använt/Tillgängligt visar lagringsinformation med hänsyn tagen till "
+"redundans men påverkas av kompression, deduplicering och kvoter. "
+"Allokerat/Fritt visar rå lagringsinformation för en pool."
 
-msgid "Protect"
-msgstr "Skydda"
+msgid "Read on-disk configuration."
+msgstr "Läs på-disk konfiguration."
 
-msgid "Protect Setting"
-msgstr "Skydda inställning"
+msgid ""
+"Reading the configuration from the disks is slower than reading from cache "
+"file."
+msgstr ""
+"Att läsa konfigurationen från disk är långsammare än att läsa från cachefil."
 
-msgid "Enable Setting"
-msgstr "Aktivera inställning"
+msgid "Set the warning threshold to a value between 80 and 89."
+msgstr "Sätt varningsgränsen till ett värde mellan 80 och 89."
 
-msgid "The UUID of the record."
-msgstr "UUID för posten."
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the warning "
+"threshold."
+msgstr ""
+"Ett varningsmail skickas när utrymmet i en pool överskrider den "
+"varningsgränsen."
 
-msgid "Enter Universally Unique Identifier"
-msgstr "Mata in en universellt unik identifierare (UUID)"
+msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
+msgstr ""
+"Ett cron jobb måste sättas upp för att köra skriptet /etc/capacitycheck.zfs."
 
-msgid "Universally Unique Identifier"
-msgstr "Universellt unik identifierare (UUID)"
+msgid "Must be a number between 80 and 89."
+msgstr "Måste vara ett nummer mellan 80 och 89."
 
-msgid "Delete Selected Records"
-msgstr "Ta bort valda poster"
+msgid "Set the critical threshold to a value between 90 and 95."
+msgstr "Sätt den kritiska gränsen till ett värde mellan 90 och 95."
 
-msgid "Do you want to delete selected records?"
-msgstr "Vill du ta bort valda poster?"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the critical "
+"threshold."
+msgstr ""
+"Ett varningsmail skickas när utrymmet i en pool överskrider den kritiska "
+"gränsen."
 
-msgid "Disable Selected Records"
-msgstr "Inaktivera valda rutter"
+msgid "Must be a number between 90 and 95."
+msgstr "Måste vara ett nummer mellan 90 och 95."
 
-msgid "Do you want to disable selected records?"
-msgstr "Vill du inaktivera valda poster?"
+msgid "Destroy dataset and its dependents."
+msgstr ""
 
-msgid "Enable Selected Records"
-msgstr "Aktivera valda poster"
+msgid ""
+"When enabled, destroying a dataset will also destroy all dependents "
+"(datasets, snapshots and clones)."
+msgstr ""
 
-msgid "Do you want to enable selected records?"
-msgstr "Vill du aktivera valda poster?"
+msgid "Lifetime"
+msgstr "Livstid"
 
-msgid "Lock Selected Records"
-msgstr "Lås valda poster"
+msgid "Second(s)"
+msgstr "Sekund(er)"
 
-msgid "Do you want to lock selected records?"
-msgstr "Vill du låsa valda poster?"
+msgid "Minute(s)"
+msgstr "Minut/-er"
 
-msgid "Toggle Selected Records"
-msgstr "Växla valda poster"
+msgid "Hour(s)"
+msgstr "Timme(-ar)"
 
-msgid "Do you want to toggle selected records?"
-msgstr "Vill du växla valda poster?"
+msgid "Day(s)"
+msgstr "Dag(ar)"
 
-msgid "Unlock Selected Records"
-msgstr "Lås upp valda poster"
+msgid "Week(s)"
+msgstr "Vecka(-or)"
 
-msgid "Do you want to unlock selected records?"
-msgstr "Vill du låsa upp valda poster?"
+msgid "Month(s)"
+msgstr "Månad(er)"
 
-msgid "Add Record"
-msgstr "Lägg till post"
+msgid "Year(s)"
+msgstr "År"
 
-msgid "Record is marked for deletion"
-msgstr "Posten är markerad för borttagning"
+msgid "Hourly"
+msgstr "Varje timme"
 
-msgid "Record Information"
-msgstr "Postinformation"
+msgid "Daily"
+msgstr "Dagligen"
 
-msgid "Record is protected"
-msgstr "Posten är skyddad"
+msgid "Weekly"
+msgstr "Varje vecka"
 
-msgid "Record Maintenance"
-msgstr "Post underhåll"
+msgid "Monthly"
+msgstr "Varje månad"
 
-msgid "Edit Record"
-msgstr "Ändra post"
+msgid "Yearly"
+msgstr "Varje år"
 
-msgid "Record is unlocked"
-msgstr "Posten är olåst"
+msgid "Custom Setting"
+msgstr "Anpassade inställningar"
 
-msgid "Autodetect"
-msgstr "Automatisk detektering"
+msgid "Schedule"
+msgstr "Schemalägg"
 
-msgid "The identifier reported as unknown by smartctl, including brackets."
-msgstr "Identifieraren rapporteras som okänd av smartctl, inklusive klamrar."
+msgid "Weekdays"
+msgstr "Veckodagar"
 
-msgid "Enter Identifier"
-msgstr "Mata in identifierare"
+msgid "All Minutes"
+msgstr "Varje minut"
 
-msgid "Enter smartctl pass-through type."
-msgstr "Mata in smartctr vidarebefodranstyp."
+msgid "All Hours"
+msgstr "Varje timme"
+
+msgid "All Days"
+msgstr "Alla dagar"
+
+msgid "All Months"
+msgstr "Alla månader"
+
+msgid "All Weekdays"
+msgstr "Alla veckodagar"
+
+msgid "Add Schedule"
+msgstr "Lägg till schema"
+
+msgid "Edit Schedule"
+msgstr "Ändra schemaläggning"
+
+msgid "Schedule is marked for deletion"
+msgstr "Schemaläggningen är markerad för borttagning"
+
+msgid "Schedule is locked"
+msgstr "Schemaläggningen är låst"
+
+msgid "Schedule is unlocked"
+msgstr "Schemaläggningen är olåst"
+
+msgid "Delete Selected Schedules"
+msgstr "Ta bort valda schemaläggningar"
+
+msgid "Do you want to delete selected schedules?"
+msgstr "Vill du ta bort valda schemaläggningar?"
+
+msgid "Disable Selected Schedules"
+msgstr "Inaktivera valda schemaläggningar"
+
+msgid "Do you want to disable selected schedules?"
+msgstr "Vill du inaktivera valda schemaläggningar?"
+
+msgid "Enable Selected Schedules"
+msgstr "Aktivera valda schemaläggningar"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "Vill du aktivera valda schemaläggningar?"
+
+msgid "Toggle Selected Schedules"
+msgstr "Växla valda schemaläggningar"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "Vill du växla valda schemaläggningar?"
+
+msgid "Invalid"
+msgstr "Ogiltig"
+
+msgid "Destroy"
+msgstr "Förstör"
+
+msgid "Create Snapshot"
+msgstr "Skapa avbild"
+
+msgid "Destroy Snapshot"
+msgstr "Förstör ögonblicksbild"
+
+msgid "Scrub Pool"
+msgstr "Rensa Pool"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Välj Pool, Filsystem eller Volym"
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr "Förstör ögonblicksbilder av alla länkade dataset."
+
+msgid "Lifetime Value"
+msgstr "Livstidsvärde"
+
+msgid "Lifetime Units"
+msgstr "Livstidsenhet"
+
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Kommandot körs av schemaläggaren när minuten, timmen, och månaden på året "
+"matchar den aktuella tiden, och när minst en av de två fälten (dag i månad "
+"eller veckodag) matchar aktuell tid."
+
+msgid "Presets"
+msgstr "Förinställningar"
+
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr "Skapa avbilder för alla underliggande dataset."
+
+msgid "Create"
+msgstr "Skapa"
+
+msgid "Scrub"
+msgstr "Rensa"
+
+msgid "Select pool."
+msgstr "Välj pool"
+
+msgid "No ZFS zpool information available."
+msgstr "Ingen ZFS zpoolinformation tillgänglig."
+
+msgid "No ZFS volume information available."
+msgstr "Ingen ZFS volyminformation tillgänglig."
 
 msgid "Add Filesystem"
 msgstr "Lägg till filsystem"
@@ -9635,20 +9663,11 @@ msgstr "Ta bort valda filsystem"
 msgid "Do you want to delete selected filesystems?"
 msgstr "Vill du ta bort valda filsystem?"
 
-msgid "Disable Selected Schedules"
-msgstr "Inaktivera valda schemaläggningar"
-
 msgid "Do you want to disable selected filesystems?"
 msgstr "Vill du inaktivera valda filsystem?"
 
-msgid "Enable Selected Schedules"
-msgstr "Aktivera valda schemaläggningar"
-
 msgid "Do you want to enable selected filesystems?"
 msgstr "Vill du aktivera valda filsystem?"
-
-msgid "Toggle Selected Schedules"
-msgstr "Växla valda schemaläggningar"
 
 msgid "Do you want to toggle selected filesystems?"
 msgstr "Vill du växla valda filsystem?"
@@ -9665,236 +9684,6 @@ msgstr "Ingen information om ZFS filsystem tillgänglig."
 msgid "Filesystems"
 msgstr "Filsystem"
 
-msgid "Dataset Name"
-msgstr "Datamängdsnamn"
-
-msgid ""
-"File System - can be mounted within the standard system namespace and "
-"behaves like other file systems."
-msgstr ""
-"Filsystem - kan monteras inom standardnamnrymden och uppträder som andra "
-"filsystem."
-
-msgid "Volume - A logical volume. Can be exported as a raw or block device."
-msgstr "Volym - En logisk volym. Kan exporteras som en rå- eller blockenhet."
-
-msgid ""
-"Snapshot - A read-only version of a file system or volume at a given point "
-"in time."
-msgstr ""
-"Ögonblicksbild - En läsendast version av ett filsystem eller volym vid en "
-"specifik tidpunkt."
-
-msgid "Bookmark - Creates a bookmark of a given snapshot."
-msgstr "Bokmärk - Skapar ett bokmärke för en angiven ögonblicksbild."
-
-msgid "Dataset Type"
-msgstr "Datasettyp"
-
-msgid "Pool Name"
-msgstr "Poolnamn"
-
-msgid "Clones"
-msgstr "Kloner"
-
-msgid "Compression Ratio"
-msgstr "Komprimeringsförhållande"
-
-msgid "Defer Destroy"
-msgstr "Uppskjuten förstörelse"
-
-msgid "Encryption Root"
-msgstr "Krypterings Root"
-
-msgid "Filesystem Count"
-msgstr "Filsystem Räknare"
-
-msgid "GUID"
-msgstr "GUID"
-
-msgid "Key Status"
-msgstr "Nyckelstatus"
-
-msgid "Logical Referenced"
-msgstr "Logiskt refererad"
-
-msgid "Logical Used"
-msgstr "Logiskt använd"
-
-msgid "Mounted"
-msgstr "Monterad"
-
-msgid "Obj Set ID"
-msgstr "Obj Set ID"
-
-msgid "Receive Resume Token"
-msgstr "Mottag återstartstoken"
-
-msgid "Redact Snaps"
-msgstr "Redigera ögonblicksbilder"
-
-msgid "Refcompressratio"
-msgstr "Referenskomprimeringsgrad"
-
-msgid "Referenced"
-msgstr "Refererad"
-
-msgid "Snapshot Count"
-msgstr "Ögonblicksbild Räknare"
-
-msgid "Used by Children"
-msgstr "Använd av barn"
-
-msgid "Used by Dataset"
-msgstr "Använd av dataset"
-
-msgid "Used by Refreservation"
-msgstr "Använd av Refreservation"
-
-msgid "Used by Snapshots"
-msgstr "Använd av ögonblicksbilder"
-
-msgid "Userrefs"
-msgstr "Userrefs"
-
-msgid "Written"
-msgstr "Skrivet"
-
-msgid "Normalization"
-msgstr "Normalisering"
-
-msgid "UTF-8 File Names"
-msgstr "UTF-8 Filnamn"
-
-msgid "ACL Type"
-msgstr "ACL Typ"
-
-msgid "Access Time"
-msgstr "Åtkomsttid"
-
-msgid "Can Mount"
-msgstr "Monteringsbar"
-
-msgid "Checksum"
-msgstr "Kontrollsumma"
-
-msgid "GZIP Compression Level"
-msgstr "GZIP Kompressionsnivå"
-
-msgid "Zstandard Compression Level"
-msgstr "Zstandard Kompressionsnivå"
-
-msgid "Fast Zstandard Compression Level"
-msgstr "Snabb Zstandard Kompressionsnivå"
-
-msgid "Copies"
-msgstr "Kopior"
-
-msgid "Dedup Method"
-msgstr "Dedupmetod"
-
-msgid "Dnode Size"
-msgstr "Dnode storlek"
-
-msgid "Execute Processes"
-msgstr "Kör processer"
-
-msgid "Filesystem Limit"
-msgstr "Filsystem Gräns"
-
-msgid "Jailed"
-msgstr "Jailed"
-
-msgid "Key Format"
-msgstr "Nyckelformat"
-
-msgid "Key Location"
-msgstr "Nyckelplacering"
-
-msgid "Logbias"
-msgstr "Logbias"
-
-msgid "Mountpoint Type"
-msgstr "Monteringspunkttyp"
-
-msgid "Non-blocking Mandatory Locks"
-msgstr "Icke blockerande obligatoriska lås"
-
-msgid "Overlay Mount"
-msgstr "Överläggsmontering"
-
-msgid "PBKDF2 Iterations"
-msgstr "PBKDF2 Iterationer"
-
-msgid "Primary Cache"
-msgstr "Primär mellanlagring"
-
-msgid "Record Size"
-msgstr "Poststorlek"
-
-msgid "Redundant Metadata"
-msgstr "Redundanta metadata"
-
-msgid "Refquota"
-msgstr "Refkvot"
-
-msgid "Refquota Type"
-msgstr "Refquota Typ"
-
-msgid "Refreservation"
-msgstr "Refreservation"
-
-msgid "Refreservation Type"
-msgstr "Refreservation Typ"
-
-msgid "Relatime"
-msgstr "Relatid"
-
-msgid "Reservation Type"
-msgstr "Reservations Typ"
-
-msgid "Secondary Cache"
-msgstr "Sekundär mellanlagring"
-
-msgid "Setuid"
-msgstr "Setuid"
-
-msgid "Share NFS Options"
-msgstr "Dela NFS Optioner"
-
-msgid "Share NFS Type"
-msgstr "Dela NFS Typ"
-
-msgid "Share SMB Options"
-msgstr "Dela SMB Optioner"
-
-msgid "Share SMB Type"
-msgstr "Dela SMB Typ"
-
-msgid "Snapshot Device Visibility"
-msgstr "Ögonblicksbildenhet synlighet"
-
-msgid "Snapshot Folder Visibility"
-msgstr "Ögonblicksbildsmapp synlighet"
-
-msgid "Snapshot Limit"
-msgstr "Ögonblicksbildenhet Gräns"
-
-msgid "Threshold Small Block Size"
-msgstr "Gränsvärde Small Block storlek"
-
-msgid "Synchronous Requests Behaviour"
-msgstr "Uppförande för synkrona förfrågningar"
-
-msgid "Volume Mode"
-msgstr "Volym Mod"
-
-msgid "Volume Size"
-msgstr "Volymstorlek"
-
-msgid "Virus Scan"
-msgstr "Virussökning"
-
 msgid "The name of the filesystem."
 msgstr "Namnet på filsystemet."
 
@@ -9903,6 +9692,9 @@ msgstr "Mata in filsystemsnamn"
 
 msgid "Controls the type of the ZFS dataset."
 msgstr "Styr typen på ZFS datasetet."
+
+msgid "Pool Name"
+msgstr "Poolnamn"
 
 msgid ""
 "Indicates whether the file name matching algorithm used by the filesystem "
@@ -10467,723 +10259,1749 @@ msgstr "Styr om utökande attribut är aktiverade för detta filsystem."
 msgid "System attribute based xattrs"
 msgstr "Systemattribut baserade xattrs"
 
-msgid "Add Schedule"
-msgstr "Lägg till schema"
-
-msgid "Edit Schedule"
-msgstr "Ändra schemaläggning"
-
-msgid "Schedule is marked for deletion"
-msgstr "Schemaläggningen är markerad för borttagning"
-
-msgid "Schedule is locked"
-msgstr "Schemaläggningen är låst"
-
-msgid "Schedule is unlocked"
-msgstr "Schemaläggningen är olåst"
-
-msgid "Delete Selected Schedules"
-msgstr "Ta bort valda schemaläggningar"
-
-msgid "Do you want to delete selected schedules?"
-msgstr "Vill du ta bort valda schemaläggningar?"
-
-msgid "Do you want to disable selected schedules?"
-msgstr "Vill du inaktivera valda schemaläggningar?"
-
-msgid "Do you want to enable selected schedules?"
-msgstr "Vill du aktivera valda schemaläggningar?"
-
-msgid "Do you want to toggle selected schedules?"
-msgstr "Vill du växla valda schemaläggningar?"
-
-msgid "Invalid"
-msgstr "Ogiltig"
-
-msgid "Select pool."
-msgstr "Välj pool"
+msgid "Dataset Name"
+msgstr "Datamängdsnamn"
 
 msgid ""
-"Commands are executed by the scheduler when the minute, hour, and month of "
-"year fields match the current time, and when at least one of the two day "
-"fields (day of month, or day of week) matches the current time."
+"File System - can be mounted within the standard system namespace and "
+"behaves like other file systems."
 msgstr ""
-"Kommandot körs av schemaläggaren när minuten, timmen, och månaden på året "
-"matchar den aktuella tiden, och när minst en av de två fälten (dag i månad "
-"eller veckodag) matchar aktuell tid."
+"Filsystem - kan monteras inom standardnamnrymden och uppträder som andra "
+"filsystem."
 
-msgid "Presets"
-msgstr "Förinställningar"
-
-msgid "Daily"
-msgstr "Dagligen"
-
-msgid "Weekly"
-msgstr "Varje vecka"
-
-msgid "Monthly"
-msgstr "Varje månad"
-
-msgid "Yearly"
-msgstr "Varje år"
-
-msgid "Custom Setting"
-msgstr "Anpassade inställningar"
-
-msgid "Schedule"
-msgstr "Schemalägg"
-
-msgid "Weekdays"
-msgstr "Veckodagar"
-
-msgid "All Minutes"
-msgstr "Varje minut"
-
-msgid "All Hours"
-msgstr "Varje timme"
-
-msgid "All Days"
-msgstr "Alla dagar"
-
-msgid "All Months"
-msgstr "Alla månader"
-
-msgid "All Weekdays"
-msgstr "Alla veckodagar"
-
-msgid "Scrub"
-msgstr "Rensa"
-
-msgid "Create Snapshot"
-msgstr "Skapa avbild"
-
-msgid "Destroy Snapshot"
-msgstr "Förstör ögonblicksbild"
-
-msgid "Scrub Pool"
-msgstr "Rensa Pool"
-
-msgid "Hourly"
-msgstr "Varje timme"
-
-msgid "Create"
-msgstr "Skapa"
-
-msgid "Select Pool, Filesystem or Volume"
-msgstr "Välj Pool, Filsystem eller Volym"
-
-msgid "Recursively create snapshots of all descendent datasets."
-msgstr "Skapa avbilder för alla underliggande dataset."
-
-msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr "Förstör ögonblicksbilder av alla länkade dataset."
-
-msgid "Lifetime Value"
-msgstr "Livstidsvärde"
-
-msgid "Lifetime Units"
-msgstr "Livstidsenhet"
-
-msgid "Lifetime"
-msgstr "Livstid"
-
-msgid "Second(s)"
-msgstr "Sekund(er)"
-
-msgid "Minute(s)"
-msgstr "Minut/-er"
-
-msgid "Hour(s)"
-msgstr "Timme(-ar)"
-
-msgid "Day(s)"
-msgstr "Dag(ar)"
-
-msgid "Week(s)"
-msgstr "Vecka(-or)"
-
-msgid "Month(s)"
-msgstr "Månad(er)"
-
-msgid "Year(s)"
-msgstr "År"
-
-msgid "Destroy"
-msgstr "Förstör"
-
-msgid "Show Used/Avail"
-msgstr "Visa Använt/Tillgängligt"
-
-msgid "On-Disk Configuration"
-msgstr "På-Disk konfiguration"
-
-msgid "Capacity Warning Threshold"
-msgstr "Utrymmesvarningsgräns"
-
-msgid "Capacity Critical Threshold"
-msgstr "Kritisk utrymmesgräns"
+msgid "Volume - A logical volume. Can be exported as a raw or block device."
+msgstr "Volym - En logisk volym. Kan exporteras som en rå- eller blockenhet."
 
 msgid ""
-"Display Used/Avail information from the filesystem instead of the Alloc/Free "
-"information from the pool."
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
 msgstr ""
-"Visa Använd/Tillgänglig information från filsystemet i stället för "
-"Allokerad/Ledigt information från poolen."
+"Ögonblicksbild - En läsendast version av ett filsystem eller volym vid en "
+"specifik tidpunkt."
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr "Bokmärk - Skapar ett bokmärke för en angiven ögonblicksbild."
+
+msgid "Dataset Type"
+msgstr "Datasettyp"
+
+msgid "Clones"
+msgstr "Kloner"
+
+msgid "Compression Ratio"
+msgstr "Komprimeringsförhållande"
+
+msgid "Defer Destroy"
+msgstr "Uppskjuten förstörelse"
+
+msgid "Encryption Root"
+msgstr "Krypterings Root"
+
+msgid "Filesystem Count"
+msgstr "Filsystem Räknare"
+
+msgid "GUID"
+msgstr "GUID"
+
+msgid "Key Status"
+msgstr "Nyckelstatus"
+
+msgid "Logical Referenced"
+msgstr "Logiskt refererad"
+
+msgid "Logical Used"
+msgstr "Logiskt använd"
+
+msgid "Mounted"
+msgstr "Monterad"
+
+msgid "Obj Set ID"
+msgstr "Obj Set ID"
+
+msgid "Receive Resume Token"
+msgstr "Mottag återstartstoken"
+
+msgid "Redact Snaps"
+msgstr "Redigera ögonblicksbilder"
+
+msgid "Refcompressratio"
+msgstr "Referenskomprimeringsgrad"
+
+msgid "Referenced"
+msgstr "Refererad"
+
+msgid "Snapshot Count"
+msgstr "Ögonblicksbild Räknare"
+
+msgid "Used by Children"
+msgstr "Använd av barn"
+
+msgid "Used by Dataset"
+msgstr "Använd av dataset"
+
+msgid "Used by Refreservation"
+msgstr "Använd av Refreservation"
+
+msgid "Used by Snapshots"
+msgstr "Använd av ögonblicksbilder"
+
+msgid "Userrefs"
+msgstr "Userrefs"
+
+msgid "Written"
+msgstr "Skrivet"
+
+msgid "Normalization"
+msgstr "Normalisering"
+
+msgid "UTF-8 File Names"
+msgstr "UTF-8 Filnamn"
+
+msgid "ACL Type"
+msgstr "ACL Typ"
+
+msgid "Access Time"
+msgstr "Åtkomsttid"
+
+msgid "Can Mount"
+msgstr "Monteringsbar"
+
+msgid "Checksum"
+msgstr "Kontrollsumma"
+
+msgid "GZIP Compression Level"
+msgstr "GZIP Kompressionsnivå"
+
+msgid "Zstandard Compression Level"
+msgstr "Zstandard Kompressionsnivå"
+
+msgid "Fast Zstandard Compression Level"
+msgstr "Snabb Zstandard Kompressionsnivå"
+
+msgid "Copies"
+msgstr "Kopior"
+
+msgid "Dedup Method"
+msgstr "Dedupmetod"
+
+msgid "Dnode Size"
+msgstr "Dnode storlek"
+
+msgid "Execute Processes"
+msgstr "Kör processer"
+
+msgid "Filesystem Limit"
+msgstr "Filsystem Gräns"
+
+msgid "Jailed"
+msgstr "Jailed"
+
+msgid "Key Format"
+msgstr "Nyckelformat"
+
+msgid "Key Location"
+msgstr "Nyckelplacering"
+
+msgid "Logbias"
+msgstr "Logbias"
+
+msgid "Mountpoint Type"
+msgstr "Monteringspunkttyp"
+
+msgid "Non-blocking Mandatory Locks"
+msgstr "Icke blockerande obligatoriska lås"
+
+msgid "Overlay Mount"
+msgstr "Överläggsmontering"
+
+msgid "PBKDF2 Iterations"
+msgstr "PBKDF2 Iterationer"
+
+msgid "Primary Cache"
+msgstr "Primär mellanlagring"
+
+msgid "Record Size"
+msgstr "Poststorlek"
+
+msgid "Redundant Metadata"
+msgstr "Redundanta metadata"
+
+msgid "Refquota"
+msgstr "Refkvot"
+
+msgid "Refquota Type"
+msgstr "Refquota Typ"
+
+msgid "Refreservation"
+msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr "Refreservation Typ"
+
+msgid "Relatime"
+msgstr "Relatid"
+
+msgid "Reservation Type"
+msgstr "Reservations Typ"
+
+msgid "Secondary Cache"
+msgstr "Sekundär mellanlagring"
+
+msgid "Setuid"
+msgstr "Setuid"
+
+msgid "Share NFS Options"
+msgstr "Dela NFS Optioner"
+
+msgid "Share NFS Type"
+msgstr "Dela NFS Typ"
+
+msgid "Share SMB Options"
+msgstr "Dela SMB Optioner"
+
+msgid "Share SMB Type"
+msgstr "Dela SMB Typ"
+
+msgid "Snapshot Device Visibility"
+msgstr "Ögonblicksbildenhet synlighet"
+
+msgid "Snapshot Folder Visibility"
+msgstr "Ögonblicksbildsmapp synlighet"
+
+msgid "Snapshot Limit"
+msgstr "Ögonblicksbildenhet Gräns"
+
+msgid "Threshold Small Block Size"
+msgstr "Gränsvärde Small Block storlek"
+
+msgid "Synchronous Requests Behaviour"
+msgstr "Uppförande för synkrona förfrågningar"
+
+msgid "Volume Mode"
+msgstr "Volym Mod"
+
+msgid "Volume Size"
+msgstr "Volymstorlek"
+
+msgid "Virus Scan"
+msgstr "Virussökning"
+
+msgid "The identifier reported as unknown by smartctl, including brackets."
+msgstr "Identifieraren rapporteras som okänd av smartctl, inklusive klamrar."
+
+msgid "Enter Identifier"
+msgstr "Mata in identifierare"
+
+msgid "Enter smartctl pass-through type."
+msgstr "Mata in smartctr vidarebefodranstyp."
+
+msgid "Enter login name."
+msgstr "Mata in inloggningsnamn."
+
+msgid "Enter the full user name."
+msgstr "Mata in användarens hela namn."
+
+msgid "Full Name"
+msgstr "Fullständigt namn"
+
+msgid "Set user password."
+msgstr "Sätt användarlösenord."
+
+msgid "Specify the user/account numeric id."
+msgstr "Specificera användarens/kontots numeriska id."
+
+msgid "The recommended range for the user id is between 1000 and 32000."
+msgstr "Rekommenderat område för användarid är mellan 1000 och 32000."
+
+msgid "1000"
+msgstr "1000"
+
+msgid "Set user login shell."
+msgstr "Sätt skal för användarinloggning."
+
+msgid "No Login"
+msgstr "Ingen inloggning"
+
+msgid "scponly - Secure Copy Protocol only"
+msgstr "scponly -Endast Secure Copy Protocol"
+
+msgid "sh - Bourne Shell"
+msgstr "sh - Bourne Shell"
+
+msgid "bash - Bourne Again Shell"
+msgstr "bash - Bourne Again Shell"
+
+msgid "csh - C Shell"
+msgstr "csh - C Shell"
+
+msgid "tcsh - TENEX C Shell"
+msgstr "tcsh - TENEX C Shell"
+
+msgid "Set the account's primary group."
+msgstr "Sätt kontots primära grupp."
+
+msgid "Add user to additional groups."
+msgstr "Lägg till användare i ytterligare grupper."
 
 msgid ""
-"Used/Avail lists storage information after all redundancy is taken into "
-"account but is impacted by compression, deduplication and quotas. Alloc/Free "
-"lists the raw storage information of a pool."
+"Enter the path to the home directory of the user. Leave this field empty to "
+"use default path /mnt."
 msgstr ""
-"Använt/Tillgängligt visar lagringsinformation med hänsyn tagen till "
-"redundans men påverkas av kompression, deduplicering och kvoter. "
-"Allokerat/Fritt visar rå lagringsinformation för en pool."
+"Mata in sökvägen till användarens hemkatalog. Lämna fältet tomt för att "
+"använda standardsökvägen /mnt."
 
-msgid "Read on-disk configuration."
-msgstr "Läs på-disk konfiguration."
+msgid "/mnt"
+msgstr "/mnt"
 
-msgid ""
-"Reading the configuration from the disks is slower than reading from cache "
-"file."
-msgstr ""
-"Att läsa konfigurationen från disk är långsammare än att läsa från cachefil."
+msgid "User portal permission."
+msgstr "Användarportalrättigheter"
 
-msgid "Set the warning threshold to a value between 80 and 89."
-msgstr "Sätt varningsgränsen till ett värde mellan 80 och 89."
+msgid "No access to the user portal"
+msgstr "Ingen tillgång till användarportalen"
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the warning "
-"threshold."
-msgstr ""
-"Ett varningsmail skickas när utrymmet i en pool överskrider den "
-"varningsgränsen."
+msgid "User access"
+msgstr "Användaråtkomst"
 
-msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr ""
-"Ett cron jobb måste sättas upp för att köra skriptet /etc/capacitycheck.zfs."
+msgid "Admin access"
+msgstr "Administratörsåtkomst"
 
-msgid "Must be a number between 80 and 89."
-msgstr "Måste vara ett nummer mellan 80 och 89."
+msgid "Select the language of the user portal for this user."
+msgstr "Välj språk för användarportalen för denna användare."
 
-msgid "Set the critical threshold to a value between 90 and 95."
-msgstr "Sätt den kritiska gränsen till ett värde mellan 90 och 95."
+msgid "Select the timezone for this user."
+msgstr "Välj tidszon för denna användare."
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the critical "
-"threshold."
-msgstr ""
-"Ett varningsmail skickas när utrymmet i en pool överskrider den kritiska "
-"gränsen."
+msgid "Grant access to the file manager."
+msgstr "Ge åtkomst till filhanteraren"
 
-msgid "Must be a number between 90 and 95."
-msgstr "Måste vara ett nummer mellan 90 och 95."
+msgid "Show hidden items"
+msgstr "Visa dolda objekt"
 
-msgid "No ZFS volume information available."
-msgstr "Ingen ZFS volyminformation tillgänglig."
+msgid "Grant read permission"
+msgstr "Ge läsrättigheter"
 
-msgid "No ZFS zpool information available."
-msgstr "Ingen ZFS zpoolinformation tillgänglig."
+msgid "Grant create permission"
+msgstr "Ge skaparättigheter"
 
-msgid "Selected..."
-msgstr "Valda..."
+msgid "Grant modify permission"
+msgstr "Ge ändrarättigheter"
 
-msgid "Directory"
-msgstr "Katalog"
+msgid "Grant delete permission"
+msgstr "Ge borttagningsrättigheter"
 
-msgid "Modified"
-msgstr "Ändrad"
+msgid "Add User Account"
+msgstr "Lägg till användarkonto"
 
-msgid "Parent Directory"
-msgstr "Överliggande katalog"
+msgid "Edit User Account"
+msgstr "Redigera användarkonto"
 
-msgid "You are not allowed to use this function."
-msgstr "Du har inte rättigheter att använda denna funktion."
+msgid "User account is marked for deletion"
+msgstr "Användarkontot är markerat för borttagning"
 
-msgid "Copy item(s)"
-msgstr "Kopiera objekt"
+msgid "User account is protected"
+msgstr "Användarkontot är skyddat"
 
-msgid "Move item(s)"
-msgstr "Flytta objekt"
+msgid "User account is unlocked"
+msgstr "Användarkontot är olåst"
 
-#, php-format
-msgid "Copy from /%s to /%s "
-msgstr "Kopiera från %s till %s "
+msgid "Set password"
+msgstr "Sätt lösenord"
 
-#, php-format
-msgid "Move from /%s to /%s "
-msgstr "Flytta från %s till %s "
+msgid "Delete Selected User Accounts"
+msgstr "Ta bort valda användarkonton"
 
-msgid "Copy"
-msgstr "Kopiera"
+msgid "Do you want to delete selected user accounts?"
+msgstr "Vill du ta bort valda användarkonton?"
 
-msgid "Move"
-msgstr "Flytta"
+msgid "Disable Selected Users"
+msgstr "Inaktivera valda användare"
 
-msgid "The target directory doesn't exist."
-msgstr "Målkatalogen finns inte."
+msgid "Do you want to disable selected users?"
+msgstr "Vill du inaktivera valda användare?"
 
-msgid "You are not allowed to access the target directory."
-msgstr "Du har inte rättigheter att komma åt målkatalogen."
+msgid "Enable Selected Users"
+msgstr "Aktivera valda användare"
 
-msgid "The target directory may not be above the home directory."
-msgstr "Målkatalogen kanske inte ligger under hemkatalogen."
+msgid "Do you want to enable selected users?"
+msgstr "Vill du aktivera valda användare?"
 
-msgid "You must supply a name."
-msgstr "Du måste ange ett namn."
+msgid "Toggle Selected Users"
+msgstr "Växla valda användare"
 
-msgid "This item doesn't exist."
-msgstr "Detta objekt finns inte."
-
-msgid "You are not allowed to access this item."
-msgstr "Du har inte rättigheter att komma åt detta objekt."
-
-msgid "The target item already exists."
-msgstr "Målobjektet finns redan."
-
-msgid "Copying failed."
-msgstr "Kopiering misslyckades"
-
-msgid "Moving failed."
-msgstr "Flyttning misslyckades."
-
-msgid "File saving failed."
-msgstr "Misslyckades att spara fil."
-
-msgid "This file doesn't exist."
-msgstr "Denna fil finns inte."
-
-msgid "You are not allowed to access this file."
-msgstr "Du har inte rättigheter att komma åt denna fil."
-
-msgid "This item already exists."
-msgstr "Detta objekt finns redan."
-
-msgid "File opening failed."
-msgstr "Filöppning misslyckades."
-
-msgid "Edit file"
-msgstr "Redigera fil"
-
-msgid "Wrap text:"
-msgstr "Bryt text:"
-
-msgid "Reset"
-msgstr "Återställ"
-
-msgid "Close"
-msgstr "Stäng"
-
-msgid "Deleting failed."
-msgstr "Bortagningen misslyckades."
-
-msgid "Unable to open source directory."
-msgstr "Kan inte öppna källkatalogen."
-
-msgid "Unable to open directory."
-msgstr "Kan inte öppna katalog."
-
-msgid "Unable to read directory."
-msgstr "Kan inte läsa katalog."
-
-msgid "Executable File"
-msgstr "Körbar fil"
-
-msgid "Link"
-msgstr "Länk"
-
-msgid "Text File"
-msgstr "Textfil"
-
-msgid "PHP Script"
-msgstr "PHP Skript"
-
-msgid "SQL File"
-msgstr "SQL Fil"
-
-msgid "PERL Script"
-msgstr "PERL Skript"
-
-msgid "HTML Page"
-msgstr "HTML Sida"
-
-msgid "XML File"
-msgstr "XML Fil"
-
-msgid "Javascript File"
-msgstr "Javaskriptfil"
-
-msgid "CSS File"
-msgstr "CSS Ffil"
-
-msgid "CGI Script"
-msgstr "CGI Skript"
-
-msgid "Python Script"
-msgstr "Pythonskript"
-
-msgid "Shell Script"
-msgstr "Shell Skript"
-
-msgid "C File"
-msgstr "C Fil"
-
-msgid "C++ Source File"
-msgstr "C++ Källkodsfil"
-
-msgid "C++ Header File"
-msgstr "C++ Headerfil"
-
-msgid "Java Source File"
-msgstr "Java  Källkodsfil"
-
-msgid "Java Class File"
-msgstr "Java Class Fil"
-
-msgid "Pascal File"
-msgstr "Pascal Fil"
-
-msgid "GIF Image"
-msgstr "GIF Bild"
-
-msgid "JPG Image"
-msgstr "JPG Bild"
-
-msgid "BMP Image"
-msgstr "BMP Bild"
-
-msgid "PNG Image"
-msgstr "PNG Bild"
-
-msgid "TIF Image"
-msgstr "TIF Bild"
-
-msgid "Photoshop File"
-msgstr "Photoshop Fil"
-
-msgid "ZIP Archive"
-msgstr "ZIP Arkiv"
-
-msgid "TAR Archive"
-msgstr "TAR Arkiv"
-
-msgid "GZIP Archive"
-msgstr "GZIP Arkiv"
-
-msgid "BZIP2 Archive"
-msgstr "BZIP2 Arkiv"
-
-msgid "RAR Archive"
-msgstr "RAR Arkiv"
-
-msgid "MP3 Audio File"
-msgstr "MP3 Ljudfil"
-
-msgid "FLAC Audio File"
-msgstr "FLAC Ljudfil"
-
-msgid "WAV Audio File"
-msgstr "WAV Ljudfil"
-
-msgid "MIDI File"
-msgstr "MIDI Fil"
-
-msgid "RealAudio File"
-msgstr "RealAudio Fil"
-
-msgid "DTS Audio File"
-msgstr "DTS Ljudfil"
-
-msgid "AC3 Audio File"
-msgstr "AC3 Ljudfil"
-
-msgid "OGG Audio File"
-msgstr "OGG Ljudfil"
-
-msgid "MP3 Playlist"
-msgstr "MP3 Spellista"
-
-msgid "AVI File"
-msgstr "AVI Fil"
-
-msgid "MPEG File"
-msgstr "MPEG Fil"
-
-msgid "MOV File"
-msgstr "MOV Fil"
-
-msgid "MKV File"
-msgstr "MKV Fil"
-
-msgid "VOB File"
-msgstr "VOB Fil"
-
-msgid "Flash File"
-msgstr "Flashfil"
-
-msgid "MP4 File"
-msgstr "MP4 Fil"
-
-msgid "TS File"
-msgstr "TS Fil"
-
-msgid "Word Document"
-msgstr "Worddokument"
-
-msgid "Excel Sheet"
-msgstr "Excelblad"
-
-msgid "Powerpoint Presentation"
-msgstr "Powerpointpresentation"
-
-msgid "PDF File"
-msgstr "PDF Fil"
-
-msgid "You haven't selected any item(s)."
-msgstr "Du har inte valt några objekt."
-
-msgid "ERROR(S)"
-msgstr "FEL"
-
-msgid "Go Back"
-msgstr "Gå tillbaka"
-
-msgid "Directory creation failed."
-msgstr "Skapande av katalog misslyckades."
-
-msgid "File creation failed."
-msgstr "Skapande av en fil misslyckades."
-
-msgid "Extracting"
-msgstr "Extraherar"
-
-msgid "Unzip"
-msgstr "Packa upp"
-
-msgid "Failed to extract archive."
-msgstr "Kunde inte packa upp arkivet"
-
-msgid "Are you sure you want to delete selected item(s)?"
-msgstr "Är du säker på att du vill ta bort valda objekt?"
-
-msgid "Search Directory"
-msgstr "Sökkatalog"
-
-msgid "Search Filter"
-msgstr "Sökfilter"
-
-msgid "Search subfolder"
-msgstr "Sök uderkatalog"
-
-#, php-format
-msgid "Search Result for %1$s"
-msgstr "Sökresultat för %1$s"
-
-msgid "Item(s)"
-msgstr "Objekt"
-
-msgid "No results available."
-msgstr "Inga resultat tillgängliga."
-
-msgid "HOME"
-msgstr "HEM"
-
-msgid "Permission-change failed."
-msgstr "Rättighetsändring misslyckades."
-
-msgid "Getting permissions failed."
-msgstr "Misslyckades att få rättigheter."
-
-msgid "Change permissions"
-msgstr "Ändra rättigheter"
-
-msgid "Public"
-msgstr "Publik"
-
-msgid "CHANGE PERMISSIONS"
-msgstr "ÄNDRA RÄTTIGHETER"
-
-msgid "You are not allowed to access this directory."
-msgstr "Du har inte rättigheter att komma åt denna katalog."
-
-msgid "UP"
-msgstr "UPP"
-
-msgid "RELOAD"
-msgstr "LADDA OM"
-
-msgid "SEARCH"
-msgstr "SÖKNING"
-
-msgid "Permissions"
-msgstr "Rättigheter"
-
-msgid "Actions"
-msgstr "Åtgärder"
-
-msgid "COPY"
-msgstr "KOPIERA"
-
-msgid "MOVE"
-msgstr "FLYTTA"
-
-msgid "DELETE"
-msgstr "TA BORT"
-
-msgid "EDIT"
-msgstr "ÄNDRA"
-
-msgid "UNZIP"
-msgstr "UNZIP"
-
-msgid "DOWNLOAD"
-msgstr "LADDA NER"
-
-msgid "The following errors were detected"
-msgstr "Följande fel upptäcktes"
-
-msgid ""
-"If this message persists take a look at the system log for more information."
-msgstr ""
-"Titta i systemloggen för mer information om detta meddelande kvarstår."
-
-msgid "Choose..."
-msgstr "Välj..."
-
-msgid "Running"
-msgstr "Kör"
+msgid "Do you want to toggle selected users?"
+msgstr "Vill du växla valda användare?"
 
 msgid "Active"
 msgstr "Aktiv"
 
-msgid "Inactive"
-msgstr "Inaktiv"
+msgid "System User"
+msgstr "Systemanvändare"
 
-msgid "Online"
-msgstr "Uppkopplad"
+msgid "Show System Users"
+msgstr "Visa systemanvändare"
 
-msgid "Offline"
-msgstr "Frånkopplad"
+msgid "Hide System Users"
+msgstr "Göm systemanvändare"
 
-msgid "No records found."
-msgstr "Inga poster hittades."
+msgid "Users"
+msgstr "Användare"
 
-msgid "Apply Changes"
-msgstr "Verkställ ändringar"
+msgid "Public Keys"
+msgstr "Publika nycklar"
+
+msgid "Groups"
+msgstr "Grupper"
+
+msgid "Login Name"
+msgstr "Inloggningsnamn"
+
+msgid "SHA Password"
+msgstr "SHA Lösenord"
+
+msgid "MD4 Password"
+msgstr "MD4 Lösenord"
+
+msgid "Shell"
+msgstr "Skal"
+
+msgid "Primary Group"
+msgstr "Huvudgrupp"
+
+msgid "Timezone"
+msgstr "Tidszon"
+
+msgid "File Manager Access"
+msgstr "Filhanteraråtkomst"
+
+msgid "Hidden Items"
+msgstr "Dolda objekt"
+
+msgid "Read Permission"
+msgstr "Läsrättigheter"
+
+msgid "Create Permission"
+msgstr "Skapa rättigheter"
+
+msgid "Change Permission"
+msgstr "Ändra rättigheter"
+
+msgid "Delete Permission"
+msgstr "Ta bort rättigheter"
+
+msgid "Public key information."
+msgstr "Publik nyckel information"
+
+msgid "Public Key"
+msgstr "Publik nyckel"
+
+msgid "Add Public Key"
+msgstr "Lägg till publik nyckel"
+
+msgid "Edit Public Key"
+msgstr "Ändra publik nyckel"
+
+msgid "Public key is marked for deletion"
+msgstr "Publik nyckel är markerad för borttagning"
+
+msgid "Public key is protected"
+msgstr "Publik nyckel är skyddad"
+
+msgid "Public key is unlocked"
+msgstr "Publik nyckel är olåst"
+
+msgid "Delete Selected Public Keys"
+msgstr "Ta bort valda publika nycklar"
+
+msgid "Do you want to delete selected public keys?"
+msgstr "Vill du ta bort valda publika nycklar?"
+
+msgid "Disable Selected Public Keys"
+msgstr "Inaktivera valda publika nycklar"
+
+msgid "Do you want to disable selected public keys?"
+msgstr "Vill du inaktivera valda publika nycklar?"
+
+msgid "Enable Selected Public Keys"
+msgstr "Aktivera valda publika nycklar"
+
+msgid "Do you want to enable selected public keys?"
+msgstr "Vill du aktivera valda publika nyckalr?"
+
+msgid "Toggle Selected Public Keys"
+msgstr "Växla valda publika nycklar"
+
+msgid "Do you want to toggle selected public keys?"
+msgstr "Vill du växla valda publika nycklar?"
 
 msgid "Reload"
 msgstr "Ladda om"
 
+msgid "Add Group"
+msgstr "Lägg till grupp"
+
+msgid "Edit Group"
+msgstr "Redigera grupp"
+
+msgid "Group is marked for deletion"
+msgstr "Gruppen är markerad för borttagning"
+
+msgid "Group is protected"
+msgstr "Gruppen är skyddad"
+
+msgid "Group is unlocked"
+msgstr "Gruppen är olåst"
+
+msgid "Delete Selected Groups"
+msgstr "Ta bort valda grupper"
+
+msgid "Do you want to delete selected groups?"
+msgstr "Vill du ta bort valda grupper?"
+
+msgid "Disable Selected Groups"
+msgstr "Inaktivera valda grupper"
+
+msgid "Do you want to disable selected groups?"
+msgstr "Vill du inaktivera valda grupper?"
+
+msgid "Enable Selected Groups"
+msgstr "Aktivera valda grupper"
+
+msgid "Do you want to enable selected groups?"
+msgstr "Vill du aktivera valda grupper?"
+
+msgid "Toggle Selected Groups"
+msgstr "Växla valda grupper"
+
+msgid "Do you want to toggle selected groups?"
+msgstr "Vill du växla valda grupper?"
+
+msgid "System Group"
+msgstr "Systemgrupp"
+
+msgid "Show System Groups"
+msgstr "Visa systemgrupper"
+
+msgid "Hide System Groups"
+msgstr "Göm systemgrupper"
+
+msgid "Enter group name."
+msgstr "Mata in gruppnamn."
+
+msgid "Group Name"
+msgstr "Gruppnamn"
+
+msgid "Specify the group numeric id."
+msgstr "Specificera gruppens numeriska id."
+
+msgid "The recommended range for the group id is between 1000 and 32000."
+msgstr "Rekommenderat område för gruppid är mellan 1000 och 32000."
+
+msgid "Domain Controller Name"
+msgstr "Namn på domänkontroller"
+
+msgid "Domain Name (DNS/Realm-Name)"
+msgstr "Domännamn (DNS/Realm-namn)"
+
+msgid "Domain Name (NetBIOS-Name)"
+msgstr "Domännamn (NetBIOS-namn)"
+
+msgid "Administrator Name"
+msgstr "Administratörsnamn"
+
+msgid "Administrator Password"
+msgstr "Administratörslösenord"
+
+msgid "Enter AD or PDC name."
+msgstr "Mata in AD eller PDC namn."
+
+msgid "Controller Name"
+msgstr "Controllernamn"
+
+msgid "Enter the domain name."
+msgstr "Mata in domännamnet."
+
+msgid "example.com"
+msgstr "example.com"
+
+msgid "Enter NetBIOS name."
+msgstr "Mata in NetBIOS namn."
+
+msgid "NETBIOS"
+msgstr "NETBIOS"
+
+msgid "Enter user name of a domain administrator account."
+msgstr "Mata in användarnamnet för domänens administratörskonto."
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Enter the password of the domain administrator account."
+msgstr "Mata in lösenordet för domänens administratörskonto."
+
+msgid "Add Reboot Schedule"
+msgstr "Lägg till schemalagd omstart"
+
+msgid "Edit Reboot Schedule"
+msgstr "Ändra schemalagd omstart"
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr "Schemalagd omstart är markerad för borttagning"
+
+msgid "Reboot Schedule is locked"
+msgstr "Schemalagd omstart är låst"
+
+msgid "Reboot Schedule is unlocked"
+msgstr "Schemalagd omstart är olåst"
+
+msgid "Delete Selected Reboot Schedules"
+msgstr "Ta bort vald schemalagd omstart"
+
+msgid "Do you want to delete selected reboot schedules?"
+msgstr "Vill du ta bort vald schemalagd omstart"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr "Inaktivera vald schemalagd omstart"
+
+msgid "Do you want to disable selected reboot schedules?"
+msgstr "Vill du inaktivera vald schemalagd omstart"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr "Aktivera vald schemalagd omstart"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr "Vill du aktivera vald schemalagd omstart"
+
+msgid "Toggle Selected Reboot Schedules"
+msgstr "Växla valda schemalagda omstarter"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr "Vill du växla vald schemalagd omstart"
+
+msgid "Daemon Events"
+msgstr "Demonhändelser"
+
+msgid "Enable Server"
+msgstr "Aktivera server"
+
+msgid "FTP Events"
+msgstr "FTP-händelser"
+
+msgid "RSYNC Events"
+msgstr "RSYNC-händelser"
+
+msgid "S.M.A.R.T. Events"
+msgstr "S.M.A.R.T.-händelser"
+
+msgid "SSH Events"
+msgstr "SSH-händelser"
+
+msgid "System Events"
+msgstr "Systemhändelser"
+
+msgid "Send daemon event messages."
+msgstr "Skicka meddeladen om demonhändelser."
+
+msgid "Send FTP event messages."
+msgstr "Skicka meddeladen om FTP-händelser."
+
+msgid "IP address of the remote syslog server."
+msgstr "IP adress till fjärrsyslog servern"
+
+msgid ""
+"Port of the remote syslog server. Leave blank to use the default port."
+msgstr ""
+"Port på den externa syslogservern. Lämna blankt för att använda "
+"standardporten."
+
+msgid ""
+"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
+"server. Be sure to set syslogd on the remote server to accept syslog "
+"messages from this server."
+msgstr ""
+"Syslog skickar UDP-meddelande till port 514 på den specificerade "
+"syslogservern. Säkerställ att syslogd på fjärrsyslogservern accepterar "
+"syslogmeddelanden från denna server."
+
+msgid "514"
+msgstr "514"
+
+msgid "Port number must be 514 or a number between 1024 and 65535."
+msgstr "Portnummer måste vara 514 eller ett nummer mellan 1024 och 65535."
+
+msgid "Send RSYNC event messages."
+msgstr "Skicka meddeladen om RSYNC-händelser."
+
+msgid "Send S.M.A.R.T. event messages."
+msgstr "Skicka meddeladen om S.M.A.R.T.-händelser."
+
+msgid "Send SSH event messages."
+msgstr "Skicka meddeladen om SSH-händelser."
+
+msgid "Send system event messages."
+msgstr "Skicka meddeladen om systemhändelser."
+
+msgid "Disable the compression of repeating lines."
+msgstr "Inaktivera sammanslagning av upprepade rader."
+
+msgid "Accept remote syslog messages."
+msgstr "Acceptera externa syslogmeddelanden"
+
+msgid ""
+"If this option is checked, IP addresses in the server logs are resolved to "
+"their hostnames where possible."
+msgstr ""
+"Om detta val är förkryssat kommer IP adresser i serverns logfiler "
+"konverteras till hostnamn när det är möjligt."
+
+msgid "This can cause a huge delay in loading the log page!"
+msgstr "Detta kan medföra en stor fördröjning vid öppning av logsidan!"
+
+msgid "Show log entries in reverse order (newest entries on top)."
+msgstr "Visa loggposter i omvänd ordning (senaste högst upp)."
+
+msgid "Remote Syslog Messages"
+msgstr "Fjärrsysloggmedelanden"
+
+msgid "Show Log Entries"
+msgstr "Visa loggposter"
+
+msgid "Log Order"
+msgstr "Loggordning"
+
+msgid "Facility"
+msgstr "Anläggning"
+
+msgid "Add Option"
+msgstr "Lägg till Alternativ"
+
+msgid "Edit Option"
+msgstr "Redigera Alternativ"
+
+msgid "Option is marked for deletion"
+msgstr "Optionen är markerad för borttagning"
+
+msgid "Option is locked"
+msgstr "Optionen är låst"
+
+msgid "Option is unlocked"
+msgstr "Alternativet är olåst"
+
+msgid "Delete Selected Options"
+msgstr "Ta bort valda optioner"
+
+msgid "Do you want to delete selected options?"
+msgstr "Vill du ta bort valda optioner?"
+
+msgid "Disable Selected Options"
+msgstr "Inaktivera valda optioner"
+
+msgid "Do you want to disable selected options?"
+msgstr "Vill du inaktivera valda optioner?"
+
+msgid "Enable Selected Options"
+msgstr "Aktivera valda optioner"
+
+msgid "Do you want to enable selected options?"
+msgstr "Vill du aktivera valda optioner?"
+
+msgid "Toggle Selected Options"
+msgstr "Ändra status på valda optioner"
+
+msgid "Do you want to toggle selected options?"
+msgstr "Vill du ändra status på valda optioner?"
+
+msgid "Enter facility name"
+msgstr "Mata in anläggningsnamn"
+
+msgid "Enter level name"
+msgstr "Mata in nivånamn"
+
+msgid "Enter destination"
+msgstr "Mata in mål"
+
+msgid "Sort"
+msgstr "Sortera"
+
 msgid "Reorder"
 msgstr "Ändra ordning"
 
-msgid "Rescan"
-msgstr "Sök igen"
+msgid "Add Command"
+msgstr "Lägg till kommando"
 
-msgid "Restart"
-msgstr "Starta om"
+msgid "Edit Command"
+msgstr "Redigera kommando"
 
-msgid "Add VLAN"
-msgstr "Lägg tlll VLAN"
+msgid "Command is marked for deletion"
+msgstr "Kommandot är markerat för borttagning"
 
-msgid "Edit VLAN"
-msgstr "Ändra VLAN"
+msgid "Command is locked"
+msgstr "Kommadot är låst"
 
-msgid "VLAN is marked for deletion"
-msgstr "VLAN är markerat för borttagning"
+msgid "Command is unlocked"
+msgstr "Kommandot är olåst"
 
-msgid "VLAN is locked"
-msgstr "VLAN är låst"
+msgid "Delete Selected Commands"
+msgstr "Ta bort valda kommandon"
 
-msgid "VLAN is unlocked"
-msgstr "VLAN är olåst"
+msgid "Do you want to delete selected commands?"
+msgstr "Vill du ta bort valda kommandon?"
 
-msgid "Delete Selected VLANs"
-msgstr "Ta bort valda VLAN"
+msgid "Disable Selected Commands"
+msgstr "Inaktivera valda kommandon"
 
-msgid "Disable Selected VLANs"
-msgstr "Inaktivera valda VLAN"
+msgid "Do you want to disable selected commands?"
+msgstr "Vill du inaktivera valda kommandon?"
 
-msgid "Enable Selected VLANs"
-msgstr "Aktivera valda VLAN"
+msgid "Enable Selected Commands"
+msgstr "Aktivera valda kommandon"
 
-msgid "Toggle Selected VLANs"
-msgstr "Växla valda VLAN"
+msgid "Do you want to enable selected commands?"
+msgstr "Vill du aktivera valda kommandon?"
 
-msgid "Do you want to delete selected VLANs?"
-msgstr "Vill du ta bort valda VLAN?"
+msgid "Toggle Selected Commands"
+msgstr "Växla valda kommandon"
 
-msgid "Do you want to disable selected VLANs?"
-msgstr "Vill du inaktivera valda VLAN?"
-
-msgid "Do you want to enable selected VLANs?"
-msgstr "Vill du aktivera valda VLAN?"
-
-msgid "Do you want to toggle selected VLANs?"
-msgstr "Vill du växla valda VLAN?"
-
-msgid "The name of the VLAN interface"
-msgstr "Namnet på VLAN gränssnittet"
-
-msgid "vlan0"
-msgstr "vlan0"
-
-msgid "802.1Q VLAN tag (between 1 and 4094)."
-msgstr "802.1Q VLAN etikett (mellan 1 och 4094)."
-
-msgid "102"
-msgstr "102"
+msgid "Do you want to toggle selected commands?"
+msgstr "Vill du växla valda kommandon?"
 
 msgid ""
-"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
-"class of service and maps to the frame priority level."
+"These commands will be executed pre or post system initialization (booting) "
+"or before system shutdown."
 msgstr ""
-"Prioritets kod punkt (PCP) är ett 3-bit fält som hänvisar till IEEE 802.1p "
-"klass av tjänster och mappar till ram prioritetsnivån."
+"Dessa kommandon kommer utföras före eller efter systeminitiering (bootning) "
+"eller före systemavstängning."
 
-msgid "Best effort (default)"
-msgstr "Effektivast(förvalt)"
+msgid "Post Upgrade"
+msgstr "Efter uppgradering"
 
-msgid "Background (lowest)"
-msgstr "Bakgrund(lägst)"
+msgid "Name of the command."
+msgstr "Namn på kommando"
 
-msgid "Excellent effort"
-msgstr "Utmärkt effektivitet"
+msgid "The command to be executed."
+msgstr "Kommandot som ska utföras."
 
-msgid "Critical applications"
-msgstr "Kritiska applikationer"
+msgid "Select at which stage the command should be executed."
+msgstr "Välj i vilket steg kommandot skall köras."
 
-msgid "Video < 100ms latency"
-msgstr "Video < 100ms latens"
+msgid "Add sysctl setting"
+msgstr "lägg till sysctl inställning"
 
-msgid "Video < 10ms latency"
-msgstr "Video < 10ms latens"
+msgid "Edit sysctl setting"
+msgstr "Åndra sysctl inställning"
 
-msgid "Internetwork control"
-msgstr "Internet kontroll"
+msgid "Sysctl setting is marked for deletion"
+msgstr "Sysctl inställningar är markerade för borttagning"
 
-msgid "Network control (highest)"
-msgstr "Nätverk kontroll (högst)"
+msgid "Sysctl setting is locked"
+msgstr "Sysctl inställningar är låsta"
 
-msgid "Set the VLAN encapsulation protocol."
-msgstr "Ställ in VLAN inkapslingsprotokoll."
+msgid "Sysctl setting is unlocked"
+msgstr "Sysctl inställningar är olåsta"
 
-msgid "802.1Q (default)"
-msgstr "802.1Q (förvalt)"
+msgid "Delete Selected Sysctl Settings"
+msgstr "Ta bort valtd Sysctl inställning"
 
-msgid "802.1ad (QinQ)"
-msgstr "802.1ad (QiQ)"
+msgid "Do you want to delete selected sysctl settings?"
+msgstr "Vill du ta bort vald Sysctl inställning?"
 
-msgid "VLAN Interface"
-msgstr "VLAN-gränssnitt"
+msgid "Disable Selected Sysctl Settings"
+msgstr "Inaktivera vald Sysctl inställning"
 
-msgid "VLAN Tag"
-msgstr "VLAN etikett"
+msgid "Do you want to disable selected sysctl settings?"
+msgstr "Vill du inaktivera vald Sysctl inställning?"
 
-msgid "PCP"
-msgstr "PCP"
+msgid "Enable Selected Sysctl Settings"
+msgstr "Aktivera vald Sysctl inställning?"
 
-msgid "Encapsulation Protocol"
-msgstr "Inkapslingsprotokoll"
+msgid "Do you want to enable selected sysctl settings?"
+msgstr "Vill du aktivera vald Sysctl inställning?"
+
+msgid "Toggle Selected Sysctl Settings"
+msgstr "Växla vald Sysctl inställningar"
+
+msgid "Do you want to toggle selected sysctl settings?"
+msgstr "Vill du växla vald Sysctl inställning?"
+
+msgid ""
+"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
+"make changes to a running system."
+msgstr ""
+"Dessa sysctl variabler kommer läggas till /etc/sysctl.conf. Detta ger dig "
+"möjlighet att göra ändringar i ett system som körs."
+
+msgid "The value of the setting."
+msgstr "Värdet för inställningen"
+
+msgid "Variable"
+msgstr "Variabel"
+
+msgid "Destination Network"
+msgstr "Destinationsnätverk"
+
+msgid "Choose which interface this route applies to."
+msgstr "Välj det gränssnitt som denna väg gäller."
+
+msgid "Destination network for this static route."
+msgstr "Destinationsnätverk för denna statiska rutt."
+
+msgid "Gateway to be used to reach the destination network."
+msgstr "Gateway som används för att nå destinationsnätverk."
+
+msgid "Add Route"
+msgstr "Lägg till väg"
+
+msgid "Edit Route"
+msgstr "Redigera väg"
+
+msgid "Route is marked for deletion"
+msgstr "Rutten är markerad för borttagning"
+
+msgid "Route is locked"
+msgstr "Rutten är låst"
+
+msgid "Route is unlocked"
+msgstr "Rutten är olåst"
+
+msgid "Delete Selected Routes"
+msgstr "Ta bort valda rutter"
+
+msgid "Do you want to delete selected routes?"
+msgstr "Vill du ta bort valda rutter?"
+
+msgid "Disable Selected Routes"
+msgstr "Inaktivera valda rutter"
+
+msgid "Do you want to disable selected routes?"
+msgstr "Vill du inaktivera valda rutter?"
+
+msgid "Enable Selected Routes"
+msgstr "Aktivera valda rutter"
+
+msgid "Do you want to enable selected routes?"
+msgstr "Vill du aktivera valda rutter?"
+
+msgid "Toggle Selected Routes"
+msgstr "Växla valda rutter"
+
+msgid "Do you want to toggle selected routes?"
+msgstr "Vill du växla valda rutter?"
+
+msgid "Running user"
+msgstr "Körande användare"
+
+msgid "The name of the variable."
+msgstr "Namnet på variabeln."
+
+msgid "The value of the variable."
+msgstr "Värdet på variabeln."
+
+msgid ""
+"These option(s) will be added to /boot/loader.conf.local. This allows you to "
+"specify parameters to be passed to the kernel and additional modules to be "
+"loaded."
+msgstr ""
+"Dessa alternativ kommer läggas till /boot/loader.conf.local. Detta ger dig "
+"möjligheter att specificera parametrar som överförs till kärnan och extra "
+"moduler som skall laddas."
+
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr "Inaktiverade variabelnamn kommer tas bort från /etc/rc.conf."
+
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr "Aktiverade optioner kommer att läggas till i /etc/rc.conf."
+
+msgid "Name of the variable."
+msgstr "Namn på variabeln."
+
+msgid "Enter Value"
+msgstr "Mata in värde"
+
+msgid ""
+"Display action buttons in the scrollable area instead of the footer area."
+msgstr ""
+"Visa aktivitetsknappar i den rullningsbara delen i stället för sidfoten."
+
+msgid "Fully qualified file name of a custom file chooser CSS file."
+msgstr "Komplett filnamn för en användar filvals CSS fil."
+
+msgid "Select file mode of the custom file chooser CSS file."
+msgstr "Välj filegenskap för användar filvals filen."
+
+msgid "Replace the default CSS file"
+msgstr "Ersätt standard-CSS filen"
+
+msgid "Append content to the default CSS file"
+msgstr "Lägg till innehållet i standard CSS filen"
+
+msgid "Fully qualified file name of a custom GUI CSS file."
+msgstr "Komplett filnamn för en användar GUI CSS fil."
+
+msgid "Select file mode of the custom GUI CSS file."
+msgstr "Välj filegenskap för användar GUI CSS filen."
+
+msgid "Fully qualified file name of a custom navigation bar CSS file."
+msgstr "Komplett filnamn för en användar navigationsmeny CSS fil."
+
+msgid "Select file mode of the custom navigation bar CSS file."
+msgstr "Välj filegenskap för användar navigationsmeny CSS filen."
+
+msgid "Fully qualified file name of a custom tabs CSS file."
+msgstr "Komplett filnamn för en användar tabb CSS fil."
+
+msgid "Select file mode of the custom tabs CSS file."
+msgstr "Välj filegenskap för användar tabb CSS filen."
+
+msgid "Use toggle button instead of enable/disable buttons."
+msgstr "Använd växlade knappar i stället för aktivera-/inaktiveraknappar."
+
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr "Välj visningsläge för toppnivån i navigationsraden."
+
+msgid "Show text only"
+msgstr "Visa endast text"
+
+msgid "Show symbol only"
+msgstr "Visa endast symbol"
+
+msgid "Show symbol and text"
+msgstr "Visa symbol och text"
+
+msgid ""
+"Display disk size values using binary prefixes instead of decimal prefixes."
+msgstr "Visa diskstorlekar med binära prefix i stället för decimala prefix."
+
+msgid "Enable this option if you want to display colorful meter states."
+msgstr "Välj denna option om du vill visa färgglada mätare"
+
+msgid ""
+"Enable this option if you want to edit configuration pages directly without "
+"the need to switch to edit mode."
+msgstr ""
+"Aktivera detta alternativ om du vill ändra på konfigurationssidorna direkt "
+"utan att växla till ändringsläge."
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr ""
+"Vänligen mata in ett nummer mellan 0 och 256 eller lämna fältet tomt."
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr "Begränsa maximalt antal CPU:er som skall visas på hemsidan."
+
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr "Ställ in destinationssida för Diagnostik > Information menyn."
+
+msgid "Button Location"
+msgstr "Knapplacering"
+
+msgid "File Chooser"
+msgstr "Filväljare"
+
+msgid "File Mode"
+msgstr "Filåtgärder:"
+
+msgid "GUI"
+msgstr "GUI"
+
+msgid "Navigation Bar"
+msgstr "Navigeringsmeny"
+
+msgid "Tabs"
+msgstr "Tabbar"
+
+msgid "Toggle Mode"
+msgstr "Växla läge"
+
+msgid "Navbar Style"
+msgstr "Navigationradsläge"
+
+msgid "Binary Prefix"
+msgstr "Binärt prefix"
+
+msgid "Colorful Meters"
+msgstr "Färgglada mätare"
+
+msgid "Skip View Mode"
+msgstr "Skippa läsläge"
+
+msgid "Show Max CPUs"
+msgstr "Visa Max CPU:er"
+
+msgid "Diagnostics Information"
+msgstr "Diagnostikinformation"
+
+msgid "Show Interval"
+msgstr "Visa intervall"
+
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables the reminder."
+msgstr ""
+"Sätt antal dagar tills en påminnelse om att backa upp systemkonfigurationen "
+"visas. Standard är 28 dagar. Ett värde om 0 inaktiverar påminnelsen."
+
+msgid "Network Address"
+msgstr "Nätverksadress"
+
+msgid "Enter additional parameters"
+msgstr "Mata in extra parametrar"
+
+msgid "No additional parameters"
+msgstr "Inga extra parametrar"
+
+msgid "Undefined"
+msgstr "Odefinerad"
+
+msgid "The value is invalid."
+msgstr "Värdet är felaktigt."
+
+msgid "Enter a description for your reference."
+msgstr "Mata in en beskrivning för din referens."
+
+msgid "Enable Setting"
+msgstr "Aktivera inställning"
+
+msgid "IPv4 Address"
+msgstr "IPv4-adress"
+
+msgid "Protect"
+msgstr "Skydda"
+
+msgid "Protect Setting"
+msgstr "Skydda inställning"
+
+msgid "The UUID of the record."
+msgstr "UUID för posten."
+
+msgid "Enter Universally Unique Identifier"
+msgstr "Mata in en universellt unik identifierare (UUID)"
+
+msgid "Universally Unique Identifier"
+msgstr "Universellt unik identifierare (UUID)"
+
+msgid "Delete Selected Records"
+msgstr "Ta bort valda poster"
+
+msgid "Do you want to delete selected records?"
+msgstr "Vill du ta bort valda poster?"
+
+msgid "Disable Selected Records"
+msgstr "Inaktivera valda rutter"
+
+msgid "Do you want to disable selected records?"
+msgstr "Vill du inaktivera valda poster?"
+
+msgid "Enable Selected Records"
+msgstr "Aktivera valda poster"
+
+msgid "Do you want to enable selected records?"
+msgstr "Vill du aktivera valda poster?"
+
+msgid "Lock Selected Records"
+msgstr "Lås valda poster"
+
+msgid "Do you want to lock selected records?"
+msgstr "Vill du låsa valda poster?"
+
+msgid "Toggle Selected Records"
+msgstr "Växla valda poster"
+
+msgid "Do you want to toggle selected records?"
+msgstr "Vill du växla valda poster?"
+
+msgid "Unlock Selected Records"
+msgstr "Lås upp valda poster"
+
+msgid "Do you want to unlock selected records?"
+msgstr "Vill du låsa upp valda poster?"
+
+msgid "Add Record"
+msgstr "Lägg till post"
+
+msgid "Record is marked for deletion"
+msgstr "Posten är markerad för borttagning"
+
+msgid "Record Information"
+msgstr "Postinformation"
+
+msgid "Record is protected"
+msgstr "Posten är skyddad"
+
+msgid "Record Maintenance"
+msgstr "Post underhåll"
+
+msgid "Edit Record"
+msgstr "Ändra post"
+
+msgid "Record is unlocked"
+msgstr "Posten är olåst"
+
+msgid "Autodetect"
+msgstr "Automatisk detektering"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
+"Välj \"Anpassad leverantör\" för att användaranpassa DDNS "
+"uppdateringsserverns detaljinställningar."
+
+msgid "Select from predefined providers."
+msgstr "Välj bland fördefinierade leverantörer."
+
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr "Mata in ett namn för denna anpassade DDNS-konfiguration."
+
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+"För att stödja fler användare av samma DDNS leverantör, måste  en "
+"identifierare definieras. Identifieraren kan vara en alfanumerisk sträng så "
+"länge den är unik."
+
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr "Lista med värdnamn. Använd ett komma för att separera flera namn."
+
+msgid "Hostnames"
+msgstr "Värdnamn"
+
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr "Användarnamnet, om erfordras. Detta kan kallas hash."
+
+msgid "The password, if applicable."
+msgstr "Lösenordet, om erfordras."
+
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+"Aktivera möjlighet att använda jokertecken för domännamnet, för DDNS "
+"leverantörer som stöder detta"
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+"Använd HTTPS, både vid kontroll av IP förändringar och uppdatering av DNS. "
+"Standard är att använda HTTPS."
+
+msgid "Server to use for periodic IP address changes"
+msgstr "Server som skall användas för periodiska IP adressändringar"
+
+msgid "api.ipify.org"
+msgstr "api.ipify.org"
+
+msgid "Optional server path for check IP server"
+msgstr "Frivillig serversökväg för kontroll IP server"
+
+msgid "/"
+msgstr "/"
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+"Denna inställning följer normalt ssl-inställningarna, men kan användas för "
+"att inaktivera HTTPS för IP adresskontrollen."
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
+"Shellkommando, eller skript, för IP adress uppdateringskontroll. Kommandot "
+"måste lägga ut en text med IP adressen på dess standarutmatning."
+
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+"Samma som globala inställningar, men bara för denna leverantör. Om de "
+"utelämnas sätts de till de globala inställningarna, som om dessa inte "
+"angetts sätts till standard användaragentsträng."
+
+msgid "User agent string"
+msgstr "Sträng för användaragent"
+
+msgid "DDNS server name, not the full URL."
+msgstr "DDNS servernamn, inte hel URL."
+
+msgid "update.example.com"
+msgstr "update.example.com"
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+"DDNS serversökväg. Som standard läggs värdnamnet till sökvägen, om inte lägg "
+"till IP är satt."
+
+msgid "/update?domain="
+msgstr "/update?domain="
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr "Lägg till aktuell IP till DDNS serverns uppdateringssökväg."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
+"Om denna inställning inte är aktiverad, kommer värdnamnet läggas till. Om "
+"inte ddns-sökvägen är angiven med formatangivelser, i vilka denna "
+"inställning inte används."
+
+msgid "These parameters will be added to this provider configuration"
+msgstr ""
+"Dessa parametrar kommer läggas till i denna leverantörs konfiguration"
+
+msgid "Add Provider"
+msgstr "Lägg till leverantör"
+
+msgid "Edit Provider"
+msgstr "Ändra leverantör"
+
+msgid "Provider is marked for deletion"
+msgstr "leverantör är markerad för borttagning"
+
+msgid "Provider is locked"
+msgstr "Leverantör är låst"
+
+msgid "Provider is unlocked"
+msgstr "Leverantör är olåst"
+
+msgid "Delete Selected Providers"
+msgstr "Ta bort valda leverantörer"
+
+msgid "Disable Selected Providers"
+msgstr "Inaktivera valda leverantörer"
+
+msgid "Enable Selected Providers"
+msgstr "Aktivera valda leverantörer"
+
+msgid "Toggle Selected Providers"
+msgstr "Växla valda leverantörer"
+
+msgid "Do you want to delete selected providers?"
+msgstr "Vill du ta bort valda leverantörer?"
+
+msgid "Do you want to disable selected providers?"
+msgstr "Vill du inaktivera valda leverantörer?"
+
+msgid "Do you want to enable selected providers?"
+msgstr "Vill du aktivera valda leverantörer?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "Vill du växla valda leverantörer?"
+
+msgid "Missing Provider"
+msgstr "Saknad leverantör"
+
+msgid "Orphaned Provider"
+msgstr "Föräldrarlös leverantör"
+
+msgid "Undefined Type"
+msgstr "Odefinierad typ"
+
+msgid "Unknown Provider"
+msgstr "Okänd leverantör"
+
+msgid "Standard Provider"
+msgstr "Standardleverantör"
+
+msgid "Custom Provider"
+msgstr "Anpassad leverantör"
+
+msgid "Record Type"
+msgstr "Posttyp"
+
+msgid "Provider"
+msgstr "Leverantör"
+
+msgid "Provider Name"
+msgstr "Namn på leverantör"
+
+msgid "Host Names"
+msgstr "Värdnamn"
+
+msgid "Wildcard Domain"
+msgstr "Wildcard Domän"
+
+msgid "Use HTTPS"
+msgstr "Använd HTTPS"
+
+msgid "Check IP Server"
+msgstr "Kontroll IP server"
+
+msgid "Check IP Path"
+msgstr "Kontroll IP serversökväg"
+
+msgid "Check IP using HTTPS"
+msgstr "Kontrollera IP med HTTPS"
+
+msgid "Check IP Command"
+msgstr "Kommando för att kontrollera IP"
+
+msgid "User Agent"
+msgstr "Användaragent"
+
+msgid "DDNS-Server"
+msgstr "DDNS-server"
+
+msgid "DDNS-Path"
+msgstr "DDNS-sökväg"
+
+msgid "Append my IP"
+msgstr "Lägg till min IP"
+
+msgid "Providers"
+msgstr "Leverantörer"
+
+msgid "Global Settings"
+msgstr "Globala inställningar"
+
+msgid "Verify Address"
+msgstr "Verifiera adress"
+
+msgid "Fake Address"
+msgstr "Bluffadress"
+
+msgid "Allow IPv6"
+msgstr "Tillåt IPv6"
+
+msgid "Network Interface"
+msgstr "Nätverksgränssnitt"
+
+msgid "Iterations"
+msgstr "Upprepningar"
+
+msgid "Check Interval"
+msgstr "Kontrollintervall"
+
+msgid "Force Update Interval"
+msgstr "Tvinga uppdateringsintervall"
+
+msgid "Secure SSL"
+msgstr "Säker SSL"
+
+msgid "Broken RTC"
+msgstr "Felaktig RTC"
+
+msgid "CA Trusted Certificates"
+msgstr "Betrodda CA certifikat"
+
+msgid "Cache Directory"
+msgstr "Cachekatalog"
+
+msgid "Startup Delay"
+msgstr "Uppstartsfödröjning"
+
+msgid "Log Level"
+msgstr "Loggnivå"
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
+"Validering av IP adress kan inaktiveras genom att sätta detta alternativ "
+"till falskt."
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
+"Som standard verifierar inadyn både IPv4 och IPv6 adresser, säkerställer att "
+"adressen är en giltig Internetadress. Felaktiga adresser är, t.ex.., link "
+"local, loopback, multicast och kända experimentella adresser. För mer "
+"information, se RFC3330."
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+"Använd detta alternativ för att bluffa en uppdatering med en \"slumpvis\" "
+"adress i 203.0.113.0/24 området innan uppdatering med den faktiska IP "
+"adressen."
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr "Detta alternativ styr om IPv6 adresser skall tillåtas eller inte."
+
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+"Använd detta nätverksgränssnitt som källa för IP adressförändringar i "
+"stället för att fråga en extern server."
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
+"Sätt antal DNS uppdateringar. Standard är 0, vilket innebär obegränsat."
+
+msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+"Hur ofta IP kontrolleras, i sekunder. Standard: ungefär 1 minut. Max: 10 "
+"dagar."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
+"Hur ofta uppdatering av IP skall ske även om det inte ändrats. Tiden skall "
+"anges i sekunder. Standard motsvarar 30 dagar."
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
+"Aktivera detta alternativ för att avbryta DDNS uppdatering om validering av "
+"HTTPS certifikat misslyckas."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+"Aktivera bara detta alternativ på system med hårdvarurealtidsklocka och "
+"standard bootuptid långt tillbaka i tiden."
+
+msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+"Denna inställning ersätter de inbyggda sökvägarna och reservplatserna och "
+"ger en möjlighet att specificera sökvägen till en betrodd uppsättning CA "
+"certifikat, i PEM-format, förpackade i en fil."
+
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+"Ange den Användar-Agent sträng som skall skickas till DDNS leverantören vid "
+"ipkontroll- och uppdteringsförfrågningar."
+
+msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+"Sätt katalog för beständiga cachefiler, dessa används till att hålla koll på "
+"vilka adresser som framgångsrikt sänts till respektive DDNS leverantör och "
+"när."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr "Initial uppstartsfördröjning. Standard är ingen fördröjning."
+
+msgid "no delay"
+msgstr "Ingen fördröjning"
+
+msgid "Set log level"
+msgstr "Sätt loggnivå"
+
+msgid "Errors"
+msgstr "Fel"
+
+msgid "Notice"
+msgstr "Observera"
+
+msgid "Debug"
+msgstr "Felsök"
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr "Dessa parametrar läggs till i inadyn.conf filen."
+
+msgid "Add Media Folder"
+msgstr "Lägg till mediakatalog"
+
+msgid "Edit Media Folder"
+msgstr "Ändra mediakatalog"
+
+msgid "Media Folder is marked for deletion"
+msgstr "Mediakatalogen är markerad för borttagning"
+
+msgid "Media Folder is locked"
+msgstr "Mediakatalog är låst"
+
+msgid "Media Folder is unlocked"
+msgstr "Mediakatalog är olåst"
+
+msgid "Delete Selected Media Folders"
+msgstr "Ta bort valda mediakataloger"
+
+msgid "Disable Selected Media Folders"
+msgstr "Inaktivera valda mediakataloger"
+
+msgid "Enable Selected Media Folders"
+msgstr "Aktivera valda mediakataloger"
+
+msgid "Toggle Selected Media Folders"
+msgstr "Växla valda mediakataloger"
+
+msgid "Do you want to delete selected media folders?"
+msgstr "Vill du ta bort valda mediakataloger?"
+
+msgid "Do you want to disable selected media folders?"
+msgstr "Vill du inaktivera valda mediakataloger?"
+
+msgid "Do you want to enable selected media folders?"
+msgstr "Vill du aktivera valda mediakataloger?"
+
+msgid "Do you want to toggle selected media folders?"
+msgstr "Vill du växla valda mediakataloger?"
+
+msgid "Path to be included."
+msgstr "Sökväg som skall inkluderas."
+
+msgid "Restrict folder to a specific media type."
+msgstr "Reservera katalogen för en specifik mediatyp."
+
+msgid "Scan folder for all media types."
+msgstr "Skanna katalogen för alla mediatyper."
+
+msgid "Scan folder for audio files."
+msgstr "Skanna katalogen efter ljudfiler."
+
+msgid "Scan folder for video files."
+msgstr "Skanna katalogen efter videofiler."
+
+msgid "Scan folder for image files."
+msgstr "Skanna katalogen efter bildfiler."
+
+msgid "Scan folder for video and image files."
+msgstr "Skanna katalogen efter video- och bildfiler."
+
+msgid "Media Type"
+msgstr "Mediatyp"
+
+msgid "Media Folders"
+msgstr "Mediakataloger"
+
+msgid "Media Folder"
+msgstr "Mediakatalog"
+
+msgid "Inotify"
+msgstr "Inotify"
+
+msgid "Broadcast Interval"
+msgstr "Sändningsintervall"
+
+msgid "Strict DLNA"
+msgstr "Strikt DLNA"
+
+msgid "TiVo Support"
+msgstr "TiVo Support"
+
+msgid "Wide Links"
+msgstr "Wide Links"
+
+msgid "Container"
+msgstr "Behållare"
+
+msgid "Sort Criteria"
+msgstr "Sorteringsvillkor"
+
+msgid "Disable Subtitles"
+msgstr "Inaktivera undertexter"
+
+msgid "Media Server Name."
+msgstr "Mediaservernamn."
+
+msgid "Verbosity of information that is logged."
+msgstr "Nivå på information som loggas."
+
+msgid "Fatal"
+msgstr "Ödesdiger"
+
+msgid "Enable inotify."
+msgstr "Aktivera inotify."
+
+msgid "Use inotify monitoring to automatically discover new media files."
+msgstr ""
+"Använd inotify monitorering för att automatiskt upptäcka nya mediafiler."
+
+msgid ""
+"Broadcasts its availability every configured seconds on the network, the "
+"default is 300 seconds."
+msgstr ""
+"Sändningar är tillgängliga varje inställd sekund på nätverket, standard är "
+"300 sekunder."
+
+msgid "300"
+msgstr "300"
+
+msgid ""
+"Port to listen on. Port number must be between 1024 and 65535. Default port "
+"is 8200."
+msgstr ""
+"Port att lyssna på. Portnummer måste vara mellan 1024 och 65535. "
+"Standardport är 8200."
+
+msgid "8200"
+msgstr "8200"
+
+msgid "Enable to strictly adhere to DLNA standards."
+msgstr "Aktivera för att strikt följa DLNA standarden."
+
+msgid ""
+"This will allow server-side downscaling of very large JPEG images, it can "
+"impact JPEG serving performance on some DLNA devices."
+msgstr ""
+"Detta medger servernedskalning av mycket stora JPEG bilder, det kan "
+"förbättra JPEG tillhandahållandeprestanda på vissa DNLA enheter."
+
+msgid "Enable TiVo support."
+msgstr "Aktivera TiVo stöd"
+
+msgid ""
+"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
+msgstr ""
+"Detta stödjer strömning av .jpg och .mp3 filer en TiVo som stödjer HMO."
+
+msgid "Location of the media content database."
+msgstr "Placering av mediainnehållsdatabasen."
+
+msgid "Allow symlinks that point outside defined media folders."
+msgstr "Tillåt symlänkar som pekar utanför definierad mediakatalog."
+
+msgid "These parameters will be added to minidlna.conf"
+msgstr "Dessa parametrar läggs till i minidlna.conf"
+
+msgid "Select a container as the root of the tree exposed to clients."
+msgstr "Välj en behållare som roten av det träd som exponeras för klienter"
+
+msgid "Use the standard container (this is the default)"
+msgstr "Använd standardbehållaren."
+
+msgid "Use the \"Browse Directory\" container"
+msgstr "Använd \"Katalogbläddrar\" behållaren"
+
+msgid "Use the \"Music\" container"
+msgstr "Använd \"Musik\" behållaren."
+
+msgid "Use the \"Video\" container"
+msgstr "Använd \"Video\" behållaren."
+
+msgid "Use the \"Pictures\" container"
+msgstr "Använd \"Bilder\" behållaren."
+
+msgid "Overwrite the sort criteria passed by the client."
+msgstr "Skriv över sorteringskriterier som kommer från klienten."
+
+msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+
+msgid "Disable subtitle support on unknown clients."
+msgstr "Inaktivera undertexter på okända klienter."
+
+msgid "Auth Group Name"
+msgstr "Namn på autentiseringsgrupp"
+
+msgid "Auth Type"
+msgstr "Autentiseringstyp"
 
 msgid "Add Auth Group"
 msgstr "Lägg till autentiseringsgrupp"
@@ -11224,20 +12042,11 @@ msgstr "Vill du aktivera valda autentiseringsgrupper?"
 msgid "Do you want to toggle selected auth groups?"
 msgstr "Vill du växla valda autentiseringsgrupper?"
 
-msgid "Name of the Auth Group."
-msgstr "Namnet på autentiseringsgruppen"
+msgid "Initiator Names"
+msgstr "Initierarnamn"
 
-msgid "Auth Group Name"
-msgstr "Namn på autentiseringsgrupp"
-
-msgid "Sets the authentication type."
-msgstr "Sätter autentiseringstypen."
-
-msgid "CHAP-Mutual"
-msgstr "Gemensam CHAP"
-
-msgid "These parameters will be added to this auth-group."
-msgstr "Dessa parametrar kommer läggas till i denna autentiseringgrupp."
+msgid "Initiator Portals"
+msgstr "Initierarportaler"
 
 msgid "No CHAP users found."
 msgstr "Inga CHAP användare hittades."
@@ -11260,170 +12069,23 @@ msgstr "Initierarportal"
 msgid "No initiator portals found."
 msgstr "Inga intierarportaler hittades."
 
-msgid "Auth Type"
-msgstr "Autentiseringstyp"
+msgid "Name of the Auth Group."
+msgstr "Namnet på autentiseringsgruppen"
 
-msgid "Global Settings"
-msgstr "Globala inställningar"
+msgid "Sets the authentication type."
+msgstr "Sätter autentiseringstypen."
 
-msgid "Initiator Names"
-msgstr "Initierarnamn"
+msgid "CHAP-Mutual"
+msgstr "Gemensam CHAP"
 
-msgid "Initiator Portals"
-msgstr "Initierarportaler"
-
-msgid "Additional Options for Block Backend"
-msgstr "Extra optioner för Block Backend"
-
-msgid "Additional Options for RAM Disk Backend"
-msgstr "Extra optioner för RAM disk Backend"
-
-msgid "LUN Name"
-msgstr "LUN Namn"
-
-msgid "Backend"
-msgstr "Bakgrundsprogram"
-
-msgid "CTL LUN"
-msgstr "CTL LUN"
-
-msgid "Device ID"
-msgstr "Enhets-ID"
-
-msgid "Device Type"
-msgstr "Enhetstyp"
-
-msgid "Passthrough Address"
-msgstr "\"passthrough\"-adress"
-
-msgid "LUN Vendor"
-msgstr "LUN tillverkare"
-
-msgid "LUN Product"
-msgstr "LUN Produkt"
-
-msgid "LUN Revision"
-msgstr "LUN Revision"
-
-msgid "LUN SCSI Name"
-msgstr "LUN SCSI Namn"
-
-msgid "LUN EUI-64\tidentifier"
-msgstr "LUN EUI-64\tidentifierare"
-
-msgid "LUN NAA Identifier"
-msgstr "LUN NAA Identifierare"
-
-msgid "LUN UUID"
-msgstr "LUN UUID"
-
-msgid "HA Role"
-msgstr "HA roll"
-
-msgid "Insecure TPC"
-msgstr "Osäker TPC"
-
-msgid "Read Cache"
-msgstr "Läsbuffert"
-
-msgid "Read Only"
-msgstr "Skrivskyddad"
-
-msgid "Reordering"
-msgstr "Omsortering"
-
-msgid "Serialize Sequence"
-msgstr "Serialiseringssekvens"
-
-msgid "Physical Block Size"
-msgstr "Fysisk blockstorlek"
-
-msgid "Physical Block Offset"
-msgstr "Fysisk blockoffset"
-
-msgid "UNMAP Block Size"
-msgstr "UNMAP Blockstorlek"
-
-msgid "UNMAP Block Offset"
-msgstr "UNMAP Blockoffsett"
-
-msgid "RPM"
-msgstr "RPM"
-
-msgid "Form Factor"
-msgstr "Formfaktor"
-
-msgid "Provisioning Type"
-msgstr "Tillhandahållen typ"
-
-msgid "UNMAP"
-msgstr "UNMAP"
-
-msgid "UNMAP Maximum LBA"
-msgstr "UNMAP Maximum LBA"
-
-msgid "UNMAP Maximum Descriptors"
-msgstr "UNMAP Maximalt antal benämningar"
-
-msgid "Write Same Maximum LBA"
-msgstr "Write Same Maximum LBA"
-
-msgid "Avail Threshold"
-msgstr "Tillgägligt tröskelvärde"
-
-msgid "Used Threshold"
-msgstr "Använt tröskelvärde"
-
-msgid "Pool Avail Threshold"
-msgstr "Pool tillgängligt tröskelvärde"
-
-msgid "Pool Used Threshold"
-msgstr "Pool använt tröskelvärde"
-
-msgid "Threads"
-msgstr "Trådar"
-
-msgid "Add LUN"
-msgstr "Lägg till LUN"
-
-msgid "Edit LUN"
-msgstr "Editera LUN"
-
-msgid "LUN is marked for deletion"
-msgstr "LUN är markerat för borttagning"
-
-msgid "LUN is locked"
-msgstr "LUN är låst"
-
-msgid "LUN is unlocked"
-msgstr "LUN är olåst"
-
-msgid "Delete Selected LUNs"
-msgstr "Ta bort valda LUN"
-
-msgid "Disable Selected LUNs"
-msgstr "Inaktivera valda LUN"
-
-msgid "Enable Selected LUNs"
-msgstr "Aktivera valda LUN"
-
-msgid "Toggle Selected LUNs"
-msgstr "Växla valda LUN"
-
-msgid "Do you want to delete selected LUNs?"
-msgstr "Vill du ta bort valda LUN?"
-
-msgid "Do you want to disable selected LUNs?"
-msgstr "Vill du ta bort valda LUN?"
-
-msgid "Do you want to enable selected LUNs?"
-msgstr "Vill du inaktivera valda LUN?"
-
-msgid "Do you want to toggle selected LUNs?"
-msgstr "Vill du växla valda LUN?"
+msgid "These parameters will be added to this auth-group."
+msgstr "Dessa parametrar kommer läggas till i denna autentiseringgrupp."
 
 msgid "Name of the LUN."
 msgstr "Namnet på LUNet"
+
+msgid "LUN Name"
+msgstr "LUN Namn"
 
 msgid "The CTL backend to use for a given LUN."
 msgstr "Det CTL bakgrundsprogram som skall användas för en specifik LUN."
@@ -11463,6 +12125,9 @@ msgstr "Global numerisk identitet att använda för en given LUN i CTL."
 
 msgid "The SCSI Device Identification string presented to the initiator."
 msgstr "SCSI enhetens identifikationssträng som presenteras för initiatorn."
+
+msgid "Device ID"
+msgstr "Enhets-ID"
 
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr "Ange ICSI enhetstyp att använda vid skapandet av LUN."
@@ -11691,17 +12356,149 @@ msgstr ""
 msgid "These parameters will be added to this lun."
 msgstr "Dessa parametrar kommer läggas till i denna lun."
 
-msgid "Listen"
-msgstr "Lyssna"
+msgid "Additional Options for Block Backend"
+msgstr "Extra optioner för Block Backend"
 
-msgid "No listeners found."
-msgstr "Inga lyssnare hittades."
+msgid "Additional Options for RAM Disk Backend"
+msgstr "Extra optioner för RAM disk Backend"
 
-msgid "Option"
-msgstr "Alternativ"
+msgid "Add LUN"
+msgstr "Lägg till LUN"
 
-msgid "No options found."
-msgstr "Inga optoner hittades."
+msgid "Edit LUN"
+msgstr "Editera LUN"
+
+msgid "LUN is marked for deletion"
+msgstr "LUN är markerat för borttagning"
+
+msgid "LUN is locked"
+msgstr "LUN är låst"
+
+msgid "LUN is unlocked"
+msgstr "LUN är olåst"
+
+msgid "Delete Selected LUNs"
+msgstr "Ta bort valda LUN"
+
+msgid "Disable Selected LUNs"
+msgstr "Inaktivera valda LUN"
+
+msgid "Enable Selected LUNs"
+msgstr "Aktivera valda LUN"
+
+msgid "Toggle Selected LUNs"
+msgstr "Växla valda LUN"
+
+msgid "Do you want to delete selected LUNs?"
+msgstr "Vill du ta bort valda LUN?"
+
+msgid "Do you want to disable selected LUNs?"
+msgstr "Vill du ta bort valda LUN?"
+
+msgid "Do you want to enable selected LUNs?"
+msgstr "Vill du inaktivera valda LUN?"
+
+msgid "Do you want to toggle selected LUNs?"
+msgstr "Vill du växla valda LUN?"
+
+msgid "Backend"
+msgstr "Bakgrundsprogram"
+
+msgid "CTL LUN"
+msgstr "CTL LUN"
+
+msgid "Device Type"
+msgstr "Enhetstyp"
+
+msgid "Passthrough Address"
+msgstr "\"passthrough\"-adress"
+
+msgid "LUN Vendor"
+msgstr "LUN tillverkare"
+
+msgid "LUN Product"
+msgstr "LUN Produkt"
+
+msgid "LUN Revision"
+msgstr "LUN Revision"
+
+msgid "LUN SCSI Name"
+msgstr "LUN SCSI Namn"
+
+msgid "LUN EUI-64\tidentifier"
+msgstr "LUN EUI-64\tidentifierare"
+
+msgid "LUN NAA Identifier"
+msgstr "LUN NAA Identifierare"
+
+msgid "LUN UUID"
+msgstr "LUN UUID"
+
+msgid "HA Role"
+msgstr "HA roll"
+
+msgid "Insecure TPC"
+msgstr "Osäker TPC"
+
+msgid "Read Cache"
+msgstr "Läsbuffert"
+
+msgid "Read Only"
+msgstr "Skrivskyddad"
+
+msgid "Reordering"
+msgstr "Omsortering"
+
+msgid "Serialize Sequence"
+msgstr "Serialiseringssekvens"
+
+msgid "Physical Block Size"
+msgstr "Fysisk blockstorlek"
+
+msgid "Physical Block Offset"
+msgstr "Fysisk blockoffset"
+
+msgid "UNMAP Block Size"
+msgstr "UNMAP Blockstorlek"
+
+msgid "UNMAP Block Offset"
+msgstr "UNMAP Blockoffsett"
+
+msgid "RPM"
+msgstr "RPM"
+
+msgid "Form Factor"
+msgstr "Formfaktor"
+
+msgid "Provisioning Type"
+msgstr "Tillhandahållen typ"
+
+msgid "UNMAP"
+msgstr "UNMAP"
+
+msgid "UNMAP Maximum LBA"
+msgstr "UNMAP Maximum LBA"
+
+msgid "UNMAP Maximum Descriptors"
+msgstr "UNMAP Maximalt antal benämningar"
+
+msgid "Write Same Maximum LBA"
+msgstr "Write Same Maximum LBA"
+
+msgid "Avail Threshold"
+msgstr "Tillgägligt tröskelvärde"
+
+msgid "Used Threshold"
+msgstr "Använt tröskelvärde"
+
+msgid "Pool Avail Threshold"
+msgstr "Pool tillgängligt tröskelvärde"
+
+msgid "Pool Used Threshold"
+msgstr "Pool använt tröskelvärde"
+
+msgid "Threads"
+msgstr "Trådar"
 
 msgid "Name of the Portal Group."
 msgstr "Namnet på portalgruppen"
@@ -11784,18 +12581,6 @@ msgstr ""
 "Unikt 16-bit variabelvärde för denna portalgrupp. Om detta inte anges skapas "
 "värdet automatiskt."
 
-msgid "Discovery Filter"
-msgstr "Sökfilter"
-
-msgid "Offload"
-msgstr "Avlastning"
-
-msgid "Redirect"
-msgstr "Omdirigera"
-
-msgid "Foreign"
-msgstr "Främmande"
-
 msgid "Add Portal Group"
 msgstr "Lägg till portalgrupp"
 
@@ -11834,6 +12619,47 @@ msgstr "Vill du aktivera valda portalgrupper?"
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Vill du växla valda portalgrupper?"
+
+msgid "Discovery Filter"
+msgstr "Sökfilter"
+
+msgid "Offload"
+msgstr "Avlastning"
+
+msgid "Redirect"
+msgstr "Omdirigera"
+
+msgid "Foreign"
+msgstr "Främmande"
+
+msgid "Listen"
+msgstr "Lyssna"
+
+msgid "Option"
+msgstr "Alternativ"
+
+msgid "No listeners found."
+msgstr "Inga lyssnare hittades."
+
+msgid "No options found."
+msgstr "Inga optoner hittades."
+
+msgid "Enter user name."
+msgstr "Mata in användarnamn."
+
+msgid "Enter secret."
+msgstr "Mata in hemlighet."
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+"Chap länk konfiguration för autentiseringsgrupper. Notera att en "
+"autentiseringsgrupp kan innehålla endera en chap eller chap-gemensamma "
+"poster, men inte båda."
+
+msgid "No auth groups found."
+msgstr "Inga autentiseringsgrupper hittades."
 
 msgid "Add CHAP User"
 msgstr "Lägg till CHAP användare"
@@ -11874,40 +12700,6 @@ msgstr "Vill du aktivera valda CHAP användare?"
 msgid "Do you want to toggle selected CHAP users?"
 msgstr "Vill du växla valda CHAP användare?"
 
-msgid "Enter user name."
-msgstr "Mata in användarnamn."
-
-msgid "Enter secret."
-msgstr "Mata in hemlighet."
-
-msgid ""
-"Link chap configuration to auth-groups. Note that an auth-group may contain "
-"either chap or chap-mutual entries, but not both."
-msgstr ""
-"Chap länk konfiguration för autentiseringsgrupper. Notera att en "
-"autentiseringsgrupp kan innehålla endera en chap eller chap-gemensamma "
-"poster, men inte båda."
-
-msgid "No auth groups found."
-msgstr "Inga autentiseringsgrupper hittades."
-
-msgid ""
-"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
-"contain either chap or chap-mutual entries, but not both."
-msgstr ""
-"Gemensam chap länk konfiguration för autentiseringsgrupper. Notera att en "
-"autentiseringsgrupp kan innehålla endera en chap eller gemensamma chap "
-"poster, men inte båda."
-
-msgid "Enter mutual user name."
-msgstr "Mata in ett gemensamt användarnamn."
-
-msgid "Mutual User"
-msgstr "Gemensam användare"
-
-msgid "Mutual Secret"
-msgstr "Gemensam hemlighet"
-
 msgid "Add Mutual CHAP User"
 msgstr "Lägg till gemensam CHAP användare"
 
@@ -11947,15 +12739,22 @@ msgstr "Vill du aktivera valda gemensamma CHAP användare?"
 msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "Vill du växla valda gemensamma CHAP användare?"
 
-msgid "Enter an iSCSI initiator name."
-msgstr "Mata in ett iSCSI initierarnamn."
-
 msgid ""
-"Link initiator-name to auth-groups. An Initiator with this name will be "
-"allowed to connect to the selected auth-groups."
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
 msgstr ""
-"Länk initierarnamn för autentiseringsgrupper. En initierare med detta namn "
-"tillåts ansluta till den valda autentiseringsgruppen."
+"Gemensam chap länk konfiguration för autentiseringsgrupper. Notera att en "
+"autentiseringsgrupp kan innehålla endera en chap eller gemensamma chap "
+"poster, men inte båda."
+
+msgid "Enter mutual user name."
+msgstr "Mata in ett gemensamt användarnamn."
+
+msgid "Mutual User"
+msgstr "Gemensam användare"
+
+msgid "Mutual Secret"
+msgstr "Gemensam hemlighet"
 
 msgid "Add Initiator Name"
 msgstr "Lägg till Initierarnamn"
@@ -11996,6 +12795,32 @@ msgstr "Vill du aktivera valda Initerarnamn?"
 msgid "Do you want to toggle selected initiator names?"
 msgstr "Vill du växla valda Initierarnamn?"
 
+msgid "Enter an iSCSI initiator name."
+msgstr "Mata in ett iSCSI initierarnamn."
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+"Länk initierarnamn för autentiseringsgrupper. En initierare med detta namn "
+"tillåts ansluta till den valda autentiseringsgruppen."
+
+msgid "IP Address Prefix"
+msgstr "IP adressförled."
+
+msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr "En IPv4 eller IPv6 adress till en iSCSI initierarportal."
+
+msgid "Enter IP address prefix length."
+msgstr "Mata in IP adress förledslängd."
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+"Länkinitierarportal till autentiseringsgrupper. En initierare som matchar "
+"denna adress tillåts ansluta till den valda Autentiseringsgruppen."
+
 msgid "Add Initiator Portal"
 msgstr "Lägg till Initierarportal"
 
@@ -12035,24 +12860,11 @@ msgstr "Vill du aktivera valda Initierarportaler?"
 msgid "Do you want to toggle selected initiator portals?"
 msgstr "Vill du växla valda Initierarportaler?"
 
-msgid "IP Address Prefix"
-msgstr "IP adressförled."
+msgid "IPv4 or IPv6 address of an iSNS server to register on."
+msgstr "IPv4 eller IPv6 adress till en iSNS server att registrera på."
 
-msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "En IPv4 eller IPv6 adress till en iSCSI initierarportal."
-
-msgid "Enter IP address prefix length."
-msgstr "Mata in IP adress förledslängd."
-
-msgid ""
-"Link initiator-portal to auth-groups. An Initiator matching this address "
-"will be allowed to connect to the selected auth-groups."
-msgstr ""
-"Länkinitierarportal till autentiseringsgrupper. En initierare som matchar "
-"denna adress tillåts ansluta till den valda Autentiseringsgruppen."
-
-msgid "iSNS Servers"
-msgstr "iSNS servrar"
+msgid "Port number of the iSNS server."
+msgstr "Portnummret för iSNS servern."
 
 msgid "Add iSNS Server"
 msgstr "Lägg till iSNS server"
@@ -12093,11 +12905,8 @@ msgstr "Vill du aktivera de valda iSNS servrarna?"
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Vill du växla de valda iSNS servrarna?"
 
-msgid "IPv4 or IPv6 address of an iSNS server to register on."
-msgstr "IPv4 eller IPv6 adress till en iSNS server att registrera på."
-
-msgid "Port number of the iSNS server."
-msgstr "Portnummret för iSNS servern."
+msgid "iSNS Servers"
+msgstr "iSNS servrar"
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr ""
@@ -12155,6 +12964,9 @@ msgstr "Vill du aktivera valda lyssnarposter?"
 msgid "Do you want to toggle selected listen records?"
 msgstr "Vill du växla valda lyssnarposter?"
 
+msgid "Listen (iSER)"
+msgstr "Lyssna (iSER)"
+
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
@@ -12169,11 +12981,20 @@ msgstr ""
 "En port att lyssna på för inkommande anslutningar som använder iSER (iSCSI "
 "över RDMA) protokoll."
 
-msgid "Listen (iSER)"
-msgstr "Lyssna (iSER)"
-
 msgid "LUN Number"
 msgstr "LUN nummer"
+
+msgid "LUN number"
+msgstr "LUN nummer"
+
+msgid "No LUNs found."
+msgstr "Inga LUN hittades."
+
+msgid "Select targets."
+msgstr "Välj mål."
+
+msgid "No targets found."
+msgstr "Inga mål hittades."
 
 msgid "Add LUN Record"
 msgstr "Lägg till LUN post"
@@ -12214,23 +13035,14 @@ msgstr "Vill du aktivera valda LUN poster?"
 msgid "Do you want to toggle selected LUN records?"
 msgstr "Vill du växla valda LUN poster?"
 
-msgid "LUN number"
-msgstr "LUN nummer"
+msgid "Name of the option."
+msgstr "Namn på optionen."
 
-msgid "No LUNs found."
-msgstr "Inga LUN hittades."
+msgid "Value of the option."
+msgstr "Värde på optionen."
 
-msgid "Select targets."
-msgstr "Välj mål."
-
-msgid "No targets found."
-msgstr "Inga mål hittades."
-
-msgid "Option Name"
-msgstr "Optionsnamn"
-
-msgid "Option Value"
-msgstr "Värde på optionen"
+msgid "Link this option to selected portal-groups."
+msgstr "Länka denna option till valda portalgrupper."
 
 msgid "Add Option Record"
 msgstr "Lägg till Optionspost"
@@ -12271,20 +13083,11 @@ msgstr "Vill du aktivera valda optionsposter?"
 msgid "Do you want to toggle selected option records?"
 msgstr "Vill du växla valda optionsposter?"
 
-msgid "Name of the option."
-msgstr "Namn på optionen."
+msgid "Option Name"
+msgstr "Optionsnamn"
 
-msgid "Value of the option."
-msgstr "Värde på optionen."
-
-msgid "Link this option to selected portal-groups."
-msgstr "Länka denna option till valda portalgrupper."
-
-msgid "Port Name"
-msgstr "Portnamn"
-
-msgid "Name of the port."
-msgstr "Namn på porten."
+msgid "Option Value"
+msgstr "Värde på optionen"
 
 msgid "Add Port Record"
 msgstr "Lägg till Portalpost"
@@ -12325,38 +13128,14 @@ msgstr "Vill du aktivera valda portposter?"
 msgid "Do you want to toggle selected port records?"
 msgstr "Vill du växla valda portposter?"
 
-msgid "Name of the target."
-msgstr "Namnetpå målet"
+msgid "Name of the port."
+msgstr "Namn på porten."
 
-msgid "These parameters will be added to this target."
-msgstr "Dessa parametrar kommer läggas till i detta mål."
-
-msgid "Assign a human-readable description to the target."
-msgstr "Sätt en lättförståelig beskrivning för målet."
+msgid "Port Name"
+msgstr "Portnamn"
 
 msgid "Alias"
 msgstr "Alias"
-
-msgid "Assign a previously defined authentication group to the target."
-msgstr "Knyt en tidigare definierad autentiseringsgrupp till målet."
-
-msgid "Permit access without authentication"
-msgstr "Tillåt åtkomt utan autentisering"
-
-msgid "Assign a previously defined portal group to the target."
-msgstr "Knyt en tidigare definierad portalgrupp till målet."
-
-msgid ""
-"IPv4 or IPv6 address to redirect initiators to. When configured, all "
-"initiators attempting to connect to this target will get redirected using "
-"\"Target moved temporarily\" login response."
-msgstr ""
-"IPv4 eller IPv6 adress att omdirigera initierare till. När denna är satt "
-"kommer alla initerares försök att ansluta till detta mål omdirigeras med "
-"\"Target moved temporarily\" inloggningshantering."
-
-msgid "No ports found."
-msgstr "Inga portar hittades."
 
 msgid "Add Target"
 msgstr "Lägg till mål"
@@ -12397,6 +13176,36 @@ msgstr "Vill du aktivera valda mål?"
 msgid "Do you want to toggle selected targets?"
 msgstr "Vill du växla valda mål?"
 
+msgid "No ports found."
+msgstr "Inga portar hittades."
+
+msgid "Name of the target."
+msgstr "Namnetpå målet"
+
+msgid "These parameters will be added to this target."
+msgstr "Dessa parametrar kommer läggas till i detta mål."
+
+msgid "Assign a human-readable description to the target."
+msgstr "Sätt en lättförståelig beskrivning för målet."
+
+msgid "Assign a previously defined authentication group to the target."
+msgstr "Knyt en tidigare definierad autentiseringsgrupp till målet."
+
+msgid "Permit access without authentication"
+msgstr "Tillåt åtkomt utan autentisering"
+
+msgid "Assign a previously defined portal group to the target."
+msgstr "Knyt en tidigare definierad portalgrupp till målet."
+
+msgid ""
+"IPv4 or IPv6 address to redirect initiators to. When configured, all "
+"initiators attempting to connect to this target will get redirected using "
+"\"Target moved temporarily\" login response."
+msgstr ""
+"IPv4 eller IPv6 adress att omdirigera initierare till. När denna är satt "
+"kommer alla initerares försök att ansluta till detta mål omdirigeras med "
+"\"Target moved temporarily\" inloggningshantering."
+
 msgid "Max Processes"
 msgstr "Max processer"
 
@@ -12436,378 +13245,74 @@ msgstr "Timeout för iSNS förfrågningar. Standard är 5."
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr "Dessa parametrar kommer läggas till sen globala sektionen i my.cnf"
 
-msgid ""
-"Select \"Custom Provider\" for customizing the DDNS update server details "
-"settings."
-msgstr ""
-"Välj \"Anpassad leverantör\" för att användaranpassa DDNS "
-"uppdateringsserverns detaljinställningar."
-
-msgid "Select from predefined providers."
-msgstr "Välj bland fördefinierade leverantörer."
-
-msgid "Enter an identifier for this custom DDNS configuration."
-msgstr "Mata in ett namn för denna anpassade DDNS-konfiguration."
-
-msgid ""
-"To support multiple users of the same DDNS provider, an identifier must be "
-"defined. The identifier can be any free form alphanumeric string as long as "
-"the combination is unique."
-msgstr ""
-"För att stödja fler användare av samma DDNS leverantör, måste  en "
-"identifierare definieras. Identifieraren kan vara en alfanumerisk sträng så "
-"länge den är unik."
-
-msgid "The list of hostnames. Use a comma to separate multiple names."
-msgstr "Lista med värdnamn. Använd ett komma för att separera flera namn."
-
-msgid "Hostnames"
-msgstr "Värdnamn"
-
-msgid "The username, if applicable. This might be referred to as hash."
-msgstr "Användarnamnet, om erfordras. Detta kan kallas hash."
-
-msgid "The password, if applicable."
-msgstr "Lösenordet, om erfordras."
-
-msgid ""
-"Enable domain name wildcarding of the domain name, for DDNS providers that "
-"support this."
-msgstr ""
-"Aktivera möjlighet att använda jokertecken för domännamnet, för DDNS "
-"leverantörer som stöder detta"
-
-msgid ""
-"Use HTTPS, both when checking for IP changes and updating the DNS record. "
-"Default is to use HTTPS."
-msgstr ""
-"Använd HTTPS, både vid kontroll av IP förändringar och uppdatering av DNS. "
-"Standard är att använda HTTPS."
-
-msgid "Server to use for periodic IP address changes"
-msgstr "Server som skall användas för periodiska IP adressändringar"
-
-msgid "api.ipify.org"
-msgstr "api.ipify.org"
-
-msgid "Optional server path for check IP server"
-msgstr "Frivillig serversökväg för kontroll IP server"
-
-msgid "/"
-msgstr "/"
-
-msgid ""
-"This setting usually follows the ssl setting, but can be used to disable "
-"HTTPS for the IP address check."
-msgstr ""
-"Denna inställning följer normalt ssl-inställningarna, men kan användas för "
-"att inaktivera HTTPS för IP adresskontrollen."
-
-msgid ""
-"Shell command, or script, for IP address update checking. The command must "
-"output a text with the IP address to its standard output."
-msgstr ""
-"Shellkommando, eller skript, för IP adress uppdateringskontroll. Kommandot "
-"måste lägga ut en text med IP adressen på dess standarutmatning."
-
-msgid ""
-"Same as the global setting, but only for this provider. If omitted it "
-"defaults to the global setting, which if unset uses the default user agent "
-"string."
-msgstr ""
-"Samma som globala inställningar, men bara för denna leverantör. Om de "
-"utelämnas sätts de till de globala inställningarna, som om dessa inte "
-"angetts sätts till standard användaragentsträng."
+msgid "Target Address"
+msgstr "Måladress"
 
-msgid "User agent string"
-msgstr "Sträng för användaragent"
+msgid "CHAP Name"
+msgstr "CHAP namn"
 
-msgid "DDNS server name, not the full URL."
-msgstr "DDNS servernamn, inte hel URL."
+msgid "CHAP Secret"
+msgstr "CHAP hemlighet"
 
-msgid "update.example.com"
-msgstr "update.example.com"
+msgid "Mutual CHAP Name"
+msgstr "Gemensamt CHAP namn"
 
-msgid ""
-"DDNS server path. By default the hostname is appended to the path, unless "
-"append-myip is set."
-msgstr ""
-"DDNS serversökväg. Som standard läggs värdnamnet till sökvägen, om inte lägg "
-"till IP är satt."
+msgid "Mutual CHAP Secret"
+msgstr "Gemensam CHAP hemlighet"
 
-msgid "/update?domain="
-msgstr "/update?domain="
+msgid "Header Digest"
+msgstr "Rubriksammanställning"
 
-msgid "Append the current IP to the DDNS server update path."
-msgstr "Lägg till aktuell IP till DDNS serverns uppdateringssökväg."
+msgid "Data Digest"
+msgstr "Data sammanställning"
 
-msgid ""
-"If this setting is not enabled, the hostname is appended. Unless the ddns-"
-"path is given with format specifiers, in which case this setting is unused."
-msgstr ""
-"Om denna inställning inte är aktiverad, kommer värdnamnet läggas till. Om "
-"inte ddns-sökvägen är angiven med formatangivelser, i vilka denna "
-"inställning inte används."
+msgid "Offload Driver"
+msgstr "Avlastningsdrivrutin"
 
-msgid "These parameters will be added to this provider configuration"
-msgstr ""
-"Dessa parametrar kommer läggas till i denna leverantörs konfiguration"
+msgid "Session State"
+msgstr "Sessionsstatus"
 
-msgid "Standard Provider"
-msgstr "Standardleverantör"
+msgid "Session Type"
+msgstr "Sessionstyp"
 
-msgid "Custom Provider"
-msgstr "Anpassad leverantör"
+msgid "Add iSCSI Initiator"
+msgstr "Lägg till iSCSI initierare"
 
-msgid "Record Type"
-msgstr "Posttyp"
+msgid "Edit iSCSI Initiator"
+msgstr "Ändra iSCSI initierare"
 
-msgid "Provider"
-msgstr "Leverantör"
+msgid "iSCSI Initiator is marked for deletion"
+msgstr "iSCSI initerare är markerad för borttagning"
 
-msgid "Provider Name"
-msgstr "Namn på leverantör"
+msgid "iSCSI Initiator is locked"
+msgstr "iSCSI initerare är låst"
 
-msgid "Host Names"
-msgstr "Värdnamn"
+msgid "iSCSI Initiator is unlocked"
+msgstr "iSCSI initerare är olåst"
 
-msgid "Wildcard Domain"
-msgstr "Wildcard Domän"
+msgid "Delete Selected iSCSI Initiators"
+msgstr "Ta bort valda iSCSI initierare"
 
-msgid "Use HTTPS"
-msgstr "Använd HTTPS"
+msgid "Disable Selected iSCSI Initiators"
+msgstr "Inaktivera valda iSCSI initierare"
 
-msgid "Check IP Server"
-msgstr "Kontroll IP server"
+msgid "Enable Selected iSCSI Initiators"
+msgstr "Aktivera valda iSCSI initierare"
 
-msgid "Check IP Path"
-msgstr "Kontroll IP serversökväg"
+msgid "Toggle Selected iSCSI Initiators"
+msgstr "Växla valda iSCSI initierare"
 
-msgid "Check IP using HTTPS"
-msgstr "Kontrollera IP med HTTPS"
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr "Vill du ta bort valda iSCSI initierare?"
 
-msgid "Check IP Command"
-msgstr "Kommando för att kontrollera IP"
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr "Vill du inaktivera valda iSCSI initierare?"
 
-msgid "User Agent"
-msgstr "Användaragent"
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr "Vill du aktivera valda iSCSI initierare?"
 
-msgid "DDNS-Server"
-msgstr "DDNS-server"
-
-msgid "DDNS-Path"
-msgstr "DDNS-sökväg"
-
-msgid "Append my IP"
-msgstr "Lägg till min IP"
-
-msgid "Providers"
-msgstr "Leverantörer"
-
-msgid "Add Provider"
-msgstr "Lägg till leverantör"
-
-msgid "Edit Provider"
-msgstr "Ändra leverantör"
-
-msgid "Provider is marked for deletion"
-msgstr "leverantör är markerad för borttagning"
-
-msgid "Provider is locked"
-msgstr "Leverantör är låst"
-
-msgid "Provider is unlocked"
-msgstr "Leverantör är olåst"
-
-msgid "Delete Selected Providers"
-msgstr "Ta bort valda leverantörer"
-
-msgid "Disable Selected Providers"
-msgstr "Inaktivera valda leverantörer"
-
-msgid "Enable Selected Providers"
-msgstr "Aktivera valda leverantörer"
-
-msgid "Toggle Selected Providers"
-msgstr "Växla valda leverantörer"
-
-msgid "Do you want to delete selected providers?"
-msgstr "Vill du ta bort valda leverantörer?"
-
-msgid "Do you want to disable selected providers?"
-msgstr "Vill du inaktivera valda leverantörer?"
-
-msgid "Do you want to enable selected providers?"
-msgstr "Vill du aktivera valda leverantörer?"
-
-msgid "Do you want to toggle selected providers?"
-msgstr "Vill du växla valda leverantörer?"
-
-msgid "Missing Provider"
-msgstr "Saknad leverantör"
-
-msgid "Orphaned Provider"
-msgstr "Föräldrarlös leverantör"
-
-msgid "Undefined Type"
-msgstr "Odefinierad typ"
-
-msgid "Unknown Provider"
-msgstr "Okänd leverantör"
-
-msgid ""
-"IP address validation can be disabled by setting this option to false."
-msgstr ""
-"Validering av IP adress kan inaktiveras genom att sätta detta alternativ "
-"till falskt."
-
-msgid ""
-"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
-"address is a valid Internet address. Invalid addresses are, e.g., link "
-"local, loopback, multicast and known experimental addresses. For more "
-"information, see RFC3330."
-msgstr ""
-"Som standard verifierar inadyn både IPv4 och IPv6 adresser, säkerställer att "
-"adressen är en giltig Internetadress. Felaktiga adresser är, t.ex.., link "
-"local, loopback, multicast och kända experimentella adresser. För mer "
-"information, se RFC3330."
-
-msgid ""
-"Use this option to fake an address update with a \"random\" address in the "
-"203.0.113.0/24 range before updating with the actual IP address."
-msgstr ""
-"Använd detta alternativ för att bluffa en uppdatering med en \"slumpvis\" "
-"adress i 203.0.113.0/24 området innan uppdatering med den faktiska IP "
-"adressen."
-
-msgid ""
-"This option controls if IPv6 addresses should be allowed or discarded."
-msgstr "Detta alternativ styr om IPv6 adresser skall tillåtas eller inte."
-
-msgid ""
-"Use this network interface as source of IP address changes instead of "
-"querying an external server."
-msgstr ""
-"Använd detta nätverksgränssnitt som källa för IP adressförändringar i "
-"stället för att fråga en extern server."
-
-msgid ""
-"Set the number of DNS updates. The default is 0, which means infinity."
-msgstr ""
-"Sätt antal DNS uppdateringar. Standard är 0, vilket innebär obegränsat."
-
-msgid ""
-"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
-"days."
-msgstr ""
-"Hur ofta IP kontrolleras, i sekunder. Standard: ungefär 1 minut. Max: 10 "
-"dagar."
-
-msgid ""
-"How often the IP should be updated even if it is not changed. The time "
-"should be given in seconds. Default is equal to 30 days."
-msgstr ""
-"Hur ofta uppdatering av IP skall ske även om det inte ändrats. Tiden skall "
-"anges i sekunder. Standard motsvarar 30 dagar."
-
-msgid ""
-"Enable this option to abort an DDNS update if the HTTPS certificate "
-"validation fails."
-msgstr ""
-"Aktivera detta alternativ för att avbryta DDNS uppdatering om validering av "
-"HTTPS certifikat misslyckas."
-
-msgid ""
-"Enable this option only on systems without hardware real-time clock and "
-"default bootup time far in the past."
-msgstr ""
-"Aktivera bara detta alternativ på system med hårdvarurealtidsklocka och "
-"standard bootuptid långt tillbaka i tiden."
-
-msgid ""
-"This setting overrides the built-in paths and fallback locations and "
-"provides a way to specify the path to a trusted set of CA certificates, in "
-"PEM format, bundled into one file."
-msgstr ""
-"Denna inställning ersätter de inbyggda sökvägarna och reservplatserna och "
-"ger en möjlighet att specificera sökvägen till en betrodd uppsättning CA "
-"certifikat, i PEM-format, förpackade i en fil."
-
-msgid ""
-"Specify the User-Agent string to send to the DDNS provider on checkip and "
-"update requests."
-msgstr ""
-"Ange den Användar-Agent sträng som skall skickas till DDNS leverantören vid "
-"ipkontroll- och uppdteringsförfrågningar."
-
-msgid ""
-"Set directory for persistent cache files, The cache files are used to keep "
-"track of which addresses have been successfully sent to their respective "
-"DDNS provider and when."
-msgstr ""
-"Sätt katalog för beständiga cachefiler, dessa används till att hålla koll på "
-"vilka adresser som framgångsrikt sänts till respektive DDNS leverantör och "
-"när."
-
-msgid "Initial startup delay. Default is no delay."
-msgstr "Initial uppstartsfördröjning. Standard är ingen fördröjning."
-
-msgid "no delay"
-msgstr "Ingen fördröjning"
-
-msgid "Set log level"
-msgstr "Sätt loggnivå"
-
-msgid "Errors"
-msgstr "Fel"
-
-msgid "Notice"
-msgstr "Observera"
-
-msgid "Debug"
-msgstr "Felsök"
-
-msgid "These parameters are appended to the inadyn.conf file."
-msgstr "Dessa parametrar läggs till i inadyn.conf filen."
-
-msgid "Verify Address"
-msgstr "Verifiera adress"
-
-msgid "Fake Address"
-msgstr "Bluffadress"
-
-msgid "Allow IPv6"
-msgstr "Tillåt IPv6"
-
-msgid "Network Interface"
-msgstr "Nätverksgränssnitt"
-
-msgid "Iterations"
-msgstr "Upprepningar"
-
-msgid "Check Interval"
-msgstr "Kontrollintervall"
-
-msgid "Force Update Interval"
-msgstr "Tvinga uppdateringsintervall"
-
-msgid "Secure SSL"
-msgstr "Säker SSL"
-
-msgid "Broken RTC"
-msgstr "Felaktig RTC"
-
-msgid "CA Trusted Certificates"
-msgstr "Betrodda CA certifikat"
-
-msgid "Cache Directory"
-msgstr "Cachekatalog"
-
-msgid "Startup Delay"
-msgstr "Uppstartsfödröjning"
-
-msgid "Log Level"
-msgstr "Loggnivå"
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr "Vill du växla valda iSCSI initierare?"
 
 msgid "This is a nickname and is for information only."
 msgstr "Detta är ett smeknamn och är endast för information."
@@ -12914,75 +13419,6 @@ msgstr ""
 msgid "Discovery"
 msgstr "Utforska"
 
-msgid "Target Address"
-msgstr "Måladress"
-
-msgid "CHAP Name"
-msgstr "CHAP namn"
-
-msgid "CHAP Secret"
-msgstr "CHAP hemlighet"
-
-msgid "Mutual CHAP Name"
-msgstr "Gemensamt CHAP namn"
-
-msgid "Mutual CHAP Secret"
-msgstr "Gemensam CHAP hemlighet"
-
-msgid "Header Digest"
-msgstr "Rubriksammanställning"
-
-msgid "Data Digest"
-msgstr "Data sammanställning"
-
-msgid "Offload Driver"
-msgstr "Avlastningsdrivrutin"
-
-msgid "Session State"
-msgstr "Sessionsstatus"
-
-msgid "Session Type"
-msgstr "Sessionstyp"
-
-msgid "Add iSCSI Initiator"
-msgstr "Lägg till iSCSI initierare"
-
-msgid "Edit iSCSI Initiator"
-msgstr "Ändra iSCSI initierare"
-
-msgid "iSCSI Initiator is marked for deletion"
-msgstr "iSCSI initerare är markerad för borttagning"
-
-msgid "iSCSI Initiator is locked"
-msgstr "iSCSI initerare är låst"
-
-msgid "iSCSI Initiator is unlocked"
-msgstr "iSCSI initerare är olåst"
-
-msgid "Delete Selected iSCSI Initiators"
-msgstr "Ta bort valda iSCSI initierare"
-
-msgid "Disable Selected iSCSI Initiators"
-msgstr "Inaktivera valda iSCSI initierare"
-
-msgid "Enable Selected iSCSI Initiators"
-msgstr "Aktivera valda iSCSI initierare"
-
-msgid "Toggle Selected iSCSI Initiators"
-msgstr "Växla valda iSCSI initierare"
-
-msgid "Do you want to delete selected iSCSI initiators?"
-msgstr "Vill du ta bort valda iSCSI initierare?"
-
-msgid "Do you want to disable selected iSCSI initiators?"
-msgstr "Vill du inaktivera valda iSCSI initierare?"
-
-msgid "Do you want to enable selected iSCSI initiators?"
-msgstr "Vill du aktivera valda iSCSI initierare?"
-
-msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Vill du växla valda iSCSI initierare?"
-
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
 msgstr ""
@@ -13011,185 +13447,44 @@ msgstr ""
 "internt av AES algoritmen - du kommer inte att tillfrågas om "
 "lösenordsfrasen. Hemligheten skall vara minst 32 tecken lång"
 
-msgid "Media Type"
-msgstr "Mediatyp"
+msgid "Add NFS Export"
+msgstr "Lägg till NFS Export"
 
-msgid "Path to be included."
-msgstr "Sökväg som skall inkluderas."
+msgid "Edit NFS Export"
+msgstr "Ändra NFS Export"
 
-msgid "Restrict folder to a specific media type."
-msgstr "Reservera katalogen för en specifik mediatyp."
+msgid "NFS Export is marked for deletion"
+msgstr "NFS Export är markerad för norttagning"
 
-msgid "Scan folder for all media types."
-msgstr "Skanna katalogen för alla mediatyper."
+msgid "NFS Export is locked"
+msgstr "NFS Export är låst"
 
-msgid "Scan folder for audio files."
-msgstr "Skanna katalogen efter ljudfiler."
+msgid "NFS Export is unlocked"
+msgstr "NFS Export är olåst"
 
-msgid "Scan folder for video files."
-msgstr "Skanna katalogen efter videofiler."
+msgid "Delete Selected NFS Exports"
+msgstr "Ta bort valda NFS Exporter"
 
-msgid "Scan folder for image files."
-msgstr "Skanna katalogen efter bildfiler."
+msgid "Disable Selected NFS Exports"
+msgstr "Inaktivera valda NFS Exporter"
 
-msgid "Scan folder for video and image files."
-msgstr "Skanna katalogen efter video- och bildfiler."
+msgid "Enable Selected NFS Exports"
+msgstr "Aktivera valda NFS Exporter"
 
-msgid "Media Folders"
-msgstr "Mediakataloger"
+msgid "Toggle Selected NFS Exports"
+msgstr "Växla valda NFS Exporter"
 
-msgid "Media Folder"
-msgstr "Mediakatalog"
+msgid "Do you want to delete selected NFS exports?"
+msgstr "Vill du ta bort valda NFS Exporter?"
 
-msgid "Add Media Folder"
-msgstr "Lägg till mediakatalog"
+msgid "Do you want to disable selected NFS exports?"
+msgstr "Vill du inaktivera valda NFS Exporter?"
 
-msgid "Edit Media Folder"
-msgstr "Ändra mediakatalog"
+msgid "Do you want to enable selected NFS exports?"
+msgstr "Vill du aktivera valda NFS Exporter?"
 
-msgid "Media Folder is marked for deletion"
-msgstr "Mediakatalogen är markerad för borttagning"
-
-msgid "Media Folder is locked"
-msgstr "Mediakatalog är låst"
-
-msgid "Media Folder is unlocked"
-msgstr "Mediakatalog är olåst"
-
-msgid "Delete Selected Media Folders"
-msgstr "Ta bort valda mediakataloger"
-
-msgid "Disable Selected Media Folders"
-msgstr "Inaktivera valda mediakataloger"
-
-msgid "Enable Selected Media Folders"
-msgstr "Aktivera valda mediakataloger"
-
-msgid "Toggle Selected Media Folders"
-msgstr "Växla valda mediakataloger"
-
-msgid "Do you want to delete selected media folders?"
-msgstr "Vill du ta bort valda mediakataloger?"
-
-msgid "Do you want to disable selected media folders?"
-msgstr "Vill du inaktivera valda mediakataloger?"
-
-msgid "Do you want to enable selected media folders?"
-msgstr "Vill du aktivera valda mediakataloger?"
-
-msgid "Do you want to toggle selected media folders?"
-msgstr "Vill du växla valda mediakataloger?"
-
-msgid "Inotify"
-msgstr "Inotify"
-
-msgid "Broadcast Interval"
-msgstr "Sändningsintervall"
-
-msgid "Strict DLNA"
-msgstr "Strikt DLNA"
-
-msgid "TiVo Support"
-msgstr "TiVo Support"
-
-msgid "Wide Links"
-msgstr "Wide Links"
-
-msgid "Container"
-msgstr "Behållare"
-
-msgid "Sort Criteria"
-msgstr "Sorteringsvillkor"
-
-msgid "Disable Subtitles"
-msgstr "Inaktivera undertexter"
-
-msgid "Media Server Name."
-msgstr "Mediaservernamn."
-
-msgid "Verbosity of information that is logged."
-msgstr "Nivå på information som loggas."
-
-msgid "Fatal"
-msgstr "Ödesdiger"
-
-msgid "Enable inotify."
-msgstr "Aktivera inotify."
-
-msgid "Use inotify monitoring to automatically discover new media files."
-msgstr ""
-"Använd inotify monitorering för att automatiskt upptäcka nya mediafiler."
-
-msgid ""
-"Broadcasts its availability every configured seconds on the network, the "
-"default is 300 seconds."
-msgstr ""
-"Sändningar är tillgängliga varje inställd sekund på nätverket, standard är "
-"300 sekunder."
-
-msgid "300"
-msgstr "300"
-
-msgid ""
-"Port to listen on. Port number must be between 1024 and 65535. Default port "
-"is 8200."
-msgstr ""
-"Port att lyssna på. Portnummer måste vara mellan 1024 och 65535. "
-"Standardport är 8200."
-
-msgid "8200"
-msgstr "8200"
-
-msgid "Enable to strictly adhere to DLNA standards."
-msgstr "Aktivera för att strikt följa DLNA standarden."
-
-msgid ""
-"This will allow server-side downscaling of very large JPEG images, it can "
-"impact JPEG serving performance on some DLNA devices."
-msgstr ""
-"Detta medger servernedskalning av mycket stora JPEG bilder, det kan "
-"förbättra JPEG tillhandahållandeprestanda på vissa DNLA enheter."
-
-msgid "Enable TiVo support."
-msgstr "Aktivera TiVo stöd"
-
-msgid ""
-"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
-msgstr ""
-"Detta stödjer strömning av .jpg och .mp3 filer en TiVo som stödjer HMO."
-
-msgid "Allow symlinks that point outside defined media folders."
-msgstr "Tillåt symlänkar som pekar utanför definierad mediakatalog."
-
-msgid "These parameters will be added to minidlna.conf"
-msgstr "Dessa parametrar läggs till i minidlna.conf"
-
-msgid "Select a container as the root of the tree exposed to clients."
-msgstr "Välj en behållare som roten av det träd som exponeras för klienter"
-
-msgid "Use the standard container (this is the default)"
-msgstr "Använd standardbehållaren."
-
-msgid "Use the \"Browse Directory\" container"
-msgstr "Använd \"Katalogbläddrar\" behållaren"
-
-msgid "Use the \"Music\" container"
-msgstr "Använd \"Musik\" behållaren."
-
-msgid "Use the \"Video\" container"
-msgstr "Använd \"Video\" behållaren."
-
-msgid "Use the \"Pictures\" container"
-msgstr "Använd \"Bilder\" behållaren."
-
-msgid "Overwrite the sort criteria passed by the client."
-msgstr "Skriv över sorteringskriterier som kommer från klienten."
-
-msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-
-msgid "Disable subtitle support on unknown clients."
-msgstr "Inaktivera undertexter på okända klienter."
+msgid "Do you want to toggle selected NFS exports?"
+msgstr "Vill du växla valda NFS Exporter?"
 
 msgid "Mapping"
 msgstr "Mappning"
@@ -13292,45 +13587,6 @@ msgstr ""
 msgid "Root Directory"
 msgstr "Rotkatalog"
 
-msgid "Add NFS Export"
-msgstr "Lägg till NFS Export"
-
-msgid "Edit NFS Export"
-msgstr "Ändra NFS Export"
-
-msgid "NFS Export is marked for deletion"
-msgstr "NFS Export är markerad för norttagning"
-
-msgid "NFS Export is locked"
-msgstr "NFS Export är låst"
-
-msgid "NFS Export is unlocked"
-msgstr "NFS Export är olåst"
-
-msgid "Delete Selected NFS Exports"
-msgstr "Ta bort valda NFS Exporter"
-
-msgid "Disable Selected NFS Exports"
-msgstr "Inaktivera valda NFS Exporter"
-
-msgid "Enable Selected NFS Exports"
-msgstr "Aktivera valda NFS Exporter"
-
-msgid "Toggle Selected NFS Exports"
-msgstr "Växla valda NFS Exporter"
-
-msgid "Do you want to delete selected NFS exports?"
-msgstr "Vill du ta bort valda NFS Exporter?"
-
-msgid "Do you want to disable selected NFS exports?"
-msgstr "Vill du inaktivera valda NFS Exporter?"
-
-msgid "Do you want to enable selected NFS exports?"
-msgstr "Vill du aktivera valda NFS Exporter?"
-
-msgid "Do you want to toggle selected NFS exports?"
-msgstr "Vill du växla valda NFS Exporter?"
-
 msgid "Add NFS Root"
 msgstr "Lägg till NFS Root"
 
@@ -13373,6 +13629,15 @@ msgstr "Vill du växla valda NFS rootkataloger?"
 msgid "Root Directories"
 msgstr "Rootkatalog"
 
+msgid "NFSv4"
+msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr "Bara NFSv4"
+
+msgid "Servers"
+msgstr "Servrar"
+
 msgid "Enable NFSv4 server."
 msgstr "Aktivera NFSv4 server."
 
@@ -13390,15 +13655,6 @@ msgstr ""
 msgid "These parameters are appended to the exports file."
 msgstr "Dessa parametrar läggs till i exportfilen."
 
-msgid "NFSv4"
-msgstr "NFSv4"
-
-msgid "NFSv4 Only"
-msgstr "Bara NFSv4"
-
-msgid "Servers"
-msgstr "Servrar"
-
 msgid "Driver List"
 msgstr "Drivrutinslista"
 
@@ -13410,6 +13666,66 @@ msgstr "Modellnamn"
 
 msgid "Model Extra"
 msgstr "Modell extra"
+
+msgid "Enable AFP"
+msgstr "Aktivera AFP"
+
+msgid "Create Mask"
+msgstr "Skapa mask"
+
+msgid "Force Group"
+msgstr "Tvinga Grupp"
+
+msgid "Force User"
+msgstr "Tvinga Användare"
+
+msgid "Shadow Copy Format"
+msgstr "Format för skuggkopior"
+
+msgid "VFS fruit:encoding"
+msgstr "VFS fruit:encoding"
+
+msgid "VFS fruit:locking"
+msgstr "VFS fruit:locking"
+
+msgid "VFS fruit:metadata"
+msgstr "VFS fruit:metadata"
+
+msgid "VFS fruit:resource"
+msgstr "VFS fruit:resource"
+
+msgid "VFS fruit:time machine"
+msgstr "VFS fruit:time machine"
+
+msgid "ZFS ACL"
+msgstr "ZFS ACL"
+
+msgid "Inherit ACL"
+msgstr "Ärv ACL"
+
+msgid "Alternate Data Streams"
+msgstr "Alaternativa dataströmmar"
+
+msgid "NTFS ACLs"
+msgstr "NTFS ACL:er (åtkomsträttigheter)"
+
+msgid "Shadow Copy"
+msgstr "Skuggkopia"
+
+msgid "Browseable"
+msgstr "Bläddringsbar"
+
+msgid "Guest Only"
+msgstr "Endast Gäster"
+
+msgid "Inherit Permissions"
+msgstr "Ärv rättigheter"
+
+msgid "Recycle Bin"
+msgstr "Papperskorg"
+
+msgid "Hide Dot Files"
+msgstr "Dölj punktfiler"
 
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
@@ -13632,66 +13948,6 @@ msgstr "Mata in en kommentar för utdelningen"
 
 msgid "Enter the location of the share"
 msgstr "Mata in utdeliningens plats"
-
-msgid "Enable AFP"
-msgstr "Aktivera AFP"
-
-msgid "Create Mask"
-msgstr "Skapa mask"
-
-msgid "Force Group"
-msgstr "Tvinga Grupp"
-
-msgid "Force User"
-msgstr "Tvinga Användare"
-
-msgid "Shadow Copy Format"
-msgstr "Format för skuggkopior"
-
-msgid "VFS fruit:encoding"
-msgstr "VFS fruit:encoding"
-
-msgid "VFS fruit:locking"
-msgstr "VFS fruit:locking"
-
-msgid "VFS fruit:metadata"
-msgstr "VFS fruit:metadata"
-
-msgid "VFS fruit:resource"
-msgstr "VFS fruit:resource"
-
-msgid "VFS fruit:time machine"
-msgstr "VFS fruit:time machine"
-
-msgid "ZFS ACL"
-msgstr "ZFS ACL"
-
-msgid "Inherit ACL"
-msgstr "Ärv ACL"
-
-msgid "Alternate Data Streams"
-msgstr "Alaternativa dataströmmar"
-
-msgid "NTFS ACLs"
-msgstr "NTFS ACL:er (åtkomsträttigheter)"
-
-msgid "Shadow Copy"
-msgstr "Skuggkopia"
-
-msgid "Browseable"
-msgstr "Bläddringsbar"
-
-msgid "Guest Only"
-msgstr "Endast Gäster"
-
-msgid "Inherit Permissions"
-msgstr "Ärv rättigheter"
-
-msgid "Recycle Bin"
-msgstr "Papperskorg"
-
-msgid "Hide Dot Files"
-msgstr "Dölj punktfiler"
 
 msgid "Add Samba Share"
 msgstr "Lägg till Sambautdelning"
@@ -14115,9 +14371,6 @@ msgstr ""
 msgid "Allow password authentication."
 msgstr "Tillåt autentisering med lösenord."
 
-msgid "Allow challenge-response authentication."
-msgstr "Tillåt fråga/svar autentisering."
-
 msgid "Allow keyboard-interactive authentication."
 msgstr "Tillåt autentisering via tangentbord."
 
@@ -14199,9 +14452,6 @@ msgstr "Dessa parametrar läggs till i /etc/ssh/sshd_config."
 msgid "Password Authentication"
 msgstr "Lösenordsautentisering"
 
-msgid "Challenge-Response Authentication"
-msgstr "Fråga-svar autentisering"
-
 msgid "Keyboard-Interactive Authentication"
 msgstr "Autentisering via tangentbord"
 
@@ -14216,6 +14466,18 @@ msgstr "Rootinloggning"
 
 msgid "TCP Forwarding"
 msgstr "TCP vidarebefordran"
+
+msgid "Allow New Files"
+msgstr "Tillåt nya filer"
+
+msgid "Directory"
+msgstr "Katalog"
+
+msgid "Max. Block Size"
+msgstr "Max. blockstorlek"
+
+msgid "Umask"
+msgstr "Ta fram"
 
 msgid "Allow new files to be created."
 msgstr "Tillåt att nya filer att skapas."
@@ -14282,14 +14544,56 @@ msgstr "000"
 msgid "Specifies the username under which the TFTP service should run."
 msgstr "Specificerar användarnamnet under vilket TFTP tjänsten skall köras."
 
-msgid "Allow New Files"
-msgstr "Tillåt nya filer"
+msgid "Peer Port"
+msgstr "Peerport"
 
-msgid "Max. Block Size"
-msgstr "Max. blockstorlek"
+msgid "Configuration Folder"
+msgstr "Konfigurationskatalog"
 
-msgid "Umask"
-msgstr "Ta fram"
+msgid "Incomplete Folder"
+msgstr "Katalog för delvis nedladdade"
+
+msgid "Download Folder"
+msgstr "Hämtningskatalog"
+
+msgid "Watch Folder"
+msgstr "Övervaka katalog"
+
+msgid "Port Forwarding"
+msgstr "Vidarebefordring av portar"
+
+msgid "Peer Exchange"
+msgstr "Distributörsutbyte (Peer Exchange)"
+
+msgid "Distributed Hash Table"
+msgstr "Distrubierad Hash-tabell"
+
+msgid "Local Peer Discovery"
+msgstr "Lokal delningsupptäkt"
+
+msgid "uTP"
+msgstr "uTP"
+
+msgid "User Mask"
+msgstr "Användar Mask"
+
+msgid "Preallocation"
+msgstr "Förallokering"
+
+msgid "Message Level"
+msgstr "Meddelandenivå"
+
+msgid "DNS Rebind Protection"
+msgstr "DNS Återknytningsskydd"
+
+msgid "Domain Names"
+msgstr "Domännamn"
+
+msgid "Start Torrents"
+msgstr "Starta Torrenter"
+
+msgid "Stop Torrents"
+msgstr "Stoppa Torrenter"
 
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
@@ -14418,68 +14722,17 @@ msgstr ""
 msgid "Stop torrents before stopping service."
 msgstr "Stoppa torrenter innan tjänsten stoppas."
 
-msgid "Peer Port"
-msgstr "Peerport"
+msgid "Work Directory"
+msgstr "Arbetskatalog"
 
-msgid "Configuration Folder"
-msgstr "Konfigurationskatalog"
-
-msgid "Incomplete Folder"
-msgstr "Katalog för delvis nedladdade"
-
-msgid "Download Folder"
-msgstr "Hämtningskatalog"
-
-msgid "Watch Folder"
-msgstr "Övervaka katalog"
-
-msgid "Port Forwarding"
-msgstr "Vidarebefordring av portar"
-
-msgid "Peer Exchange"
-msgstr "Distributörsutbyte (Peer Exchange)"
-
-msgid "Distributed Hash Table"
-msgstr "Distrubierad Hash-tabell"
-
-msgid "Local Peer Discovery"
-msgstr "Lokal delningsupptäkt"
-
-msgid "uTP"
-msgstr "uTP"
-
-msgid "User Mask"
-msgstr "Användar Mask"
-
-msgid "Preallocation"
-msgstr "Förallokering"
-
-msgid "Message Level"
-msgstr "Meddelandenivå"
-
-msgid "DNS Rebind Protection"
-msgstr "DNS Återknytningsskydd"
-
-msgid "Domain Names"
-msgstr "Domännamn"
-
-msgid "Start Torrents"
-msgstr "Starta Torrenter"
-
-msgid "Stop Torrents"
-msgstr "Stoppa Torrenter"
+msgid "Create Work Directory"
+msgstr "Skapa arbetskatalog"
 
 msgid "Location where work files will be stored."
 msgstr "Plats där arbetsfiler skall sparas."
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Skapa katalogen om den inte finns."
-
-msgid "Work Directory"
-msgstr "Arbetskatalog"
-
-msgid "Create Work Directory"
-msgstr "Skapa arbetskatalog"
 
 msgid "Name of the WebDAV Record."
 msgstr "Namn på WebDAV posten."
@@ -14503,6 +14756,12 @@ msgstr "Använd Sqlite för lås och egenskaper."
 
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr "Dessa parametrar kommer läggas till i denna WebDAV konfiguration."
+
+msgid "Read-Only"
+msgstr "Skrivskyddad"
+
+msgid "Use Sqlite"
+msgstr "Använd Sqlite"
 
 msgid "Add WebDAV Record"
 msgstr "Lägg till WebDAV post"
@@ -14543,30 +14802,6 @@ msgstr "Vill du aktivera valda WebDAV poster?"
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Vill du växla valda WebDAV poster?"
 
-msgid "Read-Only"
-msgstr "Skrivskyddad"
-
-msgid "Use Sqlite"
-msgstr "Använd Sqlite"
-
-msgid "IP Address Family"
-msgstr "IP adressfamilj"
-
-msgid "NETBIOS Hostname"
-msgstr "NETBIOS Värdnamn"
-
-msgid "Preserve Case"
-msgstr "Behåll skiftläge"
-
-msgid "Server Mode"
-msgstr "Serverläge"
-
-msgid "Workgroup Name"
-msgstr "Arbetsgruppsnamn"
-
-msgid "Web Service Discovery"
-msgstr "Web Service Discovery"
-
 msgid "IPv4 only"
 msgstr "Endast IPv4"
 
@@ -14593,6 +14828,24 @@ msgstr "Välj mellan domänläge eller arbetsgruppsläge."
 msgid "Set workgroup name"
 msgstr "Sätt arbetsgruppnamn"
 
+msgid "IP Address Family"
+msgstr "IP adressfamilj"
+
+msgid "NETBIOS Hostname"
+msgstr "NETBIOS Värdnamn"
+
+msgid "Preserve Case"
+msgstr "Behåll skiftläge"
+
+msgid "Server Mode"
+msgstr "Serverläge"
+
+msgid "Workgroup Name"
+msgstr "Arbetsgruppsnamn"
+
+msgid "Web Service Discovery"
+msgstr "Web Service Discovery"
+
 msgid "Protected"
 msgstr "Skyddad"
 
@@ -14604,6 +14857,15 @@ msgstr "Snapkatalog"
 
 msgid "UTF-8 Only"
 msgstr "Bara UTF-8"
+
+msgid "Service"
+msgstr "Tjänst"
+
+msgid "Do you really want to remove the selected item from the list?"
+msgstr "Vill du verkligen ta bort det valda föremålet från listan?"
+
+msgid "Select item to remove from the list"
+msgstr "Välj poster att ta bort från listan"
 
 msgid "You may enter a description for your reference."
 msgstr "Du kan ange en förklarande text."
@@ -14632,8 +14894,516 @@ msgstr "Mata in volymnamn"
 msgid "The name of the ZFS pool."
 msgstr "Namnet på ZFS poolen."
 
-msgid "Service"
-msgstr "Tjänst"
+msgid "You are not allowed to use this function."
+msgstr "Du har inte rättigheter att använda denna funktion."
+
+msgid "Copy item(s)"
+msgstr "Kopiera objekt"
+
+msgid "Move item(s)"
+msgstr "Flytta objekt"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Kopiera från %s till %s "
+
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "Flytta från %s till %s "
+
+msgid "Copy"
+msgstr "Kopiera"
+
+msgid "Move"
+msgstr "Flytta"
+
+msgid "The target directory doesn't exist."
+msgstr "Målkatalogen finns inte."
+
+msgid "You are not allowed to access the target directory."
+msgstr "Du har inte rättigheter att komma åt målkatalogen."
+
+msgid "The target directory may not be above the home directory."
+msgstr "Målkatalogen kanske inte ligger under hemkatalogen."
+
+msgid "You must supply a name."
+msgstr "Du måste ange ett namn."
+
+msgid "This item doesn't exist."
+msgstr "Detta objekt finns inte."
+
+msgid "You are not allowed to access this item."
+msgstr "Du har inte rättigheter att komma åt detta objekt."
+
+msgid "The target item already exists."
+msgstr "Målobjektet finns redan."
+
+msgid "Copying failed."
+msgstr "Kopiering misslyckades"
+
+msgid "Moving failed."
+msgstr "Flyttning misslyckades."
+
+msgid "Deleting failed."
+msgstr "Bortagningen misslyckades."
+
+msgid "File saving failed."
+msgstr "Misslyckades att spara fil."
+
+msgid "This file doesn't exist."
+msgstr "Denna fil finns inte."
+
+msgid "You are not allowed to access this file."
+msgstr "Du har inte rättigheter att komma åt denna fil."
+
+msgid "This item already exists."
+msgstr "Detta objekt finns redan."
+
+msgid "File opening failed."
+msgstr "Filöppning misslyckades."
+
+msgid "Edit file"
+msgstr "Redigera fil"
+
+msgid "Wrap text:"
+msgstr "Bryt text:"
+
+msgid "Reset"
+msgstr "Återställ"
+
+msgid "Close"
+msgstr "Stäng"
+
+msgid "Unable to open source directory."
+msgstr "Kan inte öppna källkatalogen."
+
+msgid "Unable to open directory."
+msgstr "Kan inte öppna katalog."
+
+msgid "Unable to read directory."
+msgstr "Kan inte läsa katalog."
+
+msgid "You haven't selected any item(s)."
+msgstr "Du har inte valt några objekt."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Är du säker på att du vill ta bort valda objekt?"
+
+msgid "Executable File"
+msgstr "Körbar fil"
+
+msgid "Link"
+msgstr "Länk"
+
+msgid "Text File"
+msgstr "Textfil"
+
+msgid "PHP Script"
+msgstr "PHP Skript"
+
+msgid "SQL File"
+msgstr "SQL Fil"
+
+msgid "PERL Script"
+msgstr "PERL Skript"
+
+msgid "HTML Page"
+msgstr "HTML Sida"
+
+msgid "XML File"
+msgstr "XML Fil"
+
+msgid "Javascript File"
+msgstr "Javaskriptfil"
+
+msgid "CSS File"
+msgstr "CSS Ffil"
+
+msgid "CGI Script"
+msgstr "CGI Skript"
+
+msgid "Python Script"
+msgstr "Pythonskript"
+
+msgid "Shell Script"
+msgstr "Shell Skript"
+
+msgid "C File"
+msgstr "C Fil"
+
+msgid "C++ Source File"
+msgstr "C++ Källkodsfil"
+
+msgid "C++ Header File"
+msgstr "C++ Headerfil"
+
+msgid "Java Source File"
+msgstr "Java  Källkodsfil"
+
+msgid "Java Class File"
+msgstr "Java Class Fil"
+
+msgid "Pascal File"
+msgstr "Pascal Fil"
+
+msgid "GIF Image"
+msgstr "GIF Bild"
+
+msgid "JPG Image"
+msgstr "JPG Bild"
+
+msgid "BMP Image"
+msgstr "BMP Bild"
+
+msgid "PNG Image"
+msgstr "PNG Bild"
+
+msgid "TIF Image"
+msgstr "TIF Bild"
+
+msgid "Photoshop File"
+msgstr "Photoshop Fil"
+
+msgid "ZIP Archive"
+msgstr "ZIP Arkiv"
+
+msgid "TAR Archive"
+msgstr "TAR Arkiv"
+
+msgid "GZIP Archive"
+msgstr "GZIP Arkiv"
+
+msgid "BZIP2 Archive"
+msgstr "BZIP2 Arkiv"
+
+msgid "RAR Archive"
+msgstr "RAR Arkiv"
+
+msgid "MP3 Audio File"
+msgstr "MP3 Ljudfil"
+
+msgid "FLAC Audio File"
+msgstr "FLAC Ljudfil"
+
+msgid "WAV Audio File"
+msgstr "WAV Ljudfil"
+
+msgid "MIDI File"
+msgstr "MIDI Fil"
+
+msgid "RealAudio File"
+msgstr "RealAudio Fil"
+
+msgid "DTS Audio File"
+msgstr "DTS Ljudfil"
+
+msgid "AC3 Audio File"
+msgstr "AC3 Ljudfil"
+
+msgid "OGG Audio File"
+msgstr "OGG Ljudfil"
+
+msgid "MP3 Playlist"
+msgstr "MP3 Spellista"
+
+msgid "AVI File"
+msgstr "AVI Fil"
+
+msgid "MPEG File"
+msgstr "MPEG Fil"
+
+msgid "MOV File"
+msgstr "MOV Fil"
+
+msgid "MKV File"
+msgstr "MKV Fil"
+
+msgid "VOB File"
+msgstr "VOB Fil"
+
+msgid "Flash File"
+msgstr "Flashfil"
+
+msgid "MP4 File"
+msgstr "MP4 Fil"
+
+msgid "TS File"
+msgstr "TS Fil"
+
+msgid "Word Document"
+msgstr "Worddokument"
+
+msgid "Excel Sheet"
+msgstr "Excelblad"
+
+msgid "Powerpoint Presentation"
+msgstr "Powerpointpresentation"
+
+msgid "PDF File"
+msgstr "PDF Fil"
+
+msgid "ERROR(S)"
+msgstr "FEL"
+
+msgid "Go Back"
+msgstr "Gå tillbaka"
+
+msgid "Extracting"
+msgstr "Extraherar"
+
+msgid "Unzip"
+msgstr "Packa upp"
+
+msgid "Failed to extract archive."
+msgstr "Kunde inte packa upp arkivet"
+
+msgid "Directory creation failed."
+msgstr "Skapande av katalog misslyckades."
+
+msgid "File creation failed."
+msgstr "Skapande av en fil misslyckades."
+
+msgid "Search Directory"
+msgstr "Sökkatalog"
+
+msgid "Search Filter"
+msgstr "Sökfilter"
+
+msgid "Search subfolder"
+msgstr "Sök uderkatalog"
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Sökresultat för %1$s"
+
+msgid "Item(s)"
+msgstr "Objekt"
+
+msgid "No results available."
+msgstr "Inga resultat tillgängliga."
+
+msgid "HOME"
+msgstr "HEM"
+
+msgid "Permission-change failed."
+msgstr "Rättighetsändring misslyckades."
+
+msgid "Getting permissions failed."
+msgstr "Misslyckades att få rättigheter."
+
+msgid "Change permissions"
+msgstr "Ändra rättigheter"
+
+msgid "Public"
+msgstr "Publik"
+
+msgid "CHANGE PERMISSIONS"
+msgstr "ÄNDRA RÄTTIGHETER"
+
+msgid "You are not allowed to access this directory."
+msgstr "Du har inte rättigheter att komma åt denna katalog."
+
+msgid "UP"
+msgstr "UPP"
+
+msgid "RELOAD"
+msgstr "LADDA OM"
+
+msgid "SEARCH"
+msgstr "SÖKNING"
+
+msgid "Modified"
+msgstr "Ändrad"
+
+msgid "Permissions"
+msgstr "Rättigheter"
+
+msgid "Actions"
+msgstr "Åtgärder"
+
+msgid "COPY"
+msgstr "KOPIERA"
+
+msgid "MOVE"
+msgstr "FLYTTA"
+
+msgid "DELETE"
+msgstr "TA BORT"
+
+msgid "EDIT"
+msgstr "ÄNDRA"
+
+msgid "UNZIP"
+msgstr "UNZIP"
+
+msgid "DOWNLOAD"
+msgstr "LADDA NER"
+
+msgid "The following errors were detected"
+msgstr "Följande fel upptäcktes"
+
+msgid ""
+"If this message persists take a look at the system log for more information."
+msgstr ""
+"Titta i systemloggen för mer information om detta meddelande kvarstår."
+
+msgid "Choose..."
+msgstr "Välj..."
+
+msgid "Running"
+msgstr "Kör"
+
+msgid "Inactive"
+msgstr "Inaktiv"
+
+msgid "Online"
+msgstr "Uppkopplad"
+
+msgid "Offline"
+msgstr "Frånkopplad"
+
+msgid "No records found."
+msgstr "Inga poster hittades."
+
+msgid "Selected..."
+msgstr "Valda..."
+
+msgid "Apply Changes"
+msgstr "Verkställ ändringar"
+
+msgid "Rescan"
+msgstr "Sök igen"
+
+msgid "Restart"
+msgstr "Starta om"
+
+msgid "Parent Directory"
+msgstr "Överliggande katalog"
+
+msgid "VLAN Interface"
+msgstr "VLAN-gränssnitt"
+
+msgid "VLAN Tag"
+msgstr "VLAN etikett"
+
+msgid "PCP"
+msgstr "PCP"
+
+msgid "Encapsulation Protocol"
+msgstr "Inkapslingsprotokoll"
+
+msgid "Add VLAN"
+msgstr "Lägg tlll VLAN"
+
+msgid "Edit VLAN"
+msgstr "Ändra VLAN"
+
+msgid "VLAN is marked for deletion"
+msgstr "VLAN är markerat för borttagning"
+
+msgid "VLAN is locked"
+msgstr "VLAN är låst"
+
+msgid "VLAN is unlocked"
+msgstr "VLAN är olåst"
+
+msgid "Delete Selected VLANs"
+msgstr "Ta bort valda VLAN"
+
+msgid "Disable Selected VLANs"
+msgstr "Inaktivera valda VLAN"
+
+msgid "Enable Selected VLANs"
+msgstr "Aktivera valda VLAN"
+
+msgid "Toggle Selected VLANs"
+msgstr "Växla valda VLAN"
+
+msgid "Do you want to delete selected VLANs?"
+msgstr "Vill du ta bort valda VLAN?"
+
+msgid "Do you want to disable selected VLANs?"
+msgstr "Vill du inaktivera valda VLAN?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr "Vill du aktivera valda VLAN?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr "Vill du växla valda VLAN?"
+
+msgid "The name of the VLAN interface"
+msgstr "Namnet på VLAN gränssnittet"
+
+msgid "vlan0"
+msgstr "vlan0"
+
+msgid "802.1Q VLAN tag (between 1 and 4094)."
+msgstr "802.1Q VLAN etikett (mellan 1 och 4094)."
+
+msgid "102"
+msgstr "102"
+
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+"Prioritets kod punkt (PCP) är ett 3-bit fält som hänvisar till IEEE 802.1p "
+"klass av tjänster och mappar till ram prioritetsnivån."
+
+msgid "Best effort (default)"
+msgstr "Effektivast(förvalt)"
+
+msgid "Background (lowest)"
+msgstr "Bakgrund(lägst)"
+
+msgid "Excellent effort"
+msgstr "Utmärkt effektivitet"
+
+msgid "Critical applications"
+msgstr "Kritiska applikationer"
+
+msgid "Video < 100ms latency"
+msgstr "Video < 100ms latens"
+
+msgid "Video < 10ms latency"
+msgstr "Video < 10ms latens"
+
+msgid "Internetwork control"
+msgstr "Internet kontroll"
+
+msgid "Network control (highest)"
+msgstr "Nätverk kontroll (högst)"
+
+msgid "Set the VLAN encapsulation protocol."
+msgstr "Ställ in VLAN inkapslingsprotokoll."
+
+msgid "802.1Q (default)"
+msgstr "802.1Q (förvalt)"
+
+msgid "802.1ad (QinQ)"
+msgstr "802.1ad (QiQ)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid ""
+"Controls whether processes can be executed from within this file system."
+msgstr "Styr huruvida processer kan köras inifrån detta filsystem."
+
+msgid "Exec"
+msgstr "Kör"
+
+msgid ""
+"The minimum amount of space guaranteed to a dataset, not including its "
+"descendents."
+msgstr ""
+"Minsta mängd utrymme som garanteras till ett dataset utom dess avkomlingar."
 
 msgid "Console Autologin"
 msgstr "Automatisk konsolinliggning"
@@ -14743,868 +15513,119 @@ msgstr "Aktivera seriell konsol."
 msgid "The COM port in BIOS has to be enabled before enabling this option."
 msgstr "COM-porten i BIOS behöver aktiveras innan aktivering av detta val."
 
-msgid "1"
-msgstr "1"
+msgid "Second"
+msgstr "Sekund"
 
-msgid "2"
-msgstr "2"
+msgid "Seconds"
+msgstr "Sekunder"
 
-msgid "3"
-msgstr "3"
+msgid "Minute"
+msgstr "Minut"
+
+msgid "Hour"
+msgstr "Timme"
+
+msgid "Day"
+msgstr "Dag"
+
+#, php-format
+msgid "%1$s managed, %2$s used, %3$s available"
+msgstr "%1$s hanterat, %2$s använt, %3$s tillgängligt"
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr "Totalt: %1$s | Använt: %2$s | Tillgängligt: %3$s"
+
+#, php-format
+msgid "%2$s used, %3$s available"
+msgstr "%2$s använt, %3$s tillgängligt"
+
+msgid "Communication Error"
+msgstr "Kommunikationsfel"
+
+msgid "More than a day"
+msgstr "Mer än en dag"
+
+msgid "No data"
+msgstr "Inga data"
+
+#, php-format
+msgid "%u hour"
+msgstr "%u timme"
+
+#, php-format
+msgid "%u hours"
+msgstr "%u timmar"
+
+#, php-format
+msgid "%u minute"
+msgstr "%u minut"
+
+#, php-format
+msgid "%u minutes"
+msgstr "%u minuter"
+
+#, php-format
+msgid "%u second"
+msgstr "%u sekund"
+
+#, php-format
+msgid "%u seconds"
+msgstr "%u sekunder"
+
+msgid "and"
+msgstr "och"
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr "Totalt: %1$s | Allokerat: %2$s | Ledigt: %3$s"
+
+msgid "Deleting MBR and partition table"
+msgstr "Raderar MBR och partitionstabell"
+
+msgid "Creating partition"
+msgstr "Skapar partition"
+
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr "Skapar filsystem med \"Mjuka Uppdateringar\""
+
+#, php-format
+msgid "Using %s bytes fragment size."
+msgstr "Använder %s bytes fragmentstorlek."
+
+msgid "Created UFS file system:"
+msgstr "Skapade UFS filsystem:"
+
+msgid "Deleting GEOM metadata"
+msgstr "Ta bort GEOM metadata"
+
+msgid "Creating filesystem"
+msgstr "Skapar filsystem"
+
+msgid "Done!"
+msgstr "Klar!"
 
 msgid ""
-"Controls whether processes can be executed from within this file system."
-msgstr "Styr huruvida processer kan köras inifrån detta filsystem."
-
-msgid "Exec"
-msgstr "Kör"
-
-msgid ""
-"The minimum amount of space guaranteed to a dataset, not including its "
-"descendents."
+"The disk is currently mounted! The mount point will be removed temporarily "
+"to perform selected command."
 msgstr ""
-"Minsta mängd utrymme som garanteras till ett dataset utom dess avkomlingar."
+"Disken är redan monterad! Monteringspunkten kommer tillfälligt att tas bort "
+"för att utföra valt kommando."
 
-msgid "Enter AD or PDC name."
-msgstr "Mata in AD eller PDC namn."
+msgid "Unkown"
+msgstr "Okänd"
 
-msgid "Controller Name"
-msgstr "Controllernamn"
+msgid "Unformated"
+msgstr "Oformaterad"
 
-msgid "Enter the domain name."
-msgstr "Mata in domännamnet."
+msgid "SoftRaid"
+msgstr "MjukvaruRaid"
 
-msgid "example.com"
-msgstr "example.com"
+msgid "Encrypted"
+msgstr "Krypterad"
 
-msgid "Enter NetBIOS name."
-msgstr "Mata in NetBIOS namn."
-
-msgid "NETBIOS"
-msgstr "NETBIOS"
-
-msgid "Enter user name of a domain administrator account."
-msgstr "Mata in användarnamnet för domänens administratörskonto."
-
-msgid "Admin"
-msgstr "Admin"
-
-msgid "Enter the password of the domain administrator account."
-msgstr "Mata in lösenordet för domänens administratörskonto."
-
-msgid "Domain Controller Name"
-msgstr "Namn på domänkontroller"
-
-msgid "Domain Name (DNS/Realm-Name)"
-msgstr "Domännamn (DNS/Realm-namn)"
-
-msgid "Domain Name (NetBIOS-Name)"
-msgstr "Domännamn (NetBIOS-namn)"
-
-msgid "Administrator Name"
-msgstr "Administratörsnamn"
-
-msgid "Administrator Password"
-msgstr "Administratörslösenord"
-
-msgid "Add Group"
-msgstr "Lägg till grupp"
-
-msgid "Edit Group"
-msgstr "Redigera grupp"
-
-msgid "Group is marked for deletion"
-msgstr "Gruppen är markerad för borttagning"
-
-msgid "Group is protected"
-msgstr "Gruppen är skyddad"
-
-msgid "Group is unlocked"
-msgstr "Gruppen är olåst"
-
-msgid "Delete Selected Groups"
-msgstr "Ta bort valda grupper"
-
-msgid "Do you want to delete selected groups?"
-msgstr "Vill du ta bort valda grupper?"
-
-msgid "Disable Selected Groups"
-msgstr "Inaktivera valda grupper"
-
-msgid "Do you want to disable selected groups?"
-msgstr "Vill du inaktivera valda grupper?"
-
-msgid "Enable Selected Groups"
-msgstr "Aktivera valda grupper"
-
-msgid "Do you want to enable selected groups?"
-msgstr "Vill du aktivera valda grupper?"
-
-msgid "Toggle Selected Groups"
-msgstr "Växla valda grupper"
-
-msgid "Do you want to toggle selected groups?"
-msgstr "Vill du växla valda grupper?"
-
-msgid "System Group"
-msgstr "Systemgrupp"
-
-msgid "Show System Groups"
-msgstr "Visa systemgrupper"
-
-msgid "Hide System Groups"
-msgstr "Göm systemgrupper"
-
-msgid "Enter group name."
-msgstr "Mata in gruppnamn."
-
-msgid "Group Name"
-msgstr "Gruppnamn"
-
-msgid "Specify the group numeric id."
-msgstr "Specificera gruppens numeriska id."
-
-msgid "The recommended range for the group id is between 1000 and 32000."
-msgstr "Rekommenderat område för gruppid är mellan 1000 och 32000."
-
-msgid "1000"
-msgstr "1000"
-
-msgid "Groups"
-msgstr "Grupper"
-
-msgid "Users"
-msgstr "Användare"
-
-msgid "Public Keys"
-msgstr "Publika nycklar"
-
-msgid "Public key information."
-msgstr "Publik nyckel information"
-
-msgid "Public Key"
-msgstr "Publik nyckel"
-
-msgid "Login Name"
-msgstr "Inloggningsnamn"
-
-msgid "Add Public Key"
-msgstr "Lägg till publik nyckel"
-
-msgid "Edit Public Key"
-msgstr "Ändra publik nyckel"
-
-msgid "Public key is marked for deletion"
-msgstr "Publik nyckel är markerad för borttagning"
-
-msgid "Public key is protected"
-msgstr "Publik nyckel är skyddad"
-
-msgid "Public key is unlocked"
-msgstr "Publik nyckel är olåst"
-
-msgid "Delete Selected Public Keys"
-msgstr "Ta bort valda publika nycklar"
-
-msgid "Do you want to delete selected public keys?"
-msgstr "Vill du ta bort valda publika nycklar?"
-
-msgid "Disable Selected Public Keys"
-msgstr "Inaktivera valda publika nycklar"
-
-msgid "Do you want to disable selected public keys?"
-msgstr "Vill du inaktivera valda publika nycklar?"
-
-msgid "Enable Selected Public Keys"
-msgstr "Aktivera valda publika nycklar"
-
-msgid "Do you want to enable selected public keys?"
-msgstr "Vill du aktivera valda publika nyckalr?"
-
-msgid "Toggle Selected Public Keys"
-msgstr "Växla valda publika nycklar"
-
-msgid "Do you want to toggle selected public keys?"
-msgstr "Vill du växla valda publika nycklar?"
-
-msgid "Add User Account"
-msgstr "Lägg till användarkonto"
-
-msgid "Edit User Account"
-msgstr "Redigera användarkonto"
-
-msgid "User account is marked for deletion"
-msgstr "Användarkontot är markerat för borttagning"
-
-msgid "User account is protected"
-msgstr "Användarkontot är skyddat"
-
-msgid "User account is unlocked"
-msgstr "Användarkontot är olåst"
-
-msgid "Set password"
-msgstr "Sätt lösenord"
-
-msgid "Delete Selected User Accounts"
-msgstr "Ta bort valda användarkonton"
-
-msgid "Do you want to delete selected user accounts?"
-msgstr "Vill du ta bort valda användarkonton?"
-
-msgid "Disable Selected Users"
-msgstr "Inaktivera valda användare"
-
-msgid "Do you want to disable selected users?"
-msgstr "Vill du inaktivera valda användare?"
-
-msgid "Enable Selected Users"
-msgstr "Aktivera valda användare"
-
-msgid "Do you want to enable selected users?"
-msgstr "Vill du aktivera valda användare?"
-
-msgid "Toggle Selected Users"
-msgstr "Växla valda användare"
-
-msgid "Do you want to toggle selected users?"
-msgstr "Vill du växla valda användare?"
-
-msgid "System User"
-msgstr "Systemanvändare"
-
-msgid "Show System Users"
-msgstr "Visa systemanvändare"
-
-msgid "Hide System Users"
-msgstr "Göm systemanvändare"
-
-msgid "Full Name"
-msgstr "Fullständigt namn"
-
-msgid "SHA Password"
-msgstr "SHA Lösenord"
-
-msgid "MD4 Password"
-msgstr "MD4 Lösenord"
-
-msgid "Shell"
-msgstr "Skal"
-
-msgid "Primary Group"
-msgstr "Huvudgrupp"
-
-msgid "Timezone"
-msgstr "Tidszon"
-
-msgid "File Manager Access"
-msgstr "Filhanteraråtkomst"
-
-msgid "Hidden Items"
-msgstr "Dolda objekt"
-
-msgid "Read Permission"
-msgstr "Läsrättigheter"
-
-msgid "Create Permission"
-msgstr "Skapa rättigheter"
-
-msgid "Change Permission"
-msgstr "Ändra rättigheter"
-
-msgid "Delete Permission"
-msgstr "Ta bort rättigheter"
-
-msgid "Enter login name."
-msgstr "Mata in inloggningsnamn."
-
-msgid "Enter the full user name."
-msgstr "Mata in användarens hela namn."
-
-msgid "Set user password."
-msgstr "Sätt användarlösenord."
-
-msgid "Specify the user/account numeric id."
-msgstr "Specificera användarens/kontots numeriska id."
-
-msgid "The recommended range for the user id is between 1000 and 32000."
-msgstr "Rekommenderat område för användarid är mellan 1000 och 32000."
-
-msgid "Set user login shell."
-msgstr "Sätt skal för användarinloggning."
-
-msgid "No Login"
-msgstr "Ingen inloggning"
-
-msgid "scponly - Secure Copy Protocol only"
-msgstr "scponly -Endast Secure Copy Protocol"
-
-msgid "sh - Bourne Shell"
-msgstr "sh - Bourne Shell"
-
-msgid "bash - Bourne Again Shell"
-msgstr "bash - Bourne Again Shell"
-
-msgid "csh - C Shell"
-msgstr "csh - C Shell"
-
-msgid "tcsh - TENEX C Shell"
-msgstr "tcsh - TENEX C Shell"
-
-msgid "Set the account's primary group."
-msgstr "Sätt kontots primära grupp."
-
-msgid "Add user to additional groups."
-msgstr "Lägg till användare i ytterligare grupper."
-
-msgid ""
-"Enter the path to the home directory of the user. Leave this field empty to "
-"use default path /mnt."
-msgstr ""
-"Mata in sökvägen till användarens hemkatalog. Lämna fältet tomt för att "
-"använda standardsökvägen /mnt."
-
-msgid "/mnt"
-msgstr "/mnt"
-
-msgid "User portal permission."
-msgstr "Användarportalrättigheter"
-
-msgid "No access to the user portal"
-msgstr "Ingen tillgång till användarportalen"
-
-msgid "User access"
-msgstr "Användaråtkomst"
-
-msgid "Admin access"
-msgstr "Administratörsåtkomst"
-
-msgid "Select the language of the user portal for this user."
-msgstr "Välj språk för användarportalen för denna användare."
-
-msgid "Select the timezone for this user."
-msgstr "Välj tidszon för denna användare."
-
-msgid "Grant access to the file manager."
-msgstr "Ge åtkomst till filhanteraren"
-
-msgid "Show hidden items"
-msgstr "Visa dolda objekt"
-
-msgid "Grant read permission"
-msgstr "Ge läsrättigheter"
-
-msgid "Grant create permission"
-msgstr "Ge skaparättigheter"
-
-msgid "Grant modify permission"
-msgstr "Ge ändrarättigheter"
-
-msgid "Grant delete permission"
-msgstr "Ge borttagningsrättigheter"
-
-msgid "Show Interval"
-msgstr "Visa intervall"
-
-msgid ""
-"Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables the reminder."
-msgstr ""
-"Sätt antal dagar tills en påminnelse om att backa upp systemkonfigurationen "
-"visas. Standard är 28 dagar. Ett värde om 0 inaktiverar påminnelsen."
-
-msgid "Running user"
-msgstr "Körande användare"
-
-msgid "Add Option"
-msgstr "Lägg till Alternativ"
-
-msgid "Edit Option"
-msgstr "Redigera Alternativ"
-
-msgid "Option is marked for deletion"
-msgstr "Optionen är markerad för borttagning"
-
-msgid "Option is locked"
-msgstr "Optionen är låst"
-
-msgid "Option is unlocked"
-msgstr "Alternativet är olåst"
-
-msgid "Delete Selected Options"
-msgstr "Ta bort valda optioner"
-
-msgid "Do you want to delete selected options?"
-msgstr "Vill du ta bort valda optioner?"
-
-msgid "Disable Selected Options"
-msgstr "Inaktivera valda optioner"
-
-msgid "Do you want to disable selected options?"
-msgstr "Vill du inaktivera valda optioner?"
-
-msgid "Enable Selected Options"
-msgstr "Aktivera valda optioner"
-
-msgid "Do you want to enable selected options?"
-msgstr "Vill du aktivera valda optioner?"
-
-msgid "Toggle Selected Options"
-msgstr "Ändra status på valda optioner"
-
-msgid "Do you want to toggle selected options?"
-msgstr "Vill du ändra status på valda optioner?"
-
-msgid ""
-"These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to the kernel and additional modules to be "
-"loaded."
-msgstr ""
-"Dessa alternativ kommer läggas till /boot/loader.conf.local. Detta ger dig "
-"möjligheter att specificera parametrar som överförs till kärnan och extra "
-"moduler som skall laddas."
-
-msgid "The name of the variable."
-msgstr "Namnet på variabeln."
-
-msgid "The value of the variable."
-msgstr "Värdet på variabeln."
-
-msgid "Sort"
-msgstr "Sortera"
-
-msgid "Post Upgrade"
-msgstr "Efter uppgradering"
-
-msgid "Name of the command."
-msgstr "Namn på kommando"
-
-msgid "The command to be executed."
-msgstr "Kommandot som ska utföras."
-
-msgid "Select at which stage the command should be executed."
-msgstr "Välj i vilket steg kommandot skall köras."
-
-msgid "Add Command"
-msgstr "Lägg till kommando"
-
-msgid "Edit Command"
-msgstr "Redigera kommando"
-
-msgid "Command is marked for deletion"
-msgstr "Kommandot är markerat för borttagning"
-
-msgid "Command is locked"
-msgstr "Kommadot är låst"
-
-msgid "Command is unlocked"
-msgstr "Kommandot är olåst"
-
-msgid "Delete Selected Commands"
-msgstr "Ta bort valda kommandon"
-
-msgid "Do you want to delete selected commands?"
-msgstr "Vill du ta bort valda kommandon?"
-
-msgid "Disable Selected Commands"
-msgstr "Inaktivera valda kommandon"
-
-msgid "Do you want to disable selected commands?"
-msgstr "Vill du inaktivera valda kommandon?"
-
-msgid "Enable Selected Commands"
-msgstr "Aktivera valda kommandon"
-
-msgid "Do you want to enable selected commands?"
-msgstr "Vill du aktivera valda kommandon?"
-
-msgid "Toggle Selected Commands"
-msgstr "Växla valda kommandon"
-
-msgid "Do you want to toggle selected commands?"
-msgstr "Vill du växla valda kommandon?"
-
-msgid ""
-"These commands will be executed pre or post system initialization (booting) "
-"or before system shutdown."
-msgstr ""
-"Dessa kommandon kommer utföras före eller efter systeminitiering (bootning) "
-"eller före systemavstängning."
-
-msgid "Name of the variable."
-msgstr "Namn på variabeln."
-
-msgid "Enter Value"
-msgstr "Mata in värde"
-
-msgid "Variable"
-msgstr "Variabel"
-
-msgid "Disabled variable names will be removed from /etc/rc.conf."
-msgstr "Inaktiverade variabelnamn kommer tas bort från /etc/rc.conf."
-
-msgid "Enabled options will be added to /etc/rc.conf."
-msgstr "Aktiverade optioner kommer att läggas till i /etc/rc.conf."
-
-msgid "Add Route"
-msgstr "Lägg till väg"
-
-msgid "Edit Route"
-msgstr "Redigera väg"
-
-msgid "Route is marked for deletion"
-msgstr "Rutten är markerad för borttagning"
-
-msgid "Route is locked"
-msgstr "Rutten är låst"
-
-msgid "Route is unlocked"
-msgstr "Rutten är olåst"
-
-msgid "Delete Selected Routes"
-msgstr "Ta bort valda rutter"
-
-msgid "Do you want to delete selected routes?"
-msgstr "Vill du ta bort valda rutter?"
-
-msgid "Disable Selected Routes"
-msgstr "Inaktivera valda rutter"
-
-msgid "Do you want to disable selected routes?"
-msgstr "Vill du inaktivera valda rutter?"
-
-msgid "Enable Selected Routes"
-msgstr "Aktivera valda rutter"
-
-msgid "Do you want to enable selected routes?"
-msgstr "Vill du aktivera valda rutter?"
-
-msgid "Toggle Selected Routes"
-msgstr "Växla valda rutter"
-
-msgid "Do you want to toggle selected routes?"
-msgstr "Vill du växla valda rutter?"
-
-msgid "Destination Network"
-msgstr "Destinationsnätverk"
-
-msgid "Choose which interface this route applies to."
-msgstr "Välj det gränssnitt som denna väg gäller."
-
-msgid "Destination network for this static route."
-msgstr "Destinationsnätverk för denna statiska rutt."
-
-msgid "Gateway to be used to reach the destination network."
-msgstr "Gateway som används för att nå destinationsnätverk."
-
-msgid "Add Reboot Schedule"
-msgstr "Lägg till schemalagd omstart"
-
-msgid "Edit Reboot Schedule"
-msgstr "Ändra schemalagd omstart"
-
-msgid "Reboot Schedule is marked for deletion"
-msgstr "Schemalagd omstart är markerad för borttagning"
-
-msgid "Reboot Schedule is locked"
-msgstr "Schemalagd omstart är låst"
-
-msgid "Reboot Schedule is unlocked"
-msgstr "Schemalagd omstart är olåst"
-
-msgid "Delete Selected Reboot Schedules"
-msgstr "Ta bort vald schemalagd omstart"
-
-msgid "Do you want to delete selected reboot schedules?"
-msgstr "Vill du ta bort vald schemalagd omstart"
-
-msgid "Disable Selected Reboot Schedules"
-msgstr "Inaktivera vald schemalagd omstart"
-
-msgid "Do you want to disable selected reboot schedules?"
-msgstr "Vill du inaktivera vald schemalagd omstart"
-
-msgid "Enable Selected Reboot Schedules"
-msgstr "Aktivera vald schemalagd omstart"
-
-msgid "Do you want to enable selected reboot schedules?"
-msgstr "Vill du aktivera vald schemalagd omstart"
-
-msgid "Toggle Selected Reboot Schedules"
-msgstr "Växla valda schemalagda omstarter"
-
-msgid "Do you want to toggle selected reboot schedules?"
-msgstr "Vill du växla vald schemalagd omstart"
-
-msgid "Add sysctl setting"
-msgstr "lägg till sysctl inställning"
-
-msgid "Edit sysctl setting"
-msgstr "Åndra sysctl inställning"
-
-msgid "Sysctl setting is marked for deletion"
-msgstr "Sysctl inställningar är markerade för borttagning"
-
-msgid "Sysctl setting is locked"
-msgstr "Sysctl inställningar är låsta"
-
-msgid "Sysctl setting is unlocked"
-msgstr "Sysctl inställningar är olåsta"
-
-msgid "Delete Selected Sysctl Settings"
-msgstr "Ta bort valtd Sysctl inställning"
-
-msgid "Do you want to delete selected sysctl settings?"
-msgstr "Vill du ta bort vald Sysctl inställning?"
-
-msgid "Disable Selected Sysctl Settings"
-msgstr "Inaktivera vald Sysctl inställning"
-
-msgid "Do you want to disable selected sysctl settings?"
-msgstr "Vill du inaktivera vald Sysctl inställning?"
-
-msgid "Enable Selected Sysctl Settings"
-msgstr "Aktivera vald Sysctl inställning?"
-
-msgid "Do you want to enable selected sysctl settings?"
-msgstr "Vill du aktivera vald Sysctl inställning?"
-
-msgid "Toggle Selected Sysctl Settings"
-msgstr "Växla vald Sysctl inställningar"
-
-msgid "Do you want to toggle selected sysctl settings?"
-msgstr "Vill du växla vald Sysctl inställning?"
-
-msgid ""
-"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
-"make changes to a running system."
-msgstr ""
-"Dessa sysctl variabler kommer läggas till /etc/sysctl.conf. Detta ger dig "
-"möjlighet att göra ändringar i ett system som körs."
-
-msgid "The value of the setting."
-msgstr "Värdet för inställningen"
-
-msgid "Send daemon event messages."
-msgstr "Skicka meddeladen om demonhändelser."
-
-msgid "Send FTP event messages."
-msgstr "Skicka meddeladen om FTP-händelser."
-
-msgid "IP address of the remote syslog server."
-msgstr "IP adress till fjärrsyslog servern"
-
-msgid ""
-"Port of the remote syslog server. Leave blank to use the default port."
-msgstr ""
-"Port på den externa syslogservern. Lämna blankt för att använda "
-"standardporten."
-
-msgid ""
-"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
-"server. Be sure to set syslogd on the remote server to accept syslog "
-"messages from this server."
-msgstr ""
-"Syslog skickar UDP-meddelande till port 514 på den specificerade "
-"syslogservern. Säkerställ att syslogd på fjärrsyslogservern accepterar "
-"syslogmeddelanden från denna server."
-
-msgid "514"
-msgstr "514"
-
-msgid "Port number must be 514 or a number between 1024 and 65535."
-msgstr "Portnummer måste vara 514 eller ett nummer mellan 1024 och 65535."
-
-msgid "Send RSYNC event messages."
-msgstr "Skicka meddeladen om RSYNC-händelser."
-
-msgid "Send S.M.A.R.T. event messages."
-msgstr "Skicka meddeladen om S.M.A.R.T.-händelser."
-
-msgid "Send SSH event messages."
-msgstr "Skicka meddeladen om SSH-händelser."
-
-msgid "Send system event messages."
-msgstr "Skicka meddeladen om systemhändelser."
-
-msgid "Daemon Events"
-msgstr "Demonhändelser"
-
-msgid "Enable Server"
-msgstr "Aktivera server"
-
-msgid "FTP Events"
-msgstr "FTP-händelser"
-
-msgid "RSYNC Events"
-msgstr "RSYNC-händelser"
-
-msgid "S.M.A.R.T. Events"
-msgstr "S.M.A.R.T.-händelser"
-
-msgid "SSH Events"
-msgstr "SSH-händelser"
-
-msgid "System Events"
-msgstr "Systemhändelser"
-
-msgid "Remote Syslog Messages"
-msgstr "Fjärrsysloggmedelanden"
-
-msgid "Show Log Entries"
-msgstr "Visa loggposter"
-
-msgid "Log Order"
-msgstr "Loggordning"
-
-msgid "Disable the compression of repeating lines."
-msgstr "Inaktivera sammanslagning av upprepade rader."
-
-msgid "Accept remote syslog messages."
-msgstr "Acceptera externa syslogmeddelanden"
-
-msgid ""
-"If this option is checked, IP addresses in the server logs are resolved to "
-"their hostnames where possible."
-msgstr ""
-"Om detta val är förkryssat kommer IP adresser i serverns logfiler "
-"konverteras till hostnamn när det är möjligt."
-
-msgid "This can cause a huge delay in loading the log page!"
-msgstr "Detta kan medföra en stor fördröjning vid öppning av logsidan!"
-
-msgid "Show log entries in reverse order (newest entries on top)."
-msgstr "Visa loggposter i omvänd ordning (senaste högst upp)."
-
-msgid "Enter facility name"
-msgstr "Mata in anläggningsnamn"
-
-msgid "Enter level name"
-msgstr "Mata in nivånamn"
-
-msgid "Enter destination"
-msgstr "Mata in mål"
-
-msgid "Facility"
-msgstr "Anläggning"
-
-msgid ""
-"Display action buttons in the scrollable area instead of the footer area."
-msgstr ""
-"Visa aktivitetsknappar i den rullningsbara delen i stället för sidfoten."
-
-msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr "Komplett filnamn för en användar filvals CSS fil."
-
-msgid "Select file mode of the custom file chooser CSS file."
-msgstr "Välj filegenskap för användar filvals filen."
-
-msgid "Replace the default CSS file"
-msgstr "Ersätt standard-CSS filen"
-
-msgid "Append content to the default CSS file"
-msgstr "Lägg till innehållet i standard CSS filen"
-
-msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr "Komplett filnamn för en användar GUI CSS fil."
-
-msgid "Select file mode of the custom GUI CSS file."
-msgstr "Välj filegenskap för användar GUI CSS filen."
-
-msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr "Komplett filnamn för en användar navigationsmeny CSS fil."
-
-msgid "Select file mode of the custom navigation bar CSS file."
-msgstr "Välj filegenskap för användar navigationsmeny CSS filen."
-
-msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr "Komplett filnamn för en användar tabb CSS fil."
-
-msgid "Select file mode of the custom tabs CSS file."
-msgstr "Välj filegenskap för användar tabb CSS filen."
-
-msgid "Use toggle button instead of enable/disable buttons."
-msgstr "Använd växlade knappar i stället för aktivera-/inaktiveraknappar."
-
-msgid "Select the display mode of the top-level items in the navigation bar."
-msgstr "Välj visningsläge för toppnivån i navigationsraden."
-
-msgid "Show text only"
-msgstr "Visa endast text"
-
-msgid "Show symbol only"
-msgstr "Visa endast symbol"
-
-msgid "Show symbol and text"
-msgstr "Visa symbol och text"
-
-msgid ""
-"Display disk size values using binary prefixes instead of decimal prefixes."
-msgstr "Visa diskstorlekar med binära prefix i stället för decimala prefix."
-
-msgid "Enable this option if you want to display colorful meter states."
-msgstr "Välj denna option om du vill visa färgglada mätare"
-
-msgid ""
-"Enable this option if you want to edit configuration pages directly without "
-"the need to switch to edit mode."
-msgstr ""
-"Aktivera detta alternativ om du vill ändra på konfigurationssidorna direkt "
-"utan att växla till ändringsläge."
-
-msgid "Please enter a number between 0 and 256 or leave this field empty."
-msgstr ""
-"Vänligen mata in ett nummer mellan 0 och 256 eller lämna fältet tomt."
-
-msgid "Limit the maximum number of CPUs to be displayed on the home page."
-msgstr "Begränsa maximalt antal CPU:er som skall visas på hemsidan."
-
-msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr "Ställ in destinationssida för Diagnostik > Information menyn."
-
-msgid "Button Location"
-msgstr "Knapplacering"
-
-msgid "File Chooser"
-msgstr "Filväljare"
-
-msgid "File Mode"
-msgstr "Filåtgärder:"
-
-msgid "GUI"
-msgstr "GUI"
-
-msgid "Navigation Bar"
-msgstr "Navigeringsmeny"
-
-msgid "Tabs"
-msgstr "Tabbar"
-
-msgid "Toggle Mode"
-msgstr "Växla läge"
-
-msgid "Navbar Style"
-msgstr "Navigationradsläge"
-
-msgid "Binary Prefix"
-msgstr "Binärt prefix"
-
-msgid "Colorful Meters"
-msgstr "Färgglada mätare"
-
-msgid "Skip View Mode"
-msgstr "Skippa läsläge"
-
-msgid "Show Max CPUs"
-msgstr "Visa Max CPU:er"
-
-msgid "Diagnostics Information"
-msgstr "Diagnostikinformation"
-
-msgid "Do you really want to remove the selected item from the list?"
-msgstr "Vill du verkligen ta bort det valda föremålet från listan?"
-
-msgid "Select item to remove from the list"
-msgstr "Välj poster att ta bort från listan"
+msgid "System tuning"
+msgstr "Finjustering av systemet"
 
 msgid "Exported"
 msgstr "Exprterad"
@@ -15623,121 +15644,6 @@ msgstr "Oinitierad"
 
 msgid "Potentially Active"
 msgstr "Potentiellt aktiv"
-
-msgid "System tuning"
-msgstr "Finjustering av systemet"
-
-msgid "ZFS Pool Tools"
-msgstr "ZFS Poolverktyg"
-
-msgid "Pool Status"
-msgstr "Poolstatus"
-
-msgid "Success"
-msgstr "Lyckades"
-
-msgid "Command execution was successful"
-msgstr "Körningen av komandot lyckades"
-
-msgid "Invalid command line option"
-msgstr "Felaktig komandoradsoption"
-
-msgid "Test mode, no command execution"
-msgstr "Testläge, ingen körning av kommandon"
-
-msgid "Missing parameter"
-msgstr "Saknad parameter"
-
-msgid "An error occured."
-msgstr "Ett fel inträffade."
-
-msgid "Return to Command Page"
-msgstr "Åter till kommandosidan"
-
-msgid "Activity"
-msgstr "Aktivitet"
-
-msgid "Pool Version"
-msgstr "Poolversion"
-
-msgid "Pool State"
-msgstr "Poolläge"
-
-msgid "No suitable pools found."
-msgstr "Inga passande pooler hittades."
-
-msgid "and"
-msgstr "och"
-
-msgid "No pools have been selected"
-msgstr "Inga pooler har valts"
-
-msgid "Pool Devices"
-msgstr "Poolenheter"
-
-msgid "missing"
-msgstr "saknas"
-
-msgid "No suitable devices found."
-msgstr "Inga passande enheter hittades."
-
-msgid "No pool devices have been selected"
-msgstr "Inga poolenheter har valts"
-
-msgid "No suitable virtual devices found."
-msgstr "Inga passande virtuella enheter hittades."
-
-msgid "No virtual devices have been selected"
-msgstr "Inga virtuella enheter har valts"
-
-msgid "Media Size"
-msgstr "Mediastorlek"
-
-msgid "No devices have been selected"
-msgstr "Ingen enhet har valts"
-
-msgid "Expand device to use all available space."
-msgstr "Utöka enheten till att nyttja allt tillgängligt utrymme."
-
-msgid "Include GPT labels into scan/import"
-msgstr "Inkludera GPT etiketter i scanna/importera"
-
-msgid "Include GPT ID into scan/import"
-msgstr "Inkludera GPT ID i scanna/importera"
-
-msgid "Include UFS labels into scan/import"
-msgstr "Inkludera UFS etiketter i scanna/importera"
-
-msgid "Include UFS ID into scan/import"
-msgstr "Inkludera UFS ID i scanna/importera"
-
-msgid "Include Disk ID into scan/import"
-msgstr "Inkludera Disk ID i scanna/importera"
-
-msgid "Include /dev into scan/import"
-msgstr "Inkludera /dev i scanna/importera"
-
-msgid "Import pool in read-only mode"
-msgstr "Importera pooler i endast läsläge"
-
-msgid "Resize pool to the maximum possible size"
-msgstr "Utöka poolen till maximal storlek"
-
-msgid "Scan/Import destroyed pools only"
-msgstr "Scanna/Importera bara förstörda pooler"
-
-msgid "Wait until resilvering has finished before returning."
-msgstr "Vänta tills återskapandet har avslutats innan du återvänder."
-
-msgid ""
-"Reconstruct the new device sequentially to restore redundancy as quickly as "
-"possible."
-msgstr ""
-"Återskapa den nya enheten stegvis för att återställa redundansen så snabbt "
-"som möjligt."
-
-msgid "Parameter"
-msgstr "Parameter"
 
 msgid "January"
 msgstr "januari"
@@ -15886,110 +15792,241 @@ msgstr "Kunde inte skriva fil till disk."
 msgid "File upload stopped by extension."
 msgstr "Uppladdningen stoppades p g a fel filtyp."
 
-msgid "Deleting MBR and partition table"
-msgstr "Raderar MBR och partitionstabell"
+msgid "ZFS Pool Tools"
+msgstr "ZFS Poolverktyg"
 
-msgid "Creating partition"
-msgstr "Skapar partition"
+msgid "Pool Status"
+msgstr "Poolstatus"
 
-msgid "Creating filesystem with \"Soft Updates\""
-msgstr "Skapar filsystem med \"Mjuka Uppdateringar\""
+msgid "Success"
+msgstr "Lyckades"
 
-#, php-format
-msgid "Using %s bytes fragment size."
-msgstr "Använder %s bytes fragmentstorlek."
+msgid "Command execution was successful"
+msgstr "Körningen av komandot lyckades"
 
-msgid "Created UFS file system:"
-msgstr "Skapade UFS filsystem:"
+msgid "Invalid command line option"
+msgstr "Felaktig komandoradsoption"
 
-msgid "Deleting GEOM metadata"
-msgstr "Ta bort GEOM metadata"
+msgid "Test mode, no command execution"
+msgstr "Testläge, ingen körning av kommandon"
 
-msgid "Creating filesystem"
-msgstr "Skapar filsystem"
+msgid "Missing parameter"
+msgstr "Saknad parameter"
 
-msgid "Done!"
-msgstr "Klar!"
+msgid "An error occured."
+msgstr "Ett fel inträffade."
+
+msgid "Return to Command Page"
+msgstr "Åter till kommandosidan"
+
+msgid "Activity"
+msgstr "Aktivitet"
+
+msgid "Pool Version"
+msgstr "Poolversion"
+
+msgid "Pool State"
+msgstr "Poolläge"
+
+msgid "No suitable pools found."
+msgstr "Inga passande pooler hittades."
+
+msgid "No pools have been selected"
+msgstr "Inga pooler har valts"
+
+msgid "Pool Devices"
+msgstr "Poolenheter"
+
+msgid "missing"
+msgstr "saknas"
+
+msgid "No suitable devices found."
+msgstr "Inga passande enheter hittades."
+
+msgid "No pool devices have been selected"
+msgstr "Inga poolenheter har valts"
+
+msgid "No suitable virtual devices found."
+msgstr "Inga passande virtuella enheter hittades."
+
+msgid "No virtual devices have been selected"
+msgstr "Inga virtuella enheter har valts"
+
+msgid "Media Size"
+msgstr "Mediastorlek"
+
+msgid "No devices have been selected"
+msgstr "Ingen enhet har valts"
+
+msgid "Expand device to use all available space."
+msgstr "Utöka enheten till att nyttja allt tillgängligt utrymme."
+
+msgid "Include GPT labels into scan/import"
+msgstr "Inkludera GPT etiketter i scanna/importera"
+
+msgid "Include GPT ID into scan/import"
+msgstr "Inkludera GPT ID i scanna/importera"
+
+msgid "Include UFS labels into scan/import"
+msgstr "Inkludera UFS etiketter i scanna/importera"
+
+msgid "Include UFS ID into scan/import"
+msgstr "Inkludera UFS ID i scanna/importera"
+
+msgid "Include Disk ID into scan/import"
+msgstr "Inkludera Disk ID i scanna/importera"
+
+msgid "Include /dev into scan/import"
+msgstr "Inkludera /dev i scanna/importera"
+
+msgid "Import pool in read-only mode"
+msgstr "Importera pooler i endast läsläge"
+
+msgid "Resize pool to the maximum possible size"
+msgstr "Utöka poolen till maximal storlek"
+
+msgid "Scan/Import destroyed pools only"
+msgstr "Scanna/Importera bara förstörda pooler"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr "Vänta tills återskapandet har avslutats innan du återvänder."
 
 msgid ""
-"The disk is currently mounted! The mount point will be removed temporarily "
-"to perform selected command."
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
-"Disken är redan monterad! Monteringspunkten kommer tillfälligt att tas bort "
-"för att utföra valt kommando."
+"Återskapa den nya enheten stegvis för att återställa redundansen så snabbt "
+"som möjligt."
 
-msgid "Second"
-msgstr "Sekund"
+msgid "Parameter"
+msgstr "Parameter"
 
-msgid "Seconds"
-msgstr "Sekunder"
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "En annan DLNA/UPnP tjänst körs redan. Att aktivera Fuppes kan orsaka problem"
 
-msgid "Minute"
-msgstr "Minut"
+#~ msgid "Compliant profile to be used."
+#~ msgstr "Kompatibel profil som skall användas"
 
-msgid "Hour"
-msgstr "Timme"
+#~ msgid "Content Locations"
+#~ msgstr "Innehållsplatser"
 
-msgid "Day"
-msgstr "Dag"
+#~ msgid "DLNA/UPnP Fuppes"
+#~ msgstr "DLNA/UPnP Fuppes"
+
+#~ msgid "Database directory"
+#~ msgstr "Databaskatalog"
+
+#~ msgid "Destination email address. Separate email addresses by semi-colon."
+#~ msgstr "Måle-postadresser, separera adresser med semikolon."
+
+#~ msgid "Device IP"
+#~ msgstr "Enhetens IP"
+
+#~ msgid "Enable transcoding."
+#~ msgstr "Aktivera omkodning."
+
+#~ msgid "Fuppes"
+#~ msgstr "Fuppes"
+
+#~ msgid "Fuppes Media Server"
+#~ msgstr "Fuppes Media Server"
+
+#~ msgid "Fuppes Media Server Administration"
+#~ msgstr "Fuppes Media Server Administration"
+
+#~ msgid "Give your media library a friendly name."
+#~ msgstr "Ge ditt mediabibliotek ett kortnamn"
+
+#~ msgid "Import on-disk ZFS config"
+#~ msgstr "Importera diskbaserad ZFS konfiguration"
+
+#~ msgid "Media Library"
+#~ msgstr "Mediabibliotek"
+
+#~ msgid "Media library"
+#~ msgstr "Mediebibliotek"
+
+#~ msgid "Media server name"
+#~ msgstr "Mediaservernamn"
+
+#~ msgid ""
+#~ "More than one DLNA/UPnP service is active. This configuration might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "Mer än en DLNA/UPnP tjänst är aktiv. Denna konfiguration kan orsaka problem."
 
 #, php-format
-msgid "%1$s managed, %2$s used, %3$s available"
-msgstr "%1$s hanterat, %2$s använt, %3$s tillgängligt"
+#~ msgid "Port number must be in the range between %d and %d."
+#~ msgstr "Portnummer måste vara mellan %d och %d."
 
 #, php-format
-msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr "Totalt: %1$s | Använt: %2$s | Tillgängligt: %3$s"
+#~ msgid ""
+#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
+#~ "through %d). Default port is %d."
+#~ msgstr ""
+#~ "Port att lyssna på. Endast dynamiska eller privata portar kan användas (från "
+#~ "%d med %d). Standardporten är %d."
+
+#~ msgid "Profile"
+#~ msgstr "Profil"
+
+#~ msgid ""
+#~ "Select which interface to use. (Only selectable if your server has more than "
+#~ "one interface)"
+#~ msgstr ""
+#~ "Välj vilket gränssnitt som skall användas. (Endast valbart om det finns fler "
+#~ "än ett)"
+
+#~ msgid "Set the content location(s) to or from the media library."
+#~ msgstr "Sätt innehållets placering till eller från mediabiblioteket."
+
+#~ msgid "Temporary directory"
+#~ msgstr "Temporär katalog"
+
+#~ msgid "Temporary directory to store transcoded files."
+#~ msgstr "Temporär katalog för lagring av omkodade filer."
+
+#~ msgid "The IP address of the device."
+#~ msgstr "Enhetens IP-adress."
 
 #, php-format
-msgid "%2$s used, %3$s available"
-msgstr "%2$s använt, %3$s tillgängligt"
+#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
+#~ msgstr "Fältet 'Port': port '%ld' är redan upptagen av en annan tjänst."
 
-msgid "Communication Error"
-msgstr "Kommunikationsfel"
+#~ msgid "Transcoding"
+#~ msgstr "Omkodning"
 
-msgid "More than a day"
-msgstr "Mer än en dag"
+#~ msgid "Transcoding Directory"
+#~ msgstr "Omkodningskatalog"
 
-msgid "No data"
-msgstr "Inga data"
+#~ msgid "Try to force import."
+#~ msgstr "Försöker tvinga fram en import."
 
-#, php-format
-msgid "%u hour"
-msgstr "%u timme"
+#~ msgid "Try to import from on-disk ZFS config."
+#~ msgstr "Försök att importera från diskbaserad ZFS konfiguration."
 
-#, php-format
-msgid "%u hours"
-msgstr "%u timmar"
+#~ msgid "UPnP/DLNA - Fuppes"
+#~ msgstr "UPnP/DLNA - Fuppes"
 
-#, php-format
-msgid "%u minute"
-msgstr "%u minut"
+#~ msgid "Allow challenge-response authentication."
+#~ msgstr "Tillåt fråga/svar autentisering."
 
-#, php-format
-msgid "%u minutes"
-msgstr "%u minuter"
+#~ msgid "Challenge-Response Authentication"
+#~ msgstr "Fråga-svar autentisering"
 
-#, php-format
-msgid "%u second"
-msgstr "%u sekund"
+#~ msgid ""
+#~ "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+#~ "can cause problems."
+#~ msgstr ""
+#~ "Flera DLNA/UPnP tjänstär redan aktiverade. Att köra fler DLNA/UPnP tjänster "
+#~ "samtidigt kan orsaka problem."
 
-#, php-format
-msgid "%u seconds"
-msgstr "%u sekunder"
-
-#, php-format
-msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr "Totalt: %1$s | Allokerat: %2$s | Ledigt: %3$s"
-
-msgid "Unkown"
-msgstr "Okänd"
-
-msgid "Unformated"
-msgstr "Oformaterad"
-
-msgid "SoftRaid"
-msgstr "MjukvaruRaid"
-
-msgid "Encrypted"
-msgstr "Krypterad"
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+#~ "services can cause problems."
+#~ msgstr ""
+#~ "En annan DLNA/UPnP tjänstär redan aktiverad. Att köra fler DLNA/UPnP "
+#~ "tjänster samtidigt kan orsaka problem."

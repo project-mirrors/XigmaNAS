@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2024-06-23 12:29+0000\n"
+"POT-Creation-Date: 2025-09-06 21:13+0000\n"
 "PO-Revision-Date: 2023-02-20 18:06+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-08-28 09:21+0000\n"
-"X-Generator: Launchpad (build 919009172d854f2b8e4e8262db447f12f11d25eb)\n"
+"X-Launchpad-Export-Date: 2025-09-06 19:56+0000\n"
+"X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -427,6 +427,15 @@ msgstr "Ниже"
 
 msgid "Upper"
 msgstr "Выше"
+
+msgid "No IPMI Sensor data available."
+msgstr ""
+
+msgid "FRU Information"
+msgstr ""
+
+msgid "No IPMI FRU data available."
+msgstr ""
 
 msgid "iSCSI Target Information & Status"
 msgstr "Информация и статус iSCSI Target"
@@ -1650,9 +1659,6 @@ msgstr "RSYNC-клиент"
 
 msgid "RSYNC - Local"
 msgstr "RSYNC-локальный"
-
-msgid "UPnP/DLNA - Fuppes"
-msgstr "UPnP/DLNA - Fuppes"
 
 msgid "UPnP/DLNA - MiniDLNA"
 msgstr "UPnP/DLNA - MiniDLNA"
@@ -3102,17 +3108,15 @@ msgstr "Имя объекта"
 msgid "RAID 0/1/5 Maintenance"
 msgstr "Обслуживание RAID 0/1/5"
 
-msgid "Import on-disk ZFS config"
-msgstr "Импортировать конфигурацию с дисков ZFS"
-
 msgid "No pool was found."
 msgstr "Пул не обнаружен."
 
-msgid "Try to force import."
-msgstr "Попытаться импортировать принудительно"
+msgid ""
+"No pool was found. Try to force import from on-disk ZFS configuration."
+msgstr ""
 
-msgid "Try to import from on-disk ZFS config."
-msgstr "Попытаться импортировать конфигурацию с дисков ZFS"
+msgid "No pool was found. Try to import from on-disk ZFS configuration."
+msgstr ""
 
 msgid "Your ZFS system is not healthy."
 msgstr "Ваша система ZFS повреждена."
@@ -3201,14 +3205,26 @@ msgstr "Возможность монтирования"
 msgid "Quota"
 msgstr "Квота"
 
-msgid "Extended Attributes"
-msgstr "Дополнительные атрибуты"
-
 msgid "Readonly"
 msgstr "Только чтение"
 
 msgid "Snapshot Visibility"
 msgstr "Видимость снимков"
+
+msgid "on"
+msgstr "вкл."
+
+msgid "none"
+msgstr "none"
+
+msgid "off"
+msgstr "выкл."
+
+msgid "hidden"
+msgstr "скрыть"
+
+msgid "visible"
+msgstr "показать"
 
 msgid "Blocksize"
 msgstr "Размер блока"
@@ -3225,20 +3241,11 @@ msgstr ""
 "конфигурации, которая была создана с WebGUI, если изменения было сделано с "
 "помощью командной строки"
 
-msgid "on"
-msgstr "вкл."
+msgid "Import on-disk ZFS configuration"
+msgstr ""
 
-msgid "off"
-msgstr "выкл."
-
-msgid "none"
-msgstr "none"
-
-msgid "visible"
-msgstr "показать"
-
-msgid "hidden"
-msgstr "скрыть"
+msgid "Force import on-disk ZFS configuration"
+msgstr ""
 
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
@@ -3253,6 +3260,9 @@ msgstr ""
 
 msgid "Nothing to synchronize"
 msgstr "Отсутствуют данные для синхронизации"
+
+msgid "Extended Attributes"
+msgstr "Дополнительные атрибуты"
 
 msgid "Options"
 msgstr "Дополнительно"
@@ -5966,113 +5976,6 @@ msgstr ""
 "Задает временной интервал в часах, минутах и секундах, после чего запрет "
 "прекращает свое действие."
 
-msgid "Media library"
-msgstr "Медиабиблиотека"
-
-msgid "Database directory"
-msgstr "Каталог базы данных"
-
-msgid "Device IP"
-msgstr "IP-адрес устройства"
-
-msgid "Temporary directory"
-msgstr "Временный каталог"
-
-#, php-format
-msgid "The attribute 'Port': port '%ld' is already taken by another service."
-msgstr "Атрибут 'Port': порт '%ld' уже используется другой службой."
-
-#, php-format
-msgid "Port number must be in the range between %d and %d."
-msgstr "Номер порта должен находиться в диапазоне между %d и %d."
-
-msgid ""
-"More than one DLNA/UPnP service is active. This configuration might cause "
-"issues."
-msgstr ""
-"Более одного DLNA/UPnP сервиса активно. Такая конфигурация может вызвать "
-"проблемы."
-
-msgid ""
-"Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-"issues."
-msgstr ""
-"Другой DLNA/UPnP сервис уже запущен. Включение Fuppes может вызвать проблемы."
-
-msgid "DLNA/UPnP Fuppes"
-msgstr "DLNA/UPnP Fuppes"
-
-msgid "Fuppes"
-msgstr "Fuppes"
-
-msgid "MiniDLNA"
-msgstr "MiniDLNA"
-
-msgid "Fuppes Media Server"
-msgstr "Fuppes Media Server"
-
-msgid "Interface Selection"
-msgstr "Выбор интерфейса"
-
-msgid "Content Locations"
-msgstr "Расположение содержимого"
-
-msgid "Profile"
-msgstr "Профиль"
-
-msgid "Transcoding"
-msgstr "Транскодирование"
-
-msgid "Transcoding Directory"
-msgstr "Директория транскодирования"
-
-msgid "Give your media library a friendly name."
-msgstr "Дайте вашей медиа-библиотеке понятное имя"
-
-msgid "Media server name"
-msgstr "Имя медиа-сервера"
-
-msgid ""
-"Select which interface to use. (Only selectable if your server has more than "
-"one interface)"
-msgstr ""
-"Выберите, какой интерфейс использовать. (Выбирается только если ваш сервер "
-"имеет более одного интерфейса)"
-
-#, php-format
-msgid ""
-"Port to listen on. Only dynamic or private ports can be used (from %d "
-"through %d). Default port is %d."
-msgstr ""
-"Порт для прослушивания. Могут быть использованы только dynamic и private "
-"порты (с %d-го по %d-й). По умолчанию %d-й."
-
-msgid "Location of the media content database."
-msgstr "Расположение базы данных медиа-контента."
-
-msgid "Media Library"
-msgstr "Библиотека медиафайлов"
-
-msgid "Set the content location(s) to or from the media library."
-msgstr ""
-"Укажите расположение(-ия) контента или его расположение относительно медиа-"
-"библиотеки."
-
-msgid "Compliant profile to be used."
-msgstr "Используется подходящий профиль."
-
-msgid "The IP address of the device."
-msgstr "IP-адрес устройства."
-
-msgid "Enable transcoding."
-msgstr "Включить транскодирование"
-
-msgid "Temporary directory to store transcoded files."
-msgstr "Временный каталог для хранения транскодированных файлов."
-
-msgid "Fuppes Media Server Administration"
-msgstr "Администрирование Fuppes Media Server"
-
 msgid "No configured CARP interfaces."
 msgstr "Не настроены CARP интерфейсы"
 
@@ -7020,19 +6923,8 @@ msgstr "phpMyAdmin"
 msgid "A rescan has been issued."
 msgstr "Повторное сканирование было выполнено."
 
-msgid ""
-"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-"services can cause problems."
-msgstr ""
-"Другая служба DLNA/UPnP уже включена. Запуск нескольких служб DLNA/UPnP "
-"может вызвать проблемы."
-
-msgid ""
-"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
-"can cause problems."
-msgstr ""
-"Включены несколько служб DNLA/UPnP. Запуск нескольких служб DLNA/UPnP может "
-"вызвать проблемы."
+msgid "MiniDLNA"
+msgstr "MiniDLNA"
 
 msgid "MiniDLNA Media Server WebGUI"
 msgstr "MiniDLNA Media Server WebGUI"
@@ -7807,6 +7699,9 @@ msgstr ""
 msgid "Permission"
 msgstr "Права доступа"
 
+msgid "Paste a private key in PEM format here."
+msgstr "Вставьте сюда частный ключ в формате PEM."
+
 msgid "Document root of the webserver. Home of the web page files."
 msgstr ""
 "Корневая директория web-сервера с файлами, являющаяся домашней страницей "
@@ -7834,11 +7729,11 @@ msgstr "Название области"
 msgid "Edit URL"
 msgstr "Редактировать URL"
 
-msgid "Do you really want to delete this URL?"
-msgstr "Вы действительно хотите удалить этот URL?"
-
 msgid "Delete URL"
 msgstr "Удалить URL"
+
+msgid "Do you really want to delete this URL?"
+msgstr "Вы действительно хотите удалить этот URL?"
 
 msgid "Add URL"
 msgstr "Добавить URL"
@@ -8290,9 +8185,6 @@ msgstr ""
 msgid "Ignore Hosts Allow"
 msgstr "Игнорировать разрешения хостов"
 
-msgid "Paste a private key in PEM format here."
-msgstr "Вставьте сюда частный ключ в формате PEM."
-
 msgid "Language"
 msgstr "Язык"
 
@@ -8613,8 +8505,9 @@ msgstr "Настройки электронной почты системы"
 msgid "From email address for sending system messages."
 msgstr "Email отправителя для отправки системных сообщений."
 
-msgid "Destination email address. Separate email addresses by semi-colon."
-msgstr "Адрес email почты назначения. Отдельные email через запятую."
+msgid ""
+"Destination email address. Multiple email addresses are separated by a comma."
+msgstr ""
 
 msgid "Outgoing SMTP mail server address."
 msgstr "Адрес SMTP-сервера исходящей почты"
@@ -9157,6 +9050,9 @@ msgstr "Включение сбора статистики использова�
 msgid "Enable collecting network latency statistics."
 msgstr "Включение сбора статистики сетевых задержек."
 
+msgid "Interface Selection"
+msgstr "Выбор интерфейса"
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -9643,113 +9539,243 @@ msgstr "Аргументы загрузки"
 msgid "Boot argument (e.g. %s)."
 msgstr "Аргумент загрузки (e.g. %s)."
 
-msgid "Undefined"
-msgstr "Не определено"
+msgid "Show Used/Avail"
+msgstr "Показывать Использовано/Доступно"
 
-msgid "The value is invalid."
-msgstr "Значение недействительно."
+msgid "On-Disk Configuration"
+msgstr "Конфигурация на диске"
 
-msgid "Network Address"
-msgstr "Сетевой адрес"
+msgid "Capacity Warning Threshold"
+msgstr "Порог предупреждения о емкости"
 
-msgid "Enter additional parameters"
-msgstr "Введите дополнительные параметры"
+msgid "Capacity Critical Threshold"
+msgstr "Критический порог емкости"
 
-msgid "No additional parameters"
-msgstr "Нет дополнительных параметров"
+msgid "Extended Destroy"
+msgstr ""
 
-msgid "Enter a description for your reference."
-msgstr "Введите описание для справки."
+msgid ""
+"Display Used/Avail information from the filesystem instead of the Alloc/Free "
+"information from the pool."
+msgstr ""
+"Отображение информации о использованном/доступном пространстве из файловой "
+"системы, а не информации распределено/свободно из пула."
 
-msgid "IPv4 Address"
-msgstr "Адрес IPv4"
+msgid ""
+"Used/Avail lists storage information after all redundancy is taken into "
+"account but is impacted by compression, deduplication and quotas. Alloc/Free "
+"lists the raw storage information of a pool."
+msgstr ""
+"Использовано/Доступно - информация списка хранилищ взята после учета всей "
+"избыточности, но на них влияют сжатие, дедупликация и квоты. "
+"Распределено/Свободно перечисляет информацию об исходном хранилище пула."
 
-msgid "Protect"
-msgstr "Защита"
+msgid "Read on-disk configuration."
+msgstr "Прочитать конфигурацию на диске."
 
-msgid "Protect Setting"
-msgstr "Защитить настройки"
+msgid ""
+"Reading the configuration from the disks is slower than reading from cache "
+"file."
+msgstr ""
+"Чтение конфигурации с дисков происходит медленнее, чем чтение из файла кеша."
 
-msgid "Enable Setting"
-msgstr "Включить настройку"
+msgid "Set the warning threshold to a value between 80 and 89."
+msgstr "Установите значение порога предупреждения от 80 до 89."
 
-msgid "The UUID of the record."
-msgstr "UUID записи."
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the warning "
+"threshold."
+msgstr ""
+"Электронное письмо - уведомление отправляется когда емкость пула превышает "
+"порог предупреждения."
 
-msgid "Enter Universally Unique Identifier"
-msgstr "Введите универсальный уникальный идентификатор"
+msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
+msgstr ""
+"Задача cron должна быть настроена для запланированного сценария "
+"/etc/capacitycheck.zfs."
 
-msgid "Universally Unique Identifier"
-msgstr "Универсальный уникальный идентификатор"
+msgid "Must be a number between 80 and 89."
+msgstr "Должно быть число от 80 до 89."
 
-msgid "Delete Selected Records"
-msgstr "Удалить выбранные записи"
+msgid "Set the critical threshold to a value between 90 and 95."
+msgstr "Установите значение критического порога от 90 до 95."
 
-msgid "Do you want to delete selected records?"
-msgstr "Вы хотите удалить выбранные записи?"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the critical "
+"threshold."
+msgstr ""
+"Электронное письмо - уведомление отправляется когда емкость пула превышает "
+"критический порог."
 
-msgid "Disable Selected Records"
-msgstr "Отключить выбранные записи"
+msgid "Must be a number between 90 and 95."
+msgstr "Должно быть число от 90 до 95."
 
-msgid "Do you want to disable selected records?"
-msgstr "Вы хотите отключить выбранные записи?"
+msgid "Destroy dataset and its dependents."
+msgstr ""
 
-msgid "Enable Selected Records"
-msgstr "Включить выбранные записи"
+msgid ""
+"When enabled, destroying a dataset will also destroy all dependents "
+"(datasets, snapshots and clones)."
+msgstr ""
 
-msgid "Do you want to enable selected records?"
-msgstr "Вы хотите включить выбранные записи?"
+msgid "Lifetime"
+msgstr "Пожизненно"
 
-msgid "Lock Selected Records"
-msgstr "Заблокировать выбранные записи"
+msgid "Second(s)"
+msgstr "секунд"
 
-msgid "Do you want to lock selected records?"
-msgstr "Вы хотите заблокировать выбранные записи?"
+msgid "Minute(s)"
+msgstr "Минута(ы)"
 
-msgid "Toggle Selected Records"
-msgstr "Переключение выбранных записей"
+msgid "Hour(s)"
+msgstr "Час(ов)"
 
-msgid "Do you want to toggle selected records?"
-msgstr "Вы хотите инвертировать выбранные записи?"
+msgid "Day(s)"
+msgstr "Дни"
 
-msgid "Unlock Selected Records"
-msgstr "Разблокировать выбранные записи"
+msgid "Week(s)"
+msgstr "Неделя(ли)"
 
-msgid "Do you want to unlock selected records?"
-msgstr "Вы хотите разблокировать выбранные записи?"
+msgid "Month(s)"
+msgstr "Месяц (ы)"
 
-msgid "Add Record"
-msgstr "Добавить запись"
+msgid "Year(s)"
+msgstr "Года(лет)"
 
-msgid "Record is marked for deletion"
-msgstr "Запись помечена для удаления"
+msgid "Hourly"
+msgstr "Ежечасно"
 
-msgid "Record Information"
-msgstr "Информация записи"
+msgid "Daily"
+msgstr "Каждый день"
 
-msgid "Record is protected"
-msgstr "Запись защищиена"
+msgid "Weekly"
+msgstr "Еженедельно"
 
-msgid "Record Maintenance"
-msgstr "Информация технического обслуживания"
+msgid "Monthly"
+msgstr "Ежемесячно"
 
-msgid "Edit Record"
-msgstr "Редактировать запись"
+msgid "Yearly"
+msgstr "Ежегодно"
 
-msgid "Record is unlocked"
-msgstr "Запись заблокирована"
+msgid "Custom Setting"
+msgstr "Пользовательская настройка"
 
-msgid "Autodetect"
-msgstr "Автоопределение"
+msgid "Schedule"
+msgstr "Расписание"
 
-msgid "The identifier reported as unknown by smartctl, including brackets."
-msgstr "Smartctl сообщил, что идентификатор неизвестен, включая скобки."
+msgid "Weekdays"
+msgstr "Будни"
 
-msgid "Enter Identifier"
-msgstr "Введите идентификатор"
+msgid "All Minutes"
+msgstr "Все минуты"
 
-msgid "Enter smartctl pass-through type."
-msgstr "Введите smartctl pass-through тип."
+msgid "All Hours"
+msgstr "Все часы"
+
+msgid "All Days"
+msgstr "Все дни"
+
+msgid "All Months"
+msgstr "Все месяцы"
+
+msgid "All Weekdays"
+msgstr "Все будни"
+
+msgid "Add Schedule"
+msgstr "Добавить расписание"
+
+msgid "Edit Schedule"
+msgstr "Изменить расписание"
+
+msgid "Schedule is marked for deletion"
+msgstr "Расписание отмечено для удаления"
+
+msgid "Schedule is locked"
+msgstr "Расписание заблокировано"
+
+msgid "Schedule is unlocked"
+msgstr "Расписание разблокировано"
+
+msgid "Delete Selected Schedules"
+msgstr "Удалить выбранные расписания"
+
+msgid "Do you want to delete selected schedules?"
+msgstr "Вы хотите удалить выбранные расписания?"
+
+msgid "Disable Selected Schedules"
+msgstr "Отключить выбранные расписания"
+
+msgid "Do you want to disable selected schedules?"
+msgstr "Вы хотите отключить выбранные расписания?"
+
+msgid "Enable Selected Schedules"
+msgstr "Включить выбранные расписания"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "Вы хотите включить выбранные расписания?"
+
+msgid "Toggle Selected Schedules"
+msgstr "Переключить выбранные расписания"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "Вы хотите переключить выбранные расписания?"
+
+msgid "Invalid"
+msgstr "Недопустимый"
+
+msgid "Destroy"
+msgstr "Уничтожить"
+
+msgid "Create Snapshot"
+msgstr "Создать снимок"
+
+msgid "Destroy Snapshot"
+msgstr "Уничтожить снимок"
+
+msgid "Scrub Pool"
+msgstr "Проверка пула"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Выберите пул, файловую систему или том"
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr "Рекурсивно уничтожить снимки всех дочерних наборов данных."
+
+msgid "Lifetime Value"
+msgstr "Значение показателя жизненного цикла"
+
+msgid "Lifetime Units"
+msgstr "Единицы измерения жизненного цикла"
+
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Команды выполняются планировщиком, когда поля минут, часов и месяцев года "
+"соответствуют текущему времени и когда хотя бы одно из двух полей дня (день "
+"месяца или день недели) совпадает с текущим временем."
+
+msgid "Presets"
+msgstr "Предустановки"
+
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr "Рекурсивно создавать снимки всех дочерних наборов данных."
+
+msgid "Create"
+msgstr "Создать"
+
+msgid "Scrub"
+msgstr "Scrub"
+
+msgid "Select pool."
+msgstr "Выберите пул."
+
+msgid "No ZFS zpool information available."
+msgstr "Информация о ZFS zpool недоступна."
+
+msgid "No ZFS volume information available."
+msgstr "Информация о томе ZFS недоступна."
 
 msgid "Add Filesystem"
 msgstr "Добавить файловую систему"
@@ -9772,20 +9798,11 @@ msgstr "Удаление выбранных файловых систем"
 msgid "Do you want to delete selected filesystems?"
 msgstr "Вы хотите удалить выбранные файловые системы?"
 
-msgid "Disable Selected Schedules"
-msgstr "Отключить выбранные расписания"
-
 msgid "Do you want to disable selected filesystems?"
 msgstr "Вы хотите отключить выбранные файловые системы?"
 
-msgid "Enable Selected Schedules"
-msgstr "Включить выбранные расписания"
-
 msgid "Do you want to enable selected filesystems?"
 msgstr "Вы хотите включить выбранные файловые системы?"
-
-msgid "Toggle Selected Schedules"
-msgstr "Переключить выбранные расписания"
 
 msgid "Do you want to toggle selected filesystems?"
 msgstr "Вы хотите переключить выбранные файловые системы?"
@@ -9802,238 +9819,6 @@ msgstr "Информация о файловой системе ZFS недост
 msgid "Filesystems"
 msgstr "Файловая система"
 
-msgid "Dataset Name"
-msgstr "Имя Dataset"
-
-msgid ""
-"File System - can be mounted within the standard system namespace and "
-"behaves like other file systems."
-msgstr ""
-"Файловая система - может быть установлена ​​в стандартном системном "
-"пространстве имен и ведет себя как другие файловые системы."
-
-msgid "Volume - A logical volume. Can be exported as a raw or block device."
-msgstr ""
-"Том - логический том. Может экспортироваться как необработанное или блочное "
-"устройство."
-
-msgid ""
-"Snapshot - A read-only version of a file system or volume at a given point "
-"in time."
-msgstr ""
-"Snapshot - версия файловой системы или тома, доступная только для чтения в "
-"данный момент времени."
-
-msgid "Bookmark - Creates a bookmark of a given snapshot."
-msgstr "Закладка - создает закладку для данного моментального снимка."
-
-msgid "Dataset Type"
-msgstr "Тип набора данных"
-
-msgid "Pool Name"
-msgstr "Название пула"
-
-msgid "Clones"
-msgstr "Клоны"
-
-msgid "Compression Ratio"
-msgstr "Степень сжатия"
-
-msgid "Defer Destroy"
-msgstr "Отложить Уничтожение"
-
-msgid "Encryption Root"
-msgstr ""
-
-msgid "Filesystem Count"
-msgstr "Счетчик файловой системы"
-
-msgid "GUID"
-msgstr "GUID"
-
-msgid "Key Status"
-msgstr "Статус ключей"
-
-msgid "Logical Referenced"
-msgstr "Логическая ссылка"
-
-msgid "Logical Used"
-msgstr "Логически используемый"
-
-msgid "Mounted"
-msgstr "Смотировано"
-
-msgid "Obj Set ID"
-msgstr ""
-
-msgid "Receive Resume Token"
-msgstr ""
-
-msgid "Redact Snaps"
-msgstr ""
-
-msgid "Refcompressratio"
-msgstr ""
-
-msgid "Referenced"
-msgstr "Ссылается"
-
-msgid "Snapshot Count"
-msgstr ""
-
-msgid "Used by Children"
-msgstr ""
-
-msgid "Used by Dataset"
-msgstr ""
-
-msgid "Used by Refreservation"
-msgstr ""
-
-msgid "Used by Snapshots"
-msgstr ""
-
-msgid "Userrefs"
-msgstr ""
-
-msgid "Written"
-msgstr "Записано"
-
-msgid "Normalization"
-msgstr "Нормализация"
-
-msgid "UTF-8 File Names"
-msgstr "Имена файлов в формате UTF-8"
-
-msgid "ACL Type"
-msgstr "Тип ACL"
-
-msgid "Access Time"
-msgstr "Время доступа"
-
-msgid "Can Mount"
-msgstr "Может монтироваться"
-
-msgid "Checksum"
-msgstr "Контрольная сумма"
-
-msgid "GZIP Compression Level"
-msgstr "Уровень сжатия GZIP"
-
-msgid "Zstandard Compression Level"
-msgstr ""
-
-msgid "Fast Zstandard Compression Level"
-msgstr "Fast Zstandard Compression Level"
-
-msgid "Copies"
-msgstr "Копии"
-
-msgid "Dedup Method"
-msgstr "Метод  дедупликации"
-
-msgid "Dnode Size"
-msgstr "Размер Dnode"
-
-msgid "Execute Processes"
-msgstr "Выполнение процессов"
-
-msgid "Filesystem Limit"
-msgstr "Ограничение файловой системы"
-
-msgid "Jailed"
-msgstr "Заключенный"
-
-msgid "Key Format"
-msgstr "Формат ключей"
-
-msgid "Key Location"
-msgstr "Расположение ключей"
-
-msgid "Logbias"
-msgstr "Logbias"
-
-msgid "Mountpoint Type"
-msgstr "Тип точки монтирования"
-
-msgid "Non-blocking Mandatory Locks"
-msgstr "Неблокирующие обязательные блокировки"
-
-msgid "Overlay Mount"
-msgstr ""
-
-msgid "PBKDF2 Iterations"
-msgstr ""
-
-msgid "Primary Cache"
-msgstr "Первичный кеш"
-
-msgid "Record Size"
-msgstr "Размер записи"
-
-msgid "Redundant Metadata"
-msgstr "Резервные метаданные"
-
-msgid "Refquota"
-msgstr "Refquota"
-
-msgid "Refquota Type"
-msgstr ""
-
-msgid "Refreservation"
-msgstr "Refreservation"
-
-msgid "Refreservation Type"
-msgstr ""
-
-msgid "Relatime"
-msgstr ""
-
-msgid "Reservation Type"
-msgstr ""
-
-msgid "Secondary Cache"
-msgstr "Вторичный кеш"
-
-msgid "Setuid"
-msgstr ""
-
-msgid "Share NFS Options"
-msgstr ""
-
-msgid "Share NFS Type"
-msgstr ""
-
-msgid "Share SMB Options"
-msgstr ""
-
-msgid "Share SMB Type"
-msgstr ""
-
-msgid "Snapshot Device Visibility"
-msgstr ""
-
-msgid "Snapshot Folder Visibility"
-msgstr "Видимость папки моментального снимка"
-
-msgid "Snapshot Limit"
-msgstr "Ограничение на моментальный снимок"
-
-msgid "Threshold Small Block Size"
-msgstr ""
-
-msgid "Synchronous Requests Behaviour"
-msgstr "Поведение синхронных запросов"
-
-msgid "Volume Mode"
-msgstr "Режим раздела"
-
-msgid "Volume Size"
-msgstr "Размер тома"
-
-msgid "Virus Scan"
-msgstr "Проверка на вирусы"
-
 msgid "The name of the filesystem."
 msgstr "Имя файловой системы."
 
@@ -10042,6 +9827,9 @@ msgstr "Введите имя файловой системы"
 
 msgid "Controls the type of the ZFS dataset."
 msgstr "Управляет типом набора данных ZFS."
+
+msgid "Pool Name"
+msgstr "Название пула"
 
 msgid ""
 "Indicates whether the file name matching algorithm used by the filesystem "
@@ -10618,725 +10406,1768 @@ msgstr ""
 msgid "System attribute based xattrs"
 msgstr ""
 
-msgid "Add Schedule"
-msgstr "Добавить расписание"
-
-msgid "Edit Schedule"
-msgstr "Изменить расписание"
-
-msgid "Schedule is marked for deletion"
-msgstr "Расписание отмечено для удаления"
-
-msgid "Schedule is locked"
-msgstr "Расписание заблокировано"
-
-msgid "Schedule is unlocked"
-msgstr "Расписание разблокировано"
-
-msgid "Delete Selected Schedules"
-msgstr "Удалить выбранные расписания"
-
-msgid "Do you want to delete selected schedules?"
-msgstr "Вы хотите удалить выбранные расписания?"
-
-msgid "Do you want to disable selected schedules?"
-msgstr "Вы хотите отключить выбранные расписания?"
-
-msgid "Do you want to enable selected schedules?"
-msgstr "Вы хотите включить выбранные расписания?"
-
-msgid "Do you want to toggle selected schedules?"
-msgstr "Вы хотите переключить выбранные расписания?"
-
-msgid "Invalid"
-msgstr "Недопустимый"
-
-msgid "Select pool."
-msgstr "Выберите пул."
+msgid "Dataset Name"
+msgstr "Имя Dataset"
 
 msgid ""
-"Commands are executed by the scheduler when the minute, hour, and month of "
-"year fields match the current time, and when at least one of the two day "
-"fields (day of month, or day of week) matches the current time."
+"File System - can be mounted within the standard system namespace and "
+"behaves like other file systems."
 msgstr ""
-"Команды выполняются планировщиком, когда поля минут, часов и месяцев года "
-"соответствуют текущему времени и когда хотя бы одно из двух полей дня (день "
-"месяца или день недели) совпадает с текущим временем."
+"Файловая система - может быть установлена ​​в стандартном системном "
+"пространстве имен и ведет себя как другие файловые системы."
 
-msgid "Presets"
-msgstr "Предустановки"
-
-msgid "Daily"
-msgstr "Каждый день"
-
-msgid "Weekly"
-msgstr "Еженедельно"
-
-msgid "Monthly"
-msgstr "Ежемесячно"
-
-msgid "Yearly"
-msgstr "Ежегодно"
-
-msgid "Custom Setting"
-msgstr "Пользовательская настройка"
-
-msgid "Schedule"
-msgstr "Расписание"
-
-msgid "Weekdays"
-msgstr "Будни"
-
-msgid "All Minutes"
-msgstr "Все минуты"
-
-msgid "All Hours"
-msgstr "Все часы"
-
-msgid "All Days"
-msgstr "Все дни"
-
-msgid "All Months"
-msgstr "Все месяцы"
-
-msgid "All Weekdays"
-msgstr "Все будни"
-
-msgid "Scrub"
-msgstr "Scrub"
-
-msgid "Create Snapshot"
-msgstr "Создать снимок"
-
-msgid "Destroy Snapshot"
-msgstr "Уничтожить снимок"
-
-msgid "Scrub Pool"
-msgstr "Проверка пула"
-
-msgid "Hourly"
-msgstr "Ежечасно"
-
-msgid "Create"
-msgstr "Создать"
-
-msgid "Select Pool, Filesystem or Volume"
-msgstr "Выберите пул, файловую систему или том"
-
-msgid "Recursively create snapshots of all descendent datasets."
-msgstr "Рекурсивно создавать снимки всех дочерних наборов данных."
-
-msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr "Рекурсивно уничтожить снимки всех дочерних наборов данных."
-
-msgid "Lifetime Value"
-msgstr "Значение показателя жизненного цикла"
-
-msgid "Lifetime Units"
-msgstr "Единицы измерения жизненного цикла"
-
-msgid "Lifetime"
-msgstr "Пожизненно"
-
-msgid "Second(s)"
-msgstr "секунд"
-
-msgid "Minute(s)"
-msgstr "Минута(ы)"
-
-msgid "Hour(s)"
-msgstr "Час(ов)"
-
-msgid "Day(s)"
-msgstr "Дни"
-
-msgid "Week(s)"
-msgstr "Неделя(ли)"
-
-msgid "Month(s)"
-msgstr "Месяц (ы)"
-
-msgid "Year(s)"
-msgstr "Года(лет)"
-
-msgid "Destroy"
-msgstr "Уничтожить"
-
-msgid "Show Used/Avail"
-msgstr "Показывать Использовано/Доступно"
-
-msgid "On-Disk Configuration"
-msgstr "Конфигурация на диске"
-
-msgid "Capacity Warning Threshold"
-msgstr "Порог предупреждения о емкости"
-
-msgid "Capacity Critical Threshold"
-msgstr "Критический порог емкости"
+msgid "Volume - A logical volume. Can be exported as a raw or block device."
+msgstr ""
+"Том - логический том. Может экспортироваться как необработанное или блочное "
+"устройство."
 
 msgid ""
-"Display Used/Avail information from the filesystem instead of the Alloc/Free "
-"information from the pool."
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
 msgstr ""
-"Отображение информации о использованном/доступном пространстве из файловой "
-"системы, а не информации распределено/свободно из пула."
+"Snapshot - версия файловой системы или тома, доступная только для чтения в "
+"данный момент времени."
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr "Закладка - создает закладку для данного моментального снимка."
+
+msgid "Dataset Type"
+msgstr "Тип набора данных"
+
+msgid "Clones"
+msgstr "Клоны"
+
+msgid "Compression Ratio"
+msgstr "Степень сжатия"
+
+msgid "Defer Destroy"
+msgstr "Отложить Уничтожение"
+
+msgid "Encryption Root"
+msgstr ""
+
+msgid "Filesystem Count"
+msgstr "Счетчик файловой системы"
+
+msgid "GUID"
+msgstr "GUID"
+
+msgid "Key Status"
+msgstr "Статус ключей"
+
+msgid "Logical Referenced"
+msgstr "Логическая ссылка"
+
+msgid "Logical Used"
+msgstr "Логически используемый"
+
+msgid "Mounted"
+msgstr "Смотировано"
+
+msgid "Obj Set ID"
+msgstr ""
+
+msgid "Receive Resume Token"
+msgstr ""
+
+msgid "Redact Snaps"
+msgstr ""
+
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr "Ссылается"
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
+msgid "Userrefs"
+msgstr ""
+
+msgid "Written"
+msgstr "Записано"
+
+msgid "Normalization"
+msgstr "Нормализация"
+
+msgid "UTF-8 File Names"
+msgstr "Имена файлов в формате UTF-8"
+
+msgid "ACL Type"
+msgstr "Тип ACL"
+
+msgid "Access Time"
+msgstr "Время доступа"
+
+msgid "Can Mount"
+msgstr "Может монтироваться"
+
+msgid "Checksum"
+msgstr "Контрольная сумма"
+
+msgid "GZIP Compression Level"
+msgstr "Уровень сжатия GZIP"
+
+msgid "Zstandard Compression Level"
+msgstr ""
+
+msgid "Fast Zstandard Compression Level"
+msgstr "Fast Zstandard Compression Level"
+
+msgid "Copies"
+msgstr "Копии"
+
+msgid "Dedup Method"
+msgstr "Метод  дедупликации"
+
+msgid "Dnode Size"
+msgstr "Размер Dnode"
+
+msgid "Execute Processes"
+msgstr "Выполнение процессов"
+
+msgid "Filesystem Limit"
+msgstr "Ограничение файловой системы"
+
+msgid "Jailed"
+msgstr "Заключенный"
+
+msgid "Key Format"
+msgstr "Формат ключей"
+
+msgid "Key Location"
+msgstr "Расположение ключей"
+
+msgid "Logbias"
+msgstr "Logbias"
+
+msgid "Mountpoint Type"
+msgstr "Тип точки монтирования"
+
+msgid "Non-blocking Mandatory Locks"
+msgstr "Неблокирующие обязательные блокировки"
+
+msgid "Overlay Mount"
+msgstr ""
+
+msgid "PBKDF2 Iterations"
+msgstr ""
+
+msgid "Primary Cache"
+msgstr "Первичный кеш"
+
+msgid "Record Size"
+msgstr "Размер записи"
+
+msgid "Redundant Metadata"
+msgstr "Резервные метаданные"
+
+msgid "Refquota"
+msgstr "Refquota"
+
+msgid "Refquota Type"
+msgstr ""
+
+msgid "Refreservation"
+msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr ""
+
+msgid "Relatime"
+msgstr ""
+
+msgid "Reservation Type"
+msgstr ""
+
+msgid "Secondary Cache"
+msgstr "Вторичный кеш"
+
+msgid "Setuid"
+msgstr ""
+
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr "Видимость папки моментального снимка"
+
+msgid "Snapshot Limit"
+msgstr "Ограничение на моментальный снимок"
+
+msgid "Threshold Small Block Size"
+msgstr ""
+
+msgid "Synchronous Requests Behaviour"
+msgstr "Поведение синхронных запросов"
+
+msgid "Volume Mode"
+msgstr "Режим раздела"
+
+msgid "Volume Size"
+msgstr "Размер тома"
+
+msgid "Virus Scan"
+msgstr "Проверка на вирусы"
+
+msgid "The identifier reported as unknown by smartctl, including brackets."
+msgstr "Smartctl сообщил, что идентификатор неизвестен, включая скобки."
+
+msgid "Enter Identifier"
+msgstr "Введите идентификатор"
+
+msgid "Enter smartctl pass-through type."
+msgstr "Введите smartctl pass-through тип."
+
+msgid "Enter login name."
+msgstr "Введите логин."
+
+msgid "Enter the full user name."
+msgstr "Введите полное имя пользователя."
+
+msgid "Full Name"
+msgstr "Полное имя"
+
+msgid "Set user password."
+msgstr "Установите пароль пользователя."
+
+msgid "Specify the user/account numeric id."
+msgstr "Укажите числовой идентификатор пользователя / учетной записи."
+
+msgid "The recommended range for the user id is between 1000 and 32000."
+msgstr ""
+"Рекомендуемый диапазон для идентификатора пользователя составляет от 1000 до "
+"32000."
+
+msgid "1000"
+msgstr "1000"
+
+msgid "Set user login shell."
+msgstr "Установите командную оболочку пользователя."
+
+msgid "No Login"
+msgstr "Вход не выполнен"
+
+msgid "scponly - Secure Copy Protocol only"
+msgstr "scponly - только протокол защищенного копирования"
+
+msgid "sh - Bourne Shell"
+msgstr "sh - Bourne Shell"
+
+msgid "bash - Bourne Again Shell"
+msgstr "bash - Bourne Again Shell"
+
+msgid "csh - C Shell"
+msgstr "csh - C Shell"
+
+msgid "tcsh - TENEX C Shell"
+msgstr "tcsh - TENEX C Shell"
+
+msgid "Set the account's primary group."
+msgstr "Установите основную группу учетной записи."
+
+msgid "Add user to additional groups."
+msgstr "Добавить пользователя в дополнительные группы."
 
 msgid ""
-"Used/Avail lists storage information after all redundancy is taken into "
-"account but is impacted by compression, deduplication and quotas. Alloc/Free "
-"lists the raw storage information of a pool."
+"Enter the path to the home directory of the user. Leave this field empty to "
+"use default path /mnt."
 msgstr ""
-"Использовано/Доступно - информация списка хранилищ взята после учета всей "
-"избыточности, но на них влияют сжатие, дедупликация и квоты. "
-"Распределено/Свободно перечисляет информацию об исходном хранилище пула."
+"Введите путь к домашнему каталогу пользователя. Оставьте это поле пустым, "
+"чтобы использовать путь по умолчанию /mnt."
 
-msgid "Read on-disk configuration."
-msgstr "Прочитать конфигурацию на диске."
+msgid "/mnt"
+msgstr "/mnt"
 
-msgid ""
-"Reading the configuration from the disks is slower than reading from cache "
-"file."
-msgstr ""
-"Чтение конфигурации с дисков происходит медленнее, чем чтение из файла кеша."
+msgid "User portal permission."
+msgstr "Разрешение пользователя портала."
 
-msgid "Set the warning threshold to a value between 80 and 89."
-msgstr "Установите значение порога предупреждения от 80 до 89."
+msgid "No access to the user portal"
+msgstr "Нет доступа к пользовательскому порталу"
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the warning "
-"threshold."
-msgstr ""
-"Электронное письмо - уведомление отправляется когда емкость пула превышает "
-"порог предупреждения."
+msgid "User access"
+msgstr "Доступ пользователя"
 
-msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr ""
-"Задача cron должна быть настроена для запланированного сценария "
-"/etc/capacitycheck.zfs."
+msgid "Admin access"
+msgstr "Доступ администратора"
 
-msgid "Must be a number between 80 and 89."
-msgstr "Должно быть число от 80 до 89."
-
-msgid "Set the critical threshold to a value between 90 and 95."
-msgstr "Установите значение критического порога от 90 до 95."
-
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the critical "
-"threshold."
-msgstr ""
-"Электронное письмо - уведомление отправляется когда емкость пула превышает "
-"критический порог."
-
-msgid "Must be a number between 90 and 95."
-msgstr "Должно быть число от 90 до 95."
-
-msgid "No ZFS volume information available."
-msgstr "Информация о томе ZFS недоступна."
-
-msgid "No ZFS zpool information available."
-msgstr "Информация о ZFS zpool недоступна."
-
-msgid "Selected..."
-msgstr "Выбранное..."
-
-msgid "Directory"
-msgstr "Каталог"
-
-msgid "Modified"
-msgstr "Изменено"
-
-msgid "Parent Directory"
-msgstr "Родительский каталог"
-
-msgid "You are not allowed to use this function."
-msgstr "Вам не разрешено использовать эту функцию."
-
-msgid "Copy item(s)"
-msgstr "Копировать объект(ы)"
-
-msgid "Move item(s)"
-msgstr "Переместить объект(ы)"
-
-#, php-format
-msgid "Copy from /%s to /%s "
-msgstr "Копировать из /%s to /%s "
-
-#, php-format
-msgid "Move from /%s to /%s "
-msgstr "Переместить из /%s to /%s "
-
-msgid "Copy"
-msgstr "Копировать"
-
-msgid "Move"
-msgstr "Переместить"
-
-msgid "The target directory doesn't exist."
+msgid "Select the language of the user portal for this user."
 msgstr "Выберите язык пользовательского портала для этого пользователя."
 
-msgid "You are not allowed to access the target directory."
-msgstr "Вам не разрешен доступ к целевому каталогу."
+msgid "Select the timezone for this user."
+msgstr "Выберите часовой пояс для этого пользователя."
 
-msgid "The target directory may not be above the home directory."
-msgstr "Целевой каталог не может быть выше домашнего каталога."
+msgid "Grant access to the file manager."
+msgstr "Предоставление доступа к файловому менеджеру."
 
-msgid "You must supply a name."
-msgstr "Вы должны предоставить имя."
+msgid "Show hidden items"
+msgstr "Показать скрытые объекты"
 
-msgid "This item doesn't exist."
-msgstr "Этот объект не существует."
+msgid "Grant read permission"
+msgstr "Предоставить разрешение на чтение"
 
-msgid "You are not allowed to access this item."
-msgstr "Вам не разрешен доступ к этому объекту."
+msgid "Grant create permission"
+msgstr "Предоставить разрешение на создание"
 
-msgid "The target item already exists."
-msgstr "Целевой объект уже существует."
+msgid "Grant modify permission"
+msgstr "Предоставить разрешение на изменение"
 
-msgid "Copying failed."
-msgstr "Копирование не удалось."
+msgid "Grant delete permission"
+msgstr "Предоставить разрешение на удаление"
 
-msgid "Moving failed."
-msgstr "Переместить не удалось."
+msgid "Add User Account"
+msgstr "Добавить учётную запись пользователя"
 
-msgid "File saving failed."
-msgstr "Ошибка сохранения файла."
+msgid "Edit User Account"
+msgstr "Редактировать учетную запись пользователя"
 
-msgid "This file doesn't exist."
-msgstr "Этот файл не существует."
+msgid "User account is marked for deletion"
+msgstr "Учетная запись пользователя помечена для удаления"
 
-msgid "You are not allowed to access this file."
-msgstr "Вам не разрешен доступ к этому файлу."
+msgid "User account is protected"
+msgstr "Учетная запись пользователя защищена"
 
-msgid "This item already exists."
-msgstr "Этот объект уже существует."
+msgid "User account is unlocked"
+msgstr "Учетная запись пользователя разблокирована"
 
-msgid "File opening failed."
-msgstr "Ошибка при открытии файла."
+msgid "Set password"
+msgstr "Установить пароль"
 
-msgid "Edit file"
-msgstr "Редактировать файл"
+msgid "Delete Selected User Accounts"
+msgstr "Удалить выбранные учетные записи пользователей"
 
-msgid "Wrap text:"
-msgstr "Развернуть текст:"
-
-msgid "Reset"
-msgstr "Сбросить"
-
-msgid "Close"
-msgstr "Закрыть"
-
-msgid "Deleting failed."
-msgstr "Удаление не удалось."
-
-msgid "Unable to open source directory."
-msgstr "Не удается открыть исходный каталог."
-
-msgid "Unable to open directory."
-msgstr "Невозможно открыть каталог."
-
-msgid "Unable to read directory."
-msgstr "Невозможно прочитать каталог."
-
-msgid "Executable File"
-msgstr "Исполняемый файл"
-
-msgid "Link"
-msgstr "Ссылка"
-
-msgid "Text File"
-msgstr "Текстовый файл"
-
-msgid "PHP Script"
-msgstr "PHP скрипт"
-
-msgid "SQL File"
-msgstr "SQL файл"
-
-msgid "PERL Script"
-msgstr "PERL скрипт"
-
-msgid "HTML Page"
-msgstr "HTML страница"
-
-msgid "XML File"
-msgstr "XML файл"
-
-msgid "Javascript File"
-msgstr "Javascript файл"
-
-msgid "CSS File"
-msgstr "Файл CSS"
-
-msgid "CGI Script"
-msgstr "Скрипт CGI"
-
-msgid "Python Script"
-msgstr "Python скрипт"
-
-msgid "Shell Script"
-msgstr "Shell скрипт"
-
-msgid "C File"
-msgstr "C файл"
-
-msgid "C++ Source File"
-msgstr "Файл исходного кода на C++"
-
-msgid "C++ Header File"
-msgstr "Заголовочный файл C++"
-
-msgid "Java Source File"
-msgstr "Файл исходного кода на Java"
-
-msgid "Java Class File"
-msgstr "Java Class файл"
-
-msgid "Pascal File"
-msgstr "Pascal файл"
-
-msgid "GIF Image"
-msgstr "GIF изображение"
-
-msgid "JPG Image"
-msgstr "JPG изображение"
-
-msgid "BMP Image"
-msgstr "BMP изображение"
-
-msgid "PNG Image"
-msgstr "PNG изображение"
-
-msgid "TIF Image"
-msgstr "TIF изображение"
-
-msgid "Photoshop File"
-msgstr "Photoshop файл"
-
-msgid "ZIP Archive"
-msgstr "ZIP архив"
-
-msgid "TAR Archive"
-msgstr "TAR архив"
-
-msgid "GZIP Archive"
-msgstr "GZIP архив"
-
-msgid "BZIP2 Archive"
-msgstr "BZIP2 архив"
-
-msgid "RAR Archive"
-msgstr "RAR архив"
-
-msgid "MP3 Audio File"
-msgstr "MP3 аудио файл"
-
-msgid "FLAC Audio File"
-msgstr "FLAC аудио файл"
-
-msgid "WAV Audio File"
-msgstr "WAV аудио файл"
-
-msgid "MIDI File"
-msgstr "MIDI файл"
-
-msgid "RealAudio File"
-msgstr "RealAudio файл"
-
-msgid "DTS Audio File"
-msgstr "DTS аудио файл"
-
-msgid "AC3 Audio File"
-msgstr "AC3 аудио файл"
-
-msgid "OGG Audio File"
-msgstr "OGG аудио файл"
-
-msgid "MP3 Playlist"
-msgstr "MP3 плейлист"
-
-msgid "AVI File"
-msgstr "AVI файл"
-
-msgid "MPEG File"
-msgstr "MPEG файл"
-
-msgid "MOV File"
-msgstr "MOV файл"
-
-msgid "MKV File"
-msgstr "MKV файл"
-
-msgid "VOB File"
-msgstr "VOB файл"
-
-msgid "Flash File"
-msgstr "Flash файл"
-
-msgid "MP4 File"
-msgstr "MP4 файл"
-
-msgid "TS File"
-msgstr "TS файл"
-
-msgid "Word Document"
-msgstr "Документ Word"
-
-msgid "Excel Sheet"
-msgstr "Лист Excel"
-
-msgid "Powerpoint Presentation"
-msgstr "Powerpoint презентация"
-
-msgid "PDF File"
-msgstr "PDF файл"
-
-msgid "You haven't selected any item(s)."
-msgstr "Вы не выбрали ни одного объекта."
-
-msgid "ERROR(S)"
-msgstr "ОШИБКА(И)"
-
-msgid "Go Back"
-msgstr "Назад"
-
-msgid "Directory creation failed."
-msgstr "Не удалось создать каталог."
-
-msgid "File creation failed."
-msgstr "Не удалось срздать файл."
-
-msgid "Extracting"
-msgstr "Извлечение"
-
-msgid "Unzip"
-msgstr "Unzip"
-
-msgid "Failed to extract archive."
-msgstr "Не удалось извлечь архив."
-
-msgid "Are you sure you want to delete selected item(s)?"
-msgstr "Вы уверены, что хотите удалить выбранные объект(ы)?"
-
-msgid "Search Directory"
-msgstr "Каталог поиска"
-
-msgid "Search Filter"
-msgstr "Фильтр поиска"
-
-msgid "Search subfolder"
-msgstr "Подпапка поиска"
-
-#, php-format
-msgid "Search Result for %1$s"
-msgstr "Результат поиска для %1$s"
-
-msgid "Item(s)"
-msgstr "Объект(ы)"
-
-msgid "No results available."
-msgstr "Нет доступных результатов."
-
-msgid "HOME"
-msgstr "НАЧАЛО"
-
-msgid "Permission-change failed."
-msgstr "Изменение разрешения не удалось."
-
-msgid "Getting permissions failed."
-msgstr "Не удалось получить разрешения."
-
-msgid "Change permissions"
-msgstr "Изменить разрешения"
-
-msgid "Public"
-msgstr "Публичный"
-
-msgid "CHANGE PERMISSIONS"
-msgstr "ИЗМЕНИТЬ РАЗРЕШЕНИЯ"
-
-msgid "You are not allowed to access this directory."
-msgstr "Вам не разрешен доступ к этому каталогу."
-
-msgid "UP"
-msgstr "Вверх"
-
-msgid "RELOAD"
-msgstr "ПЕРЕЗАГРУЗИТЬ"
-
-msgid "SEARCH"
-msgstr "ПОИСК"
-
-msgid "Permissions"
-msgstr "Разрешения"
-
-msgid "Actions"
-msgstr "Действия"
-
-msgid "COPY"
-msgstr "КОПИРОВАТЬ"
-
-msgid "MOVE"
-msgstr "ПЕРЕМЕСТИТЬ"
-
-msgid "DELETE"
-msgstr "УДАЛИТЬ"
-
-msgid "EDIT"
-msgstr "РЕДАКТИРОВАТЬ"
-
-msgid "UNZIP"
-msgstr "UNZIP"
-
-msgid "DOWNLOAD"
-msgstr "ЗАГРУЗИТЬ"
-
-msgid "The following errors were detected"
-msgstr "Были обнаружены следующие ошибки"
-
-msgid ""
-"If this message persists take a look at the system log for more information."
+msgid "Do you want to delete selected user accounts?"
 msgstr ""
-"Если это сообщение сохраняется, загляните в системный журнал для получения "
-"дополнительной информации."
+"Вы уверены, что хотите удалить выбранные учетные записи пользователей?"
 
-msgid "Choose..."
-msgstr "Выберите..."
+msgid "Disable Selected Users"
+msgstr "Отключить выбранных пользователей"
 
-msgid "Running"
-msgstr "Выполнение"
+msgid "Do you want to disable selected users?"
+msgstr "Вы хотите отключить выбранных пользователей?"
+
+msgid "Enable Selected Users"
+msgstr "Включить выбранных пользователей"
+
+msgid "Do you want to enable selected users?"
+msgstr "Вы хотите включить выбранных пользователей?"
+
+msgid "Toggle Selected Users"
+msgstr "Переключить выбранных пользователей"
+
+msgid "Do you want to toggle selected users?"
+msgstr "Вы хотите переключить выбранных пользователей?"
 
 msgid "Active"
 msgstr "Активен"
 
-msgid "Inactive"
-msgstr "Неактивно"
+msgid "System User"
+msgstr "Системный пользователь"
 
-msgid "Online"
-msgstr "В сети"
+msgid "Show System Users"
+msgstr "Показать системных пользователей"
 
-msgid "Offline"
-msgstr "Не в сети"
+msgid "Hide System Users"
+msgstr "Скрыть системных пользователей"
 
-msgid "No records found."
-msgstr "Записей не найдено."
+msgid "Users"
+msgstr "Пользователи"
 
-msgid "Apply Changes"
-msgstr "Применить изменения"
+msgid "Public Keys"
+msgstr "Публичные ключи"
+
+msgid "Groups"
+msgstr "Группы"
+
+msgid "Login Name"
+msgstr "Имя пользователя"
+
+msgid "SHA Password"
+msgstr "Пароль SHA"
+
+msgid "MD4 Password"
+msgstr "Пароль MD4"
+
+msgid "Shell"
+msgstr "Командная оболочка (shell)"
+
+msgid "Primary Group"
+msgstr "Основная группа"
+
+msgid "Timezone"
+msgstr "Часовой пояс"
+
+msgid "File Manager Access"
+msgstr "Доступ к диспетчеру файлов"
+
+msgid "Hidden Items"
+msgstr "Скрытые объекты"
+
+msgid "Read Permission"
+msgstr "Разрешение на чтение"
+
+msgid "Create Permission"
+msgstr "Создать разрешения"
+
+msgid "Change Permission"
+msgstr "Изменить разрешения"
+
+msgid "Delete Permission"
+msgstr "Удалить разрешения"
+
+msgid "Public key information."
+msgstr "Информация публичного ключа."
+
+msgid "Public Key"
+msgstr "Публичный ключ"
+
+msgid "Add Public Key"
+msgstr "Добавить публичный ключ"
+
+msgid "Edit Public Key"
+msgstr "Редактировать корневой каталог NFS"
+
+msgid "Public key is marked for deletion"
+msgstr "Публичный ключ помечен для удаления"
+
+msgid "Public key is protected"
+msgstr "Публичный ключ защищен"
+
+msgid "Public key is unlocked"
+msgstr "Публичный ключ разблокирован"
+
+msgid "Delete Selected Public Keys"
+msgstr "Удалить выбранные публичные ключи"
+
+msgid "Do you want to delete selected public keys?"
+msgstr "Вы хотите удалить выбранные публичные ключи?"
+
+msgid "Disable Selected Public Keys"
+msgstr "Отключить выбранные публичные ключи"
+
+msgid "Do you want to disable selected public keys?"
+msgstr "Вы хотите отключить выбранные публичные ключи?"
+
+msgid "Enable Selected Public Keys"
+msgstr "Включить выбранные публичные ключи"
+
+msgid "Do you want to enable selected public keys?"
+msgstr "Вы хотите включить выбранные публичные ключи?"
+
+msgid "Toggle Selected Public Keys"
+msgstr "Переключить выбранные публичные ключи"
+
+msgid "Do you want to toggle selected public keys?"
+msgstr "Вы хотите переключить выбранные публичные ключи?"
 
 msgid "Reload"
 msgstr "Обновить"
 
+msgid "Add Group"
+msgstr "Добавить группу"
+
+msgid "Edit Group"
+msgstr "Редактировать группу"
+
+msgid "Group is marked for deletion"
+msgstr "Группа помечана для удаления"
+
+msgid "Group is protected"
+msgstr "Группа защищена"
+
+msgid "Group is unlocked"
+msgstr "Группа разблокирована"
+
+msgid "Delete Selected Groups"
+msgstr "Удалить выбранные группы"
+
+msgid "Do you want to delete selected groups?"
+msgstr "Вы уверены, что хотите удалить выбранные группы?"
+
+msgid "Disable Selected Groups"
+msgstr "Отключить выбранные группы"
+
+msgid "Do you want to disable selected groups?"
+msgstr "Вы хотите отключить выбранные группы?"
+
+msgid "Enable Selected Groups"
+msgstr "Включить выбранные группы"
+
+msgid "Do you want to enable selected groups?"
+msgstr "Вы хотите включить выбранные группы?"
+
+msgid "Toggle Selected Groups"
+msgstr "Переключить выбранные группы"
+
+msgid "Do you want to toggle selected groups?"
+msgstr "Вы хотите переключить выбранные группы?"
+
+msgid "System Group"
+msgstr "Системная группа"
+
+msgid "Show System Groups"
+msgstr "Показать системные группы"
+
+msgid "Hide System Groups"
+msgstr "Скрыть системные группы"
+
+msgid "Enter group name."
+msgstr "Введите название группы."
+
+msgid "Group Name"
+msgstr "Имя группы"
+
+msgid "Specify the group numeric id."
+msgstr "Укажите числовой идентификатор группы."
+
+msgid "The recommended range for the group id is between 1000 and 32000."
+msgstr ""
+"Рекомендуемый диапазон для идентификатора группы составляет от 1000 до 32000."
+
+msgid "Domain Controller Name"
+msgstr "Имя контроллера домена"
+
+msgid "Domain Name (DNS/Realm-Name)"
+msgstr "Имя домена (DNS/Realm-имя)"
+
+msgid "Domain Name (NetBIOS-Name)"
+msgstr "Имя домена (NetBIOS-имя)"
+
+msgid "Administrator Name"
+msgstr "Имя администратора"
+
+msgid "Administrator Password"
+msgstr "Пароль администратора"
+
+msgid "Enter AD or PDC name."
+msgstr "Введите имя AD или PDC."
+
+msgid "Controller Name"
+msgstr "Имя контроллера"
+
+msgid "Enter the domain name."
+msgstr "Введите доменное имя."
+
+msgid "example.com"
+msgstr "example.com"
+
+msgid "Enter NetBIOS name."
+msgstr "Введите имя NetBIOS."
+
+msgid "NETBIOS"
+msgstr "NETBIOS"
+
+msgid "Enter user name of a domain administrator account."
+msgstr "Введите имя пользователя учетной записи администратора домена."
+
+msgid "Admin"
+msgstr "Администратор"
+
+msgid "Enter the password of the domain administrator account."
+msgstr "Введите пароль учетной записи администратора домена."
+
+msgid "Add Reboot Schedule"
+msgstr "Добавить расписание перезагрузки"
+
+msgid "Edit Reboot Schedule"
+msgstr "Изменить расписание перезагрузки"
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr "График перезагрузки отмечен для удаления"
+
+msgid "Reboot Schedule is locked"
+msgstr "Расписание перезагрузки заблокировано"
+
+msgid "Reboot Schedule is unlocked"
+msgstr "Расписание перезагрузки разблокировано"
+
+msgid "Delete Selected Reboot Schedules"
+msgstr "Удалить выбранные расписания перезагрузки"
+
+msgid "Do you want to delete selected reboot schedules?"
+msgstr "Вы хотите удалить выбранные расписания перезагрузки?"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr "Отключить выбранные расписания перезагрузки"
+
+msgid "Do you want to disable selected reboot schedules?"
+msgstr "Вы хотите отключить выбранные расписания перезагрузки?"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr "Включить выбранные расписания перезагрузки"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr "Вы хотите включить выбранные расписания перезагрузки?"
+
+msgid "Toggle Selected Reboot Schedules"
+msgstr "Переключить выбранные расписания перезагрузки"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr "Вы хотите переключить выбранные расписания перезагрузки?"
+
+msgid "Daemon Events"
+msgstr "События процессов"
+
+msgid "Enable Server"
+msgstr "Включить сервер"
+
+msgid "FTP Events"
+msgstr "События FTP"
+
+msgid "RSYNC Events"
+msgstr "События RSYNC"
+
+msgid "S.M.A.R.T. Events"
+msgstr "События S.M.A.R.T."
+
+msgid "SSH Events"
+msgstr "События SSH"
+
+msgid "System Events"
+msgstr "Системные события"
+
+msgid "Send daemon event messages."
+msgstr "Отправлять сообщения о событиях процессов."
+
+msgid "Send FTP event messages."
+msgstr "Отправлять сообщения о событиях FTP."
+
+msgid "IP address of the remote syslog server."
+msgstr "IP-адрес удаленного сервера syslog."
+
+msgid ""
+"Port of the remote syslog server. Leave blank to use the default port."
+msgstr ""
+"Порт удаленного сервера syslog. Оставьте поле пустым, чтобы использовать "
+"порт по умолчанию."
+
+msgid ""
+"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
+"server. Be sure to set syslogd on the remote server to accept syslog "
+"messages from this server."
+msgstr ""
+"Syslog посылает UDP датаграммы на порт 514 указанного удаленного сервера "
+"syslog. Убедитесь, что syslogd установлен на удаленном сервере для приёма "
+"syslog сообщений с этого сервера."
+
+msgid "514"
+msgstr "514"
+
+msgid "Port number must be 514 or a number between 1024 and 65535."
+msgstr "Номер порта должен быть 514 или числом от 1024 до 65535."
+
+msgid "Send RSYNC event messages."
+msgstr "Отправлять сообщения о событиях RSYNC."
+
+msgid "Send S.M.A.R.T. event messages."
+msgstr "Отправлять сообщения о событиях S.M.A.R.T."
+
+msgid "Send SSH event messages."
+msgstr "Отправлять сообщения о событиях SSH."
+
+msgid "Send system event messages."
+msgstr "Отправлять сообщения о системных событиях."
+
+msgid "Disable the compression of repeating lines."
+msgstr "Отключите сжатие повторяющихся строк."
+
+msgid "Accept remote syslog messages."
+msgstr "Принимать удаленные syslog сообщения."
+
+msgid ""
+"If this option is checked, IP addresses in the server logs are resolved to "
+"their hostnames where possible."
+msgstr ""
+"Если эта опция включена, в журналах сервера разрешаются соответствия IP-"
+"адресов их именам хостов, где это возможно."
+
+msgid "This can cause a huge delay in loading the log page!"
+msgstr "Это может вызвать огромную задержку в загрузке страниц журнала!"
+
+msgid "Show log entries in reverse order (newest entries on top)."
+msgstr "Показать записи журнала в обратном порядке (новые записи сверху)."
+
+msgid "Remote Syslog Messages"
+msgstr "Удаленные Syslog сообщения"
+
+msgid "Show Log Entries"
+msgstr "Показать записи в журнале"
+
+msgid "Log Order"
+msgstr "Сортировка журнала"
+
+msgid "Facility"
+msgstr "Объект"
+
+msgid "Add Option"
+msgstr "Добавить опцию"
+
+msgid "Edit Option"
+msgstr "Редактировать опцию"
+
+msgid "Option is marked for deletion"
+msgstr "Опция помечена для удаления"
+
+msgid "Option is locked"
+msgstr "Опция заблокирована"
+
+msgid "Option is unlocked"
+msgstr "Опция разблокирована"
+
+msgid "Delete Selected Options"
+msgstr "Удалить выбранные опции"
+
+msgid "Do you want to delete selected options?"
+msgstr "Вы действительно желаете удалить выбранные опции?"
+
+msgid "Disable Selected Options"
+msgstr "Отключить выбранные опции"
+
+msgid "Do you want to disable selected options?"
+msgstr "Вы действительно желаете отключить выбранные опции?"
+
+msgid "Enable Selected Options"
+msgstr "Включить выбранные опции"
+
+msgid "Do you want to enable selected options?"
+msgstr "Вы действительно желаете включить выбранные опции?"
+
+msgid "Toggle Selected Options"
+msgstr "Вкл./откл. выбранные опции"
+
+msgid "Do you want to toggle selected options?"
+msgstr "Вы действительно желаете изменить состояние выбранных опций?"
+
+msgid "Enter facility name"
+msgstr "Введите название объекта"
+
+msgid "Enter level name"
+msgstr "Введите имя уровня"
+
+msgid "Enter destination"
+msgstr "Введите назначение"
+
+msgid "Sort"
+msgstr "Упорядочить"
+
 msgid "Reorder"
 msgstr "Изменить порядок"
 
-msgid "Rescan"
-msgstr "Повторно сканировать"
+msgid "Add Command"
+msgstr "Добавить команду"
 
-msgid "Restart"
-msgstr "Перезапустить"
+msgid "Edit Command"
+msgstr "Изменить команду"
 
-msgid "Add VLAN"
-msgstr "Добавить VLAN"
+msgid "Command is marked for deletion"
+msgstr "Команда помечена для удаления"
 
-msgid "Edit VLAN"
-msgstr "Редактировать VLAN"
+msgid "Command is locked"
+msgstr "Команда заблокирована"
 
-msgid "VLAN is marked for deletion"
-msgstr "VLAN помечен для удаления"
+msgid "Command is unlocked"
+msgstr "Команда разблокирована"
 
-msgid "VLAN is locked"
-msgstr "VLAN заблокирована"
+msgid "Delete Selected Commands"
+msgstr "Удалить выбранные команды"
 
-msgid "VLAN is unlocked"
-msgstr "VLAN разблокирован"
+msgid "Do you want to delete selected commands?"
+msgstr "Вы уверены, что желаете удалить выбранные команды?"
 
-msgid "Delete Selected VLANs"
-msgstr "Удалить выбранные VLAN"
+msgid "Disable Selected Commands"
+msgstr "Отключить выбранные команды"
 
-msgid "Disable Selected VLANs"
-msgstr "Отключить выбранные VLANы"
+msgid "Do you want to disable selected commands?"
+msgstr "Вы уверены, что хотите отключить выбранные команды?"
 
-msgid "Enable Selected VLANs"
-msgstr "Включить выбранные VLANы"
+msgid "Enable Selected Commands"
+msgstr "Включить выбранные команды"
 
-msgid "Toggle Selected VLANs"
-msgstr "Переключение выбранных VLAN"
+msgid "Do you want to enable selected commands?"
+msgstr "Вы уверены, что желаете включить выбранные команды?"
 
-msgid "Do you want to delete selected VLANs?"
-msgstr "Вы хотите удалить выбранные VLAN"
+msgid "Toggle Selected Commands"
+msgstr "Переключить выбранные команды"
 
-msgid "Do you want to disable selected VLANs?"
-msgstr "Вы хотите отключить выбранные VLANы?"
-
-msgid "Do you want to enable selected VLANs?"
-msgstr "Вы хотите включить выбранные VLANы?"
-
-msgid "Do you want to toggle selected VLANs?"
-msgstr "Вы хотите переключить выбранные VLANы?"
-
-msgid "The name of the VLAN interface"
-msgstr "Имя интерфейса VLAN"
-
-msgid "vlan0"
-msgstr "vlan0"
-
-msgid "802.1Q VLAN tag (between 1 and 4094)."
-msgstr "Метка 802.1Q VLAN (между 1 и 4094)."
-
-msgid "102"
-msgstr "102"
+msgid "Do you want to toggle selected commands?"
+msgstr "Вы уверены, что желаете переключить выбранные команды?"
 
 msgid ""
-"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
-"class of service and maps to the frame priority level."
+"These commands will be executed pre or post system initialization (booting) "
+"or before system shutdown."
 msgstr ""
-"Кодовая точка приоритета (PCP) - это 3-разрядное поле, которое относится к "
-"классу обслуживания IEEE 802.1p и соответствует уровню приоритета кадра."
+"Эти команды будут выполнены до/после инициализации системы (загрузки) или "
+"перед выключением."
 
-msgid "Best effort (default)"
+msgid "Post Upgrade"
+msgstr "После обновления"
+
+msgid "Name of the command."
+msgstr "Название команды."
+
+msgid "The command to be executed."
+msgstr "Команда, которая должна быть выполнена."
+
+msgid "Select at which stage the command should be executed."
+msgstr "Выберите, на каком этапе должна выполняться команда."
+
+msgid "Add sysctl setting"
+msgstr "Добавить настройку sysctl"
+
+msgid "Edit sysctl setting"
+msgstr "Изменить настройки sysctl"
+
+msgid "Sysctl setting is marked for deletion"
+msgstr "Параметр Sysctl помечен для удаления"
+
+msgid "Sysctl setting is locked"
+msgstr "Настройка Sysctl заблокирована"
+
+msgid "Sysctl setting is unlocked"
+msgstr "Настройка Sysctl разблокирована"
+
+msgid "Delete Selected Sysctl Settings"
+msgstr "Удалить выбранные настройки Sysctl"
+
+msgid "Do you want to delete selected sysctl settings?"
+msgstr "Вы хотите удалить выбранные настройки sysctl?"
+
+msgid "Disable Selected Sysctl Settings"
+msgstr "Отключить выбранные настройки Sysctl"
+
+msgid "Do you want to disable selected sysctl settings?"
+msgstr "Вы хотите отключить выбранные настройки sysctl?"
+
+msgid "Enable Selected Sysctl Settings"
+msgstr "Включить выбранные настройки Sysctl"
+
+msgid "Do you want to enable selected sysctl settings?"
+msgstr "Вы хотите включить выбранные настройки sysctl?"
+
+msgid "Toggle Selected Sysctl Settings"
+msgstr "Переключить выбранные настройки Sysctl"
+
+msgid "Do you want to toggle selected sysctl settings?"
+msgstr "Вы хотите переключать выбранные настройки sysctl?"
+
+msgid ""
+"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
+"make changes to a running system."
 msgstr ""
+"Эти переменные sysctl будут добавлены в /etc/sysctl.conf. Это позволяет "
+"вносить изменения в работающую систему."
 
-msgid "Background (lowest)"
+msgid "The value of the setting."
+msgstr "Значение настройки."
+
+msgid "Variable"
+msgstr "Переменная"
+
+msgid "Destination Network"
+msgstr "Сеть назначения"
+
+msgid "Choose which interface this route applies to."
+msgstr "Выберите, к каким интерфейсам применим этот маршрут."
+
+msgid "Destination network for this static route."
+msgstr "Сеть назначения для этого статического маршрута."
+
+msgid "Gateway to be used to reach the destination network."
+msgstr "Шлюз будет использован для доступа в указанную сеть."
+
+msgid "Add Route"
+msgstr "Добавить маршрут"
+
+msgid "Edit Route"
+msgstr "Редактировать маршрут"
+
+msgid "Route is marked for deletion"
+msgstr "Маршрут помечен для удаления"
+
+msgid "Route is locked"
+msgstr "Маршрут заблокирован"
+
+msgid "Route is unlocked"
+msgstr "Маршрут разблокирован"
+
+msgid "Delete Selected Routes"
+msgstr "Удалить выбранные маршруты"
+
+msgid "Do you want to delete selected routes?"
+msgstr "Вы хотите удалить выбранные маршруты?"
+
+msgid "Disable Selected Routes"
+msgstr "Отключить выбранные маршруты"
+
+msgid "Do you want to disable selected routes?"
+msgstr "Вы хотите отключить выбранные маршруты?"
+
+msgid "Enable Selected Routes"
+msgstr "Включить выбранные маршруты"
+
+msgid "Do you want to enable selected routes?"
+msgstr "Вы хотите включить выбранные маршруты?"
+
+msgid "Toggle Selected Routes"
+msgstr "Переключить выбранные маршруты"
+
+msgid "Do you want to toggle selected routes?"
+msgstr "Вы хотите переключать выбранные маршруты?"
+
+msgid "Running user"
+msgstr "Запуск от имени пользователя"
+
+msgid "The name of the variable."
+msgstr "Имя переменной."
+
+msgid "The value of the variable."
+msgstr "Значение переменной."
+
+msgid ""
+"These option(s) will be added to /boot/loader.conf.local. This allows you to "
+"specify parameters to be passed to the kernel and additional modules to be "
+"loaded."
 msgstr ""
+"Эти опции будут добавлены в /boot/loader.conf.local. Это позволяет вам "
+"указать параметры для передачи в ядро ​​и дополнительные модули для загрузки."
 
-msgid "Excellent effort"
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr "Имена отключенных переменных будут удалены из /etc/rc.conf."
+
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr "Включенные параметры будут добавлены в /etc/rc.conf."
+
+msgid "Name of the variable."
+msgstr "Имя переменной."
+
+msgid "Enter Value"
+msgstr "Введите значение"
+
+msgid ""
+"Display action buttons in the scrollable area instead of the footer area."
 msgstr ""
+"Отобразить кнопки действий в области прокрутки вместо области нижнего "
+"колонтитула."
 
-msgid "Critical applications"
+msgid "Fully qualified file name of a custom file chooser CSS file."
+msgstr "Полное имя пользовательского CSS-файла страницы выбора файлов."
+
+msgid "Select file mode of the custom file chooser CSS file."
+msgstr "Выберите режим пользовательского CSS-файла для выбора файлов."
+
+msgid "Replace the default CSS file"
+msgstr "Заменить файл CSS по умолчанию"
+
+msgid "Append content to the default CSS file"
+msgstr "Добавить содержимое в файл CSS по умолчанию"
+
+msgid "Fully qualified file name of a custom GUI CSS file."
+msgstr "Полное имя файла пользовательского CSS-файла GUI."
+
+msgid "Select file mode of the custom GUI CSS file."
+msgstr "Выберите режим пользовательского CSS-файла для GUI."
+
+msgid "Fully qualified file name of a custom navigation bar CSS file."
+msgstr "Полное имя пользовательского CSS-файла панели навигации."
+
+msgid "Select file mode of the custom navigation bar CSS file."
+msgstr "Выберите режим пользовательского CSS-файла для панели навигации."
+
+msgid "Fully qualified file name of a custom tabs CSS file."
+msgstr "Полное имя пользовательского CSS-файла вкладок."
+
+msgid "Select file mode of the custom tabs CSS file."
+msgstr "Выберите режим пользовательского CSS-файла для вкладок пользователя."
+
+msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
+"Использовать одну кнопку для изменения состояния вместо кнопок вкл./откл."
 
-msgid "Video < 100ms latency"
-msgstr "Задержка видео < 100мс"
-
-msgid "Video < 10ms latency"
-msgstr "Задержка видео < 10мс"
-
-msgid "Internetwork control"
-msgstr "Управление сетью"
-
-msgid "Network control (highest)"
-msgstr "Сетевой контроль (самый высокий)"
-
-msgid "Set the VLAN encapsulation protocol."
-msgstr "Установка протокола инкапсуляции VLAN."
-
-msgid "802.1Q (default)"
-msgstr "802.1Q (default)"
-
-msgid "802.1ad (QinQ)"
-msgstr "802.1ad (QinQ)"
-
-msgid "VLAN Interface"
-msgstr "Интерфейс VLAN"
-
-msgid "VLAN Tag"
-msgstr "Метка VLAN"
-
-msgid "PCP"
+msgid "Select the display mode of the top-level items in the navigation bar."
 msgstr ""
+"Выберите режим отображения объектов верхнего уровня на панели навигации."
 
-msgid "Encapsulation Protocol"
-msgstr "Протокол инкапсуляции"
+msgid "Show text only"
+msgstr "Показывать только текст"
+
+msgid "Show symbol only"
+msgstr "Показывать только символы"
+
+msgid "Show symbol and text"
+msgstr "Показать символ и текст"
+
+msgid ""
+"Display disk size values using binary prefixes instead of decimal prefixes."
+msgstr ""
+"Отображение значений размера диска с использованием бинарных префиксов "
+"вместо десятичных префиксов."
+
+msgid "Enable this option if you want to display colorful meter states."
+msgstr ""
+"Включите эту опцию, если вы хотите отображать цветные индикаторы состояния."
+
+msgid ""
+"Enable this option if you want to edit configuration pages directly without "
+"the need to switch to edit mode."
+msgstr ""
+"Включите эту опцию, если вы хотите редактировать страницы конфигурации "
+"напрямую, без необходимости переключения в режим редактирования."
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr "Введите число от 0 до 256 или оставьте это поле пустым."
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr ""
+"Ограничить максимальное количество процессоров, отображаемых на домашней "
+"странице."
+
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr "Задайте целевую страницу для меню Диагностика > Информация."
+
+msgid "Button Location"
+msgstr "Расположение кнопок"
+
+msgid "File Chooser"
+msgstr "Выбор файла"
+
+msgid "File Mode"
+msgstr "Файловый режим"
+
+msgid "GUI"
+msgstr "Графический интерфейс пользователя"
+
+msgid "Navigation Bar"
+msgstr "Панель навигации"
+
+msgid "Tabs"
+msgstr "Вкладки"
+
+msgid "Toggle Mode"
+msgstr "Режим переключения"
+
+msgid "Navbar Style"
+msgstr "Стиль Навбар"
+
+msgid "Binary Prefix"
+msgstr "Бинарный префикс"
+
+msgid "Colorful Meters"
+msgstr "Цветные индикаторы состояния"
+
+msgid "Skip View Mode"
+msgstr "Пропустить режим просмотра"
+
+msgid "Show Max CPUs"
+msgstr "Показать максимальное количество процессоров"
+
+msgid "Diagnostics Information"
+msgstr "Диагностическая информация"
+
+msgid "Show Interval"
+msgstr "Показать интервал"
+
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables the reminder."
+msgstr ""
+"Установите количество дней до отображения напоминания о сохранении "
+"конфигурации системы. По умолчанию это 28 дней. Значение 0 отключает "
+"напоминание."
+
+msgid "Network Address"
+msgstr "Сетевой адрес"
+
+msgid "Enter additional parameters"
+msgstr "Введите дополнительные параметры"
+
+msgid "No additional parameters"
+msgstr "Нет дополнительных параметров"
+
+msgid "Undefined"
+msgstr "Не определено"
+
+msgid "The value is invalid."
+msgstr "Значение недействительно."
+
+msgid "Enter a description for your reference."
+msgstr "Введите описание для справки."
+
+msgid "Enable Setting"
+msgstr "Включить настройку"
+
+msgid "IPv4 Address"
+msgstr "Адрес IPv4"
+
+msgid "Protect"
+msgstr "Защита"
+
+msgid "Protect Setting"
+msgstr "Защитить настройки"
+
+msgid "The UUID of the record."
+msgstr "UUID записи."
+
+msgid "Enter Universally Unique Identifier"
+msgstr "Введите универсальный уникальный идентификатор"
+
+msgid "Universally Unique Identifier"
+msgstr "Универсальный уникальный идентификатор"
+
+msgid "Delete Selected Records"
+msgstr "Удалить выбранные записи"
+
+msgid "Do you want to delete selected records?"
+msgstr "Вы хотите удалить выбранные записи?"
+
+msgid "Disable Selected Records"
+msgstr "Отключить выбранные записи"
+
+msgid "Do you want to disable selected records?"
+msgstr "Вы хотите отключить выбранные записи?"
+
+msgid "Enable Selected Records"
+msgstr "Включить выбранные записи"
+
+msgid "Do you want to enable selected records?"
+msgstr "Вы хотите включить выбранные записи?"
+
+msgid "Lock Selected Records"
+msgstr "Заблокировать выбранные записи"
+
+msgid "Do you want to lock selected records?"
+msgstr "Вы хотите заблокировать выбранные записи?"
+
+msgid "Toggle Selected Records"
+msgstr "Переключение выбранных записей"
+
+msgid "Do you want to toggle selected records?"
+msgstr "Вы хотите инвертировать выбранные записи?"
+
+msgid "Unlock Selected Records"
+msgstr "Разблокировать выбранные записи"
+
+msgid "Do you want to unlock selected records?"
+msgstr "Вы хотите разблокировать выбранные записи?"
+
+msgid "Add Record"
+msgstr "Добавить запись"
+
+msgid "Record is marked for deletion"
+msgstr "Запись помечена для удаления"
+
+msgid "Record Information"
+msgstr "Информация записи"
+
+msgid "Record is protected"
+msgstr "Запись защищиена"
+
+msgid "Record Maintenance"
+msgstr "Информация технического обслуживания"
+
+msgid "Edit Record"
+msgstr "Редактировать запись"
+
+msgid "Record is unlocked"
+msgstr "Запись заблокирована"
+
+msgid "Autodetect"
+msgstr "Автоопределение"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
+"Выберите «Пользовательский поставщик» для настройки параметров подробных "
+"сведений о сервере обновлений DDNS."
+
+msgid "Select from predefined providers."
+msgstr "Выберите из предопределенных поставщиков."
+
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr "Введите идентификатор для этой настраиваемой конфигурации DDNS."
+
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+"Для поддержки нескольких пользователей одного и того же провайдера DDNS "
+"необходимо определить идентификатор. Идентификатор может быть любой буквенно-"
+"цифровой строкой произвольной формы, если комбинация уникальна."
+
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+"Список имен хостов. Используйте запятую для разделения нескольких имен."
+
+msgid "Hostnames"
+msgstr "Имена хостов"
+
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr "Имя пользователя, если используется. Это можно назвать хешем."
+
+msgid "The password, if applicable."
+msgstr "Пароль, если используется."
+
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+"Включите подстановочные знаки имени домена для доменного имени для "
+"поставщиков DDNS, которые это поддерживают."
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+"Используйте HTTPS как при проверке изменений IP, так и при обновлении записи "
+"DNS. По умолчанию используется HTTPS."
+
+msgid "Server to use for periodic IP address changes"
+msgstr "Сервер для периодической смены IP-адреса"
+
+msgid "api.ipify.org"
+msgstr "api.ipify.org"
+
+msgid "Optional server path for check IP server"
+msgstr "Необязательный путь к серверу для проверки IP-сервера"
+
+msgid "/"
+msgstr "/"
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+"Этот параметр обычно соответствует настройке ssl, но может использоваться "
+"для отключения HTTPS при проверке IP-адреса."
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
+"Команда оболочки или сценарий для проверки обновления IP-адреса. Команда "
+"должна вывести текст с IP-адресом."
+
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+"То же, что и глобальная настройка, но только для этого провайдера. Если не "
+"указано, по умолчанию используется глобальная настройка, которая, если не "
+"задана, использует строку пользовательского агента по умолчанию."
+
+msgid "User agent string"
+msgstr "Строка User Agent"
+
+msgid "DDNS server name, not the full URL."
+msgstr "Имя сервера DDNS, а не полный URL."
+
+msgid "update.example.com"
+msgstr "update.example.com"
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+"Путь к серверу DDNS. По умолчанию имя хоста добавляется к пути, если не "
+"задано append-myip."
+
+msgid "/update?domain="
+msgstr "/update?domain="
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr "Добавьте текущий IP-адрес в путь обновления сервера DDNS."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
+"Если этот параметр не включен, добавляется имя хоста. Если ddns-path не "
+"указан вместе со спецификаторами формата, в этом случае этот параметр не "
+"используется."
+
+msgid "These parameters will be added to this provider configuration"
+msgstr "Эти параметры будут добавлены в эту конфигурацию провайдера."
+
+msgid "Add Provider"
+msgstr "Добавить провайдера"
+
+msgid "Edit Provider"
+msgstr "Изменить поставщика"
+
+msgid "Provider is marked for deletion"
+msgstr "Провайдер отмечен для удаления"
+
+msgid "Provider is locked"
+msgstr "Провайдер заблокирован"
+
+msgid "Provider is unlocked"
+msgstr "Провайдер разблокирован"
+
+msgid "Delete Selected Providers"
+msgstr "Удалить выбранных поставщиков"
+
+msgid "Disable Selected Providers"
+msgstr "Отключить выбранных поставщиков"
+
+msgid "Enable Selected Providers"
+msgstr "Включить выбранных поставщиков"
+
+msgid "Toggle Selected Providers"
+msgstr "Переключить выбранных поставщиков"
+
+msgid "Do you want to delete selected providers?"
+msgstr "Вы хотите удалить выбранных провайдеров?"
+
+msgid "Do you want to disable selected providers?"
+msgstr "Вы хотите отключить выбранных провайдеров?"
+
+msgid "Do you want to enable selected providers?"
+msgstr "Вы хотите включить выбранных поставщиков?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "Вы хотите переключить выбранных поставщиков?"
+
+msgid "Missing Provider"
+msgstr "Отсутствуюет провайдер"
+
+msgid "Orphaned Provider"
+msgstr "Оставшийся провайдер"
+
+msgid "Undefined Type"
+msgstr "Неопределенный тип"
+
+msgid "Unknown Provider"
+msgstr "Неизвестный провайдер"
+
+msgid "Standard Provider"
+msgstr "Стандартный провайдер"
+
+msgid "Custom Provider"
+msgstr "Пользовательский поставщик"
+
+msgid "Record Type"
+msgstr "Тип записи"
+
+msgid "Provider"
+msgstr "Провайдер"
+
+msgid "Provider Name"
+msgstr "Имя провайдера"
+
+msgid "Host Names"
+msgstr "Имена хостов"
+
+msgid "Wildcard Domain"
+msgstr "Wildcard домен"
+
+msgid "Use HTTPS"
+msgstr "Использовать HTTPS"
+
+msgid "Check IP Server"
+msgstr "Проверить IP-сервер"
+
+msgid "Check IP Path"
+msgstr "Проверить IP-путь"
+
+msgid "Check IP using HTTPS"
+msgstr "Проверить IP с помощью HTTPS"
+
+msgid "Check IP Command"
+msgstr "Команда проверки IP"
+
+msgid "User Agent"
+msgstr "User Agent"
+
+msgid "DDNS-Server"
+msgstr "DDNS-сервер"
+
+msgid "DDNS-Path"
+msgstr "DDNS-путь"
+
+msgid "Append my IP"
+msgstr "Добавить мой IP"
+
+msgid "Providers"
+msgstr "Провайдеры"
+
+msgid "Global Settings"
+msgstr "Общие параметры"
+
+msgid "Verify Address"
+msgstr "Проверить адрес"
+
+msgid "Fake Address"
+msgstr "Поддельный адрес"
+
+msgid "Allow IPv6"
+msgstr "Разрешить IPv6"
+
+msgid "Network Interface"
+msgstr "Сетевой интерфейс"
+
+msgid "Iterations"
+msgstr "Интерации"
+
+msgid "Check Interval"
+msgstr "Интервал проверки"
+
+msgid "Force Update Interval"
+msgstr "Интервал принудительного обновления"
+
+msgid "Secure SSL"
+msgstr "Безопасный SSL"
+
+msgid "Broken RTC"
+msgstr "Сломанный RTC"
+
+msgid "CA Trusted Certificates"
+msgstr "Сертификаты, доверенных ЦС"
+
+msgid "Cache Directory"
+msgstr "Каталог кеша"
+
+msgid "Startup Delay"
+msgstr "Задержка запуска"
+
+msgid "Log Level"
+msgstr "Уровень журналирования"
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
+"Подтверждение IP-адреса можно отключить, установив для этого параметра "
+"значение false."
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
+"По умолчанию inadyn проверяет адреса IPv4 и IPv6, чтобы убедиться, что это "
+"действительный адрес в Интернете. К недействительным адресам относятся, "
+"например, local, loopback, multicast и известные экспериментальные адреса. "
+"Для получения дополнительной информации см. RFC3330."
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+"Используйте эту опцию для имитации обновления адреса со «случайным» адресом "
+"в диапазоне 203.0.113.0/24 перед обновлением с фактическим IP-адресом."
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
+"Этот параметр определяет, следует ли разрешить или запретить адреса IPv6."
+
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+"Используйте этот сетевой интерфейс как источник изменений IP-адреса вместо "
+"запроса к внешнему серверу."
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
+"Установите количество обновлений DNS. По умолчанию 0, что означает "
+"бесконечность."
+
+msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+"Как часто проверяется IP в секундах. По умолчанию: прибл. 1 минута. Макс: 10 "
+"дней."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
+"Как часто нужно обновлять IP, даже если он не менялся. Время следует "
+"указывать в секундах. По умолчанию 30 дней."
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
+"Включите этот параметр, чтобы прервать обновление DDNS в случае сбоя "
+"проверки сертификата HTTPS."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+"Включите эту опцию только в системах без аппаратных часов реального времени "
+"и времени загрузки по умолчанию в далеком прошлом."
+
+msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+"Этот параметр переопределяет встроенные пути и резервные местоположения и "
+"предоставляет способ указать путь к надежному набору сертификатов CA в "
+"формате PEM, объединенных в один файл."
+
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+"Укажите строку User-Agent для отправки поставщику DDNS при проверке и "
+"запросах на обновление."
+
+msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+"Установить каталог для файлов постоянного кеша. Файлы кеша используются для "
+"отслеживания того, какие адреса были успешно отправлены соответствующему "
+"провайдеру DDNS и когда."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr "Начальная задержка запуска. По умолчанию нет задержки."
+
+msgid "no delay"
+msgstr "без задержки"
+
+msgid "Set log level"
+msgstr "Установить уровень журнала"
+
+msgid "Errors"
+msgstr "Ошибки"
+
+msgid "Notice"
+msgstr "Предупреждение"
+
+msgid "Debug"
+msgstr "Отладочный режим (Debug)"
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr "Эти параметры добавляются в файл inadyn.conf."
+
+msgid "Add Media Folder"
+msgstr "Добавить папку мультимедиа"
+
+msgid "Edit Media Folder"
+msgstr "Редактировать папку мультимедиа"
+
+msgid "Media Folder is marked for deletion"
+msgstr "Папка мультимедиа помечена для удаления"
+
+msgid "Media Folder is locked"
+msgstr "Папка мультимедиа заблокирована"
+
+msgid "Media Folder is unlocked"
+msgstr "Папка мультимедиа разблокирована"
+
+msgid "Delete Selected Media Folders"
+msgstr "Удалить выбранные папки мультимедиа"
+
+msgid "Disable Selected Media Folders"
+msgstr "Отключить выбранные папки мультимедиа"
+
+msgid "Enable Selected Media Folders"
+msgstr "Включить выбранные папки мультимедиа"
+
+msgid "Toggle Selected Media Folders"
+msgstr "Переключить выбранные папки мультимедиа"
+
+msgid "Do you want to delete selected media folders?"
+msgstr "Вы хотите удалить выбранные папки мультимедиа?"
+
+msgid "Do you want to disable selected media folders?"
+msgstr "Вы хотите отключить выбранные папки мультимедиа?"
+
+msgid "Do you want to enable selected media folders?"
+msgstr "Вы хотите включить выбранные папки мультимедиа?"
+
+msgid "Do you want to toggle selected media folders?"
+msgstr "Вы хотите переключить выбранные папки мультимедиа?"
+
+msgid "Path to be included."
+msgstr "Путь, который будет включен."
+
+msgid "Restrict folder to a specific media type."
+msgstr "Ограничить папку определенным типом носителя."
+
+msgid "Scan folder for all media types."
+msgstr "Сканирование папки для всех типов содержимого."
+
+msgid "Scan folder for audio files."
+msgstr "Сканирование папки на наличие аудиофайлов."
+
+msgid "Scan folder for video files."
+msgstr "Сканирование папки на наличие видеофайлов."
+
+msgid "Scan folder for image files."
+msgstr "Сканирование папки для файлов изображений."
+
+msgid "Scan folder for video and image files."
+msgstr "Сканирование папки для видео и файлов изображений."
+
+msgid "Media Type"
+msgstr "Тип данных"
+
+msgid "Media Folders"
+msgstr "Папки мультимедиа"
+
+msgid "Media Folder"
+msgstr "Папка мультимедиа"
+
+msgid "Inotify"
+msgstr "Подсистема мониторинга файловой системы Inotify"
+
+msgid "Broadcast Interval"
+msgstr "Интервал трансляции"
+
+msgid "Strict DLNA"
+msgstr "Строгое DLNA"
+
+msgid "TiVo Support"
+msgstr "Поддержка TiVo"
+
+msgid "Wide Links"
+msgstr "Большие ссылки"
+
+msgid "Container"
+msgstr "Контейнер"
+
+msgid "Sort Criteria"
+msgstr "Критерии сортировки"
+
+msgid "Disable Subtitles"
+msgstr "Отключить субтитры"
+
+msgid "Media Server Name."
+msgstr "Имя медиа-сервера."
+
+msgid "Verbosity of information that is logged."
+msgstr "Детализация информации, которая регистрируется."
+
+msgid "Fatal"
+msgstr "Критическое"
+
+msgid "Enable inotify."
+msgstr "Включить Inotify."
+
+msgid "Use inotify monitoring to automatically discover new media files."
+msgstr ""
+"Использовать мониторинг inotify для автоматического обнаружения новых медиа-"
+"файлов."
+
+msgid ""
+"Broadcasts its availability every configured seconds on the network, the "
+"default is 300 seconds."
+msgstr ""
+"Настройка времени трансляции доступности в сети в секундах, по умолчанию 300 "
+"секунд."
+
+msgid "300"
+msgstr "300"
+
+msgid ""
+"Port to listen on. Port number must be between 1024 and 65535. Default port "
+"is 8200."
+msgstr ""
+"Порт для прослушивания. Номер порта должен быть между 1024 и 65535. Порт по "
+"умолчанию - 8200."
+
+msgid "8200"
+msgstr "8200"
+
+msgid "Enable to strictly adhere to DLNA standards."
+msgstr "Включить строгое придерживание стандартов DLNA."
+
+msgid ""
+"This will allow server-side downscaling of very large JPEG images, it can "
+"impact JPEG serving performance on some DLNA devices."
+msgstr ""
+"Это позволит на стороне сервера уменьшать масштаб очень больших изображений "
+"JPEG, это может повлиять на производительность отображения JPEG на некоторых "
+"устройствах DLNA."
+
+msgid "Enable TiVo support."
+msgstr "Включить поддержку TiVo."
+
+msgid ""
+"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
+msgstr ""
+"Установите для включения поддержки потокового воспроизведения файлов .jpg и "
+".mp3 для TiVo с поддержкой HMO."
+
+msgid "Location of the media content database."
+msgstr "Расположение базы данных медиа-контента."
+
+msgid "Allow symlinks that point outside defined media folders."
+msgstr ""
+"Разрешить символические ссылки, которые указывают за пределы определенных "
+"папок мультимедиа."
+
+msgid "These parameters will be added to minidlna.conf"
+msgstr "Эти параметры будут добавлены в minidlna.conf"
+
+msgid "Select a container as the root of the tree exposed to clients."
+msgstr "Выберите контейнер в качестве корня дерева, доступного для клиентов."
+
+msgid "Use the standard container (this is the default)"
+msgstr "Использовать стандартный контейнер (это по умолчанию)"
+
+msgid "Use the \"Browse Directory\" container"
+msgstr "Использовать контейнер «Просмотр каталога»"
+
+msgid "Use the \"Music\" container"
+msgstr "Использовать контейнер \"Музыка\""
+
+msgid "Use the \"Video\" container"
+msgstr "Использовать контейнер \"Видео\""
+
+msgid "Use the \"Pictures\" container"
+msgstr "Использовать контейнер \"Картинки\""
+
+msgid "Overwrite the sort criteria passed by the client."
+msgstr "Перезаписать критерии сортировки, переданные клиентом."
+
+msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+
+msgid "Disable subtitle support on unknown clients."
+msgstr "Отключить поддержку субтитров на неизвестных клиентах."
+
+msgid "Auth Group Name"
+msgstr "Название группы аутентификации"
+
+msgid "Auth Type"
+msgstr "Тип аутентификации"
 
 msgid "Add Auth Group"
 msgstr "Добавить группу"
@@ -11377,20 +12208,11 @@ msgstr "Вы хотите включить выбранные группы ау�
 msgid "Do you want to toggle selected auth groups?"
 msgstr "Вы хотите переключить выбранные группы аутентификации?"
 
-msgid "Name of the Auth Group."
-msgstr "Имя группы аутентификации."
+msgid "Initiator Names"
+msgstr "Имена инициаторов"
 
-msgid "Auth Group Name"
-msgstr "Название группы аутентификации"
-
-msgid "Sets the authentication type."
-msgstr "Устанавливает тип аутентификации."
-
-msgid "CHAP-Mutual"
-msgstr "Взаимный CHAP"
-
-msgid "These parameters will be added to this auth-group."
-msgstr "Эти параметры будут добавлены в эту auth-группу."
+msgid "Initiator Portals"
+msgstr "Порталы инициаторов"
 
 msgid "No CHAP users found."
 msgstr "Пользователи CHAP не найдены."
@@ -11413,170 +12235,23 @@ msgstr "Портал инициаторов"
 msgid "No initiator portals found."
 msgstr "Порталы инициатора не найдены."
 
-msgid "Auth Type"
-msgstr "Тип аутентификации"
+msgid "Name of the Auth Group."
+msgstr "Имя группы аутентификации."
 
-msgid "Global Settings"
-msgstr "Общие параметры"
+msgid "Sets the authentication type."
+msgstr "Устанавливает тип аутентификации."
 
-msgid "Initiator Names"
-msgstr "Имена инициаторов"
+msgid "CHAP-Mutual"
+msgstr "Взаимный CHAP"
 
-msgid "Initiator Portals"
-msgstr "Порталы инициаторов"
-
-msgid "Additional Options for Block Backend"
-msgstr "Дополнительные параметры для Block Backend"
-
-msgid "Additional Options for RAM Disk Backend"
-msgstr "Дополнительные параметры для RAM Disk Backend"
-
-msgid "LUN Name"
-msgstr "Название LUN"
-
-msgid "Backend"
-msgstr "Backend"
-
-msgid "CTL LUN"
-msgstr "CTL LUN"
-
-msgid "Device ID"
-msgstr "ID устройства"
-
-msgid "Device Type"
-msgstr "Тип устройства"
-
-msgid "Passthrough Address"
-msgstr "Транзитный адрес"
-
-msgid "LUN Vendor"
-msgstr "Поставщик LUN"
-
-msgid "LUN Product"
-msgstr "Продукт LUN"
-
-msgid "LUN Revision"
-msgstr "Ревизия LUN"
-
-msgid "LUN SCSI Name"
-msgstr "Имя LUN SCSI"
-
-msgid "LUN EUI-64\tidentifier"
-msgstr "LUN EUI-64\tидентификатор"
-
-msgid "LUN NAA Identifier"
-msgstr "LUN NAA идентификатор"
-
-msgid "LUN UUID"
-msgstr "LUN UUID"
-
-msgid "HA Role"
-msgstr "Роль HA"
-
-msgid "Insecure TPC"
-msgstr "Небезопасный TPC"
-
-msgid "Read Cache"
-msgstr "Чтение кеша"
-
-msgid "Read Only"
-msgstr "Только чтение"
-
-msgid "Reordering"
-msgstr "Изменение порядка"
-
-msgid "Serialize Sequence"
-msgstr "Сериализация последовательности"
-
-msgid "Physical Block Size"
-msgstr "Размер физического блока"
-
-msgid "Physical Block Offset"
-msgstr "Смещение физического блока"
-
-msgid "UNMAP Block Size"
-msgstr "Размер блока UNMAP"
-
-msgid "UNMAP Block Offset"
-msgstr "Смещение блока UNMAP"
-
-msgid "RPM"
-msgstr "RPM"
-
-msgid "Form Factor"
-msgstr "Форм-фактор"
-
-msgid "Provisioning Type"
-msgstr "Тип предоставления"
-
-msgid "UNMAP"
-msgstr "UNMAP"
-
-msgid "UNMAP Maximum LBA"
-msgstr "Максимальный LBA UNMAP"
-
-msgid "UNMAP Maximum Descriptors"
-msgstr "Максимальные дескрипторы UNMAP"
-
-msgid "Write Same Maximum LBA"
-msgstr "Запись того же самого максимального значения LBA"
-
-msgid "Avail Threshold"
-msgstr "Свободный порог"
-
-msgid "Used Threshold"
-msgstr "Использованный порог"
-
-msgid "Pool Avail Threshold"
-msgstr "Порог свободного места в пуле"
-
-msgid "Pool Used Threshold"
-msgstr "Порог пула"
-
-msgid "Threads"
-msgstr "Потоки"
-
-msgid "Add LUN"
-msgstr "Добавить LUN"
-
-msgid "Edit LUN"
-msgstr "Изменить LUN"
-
-msgid "LUN is marked for deletion"
-msgstr "LUN отмечен для удаления"
-
-msgid "LUN is locked"
-msgstr "LUN заблокирован"
-
-msgid "LUN is unlocked"
-msgstr "LUN разблокирован"
-
-msgid "Delete Selected LUNs"
-msgstr "Удалить выбранные LUN"
-
-msgid "Disable Selected LUNs"
-msgstr "Отключить выбранные LUN"
-
-msgid "Enable Selected LUNs"
-msgstr "Включить выбранные LUN"
-
-msgid "Toggle Selected LUNs"
-msgstr "Переключить выбранные LUN"
-
-msgid "Do you want to delete selected LUNs?"
-msgstr "Вы хотите удалить выбранные LUN?"
-
-msgid "Do you want to disable selected LUNs?"
-msgstr "Вы хотите отключить выбранные LUN?"
-
-msgid "Do you want to enable selected LUNs?"
-msgstr "Вы хотите включить выбранные LUN?"
-
-msgid "Do you want to toggle selected LUNs?"
-msgstr "Вы хотите переключить выбранные LUN?"
+msgid "These parameters will be added to this auth-group."
+msgstr "Эти параметры будут добавлены в эту auth-группу."
 
 msgid "Name of the LUN."
 msgstr "Имя LUN."
+
+msgid "LUN Name"
+msgstr "Название LUN"
 
 msgid "The CTL backend to use for a given LUN."
 msgstr "CTL backend для использования для данного LUN."
@@ -11617,6 +12292,9 @@ msgstr ""
 
 msgid "The SCSI Device Identification string presented to the initiator."
 msgstr "Строка идентификации устройства SCSI представляемая ​​инициатору."
+
+msgid "Device ID"
+msgstr "ID устройства"
 
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
@@ -11848,17 +12526,149 @@ msgstr ""
 msgid "These parameters will be added to this lun."
 msgstr "Эти параметры будут добавлены в этот лун."
 
-msgid "Listen"
-msgstr "Прослушивание"
+msgid "Additional Options for Block Backend"
+msgstr "Дополнительные параметры для Block Backend"
 
-msgid "No listeners found."
-msgstr "Слушатели не найдены."
+msgid "Additional Options for RAM Disk Backend"
+msgstr "Дополнительные параметры для RAM Disk Backend"
 
-msgid "Option"
-msgstr "Параметр"
+msgid "Add LUN"
+msgstr "Добавить LUN"
 
-msgid "No options found."
-msgstr "Опции не найдены."
+msgid "Edit LUN"
+msgstr "Изменить LUN"
+
+msgid "LUN is marked for deletion"
+msgstr "LUN отмечен для удаления"
+
+msgid "LUN is locked"
+msgstr "LUN заблокирован"
+
+msgid "LUN is unlocked"
+msgstr "LUN разблокирован"
+
+msgid "Delete Selected LUNs"
+msgstr "Удалить выбранные LUN"
+
+msgid "Disable Selected LUNs"
+msgstr "Отключить выбранные LUN"
+
+msgid "Enable Selected LUNs"
+msgstr "Включить выбранные LUN"
+
+msgid "Toggle Selected LUNs"
+msgstr "Переключить выбранные LUN"
+
+msgid "Do you want to delete selected LUNs?"
+msgstr "Вы хотите удалить выбранные LUN?"
+
+msgid "Do you want to disable selected LUNs?"
+msgstr "Вы хотите отключить выбранные LUN?"
+
+msgid "Do you want to enable selected LUNs?"
+msgstr "Вы хотите включить выбранные LUN?"
+
+msgid "Do you want to toggle selected LUNs?"
+msgstr "Вы хотите переключить выбранные LUN?"
+
+msgid "Backend"
+msgstr "Backend"
+
+msgid "CTL LUN"
+msgstr "CTL LUN"
+
+msgid "Device Type"
+msgstr "Тип устройства"
+
+msgid "Passthrough Address"
+msgstr "Транзитный адрес"
+
+msgid "LUN Vendor"
+msgstr "Поставщик LUN"
+
+msgid "LUN Product"
+msgstr "Продукт LUN"
+
+msgid "LUN Revision"
+msgstr "Ревизия LUN"
+
+msgid "LUN SCSI Name"
+msgstr "Имя LUN SCSI"
+
+msgid "LUN EUI-64\tidentifier"
+msgstr "LUN EUI-64\tидентификатор"
+
+msgid "LUN NAA Identifier"
+msgstr "LUN NAA идентификатор"
+
+msgid "LUN UUID"
+msgstr "LUN UUID"
+
+msgid "HA Role"
+msgstr "Роль HA"
+
+msgid "Insecure TPC"
+msgstr "Небезопасный TPC"
+
+msgid "Read Cache"
+msgstr "Чтение кеша"
+
+msgid "Read Only"
+msgstr "Только чтение"
+
+msgid "Reordering"
+msgstr "Изменение порядка"
+
+msgid "Serialize Sequence"
+msgstr "Сериализация последовательности"
+
+msgid "Physical Block Size"
+msgstr "Размер физического блока"
+
+msgid "Physical Block Offset"
+msgstr "Смещение физического блока"
+
+msgid "UNMAP Block Size"
+msgstr "Размер блока UNMAP"
+
+msgid "UNMAP Block Offset"
+msgstr "Смещение блока UNMAP"
+
+msgid "RPM"
+msgstr "RPM"
+
+msgid "Form Factor"
+msgstr "Форм-фактор"
+
+msgid "Provisioning Type"
+msgstr "Тип предоставления"
+
+msgid "UNMAP"
+msgstr "UNMAP"
+
+msgid "UNMAP Maximum LBA"
+msgstr "Максимальный LBA UNMAP"
+
+msgid "UNMAP Maximum Descriptors"
+msgstr "Максимальные дескрипторы UNMAP"
+
+msgid "Write Same Maximum LBA"
+msgstr "Запись того же самого максимального значения LBA"
+
+msgid "Avail Threshold"
+msgstr "Свободный порог"
+
+msgid "Used Threshold"
+msgstr "Использованный порог"
+
+msgid "Pool Avail Threshold"
+msgstr "Порог свободного места в пуле"
+
+msgid "Pool Used Threshold"
+msgstr "Порог пула"
+
+msgid "Threads"
+msgstr "Потоки"
 
 msgid "Name of the Portal Group."
 msgstr "Имя группы портала."
@@ -11941,18 +12751,6 @@ msgstr ""
 "Уникальное 16-битное значение тега этой группы портала. Если не указано, "
 "значение генерируется автоматически."
 
-msgid "Discovery Filter"
-msgstr "Фильтр обнаружения"
-
-msgid "Offload"
-msgstr "Разгрузка"
-
-msgid "Redirect"
-msgstr "Перенаправление"
-
-msgid "Foreign"
-msgstr "Внешний"
-
 msgid "Add Portal Group"
 msgstr "Добавить группу портала"
 
@@ -11991,6 +12789,46 @@ msgstr "Вы хотите включить выбранные группы по�
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Вы хотите переключать выбранные группы портала?"
+
+msgid "Discovery Filter"
+msgstr "Фильтр обнаружения"
+
+msgid "Offload"
+msgstr "Разгрузка"
+
+msgid "Redirect"
+msgstr "Перенаправление"
+
+msgid "Foreign"
+msgstr "Внешний"
+
+msgid "Listen"
+msgstr "Прослушивание"
+
+msgid "Option"
+msgstr "Параметр"
+
+msgid "No listeners found."
+msgstr "Слушатели не найдены."
+
+msgid "No options found."
+msgstr "Опции не найдены."
+
+msgid "Enter user name."
+msgstr "Введите имя пользователя."
+
+msgid "Enter secret."
+msgstr "Введите секретную фразу."
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+"Связать настройки chap с auth-группами. Обратите внимание, что auth-группа "
+"может содержать либо chap, либо взаимные chap записи, но не обе."
+
+msgid "No auth groups found."
+msgstr "Группы аутентификации не найдены."
 
 msgid "Add CHAP User"
 msgstr "Добавить пользователя CHAP"
@@ -12031,38 +12869,6 @@ msgstr "Вы хотите включить выбранных пользоват
 msgid "Do you want to toggle selected CHAP users?"
 msgstr "Вы хотите переключить выбранных пользователей CHAP?"
 
-msgid "Enter user name."
-msgstr "Введите имя пользователя."
-
-msgid "Enter secret."
-msgstr "Введите секретную фразу."
-
-msgid ""
-"Link chap configuration to auth-groups. Note that an auth-group may contain "
-"either chap or chap-mutual entries, but not both."
-msgstr ""
-"Связать настройки chap с auth-группами. Обратите внимание, что auth-группа "
-"может содержать либо chap, либо взаимные chap записи, но не обе."
-
-msgid "No auth groups found."
-msgstr "Группы аутентификации не найдены."
-
-msgid ""
-"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
-"contain either chap or chap-mutual entries, but not both."
-msgstr ""
-"Связать настройки взаимных chap с auth-группами. Обратите внимание, что auth-"
-"группа может содержать либо chap, либо взаимный chap но не обе."
-
-msgid "Enter mutual user name."
-msgstr "Введите имя взаимного пользователя."
-
-msgid "Mutual User"
-msgstr "Взаимный пользователь"
-
-msgid "Mutual Secret"
-msgstr "Взаимная секретная фраза"
-
 msgid "Add Mutual CHAP User"
 msgstr "Добавить взаимного пользователя CHAP"
 
@@ -12102,15 +12908,21 @@ msgstr "Вы хотите включить выбранных взаимных �
 msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "Вы хотите переключить выбранных взаимных пользователей CHAP?"
 
-msgid "Enter an iSCSI initiator name."
-msgstr "Введите имя инициатора iSCSI."
-
 msgid ""
-"Link initiator-name to auth-groups. An Initiator with this name will be "
-"allowed to connect to the selected auth-groups."
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
 msgstr ""
-"Связать имя инициатора с группами аутентификации. Инициатору с таким именем "
-"будет разрешено подключаться к выбранным группам аутентификации."
+"Связать настройки взаимных chap с auth-группами. Обратите внимание, что auth-"
+"группа может содержать либо chap, либо взаимный chap но не обе."
+
+msgid "Enter mutual user name."
+msgstr "Введите имя взаимного пользователя."
+
+msgid "Mutual User"
+msgstr "Взаимный пользователь"
+
+msgid "Mutual Secret"
+msgstr "Взаимная секретная фраза"
 
 msgid "Add Initiator Name"
 msgstr "Добавить имя инициатора"
@@ -12151,6 +12963,32 @@ msgstr "Вы хотите включить выбранные имена ини�
 msgid "Do you want to toggle selected initiator names?"
 msgstr "Вы хотите переключить имена выбранных инициаторов?"
 
+msgid "Enter an iSCSI initiator name."
+msgstr "Введите имя инициатора iSCSI."
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+"Связать имя инициатора с группами аутентификации. Инициатору с таким именем "
+"будет разрешено подключаться к выбранным группам аутентификации."
+
+msgid "IP Address Prefix"
+msgstr "Префикс IP-адреса"
+
+msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr "Адрес IPv4 или IPv6 портала инициатора iSCSI."
+
+msgid "Enter IP address prefix length."
+msgstr "Введите длину префикса IP-адреса."
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+"Связать инициатор-портал с auth-группами. Инициатору, соответствующему этому "
+"адресу, будет разрешено подключаться к выбранным группам аутентификации."
+
 msgid "Add Initiator Portal"
 msgstr "Добавить портал инициатора"
 
@@ -12190,24 +13028,11 @@ msgstr "Вы хотите включить выбранные порталы и�
 msgid "Do you want to toggle selected initiator portals?"
 msgstr "Вы хотите переключить выбранные порталы инициаторов?"
 
-msgid "IP Address Prefix"
-msgstr "Префикс IP-адреса"
+msgid "IPv4 or IPv6 address of an iSNS server to register on."
+msgstr "IPv4 или IPv6-адрес сервера iSNS для регистрации."
 
-msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "Адрес IPv4 или IPv6 портала инициатора iSCSI."
-
-msgid "Enter IP address prefix length."
-msgstr "Введите длину префикса IP-адреса."
-
-msgid ""
-"Link initiator-portal to auth-groups. An Initiator matching this address "
-"will be allowed to connect to the selected auth-groups."
-msgstr ""
-"Связать инициатор-портал с auth-группами. Инициатору, соответствующему этому "
-"адресу, будет разрешено подключаться к выбранным группам аутентификации."
-
-msgid "iSNS Servers"
-msgstr "Серверы iSNS"
+msgid "Port number of the iSNS server."
+msgstr "Номер порта сервера iSNS."
 
 msgid "Add iSNS Server"
 msgstr "Добавить сервер iSNS"
@@ -12248,11 +13073,8 @@ msgstr "Вы хотите включить выбранные серверы iSN
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Вы хотите переключить выбранные серверы iSNS?"
 
-msgid "IPv4 or IPv6 address of an iSNS server to register on."
-msgstr "IPv4 или IPv6-адрес сервера iSNS для регистрации."
-
-msgid "Port number of the iSNS server."
-msgstr "Номер порта сервера iSNS."
+msgid "iSNS Servers"
+msgstr "Серверы iSNS"
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "Адрес IPv4 или IPv6 для прослушивания входящих соединений."
@@ -12309,6 +13131,9 @@ msgstr "Вы хотите включить выбранные записи пр�
 msgid "Do you want to toggle selected listen records?"
 msgstr "Вы хотите переключить выбранные записи прослушивания?"
 
+msgid "Listen (iSER)"
+msgstr "Список (iSER)"
+
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
@@ -12323,11 +13148,20 @@ msgstr ""
 "Порт для прослушивания входящих подключений с использованием протокола iSER "
 "(iSCSI over RDMA)."
 
-msgid "Listen (iSER)"
-msgstr "Список (iSER)"
-
 msgid "LUN Number"
 msgstr "Номер LUN"
+
+msgid "LUN number"
+msgstr "Номер LUN"
+
+msgid "No LUNs found."
+msgstr "LUN не найдены."
+
+msgid "Select targets."
+msgstr "Выберите цели."
+
+msgid "No targets found."
+msgstr "Цели не найдены."
 
 msgid "Add LUN Record"
 msgstr "Добавить запись LUN"
@@ -12368,23 +13202,14 @@ msgstr "Вы хотите включить выбранные записи LUN?"
 msgid "Do you want to toggle selected LUN records?"
 msgstr "Вы хотите переключить выбранные записи LUN?"
 
-msgid "LUN number"
-msgstr "Номер LUN"
+msgid "Name of the option."
+msgstr "Название опции."
 
-msgid "No LUNs found."
-msgstr "LUN не найдены."
+msgid "Value of the option."
+msgstr "Значение опции."
 
-msgid "Select targets."
-msgstr "Выберите цели."
-
-msgid "No targets found."
-msgstr "Цели не найдены."
-
-msgid "Option Name"
-msgstr "Имя параметра"
-
-msgid "Option Value"
-msgstr "Значение параметра"
+msgid "Link this option to selected portal-groups."
+msgstr "Связать эту опцию с выбранными группами портала."
 
 msgid "Add Option Record"
 msgstr "Добавить запись параметра"
@@ -12425,20 +13250,11 @@ msgstr "Вы хотите включить выбранные записи па�
 msgid "Do you want to toggle selected option records?"
 msgstr "Вы хотите переключить выбранные записи параметров?"
 
-msgid "Name of the option."
-msgstr "Название опции."
+msgid "Option Name"
+msgstr "Имя параметра"
 
-msgid "Value of the option."
-msgstr "Значение опции."
-
-msgid "Link this option to selected portal-groups."
-msgstr "Связать эту опцию с выбранными группами портала."
-
-msgid "Port Name"
-msgstr "Имя порта"
-
-msgid "Name of the port."
-msgstr "Наименование порта."
+msgid "Option Value"
+msgstr "Значение параметра"
 
 msgid "Add Port Record"
 msgstr "Добавить запись порта"
@@ -12479,38 +13295,14 @@ msgstr "Вы хотите включить выбранные записи по�
 msgid "Do you want to toggle selected port records?"
 msgstr "Вы хотите переключить выбранные записи портов?"
 
-msgid "Name of the target."
-msgstr "Имя цели."
+msgid "Name of the port."
+msgstr "Наименование порта."
 
-msgid "These parameters will be added to this target."
-msgstr "Эти параметры будут добавлены к этой цели."
-
-msgid "Assign a human-readable description to the target."
-msgstr "Назначьте понятное для человека описание цели."
+msgid "Port Name"
+msgstr "Имя порта"
 
 msgid "Alias"
 msgstr "Алиас"
-
-msgid "Assign a previously defined authentication group to the target."
-msgstr "Назначьте ранее определенную группу аутентификации цели."
-
-msgid "Permit access without authentication"
-msgstr "Разрешить доступ без аутентификации"
-
-msgid "Assign a previously defined portal group to the target."
-msgstr "Назначьте ранее определенную группу портала цели."
-
-msgid ""
-"IPv4 or IPv6 address to redirect initiators to. When configured, all "
-"initiators attempting to connect to this target will get redirected using "
-"\"Target moved temporarily\" login response."
-msgstr ""
-"IPv4 или IPv6 для перенаправления инициаторов. Когда сконфигурировано, все "
-"инициаторы, пытающиеся подключиться к этой цели, перенаправляются, используя "
-"временно ответ «Ответ на запрос»."
-
-msgid "No ports found."
-msgstr "Порты не найдены."
 
 msgid "Add Target"
 msgstr "Добавить цель"
@@ -12550,6 +13342,36 @@ msgstr "Вы хотите включить выбранные цели?"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Вы хотите переключать выбранные цели?"
+
+msgid "No ports found."
+msgstr "Порты не найдены."
+
+msgid "Name of the target."
+msgstr "Имя цели."
+
+msgid "These parameters will be added to this target."
+msgstr "Эти параметры будут добавлены к этой цели."
+
+msgid "Assign a human-readable description to the target."
+msgstr "Назначьте понятное для человека описание цели."
+
+msgid "Assign a previously defined authentication group to the target."
+msgstr "Назначьте ранее определенную группу аутентификации цели."
+
+msgid "Permit access without authentication"
+msgstr "Разрешить доступ без аутентификации"
+
+msgid "Assign a previously defined portal group to the target."
+msgstr "Назначьте ранее определенную группу портала цели."
+
+msgid ""
+"IPv4 or IPv6 address to redirect initiators to. When configured, all "
+"initiators attempting to connect to this target will get redirected using "
+"\"Target moved temporarily\" login response."
+msgstr ""
+"IPv4 или IPv6 для перенаправления инициаторов. Когда сконфигурировано, все "
+"инициаторы, пытающиеся подключиться к этой цели, перенаправляются, используя "
+"временно ответ «Ответ на запрос»."
 
 msgid "Max Processes"
 msgstr "Макс. процессов"
@@ -12592,379 +13414,74 @@ msgstr "Таймаут для запросов iSNS. По умолчанию и�
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr "Эти параметры будут добавлены в глобальный раздел ctl.conf"
 
-msgid ""
-"Select \"Custom Provider\" for customizing the DDNS update server details "
-"settings."
-msgstr ""
-"Выберите «Пользовательский поставщик» для настройки параметров подробных "
-"сведений о сервере обновлений DDNS."
-
-msgid "Select from predefined providers."
-msgstr "Выберите из предопределенных поставщиков."
-
-msgid "Enter an identifier for this custom DDNS configuration."
-msgstr "Введите идентификатор для этой настраиваемой конфигурации DDNS."
-
-msgid ""
-"To support multiple users of the same DDNS provider, an identifier must be "
-"defined. The identifier can be any free form alphanumeric string as long as "
-"the combination is unique."
-msgstr ""
-"Для поддержки нескольких пользователей одного и того же провайдера DDNS "
-"необходимо определить идентификатор. Идентификатор может быть любой буквенно-"
-"цифровой строкой произвольной формы, если комбинация уникальна."
-
-msgid "The list of hostnames. Use a comma to separate multiple names."
-msgstr ""
-"Список имен хостов. Используйте запятую для разделения нескольких имен."
-
-msgid "Hostnames"
-msgstr "Имена хостов"
-
-msgid "The username, if applicable. This might be referred to as hash."
-msgstr "Имя пользователя, если используется. Это можно назвать хешем."
-
-msgid "The password, if applicable."
-msgstr "Пароль, если используется."
-
-msgid ""
-"Enable domain name wildcarding of the domain name, for DDNS providers that "
-"support this."
-msgstr ""
-"Включите подстановочные знаки имени домена для доменного имени для "
-"поставщиков DDNS, которые это поддерживают."
-
-msgid ""
-"Use HTTPS, both when checking for IP changes and updating the DNS record. "
-"Default is to use HTTPS."
-msgstr ""
-"Используйте HTTPS как при проверке изменений IP, так и при обновлении записи "
-"DNS. По умолчанию используется HTTPS."
-
-msgid "Server to use for periodic IP address changes"
-msgstr "Сервер для периодической смены IP-адреса"
-
-msgid "api.ipify.org"
-msgstr "api.ipify.org"
-
-msgid "Optional server path for check IP server"
-msgstr "Необязательный путь к серверу для проверки IP-сервера"
-
-msgid "/"
-msgstr "/"
-
-msgid ""
-"This setting usually follows the ssl setting, but can be used to disable "
-"HTTPS for the IP address check."
-msgstr ""
-"Этот параметр обычно соответствует настройке ssl, но может использоваться "
-"для отключения HTTPS при проверке IP-адреса."
-
-msgid ""
-"Shell command, or script, for IP address update checking. The command must "
-"output a text with the IP address to its standard output."
-msgstr ""
-"Команда оболочки или сценарий для проверки обновления IP-адреса. Команда "
-"должна вывести текст с IP-адресом."
+msgid "Target Address"
+msgstr "Целевой адрес"
 
-msgid ""
-"Same as the global setting, but only for this provider. If omitted it "
-"defaults to the global setting, which if unset uses the default user agent "
-"string."
-msgstr ""
-"То же, что и глобальная настройка, но только для этого провайдера. Если не "
-"указано, по умолчанию используется глобальная настройка, которая, если не "
-"задана, использует строку пользовательского агента по умолчанию."
+msgid "CHAP Name"
+msgstr "Название CHAP"
 
-msgid "User agent string"
-msgstr "Строка User Agent"
+msgid "CHAP Secret"
+msgstr "CHAP Secret"
 
-msgid "DDNS server name, not the full URL."
-msgstr "Имя сервера DDNS, а не полный URL."
+msgid "Mutual CHAP Name"
+msgstr "Взаимное наименование CHAP"
 
-msgid "update.example.com"
-msgstr "update.example.com"
+msgid "Mutual CHAP Secret"
+msgstr "Взаимная секретная фраза CHAP"
 
-msgid ""
-"DDNS server path. By default the hostname is appended to the path, unless "
-"append-myip is set."
-msgstr ""
-"Путь к серверу DDNS. По умолчанию имя хоста добавляется к пути, если не "
-"задано append-myip."
+msgid "Header Digest"
+msgstr "Заголовок подписи"
 
-msgid "/update?domain="
-msgstr "/update?domain="
+msgid "Data Digest"
+msgstr "Подпись данных"
 
-msgid "Append the current IP to the DDNS server update path."
-msgstr "Добавьте текущий IP-адрес в путь обновления сервера DDNS."
+msgid "Offload Driver"
+msgstr "Драйвер разгрузки"
 
-msgid ""
-"If this setting is not enabled, the hostname is appended. Unless the ddns-"
-"path is given with format specifiers, in which case this setting is unused."
-msgstr ""
-"Если этот параметр не включен, добавляется имя хоста. Если ddns-path не "
-"указан вместе со спецификаторами формата, в этом случае этот параметр не "
-"используется."
+msgid "Session State"
+msgstr "Состояние сеанса"
 
-msgid "These parameters will be added to this provider configuration"
-msgstr "Эти параметры будут добавлены в эту конфигурацию провайдера."
+msgid "Session Type"
+msgstr "Тип сеанса"
 
-msgid "Standard Provider"
-msgstr "Стандартный провайдер"
+msgid "Add iSCSI Initiator"
+msgstr "Добавить инициатор iSCSI"
 
-msgid "Custom Provider"
-msgstr "Пользовательский поставщик"
+msgid "Edit iSCSI Initiator"
+msgstr "Изменить инициатор iSCSI"
 
-msgid "Record Type"
-msgstr "Тип записи"
+msgid "iSCSI Initiator is marked for deletion"
+msgstr "Инициатор iSCSI помечен для удаления"
 
-msgid "Provider"
-msgstr "Провайдер"
+msgid "iSCSI Initiator is locked"
+msgstr "Инициатор iSCSI заблокирован"
 
-msgid "Provider Name"
-msgstr "Имя провайдера"
+msgid "iSCSI Initiator is unlocked"
+msgstr "Инициатор iSCSI разблокирован"
 
-msgid "Host Names"
-msgstr "Имена хостов"
+msgid "Delete Selected iSCSI Initiators"
+msgstr "Удалить выбранные инициаторы iSCSI"
 
-msgid "Wildcard Domain"
-msgstr "Wildcard домен"
+msgid "Disable Selected iSCSI Initiators"
+msgstr "Отключить выбранные инициаторы iSCSI"
 
-msgid "Use HTTPS"
-msgstr "Использовать HTTPS"
+msgid "Enable Selected iSCSI Initiators"
+msgstr "Включить выбранные инициаторы iSCSI"
 
-msgid "Check IP Server"
-msgstr "Проверить IP-сервер"
+msgid "Toggle Selected iSCSI Initiators"
+msgstr "Переключение выбранных инициаторов iSCSI"
 
-msgid "Check IP Path"
-msgstr "Проверить IP-путь"
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr "Вы хотите удалить выбранные инициаторы iSCSI?"
 
-msgid "Check IP using HTTPS"
-msgstr "Проверить IP с помощью HTTPS"
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr "Вы хотите отключить выбранные инициаторы iSCSI?"
 
-msgid "Check IP Command"
-msgstr "Команда проверки IP"
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr "Вы хотите включить выбранные инициаторы iSCSI?"
 
-msgid "User Agent"
-msgstr "User Agent"
-
-msgid "DDNS-Server"
-msgstr "DDNS-сервер"
-
-msgid "DDNS-Path"
-msgstr "DDNS-путь"
-
-msgid "Append my IP"
-msgstr "Добавить мой IP"
-
-msgid "Providers"
-msgstr "Провайдеры"
-
-msgid "Add Provider"
-msgstr "Добавить провайдера"
-
-msgid "Edit Provider"
-msgstr "Изменить поставщика"
-
-msgid "Provider is marked for deletion"
-msgstr "Провайдер отмечен для удаления"
-
-msgid "Provider is locked"
-msgstr "Провайдер заблокирован"
-
-msgid "Provider is unlocked"
-msgstr "Провайдер разблокирован"
-
-msgid "Delete Selected Providers"
-msgstr "Удалить выбранных поставщиков"
-
-msgid "Disable Selected Providers"
-msgstr "Отключить выбранных поставщиков"
-
-msgid "Enable Selected Providers"
-msgstr "Включить выбранных поставщиков"
-
-msgid "Toggle Selected Providers"
-msgstr "Переключить выбранных поставщиков"
-
-msgid "Do you want to delete selected providers?"
-msgstr "Вы хотите удалить выбранных провайдеров?"
-
-msgid "Do you want to disable selected providers?"
-msgstr "Вы хотите отключить выбранных провайдеров?"
-
-msgid "Do you want to enable selected providers?"
-msgstr "Вы хотите включить выбранных поставщиков?"
-
-msgid "Do you want to toggle selected providers?"
-msgstr "Вы хотите переключить выбранных поставщиков?"
-
-msgid "Missing Provider"
-msgstr "Отсутствуюет провайдер"
-
-msgid "Orphaned Provider"
-msgstr "Оставшийся провайдер"
-
-msgid "Undefined Type"
-msgstr "Неопределенный тип"
-
-msgid "Unknown Provider"
-msgstr "Неизвестный провайдер"
-
-msgid ""
-"IP address validation can be disabled by setting this option to false."
-msgstr ""
-"Подтверждение IP-адреса можно отключить, установив для этого параметра "
-"значение false."
-
-msgid ""
-"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
-"address is a valid Internet address. Invalid addresses are, e.g., link "
-"local, loopback, multicast and known experimental addresses. For more "
-"information, see RFC3330."
-msgstr ""
-"По умолчанию inadyn проверяет адреса IPv4 и IPv6, чтобы убедиться, что это "
-"действительный адрес в Интернете. К недействительным адресам относятся, "
-"например, local, loopback, multicast и известные экспериментальные адреса. "
-"Для получения дополнительной информации см. RFC3330."
-
-msgid ""
-"Use this option to fake an address update with a \"random\" address in the "
-"203.0.113.0/24 range before updating with the actual IP address."
-msgstr ""
-"Используйте эту опцию для имитации обновления адреса со «случайным» адресом "
-"в диапазоне 203.0.113.0/24 перед обновлением с фактическим IP-адресом."
-
-msgid ""
-"This option controls if IPv6 addresses should be allowed or discarded."
-msgstr ""
-"Этот параметр определяет, следует ли разрешить или запретить адреса IPv6."
-
-msgid ""
-"Use this network interface as source of IP address changes instead of "
-"querying an external server."
-msgstr ""
-"Используйте этот сетевой интерфейс как источник изменений IP-адреса вместо "
-"запроса к внешнему серверу."
-
-msgid ""
-"Set the number of DNS updates. The default is 0, which means infinity."
-msgstr ""
-"Установите количество обновлений DNS. По умолчанию 0, что означает "
-"бесконечность."
-
-msgid ""
-"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
-"days."
-msgstr ""
-"Как часто проверяется IP в секундах. По умолчанию: прибл. 1 минута. Макс: 10 "
-"дней."
-
-msgid ""
-"How often the IP should be updated even if it is not changed. The time "
-"should be given in seconds. Default is equal to 30 days."
-msgstr ""
-"Как часто нужно обновлять IP, даже если он не менялся. Время следует "
-"указывать в секундах. По умолчанию 30 дней."
-
-msgid ""
-"Enable this option to abort an DDNS update if the HTTPS certificate "
-"validation fails."
-msgstr ""
-"Включите этот параметр, чтобы прервать обновление DDNS в случае сбоя "
-"проверки сертификата HTTPS."
-
-msgid ""
-"Enable this option only on systems without hardware real-time clock and "
-"default bootup time far in the past."
-msgstr ""
-"Включите эту опцию только в системах без аппаратных часов реального времени "
-"и времени загрузки по умолчанию в далеком прошлом."
-
-msgid ""
-"This setting overrides the built-in paths and fallback locations and "
-"provides a way to specify the path to a trusted set of CA certificates, in "
-"PEM format, bundled into one file."
-msgstr ""
-"Этот параметр переопределяет встроенные пути и резервные местоположения и "
-"предоставляет способ указать путь к надежному набору сертификатов CA в "
-"формате PEM, объединенных в один файл."
-
-msgid ""
-"Specify the User-Agent string to send to the DDNS provider on checkip and "
-"update requests."
-msgstr ""
-"Укажите строку User-Agent для отправки поставщику DDNS при проверке и "
-"запросах на обновление."
-
-msgid ""
-"Set directory for persistent cache files, The cache files are used to keep "
-"track of which addresses have been successfully sent to their respective "
-"DDNS provider and when."
-msgstr ""
-"Установить каталог для файлов постоянного кеша. Файлы кеша используются для "
-"отслеживания того, какие адреса были успешно отправлены соответствующему "
-"провайдеру DDNS и когда."
-
-msgid "Initial startup delay. Default is no delay."
-msgstr "Начальная задержка запуска. По умолчанию нет задержки."
-
-msgid "no delay"
-msgstr "без задержки"
-
-msgid "Set log level"
-msgstr "Установить уровень журнала"
-
-msgid "Errors"
-msgstr "Ошибки"
-
-msgid "Notice"
-msgstr "Предупреждение"
-
-msgid "Debug"
-msgstr "Отладочный режим (Debug)"
-
-msgid "These parameters are appended to the inadyn.conf file."
-msgstr "Эти параметры добавляются в файл inadyn.conf."
-
-msgid "Verify Address"
-msgstr "Проверить адрес"
-
-msgid "Fake Address"
-msgstr "Поддельный адрес"
-
-msgid "Allow IPv6"
-msgstr "Разрешить IPv6"
-
-msgid "Network Interface"
-msgstr "Сетевой интерфейс"
-
-msgid "Iterations"
-msgstr "Интерации"
-
-msgid "Check Interval"
-msgstr "Интервал проверки"
-
-msgid "Force Update Interval"
-msgstr "Интервал принудительного обновления"
-
-msgid "Secure SSL"
-msgstr "Безопасный SSL"
-
-msgid "Broken RTC"
-msgstr "Сломанный RTC"
-
-msgid "CA Trusted Certificates"
-msgstr "Сертификаты, доверенных ЦС"
-
-msgid "Cache Directory"
-msgstr "Каталог кеша"
-
-msgid "Startup Delay"
-msgstr "Задержка запуска"
-
-msgid "Log Level"
-msgstr "Уровень журналирования"
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr "Вы хотите переключить выбранные инициаторы iSCSI?"
 
 msgid "This is a nickname and is for information only."
 msgstr "Это псевдоним и только для информации."
@@ -13072,75 +13589,6 @@ msgstr ""
 msgid "Discovery"
 msgstr "Открытие"
 
-msgid "Target Address"
-msgstr "Целевой адрес"
-
-msgid "CHAP Name"
-msgstr "Название CHAP"
-
-msgid "CHAP Secret"
-msgstr "CHAP Secret"
-
-msgid "Mutual CHAP Name"
-msgstr "Взаимное наименование CHAP"
-
-msgid "Mutual CHAP Secret"
-msgstr "Взаимная секретная фраза CHAP"
-
-msgid "Header Digest"
-msgstr "Заголовок подписи"
-
-msgid "Data Digest"
-msgstr "Подпись данных"
-
-msgid "Offload Driver"
-msgstr "Драйвер разгрузки"
-
-msgid "Session State"
-msgstr "Состояние сеанса"
-
-msgid "Session Type"
-msgstr "Тип сеанса"
-
-msgid "Add iSCSI Initiator"
-msgstr "Добавить инициатор iSCSI"
-
-msgid "Edit iSCSI Initiator"
-msgstr "Изменить инициатор iSCSI"
-
-msgid "iSCSI Initiator is marked for deletion"
-msgstr "Инициатор iSCSI помечен для удаления"
-
-msgid "iSCSI Initiator is locked"
-msgstr "Инициатор iSCSI заблокирован"
-
-msgid "iSCSI Initiator is unlocked"
-msgstr "Инициатор iSCSI разблокирован"
-
-msgid "Delete Selected iSCSI Initiators"
-msgstr "Удалить выбранные инициаторы iSCSI"
-
-msgid "Disable Selected iSCSI Initiators"
-msgstr "Отключить выбранные инициаторы iSCSI"
-
-msgid "Enable Selected iSCSI Initiators"
-msgstr "Включить выбранные инициаторы iSCSI"
-
-msgid "Toggle Selected iSCSI Initiators"
-msgstr "Переключение выбранных инициаторов iSCSI"
-
-msgid "Do you want to delete selected iSCSI initiators?"
-msgstr "Вы хотите удалить выбранные инициаторы iSCSI?"
-
-msgid "Do you want to disable selected iSCSI initiators?"
-msgstr "Вы хотите отключить выбранные инициаторы iSCSI?"
-
-msgid "Do you want to enable selected iSCSI initiators?"
-msgstr "Вы хотите включить выбранные инициаторы iSCSI?"
-
-msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Вы хотите переключить выбранные инициаторы iSCSI?"
-
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
 msgstr ""
@@ -13170,190 +13618,44 @@ msgstr ""
 "необходимости ввести эту кодовую фразу повторно. Секретная фраза должна "
 "содержать не менее 32 символов"
 
-msgid "Media Type"
-msgstr "Тип данных"
+msgid "Add NFS Export"
+msgstr "Добавить экспорт NFS"
 
-msgid "Path to be included."
-msgstr "Путь, который будет включен."
+msgid "Edit NFS Export"
+msgstr "Редактировать экспорт NFS"
 
-msgid "Restrict folder to a specific media type."
-msgstr "Ограничить папку определенным типом носителя."
+msgid "NFS Export is marked for deletion"
+msgstr "Экспорт NFS помечен для удаления"
 
-msgid "Scan folder for all media types."
-msgstr "Сканирование папки для всех типов содержимого."
+msgid "NFS Export is locked"
+msgstr "Экспорт NFS заблокирован"
 
-msgid "Scan folder for audio files."
-msgstr "Сканирование папки на наличие аудиофайлов."
+msgid "NFS Export is unlocked"
+msgstr "Экспорт NFS разблокирован"
 
-msgid "Scan folder for video files."
-msgstr "Сканирование папки на наличие видеофайлов."
+msgid "Delete Selected NFS Exports"
+msgstr "Удалить выбранные экспорты NFS"
 
-msgid "Scan folder for image files."
-msgstr "Сканирование папки для файлов изображений."
+msgid "Disable Selected NFS Exports"
+msgstr "Отключить выбранный экспорт NFS"
 
-msgid "Scan folder for video and image files."
-msgstr "Сканирование папки для видео и файлов изображений."
+msgid "Enable Selected NFS Exports"
+msgstr "Включить выбранные экспорты NFS"
 
-msgid "Media Folders"
-msgstr "Папки мультимедиа"
+msgid "Toggle Selected NFS Exports"
+msgstr "Переключить выбранные экспорты NFS"
 
-msgid "Media Folder"
-msgstr "Папка мультимедиа"
+msgid "Do you want to delete selected NFS exports?"
+msgstr "Вы хотите удалить выбранные экспорты NFS?"
 
-msgid "Add Media Folder"
-msgstr "Добавить папку мультимедиа"
+msgid "Do you want to disable selected NFS exports?"
+msgstr "Вы хотите отключить выбранные экспорты NFS?"
 
-msgid "Edit Media Folder"
-msgstr "Редактировать папку мультимедиа"
+msgid "Do you want to enable selected NFS exports?"
+msgstr "Вы хотите включить выбранные экспорты NFS?"
 
-msgid "Media Folder is marked for deletion"
-msgstr "Папка мультимедиа помечена для удаления"
-
-msgid "Media Folder is locked"
-msgstr "Папка мультимедиа заблокирована"
-
-msgid "Media Folder is unlocked"
-msgstr "Папка мультимедиа разблокирована"
-
-msgid "Delete Selected Media Folders"
-msgstr "Удалить выбранные папки мультимедиа"
-
-msgid "Disable Selected Media Folders"
-msgstr "Отключить выбранные папки мультимедиа"
-
-msgid "Enable Selected Media Folders"
-msgstr "Включить выбранные папки мультимедиа"
-
-msgid "Toggle Selected Media Folders"
-msgstr "Переключить выбранные папки мультимедиа"
-
-msgid "Do you want to delete selected media folders?"
-msgstr "Вы хотите удалить выбранные папки мультимедиа?"
-
-msgid "Do you want to disable selected media folders?"
-msgstr "Вы хотите отключить выбранные папки мультимедиа?"
-
-msgid "Do you want to enable selected media folders?"
-msgstr "Вы хотите включить выбранные папки мультимедиа?"
-
-msgid "Do you want to toggle selected media folders?"
-msgstr "Вы хотите переключить выбранные папки мультимедиа?"
-
-msgid "Inotify"
-msgstr "Подсистема мониторинга файловой системы Inotify"
-
-msgid "Broadcast Interval"
-msgstr "Интервал трансляции"
-
-msgid "Strict DLNA"
-msgstr "Строгое DLNA"
-
-msgid "TiVo Support"
-msgstr "Поддержка TiVo"
-
-msgid "Wide Links"
-msgstr "Большие ссылки"
-
-msgid "Container"
-msgstr "Контейнер"
-
-msgid "Sort Criteria"
-msgstr "Критерии сортировки"
-
-msgid "Disable Subtitles"
-msgstr "Отключить субтитры"
-
-msgid "Media Server Name."
-msgstr "Имя медиа-сервера."
-
-msgid "Verbosity of information that is logged."
-msgstr "Детализация информации, которая регистрируется."
-
-msgid "Fatal"
-msgstr "Критическое"
-
-msgid "Enable inotify."
-msgstr "Включить Inotify."
-
-msgid "Use inotify monitoring to automatically discover new media files."
-msgstr ""
-"Использовать мониторинг inotify для автоматического обнаружения новых медиа-"
-"файлов."
-
-msgid ""
-"Broadcasts its availability every configured seconds on the network, the "
-"default is 300 seconds."
-msgstr ""
-"Настройка времени трансляции доступности в сети в секундах, по умолчанию 300 "
-"секунд."
-
-msgid "300"
-msgstr "300"
-
-msgid ""
-"Port to listen on. Port number must be between 1024 and 65535. Default port "
-"is 8200."
-msgstr ""
-"Порт для прослушивания. Номер порта должен быть между 1024 и 65535. Порт по "
-"умолчанию - 8200."
-
-msgid "8200"
-msgstr "8200"
-
-msgid "Enable to strictly adhere to DLNA standards."
-msgstr "Включить строгое придерживание стандартов DLNA."
-
-msgid ""
-"This will allow server-side downscaling of very large JPEG images, it can "
-"impact JPEG serving performance on some DLNA devices."
-msgstr ""
-"Это позволит на стороне сервера уменьшать масштаб очень больших изображений "
-"JPEG, это может повлиять на производительность отображения JPEG на некоторых "
-"устройствах DLNA."
-
-msgid "Enable TiVo support."
-msgstr "Включить поддержку TiVo."
-
-msgid ""
-"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
-msgstr ""
-"Установите для включения поддержки потокового воспроизведения файлов .jpg и "
-".mp3 для TiVo с поддержкой HMO."
-
-msgid "Allow symlinks that point outside defined media folders."
-msgstr ""
-"Разрешить символические ссылки, которые указывают за пределы определенных "
-"папок мультимедиа."
-
-msgid "These parameters will be added to minidlna.conf"
-msgstr "Эти параметры будут добавлены в minidlna.conf"
-
-msgid "Select a container as the root of the tree exposed to clients."
-msgstr "Выберите контейнер в качестве корня дерева, доступного для клиентов."
-
-msgid "Use the standard container (this is the default)"
-msgstr "Использовать стандартный контейнер (это по умолчанию)"
-
-msgid "Use the \"Browse Directory\" container"
-msgstr "Использовать контейнер «Просмотр каталога»"
-
-msgid "Use the \"Music\" container"
-msgstr "Использовать контейнер \"Музыка\""
-
-msgid "Use the \"Video\" container"
-msgstr "Использовать контейнер \"Видео\""
-
-msgid "Use the \"Pictures\" container"
-msgstr "Использовать контейнер \"Картинки\""
-
-msgid "Overwrite the sort criteria passed by the client."
-msgstr "Перезаписать критерии сортировки, переданные клиентом."
-
-msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-
-msgid "Disable subtitle support on unknown clients."
-msgstr "Отключить поддержку субтитров на неизвестных клиентах."
+msgid "Do you want to toggle selected NFS exports?"
+msgstr "Вы хотите переключить выбранные экспорты NFS?"
 
 msgid "Mapping"
 msgstr "Соответствие"
@@ -13460,45 +13762,6 @@ msgstr ""
 msgid "Root Directory"
 msgstr "Корневой каталог"
 
-msgid "Add NFS Export"
-msgstr "Добавить экспорт NFS"
-
-msgid "Edit NFS Export"
-msgstr "Редактировать экспорт NFS"
-
-msgid "NFS Export is marked for deletion"
-msgstr "Экспорт NFS помечен для удаления"
-
-msgid "NFS Export is locked"
-msgstr "Экспорт NFS заблокирован"
-
-msgid "NFS Export is unlocked"
-msgstr "Экспорт NFS разблокирован"
-
-msgid "Delete Selected NFS Exports"
-msgstr "Удалить выбранные экспорты NFS"
-
-msgid "Disable Selected NFS Exports"
-msgstr "Отключить выбранный экспорт NFS"
-
-msgid "Enable Selected NFS Exports"
-msgstr "Включить выбранные экспорты NFS"
-
-msgid "Toggle Selected NFS Exports"
-msgstr "Переключить выбранные экспорты NFS"
-
-msgid "Do you want to delete selected NFS exports?"
-msgstr "Вы хотите удалить выбранные экспорты NFS?"
-
-msgid "Do you want to disable selected NFS exports?"
-msgstr "Вы хотите отключить выбранные экспорты NFS?"
-
-msgid "Do you want to enable selected NFS exports?"
-msgstr "Вы хотите включить выбранные экспорты NFS?"
-
-msgid "Do you want to toggle selected NFS exports?"
-msgstr "Вы хотите переключить выбранные экспорты NFS?"
-
 msgid "Add NFS Root"
 msgstr "Добавить корневую директорию NFS"
 
@@ -13541,6 +13804,15 @@ msgstr "Вы хотите переключить выбранные корнев
 msgid "Root Directories"
 msgstr "Корневые каталоги"
 
+msgid "NFSv4"
+msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr "Только NFSv4"
+
+msgid "Servers"
+msgstr "Серверы"
+
 msgid "Enable NFSv4 server."
 msgstr "Включить NFSv4 сервер."
 
@@ -13558,15 +13830,6 @@ msgstr ""
 msgid "These parameters are appended to the exports file."
 msgstr "Эти параметры добавляются в файл экспорта."
 
-msgid "NFSv4"
-msgstr "NFSv4"
-
-msgid "NFSv4 Only"
-msgstr "Только NFSv4"
-
-msgid "Servers"
-msgstr "Серверы"
-
 msgid "Driver List"
 msgstr "Список устройств"
 
@@ -13578,6 +13841,66 @@ msgstr "Название модели"
 
 msgid "Model Extra"
 msgstr "Экстра модель"
+
+msgid "Enable AFP"
+msgstr "Включить AFP"
+
+msgid "Create Mask"
+msgstr "Маска при создании"
+
+msgid "Force Group"
+msgstr "Принудительная группа"
+
+msgid "Force User"
+msgstr "Принудительный пользователь"
+
+msgid "Shadow Copy Format"
+msgstr "Формат теневого копирования"
+
+msgid "VFS fruit:encoding"
+msgstr "VFS fruit:encoding"
+
+msgid "VFS fruit:locking"
+msgstr "VFS fruit:locking"
+
+msgid "VFS fruit:metadata"
+msgstr "VFS fruit:metadata"
+
+msgid "VFS fruit:resource"
+msgstr "VFS fruit:resource"
+
+msgid "VFS fruit:time machine"
+msgstr "VFS fruit:time machine"
+
+msgid "ZFS ACL"
+msgstr "ZFS ACL"
+
+msgid "Inherit ACL"
+msgstr "Наследовать ACL"
+
+msgid "Alternate Data Streams"
+msgstr "Альтернативные потоки данных"
+
+msgid "NTFS ACLs"
+msgstr "NTFS ACLs"
+
+msgid "Shadow Copy"
+msgstr "Теневое копирование"
+
+msgid "Browseable"
+msgstr "Просматриваемый"
+
+msgid "Guest Only"
+msgstr ""
+
+msgid "Inherit Permissions"
+msgstr "Наследовать права доступа"
+
+msgid "Recycle Bin"
+msgstr "Корзина"
+
+msgid "Hide Dot Files"
+msgstr "Не показывать скрытые файлы (начинающиеся с точки)"
 
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
@@ -13803,66 +14126,6 @@ msgstr "Введите комментарий для этого ресурса �
 
 msgid "Enter the location of the share"
 msgstr "Введите местоположение ресурса"
-
-msgid "Enable AFP"
-msgstr "Включить AFP"
-
-msgid "Create Mask"
-msgstr "Маска при создании"
-
-msgid "Force Group"
-msgstr "Принудительная группа"
-
-msgid "Force User"
-msgstr "Принудительный пользователь"
-
-msgid "Shadow Copy Format"
-msgstr "Формат теневого копирования"
-
-msgid "VFS fruit:encoding"
-msgstr "VFS fruit:encoding"
-
-msgid "VFS fruit:locking"
-msgstr "VFS fruit:locking"
-
-msgid "VFS fruit:metadata"
-msgstr "VFS fruit:metadata"
-
-msgid "VFS fruit:resource"
-msgstr "VFS fruit:resource"
-
-msgid "VFS fruit:time machine"
-msgstr "VFS fruit:time machine"
-
-msgid "ZFS ACL"
-msgstr "ZFS ACL"
-
-msgid "Inherit ACL"
-msgstr "Наследовать ACL"
-
-msgid "Alternate Data Streams"
-msgstr "Альтернативные потоки данных"
-
-msgid "NTFS ACLs"
-msgstr "NTFS ACLs"
-
-msgid "Shadow Copy"
-msgstr "Теневое копирование"
-
-msgid "Browseable"
-msgstr "Просматриваемый"
-
-msgid "Guest Only"
-msgstr ""
-
-msgid "Inherit Permissions"
-msgstr "Наследовать права доступа"
-
-msgid "Recycle Bin"
-msgstr "Корзина"
-
-msgid "Hide Dot Files"
-msgstr "Не показывать скрытые файлы (начинающиеся с точки)"
 
 msgid "Add Samba Share"
 msgstr "Добавить общий ресурс Samba"
@@ -14288,9 +14551,6 @@ msgstr ""
 msgid "Allow password authentication."
 msgstr "Разрешить аутентификацию по паролю."
 
-msgid "Allow challenge-response authentication."
-msgstr "Разрешить проверку подлинности по запросу."
-
 msgid "Allow keyboard-interactive authentication."
 msgstr "Разрешить клавиатурно-интерактивную аутентификацию."
 
@@ -14371,9 +14631,6 @@ msgstr "Эти параметры добавляются в /etc/ssh/sshd_config
 msgid "Password Authentication"
 msgstr "Аутентификация паролем"
 
-msgid "Challenge-Response Authentication"
-msgstr "Аутентификация по запросу-ответу"
-
 msgid "Keyboard-Interactive Authentication"
 msgstr "Клавиатурно-интерактивная аутентификация"
 
@@ -14388,6 +14645,18 @@ msgstr "Логин Root"
 
 msgid "TCP Forwarding"
 msgstr "TCP Forwarding"
+
+msgid "Allow New Files"
+msgstr "Разрешить новые файлы"
+
+msgid "Directory"
+msgstr "Каталог"
+
+msgid "Max. Block Size"
+msgstr "Макс. размер блока"
+
+msgid "Umask"
+msgstr "Umask"
 
 msgid "Allow new files to be created."
 msgstr "Позволять создание новых файлов"
@@ -14457,14 +14726,56 @@ msgid "Specifies the username under which the TFTP service should run."
 msgstr ""
 "Указывает имя пользователя, под которым должна запускаться служба TFTP."
 
-msgid "Allow New Files"
-msgstr "Разрешить новые файлы"
+msgid "Peer Port"
+msgstr "Используемый порт"
 
-msgid "Max. Block Size"
-msgstr "Макс. размер блока"
+msgid "Configuration Folder"
+msgstr "Папка конфигурации"
 
-msgid "Umask"
-msgstr "Umask"
+msgid "Incomplete Folder"
+msgstr "Папка для незавершенных закачек"
+
+msgid "Download Folder"
+msgstr "Папка для скачивания"
+
+msgid "Watch Folder"
+msgstr "Папка для отслеживания"
+
+msgid "Port Forwarding"
+msgstr "Перенаправление портов"
+
+msgid "Peer Exchange"
+msgstr "Обмен списками участников"
+
+msgid "Distributed Hash Table"
+msgstr "Распределенная хэш-таблица (DHT)"
+
+msgid "Local Peer Discovery"
+msgstr "Обнаружение локального узла"
+
+msgid "uTP"
+msgstr "uTP"
+
+msgid "User Mask"
+msgstr "Маска пользователя"
+
+msgid "Preallocation"
+msgstr "Предварительное распределение"
+
+msgid "Message Level"
+msgstr "Уровень сообщения"
+
+msgid "DNS Rebind Protection"
+msgstr "Защита от повторной привязки DNS"
+
+msgid "Domain Names"
+msgstr "Доменные имена"
+
+msgid "Start Torrents"
+msgstr "Запустить торренты"
+
+msgid "Stop Torrents"
+msgstr "Остановить торренты"
 
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
@@ -14600,68 +14911,17 @@ msgstr ""
 msgid "Stop torrents before stopping service."
 msgstr "Остановить торренты перед остановкой службы."
 
-msgid "Peer Port"
-msgstr "Используемый порт"
+msgid "Work Directory"
+msgstr "Рабочий каталог"
 
-msgid "Configuration Folder"
-msgstr "Папка конфигурации"
-
-msgid "Incomplete Folder"
-msgstr "Папка для незавершенных закачек"
-
-msgid "Download Folder"
-msgstr "Папка для скачивания"
-
-msgid "Watch Folder"
-msgstr "Папка для отслеживания"
-
-msgid "Port Forwarding"
-msgstr "Перенаправление портов"
-
-msgid "Peer Exchange"
-msgstr "Обмен списками участников"
-
-msgid "Distributed Hash Table"
-msgstr "Распределенная хэш-таблица (DHT)"
-
-msgid "Local Peer Discovery"
-msgstr "Обнаружение локального узла"
-
-msgid "uTP"
-msgstr "uTP"
-
-msgid "User Mask"
-msgstr "Маска пользователя"
-
-msgid "Preallocation"
-msgstr "Предварительное распределение"
-
-msgid "Message Level"
-msgstr "Уровень сообщения"
-
-msgid "DNS Rebind Protection"
-msgstr "Защита от повторной привязки DNS"
-
-msgid "Domain Names"
-msgstr "Доменные имена"
-
-msgid "Start Torrents"
-msgstr "Запустить торренты"
-
-msgid "Stop Torrents"
-msgstr "Остановить торренты"
+msgid "Create Work Directory"
+msgstr "Создать рабочий каталог"
 
 msgid "Location where work files will be stored."
 msgstr "Место, где будут храниться рабочие файлы."
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Создать рабочий каталог, если он не существует"
-
-msgid "Work Directory"
-msgstr "Рабочий каталог"
-
-msgid "Create Work Directory"
-msgstr "Создать рабочий каталог"
 
 msgid "Name of the WebDAV Record."
 msgstr "Имя WebDAV записи."
@@ -14686,6 +14946,12 @@ msgstr "Использовать Sqlite для блокировок и свой�
 
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr "Эти параметры будут добавлены в эту конфигурацию WebDAV."
+
+msgid "Read-Only"
+msgstr "Только чтение"
+
+msgid "Use Sqlite"
+msgstr "Использовать Sqlite"
 
 msgid "Add WebDAV Record"
 msgstr "Добавить новую WebDAV запись"
@@ -14726,30 +14992,6 @@ msgstr "Вы действительно хотите включить выбра
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Вы действительно хотите переключить выбранные WebDAV записи?"
 
-msgid "Read-Only"
-msgstr "Только чтение"
-
-msgid "Use Sqlite"
-msgstr "Использовать Sqlite"
-
-msgid "IP Address Family"
-msgstr "Семейство IP-адресов"
-
-msgid "NETBIOS Hostname"
-msgstr "Имя хоста NETBIOS"
-
-msgid "Preserve Case"
-msgstr "Учитывать регистр"
-
-msgid "Server Mode"
-msgstr "Серверный режим"
-
-msgid "Workgroup Name"
-msgstr "Название рабочей группы"
-
-msgid "Web Service Discovery"
-msgstr "Обнаружение веб-сервисов"
-
 msgid "IPv4 only"
 msgstr "только IPv4"
 
@@ -14776,6 +15018,24 @@ msgstr "Выберите между режимом домена и режимо�
 msgid "Set workgroup name"
 msgstr "Установить имя рабочей группы"
 
+msgid "IP Address Family"
+msgstr "Семейство IP-адресов"
+
+msgid "NETBIOS Hostname"
+msgstr "Имя хоста NETBIOS"
+
+msgid "Preserve Case"
+msgstr "Учитывать регистр"
+
+msgid "Server Mode"
+msgstr "Серверный режим"
+
+msgid "Workgroup Name"
+msgstr "Название рабочей группы"
+
+msgid "Web Service Discovery"
+msgstr "Обнаружение веб-сервисов"
+
 msgid "Protected"
 msgstr "Защищённое"
 
@@ -14787,6 +15047,15 @@ msgstr "Snapdir"
 
 msgid "UTF-8 Only"
 msgstr "Только UTF-8"
+
+msgid "Service"
+msgstr "Служба"
+
+msgid "Do you really want to remove the selected item from the list?"
+msgstr "Вы действительно хотите удалить выбранный объект из списка?"
+
+msgid "Select item to remove from the list"
+msgstr "Выберите объект для удаления из списка"
 
 msgid "You may enter a description for your reference."
 msgstr "Вы можете ввести описание для справки."
@@ -14815,8 +15084,519 @@ msgstr "Введите имя тома"
 msgid "The name of the ZFS pool."
 msgstr "Имя пула ZFS."
 
-msgid "Service"
-msgstr "Служба"
+msgid "You are not allowed to use this function."
+msgstr "Вам не разрешено использовать эту функцию."
+
+msgid "Copy item(s)"
+msgstr "Копировать объект(ы)"
+
+msgid "Move item(s)"
+msgstr "Переместить объект(ы)"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Копировать из /%s to /%s "
+
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "Переместить из /%s to /%s "
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid "Move"
+msgstr "Переместить"
+
+msgid "The target directory doesn't exist."
+msgstr "Выберите язык пользовательского портала для этого пользователя."
+
+msgid "You are not allowed to access the target directory."
+msgstr "Вам не разрешен доступ к целевому каталогу."
+
+msgid "The target directory may not be above the home directory."
+msgstr "Целевой каталог не может быть выше домашнего каталога."
+
+msgid "You must supply a name."
+msgstr "Вы должны предоставить имя."
+
+msgid "This item doesn't exist."
+msgstr "Этот объект не существует."
+
+msgid "You are not allowed to access this item."
+msgstr "Вам не разрешен доступ к этому объекту."
+
+msgid "The target item already exists."
+msgstr "Целевой объект уже существует."
+
+msgid "Copying failed."
+msgstr "Копирование не удалось."
+
+msgid "Moving failed."
+msgstr "Переместить не удалось."
+
+msgid "Deleting failed."
+msgstr "Удаление не удалось."
+
+msgid "File saving failed."
+msgstr "Ошибка сохранения файла."
+
+msgid "This file doesn't exist."
+msgstr "Этот файл не существует."
+
+msgid "You are not allowed to access this file."
+msgstr "Вам не разрешен доступ к этому файлу."
+
+msgid "This item already exists."
+msgstr "Этот объект уже существует."
+
+msgid "File opening failed."
+msgstr "Ошибка при открытии файла."
+
+msgid "Edit file"
+msgstr "Редактировать файл"
+
+msgid "Wrap text:"
+msgstr "Развернуть текст:"
+
+msgid "Reset"
+msgstr "Сбросить"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Unable to open source directory."
+msgstr "Не удается открыть исходный каталог."
+
+msgid "Unable to open directory."
+msgstr "Невозможно открыть каталог."
+
+msgid "Unable to read directory."
+msgstr "Невозможно прочитать каталог."
+
+msgid "You haven't selected any item(s)."
+msgstr "Вы не выбрали ни одного объекта."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Вы уверены, что хотите удалить выбранные объект(ы)?"
+
+msgid "Executable File"
+msgstr "Исполняемый файл"
+
+msgid "Link"
+msgstr "Ссылка"
+
+msgid "Text File"
+msgstr "Текстовый файл"
+
+msgid "PHP Script"
+msgstr "PHP скрипт"
+
+msgid "SQL File"
+msgstr "SQL файл"
+
+msgid "PERL Script"
+msgstr "PERL скрипт"
+
+msgid "HTML Page"
+msgstr "HTML страница"
+
+msgid "XML File"
+msgstr "XML файл"
+
+msgid "Javascript File"
+msgstr "Javascript файл"
+
+msgid "CSS File"
+msgstr "Файл CSS"
+
+msgid "CGI Script"
+msgstr "Скрипт CGI"
+
+msgid "Python Script"
+msgstr "Python скрипт"
+
+msgid "Shell Script"
+msgstr "Shell скрипт"
+
+msgid "C File"
+msgstr "C файл"
+
+msgid "C++ Source File"
+msgstr "Файл исходного кода на C++"
+
+msgid "C++ Header File"
+msgstr "Заголовочный файл C++"
+
+msgid "Java Source File"
+msgstr "Файл исходного кода на Java"
+
+msgid "Java Class File"
+msgstr "Java Class файл"
+
+msgid "Pascal File"
+msgstr "Pascal файл"
+
+msgid "GIF Image"
+msgstr "GIF изображение"
+
+msgid "JPG Image"
+msgstr "JPG изображение"
+
+msgid "BMP Image"
+msgstr "BMP изображение"
+
+msgid "PNG Image"
+msgstr "PNG изображение"
+
+msgid "TIF Image"
+msgstr "TIF изображение"
+
+msgid "Photoshop File"
+msgstr "Photoshop файл"
+
+msgid "ZIP Archive"
+msgstr "ZIP архив"
+
+msgid "TAR Archive"
+msgstr "TAR архив"
+
+msgid "GZIP Archive"
+msgstr "GZIP архив"
+
+msgid "BZIP2 Archive"
+msgstr "BZIP2 архив"
+
+msgid "RAR Archive"
+msgstr "RAR архив"
+
+msgid "MP3 Audio File"
+msgstr "MP3 аудио файл"
+
+msgid "FLAC Audio File"
+msgstr "FLAC аудио файл"
+
+msgid "WAV Audio File"
+msgstr "WAV аудио файл"
+
+msgid "MIDI File"
+msgstr "MIDI файл"
+
+msgid "RealAudio File"
+msgstr "RealAudio файл"
+
+msgid "DTS Audio File"
+msgstr "DTS аудио файл"
+
+msgid "AC3 Audio File"
+msgstr "AC3 аудио файл"
+
+msgid "OGG Audio File"
+msgstr "OGG аудио файл"
+
+msgid "MP3 Playlist"
+msgstr "MP3 плейлист"
+
+msgid "AVI File"
+msgstr "AVI файл"
+
+msgid "MPEG File"
+msgstr "MPEG файл"
+
+msgid "MOV File"
+msgstr "MOV файл"
+
+msgid "MKV File"
+msgstr "MKV файл"
+
+msgid "VOB File"
+msgstr "VOB файл"
+
+msgid "Flash File"
+msgstr "Flash файл"
+
+msgid "MP4 File"
+msgstr "MP4 файл"
+
+msgid "TS File"
+msgstr "TS файл"
+
+msgid "Word Document"
+msgstr "Документ Word"
+
+msgid "Excel Sheet"
+msgstr "Лист Excel"
+
+msgid "Powerpoint Presentation"
+msgstr "Powerpoint презентация"
+
+msgid "PDF File"
+msgstr "PDF файл"
+
+msgid "ERROR(S)"
+msgstr "ОШИБКА(И)"
+
+msgid "Go Back"
+msgstr "Назад"
+
+msgid "Extracting"
+msgstr "Извлечение"
+
+msgid "Unzip"
+msgstr "Unzip"
+
+msgid "Failed to extract archive."
+msgstr "Не удалось извлечь архив."
+
+msgid "Directory creation failed."
+msgstr "Не удалось создать каталог."
+
+msgid "File creation failed."
+msgstr "Не удалось срздать файл."
+
+msgid "Search Directory"
+msgstr "Каталог поиска"
+
+msgid "Search Filter"
+msgstr "Фильтр поиска"
+
+msgid "Search subfolder"
+msgstr "Подпапка поиска"
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Результат поиска для %1$s"
+
+msgid "Item(s)"
+msgstr "Объект(ы)"
+
+msgid "No results available."
+msgstr "Нет доступных результатов."
+
+msgid "HOME"
+msgstr "НАЧАЛО"
+
+msgid "Permission-change failed."
+msgstr "Изменение разрешения не удалось."
+
+msgid "Getting permissions failed."
+msgstr "Не удалось получить разрешения."
+
+msgid "Change permissions"
+msgstr "Изменить разрешения"
+
+msgid "Public"
+msgstr "Публичный"
+
+msgid "CHANGE PERMISSIONS"
+msgstr "ИЗМЕНИТЬ РАЗРЕШЕНИЯ"
+
+msgid "You are not allowed to access this directory."
+msgstr "Вам не разрешен доступ к этому каталогу."
+
+msgid "UP"
+msgstr "Вверх"
+
+msgid "RELOAD"
+msgstr "ПЕРЕЗАГРУЗИТЬ"
+
+msgid "SEARCH"
+msgstr "ПОИСК"
+
+msgid "Modified"
+msgstr "Изменено"
+
+msgid "Permissions"
+msgstr "Разрешения"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "COPY"
+msgstr "КОПИРОВАТЬ"
+
+msgid "MOVE"
+msgstr "ПЕРЕМЕСТИТЬ"
+
+msgid "DELETE"
+msgstr "УДАЛИТЬ"
+
+msgid "EDIT"
+msgstr "РЕДАКТИРОВАТЬ"
+
+msgid "UNZIP"
+msgstr "UNZIP"
+
+msgid "DOWNLOAD"
+msgstr "ЗАГРУЗИТЬ"
+
+msgid "The following errors were detected"
+msgstr "Были обнаружены следующие ошибки"
+
+msgid ""
+"If this message persists take a look at the system log for more information."
+msgstr ""
+"Если это сообщение сохраняется, загляните в системный журнал для получения "
+"дополнительной информации."
+
+msgid "Choose..."
+msgstr "Выберите..."
+
+msgid "Running"
+msgstr "Выполнение"
+
+msgid "Inactive"
+msgstr "Неактивно"
+
+msgid "Online"
+msgstr "В сети"
+
+msgid "Offline"
+msgstr "Не в сети"
+
+msgid "No records found."
+msgstr "Записей не найдено."
+
+msgid "Selected..."
+msgstr "Выбранное..."
+
+msgid "Apply Changes"
+msgstr "Применить изменения"
+
+msgid "Rescan"
+msgstr "Повторно сканировать"
+
+msgid "Restart"
+msgstr "Перезапустить"
+
+msgid "Parent Directory"
+msgstr "Родительский каталог"
+
+msgid "VLAN Interface"
+msgstr "Интерфейс VLAN"
+
+msgid "VLAN Tag"
+msgstr "Метка VLAN"
+
+msgid "PCP"
+msgstr ""
+
+msgid "Encapsulation Protocol"
+msgstr "Протокол инкапсуляции"
+
+msgid "Add VLAN"
+msgstr "Добавить VLAN"
+
+msgid "Edit VLAN"
+msgstr "Редактировать VLAN"
+
+msgid "VLAN is marked for deletion"
+msgstr "VLAN помечен для удаления"
+
+msgid "VLAN is locked"
+msgstr "VLAN заблокирована"
+
+msgid "VLAN is unlocked"
+msgstr "VLAN разблокирован"
+
+msgid "Delete Selected VLANs"
+msgstr "Удалить выбранные VLAN"
+
+msgid "Disable Selected VLANs"
+msgstr "Отключить выбранные VLANы"
+
+msgid "Enable Selected VLANs"
+msgstr "Включить выбранные VLANы"
+
+msgid "Toggle Selected VLANs"
+msgstr "Переключение выбранных VLAN"
+
+msgid "Do you want to delete selected VLANs?"
+msgstr "Вы хотите удалить выбранные VLAN"
+
+msgid "Do you want to disable selected VLANs?"
+msgstr "Вы хотите отключить выбранные VLANы?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr "Вы хотите включить выбранные VLANы?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr "Вы хотите переключить выбранные VLANы?"
+
+msgid "The name of the VLAN interface"
+msgstr "Имя интерфейса VLAN"
+
+msgid "vlan0"
+msgstr "vlan0"
+
+msgid "802.1Q VLAN tag (between 1 and 4094)."
+msgstr "Метка 802.1Q VLAN (между 1 и 4094)."
+
+msgid "102"
+msgstr "102"
+
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+"Кодовая точка приоритета (PCP) - это 3-разрядное поле, которое относится к "
+"классу обслуживания IEEE 802.1p и соответствует уровню приоритета кадра."
+
+msgid "Best effort (default)"
+msgstr ""
+
+msgid "Background (lowest)"
+msgstr ""
+
+msgid "Excellent effort"
+msgstr ""
+
+msgid "Critical applications"
+msgstr ""
+
+msgid "Video < 100ms latency"
+msgstr "Задержка видео < 100мс"
+
+msgid "Video < 10ms latency"
+msgstr "Задержка видео < 10мс"
+
+msgid "Internetwork control"
+msgstr "Управление сетью"
+
+msgid "Network control (highest)"
+msgstr "Сетевой контроль (самый высокий)"
+
+msgid "Set the VLAN encapsulation protocol."
+msgstr "Установка протокола инкапсуляции VLAN."
+
+msgid "802.1Q (default)"
+msgstr "802.1Q (default)"
+
+msgid "802.1ad (QinQ)"
+msgstr "802.1ad (QinQ)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid ""
+"Controls whether processes can be executed from within this file system."
+msgstr ""
+"Управление возможностью выполнения процессов из этой файловой системы."
+
+msgid "Exec"
+msgstr "Выполнить"
+
+msgid ""
+"The minimum amount of space guaranteed to a dataset, not including its "
+"descendents."
+msgstr ""
+"Минимальный объем пространства, гарантированный набору данных, не включая "
+"его потомков."
 
 msgid "Console Autologin"
 msgstr "Автологин консоли"
@@ -14923,881 +15703,119 @@ msgstr "Включить доступ к консоли по последова�
 msgid "The COM port in BIOS has to be enabled before enabling this option."
 msgstr "COM-порт должен быть включен в BIOS до разрешения этой опции."
 
-msgid "1"
-msgstr "1"
+msgid "Second"
+msgstr "сек."
 
-msgid "2"
-msgstr "2"
+msgid "Seconds"
+msgstr "сек."
 
-msgid "3"
-msgstr "3"
+msgid "Minute"
+msgstr "мин."
+
+msgid "Hour"
+msgstr "час."
+
+msgid "Day"
+msgstr "дн."
+
+#, php-format
+msgid "%1$s managed, %2$s used, %3$s available"
+msgstr "%1$s всего, %2$s использовано, %3$s доступно"
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr "Всего: %1$s | Использовано: %2$s | Доступно: %3$s"
+
+#, php-format
+msgid "%2$s used, %3$s available"
+msgstr "%2$s использовано, %3$s доступно"
+
+msgid "Communication Error"
+msgstr "Ошибка соединения"
+
+msgid "More than a day"
+msgstr "Больше суток"
+
+msgid "No data"
+msgstr "Нет данных"
+
+#, php-format
+msgid "%u hour"
+msgstr "%u час"
+
+#, php-format
+msgid "%u hours"
+msgstr "%u часов"
+
+#, php-format
+msgid "%u minute"
+msgstr "%u минута"
+
+#, php-format
+msgid "%u minutes"
+msgstr "%u минут"
+
+#, php-format
+msgid "%u second"
+msgstr "%u секунда"
+
+#, php-format
+msgid "%u seconds"
+msgstr "%u секунд"
+
+msgid "and"
+msgstr "и"
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr "Всего: %1$s | Выделено: %2$s | Свободно: %3$s"
+
+msgid "Deleting MBR and partition table"
+msgstr "Удаление MBR и таблицы разделов"
+
+msgid "Creating partition"
+msgstr "Создание раздела"
+
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr "Создание файловой системы с \"мягкими обновлениями\""
+
+#, php-format
+msgid "Using %s bytes fragment size."
+msgstr "Использовать резмер фрагмента в %s байт."
+
+msgid "Created UFS file system:"
+msgstr "Создана файловая система UFS:"
+
+msgid "Deleting GEOM metadata"
+msgstr "Удаление метаданных GEOM"
+
+msgid "Creating filesystem"
+msgstr "Создание файловой системы"
+
+msgid "Done!"
+msgstr "Выполнено!"
 
 msgid ""
-"Controls whether processes can be executed from within this file system."
+"The disk is currently mounted! The mount point will be removed temporarily "
+"to perform selected command."
 msgstr ""
-"Управление возможностью выполнения процессов из этой файловой системы."
+"Этот диск в настоящий момент смонтирован! Для выполнения выбранной команды "
+"точка монтирования будет временно удалена."
 
-msgid "Exec"
-msgstr "Выполнить"
+msgid "Unkown"
+msgstr "Неизвестно"
 
-msgid ""
-"The minimum amount of space guaranteed to a dataset, not including its "
-"descendents."
-msgstr ""
-"Минимальный объем пространства, гарантированный набору данных, не включая "
-"его потомков."
+msgid "Unformated"
+msgstr "Unformated"
 
-msgid "Enter AD or PDC name."
-msgstr "Введите имя AD или PDC."
+msgid "SoftRaid"
+msgstr "SoftRaid"
 
-msgid "Controller Name"
-msgstr "Имя контроллера"
+msgid "Encrypted"
+msgstr "Зашифровано"
 
-msgid "Enter the domain name."
-msgstr "Введите доменное имя."
-
-msgid "example.com"
-msgstr "example.com"
-
-msgid "Enter NetBIOS name."
-msgstr "Введите имя NetBIOS."
-
-msgid "NETBIOS"
-msgstr "NETBIOS"
-
-msgid "Enter user name of a domain administrator account."
-msgstr "Введите имя пользователя учетной записи администратора домена."
-
-msgid "Admin"
-msgstr "Администратор"
-
-msgid "Enter the password of the domain administrator account."
-msgstr "Введите пароль учетной записи администратора домена."
-
-msgid "Domain Controller Name"
-msgstr "Имя контроллера домена"
-
-msgid "Domain Name (DNS/Realm-Name)"
-msgstr "Имя домена (DNS/Realm-имя)"
-
-msgid "Domain Name (NetBIOS-Name)"
-msgstr "Имя домена (NetBIOS-имя)"
-
-msgid "Administrator Name"
-msgstr "Имя администратора"
-
-msgid "Administrator Password"
-msgstr "Пароль администратора"
-
-msgid "Add Group"
-msgstr "Добавить группу"
-
-msgid "Edit Group"
-msgstr "Редактировать группу"
-
-msgid "Group is marked for deletion"
-msgstr "Группа помечана для удаления"
-
-msgid "Group is protected"
-msgstr "Группа защищена"
-
-msgid "Group is unlocked"
-msgstr "Группа разблокирована"
-
-msgid "Delete Selected Groups"
-msgstr "Удалить выбранные группы"
-
-msgid "Do you want to delete selected groups?"
-msgstr "Вы уверены, что хотите удалить выбранные группы?"
-
-msgid "Disable Selected Groups"
-msgstr "Отключить выбранные группы"
-
-msgid "Do you want to disable selected groups?"
-msgstr "Вы хотите отключить выбранные группы?"
-
-msgid "Enable Selected Groups"
-msgstr "Включить выбранные группы"
-
-msgid "Do you want to enable selected groups?"
-msgstr "Вы хотите включить выбранные группы?"
-
-msgid "Toggle Selected Groups"
-msgstr "Переключить выбранные группы"
-
-msgid "Do you want to toggle selected groups?"
-msgstr "Вы хотите переключить выбранные группы?"
-
-msgid "System Group"
-msgstr "Системная группа"
-
-msgid "Show System Groups"
-msgstr "Показать системные группы"
-
-msgid "Hide System Groups"
-msgstr "Скрыть системные группы"
-
-msgid "Enter group name."
-msgstr "Введите название группы."
-
-msgid "Group Name"
-msgstr "Имя группы"
-
-msgid "Specify the group numeric id."
-msgstr "Укажите числовой идентификатор группы."
-
-msgid "The recommended range for the group id is between 1000 and 32000."
-msgstr ""
-"Рекомендуемый диапазон для идентификатора группы составляет от 1000 до 32000."
-
-msgid "1000"
-msgstr "1000"
-
-msgid "Groups"
-msgstr "Группы"
-
-msgid "Users"
-msgstr "Пользователи"
-
-msgid "Public Keys"
-msgstr "Публичные ключи"
-
-msgid "Public key information."
-msgstr "Информация публичного ключа."
-
-msgid "Public Key"
-msgstr "Публичный ключ"
-
-msgid "Login Name"
-msgstr "Имя пользователя"
-
-msgid "Add Public Key"
-msgstr "Добавить публичный ключ"
-
-msgid "Edit Public Key"
-msgstr "Редактировать корневой каталог NFS"
-
-msgid "Public key is marked for deletion"
-msgstr "Публичный ключ помечен для удаления"
-
-msgid "Public key is protected"
-msgstr "Публичный ключ защищен"
-
-msgid "Public key is unlocked"
-msgstr "Публичный ключ разблокирован"
-
-msgid "Delete Selected Public Keys"
-msgstr "Удалить выбранные публичные ключи"
-
-msgid "Do you want to delete selected public keys?"
-msgstr "Вы хотите удалить выбранные публичные ключи?"
-
-msgid "Disable Selected Public Keys"
-msgstr "Отключить выбранные публичные ключи"
-
-msgid "Do you want to disable selected public keys?"
-msgstr "Вы хотите отключить выбранные публичные ключи?"
-
-msgid "Enable Selected Public Keys"
-msgstr "Включить выбранные публичные ключи"
-
-msgid "Do you want to enable selected public keys?"
-msgstr "Вы хотите включить выбранные публичные ключи?"
-
-msgid "Toggle Selected Public Keys"
-msgstr "Переключить выбранные публичные ключи"
-
-msgid "Do you want to toggle selected public keys?"
-msgstr "Вы хотите переключить выбранные публичные ключи?"
-
-msgid "Add User Account"
-msgstr "Добавить учётную запись пользователя"
-
-msgid "Edit User Account"
-msgstr "Редактировать учетную запись пользователя"
-
-msgid "User account is marked for deletion"
-msgstr "Учетная запись пользователя помечена для удаления"
-
-msgid "User account is protected"
-msgstr "Учетная запись пользователя защищена"
-
-msgid "User account is unlocked"
-msgstr "Учетная запись пользователя разблокирована"
-
-msgid "Set password"
-msgstr "Установить пароль"
-
-msgid "Delete Selected User Accounts"
-msgstr "Удалить выбранные учетные записи пользователей"
-
-msgid "Do you want to delete selected user accounts?"
-msgstr ""
-"Вы уверены, что хотите удалить выбранные учетные записи пользователей?"
-
-msgid "Disable Selected Users"
-msgstr "Отключить выбранных пользователей"
-
-msgid "Do you want to disable selected users?"
-msgstr "Вы хотите отключить выбранных пользователей?"
-
-msgid "Enable Selected Users"
-msgstr "Включить выбранных пользователей"
-
-msgid "Do you want to enable selected users?"
-msgstr "Вы хотите включить выбранных пользователей?"
-
-msgid "Toggle Selected Users"
-msgstr "Переключить выбранных пользователей"
-
-msgid "Do you want to toggle selected users?"
-msgstr "Вы хотите переключить выбранных пользователей?"
-
-msgid "System User"
-msgstr "Системный пользователь"
-
-msgid "Show System Users"
-msgstr "Показать системных пользователей"
-
-msgid "Hide System Users"
-msgstr "Скрыть системных пользователей"
-
-msgid "Full Name"
-msgstr "Полное имя"
-
-msgid "SHA Password"
-msgstr "Пароль SHA"
-
-msgid "MD4 Password"
-msgstr "Пароль MD4"
-
-msgid "Shell"
-msgstr "Командная оболочка (shell)"
-
-msgid "Primary Group"
-msgstr "Основная группа"
-
-msgid "Timezone"
-msgstr "Часовой пояс"
-
-msgid "File Manager Access"
-msgstr "Доступ к диспетчеру файлов"
-
-msgid "Hidden Items"
-msgstr "Скрытые объекты"
-
-msgid "Read Permission"
-msgstr "Разрешение на чтение"
-
-msgid "Create Permission"
-msgstr "Создать разрешения"
-
-msgid "Change Permission"
-msgstr "Изменить разрешения"
-
-msgid "Delete Permission"
-msgstr "Удалить разрешения"
-
-msgid "Enter login name."
-msgstr "Введите логин."
-
-msgid "Enter the full user name."
-msgstr "Введите полное имя пользователя."
-
-msgid "Set user password."
-msgstr "Установите пароль пользователя."
-
-msgid "Specify the user/account numeric id."
-msgstr "Укажите числовой идентификатор пользователя / учетной записи."
-
-msgid "The recommended range for the user id is between 1000 and 32000."
-msgstr ""
-"Рекомендуемый диапазон для идентификатора пользователя составляет от 1000 до "
-"32000."
-
-msgid "Set user login shell."
-msgstr "Установите командную оболочку пользователя."
-
-msgid "No Login"
-msgstr "Вход не выполнен"
-
-msgid "scponly - Secure Copy Protocol only"
-msgstr "scponly - только протокол защищенного копирования"
-
-msgid "sh - Bourne Shell"
-msgstr "sh - Bourne Shell"
-
-msgid "bash - Bourne Again Shell"
-msgstr "bash - Bourne Again Shell"
-
-msgid "csh - C Shell"
-msgstr "csh - C Shell"
-
-msgid "tcsh - TENEX C Shell"
-msgstr "tcsh - TENEX C Shell"
-
-msgid "Set the account's primary group."
-msgstr "Установите основную группу учетной записи."
-
-msgid "Add user to additional groups."
-msgstr "Добавить пользователя в дополнительные группы."
-
-msgid ""
-"Enter the path to the home directory of the user. Leave this field empty to "
-"use default path /mnt."
-msgstr ""
-"Введите путь к домашнему каталогу пользователя. Оставьте это поле пустым, "
-"чтобы использовать путь по умолчанию /mnt."
-
-msgid "/mnt"
-msgstr "/mnt"
-
-msgid "User portal permission."
-msgstr "Разрешение пользователя портала."
-
-msgid "No access to the user portal"
-msgstr "Нет доступа к пользовательскому порталу"
-
-msgid "User access"
-msgstr "Доступ пользователя"
-
-msgid "Admin access"
-msgstr "Доступ администратора"
-
-msgid "Select the language of the user portal for this user."
-msgstr "Выберите язык пользовательского портала для этого пользователя."
-
-msgid "Select the timezone for this user."
-msgstr "Выберите часовой пояс для этого пользователя."
-
-msgid "Grant access to the file manager."
-msgstr "Предоставление доступа к файловому менеджеру."
-
-msgid "Show hidden items"
-msgstr "Показать скрытые объекты"
-
-msgid "Grant read permission"
-msgstr "Предоставить разрешение на чтение"
-
-msgid "Grant create permission"
-msgstr "Предоставить разрешение на создание"
-
-msgid "Grant modify permission"
-msgstr "Предоставить разрешение на изменение"
-
-msgid "Grant delete permission"
-msgstr "Предоставить разрешение на удаление"
-
-msgid "Show Interval"
-msgstr "Показать интервал"
-
-msgid ""
-"Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables the reminder."
-msgstr ""
-"Установите количество дней до отображения напоминания о сохранении "
-"конфигурации системы. По умолчанию это 28 дней. Значение 0 отключает "
-"напоминание."
-
-msgid "Running user"
-msgstr "Запуск от имени пользователя"
-
-msgid "Add Option"
-msgstr "Добавить опцию"
-
-msgid "Edit Option"
-msgstr "Редактировать опцию"
-
-msgid "Option is marked for deletion"
-msgstr "Опция помечена для удаления"
-
-msgid "Option is locked"
-msgstr "Опция заблокирована"
-
-msgid "Option is unlocked"
-msgstr "Опция разблокирована"
-
-msgid "Delete Selected Options"
-msgstr "Удалить выбранные опции"
-
-msgid "Do you want to delete selected options?"
-msgstr "Вы действительно желаете удалить выбранные опции?"
-
-msgid "Disable Selected Options"
-msgstr "Отключить выбранные опции"
-
-msgid "Do you want to disable selected options?"
-msgstr "Вы действительно желаете отключить выбранные опции?"
-
-msgid "Enable Selected Options"
-msgstr "Включить выбранные опции"
-
-msgid "Do you want to enable selected options?"
-msgstr "Вы действительно желаете включить выбранные опции?"
-
-msgid "Toggle Selected Options"
-msgstr "Вкл./откл. выбранные опции"
-
-msgid "Do you want to toggle selected options?"
-msgstr "Вы действительно желаете изменить состояние выбранных опций?"
-
-msgid ""
-"These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to the kernel and additional modules to be "
-"loaded."
-msgstr ""
-"Эти опции будут добавлены в /boot/loader.conf.local. Это позволяет вам "
-"указать параметры для передачи в ядро ​​и дополнительные модули для загрузки."
-
-msgid "The name of the variable."
-msgstr "Имя переменной."
-
-msgid "The value of the variable."
-msgstr "Значение переменной."
-
-msgid "Sort"
-msgstr "Упорядочить"
-
-msgid "Post Upgrade"
-msgstr "После обновления"
-
-msgid "Name of the command."
-msgstr "Название команды."
-
-msgid "The command to be executed."
-msgstr "Команда, которая должна быть выполнена."
-
-msgid "Select at which stage the command should be executed."
-msgstr "Выберите, на каком этапе должна выполняться команда."
-
-msgid "Add Command"
-msgstr "Добавить команду"
-
-msgid "Edit Command"
-msgstr "Изменить команду"
-
-msgid "Command is marked for deletion"
-msgstr "Команда помечена для удаления"
-
-msgid "Command is locked"
-msgstr "Команда заблокирована"
-
-msgid "Command is unlocked"
-msgstr "Команда разблокирована"
-
-msgid "Delete Selected Commands"
-msgstr "Удалить выбранные команды"
-
-msgid "Do you want to delete selected commands?"
-msgstr "Вы уверены, что желаете удалить выбранные команды?"
-
-msgid "Disable Selected Commands"
-msgstr "Отключить выбранные команды"
-
-msgid "Do you want to disable selected commands?"
-msgstr "Вы уверены, что хотите отключить выбранные команды?"
-
-msgid "Enable Selected Commands"
-msgstr "Включить выбранные команды"
-
-msgid "Do you want to enable selected commands?"
-msgstr "Вы уверены, что желаете включить выбранные команды?"
-
-msgid "Toggle Selected Commands"
-msgstr "Переключить выбранные команды"
-
-msgid "Do you want to toggle selected commands?"
-msgstr "Вы уверены, что желаете переключить выбранные команды?"
-
-msgid ""
-"These commands will be executed pre or post system initialization (booting) "
-"or before system shutdown."
-msgstr ""
-"Эти команды будут выполнены до/после инициализации системы (загрузки) или "
-"перед выключением."
-
-msgid "Name of the variable."
-msgstr "Имя переменной."
-
-msgid "Enter Value"
-msgstr "Введите значение"
-
-msgid "Variable"
-msgstr "Переменная"
-
-msgid "Disabled variable names will be removed from /etc/rc.conf."
-msgstr "Имена отключенных переменных будут удалены из /etc/rc.conf."
-
-msgid "Enabled options will be added to /etc/rc.conf."
-msgstr "Включенные параметры будут добавлены в /etc/rc.conf."
-
-msgid "Add Route"
-msgstr "Добавить маршрут"
-
-msgid "Edit Route"
-msgstr "Редактировать маршрут"
-
-msgid "Route is marked for deletion"
-msgstr "Маршрут помечен для удаления"
-
-msgid "Route is locked"
-msgstr "Маршрут заблокирован"
-
-msgid "Route is unlocked"
-msgstr "Маршрут разблокирован"
-
-msgid "Delete Selected Routes"
-msgstr "Удалить выбранные маршруты"
-
-msgid "Do you want to delete selected routes?"
-msgstr "Вы хотите удалить выбранные маршруты?"
-
-msgid "Disable Selected Routes"
-msgstr "Отключить выбранные маршруты"
-
-msgid "Do you want to disable selected routes?"
-msgstr "Вы хотите отключить выбранные маршруты?"
-
-msgid "Enable Selected Routes"
-msgstr "Включить выбранные маршруты"
-
-msgid "Do you want to enable selected routes?"
-msgstr "Вы хотите включить выбранные маршруты?"
-
-msgid "Toggle Selected Routes"
-msgstr "Переключить выбранные маршруты"
-
-msgid "Do you want to toggle selected routes?"
-msgstr "Вы хотите переключать выбранные маршруты?"
-
-msgid "Destination Network"
-msgstr "Сеть назначения"
-
-msgid "Choose which interface this route applies to."
-msgstr "Выберите, к каким интерфейсам применим этот маршрут."
-
-msgid "Destination network for this static route."
-msgstr "Сеть назначения для этого статического маршрута."
-
-msgid "Gateway to be used to reach the destination network."
-msgstr "Шлюз будет использован для доступа в указанную сеть."
-
-msgid "Add Reboot Schedule"
-msgstr "Добавить расписание перезагрузки"
-
-msgid "Edit Reboot Schedule"
-msgstr "Изменить расписание перезагрузки"
-
-msgid "Reboot Schedule is marked for deletion"
-msgstr "График перезагрузки отмечен для удаления"
-
-msgid "Reboot Schedule is locked"
-msgstr "Расписание перезагрузки заблокировано"
-
-msgid "Reboot Schedule is unlocked"
-msgstr "Расписание перезагрузки разблокировано"
-
-msgid "Delete Selected Reboot Schedules"
-msgstr "Удалить выбранные расписания перезагрузки"
-
-msgid "Do you want to delete selected reboot schedules?"
-msgstr "Вы хотите удалить выбранные расписания перезагрузки?"
-
-msgid "Disable Selected Reboot Schedules"
-msgstr "Отключить выбранные расписания перезагрузки"
-
-msgid "Do you want to disable selected reboot schedules?"
-msgstr "Вы хотите отключить выбранные расписания перезагрузки?"
-
-msgid "Enable Selected Reboot Schedules"
-msgstr "Включить выбранные расписания перезагрузки"
-
-msgid "Do you want to enable selected reboot schedules?"
-msgstr "Вы хотите включить выбранные расписания перезагрузки?"
-
-msgid "Toggle Selected Reboot Schedules"
-msgstr "Переключить выбранные расписания перезагрузки"
-
-msgid "Do you want to toggle selected reboot schedules?"
-msgstr "Вы хотите переключить выбранные расписания перезагрузки?"
-
-msgid "Add sysctl setting"
-msgstr "Добавить настройку sysctl"
-
-msgid "Edit sysctl setting"
-msgstr "Изменить настройки sysctl"
-
-msgid "Sysctl setting is marked for deletion"
-msgstr "Параметр Sysctl помечен для удаления"
-
-msgid "Sysctl setting is locked"
-msgstr "Настройка Sysctl заблокирована"
-
-msgid "Sysctl setting is unlocked"
-msgstr "Настройка Sysctl разблокирована"
-
-msgid "Delete Selected Sysctl Settings"
-msgstr "Удалить выбранные настройки Sysctl"
-
-msgid "Do you want to delete selected sysctl settings?"
-msgstr "Вы хотите удалить выбранные настройки sysctl?"
-
-msgid "Disable Selected Sysctl Settings"
-msgstr "Отключить выбранные настройки Sysctl"
-
-msgid "Do you want to disable selected sysctl settings?"
-msgstr "Вы хотите отключить выбранные настройки sysctl?"
-
-msgid "Enable Selected Sysctl Settings"
-msgstr "Включить выбранные настройки Sysctl"
-
-msgid "Do you want to enable selected sysctl settings?"
-msgstr "Вы хотите включить выбранные настройки sysctl?"
-
-msgid "Toggle Selected Sysctl Settings"
-msgstr "Переключить выбранные настройки Sysctl"
-
-msgid "Do you want to toggle selected sysctl settings?"
-msgstr "Вы хотите переключать выбранные настройки sysctl?"
-
-msgid ""
-"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
-"make changes to a running system."
-msgstr ""
-"Эти переменные sysctl будут добавлены в /etc/sysctl.conf. Это позволяет "
-"вносить изменения в работающую систему."
-
-msgid "The value of the setting."
-msgstr "Значение настройки."
-
-msgid "Send daemon event messages."
-msgstr "Отправлять сообщения о событиях процессов."
-
-msgid "Send FTP event messages."
-msgstr "Отправлять сообщения о событиях FTP."
-
-msgid "IP address of the remote syslog server."
-msgstr "IP-адрес удаленного сервера syslog."
-
-msgid ""
-"Port of the remote syslog server. Leave blank to use the default port."
-msgstr ""
-"Порт удаленного сервера syslog. Оставьте поле пустым, чтобы использовать "
-"порт по умолчанию."
-
-msgid ""
-"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
-"server. Be sure to set syslogd on the remote server to accept syslog "
-"messages from this server."
-msgstr ""
-"Syslog посылает UDP датаграммы на порт 514 указанного удаленного сервера "
-"syslog. Убедитесь, что syslogd установлен на удаленном сервере для приёма "
-"syslog сообщений с этого сервера."
-
-msgid "514"
-msgstr "514"
-
-msgid "Port number must be 514 or a number between 1024 and 65535."
-msgstr "Номер порта должен быть 514 или числом от 1024 до 65535."
-
-msgid "Send RSYNC event messages."
-msgstr "Отправлять сообщения о событиях RSYNC."
-
-msgid "Send S.M.A.R.T. event messages."
-msgstr "Отправлять сообщения о событиях S.M.A.R.T."
-
-msgid "Send SSH event messages."
-msgstr "Отправлять сообщения о событиях SSH."
-
-msgid "Send system event messages."
-msgstr "Отправлять сообщения о системных событиях."
-
-msgid "Daemon Events"
-msgstr "События процессов"
-
-msgid "Enable Server"
-msgstr "Включить сервер"
-
-msgid "FTP Events"
-msgstr "События FTP"
-
-msgid "RSYNC Events"
-msgstr "События RSYNC"
-
-msgid "S.M.A.R.T. Events"
-msgstr "События S.M.A.R.T."
-
-msgid "SSH Events"
-msgstr "События SSH"
-
-msgid "System Events"
-msgstr "Системные события"
-
-msgid "Remote Syslog Messages"
-msgstr "Удаленные Syslog сообщения"
-
-msgid "Show Log Entries"
-msgstr "Показать записи в журнале"
-
-msgid "Log Order"
-msgstr "Сортировка журнала"
-
-msgid "Disable the compression of repeating lines."
-msgstr "Отключите сжатие повторяющихся строк."
-
-msgid "Accept remote syslog messages."
-msgstr "Принимать удаленные syslog сообщения."
-
-msgid ""
-"If this option is checked, IP addresses in the server logs are resolved to "
-"their hostnames where possible."
-msgstr ""
-"Если эта опция включена, в журналах сервера разрешаются соответствия IP-"
-"адресов их именам хостов, где это возможно."
-
-msgid "This can cause a huge delay in loading the log page!"
-msgstr "Это может вызвать огромную задержку в загрузке страниц журнала!"
-
-msgid "Show log entries in reverse order (newest entries on top)."
-msgstr "Показать записи журнала в обратном порядке (новые записи сверху)."
-
-msgid "Enter facility name"
-msgstr "Введите название объекта"
-
-msgid "Enter level name"
-msgstr "Введите имя уровня"
-
-msgid "Enter destination"
-msgstr "Введите назначение"
-
-msgid "Facility"
-msgstr "Объект"
-
-msgid ""
-"Display action buttons in the scrollable area instead of the footer area."
-msgstr ""
-"Отобразить кнопки действий в области прокрутки вместо области нижнего "
-"колонтитула."
-
-msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr "Полное имя пользовательского CSS-файла страницы выбора файлов."
-
-msgid "Select file mode of the custom file chooser CSS file."
-msgstr "Выберите режим пользовательского CSS-файла для выбора файлов."
-
-msgid "Replace the default CSS file"
-msgstr "Заменить файл CSS по умолчанию"
-
-msgid "Append content to the default CSS file"
-msgstr "Добавить содержимое в файл CSS по умолчанию"
-
-msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr "Полное имя файла пользовательского CSS-файла GUI."
-
-msgid "Select file mode of the custom GUI CSS file."
-msgstr "Выберите режим пользовательского CSS-файла для GUI."
-
-msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr "Полное имя пользовательского CSS-файла панели навигации."
-
-msgid "Select file mode of the custom navigation bar CSS file."
-msgstr "Выберите режим пользовательского CSS-файла для панели навигации."
-
-msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr "Полное имя пользовательского CSS-файла вкладок."
-
-msgid "Select file mode of the custom tabs CSS file."
-msgstr "Выберите режим пользовательского CSS-файла для вкладок пользователя."
-
-msgid "Use toggle button instead of enable/disable buttons."
-msgstr ""
-"Использовать одну кнопку для изменения состояния вместо кнопок вкл./откл."
-
-msgid "Select the display mode of the top-level items in the navigation bar."
-msgstr ""
-"Выберите режим отображения объектов верхнего уровня на панели навигации."
-
-msgid "Show text only"
-msgstr "Показывать только текст"
-
-msgid "Show symbol only"
-msgstr "Показывать только символы"
-
-msgid "Show symbol and text"
-msgstr "Показать символ и текст"
-
-msgid ""
-"Display disk size values using binary prefixes instead of decimal prefixes."
-msgstr ""
-"Отображение значений размера диска с использованием бинарных префиксов "
-"вместо десятичных префиксов."
-
-msgid "Enable this option if you want to display colorful meter states."
-msgstr ""
-"Включите эту опцию, если вы хотите отображать цветные индикаторы состояния."
-
-msgid ""
-"Enable this option if you want to edit configuration pages directly without "
-"the need to switch to edit mode."
-msgstr ""
-"Включите эту опцию, если вы хотите редактировать страницы конфигурации "
-"напрямую, без необходимости переключения в режим редактирования."
-
-msgid "Please enter a number between 0 and 256 or leave this field empty."
-msgstr "Введите число от 0 до 256 или оставьте это поле пустым."
-
-msgid "Limit the maximum number of CPUs to be displayed on the home page."
-msgstr ""
-"Ограничить максимальное количество процессоров, отображаемых на домашней "
-"странице."
-
-msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr "Задайте целевую страницу для меню Диагностика > Информация."
-
-msgid "Button Location"
-msgstr "Расположение кнопок"
-
-msgid "File Chooser"
-msgstr "Выбор файла"
-
-msgid "File Mode"
-msgstr "Файловый режим"
-
-msgid "GUI"
-msgstr "Графический интерфейс пользователя"
-
-msgid "Navigation Bar"
-msgstr "Панель навигации"
-
-msgid "Tabs"
-msgstr "Вкладки"
-
-msgid "Toggle Mode"
-msgstr "Режим переключения"
-
-msgid "Navbar Style"
-msgstr "Стиль Навбар"
-
-msgid "Binary Prefix"
-msgstr "Бинарный префикс"
-
-msgid "Colorful Meters"
-msgstr "Цветные индикаторы состояния"
-
-msgid "Skip View Mode"
-msgstr "Пропустить режим просмотра"
-
-msgid "Show Max CPUs"
-msgstr "Показать максимальное количество процессоров"
-
-msgid "Diagnostics Information"
-msgstr "Диагностическая информация"
-
-msgid "Do you really want to remove the selected item from the list?"
-msgstr "Вы действительно хотите удалить выбранный объект из списка?"
-
-msgid "Select item to remove from the list"
-msgstr "Выберите объект для удаления из списка"
+msgid "System tuning"
+msgstr "Настройка системы"
 
 msgid "Exported"
 msgstr "Экспортированно"
@@ -15816,122 +15834,6 @@ msgstr "Неинициализирован"
 
 msgid "Potentially Active"
 msgstr "Потенциально Активный"
-
-msgid "System tuning"
-msgstr "Настройка системы"
-
-msgid "ZFS Pool Tools"
-msgstr "Инструменты ZFS пулов"
-
-msgid "Pool Status"
-msgstr "Статус пула"
-
-msgid "Success"
-msgstr "Выполнено"
-
-msgid "Command execution was successful"
-msgstr "Команда выполнена успешно"
-
-msgid "Invalid command line option"
-msgstr "неверная опция командной строки"
-
-msgid "Test mode, no command execution"
-msgstr "Тестовый режим, команда не выполнена"
-
-msgid "Missing parameter"
-msgstr "Отсутствует параметр"
-
-msgid "An error occured."
-msgstr "Произошла ошибка."
-
-msgid "Return to Command Page"
-msgstr "Вернуться к странице команд"
-
-msgid "Activity"
-msgstr "Действие"
-
-msgid "Pool Version"
-msgstr "Версия пула"
-
-msgid "Pool State"
-msgstr "Состояние пула"
-
-msgid "No suitable pools found."
-msgstr "Подходящих пулов не найдено."
-
-msgid "and"
-msgstr "и"
-
-msgid "No pools have been selected"
-msgstr "Не выбраны пулы"
-
-msgid "Pool Devices"
-msgstr "Устройства пула"
-
-msgid "missing"
-msgstr "отсутствует"
-
-msgid "No suitable devices found."
-msgstr "Подходящих устройств не найдено."
-
-msgid "No pool devices have been selected"
-msgstr "Не выбраны устройства пулов"
-
-msgid "No suitable virtual devices found."
-msgstr "Подходящих виртуальных устройств не найдено."
-
-msgid "No virtual devices have been selected"
-msgstr "Не выбраны виртуальные устройства"
-
-msgid "Media Size"
-msgstr "Размер носителя"
-
-msgid "No devices have been selected"
-msgstr "Не выбраны устройства"
-
-msgid "Expand device to use all available space."
-msgstr "Расширить устройство, чтобы использовать все доступное пространство."
-
-msgid "Include GPT labels into scan/import"
-msgstr "Включать GPT labels в сканирование/импорт"
-
-msgid "Include GPT ID into scan/import"
-msgstr "Включить GPT ID в сканирование/импорт"
-
-msgid "Include UFS labels into scan/import"
-msgstr "Включить UFS labels в сканирование/импорт"
-
-msgid "Include UFS ID into scan/import"
-msgstr "Включить UFS ID в сканирование/импорт"
-
-msgid "Include Disk ID into scan/import"
-msgstr "Включить Disk ID в сканирование/импорт"
-
-msgid "Include /dev into scan/import"
-msgstr "Включить /dev в сканирование/импорт"
-
-msgid "Import pool in read-only mode"
-msgstr "Импорт пула в режиме только для чтения"
-
-msgid "Resize pool to the maximum possible size"
-msgstr "Изменить размер пула до максимально возможного размера"
-
-msgid "Scan/Import destroyed pools only"
-msgstr "Сканировать/импортировать только разрушенные пулы"
-
-msgid "Wait until resilvering has finished before returning."
-msgstr ""
-"Подождите, пока повторная обработка не закончится, прежде чем возвращаться."
-
-msgid ""
-"Reconstruct the new device sequentially to restore redundancy as quickly as "
-"possible."
-msgstr ""
-"Последовательно реконструируйте новое устройство, чтобы как можно быстрее "
-"восстановить избыточность."
-
-msgid "Parameter"
-msgstr "Параметр"
 
 msgid "January"
 msgstr "января"
@@ -16081,110 +15983,245 @@ msgstr "&=&Ошибка при записи файла на диск."
 msgid "File upload stopped by extension."
 msgstr "&=&Загрузка файла остановлена расширением."
 
-msgid "Deleting MBR and partition table"
-msgstr "Удаление MBR и таблицы разделов"
+msgid "ZFS Pool Tools"
+msgstr "Инструменты ZFS пулов"
 
-msgid "Creating partition"
-msgstr "Создание раздела"
+msgid "Pool Status"
+msgstr "Статус пула"
 
-msgid "Creating filesystem with \"Soft Updates\""
-msgstr "Создание файловой системы с \"мягкими обновлениями\""
+msgid "Success"
+msgstr "Выполнено"
 
-#, php-format
-msgid "Using %s bytes fragment size."
-msgstr "Использовать резмер фрагмента в %s байт."
+msgid "Command execution was successful"
+msgstr "Команда выполнена успешно"
 
-msgid "Created UFS file system:"
-msgstr "Создана файловая система UFS:"
+msgid "Invalid command line option"
+msgstr "неверная опция командной строки"
 
-msgid "Deleting GEOM metadata"
-msgstr "Удаление метаданных GEOM"
+msgid "Test mode, no command execution"
+msgstr "Тестовый режим, команда не выполнена"
 
-msgid "Creating filesystem"
-msgstr "Создание файловой системы"
+msgid "Missing parameter"
+msgstr "Отсутствует параметр"
 
-msgid "Done!"
-msgstr "Выполнено!"
+msgid "An error occured."
+msgstr "Произошла ошибка."
+
+msgid "Return to Command Page"
+msgstr "Вернуться к странице команд"
+
+msgid "Activity"
+msgstr "Действие"
+
+msgid "Pool Version"
+msgstr "Версия пула"
+
+msgid "Pool State"
+msgstr "Состояние пула"
+
+msgid "No suitable pools found."
+msgstr "Подходящих пулов не найдено."
+
+msgid "No pools have been selected"
+msgstr "Не выбраны пулы"
+
+msgid "Pool Devices"
+msgstr "Устройства пула"
+
+msgid "missing"
+msgstr "отсутствует"
+
+msgid "No suitable devices found."
+msgstr "Подходящих устройств не найдено."
+
+msgid "No pool devices have been selected"
+msgstr "Не выбраны устройства пулов"
+
+msgid "No suitable virtual devices found."
+msgstr "Подходящих виртуальных устройств не найдено."
+
+msgid "No virtual devices have been selected"
+msgstr "Не выбраны виртуальные устройства"
+
+msgid "Media Size"
+msgstr "Размер носителя"
+
+msgid "No devices have been selected"
+msgstr "Не выбраны устройства"
+
+msgid "Expand device to use all available space."
+msgstr "Расширить устройство, чтобы использовать все доступное пространство."
+
+msgid "Include GPT labels into scan/import"
+msgstr "Включать GPT labels в сканирование/импорт"
+
+msgid "Include GPT ID into scan/import"
+msgstr "Включить GPT ID в сканирование/импорт"
+
+msgid "Include UFS labels into scan/import"
+msgstr "Включить UFS labels в сканирование/импорт"
+
+msgid "Include UFS ID into scan/import"
+msgstr "Включить UFS ID в сканирование/импорт"
+
+msgid "Include Disk ID into scan/import"
+msgstr "Включить Disk ID в сканирование/импорт"
+
+msgid "Include /dev into scan/import"
+msgstr "Включить /dev в сканирование/импорт"
+
+msgid "Import pool in read-only mode"
+msgstr "Импорт пула в режиме только для чтения"
+
+msgid "Resize pool to the maximum possible size"
+msgstr "Изменить размер пула до максимально возможного размера"
+
+msgid "Scan/Import destroyed pools only"
+msgstr "Сканировать/импортировать только разрушенные пулы"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
+"Подождите, пока повторная обработка не закончится, прежде чем возвращаться."
 
 msgid ""
-"The disk is currently mounted! The mount point will be removed temporarily "
-"to perform selected command."
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
-"Этот диск в настоящий момент смонтирован! Для выполнения выбранной команды "
-"точка монтирования будет временно удалена."
+"Последовательно реконструируйте новое устройство, чтобы как можно быстрее "
+"восстановить избыточность."
 
-msgid "Second"
-msgstr "сек."
+msgid "Parameter"
+msgstr "Параметр"
 
-msgid "Seconds"
-msgstr "сек."
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "Другой DLNA/UPnP сервис уже запущен. Включение Fuppes может вызвать проблемы."
 
-msgid "Minute"
-msgstr "мин."
+#~ msgid "Compliant profile to be used."
+#~ msgstr "Используется подходящий профиль."
 
-msgid "Hour"
-msgstr "час."
+#~ msgid "Content Locations"
+#~ msgstr "Расположение содержимого"
 
-msgid "Day"
-msgstr "дн."
+#~ msgid "DLNA/UPnP Fuppes"
+#~ msgstr "DLNA/UPnP Fuppes"
+
+#~ msgid "Database directory"
+#~ msgstr "Каталог базы данных"
+
+#~ msgid "Destination email address. Separate email addresses by semi-colon."
+#~ msgstr "Адрес email почты назначения. Отдельные email через запятую."
+
+#~ msgid "Device IP"
+#~ msgstr "IP-адрес устройства"
+
+#~ msgid "Enable transcoding."
+#~ msgstr "Включить транскодирование"
+
+#~ msgid "Fuppes"
+#~ msgstr "Fuppes"
+
+#~ msgid "Fuppes Media Server"
+#~ msgstr "Fuppes Media Server"
+
+#~ msgid "Fuppes Media Server Administration"
+#~ msgstr "Администрирование Fuppes Media Server"
+
+#~ msgid "Give your media library a friendly name."
+#~ msgstr "Дайте вашей медиа-библиотеке понятное имя"
+
+#~ msgid "Import on-disk ZFS config"
+#~ msgstr "Импортировать конфигурацию с дисков ZFS"
+
+#~ msgid "Media Library"
+#~ msgstr "Библиотека медиафайлов"
+
+#~ msgid "Media library"
+#~ msgstr "Медиабиблиотека"
+
+#~ msgid "Media server name"
+#~ msgstr "Имя медиа-сервера"
+
+#~ msgid ""
+#~ "More than one DLNA/UPnP service is active. This configuration might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "Более одного DLNA/UPnP сервиса активно. Такая конфигурация может вызвать "
+#~ "проблемы."
 
 #, php-format
-msgid "%1$s managed, %2$s used, %3$s available"
-msgstr "%1$s всего, %2$s использовано, %3$s доступно"
+#~ msgid "Port number must be in the range between %d and %d."
+#~ msgstr "Номер порта должен находиться в диапазоне между %d и %d."
 
 #, php-format
-msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr "Всего: %1$s | Использовано: %2$s | Доступно: %3$s"
+#~ msgid ""
+#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
+#~ "through %d). Default port is %d."
+#~ msgstr ""
+#~ "Порт для прослушивания. Могут быть использованы только dynamic и private "
+#~ "порты (с %d-го по %d-й). По умолчанию %d-й."
+
+#~ msgid "Profile"
+#~ msgstr "Профиль"
+
+#~ msgid ""
+#~ "Select which interface to use. (Only selectable if your server has more than "
+#~ "one interface)"
+#~ msgstr ""
+#~ "Выберите, какой интерфейс использовать. (Выбирается только если ваш сервер "
+#~ "имеет более одного интерфейса)"
+
+#~ msgid "Set the content location(s) to or from the media library."
+#~ msgstr ""
+#~ "Укажите расположение(-ия) контента или его расположение относительно медиа-"
+#~ "библиотеки."
+
+#~ msgid "Temporary directory"
+#~ msgstr "Временный каталог"
+
+#~ msgid "Temporary directory to store transcoded files."
+#~ msgstr "Временный каталог для хранения транскодированных файлов."
+
+#~ msgid "The IP address of the device."
+#~ msgstr "IP-адрес устройства."
 
 #, php-format
-msgid "%2$s used, %3$s available"
-msgstr "%2$s использовано, %3$s доступно"
+#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
+#~ msgstr "Атрибут 'Port': порт '%ld' уже используется другой службой."
 
-msgid "Communication Error"
-msgstr "Ошибка соединения"
+#~ msgid "Transcoding"
+#~ msgstr "Транскодирование"
 
-msgid "More than a day"
-msgstr "Больше суток"
+#~ msgid "Transcoding Directory"
+#~ msgstr "Директория транскодирования"
 
-msgid "No data"
-msgstr "Нет данных"
+#~ msgid "Try to force import."
+#~ msgstr "Попытаться импортировать принудительно"
 
-#, php-format
-msgid "%u hour"
-msgstr "%u час"
+#~ msgid "Try to import from on-disk ZFS config."
+#~ msgstr "Попытаться импортировать конфигурацию с дисков ZFS"
 
-#, php-format
-msgid "%u hours"
-msgstr "%u часов"
+#~ msgid "UPnP/DLNA - Fuppes"
+#~ msgstr "UPnP/DLNA - Fuppes"
 
-#, php-format
-msgid "%u minute"
-msgstr "%u минута"
+#~ msgid "Allow challenge-response authentication."
+#~ msgstr "Разрешить проверку подлинности по запросу."
 
-#, php-format
-msgid "%u minutes"
-msgstr "%u минут"
+#~ msgid "Challenge-Response Authentication"
+#~ msgstr "Аутентификация по запросу-ответу"
 
-#, php-format
-msgid "%u second"
-msgstr "%u секунда"
+#~ msgid ""
+#~ "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+#~ "can cause problems."
+#~ msgstr ""
+#~ "Включены несколько служб DNLA/UPnP. Запуск нескольких служб DLNA/UPnP может "
+#~ "вызвать проблемы."
 
-#, php-format
-msgid "%u seconds"
-msgstr "%u секунд"
-
-#, php-format
-msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr "Всего: %1$s | Выделено: %2$s | Свободно: %3$s"
-
-msgid "Unkown"
-msgstr "Неизвестно"
-
-msgid "Unformated"
-msgstr "Unformated"
-
-msgid "SoftRaid"
-msgstr "SoftRaid"
-
-msgid "Encrypted"
-msgstr "Зашифровано"
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+#~ "services can cause problems."
+#~ msgstr ""
+#~ "Другая служба DLNA/UPnP уже включена. Запуск нескольких служб DLNA/UPnP "
+#~ "может вызвать проблемы."

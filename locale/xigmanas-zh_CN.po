@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2024-06-23 12:29+0000\n"
+"POT-Creation-Date: 2025-09-06 21:13+0000\n"
 "PO-Revision-Date: 2023-02-17 20:54+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-08-28 09:21+0000\n"
-"X-Generator: Launchpad (build 919009172d854f2b8e4e8262db447f12f11d25eb)\n"
+"X-Launchpad-Export-Date: 2025-09-06 19:56+0000\n"
+"X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -413,6 +413,15 @@ msgstr "降低"
 
 msgid "Upper"
 msgstr "Upper"
+
+msgid "No IPMI Sensor data available."
+msgstr ""
+
+msgid "FRU Information"
+msgstr ""
+
+msgid "No IPMI FRU data available."
+msgstr ""
 
 msgid "iSCSI Target Information & Status"
 msgstr "iSCSI目标信息和状态"
@@ -1451,9 +1460,6 @@ msgstr "RSYNC - 客服端"
 
 msgid "RSYNC - Local"
 msgstr "RSYNC - 本地端"
-
-msgid "UPnP/DLNA - Fuppes"
-msgstr "UPnP/DLNA - Fuppes"
 
 msgid "UPnP/DLNA - MiniDLNA"
 msgstr "UPnP/DLNA - MiniDLNA"
@@ -2822,17 +2828,15 @@ msgstr "对象名称"
 msgid "RAID 0/1/5 Maintenance"
 msgstr "RAID 0/1/5维护"
 
-msgid "Import on-disk ZFS config"
-msgstr "从硬盘上导入ZFS设置"
-
 msgid "No pool was found."
 msgstr "找不到池。"
 
-msgid "Try to force import."
-msgstr "尝试强制导入。"
+msgid ""
+"No pool was found. Try to force import from on-disk ZFS configuration."
+msgstr ""
 
-msgid "Try to import from on-disk ZFS config."
-msgstr "尝试从硬盘导入ZFS配置。"
+msgid "No pool was found. Try to import from on-disk ZFS configuration."
+msgstr ""
 
 msgid "Your ZFS system is not healthy."
 msgstr "您的ZFS系统有问题。"
@@ -2921,14 +2925,26 @@ msgstr "可以挂载"
 msgid "Quota"
 msgstr "配额"
 
-msgid "Extended Attributes"
-msgstr "扩展属性"
-
 msgid "Readonly"
 msgstr "只读"
 
 msgid "Snapshot Visibility"
 msgstr "快照能见度"
+
+msgid "on"
+msgstr "打开"
+
+msgid "none"
+msgstr "无"
+
+msgid "off"
+msgstr "关闭"
+
+msgid "hidden"
+msgstr "已隐藏"
+
+msgid "visible"
+msgstr "可见"
 
 msgid "Blocksize"
 msgstr "数据块大小"
@@ -2942,20 +2958,11 @@ msgid ""
 "done via command line"
 msgstr "此页面反映当前系统配置。如果已通过命令行进行更改，它可能不同于使用WebGUI创建的配置。"
 
-msgid "on"
-msgstr "打开"
+msgid "Import on-disk ZFS configuration"
+msgstr ""
 
-msgid "off"
-msgstr "关闭"
-
-msgid "none"
-msgstr "无"
-
-msgid "visible"
-msgstr "可见"
-
-msgid "hidden"
-msgstr "已隐藏"
+msgid "Force import on-disk ZFS configuration"
+msgstr ""
 
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
@@ -2968,6 +2975,9 @@ msgstr "不建议导入运行状况不良的存储池或是属于运行不良的
 
 msgid "Nothing to synchronize"
 msgstr "没有可同步的"
+
+msgid "Extended Attributes"
+msgstr "扩展属性"
 
 msgid "Options"
 msgstr "选项"
@@ -5504,104 +5514,6 @@ msgstr "添加禁令前在指定时间发生次数的间隔（hh:mm:ss）。"
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "指定禁令逾期的时间（hh:mm:ss）。"
 
-msgid "Media library"
-msgstr "媒体库"
-
-msgid "Database directory"
-msgstr "数据库目录"
-
-msgid "Device IP"
-msgstr "设备 IP"
-
-msgid "Temporary directory"
-msgstr "临时目录。"
-
-#, php-format
-msgid "The attribute 'Port': port '%ld' is already taken by another service."
-msgstr "属性'端口'： '%ld'端口已经被另一项服务采用。"
-
-#, php-format
-msgid "Port number must be in the range between %d and %d."
-msgstr "端口号必须在%d和%d之间的范围内。"
-
-msgid ""
-"More than one DLNA/UPnP service is active. This configuration might cause "
-"issues."
-msgstr "多个DLNA / UPnP服务处于活动状态。 此配置可能会导致问题。"
-
-msgid ""
-"Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-"issues."
-msgstr "另一个 DLNA/UPnP 服务已在运行。开启 Fuppes 可能导致问题。"
-
-msgid "DLNA/UPnP Fuppes"
-msgstr "DLNA/UPnP Fuppes"
-
-msgid "Fuppes"
-msgstr "Fuppes"
-
-msgid "MiniDLNA"
-msgstr "MiniDLNA"
-
-msgid "Fuppes Media Server"
-msgstr "Fuppes媒体服务器"
-
-msgid "Interface Selection"
-msgstr "接口选择"
-
-msgid "Content Locations"
-msgstr "内容位置"
-
-msgid "Profile"
-msgstr "配置文件"
-
-msgid "Transcoding"
-msgstr "转码"
-
-msgid "Transcoding Directory"
-msgstr "转码目录"
-
-msgid "Give your media library a friendly name."
-msgstr "给你的媒体库起个好名字。"
-
-msgid "Media server name"
-msgstr "媒体服务器名"
-
-msgid ""
-"Select which interface to use. (Only selectable if your server has more than "
-"one interface)"
-msgstr "选择要使用的接口。 （仅在服务器具有多个接口时可选）"
-
-#, php-format
-msgid ""
-"Port to listen on. Only dynamic or private ports can be used (from %d "
-"through %d). Default port is %d."
-msgstr "监听端口。只有动态或私有端口可以使用（从 %d 到 %d  ）项。默认端口是 %d 。"
-
-msgid "Location of the media content database."
-msgstr "媒体内容数据库的位置。"
-
-msgid "Media Library"
-msgstr "媒体库"
-
-msgid "Set the content location(s) to or from the media library."
-msgstr "设置从或到媒体库的内容位置。"
-
-msgid "Compliant profile to be used."
-msgstr "使用符合的配置文件。"
-
-msgid "The IP address of the device."
-msgstr "设备的IP地址"
-
-msgid "Enable transcoding."
-msgstr "启用转码功能。"
-
-msgid "Temporary directory to store transcoded files."
-msgstr "用来存储转换文件的临时目录。"
-
-msgid "Fuppes Media Server Administration"
-msgstr "Fuppes媒体服务器管理"
-
 msgid "No configured CARP interfaces."
 msgstr "没有CARP接口配置。"
 
@@ -6473,15 +6385,8 @@ msgstr "phpMyAdmin"
 msgid "A rescan has been issued."
 msgstr "已经进行重复扫描"
 
-msgid ""
-"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-"services can cause problems."
-msgstr "另一个DLNA/UPnP服务已启用。 运行多个DLNA/UPnP服务可能会导致问题。"
-
-msgid ""
-"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
-"can cause problems."
-msgstr "启用了多个DNLA/UPnP服务。 运行多个DLNA/UPnP服务可能会导致问题。"
+msgid "MiniDLNA"
+msgstr "MiniDLNA"
 
 msgid "MiniDLNA Media Server WebGUI"
 msgstr "MiniDLNA媒体服务器WEB界面"
@@ -7194,6 +7099,9 @@ msgstr "出于安全考虑，不建议以root用户身份运行此服务，请�
 msgid "Permission"
 msgstr "权限"
 
+msgid "Paste a private key in PEM format here."
+msgstr "在此处以PEM格式粘贴私钥。"
+
 msgid "Document root of the webserver. Home of the web page files."
 msgstr "网页服务器文档根目录。"
 
@@ -7219,11 +7127,11 @@ msgstr "Realm"
 msgid "Edit URL"
 msgstr "编辑 URL"
 
-msgid "Do you really want to delete this URL?"
-msgstr "你确定要删除这个 URL 吗？"
-
 msgid "Delete URL"
 msgstr "删除 URL"
+
+msgid "Do you really want to delete this URL?"
+msgstr "你确定要删除这个 URL 吗？"
 
 msgid "Add URL"
 msgstr "添加 URL"
@@ -7653,9 +7561,6 @@ msgstr "启用此选项可能会使系统面临额外的安全隐患！"
 msgid "Ignore Hosts Allow"
 msgstr "忽略主机允许"
 
-msgid "Paste a private key in PEM format here."
-msgstr "在此处以PEM格式粘贴私钥。"
-
 msgid "Language"
 msgstr "语言设置"
 
@@ -7964,8 +7869,9 @@ msgstr "系统Email设置"
 msgid "From email address for sending system messages."
 msgstr "从用于发送系统消息的电子邮件地址。"
 
-msgid "Destination email address. Separate email addresses by semi-colon."
-msgstr "目的地邮件地址。多个邮件地址用分号分开。"
+msgid ""
+"Destination email address. Multiple email addresses are separated by a comma."
+msgstr ""
 
 msgid "Outgoing SMTP mail server address."
 msgstr "传出SMTP邮件服务器地址。"
@@ -8467,6 +8373,9 @@ msgstr "启用收集内存使用统计信息。"
 msgid "Enable collecting network latency statistics."
 msgstr "启用收集网络延迟统计信息。"
 
+msgid "Interface Selection"
+msgstr "接口选择"
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -8924,113 +8833,229 @@ msgstr "启动参数"
 msgid "Boot argument (e.g. %s)."
 msgstr "启动参数（例如 ：%s）"
 
-msgid "Undefined"
-msgstr "未定义"
+msgid "Show Used/Avail"
+msgstr "显示已用/可用"
 
-msgid "The value is invalid."
-msgstr "该值无效。"
+msgid "On-Disk Configuration"
+msgstr "磁盘配置"
 
-msgid "Network Address"
-msgstr "网络地址"
+msgid "Capacity Warning Threshold"
+msgstr "容量警告阈值"
 
-msgid "Enter additional parameters"
-msgstr "输入其他参数"
+msgid "Capacity Critical Threshold"
+msgstr "容量临界阈值"
 
-msgid "No additional parameters"
-msgstr "没有其他参数"
+msgid "Extended Destroy"
+msgstr ""
 
-msgid "Enter a description for your reference."
-msgstr "输入说明以供参考。"
+msgid ""
+"Display Used/Avail information from the filesystem instead of the Alloc/Free "
+"information from the pool."
+msgstr "显示来自文件系统的使用/可用信息，而不是池中的Alloc/Free信息。"
 
-msgid "IPv4 Address"
-msgstr "IPv4 地址"
+msgid ""
+"Used/Avail lists storage information after all redundancy is taken into "
+"account but is impacted by compression, deduplication and quotas. Alloc/Free "
+"lists the raw storage information of a pool."
+msgstr "在考虑所有冗余后，使用/可用列出存储信息，但受到压缩，重复数据删除和配额的影响。 Alloc / Free列出池的原始存储信息。"
 
-msgid "Protect"
-msgstr "保护"
+msgid "Read on-disk configuration."
+msgstr "读取磁盘配置。"
 
-msgid "Protect Setting"
-msgstr "保护设置"
+msgid ""
+"Reading the configuration from the disks is slower than reading from cache "
+"file."
+msgstr "从磁盘读取配置比从缓存文件读取要慢。"
 
-msgid "Enable Setting"
-msgstr "启用设置"
+msgid "Set the warning threshold to a value between 80 and 89."
+msgstr "将警告阈值设置为80到89之间的值。"
 
-msgid "The UUID of the record."
-msgstr "记录的UUID。"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the warning "
+"threshold."
+msgstr "当池的容量超过警告阈值时发送警报电子邮件。"
 
-msgid "Enter Universally Unique Identifier"
-msgstr "输入通用唯一标识符"
+msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
+msgstr "必须设置一个定时任务（cron job）来安排脚本/etc/capacitycheck.zfs。"
 
-msgid "Universally Unique Identifier"
-msgstr "通用唯一标识符"
+msgid "Must be a number between 80 and 89."
+msgstr "必须是80到89之间的数字。"
 
-msgid "Delete Selected Records"
-msgstr "删除选中的记录"
+msgid "Set the critical threshold to a value between 90 and 95."
+msgstr "将临界阈值设置为介于90和95之间的值。"
 
-msgid "Do you want to delete selected records?"
-msgstr "要删除选中的记录吗？"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the critical "
+"threshold."
+msgstr "当池的容量超过临界阈值时发送警报电子邮件。"
 
-msgid "Disable Selected Records"
-msgstr "禁用选中的记录"
+msgid "Must be a number between 90 and 95."
+msgstr "必须是90到95之间的数字。"
 
-msgid "Do you want to disable selected records?"
-msgstr "要禁用选中的记录吗？"
+msgid "Destroy dataset and its dependents."
+msgstr ""
 
-msgid "Enable Selected Records"
-msgstr "启用选中的记录"
+msgid ""
+"When enabled, destroying a dataset will also destroy all dependents "
+"(datasets, snapshots and clones)."
+msgstr ""
 
-msgid "Do you want to enable selected records?"
-msgstr "要启用选中的记录吗？"
+msgid "Lifetime"
+msgstr "生命周期"
 
-msgid "Lock Selected Records"
-msgstr "锁定选中的记录"
+msgid "Second(s)"
+msgstr "秒"
 
-msgid "Do you want to lock selected records?"
-msgstr "要锁定选中的记录吗？"
+msgid "Minute(s)"
+msgstr "分钟"
 
-msgid "Toggle Selected Records"
-msgstr "切换选中的记录"
+msgid "Hour(s)"
+msgstr "小时"
 
-msgid "Do you want to toggle selected records?"
-msgstr "要切换选中的记录吗？"
+msgid "Day(s)"
+msgstr "天"
 
-msgid "Unlock Selected Records"
-msgstr "解锁选中的记录"
+msgid "Week(s)"
+msgstr "周"
 
-msgid "Do you want to unlock selected records?"
-msgstr "要解锁选中的记录吗？"
+msgid "Month(s)"
+msgstr "月"
 
-msgid "Add Record"
-msgstr "新增记录"
+msgid "Year(s)"
+msgstr "年"
 
-msgid "Record is marked for deletion"
-msgstr "记录标记为删除"
+msgid "Hourly"
+msgstr "每小时"
 
-msgid "Record Information"
-msgstr "记录信息"
+msgid "Daily"
+msgstr "每天"
 
-msgid "Record is protected"
-msgstr "记录被保护"
+msgid "Weekly"
+msgstr "每周"
 
-msgid "Record Maintenance"
-msgstr "记录维护"
+msgid "Monthly"
+msgstr "月度"
 
-msgid "Edit Record"
-msgstr "编辑记录"
+msgid "Yearly"
+msgstr "每年"
 
-msgid "Record is unlocked"
-msgstr "记录已解锁"
+msgid "Custom Setting"
+msgstr "自定义设置"
 
-msgid "Autodetect"
-msgstr "自动检测"
+msgid "Schedule"
+msgstr "时间表"
 
-msgid "The identifier reported as unknown by smartctl, including brackets."
-msgstr "smartctl报告的标识符未知，包括括号。"
+msgid "Weekdays"
+msgstr "工作日"
 
-msgid "Enter Identifier"
-msgstr "输入标识符"
+msgid "All Minutes"
+msgstr "所有分钟"
 
-msgid "Enter smartctl pass-through type."
-msgstr "输入smartctl直通式。"
+msgid "All Hours"
+msgstr "所有小时"
+
+msgid "All Days"
+msgstr "所有日子"
+
+msgid "All Months"
+msgstr "所有月份"
+
+msgid "All Weekdays"
+msgstr "所有工作日"
+
+msgid "Add Schedule"
+msgstr "添加时间表"
+
+msgid "Edit Schedule"
+msgstr "编辑计划"
+
+msgid "Schedule is marked for deletion"
+msgstr "时间表被标记为删除"
+
+msgid "Schedule is locked"
+msgstr "时间表已锁定"
+
+msgid "Schedule is unlocked"
+msgstr "时间表已解锁"
+
+msgid "Delete Selected Schedules"
+msgstr "删除选定的计划"
+
+msgid "Do you want to delete selected schedules?"
+msgstr "您要删除选定的计划吗？"
+
+msgid "Disable Selected Schedules"
+msgstr "禁用选中的计划"
+
+msgid "Do you want to disable selected schedules?"
+msgstr "是否要禁用选定的计划？"
+
+msgid "Enable Selected Schedules"
+msgstr "启用选定的计划"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "是否要启用选定的计划？"
+
+msgid "Toggle Selected Schedules"
+msgstr "切换选定的计划"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "是否要切换选定的计划？"
+
+msgid "Invalid"
+msgstr "无效"
+
+msgid "Destroy"
+msgstr "销毁"
+
+msgid "Create Snapshot"
+msgstr "创建快照"
+
+msgid "Destroy Snapshot"
+msgstr "销毁快照"
+
+msgid "Scrub Pool"
+msgstr "擦洗池"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr "选择池、文件系统或卷"
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr "递归销毁所有后代数据集的快照。"
+
+msgid "Lifetime Value"
+msgstr "终生值"
+
+msgid "Lifetime Units"
+msgstr "终身单位"
+
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"当分钟、小时和月份字段与当前时间匹配时，并且当两个日期字段中的至少一个（月份中的某一天或一周中的某一天）与当前时间匹配时，调度程序将执行命令。"
+
+msgid "Presets"
+msgstr "预设"
+
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr "递归地创建所有后代数据集的快照。"
+
+msgid "Create"
+msgstr "创建"
+
+msgid "Scrub"
+msgstr "擦洗"
+
+msgid "Select pool."
+msgstr "选择池。"
+
+msgid "No ZFS zpool information available."
+msgstr "没有可用的ZFS池信息。"
+
+msgid "No ZFS volume information available."
+msgstr "没有可用的ZFS卷信息。"
 
 msgid "Add Filesystem"
 msgstr "添加文件系统"
@@ -9053,20 +9078,11 @@ msgstr "删除选定的文件系统"
 msgid "Do you want to delete selected filesystems?"
 msgstr "你想删除选定的文件系统吗？"
 
-msgid "Disable Selected Schedules"
-msgstr "禁用选中的计划"
-
 msgid "Do you want to disable selected filesystems?"
 msgstr "你想禁用选定的文件系统吗？"
 
-msgid "Enable Selected Schedules"
-msgstr "启用选定的计划"
-
 msgid "Do you want to enable selected filesystems?"
 msgstr "你要启用选定的文件系统吗？"
-
-msgid "Toggle Selected Schedules"
-msgstr "切换选定的计划"
 
 msgid "Do you want to toggle selected filesystems?"
 msgstr "你想切换选定的文件系统吗？"
@@ -9083,232 +9099,6 @@ msgstr "没有可用的ZFS文件系统信息。"
 msgid "Filesystems"
 msgstr "文件系统"
 
-msgid "Dataset Name"
-msgstr "数据集名称"
-
-msgid ""
-"File System - can be mounted within the standard system namespace and "
-"behaves like other file systems."
-msgstr "文件系统 - 可以挂载在标准系统命名空间中，并且像其他文件系统一样运行。"
-
-msgid "Volume - A logical volume. Can be exported as a raw or block device."
-msgstr "卷 - 逻辑卷。 可以导出为原始或块设备。"
-
-msgid ""
-"Snapshot - A read-only version of a file system or volume at a given point "
-"in time."
-msgstr "快照 - 给定时间点的文件系统或卷的只读版本。"
-
-msgid "Bookmark - Creates a bookmark of a given snapshot."
-msgstr "书签 - 创建给定快照的书签。"
-
-msgid "Dataset Type"
-msgstr "数据集类型"
-
-msgid "Pool Name"
-msgstr "Pool Name"
-
-msgid "Clones"
-msgstr "克隆"
-
-msgid "Compression Ratio"
-msgstr "压缩比"
-
-msgid "Defer Destroy"
-msgstr "延迟销毁"
-
-msgid "Encryption Root"
-msgstr "加密Root"
-
-msgid "Filesystem Count"
-msgstr "文件系统计数"
-
-msgid "GUID"
-msgstr "GUID"
-
-msgid "Key Status"
-msgstr "Key状态"
-
-msgid "Logical Referenced"
-msgstr "逻辑引用"
-
-msgid "Logical Used"
-msgstr "逻辑使用"
-
-msgid "Mounted"
-msgstr "已挂载"
-
-msgid "Obj Set ID"
-msgstr "对象集 ID"
-
-msgid "Receive Resume Token"
-msgstr "接收恢复令牌"
-
-msgid "Redact Snaps"
-msgstr "编辑快照"
-
-msgid "Refcompressratio"
-msgstr "参考压缩比"
-
-msgid "Referenced"
-msgstr "被参考"
-
-msgid "Snapshot Count"
-msgstr "快照计数"
-
-msgid "Used by Children"
-msgstr "被“Children”使用"
-
-msgid "Used by Dataset"
-msgstr "被数据集使用"
-
-msgid "Used by Refreservation"
-msgstr "被重预定使用"
-
-msgid "Used by Snapshots"
-msgstr "被快照使用"
-
-msgid "Userrefs"
-msgstr "用户引用"
-
-msgid "Written"
-msgstr "已写入"
-
-msgid "Normalization"
-msgstr "正常化"
-
-msgid "UTF-8 File Names"
-msgstr "UTF-8文件名"
-
-msgid "ACL Type"
-msgstr "ACL类型"
-
-msgid "Access Time"
-msgstr "访问时间"
-
-msgid "Can Mount"
-msgstr "可以挂载"
-
-msgid "Checksum"
-msgstr "校验"
-
-msgid "GZIP Compression Level"
-msgstr "GZIP压缩级别"
-
-msgid "Zstandard Compression Level"
-msgstr "Z标准压缩级别"
-
-msgid "Fast Zstandard Compression Level"
-msgstr "快速 Zstandard 压缩级别"
-
-msgid "Copies"
-msgstr "副本"
-
-msgid "Dedup Method"
-msgstr "重复数据删除方法"
-
-msgid "Dnode Size"
-msgstr "节点大小"
-
-msgid "Execute Processes"
-msgstr "Execute Processes"
-
-msgid "Filesystem Limit"
-msgstr "文件系统限制"
-
-msgid "Jailed"
-msgstr "Jailed"
-
-msgid "Key Format"
-msgstr "Key格式"
-
-msgid "Key Location"
-msgstr "Key位置"
-
-msgid "Logbias"
-msgstr "Logbias"
-
-msgid "Mountpoint Type"
-msgstr "挂载点类型"
-
-msgid "Non-blocking Mandatory Locks"
-msgstr "非阻塞强制锁"
-
-msgid "Overlay Mount"
-msgstr "覆盖挂载"
-
-msgid "PBKDF2 Iterations"
-msgstr "PBKDF2 迭代"
-
-msgid "Primary Cache"
-msgstr "主缓存"
-
-msgid "Record Size"
-msgstr "记录大小"
-
-msgid "Redundant Metadata"
-msgstr "冗余元数据"
-
-msgid "Refquota"
-msgstr "Refquota"
-
-msgid "Refquota Type"
-msgstr "重新配额类型"
-
-msgid "Refreservation"
-msgstr "Refreservation"
-
-msgid "Refreservation Type"
-msgstr "预约类型"
-
-msgid "Relatime"
-msgstr "相关时间"
-
-msgid "Reservation Type"
-msgstr "预订类型"
-
-msgid "Secondary Cache"
-msgstr "二级缓存"
-
-msgid "Setuid"
-msgstr "设置uid标识符"
-
-msgid "Share NFS Options"
-msgstr "共享 NFS 选项"
-
-msgid "Share NFS Type"
-msgstr "共享 NFS 类型"
-
-msgid "Share SMB Options"
-msgstr "共享 SMB 选项"
-
-msgid "Share SMB Type"
-msgstr "共享 SMB 类型"
-
-msgid "Snapshot Device Visibility"
-msgstr "快照设备可见性"
-
-msgid "Snapshot Folder Visibility"
-msgstr "快照文件夹可见性"
-
-msgid "Snapshot Limit"
-msgstr "快照限制"
-
-msgid "Threshold Small Block Size"
-msgstr "阈值小块大小"
-
-msgid "Synchronous Requests Behaviour"
-msgstr "同步请求行为"
-
-msgid "Volume Mode"
-msgstr "卷模式"
-
-msgid "Volume Size"
-msgstr "卷大小"
-
-msgid "Virus Scan"
-msgstr "病毒扫描"
-
 msgid "The name of the filesystem."
 msgstr "文件系统的名称。"
 
@@ -9317,6 +9107,9 @@ msgstr "输入文件系统名称"
 
 msgid "Controls the type of the ZFS dataset."
 msgstr "控制ZFS数据集的类型。"
+
+msgid "Pool Name"
+msgstr "Pool Name"
 
 msgid ""
 "Indicates whether the file name matching algorithm used by the filesystem "
@@ -9832,707 +9625,1669 @@ msgstr "控制是否为此文件系统启用扩展属性。"
 msgid "System attribute based xattrs"
 msgstr "基于系统属性的 xattrs"
 
-msgid "Add Schedule"
-msgstr "添加时间表"
-
-msgid "Edit Schedule"
-msgstr "编辑计划"
-
-msgid "Schedule is marked for deletion"
-msgstr "时间表被标记为删除"
-
-msgid "Schedule is locked"
-msgstr "时间表已锁定"
-
-msgid "Schedule is unlocked"
-msgstr "时间表已解锁"
-
-msgid "Delete Selected Schedules"
-msgstr "删除选定的计划"
-
-msgid "Do you want to delete selected schedules?"
-msgstr "您要删除选定的计划吗？"
-
-msgid "Do you want to disable selected schedules?"
-msgstr "是否要禁用选定的计划？"
-
-msgid "Do you want to enable selected schedules?"
-msgstr "是否要启用选定的计划？"
-
-msgid "Do you want to toggle selected schedules?"
-msgstr "是否要切换选定的计划？"
-
-msgid "Invalid"
-msgstr "无效"
-
-msgid "Select pool."
-msgstr "选择池。"
+msgid "Dataset Name"
+msgstr "数据集名称"
 
 msgid ""
-"Commands are executed by the scheduler when the minute, hour, and month of "
-"year fields match the current time, and when at least one of the two day "
-"fields (day of month, or day of week) matches the current time."
-msgstr ""
-"当分钟、小时和月份字段与当前时间匹配时，并且当两个日期字段中的至少一个（月份中的某一天或一周中的某一天）与当前时间匹配时，调度程序将执行命令。"
+"File System - can be mounted within the standard system namespace and "
+"behaves like other file systems."
+msgstr "文件系统 - 可以挂载在标准系统命名空间中，并且像其他文件系统一样运行。"
 
-msgid "Presets"
-msgstr "预设"
-
-msgid "Daily"
-msgstr "每天"
-
-msgid "Weekly"
-msgstr "每周"
-
-msgid "Monthly"
-msgstr "月度"
-
-msgid "Yearly"
-msgstr "每年"
-
-msgid "Custom Setting"
-msgstr "自定义设置"
-
-msgid "Schedule"
-msgstr "时间表"
-
-msgid "Weekdays"
-msgstr "工作日"
-
-msgid "All Minutes"
-msgstr "所有分钟"
-
-msgid "All Hours"
-msgstr "所有小时"
-
-msgid "All Days"
-msgstr "所有日子"
-
-msgid "All Months"
-msgstr "所有月份"
-
-msgid "All Weekdays"
-msgstr "所有工作日"
-
-msgid "Scrub"
-msgstr "擦洗"
-
-msgid "Create Snapshot"
-msgstr "创建快照"
-
-msgid "Destroy Snapshot"
-msgstr "销毁快照"
-
-msgid "Scrub Pool"
-msgstr "擦洗池"
-
-msgid "Hourly"
-msgstr "每小时"
-
-msgid "Create"
-msgstr "创建"
-
-msgid "Select Pool, Filesystem or Volume"
-msgstr "选择池、文件系统或卷"
-
-msgid "Recursively create snapshots of all descendent datasets."
-msgstr "递归地创建所有后代数据集的快照。"
-
-msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr "递归销毁所有后代数据集的快照。"
-
-msgid "Lifetime Value"
-msgstr "终生值"
-
-msgid "Lifetime Units"
-msgstr "终身单位"
-
-msgid "Lifetime"
-msgstr "生命周期"
-
-msgid "Second(s)"
-msgstr "秒"
-
-msgid "Minute(s)"
-msgstr "分钟"
-
-msgid "Hour(s)"
-msgstr "小时"
-
-msgid "Day(s)"
-msgstr "天"
-
-msgid "Week(s)"
-msgstr "周"
-
-msgid "Month(s)"
-msgstr "月"
-
-msgid "Year(s)"
-msgstr "年"
-
-msgid "Destroy"
-msgstr "销毁"
-
-msgid "Show Used/Avail"
-msgstr "显示已用/可用"
-
-msgid "On-Disk Configuration"
-msgstr "磁盘配置"
-
-msgid "Capacity Warning Threshold"
-msgstr "容量警告阈值"
-
-msgid "Capacity Critical Threshold"
-msgstr "容量临界阈值"
+msgid "Volume - A logical volume. Can be exported as a raw or block device."
+msgstr "卷 - 逻辑卷。 可以导出为原始或块设备。"
 
 msgid ""
-"Display Used/Avail information from the filesystem instead of the Alloc/Free "
-"information from the pool."
-msgstr "显示来自文件系统的使用/可用信息，而不是池中的Alloc/Free信息。"
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr "快照 - 给定时间点的文件系统或卷的只读版本。"
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr "书签 - 创建给定快照的书签。"
+
+msgid "Dataset Type"
+msgstr "数据集类型"
+
+msgid "Clones"
+msgstr "克隆"
+
+msgid "Compression Ratio"
+msgstr "压缩比"
+
+msgid "Defer Destroy"
+msgstr "延迟销毁"
+
+msgid "Encryption Root"
+msgstr "加密Root"
+
+msgid "Filesystem Count"
+msgstr "文件系统计数"
+
+msgid "GUID"
+msgstr "GUID"
+
+msgid "Key Status"
+msgstr "Key状态"
+
+msgid "Logical Referenced"
+msgstr "逻辑引用"
+
+msgid "Logical Used"
+msgstr "逻辑使用"
+
+msgid "Mounted"
+msgstr "已挂载"
+
+msgid "Obj Set ID"
+msgstr "对象集 ID"
+
+msgid "Receive Resume Token"
+msgstr "接收恢复令牌"
+
+msgid "Redact Snaps"
+msgstr "编辑快照"
+
+msgid "Refcompressratio"
+msgstr "参考压缩比"
+
+msgid "Referenced"
+msgstr "被参考"
+
+msgid "Snapshot Count"
+msgstr "快照计数"
+
+msgid "Used by Children"
+msgstr "被“Children”使用"
+
+msgid "Used by Dataset"
+msgstr "被数据集使用"
+
+msgid "Used by Refreservation"
+msgstr "被重预定使用"
+
+msgid "Used by Snapshots"
+msgstr "被快照使用"
+
+msgid "Userrefs"
+msgstr "用户引用"
+
+msgid "Written"
+msgstr "已写入"
+
+msgid "Normalization"
+msgstr "正常化"
+
+msgid "UTF-8 File Names"
+msgstr "UTF-8文件名"
+
+msgid "ACL Type"
+msgstr "ACL类型"
+
+msgid "Access Time"
+msgstr "访问时间"
+
+msgid "Can Mount"
+msgstr "可以挂载"
+
+msgid "Checksum"
+msgstr "校验"
+
+msgid "GZIP Compression Level"
+msgstr "GZIP压缩级别"
+
+msgid "Zstandard Compression Level"
+msgstr "Z标准压缩级别"
+
+msgid "Fast Zstandard Compression Level"
+msgstr "快速 Zstandard 压缩级别"
+
+msgid "Copies"
+msgstr "副本"
+
+msgid "Dedup Method"
+msgstr "重复数据删除方法"
+
+msgid "Dnode Size"
+msgstr "节点大小"
+
+msgid "Execute Processes"
+msgstr "Execute Processes"
+
+msgid "Filesystem Limit"
+msgstr "文件系统限制"
+
+msgid "Jailed"
+msgstr "Jailed"
+
+msgid "Key Format"
+msgstr "Key格式"
+
+msgid "Key Location"
+msgstr "Key位置"
+
+msgid "Logbias"
+msgstr "Logbias"
+
+msgid "Mountpoint Type"
+msgstr "挂载点类型"
+
+msgid "Non-blocking Mandatory Locks"
+msgstr "非阻塞强制锁"
+
+msgid "Overlay Mount"
+msgstr "覆盖挂载"
+
+msgid "PBKDF2 Iterations"
+msgstr "PBKDF2 迭代"
+
+msgid "Primary Cache"
+msgstr "主缓存"
+
+msgid "Record Size"
+msgstr "记录大小"
+
+msgid "Redundant Metadata"
+msgstr "冗余元数据"
+
+msgid "Refquota"
+msgstr "Refquota"
+
+msgid "Refquota Type"
+msgstr "重新配额类型"
+
+msgid "Refreservation"
+msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr "预约类型"
+
+msgid "Relatime"
+msgstr "相关时间"
+
+msgid "Reservation Type"
+msgstr "预订类型"
+
+msgid "Secondary Cache"
+msgstr "二级缓存"
+
+msgid "Setuid"
+msgstr "设置uid标识符"
+
+msgid "Share NFS Options"
+msgstr "共享 NFS 选项"
+
+msgid "Share NFS Type"
+msgstr "共享 NFS 类型"
+
+msgid "Share SMB Options"
+msgstr "共享 SMB 选项"
+
+msgid "Share SMB Type"
+msgstr "共享 SMB 类型"
+
+msgid "Snapshot Device Visibility"
+msgstr "快照设备可见性"
+
+msgid "Snapshot Folder Visibility"
+msgstr "快照文件夹可见性"
+
+msgid "Snapshot Limit"
+msgstr "快照限制"
+
+msgid "Threshold Small Block Size"
+msgstr "阈值小块大小"
+
+msgid "Synchronous Requests Behaviour"
+msgstr "同步请求行为"
+
+msgid "Volume Mode"
+msgstr "卷模式"
+
+msgid "Volume Size"
+msgstr "卷大小"
+
+msgid "Virus Scan"
+msgstr "病毒扫描"
+
+msgid "The identifier reported as unknown by smartctl, including brackets."
+msgstr "smartctl报告的标识符未知，包括括号。"
+
+msgid "Enter Identifier"
+msgstr "输入标识符"
+
+msgid "Enter smartctl pass-through type."
+msgstr "输入smartctl直通式。"
+
+msgid "Enter login name."
+msgstr "输入登录名。"
+
+msgid "Enter the full user name."
+msgstr "输入完整用户名。"
+
+msgid "Full Name"
+msgstr "全名"
+
+msgid "Set user password."
+msgstr "设置用户密码"
+
+msgid "Specify the user/account numeric id."
+msgstr "指定用户/帐户的数字ID。"
+
+msgid "The recommended range for the user id is between 1000 and 32000."
+msgstr "用户ID的建议范围介于1000和32000之间。"
+
+msgid "1000"
+msgstr "1000"
+
+msgid "Set user login shell."
+msgstr "设置用户登录shell。"
+
+msgid "No Login"
+msgstr "没有登录"
+
+msgid "scponly - Secure Copy Protocol only"
+msgstr "scponly  - 仅限安全复制协议"
+
+msgid "sh - Bourne Shell"
+msgstr "sh - Bourne Shell"
+
+msgid "bash - Bourne Again Shell"
+msgstr "bash - Bourne Again Shell"
+
+msgid "csh - C Shell"
+msgstr "csh - C Shell"
+
+msgid "tcsh - TENEX C Shell"
+msgstr "tcsh - TENEX C Shell"
+
+msgid "Set the account's primary group."
+msgstr "设置帐户的主要组。"
+
+msgid "Add user to additional groups."
+msgstr "将用户添加到其他组。"
 
 msgid ""
-"Used/Avail lists storage information after all redundancy is taken into "
-"account but is impacted by compression, deduplication and quotas. Alloc/Free "
-"lists the raw storage information of a pool."
-msgstr "在考虑所有冗余后，使用/可用列出存储信息，但受到压缩，重复数据删除和配额的影响。 Alloc / Free列出池的原始存储信息。"
+"Enter the path to the home directory of the user. Leave this field empty to "
+"use default path /mnt."
+msgstr "输入用户主目录的路径。 将此字段留空以使用默认路径/mnt。"
 
-msgid "Read on-disk configuration."
-msgstr "读取磁盘配置。"
+msgid "/mnt"
+msgstr "/mnt"
 
-msgid ""
-"Reading the configuration from the disks is slower than reading from cache "
-"file."
-msgstr "从磁盘读取配置比从缓存文件读取要慢。"
+msgid "User portal permission."
+msgstr "用户门户权限。"
 
-msgid "Set the warning threshold to a value between 80 and 89."
-msgstr "将警告阈值设置为80到89之间的值。"
+msgid "No access to the user portal"
+msgstr "无法访问用户门户"
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the warning "
-"threshold."
-msgstr "当池的容量超过警告阈值时发送警报电子邮件。"
+msgid "User access"
+msgstr "用户访问"
 
-msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr "必须设置一个定时任务（cron job）来安排脚本/etc/capacitycheck.zfs。"
+msgid "Admin access"
+msgstr "管理员权限"
 
-msgid "Must be a number between 80 and 89."
-msgstr "必须是80到89之间的数字。"
+msgid "Select the language of the user portal for this user."
+msgstr "选择该用户的用户门户网站的语言。"
 
-msgid "Set the critical threshold to a value between 90 and 95."
-msgstr "将临界阈值设置为介于90和95之间的值。"
+msgid "Select the timezone for this user."
+msgstr "选择该用户的时区。"
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the critical "
-"threshold."
-msgstr "当池的容量超过临界阈值时发送警报电子邮件。"
+msgid "Grant access to the file manager."
+msgstr "授予对文件管理器的访问权限。"
 
-msgid "Must be a number between 90 and 95."
-msgstr "必须是90到95之间的数字。"
+msgid "Show hidden items"
+msgstr "显示隐藏的项目"
 
-msgid "No ZFS volume information available."
-msgstr "没有可用的ZFS卷信息。"
+msgid "Grant read permission"
+msgstr "授予读取权限"
 
-msgid "No ZFS zpool information available."
-msgstr "没有可用的ZFS池信息。"
+msgid "Grant create permission"
+msgstr "授予创建权限"
 
-msgid "Selected..."
-msgstr "选中的..."
+msgid "Grant modify permission"
+msgstr "授予修改权限"
 
-msgid "Directory"
-msgstr "目录"
+msgid "Grant delete permission"
+msgstr "授予删除权限"
 
-msgid "Modified"
-msgstr "已修改"
+msgid "Add User Account"
+msgstr "添加用户账户"
 
-msgid "Parent Directory"
-msgstr "上层目录"
+msgid "Edit User Account"
+msgstr "编辑用户账号"
 
-msgid "You are not allowed to use this function."
-msgstr "不允许你使用此功能。"
+msgid "User account is marked for deletion"
+msgstr "用户帐户标记为删除"
 
-msgid "Copy item(s)"
-msgstr "复制项目"
+msgid "User account is protected"
+msgstr "用户账户被保护"
 
-msgid "Move item(s)"
-msgstr "移动项目"
+msgid "User account is unlocked"
+msgstr "用户账号已解锁"
 
-#, php-format
-msgid "Copy from /%s to /%s "
-msgstr "从 /%s 复制到 /%s "
+msgid "Set password"
+msgstr "设置密码"
 
-#, php-format
-msgid "Move from /%s to /%s "
-msgstr "从 /%s移动到  /%s "
+msgid "Delete Selected User Accounts"
+msgstr "删除选中的用户账号"
 
-msgid "Copy"
-msgstr "复制"
+msgid "Do you want to delete selected user accounts?"
+msgstr "要删除选中的用户帐户吗？"
 
-msgid "Move"
-msgstr "移动"
+msgid "Disable Selected Users"
+msgstr "禁用所选用户"
 
-msgid "The target directory doesn't exist."
-msgstr "目标目录不存在。"
+msgid "Do you want to disable selected users?"
+msgstr "要禁用所选用户吗？"
 
-msgid "You are not allowed to access the target directory."
-msgstr "你无权访问目标目录。"
+msgid "Enable Selected Users"
+msgstr "启用选定的用户"
 
-msgid "The target directory may not be above the home directory."
-msgstr "目标目录可能不在主目录之上。"
+msgid "Do you want to enable selected users?"
+msgstr "要启用所选用户吗？"
 
-msgid "You must supply a name."
-msgstr "你必须提供一个名称。"
+msgid "Toggle Selected Users"
+msgstr "切换选中的用户"
 
-msgid "This item doesn't exist."
-msgstr "该项目不存在。"
-
-msgid "You are not allowed to access this item."
-msgstr "你无权访问此项目。"
-
-msgid "The target item already exists."
-msgstr "目标项目已存在。"
-
-msgid "Copying failed."
-msgstr "复制失败。"
-
-msgid "Moving failed."
-msgstr "移动失败。"
-
-msgid "File saving failed."
-msgstr "文件保存失败。"
-
-msgid "This file doesn't exist."
-msgstr "该文件不存在。"
-
-msgid "You are not allowed to access this file."
-msgstr "你无权访问此文件。"
-
-msgid "This item already exists."
-msgstr "该项目已存在。"
-
-msgid "File opening failed."
-msgstr "文件打开失败。"
-
-msgid "Edit file"
-msgstr "编辑文件"
-
-msgid "Wrap text:"
-msgstr "自动换行："
-
-msgid "Reset"
-msgstr "重置"
-
-msgid "Close"
-msgstr "关闭"
-
-msgid "Deleting failed."
-msgstr "删除失败"
-
-msgid "Unable to open source directory."
-msgstr "无法打开源目录。"
-
-msgid "Unable to open directory."
-msgstr "不能打开目录。"
-
-msgid "Unable to read directory."
-msgstr "不能读取目录。"
-
-msgid "Executable File"
-msgstr "可执行文件"
-
-msgid "Link"
-msgstr "链接"
-
-msgid "Text File"
-msgstr "TXT文本文件"
-
-msgid "PHP Script"
-msgstr "PHP脚本"
-
-msgid "SQL File"
-msgstr "SQL文件"
-
-msgid "PERL Script"
-msgstr "PERL脚本"
-
-msgid "HTML Page"
-msgstr "HTML页面"
-
-msgid "XML File"
-msgstr "XML文件"
-
-msgid "Javascript File"
-msgstr "Javascript 文件"
-
-msgid "CSS File"
-msgstr "CSS 文件"
-
-msgid "CGI Script"
-msgstr "CGI脚本"
-
-msgid "Python Script"
-msgstr "Python 脚本"
-
-msgid "Shell Script"
-msgstr "Shell脚本"
-
-msgid "C File"
-msgstr "C 文件"
-
-msgid "C++ Source File"
-msgstr "C++ 源文件"
-
-msgid "C++ Header File"
-msgstr "C++头文件"
-
-msgid "Java Source File"
-msgstr "Java 源文件"
-
-msgid "Java Class File"
-msgstr "Java Class文件"
-
-msgid "Pascal File"
-msgstr "Pascal文件"
-
-msgid "GIF Image"
-msgstr "GIF图片"
-
-msgid "JPG Image"
-msgstr "JPG图片"
-
-msgid "BMP Image"
-msgstr "BMP图片"
-
-msgid "PNG Image"
-msgstr "PNG图片"
-
-msgid "TIF Image"
-msgstr "TIF图片"
-
-msgid "Photoshop File"
-msgstr "Photoshop文件"
-
-msgid "ZIP Archive"
-msgstr "ZIP压缩包"
-
-msgid "TAR Archive"
-msgstr "TAR压缩包"
-
-msgid "GZIP Archive"
-msgstr "GZIP压缩包"
-
-msgid "BZIP2 Archive"
-msgstr "BZIP2压缩包"
-
-msgid "RAR Archive"
-msgstr "RAR压缩包"
-
-msgid "MP3 Audio File"
-msgstr "MP3音频文件"
-
-msgid "FLAC Audio File"
-msgstr "FLAC音频文件"
-
-msgid "WAV Audio File"
-msgstr "WAV 音频文件"
-
-msgid "MIDI File"
-msgstr "MIDI文件"
-
-msgid "RealAudio File"
-msgstr "RealAudio文件"
-
-msgid "DTS Audio File"
-msgstr "DTS音频文件"
-
-msgid "AC3 Audio File"
-msgstr "AC3音频文件"
-
-msgid "OGG Audio File"
-msgstr "OGG音频文件"
-
-msgid "MP3 Playlist"
-msgstr "MP3 播放列表"
-
-msgid "AVI File"
-msgstr "AVI文件"
-
-msgid "MPEG File"
-msgstr "MPEG文件"
-
-msgid "MOV File"
-msgstr "MOV文件"
-
-msgid "MKV File"
-msgstr "MKV文件"
-
-msgid "VOB File"
-msgstr "VOB文件"
-
-msgid "Flash File"
-msgstr "FLASH文件"
-
-msgid "MP4 File"
-msgstr "MP4文件"
-
-msgid "TS File"
-msgstr "TS文件"
-
-msgid "Word Document"
-msgstr "Word文档"
-
-msgid "Excel Sheet"
-msgstr "Excel表格"
-
-msgid "Powerpoint Presentation"
-msgstr "Powerpoint演示文稿"
-
-msgid "PDF File"
-msgstr "PDF文件"
-
-msgid "You haven't selected any item(s)."
-msgstr "你尚未选择任何项目。"
-
-msgid "ERROR(S)"
-msgstr "错误"
-
-msgid "Go Back"
-msgstr "后退"
-
-msgid "Directory creation failed."
-msgstr "目录创建失败。"
-
-msgid "File creation failed."
-msgstr "创建文件失败。"
-
-msgid "Extracting"
-msgstr "提取"
-
-msgid "Unzip"
-msgstr "UNZIP"
-
-msgid "Failed to extract archive."
-msgstr "无法提取存档。"
-
-msgid "Are you sure you want to delete selected item(s)?"
-msgstr "你确定要删除所选项目吗？"
-
-msgid "Search Directory"
-msgstr "搜索目录"
-
-msgid "Search Filter"
-msgstr "搜索过滤器"
-
-msgid "Search subfolder"
-msgstr "搜索子文件夹"
-
-#, php-format
-msgid "Search Result for %1$s"
-msgstr "%1$s的搜索结果"
-
-msgid "Item(s)"
-msgstr "项目"
-
-msgid "No results available."
-msgstr "无可用结果。"
-
-msgid "HOME"
-msgstr "HOME"
-
-msgid "Permission-change failed."
-msgstr "权限更改失败。"
-
-msgid "Getting permissions failed."
-msgstr "获取权限失败。"
-
-msgid "Change permissions"
-msgstr "更改权限"
-
-msgid "Public"
-msgstr "公开"
-
-msgid "CHANGE PERMISSIONS"
-msgstr "更改权限"
-
-msgid "You are not allowed to access this directory."
-msgstr "你无权访问此目录。"
-
-msgid "UP"
-msgstr "UP"
-
-msgid "RELOAD"
-msgstr "重新载入"
-
-msgid "SEARCH"
-msgstr "搜索"
-
-msgid "Permissions"
-msgstr "权限"
-
-msgid "Actions"
-msgstr "操作"
-
-msgid "COPY"
-msgstr "复制"
-
-msgid "MOVE"
-msgstr "移动"
-
-msgid "DELETE"
-msgstr "删除"
-
-msgid "EDIT"
-msgstr "编辑"
-
-msgid "UNZIP"
-msgstr "UNZIP"
-
-msgid "DOWNLOAD"
-msgstr "下载"
-
-msgid "The following errors were detected"
-msgstr "检测到以下错误"
-
-msgid ""
-"If this message persists take a look at the system log for more information."
-msgstr "如果此消息仍然存在，请查看系统日志以获取更多信息。"
-
-msgid "Choose..."
-msgstr "选择..."
-
-msgid "Running"
-msgstr "正在运行"
+msgid "Do you want to toggle selected users?"
+msgstr "你想切换选定的用户吗？"
 
 msgid "Active"
 msgstr "活动"
 
-msgid "Inactive"
-msgstr "无效"
+msgid "System User"
+msgstr "系统用户"
 
-msgid "Online"
-msgstr "在线"
+msgid "Show System Users"
+msgstr "显示系统用户"
 
-msgid "Offline"
-msgstr "离线"
+msgid "Hide System Users"
+msgstr "隐藏系统用户"
 
-msgid "No records found."
-msgstr "未找到记录。"
+msgid "Users"
+msgstr "用户"
 
-msgid "Apply Changes"
-msgstr "应用更改"
+msgid "Public Keys"
+msgstr "公钥"
+
+msgid "Groups"
+msgstr "群组"
+
+msgid "Login Name"
+msgstr "登录名"
+
+msgid "SHA Password"
+msgstr "SHA密码"
+
+msgid "MD4 Password"
+msgstr "MD4密码"
+
+msgid "Shell"
+msgstr "命令壳 (shell)"
+
+msgid "Primary Group"
+msgstr "主要群组"
+
+msgid "Timezone"
+msgstr "时区"
+
+msgid "File Manager Access"
+msgstr "文件管理器访问"
+
+msgid "Hidden Items"
+msgstr "隐藏的项目"
+
+msgid "Read Permission"
+msgstr "读取权限"
+
+msgid "Create Permission"
+msgstr "创建权限"
+
+msgid "Change Permission"
+msgstr "更改权限"
+
+msgid "Delete Permission"
+msgstr "删除权限"
+
+msgid "Public key information."
+msgstr "公钥信息。"
+
+msgid "Public Key"
+msgstr "公钥"
+
+msgid "Add Public Key"
+msgstr "添加公钥"
+
+msgid "Edit Public Key"
+msgstr "编辑公钥"
+
+msgid "Public key is marked for deletion"
+msgstr "公钥被标记为删除"
+
+msgid "Public key is protected"
+msgstr "公钥受到保护"
+
+msgid "Public key is unlocked"
+msgstr "公钥已解锁"
+
+msgid "Delete Selected Public Keys"
+msgstr "删除选定的公钥"
+
+msgid "Do you want to delete selected public keys?"
+msgstr "要删除所选的公钥吗？"
+
+msgid "Disable Selected Public Keys"
+msgstr "禁用所选公钥"
+
+msgid "Do you want to disable selected public keys?"
+msgstr "要禁用所选公钥吗？"
+
+msgid "Enable Selected Public Keys"
+msgstr "启用选定的公钥"
+
+msgid "Do you want to enable selected public keys?"
+msgstr "要启用所选公钥吗？"
+
+msgid "Toggle Selected Public Keys"
+msgstr "切换选定的公钥"
+
+msgid "Do you want to toggle selected public keys?"
+msgstr "要切换选定的公钥吗？"
 
 msgid "Reload"
 msgstr "重新加载"
 
+msgid "Add Group"
+msgstr "新增群组"
+
+msgid "Edit Group"
+msgstr "编辑群组"
+
+msgid "Group is marked for deletion"
+msgstr "组已标记为要删除"
+
+msgid "Group is protected"
+msgstr "群组被保护"
+
+msgid "Group is unlocked"
+msgstr "群组已解锁"
+
+msgid "Delete Selected Groups"
+msgstr "删除选中的组"
+
+msgid "Do you want to delete selected groups?"
+msgstr "要删除选中的群组吗？"
+
+msgid "Disable Selected Groups"
+msgstr "删除选定的组"
+
+msgid "Do you want to disable selected groups?"
+msgstr "要禁用所选组吗？"
+
+msgid "Enable Selected Groups"
+msgstr "启用所选组"
+
+msgid "Do you want to enable selected groups?"
+msgstr "要启用选定的组吗？"
+
+msgid "Toggle Selected Groups"
+msgstr "切换选中的组"
+
+msgid "Do you want to toggle selected groups?"
+msgstr "你想切换选定的群组吗？"
+
+msgid "System Group"
+msgstr "系统组"
+
+msgid "Show System Groups"
+msgstr "显示系统组"
+
+msgid "Hide System Groups"
+msgstr "隐藏系统组"
+
+msgid "Enter group name."
+msgstr "输入组名"
+
+msgid "Group Name"
+msgstr "组名称"
+
+msgid "Specify the group numeric id."
+msgstr "指定组的数字ID。"
+
+msgid "The recommended range for the group id is between 1000 and 32000."
+msgstr "组ID的建议范围介于1000和32000之间。"
+
+msgid "Domain Controller Name"
+msgstr "域控制器名"
+
+msgid "Domain Name (DNS/Realm-Name)"
+msgstr "域名（DNS/真名）"
+
+msgid "Domain Name (NetBIOS-Name)"
+msgstr "域名（NetBIOS名称）"
+
+msgid "Administrator Name"
+msgstr "管理员名称"
+
+msgid "Administrator Password"
+msgstr "管理员密码"
+
+msgid "Enter AD or PDC name."
+msgstr "输入AD或PDC名称."
+
+msgid "Controller Name"
+msgstr "控制器名"
+
+msgid "Enter the domain name."
+msgstr "输入域名。"
+
+msgid "example.com"
+msgstr "example.com"
+
+msgid "Enter NetBIOS name."
+msgstr "输入NetBIOS名称."
+
+msgid "NETBIOS"
+msgstr "NETBIOS"
+
+msgid "Enter user name of a domain administrator account."
+msgstr "输入域名管理员帐户名称"
+
+msgid "Admin"
+msgstr "管理员"
+
+msgid "Enter the password of the domain administrator account."
+msgstr "输入域名管理员帐户密码。"
+
+msgid "Add Reboot Schedule"
+msgstr "添加重启计划"
+
+msgid "Edit Reboot Schedule"
+msgstr "编辑重新启动计划"
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr "重启计划被标记为删除"
+
+msgid "Reboot Schedule is locked"
+msgstr "重启计划已锁定"
+
+msgid "Reboot Schedule is unlocked"
+msgstr "重启计划已解锁"
+
+msgid "Delete Selected Reboot Schedules"
+msgstr "删除选定的重启计划"
+
+msgid "Do you want to delete selected reboot schedules?"
+msgstr "是否要删除选定的重启计划？"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr "禁用选中的重启计划"
+
+msgid "Do you want to disable selected reboot schedules?"
+msgstr "是否要禁用选定的重新启动计划？"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr "启用选定的重新启动计划"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr "是否要启用选定的重新启动计划？"
+
+msgid "Toggle Selected Reboot Schedules"
+msgstr "切换选定的重启计划"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr "是否要切换选定的重新启动计划？"
+
+msgid "Daemon Events"
+msgstr "守护进程事件"
+
+msgid "Enable Server"
+msgstr "启用服务器"
+
+msgid "FTP Events"
+msgstr "FTP事件"
+
+msgid "RSYNC Events"
+msgstr "RSYNC事件"
+
+msgid "S.M.A.R.T. Events"
+msgstr "S.M.A.R.T.事件"
+
+msgid "SSH Events"
+msgstr "SSH事件"
+
+msgid "System Events"
+msgstr "系统事件"
+
+msgid "Send daemon event messages."
+msgstr "发送守护进程事件消息。"
+
+msgid "Send FTP event messages."
+msgstr "发送FTP事件消息。"
+
+msgid "IP address of the remote syslog server."
+msgstr "远程日志服务器的IP地址。"
+
+msgid ""
+"Port of the remote syslog server. Leave blank to use the default port."
+msgstr "远程系统日志服务器的端口。 留空以使用默认端口。"
+
+msgid ""
+"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
+"server. Be sure to set syslogd on the remote server to accept syslog "
+"messages from this server."
+msgstr ""
+"Syslog 发送 UDP 数据包到远程syslog服务器的514端口。请确定在远程 syslog 服务器的 syslogd 接收来自此服务器的 "
+"syslog 信息。"
+
+msgid "514"
+msgstr "514"
+
+msgid "Port number must be 514 or a number between 1024 and 65535."
+msgstr "端口号必须是 514 或介于 1024 和 65535 之间的数字。"
+
+msgid "Send RSYNC event messages."
+msgstr "发送RSYNC事件消息。"
+
+msgid "Send S.M.A.R.T. event messages."
+msgstr "发送S.M.A.R.T.事件消息。"
+
+msgid "Send SSH event messages."
+msgstr "发送SSH事件消息。"
+
+msgid "Send system event messages."
+msgstr "发送系统事件消息。"
+
+msgid "Disable the compression of repeating lines."
+msgstr "禁用重复行的压缩。"
+
+msgid "Accept remote syslog messages."
+msgstr "接受远程syslog消息。"
+
+msgid ""
+"If this option is checked, IP addresses in the server logs are resolved to "
+"their hostnames where possible."
+msgstr "如果选中此选项，服务器日志中的IP地址将尽可能解析为其主机名。"
+
+msgid "This can cause a huge delay in loading the log page!"
+msgstr "这可能导致加载日志页面的巨大延迟！"
+
+msgid "Show log entries in reverse order (newest entries on top)."
+msgstr "以相反的顺序显示日志条目（新条目在最上面）。"
+
+msgid "Remote Syslog Messages"
+msgstr "远程Syslog消息"
+
+msgid "Show Log Entries"
+msgstr "显示日志条目"
+
+msgid "Log Order"
+msgstr "日志顺序"
+
+msgid "Facility"
+msgstr "设备"
+
+msgid "Add Option"
+msgstr "添加选项"
+
+msgid "Edit Option"
+msgstr "编辑选项"
+
+msgid "Option is marked for deletion"
+msgstr "选项被标记为删除"
+
+msgid "Option is locked"
+msgstr "选项被锁定"
+
+msgid "Option is unlocked"
+msgstr "选项已解锁"
+
+msgid "Delete Selected Options"
+msgstr "删除选中的选项"
+
+msgid "Do you want to delete selected options?"
+msgstr "要删除选中的选项吗？"
+
+msgid "Disable Selected Options"
+msgstr "禁止选中的选项"
+
+msgid "Do you want to disable selected options?"
+msgstr "要禁用选中的选项吗？"
+
+msgid "Enable Selected Options"
+msgstr "启用选中的选项"
+
+msgid "Do you want to enable selected options?"
+msgstr "要启用选中的选项吗？"
+
+msgid "Toggle Selected Options"
+msgstr "切换选中的选项"
+
+msgid "Do you want to toggle selected options?"
+msgstr "要切换选中的选项吗？"
+
+msgid "Enter facility name"
+msgstr "输入设备名称"
+
+msgid "Enter level name"
+msgstr "输入级别名称"
+
+msgid "Enter destination"
+msgstr "输入目的地"
+
+msgid "Sort"
+msgstr "排序"
+
 msgid "Reorder"
 msgstr "重新排列"
 
-msgid "Rescan"
-msgstr "重新扫描"
+msgid "Add Command"
+msgstr "添加命令"
 
-msgid "Restart"
-msgstr "重启"
+msgid "Edit Command"
+msgstr "编辑命令"
 
-msgid "Add VLAN"
-msgstr "添加VLAN"
+msgid "Command is marked for deletion"
+msgstr "命令被标记为删除"
 
-msgid "Edit VLAN"
-msgstr "编辑VLAN"
+msgid "Command is locked"
+msgstr "命令已锁定"
 
-msgid "VLAN is marked for deletion"
-msgstr "VLAN被标记为删除"
+msgid "Command is unlocked"
+msgstr "命令已解锁"
 
-msgid "VLAN is locked"
-msgstr "VLAN已锁定"
+msgid "Delete Selected Commands"
+msgstr "删除选中的命令"
 
-msgid "VLAN is unlocked"
-msgstr "VLAN已解锁"
+msgid "Do you want to delete selected commands?"
+msgstr "要删除选中的命令吗？"
 
-msgid "Delete Selected VLANs"
-msgstr "删除选中的VLANs"
+msgid "Disable Selected Commands"
+msgstr "禁用选中的命令"
 
-msgid "Disable Selected VLANs"
-msgstr "禁用选中的VLANs"
+msgid "Do you want to disable selected commands?"
+msgstr "要禁用选中的命令吗？"
 
-msgid "Enable Selected VLANs"
-msgstr "启用选中的VLANs"
+msgid "Enable Selected Commands"
+msgstr "启用选中的命令"
 
-msgid "Toggle Selected VLANs"
-msgstr "切换选中的VLANs"
+msgid "Do you want to enable selected commands?"
+msgstr "是否要启用选中的命令？"
 
-msgid "Do you want to delete selected VLANs?"
-msgstr "是否要删除选定的VLAN？"
+msgid "Toggle Selected Commands"
+msgstr "切换选中的命令"
 
-msgid "Do you want to disable selected VLANs?"
-msgstr "你想要禁用选中的VLANs吗？"
-
-msgid "Do you want to enable selected VLANs?"
-msgstr "你想要启用选中的VLANs吗？"
-
-msgid "Do you want to toggle selected VLANs?"
-msgstr "你想要切换选中的VLANZs吗？"
-
-msgid "The name of the VLAN interface"
-msgstr "VLAN接口名称"
-
-msgid "vlan0"
-msgstr "vlan0"
-
-msgid "802.1Q VLAN tag (between 1 and 4094)."
-msgstr "802.1Q VLAN 标签 （介于1和4094之间）。"
-
-msgid "102"
-msgstr "102"
+msgid "Do you want to toggle selected commands?"
+msgstr "是否要切换选中的命令？"
 
 msgid ""
-"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
-"class of service and maps to the frame priority level."
-msgstr "优先级代码点 (PCP) 是一个 3 位字段，它指的是 IEEE 802.1p 服务等级并映射到帧优先级。"
+"These commands will be executed pre or post system initialization (booting) "
+"or before system shutdown."
+msgstr "这些命令将在系统初始化（启动）之前或之后或者系统关闭之前执行。"
 
-msgid "Best effort (default)"
-msgstr "最佳效能（默认）"
+msgid "Post Upgrade"
+msgstr "升级后"
 
-msgid "Background (lowest)"
-msgstr "背景（最低）"
+msgid "Name of the command."
+msgstr "命令名称。"
 
-msgid "Excellent effort"
-msgstr "优秀效能"
+msgid "The command to be executed."
+msgstr "将执行的命令。"
 
-msgid "Critical applications"
-msgstr "关键应用"
+msgid "Select at which stage the command should be executed."
+msgstr "选择命令应在哪个阶段执行。"
 
-msgid "Video < 100ms latency"
-msgstr "视频 < 100 毫秒延迟"
+msgid "Add sysctl setting"
+msgstr "添加sysctl设置"
 
-msgid "Video < 10ms latency"
-msgstr "视频 < 10 毫秒延迟"
+msgid "Edit sysctl setting"
+msgstr "编辑sysctl设置"
 
-msgid "Internetwork control"
-msgstr "联网控制"
+msgid "Sysctl setting is marked for deletion"
+msgstr "Sysctl设置被标记为删除"
 
-msgid "Network control (highest)"
-msgstr "网络控制（最高）"
+msgid "Sysctl setting is locked"
+msgstr "Sysctl设置已锁定"
 
-msgid "Set the VLAN encapsulation protocol."
-msgstr "设置VLAN封装协议。"
+msgid "Sysctl setting is unlocked"
+msgstr "Sysctl设置已解锁"
 
-msgid "802.1Q (default)"
-msgstr "802.1Q（默认）"
+msgid "Delete Selected Sysctl Settings"
+msgstr "删除选定的Sysctl设置"
 
-msgid "802.1ad (QinQ)"
-msgstr "802.1ad (QinQ)"
+msgid "Do you want to delete selected sysctl settings?"
+msgstr "是否要删除选定的sysctl设置？"
 
-msgid "VLAN Interface"
-msgstr "VLAN 接口"
+msgid "Disable Selected Sysctl Settings"
+msgstr "禁用选定的Sysctl设置"
 
-msgid "VLAN Tag"
-msgstr "VLAN 标签"
+msgid "Do you want to disable selected sysctl settings?"
+msgstr "是否要禁用选定的sysctl设置？"
 
-msgid "PCP"
-msgstr "PCP"
+msgid "Enable Selected Sysctl Settings"
+msgstr "启用选定的sysctl设置"
 
-msgid "Encapsulation Protocol"
-msgstr "封装协议"
+msgid "Do you want to enable selected sysctl settings?"
+msgstr "是否要启用选定的sysctl设置？"
+
+msgid "Toggle Selected Sysctl Settings"
+msgstr "切换选中的Sysctl设置。"
+
+msgid "Do you want to toggle selected sysctl settings?"
+msgstr "是否要切换选定的sysctl设置？"
+
+msgid ""
+"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
+"make changes to a running system."
+msgstr "这些sysctl变量将添加到/etc/sysctl.conf中。 它允许你对正在运行的系统进行更改。"
+
+msgid "The value of the setting."
+msgstr "设置的值。"
+
+msgid "Variable"
+msgstr "变量"
+
+msgid "Destination Network"
+msgstr "目的网络"
+
+msgid "Choose which interface this route applies to."
+msgstr "选择此路由应用于哪个接口。"
+
+msgid "Destination network for this static route."
+msgstr "此静态路由的目的网络"
+
+msgid "Gateway to be used to reach the destination network."
+msgstr "用网关到达目的端网络。"
+
+msgid "Add Route"
+msgstr "添加路由"
+
+msgid "Edit Route"
+msgstr "编辑路由"
+
+msgid "Route is marked for deletion"
+msgstr "路由被标记为删除"
+
+msgid "Route is locked"
+msgstr "路由被锁定"
+
+msgid "Route is unlocked"
+msgstr "路由已解锁"
+
+msgid "Delete Selected Routes"
+msgstr "删除选中的路由"
+
+msgid "Do you want to delete selected routes?"
+msgstr "要删除选中的路线吗？"
+
+msgid "Disable Selected Routes"
+msgstr "禁用所选路由"
+
+msgid "Do you want to disable selected routes?"
+msgstr "你要禁用选定的路由吗？"
+
+msgid "Enable Selected Routes"
+msgstr "启用选中的路由"
+
+msgid "Do you want to enable selected routes?"
+msgstr "你要启用选中的路由吗？"
+
+msgid "Toggle Selected Routes"
+msgstr "切换选中的路由"
+
+msgid "Do you want to toggle selected routes?"
+msgstr "你要切换选中的路由吗？"
+
+msgid "Running user"
+msgstr "正在运行的用户"
+
+msgid "The name of the variable."
+msgstr "变量的名称。"
+
+msgid "The value of the variable."
+msgstr "变量的值。"
+
+msgid ""
+"These option(s) will be added to /boot/loader.conf.local. This allows you to "
+"specify parameters to be passed to the kernel and additional modules to be "
+"loaded."
+msgstr "这些选项将添加到/boot/loader.conf.local。 这使您可以指定要传递给内核的参数以及要加载的其他模块。"
+
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr "禁用的变量名将从/etc/rc.conf中删除。"
+
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr "启用的选项将添加到/etc/rc.conf中。"
+
+msgid "Name of the variable."
+msgstr "改名名称。"
+
+msgid "Enter Value"
+msgstr "输入数值"
+
+msgid ""
+"Display action buttons in the scrollable area instead of the footer area."
+msgstr "在可滚动区域中显示操作按钮，而不是页脚区域。"
+
+msgid "Fully qualified file name of a custom file chooser CSS file."
+msgstr "自定义文件选择器CSS文件的全限定文件名。"
+
+msgid "Select file mode of the custom file chooser CSS file."
+msgstr "选择自定义文件选择器CSS文件的文件模式"
+
+msgid "Replace the default CSS file"
+msgstr "替换默认的CSS文件"
+
+msgid "Append content to the default CSS file"
+msgstr "将内容附加到默认CSS文件"
+
+msgid "Fully qualified file name of a custom GUI CSS file."
+msgstr "自定义GUI CSS文件的全限定文件名。"
+
+msgid "Select file mode of the custom GUI CSS file."
+msgstr "选择自定义GUI CSS文件的文件模式。"
+
+msgid "Fully qualified file name of a custom navigation bar CSS file."
+msgstr "自定义导航栏CSS文件的全限定文件名。"
+
+msgid "Select file mode of the custom navigation bar CSS file."
+msgstr "选择自定义导航栏CSS文件的文件模式。"
+
+msgid "Fully qualified file name of a custom tabs CSS file."
+msgstr "自定义标签CSS文件的全限定文件名。"
+
+msgid "Select file mode of the custom tabs CSS file."
+msgstr "选择自定义选项卡CSS文件的文件模式。"
+
+msgid "Use toggle button instead of enable/disable buttons."
+msgstr "使用切换按钮而不是启用/禁用按钮。"
+
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr "在导航栏中选择顶级项目的显示模式。"
+
+msgid "Show text only"
+msgstr "仅显示文字"
+
+msgid "Show symbol only"
+msgstr "仅显示符号"
+
+msgid "Show symbol and text"
+msgstr "显示符号和文字"
+
+msgid ""
+"Display disk size values using binary prefixes instead of decimal prefixes."
+msgstr "使用二进制前缀而不是小数前缀显示磁盘大小值。"
+
+msgid "Enable this option if you want to display colorful meter states."
+msgstr "如果要显示彩色仪表状态，请启用此选项。"
+
+msgid ""
+"Enable this option if you want to edit configuration pages directly without "
+"the need to switch to edit mode."
+msgstr "如果要直接编辑配置页面而不需要切换到编辑模式，请启用此选项。"
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr "请输入0到256之间的数字，或将此字段留空。"
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr "限制主页上显示的最大 CPU 数。"
+
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr "为“诊断”>“信息”菜单设置登录页面。"
+
+msgid "Button Location"
+msgstr "按钮位置"
+
+msgid "File Chooser"
+msgstr "文件选择器"
+
+msgid "File Mode"
+msgstr "文件模式"
+
+msgid "GUI"
+msgstr "用户图形界面"
+
+msgid "Navigation Bar"
+msgstr "导航栏"
+
+msgid "Tabs"
+msgstr "标签页"
+
+msgid "Toggle Mode"
+msgstr "切换模式"
+
+msgid "Navbar Style"
+msgstr "导航栏样式"
+
+msgid "Binary Prefix"
+msgstr "二进制前缀"
+
+msgid "Colorful Meters"
+msgstr "彩色仪表"
+
+msgid "Skip View Mode"
+msgstr "跳过查看模式"
+
+msgid "Show Max CPUs"
+msgstr "显示最大CPU"
+
+msgid "Diagnostics Information"
+msgstr "诊断信息"
+
+msgid "Show Interval"
+msgstr "显示间隔"
+
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables the reminder."
+msgstr "设置天数，直到提示显示备份系统配置为止。 默认值为28天。值为0则禁用提醒。"
+
+msgid "Network Address"
+msgstr "网络地址"
+
+msgid "Enter additional parameters"
+msgstr "输入其他参数"
+
+msgid "No additional parameters"
+msgstr "没有其他参数"
+
+msgid "Undefined"
+msgstr "未定义"
+
+msgid "The value is invalid."
+msgstr "该值无效。"
+
+msgid "Enter a description for your reference."
+msgstr "输入说明以供参考。"
+
+msgid "Enable Setting"
+msgstr "启用设置"
+
+msgid "IPv4 Address"
+msgstr "IPv4 地址"
+
+msgid "Protect"
+msgstr "保护"
+
+msgid "Protect Setting"
+msgstr "保护设置"
+
+msgid "The UUID of the record."
+msgstr "记录的UUID。"
+
+msgid "Enter Universally Unique Identifier"
+msgstr "输入通用唯一标识符"
+
+msgid "Universally Unique Identifier"
+msgstr "通用唯一标识符"
+
+msgid "Delete Selected Records"
+msgstr "删除选中的记录"
+
+msgid "Do you want to delete selected records?"
+msgstr "要删除选中的记录吗？"
+
+msgid "Disable Selected Records"
+msgstr "禁用选中的记录"
+
+msgid "Do you want to disable selected records?"
+msgstr "要禁用选中的记录吗？"
+
+msgid "Enable Selected Records"
+msgstr "启用选中的记录"
+
+msgid "Do you want to enable selected records?"
+msgstr "要启用选中的记录吗？"
+
+msgid "Lock Selected Records"
+msgstr "锁定选中的记录"
+
+msgid "Do you want to lock selected records?"
+msgstr "要锁定选中的记录吗？"
+
+msgid "Toggle Selected Records"
+msgstr "切换选中的记录"
+
+msgid "Do you want to toggle selected records?"
+msgstr "要切换选中的记录吗？"
+
+msgid "Unlock Selected Records"
+msgstr "解锁选中的记录"
+
+msgid "Do you want to unlock selected records?"
+msgstr "要解锁选中的记录吗？"
+
+msgid "Add Record"
+msgstr "新增记录"
+
+msgid "Record is marked for deletion"
+msgstr "记录标记为删除"
+
+msgid "Record Information"
+msgstr "记录信息"
+
+msgid "Record is protected"
+msgstr "记录被保护"
+
+msgid "Record Maintenance"
+msgstr "记录维护"
+
+msgid "Edit Record"
+msgstr "编辑记录"
+
+msgid "Record is unlocked"
+msgstr "记录已解锁"
+
+msgid "Autodetect"
+msgstr "自动检测"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr "选择“自定义提供者”以自定义 DDNS 更新服务器详细信息设置。"
+
+msgid "Select from predefined providers."
+msgstr "从预定义的提供者中选择。"
+
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr "输入自定义DDNS配置的标识。"
+
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr "要支持同一 DDNS 提供商的多个用户，必须定义一个标识符。 只要组合是唯一的，标识符就可以是任何自由形式的字母数字字符串。"
+
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr "主机名列表。 使用（英文）逗号分隔多个名称。"
+
+msgid "Hostnames"
+msgstr "主机名"
+
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr "用户名（如果适用）。 这可能被称为散列。"
+
+msgid "The password, if applicable."
+msgstr "密码（如果适用）。"
+
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr "为支持此功能的DDNS提供程序启用域名通配符。"
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr "在检查 IP 更改和更新 DNS 记录时都使用 HTTPS。 默认是使用 HTTPS。"
+
+msgid "Server to use for periodic IP address changes"
+msgstr "用于定期更改 IP 地址的服务器"
+
+msgid "api.ipify.org"
+msgstr "api.ipify.org"
+
+msgid "Optional server path for check IP server"
+msgstr "检查 IP 服务器的可选服务器路径"
+
+msgid "/"
+msgstr "/"
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr "此设置通常遵循 ssl 设置，但可用于禁用 HTTPS 以检查 IP 地址。"
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr "用于 IP 地址更新检查的 Shell 命令或脚本。 该命令必须将带有 IP 地址的文本输出到其标准输出。"
+
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr "与全局设置相同，但仅适用于此提供者。 如果省略，则默认为全局设置，如果未设置，则使用默认用户代理字符串。"
+
+msgid "User agent string"
+msgstr "用户代理字符串"
+
+msgid "DDNS server name, not the full URL."
+msgstr "DDNS 服务器名称，而不是完整的 URL。"
+
+msgid "update.example.com"
+msgstr "update.example.com"
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr "DDNS 服务器路径。 默认情况下，主机名会附加到路径中，除非设置了 append-myip（附件我的IP）。"
+
+msgid "/update?domain="
+msgstr "/update?domain="
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr "将当前 IP 附加到 DDNS 服务器更新路径。"
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr "如果未启用此设置，则会附加主机名。 除非 ddns 路径给出了格式说明符，在这种情况下，此设置未被使用。"
+
+msgid "These parameters will be added to this provider configuration"
+msgstr "这些参数将添加到此提供者配置中"
+
+msgid "Add Provider"
+msgstr "添加提供方"
+
+msgid "Edit Provider"
+msgstr "编辑提供程序"
+
+msgid "Provider is marked for deletion"
+msgstr "提供者被标记为删除"
+
+msgid "Provider is locked"
+msgstr "提供者被锁定"
+
+msgid "Provider is unlocked"
+msgstr "提供者已解锁"
+
+msgid "Delete Selected Providers"
+msgstr "删除选定的提供者"
+
+msgid "Disable Selected Providers"
+msgstr "禁用选中的提供者"
+
+msgid "Enable Selected Providers"
+msgstr "启用选定的提供程序"
+
+msgid "Toggle Selected Providers"
+msgstr "切换选定的提供者"
+
+msgid "Do you want to delete selected providers?"
+msgstr "你想要删除选定的提供者吗？"
+
+msgid "Do you want to disable selected providers?"
+msgstr "是否要禁用选定的提供程序？"
+
+msgid "Do you want to enable selected providers?"
+msgstr "是否要启用选定的提供程序？"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "是否要切换选定的提供程序？"
+
+msgid "Missing Provider"
+msgstr "缺少提供者"
+
+msgid "Orphaned Provider"
+msgstr "Orphaned提供者"
+
+msgid "Undefined Type"
+msgstr "未定义类型"
+
+msgid "Unknown Provider"
+msgstr "未知提供者"
+
+msgid "Standard Provider"
+msgstr "标准提供者"
+
+msgid "Custom Provider"
+msgstr "自定义提供者"
+
+msgid "Record Type"
+msgstr "记录类型"
+
+msgid "Provider"
+msgstr "提供者"
+
+msgid "Provider Name"
+msgstr "提供者名称"
+
+msgid "Host Names"
+msgstr "主机名称"
+
+msgid "Wildcard Domain"
+msgstr "通配符域"
+
+msgid "Use HTTPS"
+msgstr "使用 HTTPS"
+
+msgid "Check IP Server"
+msgstr "检查IP服务器"
+
+msgid "Check IP Path"
+msgstr "检查IP路径"
+
+msgid "Check IP using HTTPS"
+msgstr "使用HTTPS检查IP"
+
+msgid "Check IP Command"
+msgstr "检查IP命令"
+
+msgid "User Agent"
+msgstr "用户代理"
+
+msgid "DDNS-Server"
+msgstr "DDNS服务器"
+
+msgid "DDNS-Path"
+msgstr "DDNS路径"
+
+msgid "Append my IP"
+msgstr "附加我的IP"
+
+msgid "Providers"
+msgstr "提供者"
+
+msgid "Global Settings"
+msgstr "全局设置"
+
+msgid "Verify Address"
+msgstr "验证地址"
+
+msgid "Fake Address"
+msgstr "假地址"
+
+msgid "Allow IPv6"
+msgstr "允许IPv6"
+
+msgid "Network Interface"
+msgstr "网络接口"
+
+msgid "Iterations"
+msgstr "迭代"
+
+msgid "Check Interval"
+msgstr "检查间隔"
+
+msgid "Force Update Interval"
+msgstr "强制更新间隔"
+
+msgid "Secure SSL"
+msgstr "安全 SSL"
+
+msgid "Broken RTC"
+msgstr "损坏的RTC"
+
+msgid "CA Trusted Certificates"
+msgstr "CA 可信证书"
+
+msgid "Cache Directory"
+msgstr "缓存目录"
+
+msgid "Startup Delay"
+msgstr "启动延迟"
+
+msgid "Log Level"
+msgstr "日志级别"
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr "可以通过将此选项设置为 false 来禁用 IP 地址验证。"
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
+"默认情况下，inadyn 验证 IPv4 和 IPv6 地址，确保该地址是有效的 Internet 地址。 "
+"无效地址是例如本地链路、环回、多播和已知实验地址。 有关更多信息，请参阅 RFC3330。"
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr "使用此选项在使用实际 IP 地址更新之前使用 203.0.113.0/24 范围内的“随机”地址伪造地址更新。"
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr "此选项控制是否应允许或丢弃 IPv6 地址。"
+
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr "使用此网络接口作为 IP 地址更改的来源，而不是查询外部服务器。"
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr "设置 DNS 更新次数。 默认值为 0，表示无穷大。"
+
+msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr "检查IP的频率，以秒为单位。默认值：约1分钟。最多10天。"
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr "即使 IP 未更改，也应多久更新一次。 时间应以秒为单位。 默认等于 30 天。"
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr "启用该选项，在HTTPS验证失败依然启用DDNS更新。"
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr "仅在过去没有硬件实时时钟和默认启动时间的系统上启用此选项。"
+
+msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr "此设置会覆盖内置路径和回退位置，并提供一种方法来指定一组受信任的 CA 证书的路径，这些证书采用 PEM 格式，捆绑到一个文件中。"
+
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr "指定要在检查IP和更新请求上发送到 DDNS 提供商的用户代理字符串。"
+
+msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr "为持久缓存文件设置目录，缓存文件用于跟踪哪些地址已成功发送到各自的 DDNS 提供商以及何时发送。"
+
+msgid "Initial startup delay. Default is no delay."
+msgstr "初始启动延迟。 默认是没有延迟。"
+
+msgid "no delay"
+msgstr "无延迟"
+
+msgid "Set log level"
+msgstr "设置日志级别"
+
+msgid "Errors"
+msgstr "错误"
+
+msgid "Notice"
+msgstr "提示"
+
+msgid "Debug"
+msgstr "调试"
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr "这些参数附加到 inadyn.conf 文件中。"
+
+msgid "Add Media Folder"
+msgstr "添加媒体文件夹"
+
+msgid "Edit Media Folder"
+msgstr "编辑媒体文件夹"
+
+msgid "Media Folder is marked for deletion"
+msgstr "媒体文件夹标记为删除"
+
+msgid "Media Folder is locked"
+msgstr "媒体文件夹已锁定"
+
+msgid "Media Folder is unlocked"
+msgstr "媒体文件夹已解锁"
+
+msgid "Delete Selected Media Folders"
+msgstr "删除所选媒体文件夹"
+
+msgid "Disable Selected Media Folders"
+msgstr "禁用所选媒体文件夹"
+
+msgid "Enable Selected Media Folders"
+msgstr "启用选定的媒体文件夹"
+
+msgid "Toggle Selected Media Folders"
+msgstr "切换选中的媒体文件夹"
+
+msgid "Do you want to delete selected media folders?"
+msgstr "要删除所选的媒体文件夹吗？"
+
+msgid "Do you want to disable selected media folders?"
+msgstr "是否要禁用所选的媒体文件夹？"
+
+msgid "Do you want to enable selected media folders?"
+msgstr "是否要启用所选的媒体文件夹？"
+
+msgid "Do you want to toggle selected media folders?"
+msgstr "是否要切换选定的媒体文件夹？"
+
+msgid "Path to be included."
+msgstr "要包含的路径。"
+
+msgid "Restrict folder to a specific media type."
+msgstr "将文件夹限制为特定媒体类型。"
+
+msgid "Scan folder for all media types."
+msgstr "扫描文件夹所有的媒体类型。"
+
+msgid "Scan folder for audio files."
+msgstr "扫描文件夹的音频文件。"
+
+msgid "Scan folder for video files."
+msgstr "扫描文件夹的视频文件。"
+
+msgid "Scan folder for image files."
+msgstr "扫描文件夹的图片文件。"
+
+msgid "Scan folder for video and image files."
+msgstr "扫描文件夹的视频和图片文件。"
+
+msgid "Media Type"
+msgstr "媒体类型"
+
+msgid "Media Folders"
+msgstr "媒体文件夹"
+
+msgid "Media Folder"
+msgstr "媒体文件夹"
+
+msgid "Inotify"
+msgstr "Inotify文件监控机制"
+
+msgid "Broadcast Interval"
+msgstr "广播间隔"
+
+msgid "Strict DLNA"
+msgstr "严格DLNA"
+
+msgid "TiVo Support"
+msgstr "TiVo支持"
+
+msgid "Wide Links"
+msgstr "宽链接"
+
+msgid "Container"
+msgstr "容器"
+
+msgid "Sort Criteria"
+msgstr "排序规则"
+
+msgid "Disable Subtitles"
+msgstr "禁用字幕"
+
+msgid "Media Server Name."
+msgstr "媒体服务器名称。"
+
+msgid "Verbosity of information that is logged."
+msgstr "记录的信息的详细程度。"
+
+msgid "Fatal"
+msgstr "致命"
+
+msgid "Enable inotify."
+msgstr "启用inotify。"
+
+msgid "Use inotify monitoring to automatically discover new media files."
+msgstr "使用inotify监控自动发现新的媒体文件。"
+
+msgid ""
+"Broadcasts its availability every configured seconds on the network, the "
+"default is 300 seconds."
+msgstr "在网络上每个配置的秒数广播其可用性，默认值为300秒。"
+
+msgid "300"
+msgstr "300"
+
+msgid ""
+"Port to listen on. Port number must be between 1024 and 65535. Default port "
+"is 8200."
+msgstr "侦听端口。 端口号必须介于1024和65535之间。默认端口为8200。"
+
+msgid "8200"
+msgstr "8200"
+
+msgid "Enable to strictly adhere to DLNA standards."
+msgstr "使得能够严格遵守DLNA标准。"
+
+msgid ""
+"This will allow server-side downscaling of very large JPEG images, it can "
+"impact JPEG serving performance on some DLNA devices."
+msgstr "这将允许服务器端缩小非常大的JPEG图像，它可能会影响某些DLNA设备上的JPEG服务性能。"
+
+msgid "Enable TiVo support."
+msgstr "启用TiVo的支持。"
+
+msgid ""
+"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
+msgstr "这将支持流.jpg和.mp3文件到支持HMO的TiVo。"
+
+msgid "Location of the media content database."
+msgstr "媒体内容数据库的位置。"
+
+msgid "Allow symlinks that point outside defined media folders."
+msgstr "允许指向外部已定义媒体文件夹的符号链接。"
+
+msgid "These parameters will be added to minidlna.conf"
+msgstr "这些参数将添加到minidlna.conf中"
+
+msgid "Select a container as the root of the tree exposed to clients."
+msgstr "选择一个容器作为向客户端公开的树的根。"
+
+msgid "Use the standard container (this is the default)"
+msgstr "使用标准容器（这是默认值）"
+
+msgid "Use the \"Browse Directory\" container"
+msgstr "使用“浏览目录”容器"
+
+msgid "Use the \"Music\" container"
+msgstr "使用“音乐”容器"
+
+msgid "Use the \"Video\" container"
+msgstr "使用“视频”容器"
+
+msgid "Use the \"Pictures\" container"
+msgstr "使用“图片”容器"
+
+msgid "Overwrite the sort criteria passed by the client."
+msgstr "覆盖客户端传递的排序条件。"
+
+msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+
+msgid "Disable subtitle support on unknown clients."
+msgstr "禁用未知客户端上的字幕支持。"
+
+msgid "Auth Group Name"
+msgstr "认证组名称"
+
+msgid "Auth Type"
+msgstr "身份验证类型"
 
 msgid "Add Auth Group"
 msgstr "添加认证组"
@@ -10573,20 +11328,11 @@ msgstr "你想启用选定的认证组吗？"
 msgid "Do you want to toggle selected auth groups?"
 msgstr "你想切换选定的身份验证组吗？"
 
-msgid "Name of the Auth Group."
-msgstr "认证组的名称。"
+msgid "Initiator Names"
+msgstr "启动器名称"
 
-msgid "Auth Group Name"
-msgstr "认证组名称"
-
-msgid "Sets the authentication type."
-msgstr "设置验证类型。"
-
-msgid "CHAP-Mutual"
-msgstr "CHAP共同"
-
-msgid "These parameters will be added to this auth-group."
-msgstr "这些参数将添加到此auth组。"
+msgid "Initiator Portals"
+msgstr "启动器门户"
 
 msgid "No CHAP users found."
 msgstr "未找到CHAP用户。"
@@ -10609,170 +11355,23 @@ msgstr "启动器门户"
 msgid "No initiator portals found."
 msgstr "找不到启动器门户。"
 
-msgid "Auth Type"
-msgstr "身份验证类型"
+msgid "Name of the Auth Group."
+msgstr "认证组的名称。"
 
-msgid "Global Settings"
-msgstr "全局设置"
+msgid "Sets the authentication type."
+msgstr "设置验证类型。"
 
-msgid "Initiator Names"
-msgstr "启动器名称"
+msgid "CHAP-Mutual"
+msgstr "CHAP共同"
 
-msgid "Initiator Portals"
-msgstr "启动器门户"
-
-msgid "Additional Options for Block Backend"
-msgstr "阻止后端的附加选项"
-
-msgid "Additional Options for RAM Disk Backend"
-msgstr "RAM磁盘后端的附加选项"
-
-msgid "LUN Name"
-msgstr "LUN名称"
-
-msgid "Backend"
-msgstr "后端"
-
-msgid "CTL LUN"
-msgstr "CTL LUN"
-
-msgid "Device ID"
-msgstr "设备 ID"
-
-msgid "Device Type"
-msgstr "设备类型"
-
-msgid "Passthrough Address"
-msgstr "直通地址"
-
-msgid "LUN Vendor"
-msgstr "LUN供应商"
-
-msgid "LUN Product"
-msgstr "LUN产品"
-
-msgid "LUN Revision"
-msgstr "LUN修订"
-
-msgid "LUN SCSI Name"
-msgstr "LUN SCSI名称"
-
-msgid "LUN EUI-64\tidentifier"
-msgstr "LUN EUI-64\t标识符"
-
-msgid "LUN NAA Identifier"
-msgstr "LUN NAA标识符"
-
-msgid "LUN UUID"
-msgstr "LUN UUID"
-
-msgid "HA Role"
-msgstr "HA角色"
-
-msgid "Insecure TPC"
-msgstr "不安全的TPC"
-
-msgid "Read Cache"
-msgstr "读缓存"
-
-msgid "Read Only"
-msgstr "只读"
-
-msgid "Reordering"
-msgstr "记录中"
-
-msgid "Serialize Sequence"
-msgstr "序列化序列"
-
-msgid "Physical Block Size"
-msgstr "物理块大小"
-
-msgid "Physical Block Offset"
-msgstr "物理块偏移"
-
-msgid "UNMAP Block Size"
-msgstr "UNMAP块大小"
-
-msgid "UNMAP Block Offset"
-msgstr "UNMAP块偏移量"
-
-msgid "RPM"
-msgstr "每分钟转速"
-
-msgid "Form Factor"
-msgstr "构成因素"
-
-msgid "Provisioning Type"
-msgstr "配置类型"
-
-msgid "UNMAP"
-msgstr "UNMAP"
-
-msgid "UNMAP Maximum LBA"
-msgstr "UNMAP最大LBA"
-
-msgid "UNMAP Maximum Descriptors"
-msgstr "UNMAP最大描述符"
-
-msgid "Write Same Maximum LBA"
-msgstr "写入相同的最大LBA"
-
-msgid "Avail Threshold"
-msgstr "可用阈值"
-
-msgid "Used Threshold"
-msgstr "使用的阈值"
-
-msgid "Pool Avail Threshold"
-msgstr "池可用阈值"
-
-msgid "Pool Used Threshold"
-msgstr "池已用阈值"
-
-msgid "Threads"
-msgstr "线程"
-
-msgid "Add LUN"
-msgstr "添加LUN"
-
-msgid "Edit LUN"
-msgstr "编辑LUN"
-
-msgid "LUN is marked for deletion"
-msgstr "LUN被标记为删除"
-
-msgid "LUN is locked"
-msgstr "LUN已锁定"
-
-msgid "LUN is unlocked"
-msgstr "LUN已解锁"
-
-msgid "Delete Selected LUNs"
-msgstr "删除选定的LUNs"
-
-msgid "Disable Selected LUNs"
-msgstr "禁用选定的LUN"
-
-msgid "Enable Selected LUNs"
-msgstr "启用选定的LUNs"
-
-msgid "Toggle Selected LUNs"
-msgstr "切换选定的LUN"
-
-msgid "Do you want to delete selected LUNs?"
-msgstr "你是否要删除选定的LUN？"
-
-msgid "Do you want to disable selected LUNs?"
-msgstr "你想禁用选定的LUN吗？"
-
-msgid "Do you want to enable selected LUNs?"
-msgstr "你想启用选定的LUN吗？"
-
-msgid "Do you want to toggle selected LUNs?"
-msgstr "你想切换选定的LUN吗？"
+msgid "These parameters will be added to this auth-group."
+msgstr "这些参数将添加到此auth组。"
 
 msgid "Name of the LUN."
 msgstr "LUN的名称。"
+
+msgid "LUN Name"
+msgstr "LUN名称"
 
 msgid "The CTL backend to use for a given LUN."
 msgstr "用于给定LUN的CTL后端。"
@@ -10812,6 +11411,9 @@ msgstr "用于CTL内给定LUN的全局数字标识符。"
 
 msgid "The SCSI Device Identification string presented to the initiator."
 msgstr "提供给启动器的SCSI设备标识字符串。"
+
+msgid "Device ID"
+msgstr "设备 ID"
 
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr "指定创建LUN时要使用的SCSI设备类型。"
@@ -11013,17 +11615,149 @@ msgstr "指定后备存储的容量（数据的最大RAM）。 默认值为零�
 msgid "These parameters will be added to this lun."
 msgstr "这些参数将添加到此lun。"
 
-msgid "Listen"
-msgstr "侦听"
+msgid "Additional Options for Block Backend"
+msgstr "阻止后端的附加选项"
 
-msgid "No listeners found."
-msgstr "找不到收听者。"
+msgid "Additional Options for RAM Disk Backend"
+msgstr "RAM磁盘后端的附加选项"
 
-msgid "Option"
-msgstr "选项"
+msgid "Add LUN"
+msgstr "添加LUN"
 
-msgid "No options found."
-msgstr "找不到选项。"
+msgid "Edit LUN"
+msgstr "编辑LUN"
+
+msgid "LUN is marked for deletion"
+msgstr "LUN被标记为删除"
+
+msgid "LUN is locked"
+msgstr "LUN已锁定"
+
+msgid "LUN is unlocked"
+msgstr "LUN已解锁"
+
+msgid "Delete Selected LUNs"
+msgstr "删除选定的LUNs"
+
+msgid "Disable Selected LUNs"
+msgstr "禁用选定的LUN"
+
+msgid "Enable Selected LUNs"
+msgstr "启用选定的LUNs"
+
+msgid "Toggle Selected LUNs"
+msgstr "切换选定的LUN"
+
+msgid "Do you want to delete selected LUNs?"
+msgstr "你是否要删除选定的LUN？"
+
+msgid "Do you want to disable selected LUNs?"
+msgstr "你想禁用选定的LUN吗？"
+
+msgid "Do you want to enable selected LUNs?"
+msgstr "你想启用选定的LUN吗？"
+
+msgid "Do you want to toggle selected LUNs?"
+msgstr "你想切换选定的LUN吗？"
+
+msgid "Backend"
+msgstr "后端"
+
+msgid "CTL LUN"
+msgstr "CTL LUN"
+
+msgid "Device Type"
+msgstr "设备类型"
+
+msgid "Passthrough Address"
+msgstr "直通地址"
+
+msgid "LUN Vendor"
+msgstr "LUN供应商"
+
+msgid "LUN Product"
+msgstr "LUN产品"
+
+msgid "LUN Revision"
+msgstr "LUN修订"
+
+msgid "LUN SCSI Name"
+msgstr "LUN SCSI名称"
+
+msgid "LUN EUI-64\tidentifier"
+msgstr "LUN EUI-64\t标识符"
+
+msgid "LUN NAA Identifier"
+msgstr "LUN NAA标识符"
+
+msgid "LUN UUID"
+msgstr "LUN UUID"
+
+msgid "HA Role"
+msgstr "HA角色"
+
+msgid "Insecure TPC"
+msgstr "不安全的TPC"
+
+msgid "Read Cache"
+msgstr "读缓存"
+
+msgid "Read Only"
+msgstr "只读"
+
+msgid "Reordering"
+msgstr "记录中"
+
+msgid "Serialize Sequence"
+msgstr "序列化序列"
+
+msgid "Physical Block Size"
+msgstr "物理块大小"
+
+msgid "Physical Block Offset"
+msgstr "物理块偏移"
+
+msgid "UNMAP Block Size"
+msgstr "UNMAP块大小"
+
+msgid "UNMAP Block Offset"
+msgstr "UNMAP块偏移量"
+
+msgid "RPM"
+msgstr "每分钟转速"
+
+msgid "Form Factor"
+msgstr "构成因素"
+
+msgid "Provisioning Type"
+msgstr "配置类型"
+
+msgid "UNMAP"
+msgstr "UNMAP"
+
+msgid "UNMAP Maximum LBA"
+msgstr "UNMAP最大LBA"
+
+msgid "UNMAP Maximum Descriptors"
+msgstr "UNMAP最大描述符"
+
+msgid "Write Same Maximum LBA"
+msgstr "写入相同的最大LBA"
+
+msgid "Avail Threshold"
+msgstr "可用阈值"
+
+msgid "Used Threshold"
+msgstr "使用的阈值"
+
+msgid "Pool Avail Threshold"
+msgstr "池可用阈值"
+
+msgid "Pool Used Threshold"
+msgstr "池已用阈值"
+
+msgid "Threads"
+msgstr "线程"
 
 msgid "Name of the Portal Group."
 msgstr "门户组的名称"
@@ -11089,18 +11823,6 @@ msgid ""
 "generated automatically."
 msgstr "此门户组的唯一16位标记值。 如果未指定，则会自动生成该值。"
 
-msgid "Discovery Filter"
-msgstr "发现过滤器"
-
-msgid "Offload"
-msgstr "卸载"
-
-msgid "Redirect"
-msgstr "重定向"
-
-msgid "Foreign"
-msgstr "国外"
-
 msgid "Add Portal Group"
 msgstr "添加门户组"
 
@@ -11139,6 +11861,45 @@ msgstr "你想启用选定的门户群组吗？"
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "你想切换选定的门户组吗？"
+
+msgid "Discovery Filter"
+msgstr "发现过滤器"
+
+msgid "Offload"
+msgstr "卸载"
+
+msgid "Redirect"
+msgstr "重定向"
+
+msgid "Foreign"
+msgstr "国外"
+
+msgid "Listen"
+msgstr "侦听"
+
+msgid "Option"
+msgstr "选项"
+
+msgid "No listeners found."
+msgstr "找不到收听者。"
+
+msgid "No options found."
+msgstr "找不到选项。"
+
+msgid "Enter user name."
+msgstr "输入用户名。"
+
+msgid "Enter secret."
+msgstr "输入密钥。"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+"将chap配置链接到auth-groups。请注意，auth-group可能包含chap或chap-mutual条目，但不能同时包含两者。"
+
+msgid "No auth groups found."
+msgstr "找不到身份验证组。"
 
 msgid "Add CHAP User"
 msgstr "添加CHAP用户"
@@ -11179,36 +11940,6 @@ msgstr "你想启用选定的CHAP用户吗？"
 msgid "Do you want to toggle selected CHAP users?"
 msgstr "你想切换选定的CHAP用户吗？"
 
-msgid "Enter user name."
-msgstr "输入用户名。"
-
-msgid "Enter secret."
-msgstr "输入密钥。"
-
-msgid ""
-"Link chap configuration to auth-groups. Note that an auth-group may contain "
-"either chap or chap-mutual entries, but not both."
-msgstr ""
-"将chap配置链接到auth-groups。请注意，auth-group可能包含chap或chap-mutual条目，但不能同时包含两者。"
-
-msgid "No auth groups found."
-msgstr "找不到身份验证组。"
-
-msgid ""
-"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
-"contain either chap or chap-mutual entries, but not both."
-msgstr ""
-"将相互chap配置链接到auth-groups。请注意，auth-group可能包含chap或chap-mutual条目，但不能同时包含两者。"
-
-msgid "Enter mutual user name."
-msgstr "输入相互用户名。"
-
-msgid "Mutual User"
-msgstr "相互用户"
-
-msgid "Mutual Secret"
-msgstr "相互秘密"
-
 msgid "Add Mutual CHAP User"
 msgstr "添加双方CHAP用户"
 
@@ -11248,13 +11979,20 @@ msgstr "你想启用选定的相互CHAP用户吗？"
 msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "你想切换选定的相互CHAP用户吗？"
 
-msgid "Enter an iSCSI initiator name."
-msgstr "输入iSCSI启动器名称。"
-
 msgid ""
-"Link initiator-name to auth-groups. An Initiator with this name will be "
-"allowed to connect to the selected auth-groups."
-msgstr "将initiator-name链接到auth-groups。具有此名称的启动器将被允许连接到选定的身份验证组。"
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+"将相互chap配置链接到auth-groups。请注意，auth-group可能包含chap或chap-mutual条目，但不能同时包含两者。"
+
+msgid "Enter mutual user name."
+msgstr "输入相互用户名。"
+
+msgid "Mutual User"
+msgstr "相互用户"
+
+msgid "Mutual Secret"
+msgstr "相互秘密"
 
 msgid "Add Initiator Name"
 msgstr "添加启动器名称"
@@ -11295,6 +12033,28 @@ msgstr "你想启用选定的启动器名称吗？"
 msgid "Do you want to toggle selected initiator names?"
 msgstr "你想切换选定的启动器名称吗？"
 
+msgid "Enter an iSCSI initiator name."
+msgstr "输入iSCSI启动器名称。"
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr "将initiator-name链接到auth-groups。具有此名称的启动器将被允许连接到选定的身份验证组。"
+
+msgid "IP Address Prefix"
+msgstr "IP地址前缀"
+
+msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr "iSCSI启动器门户的IPv4或IPv6地址。"
+
+msgid "Enter IP address prefix length."
+msgstr "输入IP地址前缀长度。"
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr "链接启动器 - 门户到auth-groups。匹配此地址的启动器将被允许连接到选定的身份验证组。"
+
 msgid "Add Initiator Portal"
 msgstr "添加启动器门户"
 
@@ -11334,22 +12094,11 @@ msgstr "你想启用选定的启动器门户？"
 msgid "Do you want to toggle selected initiator portals?"
 msgstr "你想切换选定的启动器门户？"
 
-msgid "IP Address Prefix"
-msgstr "IP地址前缀"
+msgid "IPv4 or IPv6 address of an iSNS server to register on."
+msgstr "要注册的iSNS服务器的IPv4或IPv6地址。"
 
-msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "iSCSI启动器门户的IPv4或IPv6地址。"
-
-msgid "Enter IP address prefix length."
-msgstr "输入IP地址前缀长度。"
-
-msgid ""
-"Link initiator-portal to auth-groups. An Initiator matching this address "
-"will be allowed to connect to the selected auth-groups."
-msgstr "链接启动器 - 门户到auth-groups。匹配此地址的启动器将被允许连接到选定的身份验证组。"
-
-msgid "iSNS Servers"
-msgstr "iSNS服务器"
+msgid "Port number of the iSNS server."
+msgstr "iSNS服务器的端口号。"
 
 msgid "Add iSNS Server"
 msgstr "添加iSNS服务器"
@@ -11390,11 +12139,8 @@ msgstr "你想启用选定的iSNS服务器吗？"
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "你想切换选定的iSNS服务器吗？"
 
-msgid "IPv4 or IPv6 address of an iSNS server to register on."
-msgstr "要注册的iSNS服务器的IPv4或IPv6地址。"
-
-msgid "Port number of the iSNS server."
-msgstr "iSNS服务器的端口号。"
+msgid "iSNS Servers"
+msgstr "iSNS服务器"
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "用于侦听传入连接的IPv4或IPv6地址。"
@@ -11449,6 +12195,9 @@ msgstr "你想启用选定的侦听记录吗？"
 msgid "Do you want to toggle selected listen records?"
 msgstr "你想切换选定的侦听记录吗？"
 
+msgid "Listen (iSER)"
+msgstr "监听（iSER）"
+
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
@@ -11459,11 +12208,20 @@ msgid ""
 "protocol."
 msgstr "使用iSER（iSCSI over RDMA）协议监听传入连接的端口。"
 
-msgid "Listen (iSER)"
-msgstr "监听（iSER）"
-
 msgid "LUN Number"
 msgstr "LUN号码"
+
+msgid "LUN number"
+msgstr "LUN号码"
+
+msgid "No LUNs found."
+msgstr "找不到LUN"
+
+msgid "Select targets."
+msgstr "选择目标。"
+
+msgid "No targets found."
+msgstr "找不到目标。"
 
 msgid "Add LUN Record"
 msgstr "添加LUN记录"
@@ -11504,23 +12262,14 @@ msgstr "你想启用选定的LUN记录吗？"
 msgid "Do you want to toggle selected LUN records?"
 msgstr "你是否要切换选定的LUN记录？"
 
-msgid "LUN number"
-msgstr "LUN号码"
+msgid "Name of the option."
+msgstr "选项的名称。"
 
-msgid "No LUNs found."
-msgstr "找不到LUN"
+msgid "Value of the option."
+msgstr "选项的值。"
 
-msgid "Select targets."
-msgstr "选择目标。"
-
-msgid "No targets found."
-msgstr "找不到目标。"
-
-msgid "Option Name"
-msgstr "选项名称"
-
-msgid "Option Value"
-msgstr "选项值"
+msgid "Link this option to selected portal-groups."
+msgstr "将此选项链接到选定的门户组。"
 
 msgid "Add Option Record"
 msgstr "添加选项记录"
@@ -11561,20 +12310,11 @@ msgstr "你想启用选定的选项记录吗？"
 msgid "Do you want to toggle selected option records?"
 msgstr "你想切换选定的选项记录吗？"
 
-msgid "Name of the option."
-msgstr "选项的名称。"
+msgid "Option Name"
+msgstr "选项名称"
 
-msgid "Value of the option."
-msgstr "选项的值。"
-
-msgid "Link this option to selected portal-groups."
-msgstr "将此选项链接到选定的门户组。"
-
-msgid "Port Name"
-msgstr "端口名称"
-
-msgid "Name of the port."
-msgstr "端口的名称。"
+msgid "Option Value"
+msgstr "选项值"
 
 msgid "Add Port Record"
 msgstr "添加端口记录"
@@ -11615,35 +12355,14 @@ msgstr "你想启用选定的端口记录吗？"
 msgid "Do you want to toggle selected port records?"
 msgstr "你想切换选定的端口记录吗？"
 
-msgid "Name of the target."
-msgstr "目标的名称。"
+msgid "Name of the port."
+msgstr "端口的名称。"
 
-msgid "These parameters will be added to this target."
-msgstr "这些参数将添加到此目标。"
-
-msgid "Assign a human-readable description to the target."
-msgstr "为目标分配一个可读的描述。"
+msgid "Port Name"
+msgstr "端口名称"
 
 msgid "Alias"
 msgstr "别名"
-
-msgid "Assign a previously defined authentication group to the target."
-msgstr "将以前定义的认证组分配给目标。"
-
-msgid "Permit access without authentication"
-msgstr "无需身份验证即可访问"
-
-msgid "Assign a previously defined portal group to the target."
-msgstr "将以前定义的门户组分配给目标。"
-
-msgid ""
-"IPv4 or IPv6 address to redirect initiators to. When configured, all "
-"initiators attempting to connect to this target will get redirected using "
-"\"Target moved temporarily\" login response."
-msgstr "启动器重定向到的IPv4或IPv6地址。配置完成后，所有尝试连接到此目标的启动器都将使用“目标暂时移动”登录响应进行重定向。"
-
-msgid "No ports found."
-msgstr "找不到端口。"
 
 msgid "Add Target"
 msgstr "添加目标"
@@ -11684,6 +12403,33 @@ msgstr "你想启用选定的目标？"
 msgid "Do you want to toggle selected targets?"
 msgstr "你想切换选定的目标吗？"
 
+msgid "No ports found."
+msgstr "找不到端口。"
+
+msgid "Name of the target."
+msgstr "目标的名称。"
+
+msgid "These parameters will be added to this target."
+msgstr "这些参数将添加到此目标。"
+
+msgid "Assign a human-readable description to the target."
+msgstr "为目标分配一个可读的描述。"
+
+msgid "Assign a previously defined authentication group to the target."
+msgstr "将以前定义的认证组分配给目标。"
+
+msgid "Permit access without authentication"
+msgstr "无需身份验证即可访问"
+
+msgid "Assign a previously defined portal group to the target."
+msgstr "将以前定义的门户组分配给目标。"
+
+msgid ""
+"IPv4 or IPv6 address to redirect initiators to. When configured, all "
+"initiators attempting to connect to this target will get redirected using "
+"\"Target moved temporarily\" login response."
+msgstr "启动器重定向到的IPv4或IPv6地址。配置完成后，所有尝试连接到此目标的启动器都将使用“目标暂时移动”登录响应进行重定向。"
+
 msgid "Max Processes"
 msgstr "最大进程"
 
@@ -11717,330 +12463,74 @@ msgstr "iSNS请求超时。 默认值是5。"
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr "这些参数将添加到ctl.conf的全局部分"
 
-msgid ""
-"Select \"Custom Provider\" for customizing the DDNS update server details "
-"settings."
-msgstr "选择“自定义提供者”以自定义 DDNS 更新服务器详细信息设置。"
+msgid "Target Address"
+msgstr "目标地址"
 
-msgid "Select from predefined providers."
-msgstr "从预定义的提供者中选择。"
+msgid "CHAP Name"
+msgstr "CHAP名称"
 
-msgid "Enter an identifier for this custom DDNS configuration."
-msgstr "输入自定义DDNS配置的标识。"
+msgid "CHAP Secret"
+msgstr "CHAP密钥"
 
-msgid ""
-"To support multiple users of the same DDNS provider, an identifier must be "
-"defined. The identifier can be any free form alphanumeric string as long as "
-"the combination is unique."
-msgstr "要支持同一 DDNS 提供商的多个用户，必须定义一个标识符。 只要组合是唯一的，标识符就可以是任何自由形式的字母数字字符串。"
+msgid "Mutual CHAP Name"
+msgstr "相互CHAP名称"
 
-msgid "The list of hostnames. Use a comma to separate multiple names."
-msgstr "主机名列表。 使用（英文）逗号分隔多个名称。"
+msgid "Mutual CHAP Secret"
+msgstr "相互CHAP密钥"
 
-msgid "Hostnames"
-msgstr "主机名"
+msgid "Header Digest"
+msgstr "标题摘要"
 
-msgid "The username, if applicable. This might be referred to as hash."
-msgstr "用户名（如果适用）。 这可能被称为散列。"
+msgid "Data Digest"
+msgstr "数据摘要"
 
-msgid "The password, if applicable."
-msgstr "密码（如果适用）。"
+msgid "Offload Driver"
+msgstr "卸载驱动"
 
-msgid ""
-"Enable domain name wildcarding of the domain name, for DDNS providers that "
-"support this."
-msgstr "为支持此功能的DDNS提供程序启用域名通配符。"
+msgid "Session State"
+msgstr "会话状态"
 
-msgid ""
-"Use HTTPS, both when checking for IP changes and updating the DNS record. "
-"Default is to use HTTPS."
-msgstr "在检查 IP 更改和更新 DNS 记录时都使用 HTTPS。 默认是使用 HTTPS。"
+msgid "Session Type"
+msgstr "会话类型"
 
-msgid "Server to use for periodic IP address changes"
-msgstr "用于定期更改 IP 地址的服务器"
+msgid "Add iSCSI Initiator"
+msgstr "添加iSCSI启动器"
 
-msgid "api.ipify.org"
-msgstr "api.ipify.org"
+msgid "Edit iSCSI Initiator"
+msgstr "编辑iSCSI启动器"
 
-msgid "Optional server path for check IP server"
-msgstr "检查 IP 服务器的可选服务器路径"
+msgid "iSCSI Initiator is marked for deletion"
+msgstr "iSCSI启动器标记为删除"
 
-msgid "/"
-msgstr "/"
+msgid "iSCSI Initiator is locked"
+msgstr "iSCSI Initiator已锁定"
 
-msgid ""
-"This setting usually follows the ssl setting, but can be used to disable "
-"HTTPS for the IP address check."
-msgstr "此设置通常遵循 ssl 设置，但可用于禁用 HTTPS 以检查 IP 地址。"
+msgid "iSCSI Initiator is unlocked"
+msgstr "iSCSI启动器已解锁"
 
-msgid ""
-"Shell command, or script, for IP address update checking. The command must "
-"output a text with the IP address to its standard output."
-msgstr "用于 IP 地址更新检查的 Shell 命令或脚本。 该命令必须将带有 IP 地址的文本输出到其标准输出。"
+msgid "Delete Selected iSCSI Initiators"
+msgstr "删除选中的iSCSI启动器"
 
-msgid ""
-"Same as the global setting, but only for this provider. If omitted it "
-"defaults to the global setting, which if unset uses the default user agent "
-"string."
-msgstr "与全局设置相同，但仅适用于此提供者。 如果省略，则默认为全局设置，如果未设置，则使用默认用户代理字符串。"
+msgid "Disable Selected iSCSI Initiators"
+msgstr "禁用选中的iSCSI启动器"
 
-msgid "User agent string"
-msgstr "用户代理字符串"
+msgid "Enable Selected iSCSI Initiators"
+msgstr "启用选中的iSCSI启动器"
 
-msgid "DDNS server name, not the full URL."
-msgstr "DDNS 服务器名称，而不是完整的 URL。"
+msgid "Toggle Selected iSCSI Initiators"
+msgstr "切换选定的iSCSI启动器"
 
-msgid "update.example.com"
-msgstr "update.example.com"
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr "你想要删除选中的iSCSI启动器吗？"
 
-msgid ""
-"DDNS server path. By default the hostname is appended to the path, unless "
-"append-myip is set."
-msgstr "DDNS 服务器路径。 默认情况下，主机名会附加到路径中，除非设置了 append-myip（附件我的IP）。"
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr "你想要禁用选中的iSCSI启动器吗？"
 
-msgid "/update?domain="
-msgstr "/update?domain="
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr "你想要启用选中的iSCSI启动器吗？"
 
-msgid "Append the current IP to the DDNS server update path."
-msgstr "将当前 IP 附加到 DDNS 服务器更新路径。"
-
-msgid ""
-"If this setting is not enabled, the hostname is appended. Unless the ddns-"
-"path is given with format specifiers, in which case this setting is unused."
-msgstr "如果未启用此设置，则会附加主机名。 除非 ddns 路径给出了格式说明符，在这种情况下，此设置未被使用。"
-
-msgid "These parameters will be added to this provider configuration"
-msgstr "这些参数将添加到此提供者配置中"
-
-msgid "Standard Provider"
-msgstr "标准提供者"
-
-msgid "Custom Provider"
-msgstr "自定义提供者"
-
-msgid "Record Type"
-msgstr "记录类型"
-
-msgid "Provider"
-msgstr "提供者"
-
-msgid "Provider Name"
-msgstr "提供者名称"
-
-msgid "Host Names"
-msgstr "主机名称"
-
-msgid "Wildcard Domain"
-msgstr "通配符域"
-
-msgid "Use HTTPS"
-msgstr "使用 HTTPS"
-
-msgid "Check IP Server"
-msgstr "检查IP服务器"
-
-msgid "Check IP Path"
-msgstr "检查IP路径"
-
-msgid "Check IP using HTTPS"
-msgstr "使用HTTPS检查IP"
-
-msgid "Check IP Command"
-msgstr "检查IP命令"
-
-msgid "User Agent"
-msgstr "用户代理"
-
-msgid "DDNS-Server"
-msgstr "DDNS服务器"
-
-msgid "DDNS-Path"
-msgstr "DDNS路径"
-
-msgid "Append my IP"
-msgstr "附加我的IP"
-
-msgid "Providers"
-msgstr "提供者"
-
-msgid "Add Provider"
-msgstr "添加提供方"
-
-msgid "Edit Provider"
-msgstr "编辑提供程序"
-
-msgid "Provider is marked for deletion"
-msgstr "提供者被标记为删除"
-
-msgid "Provider is locked"
-msgstr "提供者被锁定"
-
-msgid "Provider is unlocked"
-msgstr "提供者已解锁"
-
-msgid "Delete Selected Providers"
-msgstr "删除选定的提供者"
-
-msgid "Disable Selected Providers"
-msgstr "禁用选中的提供者"
-
-msgid "Enable Selected Providers"
-msgstr "启用选定的提供程序"
-
-msgid "Toggle Selected Providers"
-msgstr "切换选定的提供者"
-
-msgid "Do you want to delete selected providers?"
-msgstr "你想要删除选定的提供者吗？"
-
-msgid "Do you want to disable selected providers?"
-msgstr "是否要禁用选定的提供程序？"
-
-msgid "Do you want to enable selected providers?"
-msgstr "是否要启用选定的提供程序？"
-
-msgid "Do you want to toggle selected providers?"
-msgstr "是否要切换选定的提供程序？"
-
-msgid "Missing Provider"
-msgstr "缺少提供者"
-
-msgid "Orphaned Provider"
-msgstr "Orphaned提供者"
-
-msgid "Undefined Type"
-msgstr "未定义类型"
-
-msgid "Unknown Provider"
-msgstr "未知提供者"
-
-msgid ""
-"IP address validation can be disabled by setting this option to false."
-msgstr "可以通过将此选项设置为 false 来禁用 IP 地址验证。"
-
-msgid ""
-"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
-"address is a valid Internet address. Invalid addresses are, e.g., link "
-"local, loopback, multicast and known experimental addresses. For more "
-"information, see RFC3330."
-msgstr ""
-"默认情况下，inadyn 验证 IPv4 和 IPv6 地址，确保该地址是有效的 Internet 地址。 "
-"无效地址是例如本地链路、环回、多播和已知实验地址。 有关更多信息，请参阅 RFC3330。"
-
-msgid ""
-"Use this option to fake an address update with a \"random\" address in the "
-"203.0.113.0/24 range before updating with the actual IP address."
-msgstr "使用此选项在使用实际 IP 地址更新之前使用 203.0.113.0/24 范围内的“随机”地址伪造地址更新。"
-
-msgid ""
-"This option controls if IPv6 addresses should be allowed or discarded."
-msgstr "此选项控制是否应允许或丢弃 IPv6 地址。"
-
-msgid ""
-"Use this network interface as source of IP address changes instead of "
-"querying an external server."
-msgstr "使用此网络接口作为 IP 地址更改的来源，而不是查询外部服务器。"
-
-msgid ""
-"Set the number of DNS updates. The default is 0, which means infinity."
-msgstr "设置 DNS 更新次数。 默认值为 0，表示无穷大。"
-
-msgid ""
-"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
-"days."
-msgstr "检查IP的频率，以秒为单位。默认值：约1分钟。最多10天。"
-
-msgid ""
-"How often the IP should be updated even if it is not changed. The time "
-"should be given in seconds. Default is equal to 30 days."
-msgstr "即使 IP 未更改，也应多久更新一次。 时间应以秒为单位。 默认等于 30 天。"
-
-msgid ""
-"Enable this option to abort an DDNS update if the HTTPS certificate "
-"validation fails."
-msgstr "启用该选项，在HTTPS验证失败依然启用DDNS更新。"
-
-msgid ""
-"Enable this option only on systems without hardware real-time clock and "
-"default bootup time far in the past."
-msgstr "仅在过去没有硬件实时时钟和默认启动时间的系统上启用此选项。"
-
-msgid ""
-"This setting overrides the built-in paths and fallback locations and "
-"provides a way to specify the path to a trusted set of CA certificates, in "
-"PEM format, bundled into one file."
-msgstr "此设置会覆盖内置路径和回退位置，并提供一种方法来指定一组受信任的 CA 证书的路径，这些证书采用 PEM 格式，捆绑到一个文件中。"
-
-msgid ""
-"Specify the User-Agent string to send to the DDNS provider on checkip and "
-"update requests."
-msgstr "指定要在检查IP和更新请求上发送到 DDNS 提供商的用户代理字符串。"
-
-msgid ""
-"Set directory for persistent cache files, The cache files are used to keep "
-"track of which addresses have been successfully sent to their respective "
-"DDNS provider and when."
-msgstr "为持久缓存文件设置目录，缓存文件用于跟踪哪些地址已成功发送到各自的 DDNS 提供商以及何时发送。"
-
-msgid "Initial startup delay. Default is no delay."
-msgstr "初始启动延迟。 默认是没有延迟。"
-
-msgid "no delay"
-msgstr "无延迟"
-
-msgid "Set log level"
-msgstr "设置日志级别"
-
-msgid "Errors"
-msgstr "错误"
-
-msgid "Notice"
-msgstr "提示"
-
-msgid "Debug"
-msgstr "调试"
-
-msgid "These parameters are appended to the inadyn.conf file."
-msgstr "这些参数附加到 inadyn.conf 文件中。"
-
-msgid "Verify Address"
-msgstr "验证地址"
-
-msgid "Fake Address"
-msgstr "假地址"
-
-msgid "Allow IPv6"
-msgstr "允许IPv6"
-
-msgid "Network Interface"
-msgstr "网络接口"
-
-msgid "Iterations"
-msgstr "迭代"
-
-msgid "Check Interval"
-msgstr "检查间隔"
-
-msgid "Force Update Interval"
-msgstr "强制更新间隔"
-
-msgid "Secure SSL"
-msgstr "安全 SSL"
-
-msgid "Broken RTC"
-msgstr "损坏的RTC"
-
-msgid "CA Trusted Certificates"
-msgstr "CA 可信证书"
-
-msgid "Cache Directory"
-msgstr "缓存目录"
-
-msgid "Startup Delay"
-msgstr "启动延迟"
-
-msgid "Log Level"
-msgstr "日志级别"
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr "你想要切换选中的iSCSI启动器吗？"
 
 msgid "This is a nickname and is for information only."
 msgstr "这是一个昵称，仅供参考。"
@@ -12130,75 +12620,6 @@ msgstr ""
 msgid "Discovery"
 msgstr "发现"
 
-msgid "Target Address"
-msgstr "目标地址"
-
-msgid "CHAP Name"
-msgstr "CHAP名称"
-
-msgid "CHAP Secret"
-msgstr "CHAP密钥"
-
-msgid "Mutual CHAP Name"
-msgstr "相互CHAP名称"
-
-msgid "Mutual CHAP Secret"
-msgstr "相互CHAP密钥"
-
-msgid "Header Digest"
-msgstr "标题摘要"
-
-msgid "Data Digest"
-msgstr "数据摘要"
-
-msgid "Offload Driver"
-msgstr "卸载驱动"
-
-msgid "Session State"
-msgstr "会话状态"
-
-msgid "Session Type"
-msgstr "会话类型"
-
-msgid "Add iSCSI Initiator"
-msgstr "添加iSCSI启动器"
-
-msgid "Edit iSCSI Initiator"
-msgstr "编辑iSCSI启动器"
-
-msgid "iSCSI Initiator is marked for deletion"
-msgstr "iSCSI启动器标记为删除"
-
-msgid "iSCSI Initiator is locked"
-msgstr "iSCSI Initiator已锁定"
-
-msgid "iSCSI Initiator is unlocked"
-msgstr "iSCSI启动器已解锁"
-
-msgid "Delete Selected iSCSI Initiators"
-msgstr "删除选中的iSCSI启动器"
-
-msgid "Disable Selected iSCSI Initiators"
-msgstr "禁用选中的iSCSI启动器"
-
-msgid "Enable Selected iSCSI Initiators"
-msgstr "启用选中的iSCSI启动器"
-
-msgid "Toggle Selected iSCSI Initiators"
-msgstr "切换选定的iSCSI启动器"
-
-msgid "Do you want to delete selected iSCSI initiators?"
-msgstr "你想要删除选中的iSCSI启动器吗？"
-
-msgid "Do you want to disable selected iSCSI initiators?"
-msgstr "你想要禁用选中的iSCSI启动器吗？"
-
-msgid "Do you want to enable selected iSCSI initiators?"
-msgstr "你想要启用选中的iSCSI启动器吗？"
-
-msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "你想要切换选中的iSCSI启动器吗？"
-
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
 msgstr "输入数据库和配置文件的主目录路径。"
@@ -12224,177 +12645,44 @@ msgstr ""
 "基于cookie的验证类型使用AES算法来加密密码。 输入您选择的随机密码。 它将由AES算法在内部使用 - 不会提示您输入此密码。 "
 "秘密长度至少应为32个或更多字符"
 
-msgid "Media Type"
-msgstr "媒体类型"
+msgid "Add NFS Export"
+msgstr "添加NFS导出"
 
-msgid "Path to be included."
-msgstr "要包含的路径。"
+msgid "Edit NFS Export"
+msgstr "编辑NFS导出"
 
-msgid "Restrict folder to a specific media type."
-msgstr "将文件夹限制为特定媒体类型。"
+msgid "NFS Export is marked for deletion"
+msgstr "NFS导出标记为删除"
 
-msgid "Scan folder for all media types."
-msgstr "扫描文件夹所有的媒体类型。"
+msgid "NFS Export is locked"
+msgstr "NFS导出已锁定"
 
-msgid "Scan folder for audio files."
-msgstr "扫描文件夹的音频文件。"
+msgid "NFS Export is unlocked"
+msgstr "NFS导出已解锁"
 
-msgid "Scan folder for video files."
-msgstr "扫描文件夹的视频文件。"
+msgid "Delete Selected NFS Exports"
+msgstr "删除选定的NFS导出"
 
-msgid "Scan folder for image files."
-msgstr "扫描文件夹的图片文件。"
+msgid "Disable Selected NFS Exports"
+msgstr "禁用选定的NFS导出"
 
-msgid "Scan folder for video and image files."
-msgstr "扫描文件夹的视频和图片文件。"
+msgid "Enable Selected NFS Exports"
+msgstr "启用选定的NFS导出"
 
-msgid "Media Folders"
-msgstr "媒体文件夹"
+msgid "Toggle Selected NFS Exports"
+msgstr "切换选定的NFS导出"
 
-msgid "Media Folder"
-msgstr "媒体文件夹"
+msgid "Do you want to delete selected NFS exports?"
+msgstr "是否要删除选定的NFS导出？"
 
-msgid "Add Media Folder"
-msgstr "添加媒体文件夹"
+msgid "Do you want to disable selected NFS exports?"
+msgstr "是否要禁用所选的NFS导出？"
 
-msgid "Edit Media Folder"
-msgstr "编辑媒体文件夹"
+msgid "Do you want to enable selected NFS exports?"
+msgstr "是否要启用选定的NFS导出？"
 
-msgid "Media Folder is marked for deletion"
-msgstr "媒体文件夹标记为删除"
-
-msgid "Media Folder is locked"
-msgstr "媒体文件夹已锁定"
-
-msgid "Media Folder is unlocked"
-msgstr "媒体文件夹已解锁"
-
-msgid "Delete Selected Media Folders"
-msgstr "删除所选媒体文件夹"
-
-msgid "Disable Selected Media Folders"
-msgstr "禁用所选媒体文件夹"
-
-msgid "Enable Selected Media Folders"
-msgstr "启用选定的媒体文件夹"
-
-msgid "Toggle Selected Media Folders"
-msgstr "切换选中的媒体文件夹"
-
-msgid "Do you want to delete selected media folders?"
-msgstr "要删除所选的媒体文件夹吗？"
-
-msgid "Do you want to disable selected media folders?"
-msgstr "是否要禁用所选的媒体文件夹？"
-
-msgid "Do you want to enable selected media folders?"
-msgstr "是否要启用所选的媒体文件夹？"
-
-msgid "Do you want to toggle selected media folders?"
-msgstr "是否要切换选定的媒体文件夹？"
-
-msgid "Inotify"
-msgstr "Inotify文件监控机制"
-
-msgid "Broadcast Interval"
-msgstr "广播间隔"
-
-msgid "Strict DLNA"
-msgstr "严格DLNA"
-
-msgid "TiVo Support"
-msgstr "TiVo支持"
-
-msgid "Wide Links"
-msgstr "宽链接"
-
-msgid "Container"
-msgstr "容器"
-
-msgid "Sort Criteria"
-msgstr "排序规则"
-
-msgid "Disable Subtitles"
-msgstr "禁用字幕"
-
-msgid "Media Server Name."
-msgstr "媒体服务器名称。"
-
-msgid "Verbosity of information that is logged."
-msgstr "记录的信息的详细程度。"
-
-msgid "Fatal"
-msgstr "致命"
-
-msgid "Enable inotify."
-msgstr "启用inotify。"
-
-msgid "Use inotify monitoring to automatically discover new media files."
-msgstr "使用inotify监控自动发现新的媒体文件。"
-
-msgid ""
-"Broadcasts its availability every configured seconds on the network, the "
-"default is 300 seconds."
-msgstr "在网络上每个配置的秒数广播其可用性，默认值为300秒。"
-
-msgid "300"
-msgstr "300"
-
-msgid ""
-"Port to listen on. Port number must be between 1024 and 65535. Default port "
-"is 8200."
-msgstr "侦听端口。 端口号必须介于1024和65535之间。默认端口为8200。"
-
-msgid "8200"
-msgstr "8200"
-
-msgid "Enable to strictly adhere to DLNA standards."
-msgstr "使得能够严格遵守DLNA标准。"
-
-msgid ""
-"This will allow server-side downscaling of very large JPEG images, it can "
-"impact JPEG serving performance on some DLNA devices."
-msgstr "这将允许服务器端缩小非常大的JPEG图像，它可能会影响某些DLNA设备上的JPEG服务性能。"
-
-msgid "Enable TiVo support."
-msgstr "启用TiVo的支持。"
-
-msgid ""
-"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
-msgstr "这将支持流.jpg和.mp3文件到支持HMO的TiVo。"
-
-msgid "Allow symlinks that point outside defined media folders."
-msgstr "允许指向外部已定义媒体文件夹的符号链接。"
-
-msgid "These parameters will be added to minidlna.conf"
-msgstr "这些参数将添加到minidlna.conf中"
-
-msgid "Select a container as the root of the tree exposed to clients."
-msgstr "选择一个容器作为向客户端公开的树的根。"
-
-msgid "Use the standard container (this is the default)"
-msgstr "使用标准容器（这是默认值）"
-
-msgid "Use the \"Browse Directory\" container"
-msgstr "使用“浏览目录”容器"
-
-msgid "Use the \"Music\" container"
-msgstr "使用“音乐”容器"
-
-msgid "Use the \"Video\" container"
-msgstr "使用“视频”容器"
-
-msgid "Use the \"Pictures\" container"
-msgstr "使用“图片”容器"
-
-msgid "Overwrite the sort criteria passed by the client."
-msgstr "覆盖客户端传递的排序条件。"
-
-msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-
-msgid "Disable subtitle support on unknown clients."
-msgstr "禁用未知客户端上的字幕支持。"
+msgid "Do you want to toggle selected NFS exports?"
+msgstr "是否要切换选定的NFS导出？"
 
 msgid "Mapping"
 msgstr "映射"
@@ -12481,45 +12769,6 @@ msgstr "krb5p  - 将Kerberos V5身份验证与数据完整性校验和和数据�
 msgid "Root Directory"
 msgstr "Root目录"
 
-msgid "Add NFS Export"
-msgstr "添加NFS导出"
-
-msgid "Edit NFS Export"
-msgstr "编辑NFS导出"
-
-msgid "NFS Export is marked for deletion"
-msgstr "NFS导出标记为删除"
-
-msgid "NFS Export is locked"
-msgstr "NFS导出已锁定"
-
-msgid "NFS Export is unlocked"
-msgstr "NFS导出已解锁"
-
-msgid "Delete Selected NFS Exports"
-msgstr "删除选定的NFS导出"
-
-msgid "Disable Selected NFS Exports"
-msgstr "禁用选定的NFS导出"
-
-msgid "Enable Selected NFS Exports"
-msgstr "启用选定的NFS导出"
-
-msgid "Toggle Selected NFS Exports"
-msgstr "切换选定的NFS导出"
-
-msgid "Do you want to delete selected NFS exports?"
-msgstr "是否要删除选定的NFS导出？"
-
-msgid "Do you want to disable selected NFS exports?"
-msgstr "是否要禁用所选的NFS导出？"
-
-msgid "Do you want to enable selected NFS exports?"
-msgstr "是否要启用选定的NFS导出？"
-
-msgid "Do you want to toggle selected NFS exports?"
-msgstr "是否要切换选定的NFS导出？"
-
 msgid "Add NFS Root"
 msgstr "添加NFS Root"
 
@@ -12562,6 +12811,15 @@ msgstr "是否要切换选定的NFS根目录？"
 msgid "Root Directories"
 msgstr "根目录"
 
+msgid "NFSv4"
+msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr "仅NFSv4"
+
+msgid "Servers"
+msgstr "服务器"
+
 msgid "Enable NFSv4 server."
 msgstr "启用NFSv4的服务器。"
 
@@ -12576,15 +12834,6 @@ msgstr "指定要创建的服务器数。 应该足以处理来自其客户端�
 msgid "These parameters are appended to the exports file."
 msgstr "这些参数将附加到导出文件中。"
 
-msgid "NFSv4"
-msgstr "NFSv4"
-
-msgid "NFSv4 Only"
-msgstr "仅NFSv4"
-
-msgid "Servers"
-msgstr "服务器"
-
 msgid "Driver List"
 msgstr "驱动器列表"
 
@@ -12596,6 +12845,66 @@ msgstr "型号名"
 
 msgid "Model Extra"
 msgstr "额外模型"
+
+msgid "Enable AFP"
+msgstr "启用AFP"
+
+msgid "Create Mask"
+msgstr "创建掩码"
+
+msgid "Force Group"
+msgstr "Force组"
+
+msgid "Force User"
+msgstr "Force用户"
+
+msgid "Shadow Copy Format"
+msgstr "影复制格式"
+
+msgid "VFS fruit:encoding"
+msgstr "VFS fruit：编码"
+
+msgid "VFS fruit:locking"
+msgstr "VFS fruit：锁定"
+
+msgid "VFS fruit:metadata"
+msgstr "VFS fruit：元数据"
+
+msgid "VFS fruit:resource"
+msgstr "VFS fruit：资源"
+
+msgid "VFS fruit:time machine"
+msgstr "VFS fruit:time machine"
+
+msgid "ZFS ACL"
+msgstr "ZFS 存取控制清单（ACL）"
+
+msgid "Inherit ACL"
+msgstr "继承ACL"
+
+msgid "Alternate Data Streams"
+msgstr "备用数据流"
+
+msgid "NTFS ACLs"
+msgstr "NTFS ACLs"
+
+msgid "Shadow Copy"
+msgstr "阴影复制"
+
+msgid "Browseable"
+msgstr "可浏览"
+
+msgid "Guest Only"
+msgstr ""
+
+msgid "Inherit Permissions"
+msgstr "继承权限"
+
+msgid "Recycle Bin"
+msgstr "回收站"
+
+msgid "Hide Dot Files"
+msgstr "隐藏点文件"
 
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
@@ -12780,66 +13089,6 @@ msgstr "输入对该共享的评论"
 
 msgid "Enter the location of the share"
 msgstr "输入共享的位置"
-
-msgid "Enable AFP"
-msgstr "启用AFP"
-
-msgid "Create Mask"
-msgstr "创建掩码"
-
-msgid "Force Group"
-msgstr "Force组"
-
-msgid "Force User"
-msgstr "Force用户"
-
-msgid "Shadow Copy Format"
-msgstr "影复制格式"
-
-msgid "VFS fruit:encoding"
-msgstr "VFS fruit：编码"
-
-msgid "VFS fruit:locking"
-msgstr "VFS fruit：锁定"
-
-msgid "VFS fruit:metadata"
-msgstr "VFS fruit：元数据"
-
-msgid "VFS fruit:resource"
-msgstr "VFS fruit：资源"
-
-msgid "VFS fruit:time machine"
-msgstr "VFS fruit:time machine"
-
-msgid "ZFS ACL"
-msgstr "ZFS 存取控制清单（ACL）"
-
-msgid "Inherit ACL"
-msgstr "继承ACL"
-
-msgid "Alternate Data Streams"
-msgstr "备用数据流"
-
-msgid "NTFS ACLs"
-msgstr "NTFS ACLs"
-
-msgid "Shadow Copy"
-msgstr "阴影复制"
-
-msgid "Browseable"
-msgstr "可浏览"
-
-msgid "Guest Only"
-msgstr ""
-
-msgid "Inherit Permissions"
-msgstr "继承权限"
-
-msgid "Recycle Bin"
-msgstr "回收站"
-
-msgid "Hide Dot Files"
-msgstr "隐藏点文件"
 
 msgid "Add Samba Share"
 msgstr "添加Samba共享"
@@ -13225,9 +13474,6 @@ msgstr "端口号无效。 端口号必须是 1 到 65535 之间的值。"
 msgid "Allow password authentication."
 msgstr "允许密码验证。"
 
-msgid "Allow challenge-response authentication."
-msgstr "允许质询 - 响应身份验证。"
-
 msgid "Allow keyboard-interactive authentication."
 msgstr "允许键盘交互式身份验证。"
 
@@ -13301,9 +13547,6 @@ msgstr "这些参数将附加到/etc/ssh/sshd_config。"
 msgid "Password Authentication"
 msgstr "密码验证"
 
-msgid "Challenge-Response Authentication"
-msgstr "挑战 - 响应认证"
-
 msgid "Keyboard-Interactive Authentication"
 msgstr "键盘交互式身份验证"
 
@@ -13318,6 +13561,18 @@ msgstr "Root登录"
 
 msgid "TCP Forwarding"
 msgstr "TCP转发"
+
+msgid "Allow New Files"
+msgstr "允许新文件"
+
+msgid "Directory"
+msgstr "目录"
+
+msgid "Max. Block Size"
+msgstr "最大块尺寸"
+
+msgid "Umask"
+msgstr "Umask"
 
 msgid "Allow new files to be created."
 msgstr "允许创建新文件。"
@@ -13375,14 +13630,56 @@ msgstr "000"
 msgid "Specifies the username under which the TFTP service should run."
 msgstr "指定TFTP服务应运行的用户名。"
 
-msgid "Allow New Files"
-msgstr "允许新文件"
+msgid "Peer Port"
+msgstr "对等端口"
 
-msgid "Max. Block Size"
-msgstr "最大块尺寸"
+msgid "Configuration Folder"
+msgstr "配置文件夹"
 
-msgid "Umask"
-msgstr "Umask"
+msgid "Incomplete Folder"
+msgstr "不完整的文件夹"
+
+msgid "Download Folder"
+msgstr "下载目录"
+
+msgid "Watch Folder"
+msgstr "监视文件夹"
+
+msgid "Port Forwarding"
+msgstr "端口转发"
+
+msgid "Peer Exchange"
+msgstr "对等交换"
+
+msgid "Distributed Hash Table"
+msgstr "分布式散列表"
+
+msgid "Local Peer Discovery"
+msgstr "本地同行发现"
+
+msgid "uTP"
+msgstr "uTP"
+
+msgid "User Mask"
+msgstr "用户掩码"
+
+msgid "Preallocation"
+msgstr "预分配"
+
+msgid "Message Level"
+msgstr "消息级别"
+
+msgid "DNS Rebind Protection"
+msgstr "DNS 重新绑定保护"
+
+msgid "Domain Names"
+msgstr "主机名称"
+
+msgid "Start Torrents"
+msgstr "启动种子"
+
+msgid "Stop Torrents"
+msgstr "停止种子"
 
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
@@ -13499,68 +13796,17 @@ msgstr "服务启动后 启动/恢复 先前停止的种子。"
 msgid "Stop torrents before stopping service."
 msgstr "在停止服务之前停止种子。"
 
-msgid "Peer Port"
-msgstr "对等端口"
+msgid "Work Directory"
+msgstr "工作目录"
 
-msgid "Configuration Folder"
-msgstr "配置文件夹"
-
-msgid "Incomplete Folder"
-msgstr "不完整的文件夹"
-
-msgid "Download Folder"
-msgstr "下载目录"
-
-msgid "Watch Folder"
-msgstr "监视文件夹"
-
-msgid "Port Forwarding"
-msgstr "端口转发"
-
-msgid "Peer Exchange"
-msgstr "对等交换"
-
-msgid "Distributed Hash Table"
-msgstr "分布式散列表"
-
-msgid "Local Peer Discovery"
-msgstr "本地同行发现"
-
-msgid "uTP"
-msgstr "uTP"
-
-msgid "User Mask"
-msgstr "用户掩码"
-
-msgid "Preallocation"
-msgstr "预分配"
-
-msgid "Message Level"
-msgstr "消息级别"
-
-msgid "DNS Rebind Protection"
-msgstr "DNS 重新绑定保护"
-
-msgid "Domain Names"
-msgstr "主机名称"
-
-msgid "Start Torrents"
-msgstr "启动种子"
-
-msgid "Stop Torrents"
-msgstr "停止种子"
+msgid "Create Work Directory"
+msgstr "创建工作目录"
 
 msgid "Location where work files will be stored."
 msgstr "将存储工作文件的位置。"
 
 msgid "Create work directory if it doesn't exist."
 msgstr "如果工作目录不存在，则创建目录"
-
-msgid "Work Directory"
-msgstr "工作目录"
-
-msgid "Create Work Directory"
-msgstr "创建工作目录"
 
 msgid "Name of the WebDAV Record."
 msgstr "WebDAV记录的名称。"
@@ -13583,6 +13829,12 @@ msgstr "使用Sqlite进行锁定和属性。"
 
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr "这些参数将添加到此WebDAV配置中。"
+
+msgid "Read-Only"
+msgstr "只读"
+
+msgid "Use Sqlite"
+msgstr "使用Sqlite"
 
 msgid "Add WebDAV Record"
 msgstr "添加WebDAV记录"
@@ -13623,30 +13875,6 @@ msgstr "是否要启用所选的WebDAV记录？"
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "是否要切换选定的WebDAV记录？"
 
-msgid "Read-Only"
-msgstr "只读"
-
-msgid "Use Sqlite"
-msgstr "使用Sqlite"
-
-msgid "IP Address Family"
-msgstr "IP 地址系列"
-
-msgid "NETBIOS Hostname"
-msgstr "NETBIOS主机名"
-
-msgid "Preserve Case"
-msgstr "保留大小写"
-
-msgid "Server Mode"
-msgstr "服务器模式"
-
-msgid "Workgroup Name"
-msgstr "工作组名称"
-
-msgid "Web Service Discovery"
-msgstr "Web服务发现"
-
 msgid "IPv4 only"
 msgstr "仅 IPv4"
 
@@ -13672,6 +13900,24 @@ msgstr "在域模式和工作组模式之间进行选择。"
 msgid "Set workgroup name"
 msgstr "Set workgroup name"
 
+msgid "IP Address Family"
+msgstr "IP 地址系列"
+
+msgid "NETBIOS Hostname"
+msgstr "NETBIOS主机名"
+
+msgid "Preserve Case"
+msgstr "保留大小写"
+
+msgid "Server Mode"
+msgstr "服务器模式"
+
+msgid "Workgroup Name"
+msgstr "工作组名称"
+
+msgid "Web Service Discovery"
+msgstr "Web服务发现"
+
 msgid "Protected"
 msgstr "受保护的"
 
@@ -13683,6 +13929,15 @@ msgstr "Snapdir"
 
 msgid "UTF-8 Only"
 msgstr "仅限UTF-8"
+
+msgid "Service"
+msgstr "服务"
+
+msgid "Do you really want to remove the selected item from the list?"
+msgstr "你确定从列表中删除选中的项目吗？"
+
+msgid "Select item to remove from the list"
+msgstr "请从列表中选择要删除的项目"
 
 msgid "You may enter a description for your reference."
 msgstr "你可以输入描述以供参考。"
@@ -13708,8 +13963,512 @@ msgstr "输入卷名称"
 msgid "The name of the ZFS pool."
 msgstr "ZFS池的名称。"
 
-msgid "Service"
-msgstr "服务"
+msgid "You are not allowed to use this function."
+msgstr "不允许你使用此功能。"
+
+msgid "Copy item(s)"
+msgstr "复制项目"
+
+msgid "Move item(s)"
+msgstr "移动项目"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "从 /%s 复制到 /%s "
+
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "从 /%s移动到  /%s "
+
+msgid "Copy"
+msgstr "复制"
+
+msgid "Move"
+msgstr "移动"
+
+msgid "The target directory doesn't exist."
+msgstr "目标目录不存在。"
+
+msgid "You are not allowed to access the target directory."
+msgstr "你无权访问目标目录。"
+
+msgid "The target directory may not be above the home directory."
+msgstr "目标目录可能不在主目录之上。"
+
+msgid "You must supply a name."
+msgstr "你必须提供一个名称。"
+
+msgid "This item doesn't exist."
+msgstr "该项目不存在。"
+
+msgid "You are not allowed to access this item."
+msgstr "你无权访问此项目。"
+
+msgid "The target item already exists."
+msgstr "目标项目已存在。"
+
+msgid "Copying failed."
+msgstr "复制失败。"
+
+msgid "Moving failed."
+msgstr "移动失败。"
+
+msgid "Deleting failed."
+msgstr "删除失败"
+
+msgid "File saving failed."
+msgstr "文件保存失败。"
+
+msgid "This file doesn't exist."
+msgstr "该文件不存在。"
+
+msgid "You are not allowed to access this file."
+msgstr "你无权访问此文件。"
+
+msgid "This item already exists."
+msgstr "该项目已存在。"
+
+msgid "File opening failed."
+msgstr "文件打开失败。"
+
+msgid "Edit file"
+msgstr "编辑文件"
+
+msgid "Wrap text:"
+msgstr "自动换行："
+
+msgid "Reset"
+msgstr "重置"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Unable to open source directory."
+msgstr "无法打开源目录。"
+
+msgid "Unable to open directory."
+msgstr "不能打开目录。"
+
+msgid "Unable to read directory."
+msgstr "不能读取目录。"
+
+msgid "You haven't selected any item(s)."
+msgstr "你尚未选择任何项目。"
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "你确定要删除所选项目吗？"
+
+msgid "Executable File"
+msgstr "可执行文件"
+
+msgid "Link"
+msgstr "链接"
+
+msgid "Text File"
+msgstr "TXT文本文件"
+
+msgid "PHP Script"
+msgstr "PHP脚本"
+
+msgid "SQL File"
+msgstr "SQL文件"
+
+msgid "PERL Script"
+msgstr "PERL脚本"
+
+msgid "HTML Page"
+msgstr "HTML页面"
+
+msgid "XML File"
+msgstr "XML文件"
+
+msgid "Javascript File"
+msgstr "Javascript 文件"
+
+msgid "CSS File"
+msgstr "CSS 文件"
+
+msgid "CGI Script"
+msgstr "CGI脚本"
+
+msgid "Python Script"
+msgstr "Python 脚本"
+
+msgid "Shell Script"
+msgstr "Shell脚本"
+
+msgid "C File"
+msgstr "C 文件"
+
+msgid "C++ Source File"
+msgstr "C++ 源文件"
+
+msgid "C++ Header File"
+msgstr "C++头文件"
+
+msgid "Java Source File"
+msgstr "Java 源文件"
+
+msgid "Java Class File"
+msgstr "Java Class文件"
+
+msgid "Pascal File"
+msgstr "Pascal文件"
+
+msgid "GIF Image"
+msgstr "GIF图片"
+
+msgid "JPG Image"
+msgstr "JPG图片"
+
+msgid "BMP Image"
+msgstr "BMP图片"
+
+msgid "PNG Image"
+msgstr "PNG图片"
+
+msgid "TIF Image"
+msgstr "TIF图片"
+
+msgid "Photoshop File"
+msgstr "Photoshop文件"
+
+msgid "ZIP Archive"
+msgstr "ZIP压缩包"
+
+msgid "TAR Archive"
+msgstr "TAR压缩包"
+
+msgid "GZIP Archive"
+msgstr "GZIP压缩包"
+
+msgid "BZIP2 Archive"
+msgstr "BZIP2压缩包"
+
+msgid "RAR Archive"
+msgstr "RAR压缩包"
+
+msgid "MP3 Audio File"
+msgstr "MP3音频文件"
+
+msgid "FLAC Audio File"
+msgstr "FLAC音频文件"
+
+msgid "WAV Audio File"
+msgstr "WAV 音频文件"
+
+msgid "MIDI File"
+msgstr "MIDI文件"
+
+msgid "RealAudio File"
+msgstr "RealAudio文件"
+
+msgid "DTS Audio File"
+msgstr "DTS音频文件"
+
+msgid "AC3 Audio File"
+msgstr "AC3音频文件"
+
+msgid "OGG Audio File"
+msgstr "OGG音频文件"
+
+msgid "MP3 Playlist"
+msgstr "MP3 播放列表"
+
+msgid "AVI File"
+msgstr "AVI文件"
+
+msgid "MPEG File"
+msgstr "MPEG文件"
+
+msgid "MOV File"
+msgstr "MOV文件"
+
+msgid "MKV File"
+msgstr "MKV文件"
+
+msgid "VOB File"
+msgstr "VOB文件"
+
+msgid "Flash File"
+msgstr "FLASH文件"
+
+msgid "MP4 File"
+msgstr "MP4文件"
+
+msgid "TS File"
+msgstr "TS文件"
+
+msgid "Word Document"
+msgstr "Word文档"
+
+msgid "Excel Sheet"
+msgstr "Excel表格"
+
+msgid "Powerpoint Presentation"
+msgstr "Powerpoint演示文稿"
+
+msgid "PDF File"
+msgstr "PDF文件"
+
+msgid "ERROR(S)"
+msgstr "错误"
+
+msgid "Go Back"
+msgstr "后退"
+
+msgid "Extracting"
+msgstr "提取"
+
+msgid "Unzip"
+msgstr "UNZIP"
+
+msgid "Failed to extract archive."
+msgstr "无法提取存档。"
+
+msgid "Directory creation failed."
+msgstr "目录创建失败。"
+
+msgid "File creation failed."
+msgstr "创建文件失败。"
+
+msgid "Search Directory"
+msgstr "搜索目录"
+
+msgid "Search Filter"
+msgstr "搜索过滤器"
+
+msgid "Search subfolder"
+msgstr "搜索子文件夹"
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "%1$s的搜索结果"
+
+msgid "Item(s)"
+msgstr "项目"
+
+msgid "No results available."
+msgstr "无可用结果。"
+
+msgid "HOME"
+msgstr "HOME"
+
+msgid "Permission-change failed."
+msgstr "权限更改失败。"
+
+msgid "Getting permissions failed."
+msgstr "获取权限失败。"
+
+msgid "Change permissions"
+msgstr "更改权限"
+
+msgid "Public"
+msgstr "公开"
+
+msgid "CHANGE PERMISSIONS"
+msgstr "更改权限"
+
+msgid "You are not allowed to access this directory."
+msgstr "你无权访问此目录。"
+
+msgid "UP"
+msgstr "UP"
+
+msgid "RELOAD"
+msgstr "重新载入"
+
+msgid "SEARCH"
+msgstr "搜索"
+
+msgid "Modified"
+msgstr "已修改"
+
+msgid "Permissions"
+msgstr "权限"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "COPY"
+msgstr "复制"
+
+msgid "MOVE"
+msgstr "移动"
+
+msgid "DELETE"
+msgstr "删除"
+
+msgid "EDIT"
+msgstr "编辑"
+
+msgid "UNZIP"
+msgstr "UNZIP"
+
+msgid "DOWNLOAD"
+msgstr "下载"
+
+msgid "The following errors were detected"
+msgstr "检测到以下错误"
+
+msgid ""
+"If this message persists take a look at the system log for more information."
+msgstr "如果此消息仍然存在，请查看系统日志以获取更多信息。"
+
+msgid "Choose..."
+msgstr "选择..."
+
+msgid "Running"
+msgstr "正在运行"
+
+msgid "Inactive"
+msgstr "无效"
+
+msgid "Online"
+msgstr "在线"
+
+msgid "Offline"
+msgstr "离线"
+
+msgid "No records found."
+msgstr "未找到记录。"
+
+msgid "Selected..."
+msgstr "选中的..."
+
+msgid "Apply Changes"
+msgstr "应用更改"
+
+msgid "Rescan"
+msgstr "重新扫描"
+
+msgid "Restart"
+msgstr "重启"
+
+msgid "Parent Directory"
+msgstr "上层目录"
+
+msgid "VLAN Interface"
+msgstr "VLAN 接口"
+
+msgid "VLAN Tag"
+msgstr "VLAN 标签"
+
+msgid "PCP"
+msgstr "PCP"
+
+msgid "Encapsulation Protocol"
+msgstr "封装协议"
+
+msgid "Add VLAN"
+msgstr "添加VLAN"
+
+msgid "Edit VLAN"
+msgstr "编辑VLAN"
+
+msgid "VLAN is marked for deletion"
+msgstr "VLAN被标记为删除"
+
+msgid "VLAN is locked"
+msgstr "VLAN已锁定"
+
+msgid "VLAN is unlocked"
+msgstr "VLAN已解锁"
+
+msgid "Delete Selected VLANs"
+msgstr "删除选中的VLANs"
+
+msgid "Disable Selected VLANs"
+msgstr "禁用选中的VLANs"
+
+msgid "Enable Selected VLANs"
+msgstr "启用选中的VLANs"
+
+msgid "Toggle Selected VLANs"
+msgstr "切换选中的VLANs"
+
+msgid "Do you want to delete selected VLANs?"
+msgstr "是否要删除选定的VLAN？"
+
+msgid "Do you want to disable selected VLANs?"
+msgstr "你想要禁用选中的VLANs吗？"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr "你想要启用选中的VLANs吗？"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr "你想要切换选中的VLANZs吗？"
+
+msgid "The name of the VLAN interface"
+msgstr "VLAN接口名称"
+
+msgid "vlan0"
+msgstr "vlan0"
+
+msgid "802.1Q VLAN tag (between 1 and 4094)."
+msgstr "802.1Q VLAN 标签 （介于1和4094之间）。"
+
+msgid "102"
+msgstr "102"
+
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr "优先级代码点 (PCP) 是一个 3 位字段，它指的是 IEEE 802.1p 服务等级并映射到帧优先级。"
+
+msgid "Best effort (default)"
+msgstr "最佳效能（默认）"
+
+msgid "Background (lowest)"
+msgstr "背景（最低）"
+
+msgid "Excellent effort"
+msgstr "优秀效能"
+
+msgid "Critical applications"
+msgstr "关键应用"
+
+msgid "Video < 100ms latency"
+msgstr "视频 < 100 毫秒延迟"
+
+msgid "Video < 10ms latency"
+msgstr "视频 < 10 毫秒延迟"
+
+msgid "Internetwork control"
+msgstr "联网控制"
+
+msgid "Network control (highest)"
+msgstr "网络控制（最高）"
+
+msgid "Set the VLAN encapsulation protocol."
+msgstr "设置VLAN封装协议。"
+
+msgid "802.1Q (default)"
+msgstr "802.1Q（默认）"
+
+msgid "802.1ad (QinQ)"
+msgstr "802.1ad (QinQ)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid ""
+"Controls whether processes can be executed from within this file system."
+msgstr "控制是否可以在该文件系统内执行进程。"
+
+msgid "Exec"
+msgstr "执行"
+
+msgid ""
+"The minimum amount of space guaranteed to a dataset, not including its "
+"descendents."
+msgstr "对数据集保证的最小空间量，不包括其后代。"
 
 msgid "Console Autologin"
 msgstr "自动登录控制台"
@@ -13809,847 +14568,117 @@ msgstr "启用串口控制台"
 msgid "The COM port in BIOS has to be enabled before enabling this option."
 msgstr "启用此选项之前必须在BIOS中启用COM端口。"
 
-msgid "1"
-msgstr "1"
+msgid "Second"
+msgstr "秒"
 
-msgid "2"
-msgstr "2"
+msgid "Seconds"
+msgstr "秒"
 
-msgid "3"
-msgstr "3"
+msgid "Minute"
+msgstr "分钟"
+
+msgid "Hour"
+msgstr "小时"
+
+msgid "Day"
+msgstr "日"
+
+#, php-format
+msgid "%1$s managed, %2$s used, %3$s available"
+msgstr "%1$s已管理，%2$s已使用， %3$s可用"
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr "全部： %1$s | 已使用：%2$s | 可用：%3$s"
+
+#, php-format
+msgid "%2$s used, %3$s available"
+msgstr "已使用%2$s，可用%3$s"
+
+msgid "Communication Error"
+msgstr "通讯错误"
+
+msgid "More than a day"
+msgstr "超过一天"
+
+msgid "No data"
+msgstr "无数据"
+
+#, php-format
+msgid "%u hour"
+msgstr "%u 小时"
+
+#, php-format
+msgid "%u hours"
+msgstr "%u 小时"
+
+#, php-format
+msgid "%u minute"
+msgstr "%u 分钟"
+
+#, php-format
+msgid "%u minutes"
+msgstr "%u分钟"
+
+#, php-format
+msgid "%u second"
+msgstr "%u 秒"
+
+#, php-format
+msgid "%u seconds"
+msgstr "%u秒"
+
+msgid "and"
+msgstr "and"
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr "全部：%1$s | 已分配：%2$s | 空闲：%3$s"
+
+msgid "Deleting MBR and partition table"
+msgstr "删除 MBR 和分区表中"
+
+msgid "Creating partition"
+msgstr "正在创建分区"
+
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr "使用“软更新”创建文件系统"
+
+#, php-format
+msgid "Using %s bytes fragment size."
+msgstr "%s 字节的片段大小（fragment size）。"
+
+msgid "Created UFS file system:"
+msgstr "建立 UFS 文件系统："
+
+msgid "Deleting GEOM metadata"
+msgstr "删除 GEOM 元数据中"
+
+msgid "Creating filesystem"
+msgstr "创建文件系统"
+
+msgid "Done!"
+msgstr "完成！"
 
 msgid ""
-"Controls whether processes can be executed from within this file system."
-msgstr "控制是否可以在该文件系统内执行进程。"
+"The disk is currently mounted! The mount point will be removed temporarily "
+"to perform selected command."
+msgstr "磁盘正在挂载中！执行选中的命令时，挂载点将暂时被删除。"
 
-msgid "Exec"
-msgstr "执行"
+msgid "Unkown"
+msgstr "未知"
 
-msgid ""
-"The minimum amount of space guaranteed to a dataset, not including its "
-"descendents."
-msgstr "对数据集保证的最小空间量，不包括其后代。"
+msgid "Unformated"
+msgstr "尚未格式化"
 
-msgid "Enter AD or PDC name."
-msgstr "输入AD或PDC名称."
+msgid "SoftRaid"
+msgstr "软RAID"
 
-msgid "Controller Name"
-msgstr "控制器名"
+msgid "Encrypted"
+msgstr "已加密"
 
-msgid "Enter the domain name."
-msgstr "输入域名。"
-
-msgid "example.com"
-msgstr "example.com"
-
-msgid "Enter NetBIOS name."
-msgstr "输入NetBIOS名称."
-
-msgid "NETBIOS"
-msgstr "NETBIOS"
-
-msgid "Enter user name of a domain administrator account."
-msgstr "输入域名管理员帐户名称"
-
-msgid "Admin"
-msgstr "管理员"
-
-msgid "Enter the password of the domain administrator account."
-msgstr "输入域名管理员帐户密码。"
-
-msgid "Domain Controller Name"
-msgstr "域控制器名"
-
-msgid "Domain Name (DNS/Realm-Name)"
-msgstr "域名（DNS/真名）"
-
-msgid "Domain Name (NetBIOS-Name)"
-msgstr "域名（NetBIOS名称）"
-
-msgid "Administrator Name"
-msgstr "管理员名称"
-
-msgid "Administrator Password"
-msgstr "管理员密码"
-
-msgid "Add Group"
-msgstr "新增群组"
-
-msgid "Edit Group"
-msgstr "编辑群组"
-
-msgid "Group is marked for deletion"
-msgstr "组已标记为要删除"
-
-msgid "Group is protected"
-msgstr "群组被保护"
-
-msgid "Group is unlocked"
-msgstr "群组已解锁"
-
-msgid "Delete Selected Groups"
-msgstr "删除选中的组"
-
-msgid "Do you want to delete selected groups?"
-msgstr "要删除选中的群组吗？"
-
-msgid "Disable Selected Groups"
-msgstr "删除选定的组"
-
-msgid "Do you want to disable selected groups?"
-msgstr "要禁用所选组吗？"
-
-msgid "Enable Selected Groups"
-msgstr "启用所选组"
-
-msgid "Do you want to enable selected groups?"
-msgstr "要启用选定的组吗？"
-
-msgid "Toggle Selected Groups"
-msgstr "切换选中的组"
-
-msgid "Do you want to toggle selected groups?"
-msgstr "你想切换选定的群组吗？"
-
-msgid "System Group"
-msgstr "系统组"
-
-msgid "Show System Groups"
-msgstr "显示系统组"
-
-msgid "Hide System Groups"
-msgstr "隐藏系统组"
-
-msgid "Enter group name."
-msgstr "输入组名"
-
-msgid "Group Name"
-msgstr "组名称"
-
-msgid "Specify the group numeric id."
-msgstr "指定组的数字ID。"
-
-msgid "The recommended range for the group id is between 1000 and 32000."
-msgstr "组ID的建议范围介于1000和32000之间。"
-
-msgid "1000"
-msgstr "1000"
-
-msgid "Groups"
-msgstr "群组"
-
-msgid "Users"
-msgstr "用户"
-
-msgid "Public Keys"
-msgstr "公钥"
-
-msgid "Public key information."
-msgstr "公钥信息。"
-
-msgid "Public Key"
-msgstr "公钥"
-
-msgid "Login Name"
-msgstr "登录名"
-
-msgid "Add Public Key"
-msgstr "添加公钥"
-
-msgid "Edit Public Key"
-msgstr "编辑公钥"
-
-msgid "Public key is marked for deletion"
-msgstr "公钥被标记为删除"
-
-msgid "Public key is protected"
-msgstr "公钥受到保护"
-
-msgid "Public key is unlocked"
-msgstr "公钥已解锁"
-
-msgid "Delete Selected Public Keys"
-msgstr "删除选定的公钥"
-
-msgid "Do you want to delete selected public keys?"
-msgstr "要删除所选的公钥吗？"
-
-msgid "Disable Selected Public Keys"
-msgstr "禁用所选公钥"
-
-msgid "Do you want to disable selected public keys?"
-msgstr "要禁用所选公钥吗？"
-
-msgid "Enable Selected Public Keys"
-msgstr "启用选定的公钥"
-
-msgid "Do you want to enable selected public keys?"
-msgstr "要启用所选公钥吗？"
-
-msgid "Toggle Selected Public Keys"
-msgstr "切换选定的公钥"
-
-msgid "Do you want to toggle selected public keys?"
-msgstr "要切换选定的公钥吗？"
-
-msgid "Add User Account"
-msgstr "添加用户账户"
-
-msgid "Edit User Account"
-msgstr "编辑用户账号"
-
-msgid "User account is marked for deletion"
-msgstr "用户帐户标记为删除"
-
-msgid "User account is protected"
-msgstr "用户账户被保护"
-
-msgid "User account is unlocked"
-msgstr "用户账号已解锁"
-
-msgid "Set password"
-msgstr "设置密码"
-
-msgid "Delete Selected User Accounts"
-msgstr "删除选中的用户账号"
-
-msgid "Do you want to delete selected user accounts?"
-msgstr "要删除选中的用户帐户吗？"
-
-msgid "Disable Selected Users"
-msgstr "禁用所选用户"
-
-msgid "Do you want to disable selected users?"
-msgstr "要禁用所选用户吗？"
-
-msgid "Enable Selected Users"
-msgstr "启用选定的用户"
-
-msgid "Do you want to enable selected users?"
-msgstr "要启用所选用户吗？"
-
-msgid "Toggle Selected Users"
-msgstr "切换选中的用户"
-
-msgid "Do you want to toggle selected users?"
-msgstr "你想切换选定的用户吗？"
-
-msgid "System User"
-msgstr "系统用户"
-
-msgid "Show System Users"
-msgstr "显示系统用户"
-
-msgid "Hide System Users"
-msgstr "隐藏系统用户"
-
-msgid "Full Name"
-msgstr "全名"
-
-msgid "SHA Password"
-msgstr "SHA密码"
-
-msgid "MD4 Password"
-msgstr "MD4密码"
-
-msgid "Shell"
-msgstr "命令壳 (shell)"
-
-msgid "Primary Group"
-msgstr "主要群组"
-
-msgid "Timezone"
-msgstr "时区"
-
-msgid "File Manager Access"
-msgstr "文件管理器访问"
-
-msgid "Hidden Items"
-msgstr "隐藏的项目"
-
-msgid "Read Permission"
-msgstr "读取权限"
-
-msgid "Create Permission"
-msgstr "创建权限"
-
-msgid "Change Permission"
-msgstr "更改权限"
-
-msgid "Delete Permission"
-msgstr "删除权限"
-
-msgid "Enter login name."
-msgstr "输入登录名。"
-
-msgid "Enter the full user name."
-msgstr "输入完整用户名。"
-
-msgid "Set user password."
-msgstr "设置用户密码"
-
-msgid "Specify the user/account numeric id."
-msgstr "指定用户/帐户的数字ID。"
-
-msgid "The recommended range for the user id is between 1000 and 32000."
-msgstr "用户ID的建议范围介于1000和32000之间。"
-
-msgid "Set user login shell."
-msgstr "设置用户登录shell。"
-
-msgid "No Login"
-msgstr "没有登录"
-
-msgid "scponly - Secure Copy Protocol only"
-msgstr "scponly  - 仅限安全复制协议"
-
-msgid "sh - Bourne Shell"
-msgstr "sh - Bourne Shell"
-
-msgid "bash - Bourne Again Shell"
-msgstr "bash - Bourne Again Shell"
-
-msgid "csh - C Shell"
-msgstr "csh - C Shell"
-
-msgid "tcsh - TENEX C Shell"
-msgstr "tcsh - TENEX C Shell"
-
-msgid "Set the account's primary group."
-msgstr "设置帐户的主要组。"
-
-msgid "Add user to additional groups."
-msgstr "将用户添加到其他组。"
-
-msgid ""
-"Enter the path to the home directory of the user. Leave this field empty to "
-"use default path /mnt."
-msgstr "输入用户主目录的路径。 将此字段留空以使用默认路径/mnt。"
-
-msgid "/mnt"
-msgstr "/mnt"
-
-msgid "User portal permission."
-msgstr "用户门户权限。"
-
-msgid "No access to the user portal"
-msgstr "无法访问用户门户"
-
-msgid "User access"
-msgstr "用户访问"
-
-msgid "Admin access"
-msgstr "管理员权限"
-
-msgid "Select the language of the user portal for this user."
-msgstr "选择该用户的用户门户网站的语言。"
-
-msgid "Select the timezone for this user."
-msgstr "选择该用户的时区。"
-
-msgid "Grant access to the file manager."
-msgstr "授予对文件管理器的访问权限。"
-
-msgid "Show hidden items"
-msgstr "显示隐藏的项目"
-
-msgid "Grant read permission"
-msgstr "授予读取权限"
-
-msgid "Grant create permission"
-msgstr "授予创建权限"
-
-msgid "Grant modify permission"
-msgstr "授予修改权限"
-
-msgid "Grant delete permission"
-msgstr "授予删除权限"
-
-msgid "Show Interval"
-msgstr "显示间隔"
-
-msgid ""
-"Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables the reminder."
-msgstr "设置天数，直到提示显示备份系统配置为止。 默认值为28天。值为0则禁用提醒。"
-
-msgid "Running user"
-msgstr "正在运行的用户"
-
-msgid "Add Option"
-msgstr "添加选项"
-
-msgid "Edit Option"
-msgstr "编辑选项"
-
-msgid "Option is marked for deletion"
-msgstr "选项被标记为删除"
-
-msgid "Option is locked"
-msgstr "选项被锁定"
-
-msgid "Option is unlocked"
-msgstr "选项已解锁"
-
-msgid "Delete Selected Options"
-msgstr "删除选中的选项"
-
-msgid "Do you want to delete selected options?"
-msgstr "要删除选中的选项吗？"
-
-msgid "Disable Selected Options"
-msgstr "禁止选中的选项"
-
-msgid "Do you want to disable selected options?"
-msgstr "要禁用选中的选项吗？"
-
-msgid "Enable Selected Options"
-msgstr "启用选中的选项"
-
-msgid "Do you want to enable selected options?"
-msgstr "要启用选中的选项吗？"
-
-msgid "Toggle Selected Options"
-msgstr "切换选中的选项"
-
-msgid "Do you want to toggle selected options?"
-msgstr "要切换选中的选项吗？"
-
-msgid ""
-"These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to the kernel and additional modules to be "
-"loaded."
-msgstr "这些选项将添加到/boot/loader.conf.local。 这使您可以指定要传递给内核的参数以及要加载的其他模块。"
-
-msgid "The name of the variable."
-msgstr "变量的名称。"
-
-msgid "The value of the variable."
-msgstr "变量的值。"
-
-msgid "Sort"
-msgstr "排序"
-
-msgid "Post Upgrade"
-msgstr "升级后"
-
-msgid "Name of the command."
-msgstr "命令名称。"
-
-msgid "The command to be executed."
-msgstr "将执行的命令。"
-
-msgid "Select at which stage the command should be executed."
-msgstr "选择命令应在哪个阶段执行。"
-
-msgid "Add Command"
-msgstr "添加命令"
-
-msgid "Edit Command"
-msgstr "编辑命令"
-
-msgid "Command is marked for deletion"
-msgstr "命令被标记为删除"
-
-msgid "Command is locked"
-msgstr "命令已锁定"
-
-msgid "Command is unlocked"
-msgstr "命令已解锁"
-
-msgid "Delete Selected Commands"
-msgstr "删除选中的命令"
-
-msgid "Do you want to delete selected commands?"
-msgstr "要删除选中的命令吗？"
-
-msgid "Disable Selected Commands"
-msgstr "禁用选中的命令"
-
-msgid "Do you want to disable selected commands?"
-msgstr "要禁用选中的命令吗？"
-
-msgid "Enable Selected Commands"
-msgstr "启用选中的命令"
-
-msgid "Do you want to enable selected commands?"
-msgstr "是否要启用选中的命令？"
-
-msgid "Toggle Selected Commands"
-msgstr "切换选中的命令"
-
-msgid "Do you want to toggle selected commands?"
-msgstr "是否要切换选中的命令？"
-
-msgid ""
-"These commands will be executed pre or post system initialization (booting) "
-"or before system shutdown."
-msgstr "这些命令将在系统初始化（启动）之前或之后或者系统关闭之前执行。"
-
-msgid "Name of the variable."
-msgstr "改名名称。"
-
-msgid "Enter Value"
-msgstr "输入数值"
-
-msgid "Variable"
-msgstr "变量"
-
-msgid "Disabled variable names will be removed from /etc/rc.conf."
-msgstr "禁用的变量名将从/etc/rc.conf中删除。"
-
-msgid "Enabled options will be added to /etc/rc.conf."
-msgstr "启用的选项将添加到/etc/rc.conf中。"
-
-msgid "Add Route"
-msgstr "添加路由"
-
-msgid "Edit Route"
-msgstr "编辑路由"
-
-msgid "Route is marked for deletion"
-msgstr "路由被标记为删除"
-
-msgid "Route is locked"
-msgstr "路由被锁定"
-
-msgid "Route is unlocked"
-msgstr "路由已解锁"
-
-msgid "Delete Selected Routes"
-msgstr "删除选中的路由"
-
-msgid "Do you want to delete selected routes?"
-msgstr "要删除选中的路线吗？"
-
-msgid "Disable Selected Routes"
-msgstr "禁用所选路由"
-
-msgid "Do you want to disable selected routes?"
-msgstr "你要禁用选定的路由吗？"
-
-msgid "Enable Selected Routes"
-msgstr "启用选中的路由"
-
-msgid "Do you want to enable selected routes?"
-msgstr "你要启用选中的路由吗？"
-
-msgid "Toggle Selected Routes"
-msgstr "切换选中的路由"
-
-msgid "Do you want to toggle selected routes?"
-msgstr "你要切换选中的路由吗？"
-
-msgid "Destination Network"
-msgstr "目的网络"
-
-msgid "Choose which interface this route applies to."
-msgstr "选择此路由应用于哪个接口。"
-
-msgid "Destination network for this static route."
-msgstr "此静态路由的目的网络"
-
-msgid "Gateway to be used to reach the destination network."
-msgstr "用网关到达目的端网络。"
-
-msgid "Add Reboot Schedule"
-msgstr "添加重启计划"
-
-msgid "Edit Reboot Schedule"
-msgstr "编辑重新启动计划"
-
-msgid "Reboot Schedule is marked for deletion"
-msgstr "重启计划被标记为删除"
-
-msgid "Reboot Schedule is locked"
-msgstr "重启计划已锁定"
-
-msgid "Reboot Schedule is unlocked"
-msgstr "重启计划已解锁"
-
-msgid "Delete Selected Reboot Schedules"
-msgstr "删除选定的重启计划"
-
-msgid "Do you want to delete selected reboot schedules?"
-msgstr "是否要删除选定的重启计划？"
-
-msgid "Disable Selected Reboot Schedules"
-msgstr "禁用选中的重启计划"
-
-msgid "Do you want to disable selected reboot schedules?"
-msgstr "是否要禁用选定的重新启动计划？"
-
-msgid "Enable Selected Reboot Schedules"
-msgstr "启用选定的重新启动计划"
-
-msgid "Do you want to enable selected reboot schedules?"
-msgstr "是否要启用选定的重新启动计划？"
-
-msgid "Toggle Selected Reboot Schedules"
-msgstr "切换选定的重启计划"
-
-msgid "Do you want to toggle selected reboot schedules?"
-msgstr "是否要切换选定的重新启动计划？"
-
-msgid "Add sysctl setting"
-msgstr "添加sysctl设置"
-
-msgid "Edit sysctl setting"
-msgstr "编辑sysctl设置"
-
-msgid "Sysctl setting is marked for deletion"
-msgstr "Sysctl设置被标记为删除"
-
-msgid "Sysctl setting is locked"
-msgstr "Sysctl设置已锁定"
-
-msgid "Sysctl setting is unlocked"
-msgstr "Sysctl设置已解锁"
-
-msgid "Delete Selected Sysctl Settings"
-msgstr "删除选定的Sysctl设置"
-
-msgid "Do you want to delete selected sysctl settings?"
-msgstr "是否要删除选定的sysctl设置？"
-
-msgid "Disable Selected Sysctl Settings"
-msgstr "禁用选定的Sysctl设置"
-
-msgid "Do you want to disable selected sysctl settings?"
-msgstr "是否要禁用选定的sysctl设置？"
-
-msgid "Enable Selected Sysctl Settings"
-msgstr "启用选定的sysctl设置"
-
-msgid "Do you want to enable selected sysctl settings?"
-msgstr "是否要启用选定的sysctl设置？"
-
-msgid "Toggle Selected Sysctl Settings"
-msgstr "切换选中的Sysctl设置。"
-
-msgid "Do you want to toggle selected sysctl settings?"
-msgstr "是否要切换选定的sysctl设置？"
-
-msgid ""
-"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
-"make changes to a running system."
-msgstr "这些sysctl变量将添加到/etc/sysctl.conf中。 它允许你对正在运行的系统进行更改。"
-
-msgid "The value of the setting."
-msgstr "设置的值。"
-
-msgid "Send daemon event messages."
-msgstr "发送守护进程事件消息。"
-
-msgid "Send FTP event messages."
-msgstr "发送FTP事件消息。"
-
-msgid "IP address of the remote syslog server."
-msgstr "远程日志服务器的IP地址。"
-
-msgid ""
-"Port of the remote syslog server. Leave blank to use the default port."
-msgstr "远程系统日志服务器的端口。 留空以使用默认端口。"
-
-msgid ""
-"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
-"server. Be sure to set syslogd on the remote server to accept syslog "
-"messages from this server."
-msgstr ""
-"Syslog 发送 UDP 数据包到远程syslog服务器的514端口。请确定在远程 syslog 服务器的 syslogd 接收来自此服务器的 "
-"syslog 信息。"
-
-msgid "514"
-msgstr "514"
-
-msgid "Port number must be 514 or a number between 1024 and 65535."
-msgstr "端口号必须是 514 或介于 1024 和 65535 之间的数字。"
-
-msgid "Send RSYNC event messages."
-msgstr "发送RSYNC事件消息。"
-
-msgid "Send S.M.A.R.T. event messages."
-msgstr "发送S.M.A.R.T.事件消息。"
-
-msgid "Send SSH event messages."
-msgstr "发送SSH事件消息。"
-
-msgid "Send system event messages."
-msgstr "发送系统事件消息。"
-
-msgid "Daemon Events"
-msgstr "守护进程事件"
-
-msgid "Enable Server"
-msgstr "启用服务器"
-
-msgid "FTP Events"
-msgstr "FTP事件"
-
-msgid "RSYNC Events"
-msgstr "RSYNC事件"
-
-msgid "S.M.A.R.T. Events"
-msgstr "S.M.A.R.T.事件"
-
-msgid "SSH Events"
-msgstr "SSH事件"
-
-msgid "System Events"
-msgstr "系统事件"
-
-msgid "Remote Syslog Messages"
-msgstr "远程Syslog消息"
-
-msgid "Show Log Entries"
-msgstr "显示日志条目"
-
-msgid "Log Order"
-msgstr "日志顺序"
-
-msgid "Disable the compression of repeating lines."
-msgstr "禁用重复行的压缩。"
-
-msgid "Accept remote syslog messages."
-msgstr "接受远程syslog消息。"
-
-msgid ""
-"If this option is checked, IP addresses in the server logs are resolved to "
-"their hostnames where possible."
-msgstr "如果选中此选项，服务器日志中的IP地址将尽可能解析为其主机名。"
-
-msgid "This can cause a huge delay in loading the log page!"
-msgstr "这可能导致加载日志页面的巨大延迟！"
-
-msgid "Show log entries in reverse order (newest entries on top)."
-msgstr "以相反的顺序显示日志条目（新条目在最上面）。"
-
-msgid "Enter facility name"
-msgstr "输入设备名称"
-
-msgid "Enter level name"
-msgstr "输入级别名称"
-
-msgid "Enter destination"
-msgstr "输入目的地"
-
-msgid "Facility"
-msgstr "设备"
-
-msgid ""
-"Display action buttons in the scrollable area instead of the footer area."
-msgstr "在可滚动区域中显示操作按钮，而不是页脚区域。"
-
-msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr "自定义文件选择器CSS文件的全限定文件名。"
-
-msgid "Select file mode of the custom file chooser CSS file."
-msgstr "选择自定义文件选择器CSS文件的文件模式"
-
-msgid "Replace the default CSS file"
-msgstr "替换默认的CSS文件"
-
-msgid "Append content to the default CSS file"
-msgstr "将内容附加到默认CSS文件"
-
-msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr "自定义GUI CSS文件的全限定文件名。"
-
-msgid "Select file mode of the custom GUI CSS file."
-msgstr "选择自定义GUI CSS文件的文件模式。"
-
-msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr "自定义导航栏CSS文件的全限定文件名。"
-
-msgid "Select file mode of the custom navigation bar CSS file."
-msgstr "选择自定义导航栏CSS文件的文件模式。"
-
-msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr "自定义标签CSS文件的全限定文件名。"
-
-msgid "Select file mode of the custom tabs CSS file."
-msgstr "选择自定义选项卡CSS文件的文件模式。"
-
-msgid "Use toggle button instead of enable/disable buttons."
-msgstr "使用切换按钮而不是启用/禁用按钮。"
-
-msgid "Select the display mode of the top-level items in the navigation bar."
-msgstr "在导航栏中选择顶级项目的显示模式。"
-
-msgid "Show text only"
-msgstr "仅显示文字"
-
-msgid "Show symbol only"
-msgstr "仅显示符号"
-
-msgid "Show symbol and text"
-msgstr "显示符号和文字"
-
-msgid ""
-"Display disk size values using binary prefixes instead of decimal prefixes."
-msgstr "使用二进制前缀而不是小数前缀显示磁盘大小值。"
-
-msgid "Enable this option if you want to display colorful meter states."
-msgstr "如果要显示彩色仪表状态，请启用此选项。"
-
-msgid ""
-"Enable this option if you want to edit configuration pages directly without "
-"the need to switch to edit mode."
-msgstr "如果要直接编辑配置页面而不需要切换到编辑模式，请启用此选项。"
-
-msgid "Please enter a number between 0 and 256 or leave this field empty."
-msgstr "请输入0到256之间的数字，或将此字段留空。"
-
-msgid "Limit the maximum number of CPUs to be displayed on the home page."
-msgstr "限制主页上显示的最大 CPU 数。"
-
-msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr "为“诊断”>“信息”菜单设置登录页面。"
-
-msgid "Button Location"
-msgstr "按钮位置"
-
-msgid "File Chooser"
-msgstr "文件选择器"
-
-msgid "File Mode"
-msgstr "文件模式"
-
-msgid "GUI"
-msgstr "用户图形界面"
-
-msgid "Navigation Bar"
-msgstr "导航栏"
-
-msgid "Tabs"
-msgstr "标签页"
-
-msgid "Toggle Mode"
-msgstr "切换模式"
-
-msgid "Navbar Style"
-msgstr "导航栏样式"
-
-msgid "Binary Prefix"
-msgstr "二进制前缀"
-
-msgid "Colorful Meters"
-msgstr "彩色仪表"
-
-msgid "Skip View Mode"
-msgstr "跳过查看模式"
-
-msgid "Show Max CPUs"
-msgstr "显示最大CPU"
-
-msgid "Diagnostics Information"
-msgstr "诊断信息"
-
-msgid "Do you really want to remove the selected item from the list?"
-msgstr "你确定从列表中删除选中的项目吗？"
-
-msgid "Select item to remove from the list"
-msgstr "请从列表中选择要删除的项目"
+msgid "System tuning"
+msgstr "系统微调"
 
 msgid "Exported"
 msgstr "已导出"
@@ -14668,119 +14697,6 @@ msgstr "未初始化"
 
 msgid "Potentially Active"
 msgstr "潜在活动"
-
-msgid "System tuning"
-msgstr "系统微调"
-
-msgid "ZFS Pool Tools"
-msgstr "ZFS池工具"
-
-msgid "Pool Status"
-msgstr "池状态"
-
-msgid "Success"
-msgstr "成功"
-
-msgid "Command execution was successful"
-msgstr "命令执行成功"
-
-msgid "Invalid command line option"
-msgstr "命令行选项无效"
-
-msgid "Test mode, no command execution"
-msgstr "测试模式，无命令执行"
-
-msgid "Missing parameter"
-msgstr "缺少参数"
-
-msgid "An error occured."
-msgstr "发生错误。"
-
-msgid "Return to Command Page"
-msgstr "返回命令页面"
-
-msgid "Activity"
-msgstr "Activity(活动)"
-
-msgid "Pool Version"
-msgstr "池版本"
-
-msgid "Pool State"
-msgstr "池状态"
-
-msgid "No suitable pools found."
-msgstr "找不到合适的池。"
-
-msgid "and"
-msgstr "and"
-
-msgid "No pools have been selected"
-msgstr "未选择池"
-
-msgid "Pool Devices"
-msgstr "池设备"
-
-msgid "missing"
-msgstr "丢失"
-
-msgid "No suitable devices found."
-msgstr "未找到合适的设备。"
-
-msgid "No pool devices have been selected"
-msgstr "未选择池设备"
-
-msgid "No suitable virtual devices found."
-msgstr "未找到合适的虚拟设备。"
-
-msgid "No virtual devices have been selected"
-msgstr "未选择任何虚拟设备"
-
-msgid "Media Size"
-msgstr "媒体大小"
-
-msgid "No devices have been selected"
-msgstr "未选择任何设备"
-
-msgid "Expand device to use all available space."
-msgstr "展开设备以使用所有可用空间。"
-
-msgid "Include GPT labels into scan/import"
-msgstr "将 GPT 标签包含到 扫描/导入 中"
-
-msgid "Include GPT ID into scan/import"
-msgstr "将 GPT ID 包含到 扫描/导入 中"
-
-msgid "Include UFS labels into scan/import"
-msgstr "将 UFS 标签包含到 扫描/导入 中"
-
-msgid "Include UFS ID into scan/import"
-msgstr "将 UFS ID 包含到 扫描/导入 中"
-
-msgid "Include Disk ID into scan/import"
-msgstr "将磁盘 ID 包含到 扫描/导入 中"
-
-msgid "Include /dev into scan/import"
-msgstr "将 /dev 包含到 扫描/导入 中"
-
-msgid "Import pool in read-only mode"
-msgstr "以只读模式导入存储池"
-
-msgid "Resize pool to the maximum possible size"
-msgstr "调整存储池大小至最大限度"
-
-msgid "Scan/Import destroyed pools only"
-msgstr "仅 扫描/导入 已损坏的池"
-
-msgid "Wait until resilvering has finished before returning."
-msgstr "等到重新同步完成后再返回。"
-
-msgid ""
-"Reconstruct the new device sequentially to restore redundancy as quickly as "
-"possible."
-msgstr "依次重构新设备，尽快恢复冗余。"
-
-msgid "Parameter"
-msgstr "参数"
 
 msgid "January"
 msgstr "1 月"
@@ -14926,108 +14842,229 @@ msgstr "无法将文件写入磁盘。"
 msgid "File upload stopped by extension."
 msgstr "文件上传被插件终止了."
 
-msgid "Deleting MBR and partition table"
-msgstr "删除 MBR 和分区表中"
+msgid "ZFS Pool Tools"
+msgstr "ZFS池工具"
 
-msgid "Creating partition"
-msgstr "正在创建分区"
+msgid "Pool Status"
+msgstr "池状态"
 
-msgid "Creating filesystem with \"Soft Updates\""
-msgstr "使用“软更新”创建文件系统"
+msgid "Success"
+msgstr "成功"
 
-#, php-format
-msgid "Using %s bytes fragment size."
-msgstr "%s 字节的片段大小（fragment size）。"
+msgid "Command execution was successful"
+msgstr "命令执行成功"
 
-msgid "Created UFS file system:"
-msgstr "建立 UFS 文件系统："
+msgid "Invalid command line option"
+msgstr "命令行选项无效"
 
-msgid "Deleting GEOM metadata"
-msgstr "删除 GEOM 元数据中"
+msgid "Test mode, no command execution"
+msgstr "测试模式，无命令执行"
 
-msgid "Creating filesystem"
-msgstr "创建文件系统"
+msgid "Missing parameter"
+msgstr "缺少参数"
 
-msgid "Done!"
-msgstr "完成！"
+msgid "An error occured."
+msgstr "发生错误。"
+
+msgid "Return to Command Page"
+msgstr "返回命令页面"
+
+msgid "Activity"
+msgstr "Activity(活动)"
+
+msgid "Pool Version"
+msgstr "池版本"
+
+msgid "Pool State"
+msgstr "池状态"
+
+msgid "No suitable pools found."
+msgstr "找不到合适的池。"
+
+msgid "No pools have been selected"
+msgstr "未选择池"
+
+msgid "Pool Devices"
+msgstr "池设备"
+
+msgid "missing"
+msgstr "丢失"
+
+msgid "No suitable devices found."
+msgstr "未找到合适的设备。"
+
+msgid "No pool devices have been selected"
+msgstr "未选择池设备"
+
+msgid "No suitable virtual devices found."
+msgstr "未找到合适的虚拟设备。"
+
+msgid "No virtual devices have been selected"
+msgstr "未选择任何虚拟设备"
+
+msgid "Media Size"
+msgstr "媒体大小"
+
+msgid "No devices have been selected"
+msgstr "未选择任何设备"
+
+msgid "Expand device to use all available space."
+msgstr "展开设备以使用所有可用空间。"
+
+msgid "Include GPT labels into scan/import"
+msgstr "将 GPT 标签包含到 扫描/导入 中"
+
+msgid "Include GPT ID into scan/import"
+msgstr "将 GPT ID 包含到 扫描/导入 中"
+
+msgid "Include UFS labels into scan/import"
+msgstr "将 UFS 标签包含到 扫描/导入 中"
+
+msgid "Include UFS ID into scan/import"
+msgstr "将 UFS ID 包含到 扫描/导入 中"
+
+msgid "Include Disk ID into scan/import"
+msgstr "将磁盘 ID 包含到 扫描/导入 中"
+
+msgid "Include /dev into scan/import"
+msgstr "将 /dev 包含到 扫描/导入 中"
+
+msgid "Import pool in read-only mode"
+msgstr "以只读模式导入存储池"
+
+msgid "Resize pool to the maximum possible size"
+msgstr "调整存储池大小至最大限度"
+
+msgid "Scan/Import destroyed pools only"
+msgstr "仅 扫描/导入 已损坏的池"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr "等到重新同步完成后再返回。"
 
 msgid ""
-"The disk is currently mounted! The mount point will be removed temporarily "
-"to perform selected command."
-msgstr "磁盘正在挂载中！执行选中的命令时，挂载点将暂时被删除。"
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr "依次重构新设备，尽快恢复冗余。"
 
-msgid "Second"
-msgstr "秒"
+msgid "Parameter"
+msgstr "参数"
 
-msgid "Seconds"
-msgstr "秒"
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
+#~ "issues."
+#~ msgstr "另一个 DLNA/UPnP 服务已在运行。开启 Fuppes 可能导致问题。"
 
-msgid "Minute"
-msgstr "分钟"
+#~ msgid "Compliant profile to be used."
+#~ msgstr "使用符合的配置文件。"
 
-msgid "Hour"
-msgstr "小时"
+#~ msgid "Content Locations"
+#~ msgstr "内容位置"
 
-msgid "Day"
-msgstr "日"
+#~ msgid "DLNA/UPnP Fuppes"
+#~ msgstr "DLNA/UPnP Fuppes"
 
-#, php-format
-msgid "%1$s managed, %2$s used, %3$s available"
-msgstr "%1$s已管理，%2$s已使用， %3$s可用"
+#~ msgid "Database directory"
+#~ msgstr "数据库目录"
 
-#, php-format
-msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr "全部： %1$s | 已使用：%2$s | 可用：%3$s"
+#~ msgid "Destination email address. Separate email addresses by semi-colon."
+#~ msgstr "目的地邮件地址。多个邮件地址用分号分开。"
 
-#, php-format
-msgid "%2$s used, %3$s available"
-msgstr "已使用%2$s，可用%3$s"
+#~ msgid "Device IP"
+#~ msgstr "设备 IP"
 
-msgid "Communication Error"
-msgstr "通讯错误"
+#~ msgid "Enable transcoding."
+#~ msgstr "启用转码功能。"
 
-msgid "More than a day"
-msgstr "超过一天"
+#~ msgid "Fuppes"
+#~ msgstr "Fuppes"
 
-msgid "No data"
-msgstr "无数据"
+#~ msgid "Fuppes Media Server"
+#~ msgstr "Fuppes媒体服务器"
 
-#, php-format
-msgid "%u hour"
-msgstr "%u 小时"
+#~ msgid "Fuppes Media Server Administration"
+#~ msgstr "Fuppes媒体服务器管理"
 
-#, php-format
-msgid "%u hours"
-msgstr "%u 小时"
+#~ msgid "Give your media library a friendly name."
+#~ msgstr "给你的媒体库起个好名字。"
 
-#, php-format
-msgid "%u minute"
-msgstr "%u 分钟"
+#~ msgid "Import on-disk ZFS config"
+#~ msgstr "从硬盘上导入ZFS设置"
 
-#, php-format
-msgid "%u minutes"
-msgstr "%u分钟"
+#~ msgid "Media Library"
+#~ msgstr "媒体库"
 
-#, php-format
-msgid "%u second"
-msgstr "%u 秒"
+#~ msgid "Media library"
+#~ msgstr "媒体库"
 
-#, php-format
-msgid "%u seconds"
-msgstr "%u秒"
+#~ msgid "Media server name"
+#~ msgstr "媒体服务器名"
+
+#~ msgid ""
+#~ "More than one DLNA/UPnP service is active. This configuration might cause "
+#~ "issues."
+#~ msgstr "多个DLNA / UPnP服务处于活动状态。 此配置可能会导致问题。"
 
 #, php-format
-msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr "全部：%1$s | 已分配：%2$s | 空闲：%3$s"
+#~ msgid "Port number must be in the range between %d and %d."
+#~ msgstr "端口号必须在%d和%d之间的范围内。"
 
-msgid "Unkown"
-msgstr "未知"
+#, php-format
+#~ msgid ""
+#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
+#~ "through %d). Default port is %d."
+#~ msgstr "监听端口。只有动态或私有端口可以使用（从 %d 到 %d  ）项。默认端口是 %d 。"
 
-msgid "Unformated"
-msgstr "尚未格式化"
+#~ msgid "Profile"
+#~ msgstr "配置文件"
 
-msgid "SoftRaid"
-msgstr "软RAID"
+#~ msgid ""
+#~ "Select which interface to use. (Only selectable if your server has more than "
+#~ "one interface)"
+#~ msgstr "选择要使用的接口。 （仅在服务器具有多个接口时可选）"
 
-msgid "Encrypted"
-msgstr "已加密"
+#~ msgid "Set the content location(s) to or from the media library."
+#~ msgstr "设置从或到媒体库的内容位置。"
+
+#~ msgid "Temporary directory"
+#~ msgstr "临时目录。"
+
+#~ msgid "Temporary directory to store transcoded files."
+#~ msgstr "用来存储转换文件的临时目录。"
+
+#~ msgid "The IP address of the device."
+#~ msgstr "设备的IP地址"
+
+#, php-format
+#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
+#~ msgstr "属性'端口'： '%ld'端口已经被另一项服务采用。"
+
+#~ msgid "Transcoding"
+#~ msgstr "转码"
+
+#~ msgid "Transcoding Directory"
+#~ msgstr "转码目录"
+
+#~ msgid "Try to force import."
+#~ msgstr "尝试强制导入。"
+
+#~ msgid "Try to import from on-disk ZFS config."
+#~ msgstr "尝试从硬盘导入ZFS配置。"
+
+#~ msgid "UPnP/DLNA - Fuppes"
+#~ msgstr "UPnP/DLNA - Fuppes"
+
+#~ msgid "Allow challenge-response authentication."
+#~ msgstr "允许质询 - 响应身份验证。"
+
+#~ msgid "Challenge-Response Authentication"
+#~ msgstr "挑战 - 响应认证"
+
+#~ msgid ""
+#~ "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+#~ "can cause problems."
+#~ msgstr "启用了多个DNLA/UPnP服务。 运行多个DLNA/UPnP服务可能会导致问题。"
+
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+#~ "services can cause problems."
+#~ msgstr "另一个DLNA/UPnP服务已启用。 运行多个DLNA/UPnP服务可能会导致问题。"

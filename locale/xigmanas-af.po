@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2024-06-23 12:29+0000\n"
+"POT-Creation-Date: 2025-09-06 21:13+0000\n"
 "PO-Revision-Date: 2024-07-16 10:56+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-08-28 09:22+0000\n"
-"X-Generator: Launchpad (build 919009172d854f2b8e4e8262db447f12f11d25eb)\n"
+"X-Launchpad-Export-Date: 2025-09-06 19:57+0000\n"
+"X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 
 msgid "Active Directory"
 msgstr "Aktiewe Lêergids"
@@ -431,6 +431,15 @@ msgstr "Laer"
 
 msgid "Upper"
 msgstr "Boonste"
+
+msgid "No IPMI Sensor data available."
+msgstr ""
+
+msgid "FRU Information"
+msgstr ""
+
+msgid "No IPMI FRU data available."
+msgstr ""
 
 msgid "iSCSI Target Information & Status"
 msgstr "iSCSI Teiken Inligting & Status"
@@ -1632,9 +1641,6 @@ msgstr "RSYNC -Klient"
 
 msgid "RSYNC - Local"
 msgstr "RSYNC - Plaaslik"
-
-msgid "UPnP/DLNA - Fuppes"
-msgstr "UPnP/DLNA - Fuppes"
 
 msgid "UPnP/DLNA - MiniDLNA"
 msgstr "UPnP/DLNA - MiniDLNA"
@@ -3089,17 +3095,15 @@ msgstr "Objek naam"
 msgid "RAID 0/1/5 Maintenance"
 msgstr "RAID 0/1/5 Onderhoud"
 
-msgid "Import on-disk ZFS config"
-msgstr "Voer in die op-hardeskyf ZFS konfigurasie"
-
 msgid "No pool was found."
 msgstr "Geen poel was gevind"
 
-msgid "Try to force import."
-msgstr "Propeer om invoer te vorseer."
+msgid ""
+"No pool was found. Try to force import from on-disk ZFS configuration."
+msgstr ""
 
-msgid "Try to import from on-disk ZFS config."
-msgstr "Probeer om die ingevoer vanaf on-skyf ZFS- konfig."
+msgid "No pool was found. Try to import from on-disk ZFS configuration."
+msgstr ""
 
 msgid "Your ZFS system is not healthy."
 msgstr "Jou ZFS stelsel is nie gesond nie."
@@ -3188,14 +3192,26 @@ msgstr "Kan monteer"
 msgid "Quota"
 msgstr "Kwota"
 
-msgid "Extended Attributes"
-msgstr "Verlengde Attribuute"
-
 msgid "Readonly"
 msgstr "Leesalleen"
 
 msgid "Snapshot Visibility"
 msgstr "Foto Sigbaarheid"
+
+msgid "on"
+msgstr "aan"
+
+msgid "none"
+msgstr "geen"
+
+msgid "off"
+msgstr "af"
+
+msgid "hidden"
+msgstr "verborge"
+
+msgid "visible"
+msgstr "sigbaar"
 
 msgid "Blocksize"
 msgstr "Blokgrootte"
@@ -3212,20 +3228,11 @@ msgstr ""
 "as die konfigurasie wat met die WebGUI geskep is as daar veranderinge "
 "aangebring is via die opdragreël"
 
-msgid "on"
-msgstr "aan"
+msgid "Import on-disk ZFS configuration"
+msgstr ""
 
-msgid "off"
-msgstr "af"
-
-msgid "none"
-msgstr "geen"
-
-msgid "visible"
-msgstr "sigbaar"
-
-msgid "hidden"
-msgstr "verborge"
+msgid "Force import on-disk ZFS configuration"
+msgstr ""
 
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
@@ -3241,6 +3248,9 @@ msgstr ""
 
 msgid "Nothing to synchronize"
 msgstr "Niks om te sinchroniseer nie"
+
+msgid "Extended Attributes"
+msgstr "Verlengde Attribuute"
 
 msgid "Options"
 msgstr "Opsies"
@@ -5952,113 +5962,6 @@ msgstr ""
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Spesifiseer die tydperk in uu:mm:ss waarnaa die verbod verval."
 
-msgid "Media library"
-msgstr "Media biblioteek"
-
-msgid "Database directory"
-msgstr "Databasisgids"
-
-msgid "Device IP"
-msgstr "Toestel IP"
-
-msgid "Temporary directory"
-msgstr "Tydelike lêergids"
-
-#, php-format
-msgid "The attribute 'Port': port '%ld' is already taken by another service."
-msgstr ""
-"Die eienskap 'Poort': poort '%ld' word reeds deur 'n ander diens gebruik."
-
-#, php-format
-msgid "Port number must be in the range between %d and %d."
-msgstr "Poort nommers moet in die strek tussed %d en %d wees."
-
-msgid ""
-"More than one DLNA/UPnP service is active. This configuration might cause "
-"issues."
-msgstr ""
-"Meer as een DLNA/UPNP diens is aktief. Die konfigurasie mag probleme "
-"veroorsaak."
-
-msgid ""
-"Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-"issues."
-msgstr ""
-"Nog 'n DLNA/UPnP-diens is reeds aan hardloop. As jy Fuppes inskakel mag dit "
-"probleme veroorsaak."
-
-msgid "DLNA/UPnP Fuppes"
-msgstr "DLNA/UPnP Fuppes"
-
-msgid "Fuppes"
-msgstr "Fuppes"
-
-msgid "MiniDLNA"
-msgstr "MiniDLNA"
-
-msgid "Fuppes Media Server"
-msgstr "Fuppes Media Bediener"
-
-msgid "Interface Selection"
-msgstr "Koppelvlak Seleksie"
-
-msgid "Content Locations"
-msgstr "Inhoud Lokasies"
-
-msgid "Profile"
-msgstr "Profiel"
-
-msgid "Transcoding"
-msgstr "Transkodeer"
-
-msgid "Transcoding Directory"
-msgstr "Transkodering Directory"
-
-msgid "Give your media library a friendly name."
-msgstr "Gee jou media bibiloteek 'n vriendelike naam."
-
-msgid "Media server name"
-msgstr "Media bediener naam"
-
-msgid ""
-"Select which interface to use. (Only selectable if your server has more than "
-"one interface)"
-msgstr ""
-"Selekteer watter koppelvlakke om te gebruik. (Dit is sleg kiesbaar as jou "
-"bediener meer as een koppelvlak het)"
-
-#, php-format
-msgid ""
-"Port to listen on. Only dynamic or private ports can be used (from %d "
-"through %d). Default port is %d."
-msgstr ""
-"Poort om op te luister. Slegs dinamiese of private poorte kan gebruik word "
-"(van %d tot %d). Standaard poort is %d."
-
-msgid "Location of the media content database."
-msgstr "Ligging van die media inhoud databasis."
-
-msgid "Media Library"
-msgstr "Media biblioteek"
-
-msgid "Set the content location(s) to or from the media library."
-msgstr "Stel die inhoud lokasie(s) in vanaf and na die media bibilioteek"
-
-msgid "Compliant profile to be used."
-msgstr "Compliant profiel om wees gebruik."
-
-msgid "The IP address of the device."
-msgstr "Die IP adres van die toestek=l"
-
-msgid "Enable transcoding."
-msgstr "Ontsper transdekodering"
-
-msgid "Temporary directory to store transcoded files."
-msgstr "Tydelike lêergids om getranskodeerde lêers te stoor."
-
-msgid "Fuppes Media Server Administration"
-msgstr "Fuppes Media Bediener Administrasie"
-
 msgid "No configured CARP interfaces."
 msgstr "Geen gekonfigureerde CARP koppelvlakke."
 
@@ -6993,19 +6896,8 @@ msgstr "phpMyAdmin"
 msgid "A rescan has been issued."
 msgstr "'N Herskandeer het was kwessie."
 
-msgid ""
-"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-"services can cause problems."
-msgstr ""
-"Nog een DLNA/UPnP diens is reeds in staat gestel. Hardlooping meervoudige "
-"DLNA/UPnP dienste kan probleme veroorsaak."
-
-msgid ""
-"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
-"can cause problems."
-msgstr ""
-"Verskeie DNLA/UPnP diens word in staat gestel. Hardlooping meervoudige "
-"DLNA/UPnP dienste kan probleme veroorsaak."
+msgid "MiniDLNA"
+msgstr "MiniDLNA"
 
 msgid "MiniDLNA Media Server WebGUI"
 msgstr "MiniDLNA Media Bediener WebGUI"
@@ -7782,6 +7674,9 @@ msgstr ""
 msgid "Permission"
 msgstr "Toestemming"
 
+msgid "Paste a private key in PEM format here."
+msgstr "Plak 'n private sleutel in PEM formaat hier."
+
 msgid "Document root of the webserver. Home of the web page files."
 msgstr "Dokument wortel van die webbediener. Tuis van die web bladsy lêers."
 
@@ -7807,11 +7702,11 @@ msgstr "Ryk"
 msgid "Edit URL"
 msgstr "Redigeer URL"
 
-msgid "Do you really want to delete this URL?"
-msgstr "Wil jy regtig hierdie URL uitvee?"
-
 msgid "Delete URL"
 msgstr "Vee URL Uit"
+
+msgid "Do you really want to delete this URL?"
+msgstr "Wil jy regtig hierdie URL uitvee?"
 
 msgid "Add URL"
 msgstr "Voeg URL"
@@ -8265,9 +8160,6 @@ msgstr ""
 msgid "Ignore Hosts Allow"
 msgstr "Ignoreer Leërskare Laat toe"
 
-msgid "Paste a private key in PEM format here."
-msgstr "Plak 'n private sleutel in PEM formaat hier."
-
 msgid "Language"
 msgstr "Taal"
 
@@ -8588,8 +8480,9 @@ msgstr "Sisteem Epos Verstellings"
 msgid "From email address for sending system messages."
 msgstr "Van epos adres om sisteem boodskappe te stuur"
 
-msgid "Destination email address. Separate email addresses by semi-colon."
-msgstr "Bestemming epos adres. Skei epos adresse met 'n kommapunt."
+msgid ""
+"Destination email address. Multiple email addresses are separated by a comma."
+msgstr ""
 
 msgid "Outgoing SMTP mail server address."
 msgstr "Uitgaande SMTP pos bediener adres."
@@ -9131,6 +9024,9 @@ msgstr "Aktiveer insamel van geheu gebruik statistieke."
 msgid "Enable collecting network latency statistics."
 msgstr "Ontsper die kollekteer van netwerk latensie statistiek"
 
+msgid "Interface Selection"
+msgstr "Koppelvlak Seleksie"
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -9616,114 +9512,244 @@ msgstr "Stewel Argumente"
 msgid "Boot argument (e.g. %s)."
 msgstr "Stewel argumente (bv. %s)."
 
-msgid "Undefined"
-msgstr "Ongedefinieerd"
+msgid "Show Used/Avail"
+msgstr "Wys Gebruilked/Avail"
 
-msgid "The value is invalid."
-msgstr "Die waarde is ongeldig."
+msgid "On-Disk Configuration"
+msgstr "Op Skyf Konfigurasie"
 
-msgid "Network Address"
-msgstr "Netwerk Adres"
+msgid "Capacity Warning Threshold"
+msgstr "Kapasiteit Waarskuwing Drempel"
 
-msgid "Enter additional parameters"
-msgstr "Ingaan addisionele parameters"
+msgid "Capacity Critical Threshold"
+msgstr "Kapasiteit Kritieke Drempel"
 
-msgid "No additional parameters"
-msgstr "Geen bykomende parameters"
-
-msgid "Enter a description for your reference."
-msgstr "Sleutel 'n beskrywing vir jou verwysing in."
-
-msgid "IPv4 Address"
-msgstr "IPv4 Adres"
-
-msgid "Protect"
-msgstr "Beskerm"
-
-msgid "Protect Setting"
-msgstr "Beskerm Instelling"
-
-msgid "Enable Setting"
-msgstr "Inskakel Instelling"
-
-msgid "The UUID of the record."
-msgstr "Die UUID van die rekord."
-
-msgid "Enter Universally Unique Identifier"
-msgstr "Ingaan Universeel Unieke Identifiseerder"
-
-msgid "Universally Unique Identifier"
-msgstr "Universeel Unieke Identifiseerder"
-
-msgid "Delete Selected Records"
-msgstr "Skrap Geselekteerde Rekords"
-
-msgid "Do you want to delete selected records?"
-msgstr "Wil jy geselekteerde rekords skrap?"
-
-msgid "Disable Selected Records"
-msgstr "Deaktiveer Geselekteerde Rekords"
-
-msgid "Do you want to disable selected records?"
-msgstr "Wil jy geselekteerde rekords deaktiveer?"
-
-msgid "Enable Selected Records"
-msgstr "Inskakel Geselekteerde Rekord"
-
-msgid "Do you want to enable selected records?"
-msgstr "Wil jy geselekteerde rekords inskakel?"
-
-msgid "Lock Selected Records"
-msgstr "Slot Geselekteerde Rekords"
-
-msgid "Do you want to lock selected records?"
-msgstr "Wil jy geselekteerde rekords geslot?"
-
-msgid "Toggle Selected Records"
-msgstr "Toggle Geselekteerde Rekords"
-
-msgid "Do you want to toggle selected records?"
-msgstr "Doen jy wil geselekteerde rekords toggle?"
-
-msgid "Unlock Selected Records"
-msgstr "Ontslot Geselekteerde Rekords"
-
-msgid "Do you want to unlock selected records?"
-msgstr "Doen jy wil geselekteerde rekords ontsluit?"
-
-msgid "Add Record"
-msgstr "Voeg Rekord"
-
-msgid "Record is marked for deletion"
-msgstr "Rekord is gemerk vir skrap"
-
-msgid "Record Information"
-msgstr "Rekord Inligting"
-
-msgid "Record is protected"
-msgstr "Rekord word beskerm"
-
-msgid "Record Maintenance"
-msgstr "Rekord Onderhoud"
-
-msgid "Edit Record"
-msgstr "Redigeer Rekord"
-
-msgid "Record is unlocked"
-msgstr "Rekord is ontgeslot"
-
-msgid "Autodetect"
-msgstr "Outospeur"
-
-msgid "The identifier reported as unknown by smartctl, including brackets."
+msgid "Extended Destroy"
 msgstr ""
-"Die identifiseerder berig as onbekend by smartctl, insluitend hakies."
 
-msgid "Enter Identifier"
-msgstr "Ingaan Identifiseerder"
+msgid ""
+"Display Used/Avail information from the filesystem instead of the Alloc/Free "
+"information from the pool."
+msgstr ""
+"Vertoon Gebruikde/Avail inligting vanaf die lêerstelsel in plaas van die "
+"Alloc/Gratis inligting vanaf die poel."
 
-msgid "Enter smartctl pass-through type."
-msgstr "Ingaan smartctl slaag-deur tipe."
+msgid ""
+"Used/Avail lists storage information after all redundancy is taken into "
+"account but is impacted by compression, deduplication and quotas. Alloc/Free "
+"lists the raw storage information of a pool."
+msgstr ""
+"Gebruikde/Avail lyste stooring inligting na alle oortolligheid is in ag "
+"geneem word maar is impakde deur kompressie, deduplicatie en kwotas. "
+"Alloc/Gratis lyste die rou stoor inligting van 'n poel."
+
+msgid "Read on-disk configuration."
+msgstr "Lees op-skyf konfigurasie."
+
+msgid ""
+"Reading the configuration from the disks is slower than reading from cache "
+"file."
+msgstr ""
+"Dit is stadiger om die konfigurasie vanaf die skywe te lees as om uit die "
+"kaslêer te lees."
+
+msgid "Set the warning threshold to a value between 80 and 89."
+msgstr "Stel die waarskuwings drempel op 'n waarde tussen 80 en 89."
+
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the warning "
+"threshold."
+msgstr ""
+"'N waarskuwing e-pos gestuur word wanneer die kapasiteit van 'n swembad die "
+"waarskuwing drumpel oorskry."
+
+msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
+msgstr ""
+"'N Cron werk moet wees opstel om skrip te skeduleer /etc/capacitycheck.zfs."
+
+msgid "Must be a number between 80 and 89."
+msgstr "Moet 'n getal tussen 80 en 89 wees."
+
+msgid "Set the critical threshold to a value between 90 and 95."
+msgstr "Stel die kritieke drempel op 'n waarde tussen 90 en 95."
+
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the critical "
+"threshold."
+msgstr ""
+"'N waarskuwing e-pos gestuur word wanneer die kapasiteit van 'n swembad die "
+"kritieke drumpel oorskry."
+
+msgid "Must be a number between 90 and 95."
+msgstr "Moet 'n getal tussen 90 en 95 wees."
+
+msgid "Destroy dataset and its dependents."
+msgstr ""
+
+msgid ""
+"When enabled, destroying a dataset will also destroy all dependents "
+"(datasets, snapshots and clones)."
+msgstr ""
+
+msgid "Lifetime"
+msgstr "Lewensduur"
+
+msgid "Second(s)"
+msgstr ""
+
+msgid "Minute(s)"
+msgstr "Minuut/minute"
+
+msgid "Hour(s)"
+msgstr "Uur/ure"
+
+msgid "Day(s)"
+msgstr "Dag/dae"
+
+msgid "Week(s)"
+msgstr ""
+
+msgid "Month(s)"
+msgstr "Maand(e)"
+
+msgid "Year(s)"
+msgstr ""
+
+msgid "Hourly"
+msgstr "Uurliks"
+
+msgid "Daily"
+msgstr "Daagliks"
+
+msgid "Weekly"
+msgstr ""
+
+msgid "Monthly"
+msgstr "Maandeliks"
+
+msgid "Yearly"
+msgstr ""
+
+msgid "Custom Setting"
+msgstr "Pasgemaakte Instelling"
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Weekdays"
+msgstr "Weeksdae"
+
+msgid "All Minutes"
+msgstr "Alle Notule"
+
+msgid "All Hours"
+msgstr "Alle Ure"
+
+msgid "All Days"
+msgstr "Alle Dae"
+
+msgid "All Months"
+msgstr "Alle Maande"
+
+msgid "All Weekdays"
+msgstr "Alle Weeksdae"
+
+msgid "Add Schedule"
+msgstr "Voeg Skedule By"
+
+msgid "Edit Schedule"
+msgstr "Redigeer Skedule"
+
+msgid "Schedule is marked for deletion"
+msgstr ""
+
+msgid "Schedule is locked"
+msgstr ""
+
+msgid "Schedule is unlocked"
+msgstr ""
+
+msgid "Delete Selected Schedules"
+msgstr "Vee Gekose Skedules Uit"
+
+msgid "Do you want to delete selected schedules?"
+msgstr "Wil jy die gekose skedules uitvee?"
+
+msgid "Disable Selected Schedules"
+msgstr "Deaktiveer Gekose Skedules"
+
+msgid "Do you want to disable selected schedules?"
+msgstr "Wil jy die gekose skedules deaktiveer?"
+
+msgid "Enable Selected Schedules"
+msgstr "Aktiveer Gekose Skedules"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "Wil jy die gekose VLANs aktiveer?"
+
+msgid "Toggle Selected Schedules"
+msgstr ""
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "Wil jy die gekose skedules wissel?"
+
+msgid "Invalid"
+msgstr "Ongeldig"
+
+msgid "Destroy"
+msgstr "Vernietig"
+
+msgid "Create Snapshot"
+msgstr "Skep Momentopname"
+
+msgid "Destroy Snapshot"
+msgstr "Vernietig Momentopname"
+
+msgid "Scrub Pool"
+msgstr ""
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr "Lewensduur Waarde"
+
+msgid "Lifetime Units"
+msgstr "Lewensduur Eenhede"
+
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Bevele word deur die skeduleerder uitgevoer as die minuut, uur, en maand van "
+"die jaar velde met die huidige tyd ooreenstem, en as ten minste een van die "
+"twee dag velde (dag van die maand of dag van die week) met die huidige tyd "
+"ooreenstem."
+
+msgid "Presets"
+msgstr ""
+
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Create"
+msgstr "Skep"
+
+msgid "Scrub"
+msgstr ""
+
+msgid "Select pool."
+msgstr ""
+
+msgid "No ZFS zpool information available."
+msgstr "Geen ZFS zpoel inligting beskibarr."
+
+msgid "No ZFS volume information available."
+msgstr "Geen ZFS volume inligting beskikbarr."
 
 msgid "Add Filesystem"
 msgstr "Voeg Leerstelsel By"
@@ -9746,20 +9772,11 @@ msgstr "Vee Gekose Lêerstelsels Uit"
 msgid "Do you want to delete selected filesystems?"
 msgstr "Wil jy die gekose lêerstelsels uitvee?"
 
-msgid "Disable Selected Schedules"
-msgstr "Deaktiveer Gekose Skedules"
-
 msgid "Do you want to disable selected filesystems?"
 msgstr "Wil jy die gekose lêerstelsels deaktiveer?"
 
-msgid "Enable Selected Schedules"
-msgstr "Aktiveer Gekose Skedules"
-
 msgid "Do you want to enable selected filesystems?"
 msgstr "Wil jy die gekose verskaffers aktiveer?"
-
-msgid "Toggle Selected Schedules"
-msgstr ""
 
 msgid "Do you want to toggle selected filesystems?"
 msgstr "Wil jy die gekose lêerstelsels wissel?"
@@ -9776,235 +9793,6 @@ msgstr "Geen ZFS lêerstelsel inligting beskikbaar."
 msgid "Filesystems"
 msgstr "Lêerstelsels"
 
-msgid "Dataset Name"
-msgstr "Datastel Naam"
-
-msgid ""
-"File System - can be mounted within the standard system namespace and "
-"behaves like other file systems."
-msgstr ""
-"Lêer Stelsel - kan wees gemonteer met in die standaard stelsel naamruimte en "
-"behaves soos ander lêer stelsels."
-
-msgid "Volume - A logical volume. Can be exported as a raw or block device."
-msgstr ""
-"Volume - 'N Logiese volume. Uitgevoer kan word as 'n rou of blok toestel."
-
-msgid ""
-"Snapshot - A read-only version of a file system or volume at a given point "
-"in time."
-msgstr ""
-
-msgid "Bookmark - Creates a bookmark of a given snapshot."
-msgstr "Boekmerk - Skep 'n boekmerk van 'n gegewe momentopname."
-
-msgid "Dataset Type"
-msgstr "Datastel Tipe"
-
-msgid "Pool Name"
-msgstr "Poelnaam"
-
-msgid "Clones"
-msgstr "Klone"
-
-msgid "Compression Ratio"
-msgstr "Kompressieverhouding"
-
-msgid "Defer Destroy"
-msgstr "Stel Vernietiging Uit"
-
-msgid "Encryption Root"
-msgstr "Enkripsie Wortel"
-
-msgid "Filesystem Count"
-msgstr "Lêerstelseltelling"
-
-msgid "GUID"
-msgstr "GUID"
-
-msgid "Key Status"
-msgstr "Sleutelstatus"
-
-msgid "Logical Referenced"
-msgstr "Logies Verwys"
-
-msgid "Logical Used"
-msgstr "Logies Gebruik"
-
-msgid "Mounted"
-msgstr "Gekoppel"
-
-msgid "Obj Set ID"
-msgstr "Obj Set ID"
-
-msgid "Receive Resume Token"
-msgstr ""
-
-msgid "Redact Snaps"
-msgstr ""
-
-msgid "Refcompressratio"
-msgstr ""
-
-msgid "Referenced"
-msgstr ""
-
-msgid "Snapshot Count"
-msgstr ""
-
-msgid "Used by Children"
-msgstr ""
-
-msgid "Used by Dataset"
-msgstr ""
-
-msgid "Used by Refreservation"
-msgstr ""
-
-msgid "Used by Snapshots"
-msgstr ""
-
-msgid "Userrefs"
-msgstr ""
-
-msgid "Written"
-msgstr ""
-
-msgid "Normalization"
-msgstr "Normalisering"
-
-msgid "UTF-8 File Names"
-msgstr ""
-
-msgid "ACL Type"
-msgstr "ACL Tipe"
-
-msgid "Access Time"
-msgstr "Toegangs Tyd"
-
-msgid "Can Mount"
-msgstr "Kan Monteer"
-
-msgid "Checksum"
-msgstr "Checksum"
-
-msgid "GZIP Compression Level"
-msgstr "GZIP Kompressievlak"
-
-msgid "Zstandard Compression Level"
-msgstr ""
-
-msgid "Fast Zstandard Compression Level"
-msgstr "Vinnige Zstandard Kompressievlak"
-
-msgid "Copies"
-msgstr "Kopieë"
-
-msgid "Dedup Method"
-msgstr "Dedup Metode"
-
-msgid "Dnode Size"
-msgstr "Dnode Grootte"
-
-msgid "Execute Processes"
-msgstr "Voer Prosesse Uit"
-
-msgid "Filesystem Limit"
-msgstr "Lêerstelsellimiet"
-
-msgid "Jailed"
-msgstr "Tronkd"
-
-msgid "Key Format"
-msgstr "Sleutelformaat"
-
-msgid "Key Location"
-msgstr "Sleutelplek"
-
-msgid "Logbias"
-msgstr "Logbias"
-
-msgid "Mountpoint Type"
-msgstr "Koppelpunt Tipe"
-
-msgid "Non-blocking Mandatory Locks"
-msgstr "Nie-blokkerende Verpligte Slotte"
-
-msgid "Overlay Mount"
-msgstr "Oorleg Koppelpunt"
-
-msgid "PBKDF2 Iterations"
-msgstr "PBKDF2 Iterasies"
-
-msgid "Primary Cache"
-msgstr "Primêre Cache"
-
-msgid "Record Size"
-msgstr ""
-
-msgid "Redundant Metadata"
-msgstr "Oorbodige Metadata"
-
-msgid "Refquota"
-msgstr "Refquota"
-
-msgid "Refquota Type"
-msgstr ""
-
-msgid "Refreservation"
-msgstr "Refreservation"
-
-msgid "Refreservation Type"
-msgstr ""
-
-msgid "Relatime"
-msgstr ""
-
-msgid "Reservation Type"
-msgstr ""
-
-msgid "Secondary Cache"
-msgstr "Sekondêre Cache"
-
-msgid "Setuid"
-msgstr ""
-
-msgid "Share NFS Options"
-msgstr ""
-
-msgid "Share NFS Type"
-msgstr ""
-
-msgid "Share SMB Options"
-msgstr ""
-
-msgid "Share SMB Type"
-msgstr ""
-
-msgid "Snapshot Device Visibility"
-msgstr ""
-
-msgid "Snapshot Folder Visibility"
-msgstr ""
-
-msgid "Snapshot Limit"
-msgstr ""
-
-msgid "Threshold Small Block Size"
-msgstr ""
-
-msgid "Synchronous Requests Behaviour"
-msgstr ""
-
-msgid "Volume Mode"
-msgstr "Volume Modus"
-
-msgid "Volume Size"
-msgstr "Volume Grootte"
-
-msgid "Virus Scan"
-msgstr ""
-
 msgid "The name of the filesystem."
 msgstr ""
 
@@ -10013,6 +9801,9 @@ msgstr "Voer lêerstelsel naam in."
 
 msgid "Controls the type of the ZFS dataset."
 msgstr "Kontroles die tipe van die ZFS datastel."
+
+msgid "Pool Name"
+msgstr "Poelnaam"
 
 msgid ""
 "Indicates whether the file name matching algorithm used by the filesystem "
@@ -10577,723 +10368,1729 @@ msgstr "Beheer of uitgebreide eienskappe aangeskakel is vir die lêerstelsel."
 msgid "System attribute based xattrs"
 msgstr ""
 
-msgid "Add Schedule"
-msgstr "Voeg Skedule By"
-
-msgid "Edit Schedule"
-msgstr "Redigeer Skedule"
-
-msgid "Schedule is marked for deletion"
-msgstr ""
-
-msgid "Schedule is locked"
-msgstr ""
-
-msgid "Schedule is unlocked"
-msgstr ""
-
-msgid "Delete Selected Schedules"
-msgstr "Vee Gekose Skedules Uit"
-
-msgid "Do you want to delete selected schedules?"
-msgstr "Wil jy die gekose skedules uitvee?"
-
-msgid "Do you want to disable selected schedules?"
-msgstr "Wil jy die gekose skedules deaktiveer?"
-
-msgid "Do you want to enable selected schedules?"
-msgstr "Wil jy die gekose VLANs aktiveer?"
-
-msgid "Do you want to toggle selected schedules?"
-msgstr "Wil jy die gekose skedules wissel?"
-
-msgid "Invalid"
-msgstr "Ongeldig"
-
-msgid "Select pool."
-msgstr ""
+msgid "Dataset Name"
+msgstr "Datastel Naam"
 
 msgid ""
-"Commands are executed by the scheduler when the minute, hour, and month of "
-"year fields match the current time, and when at least one of the two day "
-"fields (day of month, or day of week) matches the current time."
+"File System - can be mounted within the standard system namespace and "
+"behaves like other file systems."
 msgstr ""
-"Bevele word deur die skeduleerder uitgevoer as die minuut, uur, en maand van "
-"die jaar velde met die huidige tyd ooreenstem, en as ten minste een van die "
-"twee dag velde (dag van die maand of dag van die week) met die huidige tyd "
-"ooreenstem."
+"Lêer Stelsel - kan wees gemonteer met in die standaard stelsel naamruimte en "
+"behaves soos ander lêer stelsels."
 
-msgid "Presets"
+msgid "Volume - A logical volume. Can be exported as a raw or block device."
 msgstr ""
-
-msgid "Daily"
-msgstr "Daagliks"
-
-msgid "Weekly"
-msgstr ""
-
-msgid "Monthly"
-msgstr "Maandeliks"
-
-msgid "Yearly"
-msgstr ""
-
-msgid "Custom Setting"
-msgstr "Pasgemaakte Instelling"
-
-msgid "Schedule"
-msgstr ""
-
-msgid "Weekdays"
-msgstr "Weeksdae"
-
-msgid "All Minutes"
-msgstr "Alle Notule"
-
-msgid "All Hours"
-msgstr "Alle Ure"
-
-msgid "All Days"
-msgstr "Alle Dae"
-
-msgid "All Months"
-msgstr "Alle Maande"
-
-msgid "All Weekdays"
-msgstr "Alle Weeksdae"
-
-msgid "Scrub"
-msgstr ""
-
-msgid "Create Snapshot"
-msgstr "Skep Momentopname"
-
-msgid "Destroy Snapshot"
-msgstr "Vernietig Momentopname"
-
-msgid "Scrub Pool"
-msgstr ""
-
-msgid "Hourly"
-msgstr "Uurliks"
-
-msgid "Create"
-msgstr "Skep"
-
-msgid "Select Pool, Filesystem or Volume"
-msgstr ""
-
-msgid "Recursively create snapshots of all descendent datasets."
-msgstr ""
-
-msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr ""
-
-msgid "Lifetime Value"
-msgstr "Lewensduur Waarde"
-
-msgid "Lifetime Units"
-msgstr "Lewensduur Eenhede"
-
-msgid "Lifetime"
-msgstr "Lewensduur"
-
-msgid "Second(s)"
-msgstr ""
-
-msgid "Minute(s)"
-msgstr "Minuut/minute"
-
-msgid "Hour(s)"
-msgstr "Uur/ure"
-
-msgid "Day(s)"
-msgstr "Dag/dae"
-
-msgid "Week(s)"
-msgstr ""
-
-msgid "Month(s)"
-msgstr "Maand(e)"
-
-msgid "Year(s)"
-msgstr ""
-
-msgid "Destroy"
-msgstr "Vernietig"
-
-msgid "Show Used/Avail"
-msgstr "Wys Gebruilked/Avail"
-
-msgid "On-Disk Configuration"
-msgstr "Op Skyf Konfigurasie"
-
-msgid "Capacity Warning Threshold"
-msgstr "Kapasiteit Waarskuwing Drempel"
-
-msgid "Capacity Critical Threshold"
-msgstr "Kapasiteit Kritieke Drempel"
+"Volume - 'N Logiese volume. Uitgevoer kan word as 'n rou of blok toestel."
 
 msgid ""
-"Display Used/Avail information from the filesystem instead of the Alloc/Free "
-"information from the pool."
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
 msgstr ""
-"Vertoon Gebruikde/Avail inligting vanaf die lêerstelsel in plaas van die "
-"Alloc/Gratis inligting vanaf die poel."
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr "Boekmerk - Skep 'n boekmerk van 'n gegewe momentopname."
+
+msgid "Dataset Type"
+msgstr "Datastel Tipe"
+
+msgid "Clones"
+msgstr "Klone"
+
+msgid "Compression Ratio"
+msgstr "Kompressieverhouding"
+
+msgid "Defer Destroy"
+msgstr "Stel Vernietiging Uit"
+
+msgid "Encryption Root"
+msgstr "Enkripsie Wortel"
+
+msgid "Filesystem Count"
+msgstr "Lêerstelseltelling"
+
+msgid "GUID"
+msgstr "GUID"
+
+msgid "Key Status"
+msgstr "Sleutelstatus"
+
+msgid "Logical Referenced"
+msgstr "Logies Verwys"
+
+msgid "Logical Used"
+msgstr "Logies Gebruik"
+
+msgid "Mounted"
+msgstr "Gekoppel"
+
+msgid "Obj Set ID"
+msgstr "Obj Set ID"
+
+msgid "Receive Resume Token"
+msgstr ""
+
+msgid "Redact Snaps"
+msgstr ""
+
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
+msgid "Userrefs"
+msgstr ""
+
+msgid "Written"
+msgstr ""
+
+msgid "Normalization"
+msgstr "Normalisering"
+
+msgid "UTF-8 File Names"
+msgstr ""
+
+msgid "ACL Type"
+msgstr "ACL Tipe"
+
+msgid "Access Time"
+msgstr "Toegangs Tyd"
+
+msgid "Can Mount"
+msgstr "Kan Monteer"
+
+msgid "Checksum"
+msgstr "Checksum"
+
+msgid "GZIP Compression Level"
+msgstr "GZIP Kompressievlak"
+
+msgid "Zstandard Compression Level"
+msgstr ""
+
+msgid "Fast Zstandard Compression Level"
+msgstr "Vinnige Zstandard Kompressievlak"
+
+msgid "Copies"
+msgstr "Kopieë"
+
+msgid "Dedup Method"
+msgstr "Dedup Metode"
+
+msgid "Dnode Size"
+msgstr "Dnode Grootte"
+
+msgid "Execute Processes"
+msgstr "Voer Prosesse Uit"
+
+msgid "Filesystem Limit"
+msgstr "Lêerstelsellimiet"
+
+msgid "Jailed"
+msgstr "Tronkd"
+
+msgid "Key Format"
+msgstr "Sleutelformaat"
+
+msgid "Key Location"
+msgstr "Sleutelplek"
+
+msgid "Logbias"
+msgstr "Logbias"
+
+msgid "Mountpoint Type"
+msgstr "Koppelpunt Tipe"
+
+msgid "Non-blocking Mandatory Locks"
+msgstr "Nie-blokkerende Verpligte Slotte"
+
+msgid "Overlay Mount"
+msgstr "Oorleg Koppelpunt"
+
+msgid "PBKDF2 Iterations"
+msgstr "PBKDF2 Iterasies"
+
+msgid "Primary Cache"
+msgstr "Primêre Cache"
+
+msgid "Record Size"
+msgstr ""
+
+msgid "Redundant Metadata"
+msgstr "Oorbodige Metadata"
+
+msgid "Refquota"
+msgstr "Refquota"
+
+msgid "Refquota Type"
+msgstr ""
+
+msgid "Refreservation"
+msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr ""
+
+msgid "Relatime"
+msgstr ""
+
+msgid "Reservation Type"
+msgstr ""
+
+msgid "Secondary Cache"
+msgstr "Sekondêre Cache"
+
+msgid "Setuid"
+msgstr ""
+
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
+
+msgid "Threshold Small Block Size"
+msgstr ""
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
+
+msgid "Volume Mode"
+msgstr "Volume Modus"
+
+msgid "Volume Size"
+msgstr "Volume Grootte"
+
+msgid "Virus Scan"
+msgstr ""
+
+msgid "The identifier reported as unknown by smartctl, including brackets."
+msgstr ""
+"Die identifiseerder berig as onbekend by smartctl, insluitend hakies."
+
+msgid "Enter Identifier"
+msgstr "Ingaan Identifiseerder"
+
+msgid "Enter smartctl pass-through type."
+msgstr "Ingaan smartctl slaag-deur tipe."
+
+msgid "Enter login name."
+msgstr "Ingaan login naam."
+
+msgid "Enter the full user name."
+msgstr "Ingaan die volle gebruiker naam."
+
+msgid "Full Name"
+msgstr "Volgrote Naam"
+
+msgid "Set user password."
+msgstr "Stel gebruiker wagwoord."
+
+msgid "Specify the user/account numeric id."
+msgstr "Spesifiseer die gebruiker/rekening numeriese id."
+
+msgid "The recommended range for the user id is between 1000 and 32000."
+msgstr "Die aanbevole reeks vir die gebruiker ID is tussen 1000 en 32000."
+
+msgid "1000"
+msgstr "1000"
+
+msgid "Set user login shell."
+msgstr "Stel gebruiker aanmeld skulp in."
+
+msgid "No Login"
+msgstr "Geen Login"
+
+msgid "scponly - Secure Copy Protocol only"
+msgstr "scponly - Veilige Kopie Protokol slegs"
+
+msgid "sh - Bourne Shell"
+msgstr "sh - Bourne Shell"
+
+msgid "bash - Bourne Again Shell"
+msgstr "bash - Bourne Again Shell"
+
+msgid "csh - C Shell"
+msgstr "csh - C Shell"
+
+msgid "tcsh - TENEX C Shell"
+msgstr "tcsh - TENEX C Shell"
+
+msgid "Set the account's primary group."
+msgstr "Stel primêre groep die rekening se."
+
+msgid "Add user to additional groups."
+msgstr "Voeg gebruiker by bykomende groepe."
 
 msgid ""
-"Used/Avail lists storage information after all redundancy is taken into "
-"account but is impacted by compression, deduplication and quotas. Alloc/Free "
-"lists the raw storage information of a pool."
+"Enter the path to the home directory of the user. Leave this field empty to "
+"use default path /mnt."
 msgstr ""
-"Gebruikde/Avail lyste stooring inligting na alle oortolligheid is in ag "
-"geneem word maar is impakde deur kompressie, deduplicatie en kwotas. "
-"Alloc/Gratis lyste die rou stoor inligting van 'n poel."
+"Ingaan die pad om die tuisgids van die gebruiker. Laat hierdie veld leeg om "
+"te gebruik verstek pad /mnt."
 
-msgid "Read on-disk configuration."
-msgstr "Lees op-skyf konfigurasie."
+msgid "/mnt"
+msgstr "/mnt"
 
-msgid ""
-"Reading the configuration from the disks is slower than reading from cache "
-"file."
-msgstr ""
-"Dit is stadiger om die konfigurasie vanaf die skywe te lees as om uit die "
-"kaslêer te lees."
+msgid "User portal permission."
+msgstr "Gebruiker portaal toestemming."
 
-msgid "Set the warning threshold to a value between 80 and 89."
-msgstr "Stel die waarskuwings drempel op 'n waarde tussen 80 en 89."
+msgid "No access to the user portal"
+msgstr "Geen toegang tot die gebruiker portaal"
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the warning "
-"threshold."
-msgstr ""
-"'N waarskuwing e-pos gestuur word wanneer die kapasiteit van 'n swembad die "
-"waarskuwing drumpel oorskry."
+msgid "User access"
+msgstr "Gebruiker toegang"
 
-msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr ""
-"'N Cron werk moet wees opstel om skrip te skeduleer /etc/capacitycheck.zfs."
+msgid "Admin access"
+msgstr "Admin toegang"
 
-msgid "Must be a number between 80 and 89."
-msgstr "Moet 'n getal tussen 80 en 89 wees."
+msgid "Select the language of the user portal for this user."
+msgstr "Selekteer die taal van die gebruiker portaal vir hierdie gebruiker."
 
-msgid "Set the critical threshold to a value between 90 and 95."
-msgstr "Stel die kritieke drempel op 'n waarde tussen 90 en 95."
-
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the critical "
-"threshold."
-msgstr ""
-"'N waarskuwing e-pos gestuur word wanneer die kapasiteit van 'n swembad die "
-"kritieke drumpel oorskry."
-
-msgid "Must be a number between 90 and 95."
-msgstr "Moet 'n getal tussen 90 en 95 wees."
-
-msgid "No ZFS volume information available."
-msgstr "Geen ZFS volume inligting beskikbarr."
-
-msgid "No ZFS zpool information available."
-msgstr "Geen ZFS zpoel inligting beskibarr."
-
-msgid "Selected..."
-msgstr "Geselekteerde..."
-
-msgid "Directory"
-msgstr "Directory"
-
-msgid "Modified"
-msgstr "Gemodifiseerde"
-
-msgid "Parent Directory"
-msgstr "Ouer Directory"
-
-msgid "You are not allowed to use this function."
-msgstr "Jy word nie toegelaat om hierdie function te gebruik."
-
-msgid "Copy item(s)"
-msgstr "Kopieer item (s)"
-
-msgid "Move item(s)"
-msgstr "Skuif item(s)"
-
-#, php-format
-msgid "Copy from /%s to /%s "
-msgstr "Kopieer vanaf /%s om /%s "
-
-#, php-format
-msgid "Move from /%s to /%s "
-msgstr "Skuif vanaf /%s to /%s "
-
-msgid "Copy"
-msgstr "Kopieër"
-
-msgid "Move"
-msgstr "Skuif"
-
-msgid "The target directory doesn't exist."
-msgstr "Die teikengids bestaan nie."
-
-msgid "You are not allowed to access the target directory."
-msgstr "Jy word nie toegelaat om toegang tot die teiken gids."
-
-msgid "The target directory may not be above the home directory."
-msgstr "Die teikengids is moontlik nie bokant die tuisgids nie."
-
-msgid "You must supply a name."
-msgstr "Jy moet 'n naam verskaf."
-
-msgid "This item doesn't exist."
-msgstr "Hierdie item bestaan nie."
-
-msgid "You are not allowed to access this item."
-msgstr "Jy word nie toegelaat om toegang tot hierdie item."
-
-msgid "The target item already exists."
-msgstr "Die teiken item bestaan ​​reeds."
-
-msgid "Copying failed."
-msgstr "Kopiëring het misluk."
-
-msgid "Moving failed."
-msgstr "Beweeg het misluk."
-
-msgid "File saving failed."
-msgstr "Lêer besparing mislukte."
-
-msgid "This file doesn't exist."
-msgstr "Hierdie lêer bestaan nie."
-
-msgid "You are not allowed to access this file."
-msgstr "Jy word nie toegelaat om toegang tot hierdie lêer."
-
-msgid "This item already exists."
-msgstr "Hierdie item bestaan reeds."
-
-msgid "File opening failed."
-msgstr "Lêer ooping mislukte."
-
-msgid "Edit file"
-msgstr "Wysig lêer"
-
-msgid "Wrap text:"
-msgstr "Omvou teks:"
-
-msgid "Reset"
-msgstr "Herstel"
-
-msgid "Close"
-msgstr "Sluit"
-
-msgid "Deleting failed."
-msgstr "Skrap tans misluk."
-
-msgid "Unable to open source directory."
+msgid "Select the timezone for this user."
 msgstr ""
 
-msgid "Unable to open directory."
-msgstr "Kan die gids nie oopmaak nie."
+msgid "Grant access to the file manager."
+msgstr "Verleen toegang tot die lêer bestuurder."
 
-msgid "Unable to read directory."
-msgstr "Kan die gids nie lees nie."
+msgid "Show hidden items"
+msgstr "Wys verborge items"
 
-msgid "Executable File"
-msgstr "Uitvoerbare lêer"
+msgid "Grant read permission"
+msgstr "Grant gelees toestemming-"
 
-msgid "Link"
-msgstr "Skakel"
+msgid "Grant create permission"
+msgstr "Verleen skep toestemming"
 
-msgid "Text File"
-msgstr "Teks Lêer"
+msgid "Grant modify permission"
+msgstr "Verleen modifiseer-toestemming"
 
-msgid "PHP Script"
-msgstr "PHP Script"
+msgid "Grant delete permission"
+msgstr "Verleen -skrap toestemming"
 
-msgid "SQL File"
-msgstr "SQL Lêer"
+msgid "Add User Account"
+msgstr "Voeg Gebruiker Rekening"
 
-msgid "PERL Script"
-msgstr "PERL Script"
+msgid "Edit User Account"
+msgstr "Redigeer Gebruiker's Rekening"
 
-msgid "HTML Page"
-msgstr "HTML Bladsy"
+msgid "User account is marked for deletion"
+msgstr "Gebruiker rekening is gemerk vir skrap"
 
-msgid "XML File"
-msgstr "XML Lêer"
+msgid "User account is protected"
+msgstr "Gebruiker rekening is beskerm"
 
-msgid "Javascript File"
-msgstr "Javascript Lêer"
+msgid "User account is unlocked"
+msgstr "Gebruiker rekening is ontslot"
 
-msgid "CSS File"
-msgstr "CSS Lêer"
+msgid "Set password"
+msgstr "Stel wagwoord"
 
-msgid "CGI Script"
-msgstr "CGI Skrif"
+msgid "Delete Selected User Accounts"
+msgstr "Skrap Geselekteerde Gebruiker Rekeninge"
 
-msgid "Python Script"
-msgstr "Python Script"
+msgid "Do you want to delete selected user accounts?"
+msgstr "Wil jy die geselekteerde gebruiker's rekeninge skrap?"
 
-msgid "Shell Script"
-msgstr "Shell Script"
+msgid "Disable Selected Users"
+msgstr "Deaktiveer Geselekteerde Gebruikers"
 
-msgid "C File"
-msgstr "C Lêer"
+msgid "Do you want to disable selected users?"
+msgstr "Wil jy geselekteerde gebruikers deaktiveer?"
 
-msgid "C++ Source File"
-msgstr "C++ Bron Lêer"
+msgid "Enable Selected Users"
+msgstr "Inskakel Geselekteerde Gebruikers"
 
-msgid "C++ Header File"
-msgstr "C ++ Koptekst Lêer"
+msgid "Do you want to enable selected users?"
+msgstr "Wil jy geselekteerde gebruikers inskakel?"
 
-msgid "Java Source File"
-msgstr "Java Bron Lêer"
+msgid "Toggle Selected Users"
+msgstr "Toggle Geselekteerde Gebruikers"
 
-msgid "Java Class File"
-msgstr "Java Klas Lêer"
-
-msgid "Pascal File"
-msgstr "Pascal Lêer"
-
-msgid "GIF Image"
-msgstr "GIF Beeld"
-
-msgid "JPG Image"
-msgstr "JPG Beeld"
-
-msgid "BMP Image"
-msgstr "BMP Beeld"
-
-msgid "PNG Image"
-msgstr "PNG Beeld"
-
-msgid "TIF Image"
-msgstr "TIF Beeld"
-
-msgid "Photoshop File"
-msgstr "Fotowinkel Lêer"
-
-msgid "ZIP Archive"
-msgstr "Zip Argief"
-
-msgid "TAR Archive"
-msgstr "TAR Argief"
-
-msgid "GZIP Archive"
-msgstr "GZIP Argief"
-
-msgid "BZIP2 Archive"
-msgstr "BZIP2 Argief"
-
-msgid "RAR Archive"
-msgstr "RAR Argief"
-
-msgid "MP3 Audio File"
-msgstr "MP3 Oudio Lêer"
-
-msgid "FLAC Audio File"
-msgstr "FLAC Oudio Lêer"
-
-msgid "WAV Audio File"
-msgstr "WAV Oudio Lêer"
-
-msgid "MIDI File"
-msgstr "MIDI Lêer"
-
-msgid "RealAudio File"
-msgstr "WerklikeOudio Lêer"
-
-msgid "DTS Audio File"
-msgstr "DTS Oudio Lêer"
-
-msgid "AC3 Audio File"
-msgstr "AC3 Oudio Lêer"
-
-msgid "OGG Audio File"
-msgstr "OGG Oudio Lêer"
-
-msgid "MP3 Playlist"
-msgstr "MP3 Snitlys"
-
-msgid "AVI File"
-msgstr "AVI Lêer"
-
-msgid "MPEG File"
-msgstr "MPEG Lêer"
-
-msgid "MOV File"
-msgstr "MOV Lêer"
-
-msgid "MKV File"
-msgstr "MKV Lêer"
-
-msgid "VOB File"
-msgstr "VOB Lêer"
-
-msgid "Flash File"
-msgstr "Flits Lêer"
-
-msgid "MP4 File"
-msgstr "MP4 Lêer"
-
-msgid "TS File"
-msgstr "TS Lêer"
-
-msgid "Word Document"
-msgstr "Woord Dokument"
-
-msgid "Excel Sheet"
-msgstr "Excel Laken"
-
-msgid "Powerpoint Presentation"
-msgstr "powerpoint aanbieding"
-
-msgid "PDF File"
-msgstr "PDF Lêer"
-
-msgid "You haven't selected any item(s)."
-msgstr "Jy het nie 'n item (s) gekies."
-
-msgid "ERROR(S)"
-msgstr "FOUT(S)"
-
-msgid "Go Back"
-msgstr "Gaan Terug"
-
-msgid "Directory creation failed."
-msgstr "Directory skepping misluk."
-
-msgid "File creation failed."
-msgstr "Lêer skepping mislukte."
-
-msgid "Extracting"
-msgstr "Ekstraksies"
-
-msgid "Unzip"
-msgstr "Unzip"
-
-msgid "Failed to extract archive."
-msgstr "Kon nie argief onttrek nie."
-
-msgid "Are you sure you want to delete selected item(s)?"
-msgstr "Is jy seker dat jy die geselekteerde item(s) wil skrap?"
-
-msgid "Search Directory"
-msgstr "Soektog Gids"
-
-msgid "Search Filter"
-msgstr "Soektog Filtreer"
-
-msgid "Search subfolder"
-msgstr ""
-
-#, php-format
-msgid "Search Result for %1$s"
-msgstr "Soektog Resultaat vir %1$s"
-
-msgid "Item(s)"
-msgstr "Item(s)"
-
-msgid "No results available."
-msgstr "Geen resultate beskikbaar."
-
-msgid "HOME"
-msgstr "TUISTE"
-
-msgid "Permission-change failed."
-msgstr "Toestemming-verander mislukte."
-
-msgid "Getting permissions failed."
-msgstr "Kry tans toestemminge mislukte."
-
-msgid "Change permissions"
-msgstr "Verandering toestemmings"
-
-msgid "Public"
-msgstr "Publieke"
-
-msgid "CHANGE PERMISSIONS"
-msgstr "VERANDERINGS PERMISSIES"
-
-msgid "You are not allowed to access this directory."
-msgstr "Jy word nie toegelaat om toegang tot hierdie gids."
-
-msgid "UP"
-msgstr "UP"
-
-msgid "RELOAD"
-msgstr "HERLAAI"
-
-msgid "SEARCH"
-msgstr "SOEK"
-
-msgid "Permissions"
-msgstr "Machtigingen"
-
-msgid "Actions"
-msgstr "Aksies"
-
-msgid "COPY"
-msgstr "KOPIE"
-
-msgid "MOVE"
-msgstr "BEWEEG"
-
-msgid "DELETE"
-msgstr "SKRAP"
-
-msgid "EDIT"
-msgstr "WYSIG"
-
-msgid "UNZIP"
-msgstr "UNZIP"
-
-msgid "DOWNLOAD"
-msgstr "AFLAAI"
-
-msgid "The following errors were detected"
-msgstr "Die volgende foute is opgespoor"
-
-msgid ""
-"If this message persists take a look at the system log for more information."
-msgstr ""
-"As hierdie boodskap voortduur, kyk na die stelsellogboek vir meer inligting."
-
-msgid "Choose..."
-msgstr "Kies..."
-
-msgid "Running"
-msgstr ""
+msgid "Do you want to toggle selected users?"
+msgstr "Doen jy wil geselekteerde gebruikers toggle?"
 
 msgid "Active"
 msgstr "Aktiewe"
 
-msgid "Inactive"
-msgstr "Onaktief"
+msgid "System User"
+msgstr "Stelsel Gebruiker"
 
-msgid "Online"
-msgstr "Aanlyn"
+msgid "Show System Users"
+msgstr "Wys Stelsel Gebruikers"
 
-msgid "Offline"
-msgstr "Aflyn"
+msgid "Hide System Users"
+msgstr "Steek Stelsel Gebruikers"
 
-msgid "No records found."
-msgstr "Geen rekords gevind."
+msgid "Users"
+msgstr "Gebruikers"
 
-msgid "Apply Changes"
-msgstr "Toepas Veranderinge"
+msgid "Public Keys"
+msgstr "Publiek Sleutels"
+
+msgid "Groups"
+msgstr "Groepe"
+
+msgid "Login Name"
+msgstr "Login Naam"
+
+msgid "SHA Password"
+msgstr "SHA Wagwoord"
+
+msgid "MD4 Password"
+msgstr "MD4 Wagwoord"
+
+msgid "Shell"
+msgstr "Tolk"
+
+msgid "Primary Group"
+msgstr "Primêre Groep"
+
+msgid "Timezone"
+msgstr ""
+
+msgid "File Manager Access"
+msgstr "Lêer Bestuurder Toegang"
+
+msgid "Hidden Items"
+msgstr "Versteek Items"
+
+msgid "Read Permission"
+msgstr "Lees Toestemming"
+
+msgid "Create Permission"
+msgstr "Skep Toestemming"
+
+msgid "Change Permission"
+msgstr "Verandering Toestemming"
+
+msgid "Delete Permission"
+msgstr "Skrap Toestemming"
+
+msgid "Public key information."
+msgstr "Publiek sleutel inligting."
+
+msgid "Public Key"
+msgstr "Publiek Sleutel"
+
+msgid "Add Public Key"
+msgstr "Voeg Openbare Sleutel"
+
+msgid "Edit Public Key"
+msgstr "Wysig Openbare Sleutel"
+
+msgid "Public key is marked for deletion"
+msgstr "Publiek sleutel is gemerk vir skrap"
+
+msgid "Public key is protected"
+msgstr "Publiek sleutel is beskerm"
+
+msgid "Public key is unlocked"
+msgstr "Publiek sleutel is ontgeslot"
+
+msgid "Delete Selected Public Keys"
+msgstr "Skrap Geselekteerde Openbare Sleutels"
+
+msgid "Do you want to delete selected public keys?"
+msgstr "Wil jy geselekteerde openbare sleutels skrap?"
+
+msgid "Disable Selected Public Keys"
+msgstr "Deaktiveer Geselekteerde Openbare Sleutels"
+
+msgid "Do you want to disable selected public keys?"
+msgstr "Wil jy geselekteerde openbare sleutels deaktiveer?"
+
+msgid "Enable Selected Public Keys"
+msgstr "Inskakel Geselekteerde Openbare Sleutels"
+
+msgid "Do you want to enable selected public keys?"
+msgstr "Wil jy geselekteerde openbare sleutels Inskakel?"
+
+msgid "Toggle Selected Public Keys"
+msgstr "Toggle Geselekteerde Publiek Sleutels"
+
+msgid "Do you want to toggle selected public keys?"
+msgstr "Doen jy wil geselekteerde openbare sleutels toggle?"
 
 msgid "Reload"
 msgstr "Herlaai"
 
+msgid "Add Group"
+msgstr "Voeg Groep"
+
+msgid "Edit Group"
+msgstr "Redigeer Groep"
+
+msgid "Group is marked for deletion"
+msgstr "Groep is gemerk vir skrapping"
+
+msgid "Group is protected"
+msgstr "Groep is beskerm"
+
+msgid "Group is unlocked"
+msgstr "Groep is ontsluit"
+
+msgid "Delete Selected Groups"
+msgstr "Skrap Geselekteerde Groepe"
+
+msgid "Do you want to delete selected groups?"
+msgstr "Wil jy die geselekteerde groepe skrap?"
+
+msgid "Disable Selected Groups"
+msgstr "Deaktiveer Geselekteerde Groepe"
+
+msgid "Do you want to disable selected groups?"
+msgstr "Wil jy geselekteerde groepe deaktiveer?"
+
+msgid "Enable Selected Groups"
+msgstr "Inskakel Geselekteerde Groepe"
+
+msgid "Do you want to enable selected groups?"
+msgstr "Wil jy geselekteerde groepe inskakel?"
+
+msgid "Toggle Selected Groups"
+msgstr "Toggle Geselekteerde Groepe"
+
+msgid "Do you want to toggle selected groups?"
+msgstr "Doen jy wil geselekteerde groepe toggle?"
+
+msgid "System Group"
+msgstr "Stelsel Groep"
+
+msgid "Show System Groups"
+msgstr "Wys Stelsel Groepe"
+
+msgid "Hide System Groups"
+msgstr "Versteek Stelsel Groepe"
+
+msgid "Enter group name."
+msgstr "Ingaan groep naam."
+
+msgid "Group Name"
+msgstr "Groep Naam"
+
+msgid "Specify the group numeric id."
+msgstr "Spesifiseer die groep numeriese id."
+
+msgid "The recommended range for the group id is between 1000 and 32000."
+msgstr "Die aanbevole reeks vir die groep ID is tussen 1000 en 32000."
+
+msgid "Domain Controller Name"
+msgstr "Domein Kontroleerder Naam"
+
+msgid "Domain Name (DNS/Realm-Name)"
+msgstr "Domein Naam (DNS/Realm-Naam)"
+
+msgid "Domain Name (NetBIOS-Name)"
+msgstr "Domein Naam (NetBIOS-Naam)"
+
+msgid "Administrator Name"
+msgstr "Administrateur Naam"
+
+msgid "Administrator Password"
+msgstr "Administrateurwagwoord"
+
+msgid "Enter AD or PDC name."
+msgstr "Voer AD of PDC naam in."
+
+msgid "Controller Name"
+msgstr "Beheerdernaam"
+
+msgid "Enter the domain name."
+msgstr "Voer die domein naam in."
+
+msgid "example.com"
+msgstr ""
+
+msgid "Enter NetBIOS name."
+msgstr "Voer NetBIOS naam in."
+
+msgid "NETBIOS"
+msgstr "NETBIOS"
+
+msgid "Enter user name of a domain administrator account."
+msgstr "Voer 'n gebruikernaam van 'n domein administrator rekening in."
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Enter the password of the domain administrator account."
+msgstr "Voer die wagwoord van die domein administrator rekening in."
+
+msgid "Add Reboot Schedule"
+msgstr "Voeg Herlaai Skedule By"
+
+msgid "Edit Reboot Schedule"
+msgstr "Redigeer Herlaai Skedule"
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
+msgid "Delete Selected Reboot Schedules"
+msgstr "Vee Gekose Herlaai Skedules Uit"
+
+msgid "Do you want to delete selected reboot schedules?"
+msgstr "Wil jy die gekose herlaai skedules uitvee?"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr "Deaktiveer Gekose Herlaai Skedules"
+
+msgid "Do you want to disable selected reboot schedules?"
+msgstr "Wil jy die gekose herlaai skedules deaktiveer?"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr "Aktiveer Gekose Herlaai Skedules"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr "Wil jy die gekose skedules aktiveer?"
+
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr "Wil jy die gekose herlaai skedules wissel?"
+
+msgid "Daemon Events"
+msgstr "Daemon Gebeurtenise"
+
+msgid "Enable Server"
+msgstr "Inskakel Bediener"
+
+msgid "FTP Events"
+msgstr "FTP Gebeurtenise"
+
+msgid "RSYNC Events"
+msgstr "RSYNC Gebeure"
+
+msgid "S.M.A.R.T. Events"
+msgstr "S.M.A.R.T. Gebeurtenise"
+
+msgid "SSH Events"
+msgstr "SSH Gebeure"
+
+msgid "System Events"
+msgstr "Stelsel Gebeure"
+
+msgid "Send daemon event messages."
+msgstr "Stuur daemon gebeurtenis boodskappe."
+
+msgid "Send FTP event messages."
+msgstr "Stuur FTP gebeurtenis boodskappe."
+
+msgid "IP address of the remote syslog server."
+msgstr "IP adres van die afgeleë syslog bediener."
+
+msgid ""
+"Port of the remote syslog server. Leave blank to use the default port."
+msgstr ""
+"Port van die afgeleë syslog bediener. Laat leeg om die verstek poort te "
+"gebruik."
+
+msgid ""
+"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
+"server. Be sure to set syslogd on the remote server to accept syslog "
+"messages from this server."
+msgstr ""
+"Syslog stuur UDP datagramme na poort 514 na die spesifieke afgeleë syslog "
+"bediener. Wees net seker om syslogd in te stel op die afgeleë bediener om "
+"syslog boodskappe te aanvaar van hierdie bediener."
+
+msgid "514"
+msgstr "514"
+
+msgid "Port number must be 514 or a number between 1024 and 65535."
+msgstr "Poortnommer moet 514 of 'n getal tussen 1024 en 65535 wees."
+
+msgid "Send RSYNC event messages."
+msgstr "Stuur RSYNC gebeurtenis boodskappe."
+
+msgid "Send S.M.A.R.T. event messages."
+msgstr "Stuur S.M.A.R.T. gebeurtenis boodskappe."
+
+msgid "Send SSH event messages."
+msgstr "Stuur SSH gebeurtenis boodskappe."
+
+msgid "Send system event messages."
+msgstr "Stuur stelsel gebeurtenis boodskappe."
+
+msgid "Disable the compression of repeating lines."
+msgstr "Deaktiveer die kompressie van herhalende lyne."
+
+msgid "Accept remote syslog messages."
+msgstr "Aanvaar afgeleë syslog boodskappe."
+
+msgid ""
+"If this option is checked, IP addresses in the server logs are resolved to "
+"their hostnames where possible."
+msgstr ""
+"As hierdie opsie gekies word, dan word IP adresse in die bediener registers "
+"opgelos to hul gasheer name waarook moontlik"
+
+msgid "This can cause a huge delay in loading the log page!"
+msgstr ""
+"Hierie kan 'n groot vertraaging veroorsaak terwyl die aanmelding bladsy "
+"gelaai word!"
+
+msgid "Show log entries in reverse order (newest entries on top)."
+msgstr ""
+"Vertoon register inskrywings in omgekeerde orde (nuutste inskrywings bo)"
+
+msgid "Remote Syslog Messages"
+msgstr "Afgeleë Syslog Boodskappe"
+
+msgid "Show Log Entries"
+msgstr "Wys Log Inskrywings"
+
+msgid "Log Order"
+msgstr "Log Orde"
+
+msgid "Facility"
+msgstr "Fasiliteit"
+
+msgid "Add Option"
+msgstr "Voeg Opsie"
+
+msgid "Edit Option"
+msgstr "Opsie Wysig"
+
+msgid "Option is marked for deletion"
+msgstr "Opsie gemerk vir skrap"
+
+msgid "Option is locked"
+msgstr "Opsie is toegeslot"
+
+msgid "Option is unlocked"
+msgstr "Opsie is ontslot"
+
+msgid "Delete Selected Options"
+msgstr "Vee Geselekteerde Opsies Uit"
+
+msgid "Do you want to delete selected options?"
+msgstr "Wil jy geselekteerde opsies skrap?"
+
+msgid "Disable Selected Options"
+msgstr "Deaktiveer Geselekteerde Opsies"
+
+msgid "Do you want to disable selected options?"
+msgstr "Wil jy die geselekteerde opsies deaktiveer?"
+
+msgid "Enable Selected Options"
+msgstr "Inskakel Geselekteerde Opsie"
+
+msgid "Do you want to enable selected options?"
+msgstr "Wil jy die geselekteerde opsies inskakel?"
+
+msgid "Toggle Selected Options"
+msgstr "Toggle Geselekteerde Opsie"
+
+msgid "Do you want to toggle selected options?"
+msgstr "Doen jy wil geselekteerde opsies toggle?"
+
+msgid "Enter facility name"
+msgstr "Ingaan fasiliteit naam"
+
+msgid "Enter level name"
+msgstr "Ingaan vlak naam"
+
+msgid "Enter destination"
+msgstr "Ingaan bestemming"
+
+msgid "Sort"
+msgstr "Sorteer"
+
 msgid "Reorder"
 msgstr "Herbestel"
 
-msgid "Rescan"
-msgstr "Her-tasting"
+msgid "Add Command"
+msgstr "Voeg Bevel"
 
-msgid "Restart"
-msgstr "Herbegin"
+msgid "Edit Command"
+msgstr "Redigeer Bevel"
 
-msgid "Add VLAN"
-msgstr "Voeg VLAN"
+msgid "Command is marked for deletion"
+msgstr "Bevel is gemerk vir skrap"
 
-msgid "Edit VLAN"
-msgstr "Wysig VLAN"
+msgid "Command is locked"
+msgstr "Bevel is toegesluit"
 
-msgid "VLAN is marked for deletion"
-msgstr "VLAN is gemerk vir skrap"
+msgid "Command is unlocked"
+msgstr "Bevel is oopgesluit"
 
-msgid "VLAN is locked"
-msgstr ""
+msgid "Delete Selected Commands"
+msgstr "Skrap Geselekteerde Bevele"
 
-msgid "VLAN is unlocked"
-msgstr "VLAN is ontgeslot"
+msgid "Do you want to delete selected commands?"
+msgstr "Wil jy die geselekteerde bevelle uitvee?"
 
-msgid "Delete Selected VLANs"
-msgstr "Skrap Geselekteerde VLANs"
+msgid "Disable Selected Commands"
+msgstr "Deaktiveer Geselekteerde Bevelle"
 
-msgid "Disable Selected VLANs"
-msgstr "Deaktiveer Gekose VLANs"
+msgid "Do you want to disable selected commands?"
+msgstr "Wil jy die geselekteerde bevelle deaktiveer?"
 
-msgid "Enable Selected VLANs"
-msgstr "Aktiveer Gekose VLANs"
+msgid "Enable Selected Commands"
+msgstr "Inskakel Geselekteerde Bevel"
 
-msgid "Toggle Selected VLANs"
-msgstr ""
+msgid "Do you want to enable selected commands?"
+msgstr "Wil jy die geselekteerde bevelle aktiveer?"
 
-msgid "Do you want to delete selected VLANs?"
-msgstr "Wil jy geselekteerde VLAN's skrap?"
+msgid "Toggle Selected Commands"
+msgstr "Toggle Geselekteerde Bevele"
 
-msgid "Do you want to disable selected VLANs?"
-msgstr "Wil jy die gekose VLANs deaktiveer?"
-
-msgid "Do you want to enable selected VLANs?"
-msgstr "Wil jy die gekose lêerstelsels aktiveer?"
-
-msgid "Do you want to toggle selected VLANs?"
-msgstr "Wil jy die gekose VLANs wissel?"
-
-msgid "The name of the VLAN interface"
-msgstr ""
-
-msgid "vlan0"
-msgstr ""
-
-msgid "802.1Q VLAN tag (between 1 and 4094)."
-msgstr "802.1Q VLAN tag (tussen 1 en 4094)."
-
-msgid "102"
-msgstr "102"
+msgid "Do you want to toggle selected commands?"
+msgstr "Doen jy wil geselekteerde opdragte toggle?"
 
 msgid ""
-"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
-"class of service and maps to the frame priority level."
+"These commands will be executed pre or post system initialization (booting) "
+"or before system shutdown."
+msgstr ""
+"Die bevelle sal uitgevoer word pre of post die stelsel inisialisering "
+"(selflaai) of voor die stelsel afskakeling."
+
+msgid "Post Upgrade"
+msgstr "Post Opgradering"
+
+msgid "Name of the command."
+msgstr "Naam van die bevel."
+
+msgid "The command to be executed."
+msgstr "Die bevel kon nie uitgevoer word nie."
+
+msgid "Select at which stage the command should be executed."
+msgstr "Selekteer op watter stadium die bevel uitgevoer moet word."
+
+msgid "Add sysctl setting"
+msgstr "Voeg sysctl instelling"
+
+msgid "Edit sysctl setting"
+msgstr "Wysig sysctl instelling"
+
+msgid "Sysctl setting is marked for deletion"
+msgstr "Sysctl instelling is gemerk vir skrap"
+
+msgid "Sysctl setting is locked"
+msgstr "Sysctl instelling is toegeslot"
+
+msgid "Sysctl setting is unlocked"
+msgstr "Sysctl instelling is ontgeslot"
+
+msgid "Delete Selected Sysctl Settings"
+msgstr "Skrap Geselekteerde Sysctl Instellings"
+
+msgid "Do you want to delete selected sysctl settings?"
+msgstr "Wil jy geselekteerde sysctl instellings te skrap?"
+
+msgid "Disable Selected Sysctl Settings"
+msgstr "Deaktiveer Geselekteerde Sysctl Instellings"
+
+msgid "Do you want to disable selected sysctl settings?"
+msgstr "Wil jy geselekteerde stelsel instellings deaktiveer?"
+
+msgid "Enable Selected Sysctl Settings"
+msgstr "Inskakel Geselekteerde Sysctl Instellings"
+
+msgid "Do you want to enable selected sysctl settings?"
+msgstr "Wil jy geselekteerde stelsel instellings inskakel?"
+
+msgid "Toggle Selected Sysctl Settings"
+msgstr "Toggle Geselekteerde Sysctl Instellings"
+
+msgid "Do you want to toggle selected sysctl settings?"
+msgstr "Doen jy wil geselekteerde stelsel instellings toggle?"
+
+msgid ""
+"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
+"make changes to a running system."
+msgstr ""
+"Hierdie sysctl veranderlikes sal bygevoeg word om /etc/sysctl.conf. Dit laat "
+"jou toe om veranderinge aan 'n hardloop stelsel maak."
+
+msgid "The value of the setting."
+msgstr "Die waarde van die instelling."
+
+msgid "Variable"
+msgstr "Veranderlike"
+
+msgid "Destination Network"
+msgstr "Bestemming Netwerk"
+
+msgid "Choose which interface this route applies to."
+msgstr "Kies vir watter koppelvlak hierdie roete geld."
+
+msgid "Destination network for this static route."
+msgstr "Bestemming netwerk vir hierdie statiese roete."
+
+msgid "Gateway to be used to reach the destination network."
+msgstr "Gateway om wees gebruiked te bereik die bestemming netwerk."
+
+msgid "Add Route"
+msgstr "Voeg Roete"
+
+msgid "Edit Route"
+msgstr "Redigeer Roete"
+
+msgid "Route is marked for deletion"
+msgstr "Roete is gemerk vir skrap"
+
+msgid "Route is locked"
+msgstr "Roete is toegeslot"
+
+msgid "Route is unlocked"
+msgstr "Roete is ontgeslot"
+
+msgid "Delete Selected Routes"
+msgstr "Skrap Geselekteerde Roetes"
+
+msgid "Do you want to delete selected routes?"
+msgstr "Wil jy geselekteerde roetes skrap?"
+
+msgid "Disable Selected Routes"
+msgstr "Deaktiveer Geselekteerde Roetes"
+
+msgid "Do you want to disable selected routes?"
+msgstr "Wil jy geselekteerde roetes deaktiveer?"
+
+msgid "Enable Selected Routes"
+msgstr "Inskakel Geselekteerde Roetes"
+
+msgid "Do you want to enable selected routes?"
+msgstr "Wil jy geselekteerde roetes Inskakel?"
+
+msgid "Toggle Selected Routes"
+msgstr "Toggle Geselekteerde Roetes"
+
+msgid "Do you want to toggle selected routes?"
+msgstr "Doen jy wil geselekteerde roetes toggle?"
+
+msgid "Running user"
+msgstr "Hardlooping gebruiker"
+
+msgid "The name of the variable."
+msgstr "Die naam van die veranderlike."
+
+msgid "The value of the variable."
+msgstr "Die waarde van die veranderlike."
+
+msgid ""
+"These option(s) will be added to /boot/loader.conf.local. This allows you to "
+"specify parameters to be passed to the kernel and additional modules to be "
+"loaded."
+msgstr ""
+"Hierdie opsie (s) sal bygevoeg word /boot/loader.conf.local. Hiermee kan u "
+"parameters spesifiseer wat aan die kern oorgedra moet word en addisionele "
+"modules wat gelaai moet word."
+
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr "Gedeaktiveer veranderlike name sal wees verwyder vanaf /etc/rc.conf."
+
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr "Ingeskakel opsies sal bygevoeg word om /etc/rc.conf."
+
+msgid "Name of the variable."
+msgstr "Naam van die veranderlike."
+
+msgid "Enter Value"
+msgstr "Ingaan Waarde"
+
+msgid ""
+"Display action buttons in the scrollable area instead of the footer area."
+msgstr ""
+"Vertoon aksie knoppies in die scrollable area in plaas van die footer area."
+
+msgid "Fully qualified file name of a custom file chooser CSS file."
+msgstr ""
+"Volledig gekwalifiseerde lêernaam van 'n pasgemaakte lêer kiezer CSS lêer."
+
+msgid "Select file mode of the custom file chooser CSS file."
+msgstr "Selekteer lêer modus van die pasgemaakte lêer kies CSS lêer."
+
+msgid "Replace the default CSS file"
+msgstr "Vervang die verstek CSS lêer"
+
+msgid "Append content to the default CSS file"
+msgstr "Append inhoud tot die verstek CSS lêer"
+
+msgid "Fully qualified file name of a custom GUI CSS file."
+msgstr "Ten volle gekwalifiseerde lêernaam van 'n pasgemaakte GUI CSS lêer."
+
+msgid "Select file mode of the custom GUI CSS file."
+msgstr "Selekteer lêer modus van die pasgemaakte GUI CSS lêer."
+
+msgid "Fully qualified file name of a custom navigation bar CSS file."
+msgstr ""
+"Volledig gekwalifiseerde lêer naam van 'n pasgemaakte navigasie balk CSS "
+"lêer."
+
+msgid "Select file mode of the custom navigation bar CSS file."
+msgstr "Selekteer lêer modus van die pasgemaakte navigasie balk CSS lêer."
+
+msgid "Fully qualified file name of a custom tabs CSS file."
+msgstr ""
+"Volledig gekwalifiseerde lêernaam van 'n pasgemaakte oortjies CSS lêer."
+
+msgid "Select file mode of the custom tabs CSS file."
+msgstr "Selekteer lêermodus van die pasgemaakte oortjies CSS lêer."
+
+msgid "Use toggle button instead of enable/disable buttons."
+msgstr "Gebruik toggle knoppie in plaas van in staat stel/afskakel knoppies."
+
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+"Selekteer die vertoon modus van die top-vlak items in die navigasie balk."
+
+msgid "Show text only"
+msgstr "Wys teks slegs"
+
+msgid "Show symbol only"
+msgstr "Wys simbool slegs"
+
+msgid "Show symbol and text"
+msgstr "Wys simbool en teks"
+
+msgid ""
+"Display disk size values using binary prefixes instead of decimal prefixes."
+msgstr ""
+"Vertoon skyf grootte waardes behulp binêre voorvoegsels in plaas van "
+"desimale voorvoegsels."
+
+msgid "Enable this option if you want to display colorful meter states."
+msgstr "Inskakel hierdie opsie as jy wil kleurvolle meter state te vertoon."
+
+msgid ""
+"Enable this option if you want to edit configuration pages directly without "
+"the need to switch to edit mode."
+msgstr ""
+"Aktiveer hierdie opsie as jy wil wysig opset bladsye direk sonder die "
+"behoefte om oor te skakel na wysig af."
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr "Voer 'n getal in tussen 0 en 256 of laat die veld leeg."
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr ""
+"Beperk die maksimale aantal verwerkers wat op die sisteemoorsig vertoon mag "
+"word."
+
+msgid "Set the landing page for the Diagnostics > Information menu."
 msgstr ""
 
-msgid "Best effort (default)"
-msgstr "Beste poging (verstek)"
+msgid "Button Location"
+msgstr "Knoppie Ligging"
 
-msgid "Background (lowest)"
-msgstr "Agtergrond (laagste)"
+msgid "File Chooser"
+msgstr "Lêer Kiezer"
 
-msgid "Excellent effort"
-msgstr "Uitstekende poging"
+msgid "File Mode"
+msgstr "Lêer Modus"
 
-msgid "Critical applications"
-msgstr "Kritiese toepassings"
+msgid "GUI"
+msgstr "GUI"
 
-msgid "Video < 100ms latency"
+msgid "Navigation Bar"
+msgstr "Navigasie Balk"
+
+msgid "Tabs"
+msgstr "Oortjies"
+
+msgid "Toggle Mode"
+msgstr "Toggle Modus"
+
+msgid "Navbar Style"
+msgstr "Navbar Styl"
+
+msgid "Binary Prefix"
+msgstr "Binêre Voorvoegsel"
+
+msgid "Colorful Meters"
+msgstr "Kleurvolle Meters"
+
+msgid "Skip View Mode"
+msgstr "Slaan Uitsig Modus oor"
+
+msgid "Show Max CPUs"
 msgstr ""
 
-msgid "Video < 10ms latency"
+msgid "Diagnostics Information"
+msgstr "Diagnostiese Inligting"
+
+msgid "Show Interval"
+msgstr "Wys Interval"
+
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables the reminder."
+msgstr ""
+"Stel die aantal dae tot 'n herinnering is wys om rugsteun stelsel "
+"konfigurasie. Die verstek is 28 dae. 'N Waarde van 0 deaktiveer die "
+"herinnering."
+
+msgid "Network Address"
+msgstr "Netwerk Adres"
+
+msgid "Enter additional parameters"
+msgstr "Ingaan addisionele parameters"
+
+msgid "No additional parameters"
+msgstr "Geen bykomende parameters"
+
+msgid "Undefined"
+msgstr "Ongedefinieerd"
+
+msgid "The value is invalid."
+msgstr "Die waarde is ongeldig."
+
+msgid "Enter a description for your reference."
+msgstr "Sleutel 'n beskrywing vir jou verwysing in."
+
+msgid "Enable Setting"
+msgstr "Inskakel Instelling"
+
+msgid "IPv4 Address"
+msgstr "IPv4 Adres"
+
+msgid "Protect"
+msgstr "Beskerm"
+
+msgid "Protect Setting"
+msgstr "Beskerm Instelling"
+
+msgid "The UUID of the record."
+msgstr "Die UUID van die rekord."
+
+msgid "Enter Universally Unique Identifier"
+msgstr "Ingaan Universeel Unieke Identifiseerder"
+
+msgid "Universally Unique Identifier"
+msgstr "Universeel Unieke Identifiseerder"
+
+msgid "Delete Selected Records"
+msgstr "Skrap Geselekteerde Rekords"
+
+msgid "Do you want to delete selected records?"
+msgstr "Wil jy geselekteerde rekords skrap?"
+
+msgid "Disable Selected Records"
+msgstr "Deaktiveer Geselekteerde Rekords"
+
+msgid "Do you want to disable selected records?"
+msgstr "Wil jy geselekteerde rekords deaktiveer?"
+
+msgid "Enable Selected Records"
+msgstr "Inskakel Geselekteerde Rekord"
+
+msgid "Do you want to enable selected records?"
+msgstr "Wil jy geselekteerde rekords inskakel?"
+
+msgid "Lock Selected Records"
+msgstr "Slot Geselekteerde Rekords"
+
+msgid "Do you want to lock selected records?"
+msgstr "Wil jy geselekteerde rekords geslot?"
+
+msgid "Toggle Selected Records"
+msgstr "Toggle Geselekteerde Rekords"
+
+msgid "Do you want to toggle selected records?"
+msgstr "Doen jy wil geselekteerde rekords toggle?"
+
+msgid "Unlock Selected Records"
+msgstr "Ontslot Geselekteerde Rekords"
+
+msgid "Do you want to unlock selected records?"
+msgstr "Doen jy wil geselekteerde rekords ontsluit?"
+
+msgid "Add Record"
+msgstr "Voeg Rekord"
+
+msgid "Record is marked for deletion"
+msgstr "Rekord is gemerk vir skrap"
+
+msgid "Record Information"
+msgstr "Rekord Inligting"
+
+msgid "Record is protected"
+msgstr "Rekord word beskerm"
+
+msgid "Record Maintenance"
+msgstr "Rekord Onderhoud"
+
+msgid "Edit Record"
+msgstr "Redigeer Rekord"
+
+msgid "Record is unlocked"
+msgstr "Rekord is ontgeslot"
+
+msgid "Autodetect"
+msgstr "Outospeur"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
 msgstr ""
 
-msgid "Internetwork control"
-msgstr "Internetwerk kontrole"
-
-msgid "Network control (highest)"
-msgstr "Netwerk beheer (hoogste)"
-
-msgid "Set the VLAN encapsulation protocol."
+msgid "Select from predefined providers."
 msgstr ""
 
-msgid "802.1Q (default)"
-msgstr "802.1Q (verstek)"
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr "Voer 'n naam vir hierdie pasgemaakte DNS konfigurasie in."
 
-msgid "802.1ad (QinQ)"
-msgstr "802.1ad (QinQ)"
-
-msgid "VLAN Interface"
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
 msgstr ""
 
-msgid "VLAN Tag"
-msgstr "VLAN Etiket"
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
 
-msgid "PCP"
-msgstr "PCP"
+msgid "Hostnames"
+msgstr "Masjienname"
 
-msgid "Encapsulation Protocol"
-msgstr "Enkapsulering Protokol"
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+
+msgid "The password, if applicable."
+msgstr ""
+
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+"Aktiveer die gebruik van \"wildcards\" in die domein naam vir die DDNS "
+"verskaffers wat dit ondersteun."
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+
+msgid "Server to use for periodic IP address changes"
+msgstr ""
+
+msgid "api.ipify.org"
+msgstr ""
+
+msgid "Optional server path for check IP server"
+msgstr "Opsionele bedienerpad vir bediener wat IP nagaan"
+
+msgid "/"
+msgstr "/"
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
+
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+
+msgid "User agent string"
+msgstr ""
+
+msgid "DDNS server name, not the full URL."
+msgstr "DDNS bedienernaam, nie die volle URL nie."
+
+msgid "update.example.com"
+msgstr ""
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+"DDNS bedienerpad. By verstek word die bedienernaam by die pad bygevoeg, "
+"tensy append-myip gestel is."
+
+msgid "/update?domain="
+msgstr "/update?domain="
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr "Voeg die huidige IP by die DDNS bediener opdatering pad by."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
+
+msgid "These parameters will be added to this provider configuration"
+msgstr ""
+
+msgid "Add Provider"
+msgstr "Voeg Verskaffer By"
+
+msgid "Edit Provider"
+msgstr "Redigeer Verskaffer"
+
+msgid "Provider is marked for deletion"
+msgstr ""
+
+msgid "Provider is locked"
+msgstr ""
+
+msgid "Provider is unlocked"
+msgstr ""
+
+msgid "Delete Selected Providers"
+msgstr "Vee Gekose Verskaffers Uit"
+
+msgid "Disable Selected Providers"
+msgstr "Deaktiveer Gekose Verskaffers"
+
+msgid "Enable Selected Providers"
+msgstr "Aktiveer gekose verskaffers"
+
+msgid "Toggle Selected Providers"
+msgstr ""
+
+msgid "Do you want to delete selected providers?"
+msgstr "Wil jy die gekose verskaffers uitvee?"
+
+msgid "Do you want to disable selected providers?"
+msgstr "Wil jy die gekose verskaffers deaktiveer?"
+
+msgid "Do you want to enable selected providers?"
+msgstr "Wil jy die gekose herlaai skedules aktiveer?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "Wil jy die gekose verskaffers wissel?"
+
+msgid "Missing Provider"
+msgstr "Ontbrekende Verskaffer"
+
+msgid "Orphaned Provider"
+msgstr "Verweesde Aanbieder"
+
+msgid "Undefined Type"
+msgstr ""
+
+msgid "Unknown Provider"
+msgstr ""
+
+msgid "Standard Provider"
+msgstr ""
+
+msgid "Custom Provider"
+msgstr "Pasgemaakte Verskaffer"
+
+msgid "Record Type"
+msgstr ""
+
+msgid "Provider"
+msgstr "Verskaffer"
+
+msgid "Provider Name"
+msgstr ""
+
+msgid "Host Names"
+msgstr "Masjienname"
+
+msgid "Wildcard Domain"
+msgstr ""
+
+msgid "Use HTTPS"
+msgstr ""
+
+msgid "Check IP Server"
+msgstr "Gaan IP bediener na"
+
+msgid "Check IP Path"
+msgstr "Gaan IP pad na"
+
+msgid "Check IP using HTTPS"
+msgstr "Gaan IP d.m.v. HTTPS na"
+
+msgid "Check IP Command"
+msgstr "Gaan IP Bevel Na"
+
+msgid "User Agent"
+msgstr ""
+
+msgid "DDNS-Server"
+msgstr "DDNS-Bediener"
+
+msgid "DDNS-Path"
+msgstr "DDNS-Pad"
+
+msgid "Append my IP"
+msgstr "Voeg my IP by"
+
+msgid "Providers"
+msgstr ""
+
+msgid "Global Settings"
+msgstr "Globale Instellings"
+
+msgid "Verify Address"
+msgstr ""
+
+msgid "Fake Address"
+msgstr "Vals Adres"
+
+msgid "Allow IPv6"
+msgstr "Laat IPv6 toe"
+
+msgid "Network Interface"
+msgstr "Netwerk Koppelvlak"
+
+msgid "Iterations"
+msgstr "Iterasies"
+
+msgid "Check Interval"
+msgstr "Nagaaninterval"
+
+msgid "Force Update Interval"
+msgstr "Opdateer Interval Afdwing"
+
+msgid "Secure SSL"
+msgstr ""
+
+msgid "Broken RTC"
+msgstr "Stukkende RTC"
+
+msgid "CA Trusted Certificates"
+msgstr "CA Vertroude Sertifikate"
+
+msgid "Cache Directory"
+msgstr "Kasgids"
+
+msgid "Startup Delay"
+msgstr ""
+
+msgid "Log Level"
+msgstr "Log Vlak"
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
+"IP adres validering kan gedeaktiveer word deur hierdie opsie vals te stel."
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
+"By verstek verifieer inadyn beide IPv4 en IPv6 adresse, en maak seker dat "
+"die adres 'n geldige Internet adres is. Ongeldige adresse is byvoorbeeld "
+"lokale verbinding, teruglus, multicast en bekende eksperimentele adresse. "
+"Vir meer inligting, verwys na RFC3330."
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
+
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
+
+msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+"Hoe dikwels die IP nagegaan word, in sekondes. Verstek: ongeveer 1 minuut. "
+"Maksimum: 10 dae."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
+"Hoe dikwels die IP opgedateer moet word al het dit nie verander nie, in "
+"sekondes. Verstek is 30 dae."
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
+"Aktiveer hierdie opsie om 'n DDNS opdatering te stop as die HTTPS "
+"sertifikaat nagaan proses faal."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+"Aktiveer hierdie opsie alleenlik op stelsels sonder 'n hardeware egte tyd "
+"horlosie en met 'n verstek herlaai tyd ver terug in die verlede."
+
+msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+
+msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+
+msgid "Initial startup delay. Default is no delay."
+msgstr "Aanvanklige beginvertraging. Verstek is geen vertraging."
+
+msgid "no delay"
+msgstr ""
+
+msgid "Set log level"
+msgstr ""
+
+msgid "Errors"
+msgstr "Foute"
+
+msgid "Notice"
+msgstr "Kennisgewing"
+
+msgid "Debug"
+msgstr "Ontfout"
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr ""
+
+msgid "Add Media Folder"
+msgstr "Voeg Media Folder"
+
+msgid "Edit Media Folder"
+msgstr "Wysig Media Vouer"
+
+msgid "Media Folder is marked for deletion"
+msgstr "Media Vouer is gemerk vir skrap"
+
+msgid "Media Folder is locked"
+msgstr "Media Vouer is toegeslot"
+
+msgid "Media Folder is unlocked"
+msgstr "Media Vouer is ongeslot"
+
+msgid "Delete Selected Media Folders"
+msgstr "Skrap Geselekteerde Media Vouers"
+
+msgid "Disable Selected Media Folders"
+msgstr "Deaktiveer Geselekteerde Media Vouers"
+
+msgid "Enable Selected Media Folders"
+msgstr "Inskakel Geselekteerde Media Voures"
+
+msgid "Toggle Selected Media Folders"
+msgstr "Toggle Geselekteerde Media Vouers"
+
+msgid "Do you want to delete selected media folders?"
+msgstr "Wil jy geselekteerde mediagidse skrap?"
+
+msgid "Do you want to disable selected media folders?"
+msgstr "Wil jy geselekteerde mediavidse deaktiveer?"
+
+msgid "Do you want to enable selected media folders?"
+msgstr "Wil jy geselekteerde media vouers inskakel?"
+
+msgid "Do you want to toggle selected media folders?"
+msgstr "Doen jy wil geselekteerde luister skywe toggle?"
+
+msgid "Path to be included."
+msgstr "Pad om ingesluit te word."
+
+msgid "Restrict folder to a specific media type."
+msgstr "Beperk vouer tot 'n spesifieke media tipe."
+
+msgid "Scan folder for all media types."
+msgstr "Skandeer vouer vir alle media tipes."
+
+msgid "Scan folder for audio files."
+msgstr "Skandeer volder vir oudio lêers."
+
+msgid "Scan folder for video files."
+msgstr "Skandeer volder vir video lêers."
+
+msgid "Scan folder for image files."
+msgstr "Skandeer vouder vir beeld lêers."
+
+msgid "Scan folder for video and image files."
+msgstr "Skandeer volder vir video en beeld lêers."
+
+msgid "Media Type"
+msgstr "Media Tipe"
+
+msgid "Media Folders"
+msgstr "Media Gidse"
+
+msgid "Media Folder"
+msgstr "Media Vouer"
+
+msgid "Inotify"
+msgstr "Inotify"
+
+msgid "Broadcast Interval"
+msgstr "Uitsaai interval"
+
+msgid "Strict DLNA"
+msgstr "Streng DLNA"
+
+msgid "TiVo Support"
+msgstr "TiVo Ondersteuning"
+
+msgid "Wide Links"
+msgstr "Wye Skakels"
+
+msgid "Container"
+msgstr "Container"
+
+msgid "Sort Criteria"
+msgstr "Sorteer Kriterië"
+
+msgid "Disable Subtitles"
+msgstr "Deaktiveer Subtitels"
+
+msgid "Media Server Name."
+msgstr "Media Bediener Naam."
+
+msgid "Verbosity of information that is logged."
+msgstr "Verbosity van nligting wat is logged."
+
+msgid "Fatal"
+msgstr "Fataal"
+
+msgid "Enable inotify."
+msgstr "Ontsper inotify"
+
+msgid "Use inotify monitoring to automatically discover new media files."
+msgstr "Gebruik inotify monitering om outomaties te ontdek nuwe media lêers."
+
+msgid ""
+"Broadcasts its availability every configured seconds on the network, the "
+"default is 300 seconds."
+msgstr ""
+"Uitsaai die beskikbaarheid daarvan elke gekonfigureerde sekondes op die "
+"netwerk, die verstek is 300 sekondes."
+
+msgid "300"
+msgstr "300"
+
+msgid ""
+"Port to listen on. Port number must be between 1024 and 65535. Default port "
+"is 8200."
+msgstr ""
+"Poort om luister op. Poort nommer moet wees tussen 1024 en 65535. Verstek "
+"poort is 8200."
+
+msgid "8200"
+msgstr "8200"
+
+msgid "Enable to strictly adhere to DLNA standards."
+msgstr "Ontsper om streng die DLNA standaarde te handhaaf"
+
+msgid ""
+"This will allow server-side downscaling of very large JPEG images, it can "
+"impact JPEG serving performance on some DLNA devices."
+msgstr ""
+"Hierdie laat bedienerskant toe van baie groot JPEG-beelde, en dit kan die "
+"JPEG-bedieningsprestasie op sommige DLNA toestelle beïnvloed."
+
+msgid "Enable TiVo support."
+msgstr "Inskakel TiVo ondersteuning."
+
+msgid ""
+"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
+msgstr ""
+"Hierdie sal stroom .jpg  en .mp3 lêers na 'n TiVo ondersteunende HMO "
+"ondersteun."
+
+msgid "Location of the media content database."
+msgstr "Ligging van die media inhoud databasis."
+
+msgid "Allow symlinks that point outside defined media folders."
+msgstr "Laat simskakels daardie wat punt-buite gedefinieerde media vouers."
+
+msgid "These parameters will be added to minidlna.conf"
+msgstr "Hierdie parameters sal bygevoeg word minidlna.conf"
+
+msgid "Select a container as the root of the tree exposed to clients."
+msgstr ""
+"Selekteer 'n houer as die wortel van die boom wat aan kliente blootgestel."
+
+msgid "Use the standard container (this is the default)"
+msgstr "Gebruik die standaard houer (dit is die verstek)"
+
+msgid "Use the \"Browse Directory\" container"
+msgstr "Gebruik die \"Browse Directory\" houer"
+
+msgid "Use the \"Music\" container"
+msgstr "Gebruik die \"Music\" houer"
+
+msgid "Use the \"Video\" container"
+msgstr "Gebruik die \"Video\" houer"
+
+msgid "Use the \"Pictures\" container"
+msgstr "Gebruik die \"Pictures\" houer"
+
+msgid "Overwrite the sort criteria passed by the client."
+msgstr "Oorskryf die soort kriteria wat deur die klient geslaag is."
+
+msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+
+msgid "Disable subtitle support on unknown clients."
+msgstr "Deaktiveer subtitel ondersteuning op onbekende kliënte."
+
+msgid "Auth Group Name"
+msgstr "Auth Groep Naam"
+
+msgid "Auth Type"
+msgstr "Auth Tipe"
 
 msgid "Add Auth Group"
 msgstr "Voeg Auth Groep"
@@ -11334,20 +12131,11 @@ msgstr "Wil jy geselekteerde auth groepe inskakel?"
 msgid "Do you want to toggle selected auth groups?"
 msgstr "Doen jy wil geselekteerde auth groepe toggle?"
 
-msgid "Name of the Auth Group."
-msgstr "Naam van die Auth Groep."
+msgid "Initiator Names"
+msgstr "Inisieerder Name"
 
-msgid "Auth Group Name"
-msgstr "Auth Groep Naam"
-
-msgid "Sets the authentication type."
-msgstr "Stel die ontentisering tipe."
-
-msgid "CHAP-Mutual"
-msgstr "CHAP-Onderling"
-
-msgid "These parameters will be added to this auth-group."
-msgstr "Hierdie parameters sal hierby gevoeg word auth-groep."
+msgid "Initiator Portals"
+msgstr "Inisieerder Portaale"
 
 msgid "No CHAP users found."
 msgstr "Geen CHAP gebruikers gevind."
@@ -11370,170 +12158,23 @@ msgstr "Inisieerder Portaal"
 msgid "No initiator portals found."
 msgstr "Geen inisieerder portale gevind."
 
-msgid "Auth Type"
-msgstr "Auth Tipe"
+msgid "Name of the Auth Group."
+msgstr "Naam van die Auth Groep."
 
-msgid "Global Settings"
-msgstr "Globale Instellings"
+msgid "Sets the authentication type."
+msgstr "Stel die ontentisering tipe."
 
-msgid "Initiator Names"
-msgstr "Inisieerder Name"
+msgid "CHAP-Mutual"
+msgstr "CHAP-Onderling"
 
-msgid "Initiator Portals"
-msgstr "Inisieerder Portaale"
-
-msgid "Additional Options for Block Backend"
-msgstr "Bykomende opsies vir Blok Terug-einde"
-
-msgid "Additional Options for RAM Disk Backend"
-msgstr "Bykomende opsies vir RAM Skyf Terug-einde"
-
-msgid "LUN Name"
-msgstr "LUN Naam"
-
-msgid "Backend"
-msgstr "Terug einde"
-
-msgid "CTL LUN"
-msgstr "CTL LUN"
-
-msgid "Device ID"
-msgstr "Toestel ID"
-
-msgid "Device Type"
-msgstr "Toestel Tipe"
-
-msgid "Passthrough Address"
-msgstr "Slaag deur middel Adres"
-
-msgid "LUN Vendor"
-msgstr "LUN Vendor"
-
-msgid "LUN Product"
-msgstr "LUN Produk"
-
-msgid "LUN Revision"
-msgstr "LUN Revisie"
-
-msgid "LUN SCSI Name"
-msgstr "LUN SCSI Naam"
-
-msgid "LUN EUI-64\tidentifier"
-msgstr "LUN EUI-64\tidentifiseerder"
-
-msgid "LUN NAA Identifier"
-msgstr "LUN NAA Identifiseerder"
-
-msgid "LUN UUID"
-msgstr "LUN UUID"
-
-msgid "HA Role"
-msgstr "HA Rol"
-
-msgid "Insecure TPC"
-msgstr "Ontveilige TPC"
-
-msgid "Read Cache"
-msgstr "Lees Cache"
-
-msgid "Read Only"
-msgstr "Lees Alleen"
-
-msgid "Reordering"
-msgstr "Herordening"
-
-msgid "Serialize Sequence"
-msgstr "Serialize Sequence"
-
-msgid "Physical Block Size"
-msgstr "Fisiese Blok Grootte"
-
-msgid "Physical Block Offset"
-msgstr "Fisiese Blok Offset"
-
-msgid "UNMAP Block Size"
-msgstr "UNMAP Blok Grootte"
-
-msgid "UNMAP Block Offset"
-msgstr "UNMAP Blok Offset"
-
-msgid "RPM"
-msgstr "RPM"
-
-msgid "Form Factor"
-msgstr "Vorm Faktor"
-
-msgid "Provisioning Type"
-msgstr "Voorsiening Tipe"
-
-msgid "UNMAP"
-msgstr "UNMAP"
-
-msgid "UNMAP Maximum LBA"
-msgstr "UNMAP Maksimum LBA"
-
-msgid "UNMAP Maximum Descriptors"
-msgstr "UNMAP Maksimum Beskrywers"
-
-msgid "Write Same Maximum LBA"
-msgstr "Skryf Selfde Maksimum LBA"
-
-msgid "Avail Threshold"
-msgstr "Avail Drumpel"
-
-msgid "Used Threshold"
-msgstr "Gebruikde Drumpel"
-
-msgid "Pool Avail Threshold"
-msgstr "Poel Avail Drumpel"
-
-msgid "Pool Used Threshold"
-msgstr "Poel Gebruikd Drumpel"
-
-msgid "Threads"
-msgstr "Threads"
-
-msgid "Add LUN"
-msgstr "Voeg LUN"
-
-msgid "Edit LUN"
-msgstr "Wysig LUN"
-
-msgid "LUN is marked for deletion"
-msgstr "LUN is gemerk vir skrap"
-
-msgid "LUN is locked"
-msgstr "LUN is toegeslot"
-
-msgid "LUN is unlocked"
-msgstr "LUN is ongeslot"
-
-msgid "Delete Selected LUNs"
-msgstr "Skrap Geselekteerde LUNs"
-
-msgid "Disable Selected LUNs"
-msgstr "Deaktiveer Geselekteerde LUNs"
-
-msgid "Enable Selected LUNs"
-msgstr "Inskakel Geselekteerde LUNs"
-
-msgid "Toggle Selected LUNs"
-msgstr "Toggle Geselekteerde LUNs"
-
-msgid "Do you want to delete selected LUNs?"
-msgstr "Wil jy geselekteerde LUN's skrap?"
-
-msgid "Do you want to disable selected LUNs?"
-msgstr "Wil jy geselekteerde LUN's deaktiveer?"
-
-msgid "Do you want to enable selected LUNs?"
-msgstr "Wil jy geselekteerde LUN's Inskakel?"
-
-msgid "Do you want to toggle selected LUNs?"
-msgstr "Doen jy wil geselekteerde LUN's toggle?"
+msgid "These parameters will be added to this auth-group."
+msgstr "Hierdie parameters sal hierby gevoeg word auth-groep."
 
 msgid "Name of the LUN."
 msgstr "Naam van die LUN."
+
+msgid "LUN Name"
+msgstr "LUN Naam"
 
 msgid "The CTL backend to use for a given LUN."
 msgstr "Die CTL terug einde om te gebruik vir 'n gegewe LUN."
@@ -11577,6 +12218,9 @@ msgid "The SCSI Device Identification string presented to the initiator."
 msgstr ""
 "Die SCSI apparaat identifikasie string wat aan die inisieerder aangebied "
 "word."
+
+msgid "Device ID"
+msgstr "Toestel ID"
 
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
@@ -11808,17 +12452,149 @@ msgstr ""
 msgid "These parameters will be added to this lun."
 msgstr "Hierdie parameters sal hierdie lun bygevoeg."
 
-msgid "Listen"
-msgstr "Luister"
+msgid "Additional Options for Block Backend"
+msgstr "Bykomende opsies vir Blok Terug-einde"
 
-msgid "No listeners found."
-msgstr "Geen luisteraars gevind."
+msgid "Additional Options for RAM Disk Backend"
+msgstr "Bykomende opsies vir RAM Skyf Terug-einde"
 
-msgid "Option"
-msgstr "Opsie"
+msgid "Add LUN"
+msgstr "Voeg LUN"
 
-msgid "No options found."
-msgstr "Geen opsies gevind."
+msgid "Edit LUN"
+msgstr "Wysig LUN"
+
+msgid "LUN is marked for deletion"
+msgstr "LUN is gemerk vir skrap"
+
+msgid "LUN is locked"
+msgstr "LUN is toegeslot"
+
+msgid "LUN is unlocked"
+msgstr "LUN is ongeslot"
+
+msgid "Delete Selected LUNs"
+msgstr "Skrap Geselekteerde LUNs"
+
+msgid "Disable Selected LUNs"
+msgstr "Deaktiveer Geselekteerde LUNs"
+
+msgid "Enable Selected LUNs"
+msgstr "Inskakel Geselekteerde LUNs"
+
+msgid "Toggle Selected LUNs"
+msgstr "Toggle Geselekteerde LUNs"
+
+msgid "Do you want to delete selected LUNs?"
+msgstr "Wil jy geselekteerde LUN's skrap?"
+
+msgid "Do you want to disable selected LUNs?"
+msgstr "Wil jy geselekteerde LUN's deaktiveer?"
+
+msgid "Do you want to enable selected LUNs?"
+msgstr "Wil jy geselekteerde LUN's Inskakel?"
+
+msgid "Do you want to toggle selected LUNs?"
+msgstr "Doen jy wil geselekteerde LUN's toggle?"
+
+msgid "Backend"
+msgstr "Terug einde"
+
+msgid "CTL LUN"
+msgstr "CTL LUN"
+
+msgid "Device Type"
+msgstr "Toestel Tipe"
+
+msgid "Passthrough Address"
+msgstr "Slaag deur middel Adres"
+
+msgid "LUN Vendor"
+msgstr "LUN Vendor"
+
+msgid "LUN Product"
+msgstr "LUN Produk"
+
+msgid "LUN Revision"
+msgstr "LUN Revisie"
+
+msgid "LUN SCSI Name"
+msgstr "LUN SCSI Naam"
+
+msgid "LUN EUI-64\tidentifier"
+msgstr "LUN EUI-64\tidentifiseerder"
+
+msgid "LUN NAA Identifier"
+msgstr "LUN NAA Identifiseerder"
+
+msgid "LUN UUID"
+msgstr "LUN UUID"
+
+msgid "HA Role"
+msgstr "HA Rol"
+
+msgid "Insecure TPC"
+msgstr "Ontveilige TPC"
+
+msgid "Read Cache"
+msgstr "Lees Cache"
+
+msgid "Read Only"
+msgstr "Lees Alleen"
+
+msgid "Reordering"
+msgstr "Herordening"
+
+msgid "Serialize Sequence"
+msgstr "Serialize Sequence"
+
+msgid "Physical Block Size"
+msgstr "Fisiese Blok Grootte"
+
+msgid "Physical Block Offset"
+msgstr "Fisiese Blok Offset"
+
+msgid "UNMAP Block Size"
+msgstr "UNMAP Blok Grootte"
+
+msgid "UNMAP Block Offset"
+msgstr "UNMAP Blok Offset"
+
+msgid "RPM"
+msgstr "RPM"
+
+msgid "Form Factor"
+msgstr "Vorm Faktor"
+
+msgid "Provisioning Type"
+msgstr "Voorsiening Tipe"
+
+msgid "UNMAP"
+msgstr "UNMAP"
+
+msgid "UNMAP Maximum LBA"
+msgstr "UNMAP Maksimum LBA"
+
+msgid "UNMAP Maximum Descriptors"
+msgstr "UNMAP Maksimum Beskrywers"
+
+msgid "Write Same Maximum LBA"
+msgstr "Skryf Selfde Maksimum LBA"
+
+msgid "Avail Threshold"
+msgstr "Avail Drumpel"
+
+msgid "Used Threshold"
+msgstr "Gebruikde Drumpel"
+
+msgid "Pool Avail Threshold"
+msgstr "Poel Avail Drumpel"
+
+msgid "Pool Used Threshold"
+msgstr "Poel Gebruikd Drumpel"
+
+msgid "Threads"
+msgstr "Threads"
 
 msgid "Name of the Portal Group."
 msgstr "Naam van die Portaal Groep."
@@ -11902,18 +12678,6 @@ msgstr ""
 "Unieke 16-bis merkwaarde van hierdie portaalgroep. As dit nie gespesifiseer "
 "word nie, word die waarde outomaties gegenereer."
 
-msgid "Discovery Filter"
-msgstr "Ontdekkings Filter"
-
-msgid "Offload"
-msgstr "Af te laai"
-
-msgid "Redirect"
-msgstr "Redirect"
-
-msgid "Foreign"
-msgstr "Buitelandse"
-
 msgid "Add Portal Group"
 msgstr "Voeg Portaal Groep"
 
@@ -11952,6 +12716,46 @@ msgstr "Wil jy geselekteerde portaal groepe inskakel?"
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Doen jy wil geselekteerde portaal groepe toggle?"
+
+msgid "Discovery Filter"
+msgstr "Ontdekkings Filter"
+
+msgid "Offload"
+msgstr "Af te laai"
+
+msgid "Redirect"
+msgstr "Redirect"
+
+msgid "Foreign"
+msgstr "Buitelandse"
+
+msgid "Listen"
+msgstr "Luister"
+
+msgid "Option"
+msgstr "Opsie"
+
+msgid "No listeners found."
+msgstr "Geen luisteraars gevind."
+
+msgid "No options found."
+msgstr "Geen opsies gevind."
+
+msgid "Enter user name."
+msgstr "Ingaan gebruikers naam."
+
+msgid "Enter secret."
+msgstr "Ingaan geheim."
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+"Link chap konfigurasie aan auth-groepe. Nota dat 'n auth-groep mag bevat óf  "
+"chap of chap-mutual inskrywings, maar nie beide."
+
+msgid "No auth groups found."
+msgstr "Geen auth groepe gevind."
 
 msgid "Add CHAP User"
 msgstr "Voeg CHAP Gebruiker"
@@ -11992,38 +12796,6 @@ msgstr "Wil jy geselekteerde CHAP gebruikers Inskakel?"
 msgid "Do you want to toggle selected CHAP users?"
 msgstr "Doen jy wil geselekteerde CHAP gebruikers toggle?"
 
-msgid "Enter user name."
-msgstr "Ingaan gebruikers naam."
-
-msgid "Enter secret."
-msgstr "Ingaan geheim."
-
-msgid ""
-"Link chap configuration to auth-groups. Note that an auth-group may contain "
-"either chap or chap-mutual entries, but not both."
-msgstr ""
-"Link chap konfigurasie aan auth-groepe. Nota dat 'n auth-groep mag bevat óf  "
-"chap of chap-mutual inskrywings, maar nie beide."
-
-msgid "No auth groups found."
-msgstr "Geen auth groepe gevind."
-
-msgid ""
-"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
-"contain either chap or chap-mutual entries, but not both."
-msgstr ""
-"Link mutual-chap konfigurasie om auth-goepe. Nota Nota dat 'n auth-groep mag "
-"bevat óf chap of chap-mutual inskrywings, maar nie beide."
-
-msgid "Enter mutual user name."
-msgstr "Ingaan onderlinge gebruikers naam."
-
-msgid "Mutual User"
-msgstr "Wedersydse Gebruiker"
-
-msgid "Mutual Secret"
-msgstr "Wedersydse Geheim"
-
 msgid "Add Mutual CHAP User"
 msgstr "Voeg Onderlinge CHAP Gebruiker"
 
@@ -12063,15 +12835,21 @@ msgstr "Wil jy geselekteerde Mutual CHAP gebruikers Inskakel?"
 msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "Doen jy wil geselekteerde Mutual CHAP gebruikers toggle?"
 
-msgid "Enter an iSCSI initiator name."
-msgstr "Ingaan 'n iSCSI inisieerder naam."
-
 msgid ""
-"Link initiator-name to auth-groups. An Initiator with this name will be "
-"allowed to connect to the selected auth-groups."
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
 msgstr ""
-"Link inisieerder-naam te auth-groepe. 'N Inisieerder met hierdie naam sal "
-"wees toegelaat word om konnekteer te die geselekteerde auth-groepe."
+"Link mutual-chap konfigurasie om auth-goepe. Nota Nota dat 'n auth-groep mag "
+"bevat óf chap of chap-mutual inskrywings, maar nie beide."
+
+msgid "Enter mutual user name."
+msgstr "Ingaan onderlinge gebruikers naam."
+
+msgid "Mutual User"
+msgstr "Wedersydse Gebruiker"
+
+msgid "Mutual Secret"
+msgstr "Wedersydse Geheim"
 
 msgid "Add Initiator Name"
 msgstr "Voeg Inisieerder Naam"
@@ -12112,6 +12890,32 @@ msgstr "Wil jy geselekteerde inisieerders name inskakel?"
 msgid "Do you want to toggle selected initiator names?"
 msgstr "Doen jy wil geselekteerde inisieerders name toggle?"
 
+msgid "Enter an iSCSI initiator name."
+msgstr "Ingaan 'n iSCSI inisieerder naam."
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+"Link inisieerder-naam te auth-groepe. 'N Inisieerder met hierdie naam sal "
+"wees toegelaat word om konnekteer te die geselekteerde auth-groepe."
+
+msgid "IP Address Prefix"
+msgstr "IP Adres Prefiks"
+
+msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr "'N IPv4 of IPv6 adres van 'n iSCSI inisieerder portaal."
+
+msgid "Enter IP address prefix length."
+msgstr "Ingaan IP adres voorvoegsel lengte."
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+"Link inisieerder-portaal om suth-groepe. 'N Inisieerder wat ooreenstem met "
+"hierdie adres sal toegelaat om konnekteer te die geselekteerde auth-groepe."
+
 msgid "Add Initiator Portal"
 msgstr "Voeg Inisieerder Portal"
 
@@ -12151,24 +12955,11 @@ msgstr "Wil jy geselekteerde aanvangsportaal Inskakel?"
 msgid "Do you want to toggle selected initiator portals?"
 msgstr "Doen jy wil geselekteerde inisiator portale toggle?"
 
-msgid "IP Address Prefix"
-msgstr "IP Adres Prefiks"
+msgid "IPv4 or IPv6 address of an iSNS server to register on."
+msgstr "IPv4 of IPv6 adres van 'n iSNS bediener om registreer op."
 
-msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "'N IPv4 of IPv6 adres van 'n iSCSI inisieerder portaal."
-
-msgid "Enter IP address prefix length."
-msgstr "Ingaan IP adres voorvoegsel lengte."
-
-msgid ""
-"Link initiator-portal to auth-groups. An Initiator matching this address "
-"will be allowed to connect to the selected auth-groups."
-msgstr ""
-"Link inisieerder-portaal om suth-groepe. 'N Inisieerder wat ooreenstem met "
-"hierdie adres sal toegelaat om konnekteer te die geselekteerde auth-groepe."
-
-msgid "iSNS Servers"
-msgstr "iSNS Bedieners"
+msgid "Port number of the iSNS server."
+msgstr "Poort nommer van die iSNS bediener."
 
 msgid "Add iSNS Server"
 msgstr "Voeg iSNS Bediener"
@@ -12209,11 +13000,8 @@ msgstr "Wil jy geselekteerde iSNS bedieners inskakel?"
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Doen jy wil geselekteerde iSNS bedieners toggle?"
 
-msgid "IPv4 or IPv6 address of an iSNS server to register on."
-msgstr "IPv4 of IPv6 adres van 'n iSNS bediener om registreer op."
-
-msgid "Port number of the iSNS server."
-msgstr "Poort nommer van die iSNS bediener."
+msgid "iSNS Servers"
+msgstr "iSNS Bedieners"
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "'N IPv4 of IPv6 adres om op te luister vir inkomende verbindings."
@@ -12270,6 +13058,9 @@ msgstr "Wil jy geselekteerde luister rekords inskakel?"
 msgid "Do you want to toggle selected listen records?"
 msgstr "Doen jy wil"
 
+msgid "Listen (iSER)"
+msgstr "Luister (iSER)"
+
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
@@ -12284,11 +13075,20 @@ msgstr ""
 "'n Poort waarop geluister kan word vir inkomende verbindings met die iSER "
 "(iSCSI oor RDMA) protokol."
 
-msgid "Listen (iSER)"
-msgstr "Luister (iSER)"
-
 msgid "LUN Number"
 msgstr "LUN Nommer"
+
+msgid "LUN number"
+msgstr "LUN nommer"
+
+msgid "No LUNs found."
+msgstr "Geen LUNs gevind."
+
+msgid "Select targets."
+msgstr "Selekteer teikens."
+
+msgid "No targets found."
+msgstr "Geen teikens gevind."
 
 msgid "Add LUN Record"
 msgstr "Voeg LUN Rekord"
@@ -12329,23 +13129,14 @@ msgstr "Wil jy geselekteerde LUN rekords Inskakel?"
 msgid "Do you want to toggle selected LUN records?"
 msgstr "Doen jy wil geselekteerde LUN rekords toggle?"
 
-msgid "LUN number"
-msgstr "LUN nommer"
+msgid "Name of the option."
+msgstr "Naam van die opsie."
 
-msgid "No LUNs found."
-msgstr "Geen LUNs gevind."
+msgid "Value of the option."
+msgstr "Waarde van die opsie."
 
-msgid "Select targets."
-msgstr "Selekteer teikens."
-
-msgid "No targets found."
-msgstr "Geen teikens gevind."
-
-msgid "Option Name"
-msgstr "Opsie Naam"
-
-msgid "Option Value"
-msgstr "Opsie Waarde"
+msgid "Link this option to selected portal-groups."
+msgstr "Link hierdie opsie vir geselekteerde portaal groepe."
 
 msgid "Add Option Record"
 msgstr "Voeg Opsie Rekord"
@@ -12386,20 +13177,11 @@ msgstr "Wil jy geselekteerde opsie rekords inskakel?"
 msgid "Do you want to toggle selected option records?"
 msgstr "Doen jy wil geselekteerde opsie rekords toggle?"
 
-msgid "Name of the option."
-msgstr "Naam van die opsie."
+msgid "Option Name"
+msgstr "Opsie Naam"
 
-msgid "Value of the option."
-msgstr "Waarde van die opsie."
-
-msgid "Link this option to selected portal-groups."
-msgstr "Link hierdie opsie vir geselekteerde portaal groepe."
-
-msgid "Port Name"
-msgstr "Poort Naam"
-
-msgid "Name of the port."
-msgstr "Naam van die poort."
+msgid "Option Value"
+msgstr "Opsie Waarde"
 
 msgid "Add Port Record"
 msgstr "Voeg Poort Rekord"
@@ -12440,38 +13222,14 @@ msgstr "Wil jy geselekteerde poort rekords inskakel?"
 msgid "Do you want to toggle selected port records?"
 msgstr "Doen jy wil geselekteerde poort rekords toggle?"
 
-msgid "Name of the target."
-msgstr "Name of the target."
+msgid "Name of the port."
+msgstr "Naam van die poort."
 
-msgid "These parameters will be added to this target."
-msgstr "Hierdie parameters sal by hierdie teiken gevoeg word."
-
-msgid "Assign a human-readable description to the target."
-msgstr "Ken 'n mens-leesbare beskrywing aan die teiken toe."
+msgid "Port Name"
+msgstr "Poort Naam"
 
 msgid "Alias"
 msgstr "Alias"
-
-msgid "Assign a previously defined authentication group to the target."
-msgstr "Ken 'n voorheen gedefinieer ontentisering groep aan die teiken."
-
-msgid "Permit access without authentication"
-msgstr "Permit toegang sonder ontentisering"
-
-msgid "Assign a previously defined portal group to the target."
-msgstr "Toewys 'n voorheen gedefinieerde portaalgroep na die teiken."
-
-msgid ""
-"IPv4 or IPv6 address to redirect initiators to. When configured, all "
-"initiators attempting to connect to this target will get redirected using "
-"\"Target moved temporarily\" login response."
-msgstr ""
-"IPv4 of IPv6 adres om herlei inisieerders te. Wanneer gekonfigureer, alle "
-"inisieerders probeer tans om aan hierdie teiken te koppel sal get herleied "
-"gebruik van \"Target moved temporarily\" login respons."
-
-msgid "No ports found."
-msgstr "Geen poorts gevind."
 
 msgid "Add Target"
 msgstr "Voeg Teiken"
@@ -12511,6 +13269,36 @@ msgstr "Wil jy geselekteerde teikens inskakel?"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Doen jy wil geselekteerde teikens toggle?"
+
+msgid "No ports found."
+msgstr "Geen poorts gevind."
+
+msgid "Name of the target."
+msgstr "Name of the target."
+
+msgid "These parameters will be added to this target."
+msgstr "Hierdie parameters sal by hierdie teiken gevoeg word."
+
+msgid "Assign a human-readable description to the target."
+msgstr "Ken 'n mens-leesbare beskrywing aan die teiken toe."
+
+msgid "Assign a previously defined authentication group to the target."
+msgstr "Ken 'n voorheen gedefinieer ontentisering groep aan die teiken."
+
+msgid "Permit access without authentication"
+msgstr "Permit toegang sonder ontentisering"
+
+msgid "Assign a previously defined portal group to the target."
+msgstr "Toewys 'n voorheen gedefinieerde portaalgroep na die teiken."
+
+msgid ""
+"IPv4 or IPv6 address to redirect initiators to. When configured, all "
+"initiators attempting to connect to this target will get redirected using "
+"\"Target moved temporarily\" login response."
+msgstr ""
+"IPv4 of IPv6 adres om herlei inisieerders te. Wanneer gekonfigureer, alle "
+"inisieerders probeer tans om aan hierdie teiken te koppel sal get herleied "
+"gebruik van \"Target moved temporarily\" login respons."
 
 msgid "Max Processes"
 msgstr "Max Prosesse"
@@ -12555,345 +13343,74 @@ msgid "These parameters will be added to the global section of ctl.conf"
 msgstr ""
 "Hierdie parameters sal bygevoeg word tot die globale afdeling van ctl.conf"
 
-msgid ""
-"Select \"Custom Provider\" for customizing the DDNS update server details "
-"settings."
-msgstr ""
+msgid "Target Address"
+msgstr "Teiken Adres"
 
-msgid "Select from predefined providers."
-msgstr ""
+msgid "CHAP Name"
+msgstr "CHAP Naam"
 
-msgid "Enter an identifier for this custom DDNS configuration."
-msgstr "Voer 'n naam vir hierdie pasgemaakte DNS konfigurasie in."
+msgid "CHAP Secret"
+msgstr "CHAP Geheim"
 
-msgid ""
-"To support multiple users of the same DDNS provider, an identifier must be "
-"defined. The identifier can be any free form alphanumeric string as long as "
-"the combination is unique."
-msgstr ""
+msgid "Mutual CHAP Name"
+msgstr "Wedersydse CHAP Naam"
 
-msgid "The list of hostnames. Use a comma to separate multiple names."
-msgstr ""
+msgid "Mutual CHAP Secret"
+msgstr "Wedersydse CHAP Geheim"
 
-msgid "Hostnames"
-msgstr "Masjienname"
+msgid "Header Digest"
+msgstr "Koptekst Digest"
 
-msgid "The username, if applicable. This might be referred to as hash."
-msgstr ""
+msgid "Data Digest"
+msgstr "Data Digest"
 
-msgid "The password, if applicable."
-msgstr ""
+msgid "Offload Driver"
+msgstr "Af te laai Drywer"
 
-msgid ""
-"Enable domain name wildcarding of the domain name, for DDNS providers that "
-"support this."
-msgstr ""
-"Aktiveer die gebruik van \"wildcards\" in die domein naam vir die DDNS "
-"verskaffers wat dit ondersteun."
+msgid "Session State"
+msgstr "Sessie Staat"
 
-msgid ""
-"Use HTTPS, both when checking for IP changes and updating the DNS record. "
-"Default is to use HTTPS."
-msgstr ""
+msgid "Session Type"
+msgstr "Sessie Tipe"
 
-msgid "Server to use for periodic IP address changes"
-msgstr ""
+msgid "Add iSCSI Initiator"
+msgstr "Voeg iSCSI Inisieerder"
 
-msgid "api.ipify.org"
-msgstr ""
+msgid "Edit iSCSI Initiator"
+msgstr "Wysig iSCSI Inisieerder"
 
-msgid "Optional server path for check IP server"
-msgstr "Opsionele bedienerpad vir bediener wat IP nagaan"
+msgid "iSCSI Initiator is marked for deletion"
+msgstr "iSCSI Inisieerder is gemerk vir skrap"
 
-msgid "/"
-msgstr "/"
+msgid "iSCSI Initiator is locked"
+msgstr "iSCSI Inisieerder is toegeslot"
 
-msgid ""
-"This setting usually follows the ssl setting, but can be used to disable "
-"HTTPS for the IP address check."
-msgstr ""
+msgid "iSCSI Initiator is unlocked"
+msgstr "iSCSI Inisieerder is ontgeslot"
 
-msgid ""
-"Shell command, or script, for IP address update checking. The command must "
-"output a text with the IP address to its standard output."
-msgstr ""
+msgid "Delete Selected iSCSI Initiators"
+msgstr "Skrap Geselekteerde iSCSI Inisieerders"
 
-msgid ""
-"Same as the global setting, but only for this provider. If omitted it "
-"defaults to the global setting, which if unset uses the default user agent "
-"string."
-msgstr ""
+msgid "Disable Selected iSCSI Initiators"
+msgstr "Deaktiveer Geselekteerde iSCSI Inisieerders"
 
-msgid "User agent string"
-msgstr ""
+msgid "Enable Selected iSCSI Initiators"
+msgstr "Inskakel Geselekteerde iSCSI Inisieerders"
 
-msgid "DDNS server name, not the full URL."
-msgstr "DDNS bedienernaam, nie die volle URL nie."
+msgid "Toggle Selected iSCSI Initiators"
+msgstr "Toggle Geselekteerde iSCSI Inisieerders"
 
-msgid "update.example.com"
-msgstr ""
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr "Wil jy geselekteerde iSCSI inisieerders skrap?"
 
-msgid ""
-"DDNS server path. By default the hostname is appended to the path, unless "
-"append-myip is set."
-msgstr ""
-"DDNS bedienerpad. By verstek word die bedienernaam by die pad bygevoeg, "
-"tensy append-myip gestel is."
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr "Wil jy geselekteerde iSCSI inisieerders deaktiveer?"
 
-msgid "/update?domain="
-msgstr "/update?domain="
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr "Wil jy geselekteerde iSCSI inisieerders inskakel?"
 
-msgid "Append the current IP to the DDNS server update path."
-msgstr "Voeg die huidige IP by die DDNS bediener opdatering pad by."
-
-msgid ""
-"If this setting is not enabled, the hostname is appended. Unless the ddns-"
-"path is given with format specifiers, in which case this setting is unused."
-msgstr ""
-
-msgid "These parameters will be added to this provider configuration"
-msgstr ""
-
-msgid "Standard Provider"
-msgstr ""
-
-msgid "Custom Provider"
-msgstr "Pasgemaakte Verskaffer"
-
-msgid "Record Type"
-msgstr ""
-
-msgid "Provider"
-msgstr "Verskaffer"
-
-msgid "Provider Name"
-msgstr ""
-
-msgid "Host Names"
-msgstr "Masjienname"
-
-msgid "Wildcard Domain"
-msgstr ""
-
-msgid "Use HTTPS"
-msgstr ""
-
-msgid "Check IP Server"
-msgstr "Gaan IP bediener na"
-
-msgid "Check IP Path"
-msgstr "Gaan IP pad na"
-
-msgid "Check IP using HTTPS"
-msgstr "Gaan IP d.m.v. HTTPS na"
-
-msgid "Check IP Command"
-msgstr "Gaan IP Bevel Na"
-
-msgid "User Agent"
-msgstr ""
-
-msgid "DDNS-Server"
-msgstr "DDNS-Bediener"
-
-msgid "DDNS-Path"
-msgstr "DDNS-Pad"
-
-msgid "Append my IP"
-msgstr "Voeg my IP by"
-
-msgid "Providers"
-msgstr ""
-
-msgid "Add Provider"
-msgstr "Voeg Verskaffer By"
-
-msgid "Edit Provider"
-msgstr "Redigeer Verskaffer"
-
-msgid "Provider is marked for deletion"
-msgstr ""
-
-msgid "Provider is locked"
-msgstr ""
-
-msgid "Provider is unlocked"
-msgstr ""
-
-msgid "Delete Selected Providers"
-msgstr "Vee Gekose Verskaffers Uit"
-
-msgid "Disable Selected Providers"
-msgstr "Deaktiveer Gekose Verskaffers"
-
-msgid "Enable Selected Providers"
-msgstr "Aktiveer gekose verskaffers"
-
-msgid "Toggle Selected Providers"
-msgstr ""
-
-msgid "Do you want to delete selected providers?"
-msgstr "Wil jy die gekose verskaffers uitvee?"
-
-msgid "Do you want to disable selected providers?"
-msgstr "Wil jy die gekose verskaffers deaktiveer?"
-
-msgid "Do you want to enable selected providers?"
-msgstr "Wil jy die gekose herlaai skedules aktiveer?"
-
-msgid "Do you want to toggle selected providers?"
-msgstr "Wil jy die gekose verskaffers wissel?"
-
-msgid "Missing Provider"
-msgstr "Ontbrekende Verskaffer"
-
-msgid "Orphaned Provider"
-msgstr "Verweesde Aanbieder"
-
-msgid "Undefined Type"
-msgstr ""
-
-msgid "Unknown Provider"
-msgstr ""
-
-msgid ""
-"IP address validation can be disabled by setting this option to false."
-msgstr ""
-"IP adres validering kan gedeaktiveer word deur hierdie opsie vals te stel."
-
-msgid ""
-"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
-"address is a valid Internet address. Invalid addresses are, e.g., link "
-"local, loopback, multicast and known experimental addresses. For more "
-"information, see RFC3330."
-msgstr ""
-"By verstek verifieer inadyn beide IPv4 en IPv6 adresse, en maak seker dat "
-"die adres 'n geldige Internet adres is. Ongeldige adresse is byvoorbeeld "
-"lokale verbinding, teruglus, multicast en bekende eksperimentele adresse. "
-"Vir meer inligting, verwys na RFC3330."
-
-msgid ""
-"Use this option to fake an address update with a \"random\" address in the "
-"203.0.113.0/24 range before updating with the actual IP address."
-msgstr ""
-
-msgid ""
-"This option controls if IPv6 addresses should be allowed or discarded."
-msgstr ""
-
-msgid ""
-"Use this network interface as source of IP address changes instead of "
-"querying an external server."
-msgstr ""
-
-msgid ""
-"Set the number of DNS updates. The default is 0, which means infinity."
-msgstr ""
-
-msgid ""
-"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
-"days."
-msgstr ""
-"Hoe dikwels die IP nagegaan word, in sekondes. Verstek: ongeveer 1 minuut. "
-"Maksimum: 10 dae."
-
-msgid ""
-"How often the IP should be updated even if it is not changed. The time "
-"should be given in seconds. Default is equal to 30 days."
-msgstr ""
-"Hoe dikwels die IP opgedateer moet word al het dit nie verander nie, in "
-"sekondes. Verstek is 30 dae."
-
-msgid ""
-"Enable this option to abort an DDNS update if the HTTPS certificate "
-"validation fails."
-msgstr ""
-"Aktiveer hierdie opsie om 'n DDNS opdatering te stop as die HTTPS "
-"sertifikaat nagaan proses faal."
-
-msgid ""
-"Enable this option only on systems without hardware real-time clock and "
-"default bootup time far in the past."
-msgstr ""
-"Aktiveer hierdie opsie alleenlik op stelsels sonder 'n hardeware egte tyd "
-"horlosie en met 'n verstek herlaai tyd ver terug in die verlede."
-
-msgid ""
-"This setting overrides the built-in paths and fallback locations and "
-"provides a way to specify the path to a trusted set of CA certificates, in "
-"PEM format, bundled into one file."
-msgstr ""
-
-msgid ""
-"Specify the User-Agent string to send to the DDNS provider on checkip and "
-"update requests."
-msgstr ""
-
-msgid ""
-"Set directory for persistent cache files, The cache files are used to keep "
-"track of which addresses have been successfully sent to their respective "
-"DDNS provider and when."
-msgstr ""
-
-msgid "Initial startup delay. Default is no delay."
-msgstr "Aanvanklige beginvertraging. Verstek is geen vertraging."
-
-msgid "no delay"
-msgstr ""
-
-msgid "Set log level"
-msgstr ""
-
-msgid "Errors"
-msgstr "Foute"
-
-msgid "Notice"
-msgstr "Kennisgewing"
-
-msgid "Debug"
-msgstr "Ontfout"
-
-msgid "These parameters are appended to the inadyn.conf file."
-msgstr ""
-
-msgid "Verify Address"
-msgstr ""
-
-msgid "Fake Address"
-msgstr "Vals Adres"
-
-msgid "Allow IPv6"
-msgstr "Laat IPv6 toe"
-
-msgid "Network Interface"
-msgstr "Netwerk Koppelvlak"
-
-msgid "Iterations"
-msgstr "Iterasies"
-
-msgid "Check Interval"
-msgstr "Nagaaninterval"
-
-msgid "Force Update Interval"
-msgstr "Opdateer Interval Afdwing"
-
-msgid "Secure SSL"
-msgstr ""
-
-msgid "Broken RTC"
-msgstr "Stukkende RTC"
-
-msgid "CA Trusted Certificates"
-msgstr "CA Vertroude Sertifikate"
-
-msgid "Cache Directory"
-msgstr "Kasgids"
-
-msgid "Startup Delay"
-msgstr ""
-
-msgid "Log Level"
-msgstr "Log Vlak"
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr "Doen jy wil geselekteerde iSCSI inisieerders toggle?"
 
 msgid "This is a nickname and is for information only."
 msgstr "Hierdie is 'n bynaam en is vir inligting enigste."
@@ -13001,75 +13518,6 @@ msgstr ""
 msgid "Discovery"
 msgstr "Ontdekking"
 
-msgid "Target Address"
-msgstr "Teiken Adres"
-
-msgid "CHAP Name"
-msgstr "CHAP Naam"
-
-msgid "CHAP Secret"
-msgstr "CHAP Geheim"
-
-msgid "Mutual CHAP Name"
-msgstr "Wedersydse CHAP Naam"
-
-msgid "Mutual CHAP Secret"
-msgstr "Wedersydse CHAP Geheim"
-
-msgid "Header Digest"
-msgstr "Koptekst Digest"
-
-msgid "Data Digest"
-msgstr "Data Digest"
-
-msgid "Offload Driver"
-msgstr "Af te laai Drywer"
-
-msgid "Session State"
-msgstr "Sessie Staat"
-
-msgid "Session Type"
-msgstr "Sessie Tipe"
-
-msgid "Add iSCSI Initiator"
-msgstr "Voeg iSCSI Inisieerder"
-
-msgid "Edit iSCSI Initiator"
-msgstr "Wysig iSCSI Inisieerder"
-
-msgid "iSCSI Initiator is marked for deletion"
-msgstr "iSCSI Inisieerder is gemerk vir skrap"
-
-msgid "iSCSI Initiator is locked"
-msgstr "iSCSI Inisieerder is toegeslot"
-
-msgid "iSCSI Initiator is unlocked"
-msgstr "iSCSI Inisieerder is ontgeslot"
-
-msgid "Delete Selected iSCSI Initiators"
-msgstr "Skrap Geselekteerde iSCSI Inisieerders"
-
-msgid "Disable Selected iSCSI Initiators"
-msgstr "Deaktiveer Geselekteerde iSCSI Inisieerders"
-
-msgid "Enable Selected iSCSI Initiators"
-msgstr "Inskakel Geselekteerde iSCSI Inisieerders"
-
-msgid "Toggle Selected iSCSI Initiators"
-msgstr "Toggle Geselekteerde iSCSI Inisieerders"
-
-msgid "Do you want to delete selected iSCSI initiators?"
-msgstr "Wil jy geselekteerde iSCSI inisieerders skrap?"
-
-msgid "Do you want to disable selected iSCSI initiators?"
-msgstr "Wil jy geselekteerde iSCSI inisieerders deaktiveer?"
-
-msgid "Do you want to enable selected iSCSI initiators?"
-msgstr "Wil jy geselekteerde iSCSI inisieerders inskakel?"
-
-msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Doen jy wil geselekteerde iSCSI inisieerders toggle?"
-
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
 msgstr ""
@@ -13098,186 +13546,44 @@ msgstr ""
 "deur die AES-algoritme gebruik word - u sal nie gevra word vir hierdie "
 "wagwoord nie. Die geheim moet minstens 32 of meer karakters lank hê"
 
-msgid "Media Type"
-msgstr "Media Tipe"
+msgid "Add NFS Export"
+msgstr "Voeg NFS Uitvoer"
 
-msgid "Path to be included."
-msgstr "Pad om ingesluit te word."
+msgid "Edit NFS Export"
+msgstr "Wysig NFS Uitvoer"
 
-msgid "Restrict folder to a specific media type."
-msgstr "Beperk vouer tot 'n spesifieke media tipe."
+msgid "NFS Export is marked for deletion"
+msgstr "NFS Uitvoer is gemerk vir skrap"
 
-msgid "Scan folder for all media types."
-msgstr "Skandeer vouer vir alle media tipes."
+msgid "NFS Export is locked"
+msgstr "NFS Uitvoer is toegeslot"
 
-msgid "Scan folder for audio files."
-msgstr "Skandeer volder vir oudio lêers."
+msgid "NFS Export is unlocked"
+msgstr "NFS Uitvoer is ontgeslot"
 
-msgid "Scan folder for video files."
-msgstr "Skandeer volder vir video lêers."
+msgid "Delete Selected NFS Exports"
+msgstr "Skrap Geselekteerde NFS Uitvoere"
 
-msgid "Scan folder for image files."
-msgstr "Skandeer vouder vir beeld lêers."
+msgid "Disable Selected NFS Exports"
+msgstr "Deaktiveer Geselekteerde NFS Uitvoere"
 
-msgid "Scan folder for video and image files."
-msgstr "Skandeer volder vir video en beeld lêers."
+msgid "Enable Selected NFS Exports"
+msgstr "Inskakel Geselekteerdel NFS Uitvoer"
 
-msgid "Media Folders"
-msgstr "Media Gidse"
+msgid "Toggle Selected NFS Exports"
+msgstr "Toggle Geselekteerde NFS Uitvoer"
 
-msgid "Media Folder"
-msgstr "Media Vouer"
+msgid "Do you want to delete selected NFS exports?"
+msgstr "Wil jy geselekteerde NFS uitvoere skrap?"
 
-msgid "Add Media Folder"
-msgstr "Voeg Media Folder"
+msgid "Do you want to disable selected NFS exports?"
+msgstr "Doen jy wil om afskakel geselekteerde NFS uitvoer?"
 
-msgid "Edit Media Folder"
-msgstr "Wysig Media Vouer"
+msgid "Do you want to enable selected NFS exports?"
+msgstr "Wil jy geselekteerde NFS uitvoere Inskakel?"
 
-msgid "Media Folder is marked for deletion"
-msgstr "Media Vouer is gemerk vir skrap"
-
-msgid "Media Folder is locked"
-msgstr "Media Vouer is toegeslot"
-
-msgid "Media Folder is unlocked"
-msgstr "Media Vouer is ongeslot"
-
-msgid "Delete Selected Media Folders"
-msgstr "Skrap Geselekteerde Media Vouers"
-
-msgid "Disable Selected Media Folders"
-msgstr "Deaktiveer Geselekteerde Media Vouers"
-
-msgid "Enable Selected Media Folders"
-msgstr "Inskakel Geselekteerde Media Voures"
-
-msgid "Toggle Selected Media Folders"
-msgstr "Toggle Geselekteerde Media Vouers"
-
-msgid "Do you want to delete selected media folders?"
-msgstr "Wil jy geselekteerde mediagidse skrap?"
-
-msgid "Do you want to disable selected media folders?"
-msgstr "Wil jy geselekteerde mediavidse deaktiveer?"
-
-msgid "Do you want to enable selected media folders?"
-msgstr "Wil jy geselekteerde media vouers inskakel?"
-
-msgid "Do you want to toggle selected media folders?"
-msgstr "Doen jy wil geselekteerde luister skywe toggle?"
-
-msgid "Inotify"
-msgstr "Inotify"
-
-msgid "Broadcast Interval"
-msgstr "Uitsaai interval"
-
-msgid "Strict DLNA"
-msgstr "Streng DLNA"
-
-msgid "TiVo Support"
-msgstr "TiVo Ondersteuning"
-
-msgid "Wide Links"
-msgstr "Wye Skakels"
-
-msgid "Container"
-msgstr "Container"
-
-msgid "Sort Criteria"
-msgstr "Sorteer Kriterië"
-
-msgid "Disable Subtitles"
-msgstr "Deaktiveer Subtitels"
-
-msgid "Media Server Name."
-msgstr "Media Bediener Naam."
-
-msgid "Verbosity of information that is logged."
-msgstr "Verbosity van nligting wat is logged."
-
-msgid "Fatal"
-msgstr "Fataal"
-
-msgid "Enable inotify."
-msgstr "Ontsper inotify"
-
-msgid "Use inotify monitoring to automatically discover new media files."
-msgstr "Gebruik inotify monitering om outomaties te ontdek nuwe media lêers."
-
-msgid ""
-"Broadcasts its availability every configured seconds on the network, the "
-"default is 300 seconds."
-msgstr ""
-"Uitsaai die beskikbaarheid daarvan elke gekonfigureerde sekondes op die "
-"netwerk, die verstek is 300 sekondes."
-
-msgid "300"
-msgstr "300"
-
-msgid ""
-"Port to listen on. Port number must be between 1024 and 65535. Default port "
-"is 8200."
-msgstr ""
-"Poort om luister op. Poort nommer moet wees tussen 1024 en 65535. Verstek "
-"poort is 8200."
-
-msgid "8200"
-msgstr "8200"
-
-msgid "Enable to strictly adhere to DLNA standards."
-msgstr "Ontsper om streng die DLNA standaarde te handhaaf"
-
-msgid ""
-"This will allow server-side downscaling of very large JPEG images, it can "
-"impact JPEG serving performance on some DLNA devices."
-msgstr ""
-"Hierdie laat bedienerskant toe van baie groot JPEG-beelde, en dit kan die "
-"JPEG-bedieningsprestasie op sommige DLNA toestelle beïnvloed."
-
-msgid "Enable TiVo support."
-msgstr "Inskakel TiVo ondersteuning."
-
-msgid ""
-"This will support streaming .jpg and .mp3 files to a TiVo supporting HMO."
-msgstr ""
-"Hierdie sal stroom .jpg  en .mp3 lêers na 'n TiVo ondersteunende HMO "
-"ondersteun."
-
-msgid "Allow symlinks that point outside defined media folders."
-msgstr "Laat simskakels daardie wat punt-buite gedefinieerde media vouers."
-
-msgid "These parameters will be added to minidlna.conf"
-msgstr "Hierdie parameters sal bygevoeg word minidlna.conf"
-
-msgid "Select a container as the root of the tree exposed to clients."
-msgstr ""
-"Selekteer 'n houer as die wortel van die boom wat aan kliente blootgestel."
-
-msgid "Use the standard container (this is the default)"
-msgstr "Gebruik die standaard houer (dit is die verstek)"
-
-msgid "Use the \"Browse Directory\" container"
-msgstr "Gebruik die \"Browse Directory\" houer"
-
-msgid "Use the \"Music\" container"
-msgstr "Gebruik die \"Music\" houer"
-
-msgid "Use the \"Video\" container"
-msgstr "Gebruik die \"Video\" houer"
-
-msgid "Use the \"Pictures\" container"
-msgstr "Gebruik die \"Pictures\" houer"
-
-msgid "Overwrite the sort criteria passed by the client."
-msgstr "Oorskryf die soort kriteria wat deur die klient geslaag is."
-
-msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-
-msgid "Disable subtitle support on unknown clients."
-msgstr "Deaktiveer subtitel ondersteuning op onbekende kliënte."
+msgid "Do you want to toggle selected NFS exports?"
+msgstr "Doen jy wil geselekteerde NFS uitvoer toggle?"
 
 msgid "Mapping"
 msgstr "Kartering"
@@ -13381,45 +13687,6 @@ msgstr ""
 msgid "Root Directory"
 msgstr "Wortel Directory"
 
-msgid "Add NFS Export"
-msgstr "Voeg NFS Uitvoer"
-
-msgid "Edit NFS Export"
-msgstr "Wysig NFS Uitvoer"
-
-msgid "NFS Export is marked for deletion"
-msgstr "NFS Uitvoer is gemerk vir skrap"
-
-msgid "NFS Export is locked"
-msgstr "NFS Uitvoer is toegeslot"
-
-msgid "NFS Export is unlocked"
-msgstr "NFS Uitvoer is ontgeslot"
-
-msgid "Delete Selected NFS Exports"
-msgstr "Skrap Geselekteerde NFS Uitvoere"
-
-msgid "Disable Selected NFS Exports"
-msgstr "Deaktiveer Geselekteerde NFS Uitvoere"
-
-msgid "Enable Selected NFS Exports"
-msgstr "Inskakel Geselekteerdel NFS Uitvoer"
-
-msgid "Toggle Selected NFS Exports"
-msgstr "Toggle Geselekteerde NFS Uitvoer"
-
-msgid "Do you want to delete selected NFS exports?"
-msgstr "Wil jy geselekteerde NFS uitvoere skrap?"
-
-msgid "Do you want to disable selected NFS exports?"
-msgstr "Doen jy wil om afskakel geselekteerde NFS uitvoer?"
-
-msgid "Do you want to enable selected NFS exports?"
-msgstr "Wil jy geselekteerde NFS uitvoere Inskakel?"
-
-msgid "Do you want to toggle selected NFS exports?"
-msgstr "Doen jy wil geselekteerde NFS uitvoer toggle?"
-
 msgid "Add NFS Root"
 msgstr "Voeg NFS Root"
 
@@ -13462,6 +13729,15 @@ msgstr "Doen jy wil geselekteerde NFS wortel directories toggle?"
 msgid "Root Directories"
 msgstr ""
 
+msgid "NFSv4"
+msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr "Alleenlik NFSv4"
+
+msgid "Servers"
+msgstr "Bedieners"
+
 msgid "Enable NFSv4 server."
 msgstr "Inskakel NFSv4 bediener."
 
@@ -13479,15 +13755,6 @@ msgstr ""
 msgid "These parameters are appended to the exports file."
 msgstr "Hierdie parameters word bygevoeg by die uitvoerlêer."
 
-msgid "NFSv4"
-msgstr "NFSv4"
-
-msgid "NFSv4 Only"
-msgstr "Alleenlik NFSv4"
-
-msgid "Servers"
-msgstr "Bedieners"
-
 msgid "Driver List"
 msgstr "Drywer Lys"
 
@@ -13499,6 +13766,66 @@ msgstr "Model Naam"
 
 msgid "Model Extra"
 msgstr "Model Ekstra"
+
+msgid "Enable AFP"
+msgstr "Inskakel AFP"
+
+msgid "Create Mask"
+msgstr "Skep Masker"
+
+msgid "Force Group"
+msgstr "Dwing Groep"
+
+msgid "Force User"
+msgstr "Dwing Gebruiker"
+
+msgid "Shadow Copy Format"
+msgstr "Skaduwee Kopieer Formaat"
+
+msgid "VFS fruit:encoding"
+msgstr "VFS fruit:enkodering"
+
+msgid "VFS fruit:locking"
+msgstr "VFS fruit:toeslot"
+
+msgid "VFS fruit:metadata"
+msgstr "VFS fruit:metadata"
+
+msgid "VFS fruit:resource"
+msgstr "VFS fruit:hulpbronne"
+
+msgid "VFS fruit:time machine"
+msgstr "VFS fruit:tyd masjien"
+
+msgid "ZFS ACL"
+msgstr "ZFS ACL"
+
+msgid "Inherit ACL"
+msgstr "Beërwe ACL"
+
+msgid "Alternate Data Streams"
+msgstr "Alternatiewe Data Strome"
+
+msgid "NTFS ACLs"
+msgstr "NTFS ACLs"
+
+msgid "Shadow Copy"
+msgstr "Skadu Kopie"
+
+msgid "Browseable"
+msgstr "Deurblaaibaar"
+
+msgid "Guest Only"
+msgstr ""
+
+msgid "Inherit Permissions"
+msgstr "Beërwe Permissies"
+
+msgid "Recycle Bin"
+msgstr "Herwin Bin"
+
+msgid "Hide Dot Files"
+msgstr "Steek Dot Lêers"
 
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
@@ -13724,66 +14051,6 @@ msgstr "Ingaan kommentaar vir die aandeel"
 
 msgid "Enter the location of the share"
 msgstr "Ingaan die ligging van die aandeel"
-
-msgid "Enable AFP"
-msgstr "Inskakel AFP"
-
-msgid "Create Mask"
-msgstr "Skep Masker"
-
-msgid "Force Group"
-msgstr "Dwing Groep"
-
-msgid "Force User"
-msgstr "Dwing Gebruiker"
-
-msgid "Shadow Copy Format"
-msgstr "Skaduwee Kopieer Formaat"
-
-msgid "VFS fruit:encoding"
-msgstr "VFS fruit:enkodering"
-
-msgid "VFS fruit:locking"
-msgstr "VFS fruit:toeslot"
-
-msgid "VFS fruit:metadata"
-msgstr "VFS fruit:metadata"
-
-msgid "VFS fruit:resource"
-msgstr "VFS fruit:hulpbronne"
-
-msgid "VFS fruit:time machine"
-msgstr "VFS fruit:tyd masjien"
-
-msgid "ZFS ACL"
-msgstr "ZFS ACL"
-
-msgid "Inherit ACL"
-msgstr "Beërwe ACL"
-
-msgid "Alternate Data Streams"
-msgstr "Alternatiewe Data Strome"
-
-msgid "NTFS ACLs"
-msgstr "NTFS ACLs"
-
-msgid "Shadow Copy"
-msgstr "Skadu Kopie"
-
-msgid "Browseable"
-msgstr "Deurblaaibaar"
-
-msgid "Guest Only"
-msgstr ""
-
-msgid "Inherit Permissions"
-msgstr "Beërwe Permissies"
-
-msgid "Recycle Bin"
-msgstr "Herwin Bin"
-
-msgid "Hide Dot Files"
-msgstr "Steek Dot Lêers"
 
 msgid "Add Samba Share"
 msgstr "Voeg Samba Deel"
@@ -14212,9 +14479,6 @@ msgstr ""
 msgid "Allow password authentication."
 msgstr "Laat wagwoord ontentisering."
 
-msgid "Allow challenge-response authentication."
-msgstr "Toelaat uitdaging-antwoord ontentisering"
-
 msgid "Allow keyboard-interactive authentication."
 msgstr "Laat sleutelbord-interaktiewe ontentisering."
 
@@ -14295,9 +14559,6 @@ msgstr "Hierdie parameters is aangeheg aan /etc/ssh/sshd_config."
 msgid "Password Authentication"
 msgstr "Wagwoord Ontentisering"
 
-msgid "Challenge-Response Authentication"
-msgstr "Uitdaging-Reaksie Ontentisering"
-
 msgid "Keyboard-Interactive Authentication"
 msgstr "Sleutelbord-Interaktiewe Ontentisering"
 
@@ -14312,6 +14573,18 @@ msgstr "Wortel Aanmeld"
 
 msgid "TCP Forwarding"
 msgstr "TCP Doorschakeling"
+
+msgid "Allow New Files"
+msgstr "Toelaat Nuwe Lêers"
+
+msgid "Directory"
+msgstr "Directory"
+
+msgid "Max. Block Size"
+msgstr "Max. Blok Grootte"
+
+msgid "Umask"
+msgstr "Umask"
 
 msgid "Allow new files to be created."
 msgstr "Laat toe dat nuwe lêers geskep word."
@@ -14380,14 +14653,56 @@ msgstr "000"
 msgid "Specifies the username under which the TFTP service should run."
 msgstr "Spesifiseer die gebruikersnaam waaronder die TFTP-diens moet loop."
 
-msgid "Allow New Files"
-msgstr "Toelaat Nuwe Lêers"
+msgid "Peer Port"
+msgstr "Portuur Hawe"
 
-msgid "Max. Block Size"
-msgstr "Max. Blok Grootte"
+msgid "Configuration Folder"
+msgstr "Konfigurasiegids"
 
-msgid "Umask"
-msgstr "Umask"
+msgid "Incomplete Folder"
+msgstr "Onvolledige gids"
+
+msgid "Download Folder"
+msgstr "Aflaaigids"
+
+msgid "Watch Folder"
+msgstr ""
+
+msgid "Port Forwarding"
+msgstr "Poort Doorschakeling"
+
+msgid "Peer Exchange"
+msgstr "Portuur Uitruil"
+
+msgid "Distributed Hash Table"
+msgstr "Verspreide Hash Tabel"
+
+msgid "Local Peer Discovery"
+msgstr "Lokale Eweknie Ontdekking"
+
+msgid "uTP"
+msgstr ""
+
+msgid "User Mask"
+msgstr "Gebruiker Masker"
+
+msgid "Preallocation"
+msgstr "Preallocation"
+
+msgid "Message Level"
+msgstr "Boodskapvlak"
+
+msgid "DNS Rebind Protection"
+msgstr "DNS Herbinding Beskerming"
+
+msgid "Domain Names"
+msgstr "Domein Name"
+
+msgid "Start Torrents"
+msgstr ""
+
+msgid "Stop Torrents"
+msgstr ""
 
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
@@ -14509,68 +14824,17 @@ msgstr ""
 msgid "Stop torrents before stopping service."
 msgstr ""
 
-msgid "Peer Port"
-msgstr "Portuur Hawe"
+msgid "Work Directory"
+msgstr "Werk Directory"
 
-msgid "Configuration Folder"
-msgstr "Konfigurasiegids"
-
-msgid "Incomplete Folder"
-msgstr "Onvolledige gids"
-
-msgid "Download Folder"
-msgstr "Aflaaigids"
-
-msgid "Watch Folder"
-msgstr ""
-
-msgid "Port Forwarding"
-msgstr "Poort Doorschakeling"
-
-msgid "Peer Exchange"
-msgstr "Portuur Uitruil"
-
-msgid "Distributed Hash Table"
-msgstr "Verspreide Hash Tabel"
-
-msgid "Local Peer Discovery"
-msgstr "Lokale Eweknie Ontdekking"
-
-msgid "uTP"
-msgstr ""
-
-msgid "User Mask"
-msgstr "Gebruiker Masker"
-
-msgid "Preallocation"
-msgstr "Preallocation"
-
-msgid "Message Level"
-msgstr "Boodskapvlak"
-
-msgid "DNS Rebind Protection"
-msgstr "DNS Herbinding Beskerming"
-
-msgid "Domain Names"
-msgstr "Domein Name"
-
-msgid "Start Torrents"
-msgstr ""
-
-msgid "Stop Torrents"
-msgstr ""
+msgid "Create Work Directory"
+msgstr "Skep Werk Gids"
 
 msgid "Location where work files will be stored."
 msgstr "Ligging waar werk lêers gestoor sal word."
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Skep 'n werk lêergids as dit nog nie bestaan nie."
-
-msgid "Work Directory"
-msgstr "Werk Directory"
-
-msgid "Create Work Directory"
-msgstr "Skep Werk Gids"
 
 msgid "Name of the WebDAV Record."
 msgstr "Naam van die WebDAV Rekord."
@@ -14596,6 +14860,12 @@ msgstr "Gebruik Sqlite vir lockings en eiendomme."
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr ""
 "Hierdie parameters sal bygevoeg word tot hierdie WebDAV konfigurasie."
+
+msgid "Read-Only"
+msgstr "Lees-Slegs"
+
+msgid "Use Sqlite"
+msgstr "Gebruik Sqlite"
 
 msgid "Add WebDAV Record"
 msgstr "Voeg WebDAV Rekord"
@@ -14636,30 +14906,6 @@ msgstr "Wil jy geselekteerde WebDAV rekords inskakel?"
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Doen jy wil geselekteerde WebDAV rekords toggle?"
 
-msgid "Read-Only"
-msgstr "Lees-Slegs"
-
-msgid "Use Sqlite"
-msgstr "Gebruik Sqlite"
-
-msgid "IP Address Family"
-msgstr "IP adres familie"
-
-msgid "NETBIOS Hostname"
-msgstr "NETBIOS Masjiennaam"
-
-msgid "Preserve Case"
-msgstr ""
-
-msgid "Server Mode"
-msgstr ""
-
-msgid "Workgroup Name"
-msgstr ""
-
-msgid "Web Service Discovery"
-msgstr ""
-
 msgid "IPv4 only"
 msgstr "Slegs IPv4"
 
@@ -14685,6 +14931,24 @@ msgstr ""
 msgid "Set workgroup name"
 msgstr ""
 
+msgid "IP Address Family"
+msgstr "IP adres familie"
+
+msgid "NETBIOS Hostname"
+msgstr "NETBIOS Masjiennaam"
+
+msgid "Preserve Case"
+msgstr ""
+
+msgid "Server Mode"
+msgstr ""
+
+msgid "Workgroup Name"
+msgstr ""
+
+msgid "Web Service Discovery"
+msgstr ""
+
 msgid "Protected"
 msgstr "Beskermd"
 
@@ -14696,6 +14960,15 @@ msgstr "Snapdir"
 
 msgid "UTF-8 Only"
 msgstr "UTF-8 Enigste"
+
+msgid "Service"
+msgstr "Diens"
+
+msgid "Do you really want to remove the selected item from the list?"
+msgstr "Wil jy regtig die geselekteerde item van die lys af verwyder?"
+
+msgid "Select item to remove from the list"
+msgstr "Kies 'n item om van die lys af te verwyder"
 
 msgid "You may enter a description for your reference."
 msgstr "Jy mag 'n beskrywing te betree vir jou verwysing."
@@ -14724,8 +14997,517 @@ msgstr "Ingaan Volume Naam"
 msgid "The name of the ZFS pool."
 msgstr "Die naam van die ZFS poel."
 
-msgid "Service"
-msgstr "Diens"
+msgid "You are not allowed to use this function."
+msgstr "Jy word nie toegelaat om hierdie function te gebruik."
+
+msgid "Copy item(s)"
+msgstr "Kopieer item (s)"
+
+msgid "Move item(s)"
+msgstr "Skuif item(s)"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Kopieer vanaf /%s om /%s "
+
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "Skuif vanaf /%s to /%s "
+
+msgid "Copy"
+msgstr "Kopieër"
+
+msgid "Move"
+msgstr "Skuif"
+
+msgid "The target directory doesn't exist."
+msgstr "Die teikengids bestaan nie."
+
+msgid "You are not allowed to access the target directory."
+msgstr "Jy word nie toegelaat om toegang tot die teiken gids."
+
+msgid "The target directory may not be above the home directory."
+msgstr "Die teikengids is moontlik nie bokant die tuisgids nie."
+
+msgid "You must supply a name."
+msgstr "Jy moet 'n naam verskaf."
+
+msgid "This item doesn't exist."
+msgstr "Hierdie item bestaan nie."
+
+msgid "You are not allowed to access this item."
+msgstr "Jy word nie toegelaat om toegang tot hierdie item."
+
+msgid "The target item already exists."
+msgstr "Die teiken item bestaan ​​reeds."
+
+msgid "Copying failed."
+msgstr "Kopiëring het misluk."
+
+msgid "Moving failed."
+msgstr "Beweeg het misluk."
+
+msgid "Deleting failed."
+msgstr "Skrap tans misluk."
+
+msgid "File saving failed."
+msgstr "Lêer besparing mislukte."
+
+msgid "This file doesn't exist."
+msgstr "Hierdie lêer bestaan nie."
+
+msgid "You are not allowed to access this file."
+msgstr "Jy word nie toegelaat om toegang tot hierdie lêer."
+
+msgid "This item already exists."
+msgstr "Hierdie item bestaan reeds."
+
+msgid "File opening failed."
+msgstr "Lêer ooping mislukte."
+
+msgid "Edit file"
+msgstr "Wysig lêer"
+
+msgid "Wrap text:"
+msgstr "Omvou teks:"
+
+msgid "Reset"
+msgstr "Herstel"
+
+msgid "Close"
+msgstr "Sluit"
+
+msgid "Unable to open source directory."
+msgstr ""
+
+msgid "Unable to open directory."
+msgstr "Kan die gids nie oopmaak nie."
+
+msgid "Unable to read directory."
+msgstr "Kan die gids nie lees nie."
+
+msgid "You haven't selected any item(s)."
+msgstr "Jy het nie 'n item (s) gekies."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Is jy seker dat jy die geselekteerde item(s) wil skrap?"
+
+msgid "Executable File"
+msgstr "Uitvoerbare lêer"
+
+msgid "Link"
+msgstr "Skakel"
+
+msgid "Text File"
+msgstr "Teks Lêer"
+
+msgid "PHP Script"
+msgstr "PHP Script"
+
+msgid "SQL File"
+msgstr "SQL Lêer"
+
+msgid "PERL Script"
+msgstr "PERL Script"
+
+msgid "HTML Page"
+msgstr "HTML Bladsy"
+
+msgid "XML File"
+msgstr "XML Lêer"
+
+msgid "Javascript File"
+msgstr "Javascript Lêer"
+
+msgid "CSS File"
+msgstr "CSS Lêer"
+
+msgid "CGI Script"
+msgstr "CGI Skrif"
+
+msgid "Python Script"
+msgstr "Python Script"
+
+msgid "Shell Script"
+msgstr "Shell Script"
+
+msgid "C File"
+msgstr "C Lêer"
+
+msgid "C++ Source File"
+msgstr "C++ Bron Lêer"
+
+msgid "C++ Header File"
+msgstr "C ++ Koptekst Lêer"
+
+msgid "Java Source File"
+msgstr "Java Bron Lêer"
+
+msgid "Java Class File"
+msgstr "Java Klas Lêer"
+
+msgid "Pascal File"
+msgstr "Pascal Lêer"
+
+msgid "GIF Image"
+msgstr "GIF Beeld"
+
+msgid "JPG Image"
+msgstr "JPG Beeld"
+
+msgid "BMP Image"
+msgstr "BMP Beeld"
+
+msgid "PNG Image"
+msgstr "PNG Beeld"
+
+msgid "TIF Image"
+msgstr "TIF Beeld"
+
+msgid "Photoshop File"
+msgstr "Fotowinkel Lêer"
+
+msgid "ZIP Archive"
+msgstr "Zip Argief"
+
+msgid "TAR Archive"
+msgstr "TAR Argief"
+
+msgid "GZIP Archive"
+msgstr "GZIP Argief"
+
+msgid "BZIP2 Archive"
+msgstr "BZIP2 Argief"
+
+msgid "RAR Archive"
+msgstr "RAR Argief"
+
+msgid "MP3 Audio File"
+msgstr "MP3 Oudio Lêer"
+
+msgid "FLAC Audio File"
+msgstr "FLAC Oudio Lêer"
+
+msgid "WAV Audio File"
+msgstr "WAV Oudio Lêer"
+
+msgid "MIDI File"
+msgstr "MIDI Lêer"
+
+msgid "RealAudio File"
+msgstr "WerklikeOudio Lêer"
+
+msgid "DTS Audio File"
+msgstr "DTS Oudio Lêer"
+
+msgid "AC3 Audio File"
+msgstr "AC3 Oudio Lêer"
+
+msgid "OGG Audio File"
+msgstr "OGG Oudio Lêer"
+
+msgid "MP3 Playlist"
+msgstr "MP3 Snitlys"
+
+msgid "AVI File"
+msgstr "AVI Lêer"
+
+msgid "MPEG File"
+msgstr "MPEG Lêer"
+
+msgid "MOV File"
+msgstr "MOV Lêer"
+
+msgid "MKV File"
+msgstr "MKV Lêer"
+
+msgid "VOB File"
+msgstr "VOB Lêer"
+
+msgid "Flash File"
+msgstr "Flits Lêer"
+
+msgid "MP4 File"
+msgstr "MP4 Lêer"
+
+msgid "TS File"
+msgstr "TS Lêer"
+
+msgid "Word Document"
+msgstr "Woord Dokument"
+
+msgid "Excel Sheet"
+msgstr "Excel Laken"
+
+msgid "Powerpoint Presentation"
+msgstr "powerpoint aanbieding"
+
+msgid "PDF File"
+msgstr "PDF Lêer"
+
+msgid "ERROR(S)"
+msgstr "FOUT(S)"
+
+msgid "Go Back"
+msgstr "Gaan Terug"
+
+msgid "Extracting"
+msgstr "Ekstraksies"
+
+msgid "Unzip"
+msgstr "Unzip"
+
+msgid "Failed to extract archive."
+msgstr "Kon nie argief onttrek nie."
+
+msgid "Directory creation failed."
+msgstr "Directory skepping misluk."
+
+msgid "File creation failed."
+msgstr "Lêer skepping mislukte."
+
+msgid "Search Directory"
+msgstr "Soektog Gids"
+
+msgid "Search Filter"
+msgstr "Soektog Filtreer"
+
+msgid "Search subfolder"
+msgstr ""
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Soektog Resultaat vir %1$s"
+
+msgid "Item(s)"
+msgstr "Item(s)"
+
+msgid "No results available."
+msgstr "Geen resultate beskikbaar."
+
+msgid "HOME"
+msgstr "TUISTE"
+
+msgid "Permission-change failed."
+msgstr "Toestemming-verander mislukte."
+
+msgid "Getting permissions failed."
+msgstr "Kry tans toestemminge mislukte."
+
+msgid "Change permissions"
+msgstr "Verandering toestemmings"
+
+msgid "Public"
+msgstr "Publieke"
+
+msgid "CHANGE PERMISSIONS"
+msgstr "VERANDERINGS PERMISSIES"
+
+msgid "You are not allowed to access this directory."
+msgstr "Jy word nie toegelaat om toegang tot hierdie gids."
+
+msgid "UP"
+msgstr "UP"
+
+msgid "RELOAD"
+msgstr "HERLAAI"
+
+msgid "SEARCH"
+msgstr "SOEK"
+
+msgid "Modified"
+msgstr "Gemodifiseerde"
+
+msgid "Permissions"
+msgstr "Machtigingen"
+
+msgid "Actions"
+msgstr "Aksies"
+
+msgid "COPY"
+msgstr "KOPIE"
+
+msgid "MOVE"
+msgstr "BEWEEG"
+
+msgid "DELETE"
+msgstr "SKRAP"
+
+msgid "EDIT"
+msgstr "WYSIG"
+
+msgid "UNZIP"
+msgstr "UNZIP"
+
+msgid "DOWNLOAD"
+msgstr "AFLAAI"
+
+msgid "The following errors were detected"
+msgstr "Die volgende foute is opgespoor"
+
+msgid ""
+"If this message persists take a look at the system log for more information."
+msgstr ""
+"As hierdie boodskap voortduur, kyk na die stelsellogboek vir meer inligting."
+
+msgid "Choose..."
+msgstr "Kies..."
+
+msgid "Running"
+msgstr ""
+
+msgid "Inactive"
+msgstr "Onaktief"
+
+msgid "Online"
+msgstr "Aanlyn"
+
+msgid "Offline"
+msgstr "Aflyn"
+
+msgid "No records found."
+msgstr "Geen rekords gevind."
+
+msgid "Selected..."
+msgstr "Geselekteerde..."
+
+msgid "Apply Changes"
+msgstr "Toepas Veranderinge"
+
+msgid "Rescan"
+msgstr "Her-tasting"
+
+msgid "Restart"
+msgstr "Herbegin"
+
+msgid "Parent Directory"
+msgstr "Ouer Directory"
+
+msgid "VLAN Interface"
+msgstr ""
+
+msgid "VLAN Tag"
+msgstr "VLAN Etiket"
+
+msgid "PCP"
+msgstr "PCP"
+
+msgid "Encapsulation Protocol"
+msgstr "Enkapsulering Protokol"
+
+msgid "Add VLAN"
+msgstr "Voeg VLAN"
+
+msgid "Edit VLAN"
+msgstr "Wysig VLAN"
+
+msgid "VLAN is marked for deletion"
+msgstr "VLAN is gemerk vir skrap"
+
+msgid "VLAN is locked"
+msgstr ""
+
+msgid "VLAN is unlocked"
+msgstr "VLAN is ontgeslot"
+
+msgid "Delete Selected VLANs"
+msgstr "Skrap Geselekteerde VLANs"
+
+msgid "Disable Selected VLANs"
+msgstr "Deaktiveer Gekose VLANs"
+
+msgid "Enable Selected VLANs"
+msgstr "Aktiveer Gekose VLANs"
+
+msgid "Toggle Selected VLANs"
+msgstr ""
+
+msgid "Do you want to delete selected VLANs?"
+msgstr "Wil jy geselekteerde VLAN's skrap?"
+
+msgid "Do you want to disable selected VLANs?"
+msgstr "Wil jy die gekose VLANs deaktiveer?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr "Wil jy die gekose lêerstelsels aktiveer?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr "Wil jy die gekose VLANs wissel?"
+
+msgid "The name of the VLAN interface"
+msgstr ""
+
+msgid "vlan0"
+msgstr ""
+
+msgid "802.1Q VLAN tag (between 1 and 4094)."
+msgstr "802.1Q VLAN tag (tussen 1 en 4094)."
+
+msgid "102"
+msgstr "102"
+
+msgid ""
+"Priority code point (PCP) is an 3-bit field which refers to the IEEE 802.1p "
+"class of service and maps to the frame priority level."
+msgstr ""
+
+msgid "Best effort (default)"
+msgstr "Beste poging (verstek)"
+
+msgid "Background (lowest)"
+msgstr "Agtergrond (laagste)"
+
+msgid "Excellent effort"
+msgstr "Uitstekende poging"
+
+msgid "Critical applications"
+msgstr "Kritiese toepassings"
+
+msgid "Video < 100ms latency"
+msgstr ""
+
+msgid "Video < 10ms latency"
+msgstr ""
+
+msgid "Internetwork control"
+msgstr "Internetwerk kontrole"
+
+msgid "Network control (highest)"
+msgstr "Netwerk beheer (hoogste)"
+
+msgid "Set the VLAN encapsulation protocol."
+msgstr ""
+
+msgid "802.1Q (default)"
+msgstr "802.1Q (verstek)"
+
+msgid "802.1ad (QinQ)"
+msgstr "802.1ad (QinQ)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid ""
+"Controls whether processes can be executed from within this file system."
+msgstr ""
+"Kontrols whether prosesse kan wees tereggestel vanaf binne hierdie lêer "
+"stelsel."
+
+msgid "Exec"
+msgstr "Exec"
+
+msgid ""
+"The minimum amount of space guaranteed to a dataset, not including its "
+"descendents."
+msgstr ""
+"Die minimum hoeveelheid ruimte wat aan 'n datastel gewaarborg word, nie die "
+"nasate daarvan nie."
 
 msgid "Console Autologin"
 msgstr "Konsole Outologin"
@@ -14837,883 +15619,119 @@ msgid "The COM port in BIOS has to be enabled before enabling this option."
 msgstr ""
 "Die COM poort in die BIOS moet ontesper word voor hierdie opsie ontsper word."
 
-msgid "1"
-msgstr "1"
+msgid "Second"
+msgstr "Tweede"
 
-msgid "2"
-msgstr "2"
+msgid "Seconds"
+msgstr "Sekondes"
 
-msgid "3"
-msgstr "3"
+msgid "Minute"
+msgstr "Minuut"
+
+msgid "Hour"
+msgstr "Uur"
+
+msgid "Day"
+msgstr "Dag"
+
+#, php-format
+msgid "%1$s managed, %2$s used, %3$s available"
+msgstr "%1$s bestuurde, %2$s gebruik is, %3$s beskikbaar"
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr "Totaal: %1$s | Gebruikde: %2$s | Beskikbaar: %3$s"
+
+#, php-format
+msgid "%2$s used, %3$s available"
+msgstr "%2$s gebruik is, %3$s beskikbaar"
+
+msgid "Communication Error"
+msgstr "Kommunikasie Fout"
+
+msgid "More than a day"
+msgstr "Meer as een dag"
+
+msgid "No data"
+msgstr "Geen data"
+
+#, php-format
+msgid "%u hour"
+msgstr "%u uur"
+
+#, php-format
+msgid "%u hours"
+msgstr "%u ure"
+
+#, php-format
+msgid "%u minute"
+msgstr "%u minuut"
+
+#, php-format
+msgid "%u minutes"
+msgstr "%u minute"
+
+#, php-format
+msgid "%u second"
+msgstr "%u sekonde"
+
+#, php-format
+msgid "%u seconds"
+msgstr "%u sekondes"
+
+msgid "and"
+msgstr "en"
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr "Totaal: %1$s | Allokeerde: %2$s | Gratis: %3$s"
+
+msgid "Deleting MBR and partition table"
+msgstr "Skrap tans MBR en partisie tabel"
+
+msgid "Creating partition"
+msgstr "Skep tans partisie"
+
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr "Skep 'n leerstelsel met \"Soft Updates\""
+
+#, php-format
+msgid "Using %s bytes fragment size."
+msgstr "Gebruik %s grepe fragmentase grootte."
+
+msgid "Created UFS file system:"
+msgstr "Het 'n UFS lêersisteem geskep:"
+
+msgid "Deleting GEOM metadata"
+msgstr "Skrap tans GEOM metadata"
+
+msgid "Creating filesystem"
+msgstr "Besig om 'n lêersisteem te skep"
+
+msgid "Done!"
+msgstr "Gedoen!"
 
 msgid ""
-"Controls whether processes can be executed from within this file system."
+"The disk is currently mounted! The mount point will be removed temporarily "
+"to perform selected command."
 msgstr ""
-"Kontrols whether prosesse kan wees tereggestel vanaf binne hierdie lêer "
-"stelsel."
+"Die skyf is huidiglik gemonteer! Die monteer punt moet tydelik verwyder word "
+"om die geselekteerde bevel uit te voer."
 
-msgid "Exec"
-msgstr "Exec"
-
-msgid ""
-"The minimum amount of space guaranteed to a dataset, not including its "
-"descendents."
-msgstr ""
-"Die minimum hoeveelheid ruimte wat aan 'n datastel gewaarborg word, nie die "
-"nasate daarvan nie."
-
-msgid "Enter AD or PDC name."
-msgstr "Voer AD of PDC naam in."
-
-msgid "Controller Name"
-msgstr "Beheerdernaam"
-
-msgid "Enter the domain name."
-msgstr "Voer die domein naam in."
-
-msgid "example.com"
+msgid "Unkown"
 msgstr ""
 
-msgid "Enter NetBIOS name."
-msgstr "Voer NetBIOS naam in."
+msgid "Unformated"
+msgstr "Ongeformatteerde"
 
-msgid "NETBIOS"
-msgstr "NETBIOS"
+msgid "SoftRaid"
+msgstr "SagteRaid"
 
-msgid "Enter user name of a domain administrator account."
-msgstr "Voer 'n gebruikernaam van 'n domein administrator rekening in."
+msgid "Encrypted"
+msgstr "Geïnkripteer"
 
-msgid "Admin"
-msgstr "Admin"
-
-msgid "Enter the password of the domain administrator account."
-msgstr "Voer die wagwoord van die domein administrator rekening in."
-
-msgid "Domain Controller Name"
-msgstr "Domein Kontroleerder Naam"
-
-msgid "Domain Name (DNS/Realm-Name)"
-msgstr "Domein Naam (DNS/Realm-Naam)"
-
-msgid "Domain Name (NetBIOS-Name)"
-msgstr "Domein Naam (NetBIOS-Naam)"
-
-msgid "Administrator Name"
-msgstr "Administrateur Naam"
-
-msgid "Administrator Password"
-msgstr "Administrateurwagwoord"
-
-msgid "Add Group"
-msgstr "Voeg Groep"
-
-msgid "Edit Group"
-msgstr "Redigeer Groep"
-
-msgid "Group is marked for deletion"
-msgstr "Groep is gemerk vir skrapping"
-
-msgid "Group is protected"
-msgstr "Groep is beskerm"
-
-msgid "Group is unlocked"
-msgstr "Groep is ontsluit"
-
-msgid "Delete Selected Groups"
-msgstr "Skrap Geselekteerde Groepe"
-
-msgid "Do you want to delete selected groups?"
-msgstr "Wil jy die geselekteerde groepe skrap?"
-
-msgid "Disable Selected Groups"
-msgstr "Deaktiveer Geselekteerde Groepe"
-
-msgid "Do you want to disable selected groups?"
-msgstr "Wil jy geselekteerde groepe deaktiveer?"
-
-msgid "Enable Selected Groups"
-msgstr "Inskakel Geselekteerde Groepe"
-
-msgid "Do you want to enable selected groups?"
-msgstr "Wil jy geselekteerde groepe inskakel?"
-
-msgid "Toggle Selected Groups"
-msgstr "Toggle Geselekteerde Groepe"
-
-msgid "Do you want to toggle selected groups?"
-msgstr "Doen jy wil geselekteerde groepe toggle?"
-
-msgid "System Group"
-msgstr "Stelsel Groep"
-
-msgid "Show System Groups"
-msgstr "Wys Stelsel Groepe"
-
-msgid "Hide System Groups"
-msgstr "Versteek Stelsel Groepe"
-
-msgid "Enter group name."
-msgstr "Ingaan groep naam."
-
-msgid "Group Name"
-msgstr "Groep Naam"
-
-msgid "Specify the group numeric id."
-msgstr "Spesifiseer die groep numeriese id."
-
-msgid "The recommended range for the group id is between 1000 and 32000."
-msgstr "Die aanbevole reeks vir die groep ID is tussen 1000 en 32000."
-
-msgid "1000"
-msgstr "1000"
-
-msgid "Groups"
-msgstr "Groepe"
-
-msgid "Users"
-msgstr "Gebruikers"
-
-msgid "Public Keys"
-msgstr "Publiek Sleutels"
-
-msgid "Public key information."
-msgstr "Publiek sleutel inligting."
-
-msgid "Public Key"
-msgstr "Publiek Sleutel"
-
-msgid "Login Name"
-msgstr "Login Naam"
-
-msgid "Add Public Key"
-msgstr "Voeg Openbare Sleutel"
-
-msgid "Edit Public Key"
-msgstr "Wysig Openbare Sleutel"
-
-msgid "Public key is marked for deletion"
-msgstr "Publiek sleutel is gemerk vir skrap"
-
-msgid "Public key is protected"
-msgstr "Publiek sleutel is beskerm"
-
-msgid "Public key is unlocked"
-msgstr "Publiek sleutel is ontgeslot"
-
-msgid "Delete Selected Public Keys"
-msgstr "Skrap Geselekteerde Openbare Sleutels"
-
-msgid "Do you want to delete selected public keys?"
-msgstr "Wil jy geselekteerde openbare sleutels skrap?"
-
-msgid "Disable Selected Public Keys"
-msgstr "Deaktiveer Geselekteerde Openbare Sleutels"
-
-msgid "Do you want to disable selected public keys?"
-msgstr "Wil jy geselekteerde openbare sleutels deaktiveer?"
-
-msgid "Enable Selected Public Keys"
-msgstr "Inskakel Geselekteerde Openbare Sleutels"
-
-msgid "Do you want to enable selected public keys?"
-msgstr "Wil jy geselekteerde openbare sleutels Inskakel?"
-
-msgid "Toggle Selected Public Keys"
-msgstr "Toggle Geselekteerde Publiek Sleutels"
-
-msgid "Do you want to toggle selected public keys?"
-msgstr "Doen jy wil geselekteerde openbare sleutels toggle?"
-
-msgid "Add User Account"
-msgstr "Voeg Gebruiker Rekening"
-
-msgid "Edit User Account"
-msgstr "Redigeer Gebruiker's Rekening"
-
-msgid "User account is marked for deletion"
-msgstr "Gebruiker rekening is gemerk vir skrap"
-
-msgid "User account is protected"
-msgstr "Gebruiker rekening is beskerm"
-
-msgid "User account is unlocked"
-msgstr "Gebruiker rekening is ontslot"
-
-msgid "Set password"
-msgstr "Stel wagwoord"
-
-msgid "Delete Selected User Accounts"
-msgstr "Skrap Geselekteerde Gebruiker Rekeninge"
-
-msgid "Do you want to delete selected user accounts?"
-msgstr "Wil jy die geselekteerde gebruiker's rekeninge skrap?"
-
-msgid "Disable Selected Users"
-msgstr "Deaktiveer Geselekteerde Gebruikers"
-
-msgid "Do you want to disable selected users?"
-msgstr "Wil jy geselekteerde gebruikers deaktiveer?"
-
-msgid "Enable Selected Users"
-msgstr "Inskakel Geselekteerde Gebruikers"
-
-msgid "Do you want to enable selected users?"
-msgstr "Wil jy geselekteerde gebruikers inskakel?"
-
-msgid "Toggle Selected Users"
-msgstr "Toggle Geselekteerde Gebruikers"
-
-msgid "Do you want to toggle selected users?"
-msgstr "Doen jy wil geselekteerde gebruikers toggle?"
-
-msgid "System User"
-msgstr "Stelsel Gebruiker"
-
-msgid "Show System Users"
-msgstr "Wys Stelsel Gebruikers"
-
-msgid "Hide System Users"
-msgstr "Steek Stelsel Gebruikers"
-
-msgid "Full Name"
-msgstr "Volgrote Naam"
-
-msgid "SHA Password"
-msgstr "SHA Wagwoord"
-
-msgid "MD4 Password"
-msgstr "MD4 Wagwoord"
-
-msgid "Shell"
-msgstr "Tolk"
-
-msgid "Primary Group"
-msgstr "Primêre Groep"
-
-msgid "Timezone"
-msgstr ""
-
-msgid "File Manager Access"
-msgstr "Lêer Bestuurder Toegang"
-
-msgid "Hidden Items"
-msgstr "Versteek Items"
-
-msgid "Read Permission"
-msgstr "Lees Toestemming"
-
-msgid "Create Permission"
-msgstr "Skep Toestemming"
-
-msgid "Change Permission"
-msgstr "Verandering Toestemming"
-
-msgid "Delete Permission"
-msgstr "Skrap Toestemming"
-
-msgid "Enter login name."
-msgstr "Ingaan login naam."
-
-msgid "Enter the full user name."
-msgstr "Ingaan die volle gebruiker naam."
-
-msgid "Set user password."
-msgstr "Stel gebruiker wagwoord."
-
-msgid "Specify the user/account numeric id."
-msgstr "Spesifiseer die gebruiker/rekening numeriese id."
-
-msgid "The recommended range for the user id is between 1000 and 32000."
-msgstr "Die aanbevole reeks vir die gebruiker ID is tussen 1000 en 32000."
-
-msgid "Set user login shell."
-msgstr "Stel gebruiker aanmeld skulp in."
-
-msgid "No Login"
-msgstr "Geen Login"
-
-msgid "scponly - Secure Copy Protocol only"
-msgstr "scponly - Veilige Kopie Protokol slegs"
-
-msgid "sh - Bourne Shell"
-msgstr "sh - Bourne Shell"
-
-msgid "bash - Bourne Again Shell"
-msgstr "bash - Bourne Again Shell"
-
-msgid "csh - C Shell"
-msgstr "csh - C Shell"
-
-msgid "tcsh - TENEX C Shell"
-msgstr "tcsh - TENEX C Shell"
-
-msgid "Set the account's primary group."
-msgstr "Stel primêre groep die rekening se."
-
-msgid "Add user to additional groups."
-msgstr "Voeg gebruiker by bykomende groepe."
-
-msgid ""
-"Enter the path to the home directory of the user. Leave this field empty to "
-"use default path /mnt."
-msgstr ""
-"Ingaan die pad om die tuisgids van die gebruiker. Laat hierdie veld leeg om "
-"te gebruik verstek pad /mnt."
-
-msgid "/mnt"
-msgstr "/mnt"
-
-msgid "User portal permission."
-msgstr "Gebruiker portaal toestemming."
-
-msgid "No access to the user portal"
-msgstr "Geen toegang tot die gebruiker portaal"
-
-msgid "User access"
-msgstr "Gebruiker toegang"
-
-msgid "Admin access"
-msgstr "Admin toegang"
-
-msgid "Select the language of the user portal for this user."
-msgstr "Selekteer die taal van die gebruiker portaal vir hierdie gebruiker."
-
-msgid "Select the timezone for this user."
-msgstr ""
-
-msgid "Grant access to the file manager."
-msgstr "Verleen toegang tot die lêer bestuurder."
-
-msgid "Show hidden items"
-msgstr "Wys verborge items"
-
-msgid "Grant read permission"
-msgstr "Grant gelees toestemming-"
-
-msgid "Grant create permission"
-msgstr "Verleen skep toestemming"
-
-msgid "Grant modify permission"
-msgstr "Verleen modifiseer-toestemming"
-
-msgid "Grant delete permission"
-msgstr "Verleen -skrap toestemming"
-
-msgid "Show Interval"
-msgstr "Wys Interval"
-
-msgid ""
-"Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables the reminder."
-msgstr ""
-"Stel die aantal dae tot 'n herinnering is wys om rugsteun stelsel "
-"konfigurasie. Die verstek is 28 dae. 'N Waarde van 0 deaktiveer die "
-"herinnering."
-
-msgid "Running user"
-msgstr "Hardlooping gebruiker"
-
-msgid "Add Option"
-msgstr "Voeg Opsie"
-
-msgid "Edit Option"
-msgstr "Opsie Wysig"
-
-msgid "Option is marked for deletion"
-msgstr "Opsie gemerk vir skrap"
-
-msgid "Option is locked"
-msgstr "Opsie is toegeslot"
-
-msgid "Option is unlocked"
-msgstr "Opsie is ontslot"
-
-msgid "Delete Selected Options"
-msgstr "Vee Geselekteerde Opsies Uit"
-
-msgid "Do you want to delete selected options?"
-msgstr "Wil jy geselekteerde opsies skrap?"
-
-msgid "Disable Selected Options"
-msgstr "Deaktiveer Geselekteerde Opsies"
-
-msgid "Do you want to disable selected options?"
-msgstr "Wil jy die geselekteerde opsies deaktiveer?"
-
-msgid "Enable Selected Options"
-msgstr "Inskakel Geselekteerde Opsie"
-
-msgid "Do you want to enable selected options?"
-msgstr "Wil jy die geselekteerde opsies inskakel?"
-
-msgid "Toggle Selected Options"
-msgstr "Toggle Geselekteerde Opsie"
-
-msgid "Do you want to toggle selected options?"
-msgstr "Doen jy wil geselekteerde opsies toggle?"
-
-msgid ""
-"These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to the kernel and additional modules to be "
-"loaded."
-msgstr ""
-"Hierdie opsie (s) sal bygevoeg word /boot/loader.conf.local. Hiermee kan u "
-"parameters spesifiseer wat aan die kern oorgedra moet word en addisionele "
-"modules wat gelaai moet word."
-
-msgid "The name of the variable."
-msgstr "Die naam van die veranderlike."
-
-msgid "The value of the variable."
-msgstr "Die waarde van die veranderlike."
-
-msgid "Sort"
-msgstr "Sorteer"
-
-msgid "Post Upgrade"
-msgstr "Post Opgradering"
-
-msgid "Name of the command."
-msgstr "Naam van die bevel."
-
-msgid "The command to be executed."
-msgstr "Die bevel kon nie uitgevoer word nie."
-
-msgid "Select at which stage the command should be executed."
-msgstr "Selekteer op watter stadium die bevel uitgevoer moet word."
-
-msgid "Add Command"
-msgstr "Voeg Bevel"
-
-msgid "Edit Command"
-msgstr "Redigeer Bevel"
-
-msgid "Command is marked for deletion"
-msgstr "Bevel is gemerk vir skrap"
-
-msgid "Command is locked"
-msgstr "Bevel is toegesluit"
-
-msgid "Command is unlocked"
-msgstr "Bevel is oopgesluit"
-
-msgid "Delete Selected Commands"
-msgstr "Skrap Geselekteerde Bevele"
-
-msgid "Do you want to delete selected commands?"
-msgstr "Wil jy die geselekteerde bevelle uitvee?"
-
-msgid "Disable Selected Commands"
-msgstr "Deaktiveer Geselekteerde Bevelle"
-
-msgid "Do you want to disable selected commands?"
-msgstr "Wil jy die geselekteerde bevelle deaktiveer?"
-
-msgid "Enable Selected Commands"
-msgstr "Inskakel Geselekteerde Bevel"
-
-msgid "Do you want to enable selected commands?"
-msgstr "Wil jy die geselekteerde bevelle aktiveer?"
-
-msgid "Toggle Selected Commands"
-msgstr "Toggle Geselekteerde Bevele"
-
-msgid "Do you want to toggle selected commands?"
-msgstr "Doen jy wil geselekteerde opdragte toggle?"
-
-msgid ""
-"These commands will be executed pre or post system initialization (booting) "
-"or before system shutdown."
-msgstr ""
-"Die bevelle sal uitgevoer word pre of post die stelsel inisialisering "
-"(selflaai) of voor die stelsel afskakeling."
-
-msgid "Name of the variable."
-msgstr "Naam van die veranderlike."
-
-msgid "Enter Value"
-msgstr "Ingaan Waarde"
-
-msgid "Variable"
-msgstr "Veranderlike"
-
-msgid "Disabled variable names will be removed from /etc/rc.conf."
-msgstr "Gedeaktiveer veranderlike name sal wees verwyder vanaf /etc/rc.conf."
-
-msgid "Enabled options will be added to /etc/rc.conf."
-msgstr "Ingeskakel opsies sal bygevoeg word om /etc/rc.conf."
-
-msgid "Add Route"
-msgstr "Voeg Roete"
-
-msgid "Edit Route"
-msgstr "Redigeer Roete"
-
-msgid "Route is marked for deletion"
-msgstr "Roete is gemerk vir skrap"
-
-msgid "Route is locked"
-msgstr "Roete is toegeslot"
-
-msgid "Route is unlocked"
-msgstr "Roete is ontgeslot"
-
-msgid "Delete Selected Routes"
-msgstr "Skrap Geselekteerde Roetes"
-
-msgid "Do you want to delete selected routes?"
-msgstr "Wil jy geselekteerde roetes skrap?"
-
-msgid "Disable Selected Routes"
-msgstr "Deaktiveer Geselekteerde Roetes"
-
-msgid "Do you want to disable selected routes?"
-msgstr "Wil jy geselekteerde roetes deaktiveer?"
-
-msgid "Enable Selected Routes"
-msgstr "Inskakel Geselekteerde Roetes"
-
-msgid "Do you want to enable selected routes?"
-msgstr "Wil jy geselekteerde roetes Inskakel?"
-
-msgid "Toggle Selected Routes"
-msgstr "Toggle Geselekteerde Roetes"
-
-msgid "Do you want to toggle selected routes?"
-msgstr "Doen jy wil geselekteerde roetes toggle?"
-
-msgid "Destination Network"
-msgstr "Bestemming Netwerk"
-
-msgid "Choose which interface this route applies to."
-msgstr "Kies vir watter koppelvlak hierdie roete geld."
-
-msgid "Destination network for this static route."
-msgstr "Bestemming netwerk vir hierdie statiese roete."
-
-msgid "Gateway to be used to reach the destination network."
-msgstr "Gateway om wees gebruiked te bereik die bestemming netwerk."
-
-msgid "Add Reboot Schedule"
-msgstr "Voeg Herlaai Skedule By"
-
-msgid "Edit Reboot Schedule"
-msgstr "Redigeer Herlaai Skedule"
-
-msgid "Reboot Schedule is marked for deletion"
-msgstr ""
-
-msgid "Reboot Schedule is locked"
-msgstr ""
-
-msgid "Reboot Schedule is unlocked"
-msgstr ""
-
-msgid "Delete Selected Reboot Schedules"
-msgstr "Vee Gekose Herlaai Skedules Uit"
-
-msgid "Do you want to delete selected reboot schedules?"
-msgstr "Wil jy die gekose herlaai skedules uitvee?"
-
-msgid "Disable Selected Reboot Schedules"
-msgstr "Deaktiveer Gekose Herlaai Skedules"
-
-msgid "Do you want to disable selected reboot schedules?"
-msgstr "Wil jy die gekose herlaai skedules deaktiveer?"
-
-msgid "Enable Selected Reboot Schedules"
-msgstr "Aktiveer Gekose Herlaai Skedules"
-
-msgid "Do you want to enable selected reboot schedules?"
-msgstr "Wil jy die gekose skedules aktiveer?"
-
-msgid "Toggle Selected Reboot Schedules"
-msgstr ""
-
-msgid "Do you want to toggle selected reboot schedules?"
-msgstr "Wil jy die gekose herlaai skedules wissel?"
-
-msgid "Add sysctl setting"
-msgstr "Voeg sysctl instelling"
-
-msgid "Edit sysctl setting"
-msgstr "Wysig sysctl instelling"
-
-msgid "Sysctl setting is marked for deletion"
-msgstr "Sysctl instelling is gemerk vir skrap"
-
-msgid "Sysctl setting is locked"
-msgstr "Sysctl instelling is toegeslot"
-
-msgid "Sysctl setting is unlocked"
-msgstr "Sysctl instelling is ontgeslot"
-
-msgid "Delete Selected Sysctl Settings"
-msgstr "Skrap Geselekteerde Sysctl Instellings"
-
-msgid "Do you want to delete selected sysctl settings?"
-msgstr "Wil jy geselekteerde sysctl instellings te skrap?"
-
-msgid "Disable Selected Sysctl Settings"
-msgstr "Deaktiveer Geselekteerde Sysctl Instellings"
-
-msgid "Do you want to disable selected sysctl settings?"
-msgstr "Wil jy geselekteerde stelsel instellings deaktiveer?"
-
-msgid "Enable Selected Sysctl Settings"
-msgstr "Inskakel Geselekteerde Sysctl Instellings"
-
-msgid "Do you want to enable selected sysctl settings?"
-msgstr "Wil jy geselekteerde stelsel instellings inskakel?"
-
-msgid "Toggle Selected Sysctl Settings"
-msgstr "Toggle Geselekteerde Sysctl Instellings"
-
-msgid "Do you want to toggle selected sysctl settings?"
-msgstr "Doen jy wil geselekteerde stelsel instellings toggle?"
-
-msgid ""
-"These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
-"make changes to a running system."
-msgstr ""
-"Hierdie sysctl veranderlikes sal bygevoeg word om /etc/sysctl.conf. Dit laat "
-"jou toe om veranderinge aan 'n hardloop stelsel maak."
-
-msgid "The value of the setting."
-msgstr "Die waarde van die instelling."
-
-msgid "Send daemon event messages."
-msgstr "Stuur daemon gebeurtenis boodskappe."
-
-msgid "Send FTP event messages."
-msgstr "Stuur FTP gebeurtenis boodskappe."
-
-msgid "IP address of the remote syslog server."
-msgstr "IP adres van die afgeleë syslog bediener."
-
-msgid ""
-"Port of the remote syslog server. Leave blank to use the default port."
-msgstr ""
-"Port van die afgeleë syslog bediener. Laat leeg om die verstek poort te "
-"gebruik."
-
-msgid ""
-"Syslog sends UDP datagrams to port 514 on the specified remote syslog "
-"server. Be sure to set syslogd on the remote server to accept syslog "
-"messages from this server."
-msgstr ""
-"Syslog stuur UDP datagramme na poort 514 na die spesifieke afgeleë syslog "
-"bediener. Wees net seker om syslogd in te stel op die afgeleë bediener om "
-"syslog boodskappe te aanvaar van hierdie bediener."
-
-msgid "514"
-msgstr "514"
-
-msgid "Port number must be 514 or a number between 1024 and 65535."
-msgstr "Poortnommer moet 514 of 'n getal tussen 1024 en 65535 wees."
-
-msgid "Send RSYNC event messages."
-msgstr "Stuur RSYNC gebeurtenis boodskappe."
-
-msgid "Send S.M.A.R.T. event messages."
-msgstr "Stuur S.M.A.R.T. gebeurtenis boodskappe."
-
-msgid "Send SSH event messages."
-msgstr "Stuur SSH gebeurtenis boodskappe."
-
-msgid "Send system event messages."
-msgstr "Stuur stelsel gebeurtenis boodskappe."
-
-msgid "Daemon Events"
-msgstr "Daemon Gebeurtenise"
-
-msgid "Enable Server"
-msgstr "Inskakel Bediener"
-
-msgid "FTP Events"
-msgstr "FTP Gebeurtenise"
-
-msgid "RSYNC Events"
-msgstr "RSYNC Gebeure"
-
-msgid "S.M.A.R.T. Events"
-msgstr "S.M.A.R.T. Gebeurtenise"
-
-msgid "SSH Events"
-msgstr "SSH Gebeure"
-
-msgid "System Events"
-msgstr "Stelsel Gebeure"
-
-msgid "Remote Syslog Messages"
-msgstr "Afgeleë Syslog Boodskappe"
-
-msgid "Show Log Entries"
-msgstr "Wys Log Inskrywings"
-
-msgid "Log Order"
-msgstr "Log Orde"
-
-msgid "Disable the compression of repeating lines."
-msgstr "Deaktiveer die kompressie van herhalende lyne."
-
-msgid "Accept remote syslog messages."
-msgstr "Aanvaar afgeleë syslog boodskappe."
-
-msgid ""
-"If this option is checked, IP addresses in the server logs are resolved to "
-"their hostnames where possible."
-msgstr ""
-"As hierdie opsie gekies word, dan word IP adresse in die bediener registers "
-"opgelos to hul gasheer name waarook moontlik"
-
-msgid "This can cause a huge delay in loading the log page!"
-msgstr ""
-"Hierie kan 'n groot vertraaging veroorsaak terwyl die aanmelding bladsy "
-"gelaai word!"
-
-msgid "Show log entries in reverse order (newest entries on top)."
-msgstr ""
-"Vertoon register inskrywings in omgekeerde orde (nuutste inskrywings bo)"
-
-msgid "Enter facility name"
-msgstr "Ingaan fasiliteit naam"
-
-msgid "Enter level name"
-msgstr "Ingaan vlak naam"
-
-msgid "Enter destination"
-msgstr "Ingaan bestemming"
-
-msgid "Facility"
-msgstr "Fasiliteit"
-
-msgid ""
-"Display action buttons in the scrollable area instead of the footer area."
-msgstr ""
-"Vertoon aksie knoppies in die scrollable area in plaas van die footer area."
-
-msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr ""
-"Volledig gekwalifiseerde lêernaam van 'n pasgemaakte lêer kiezer CSS lêer."
-
-msgid "Select file mode of the custom file chooser CSS file."
-msgstr "Selekteer lêer modus van die pasgemaakte lêer kies CSS lêer."
-
-msgid "Replace the default CSS file"
-msgstr "Vervang die verstek CSS lêer"
-
-msgid "Append content to the default CSS file"
-msgstr "Append inhoud tot die verstek CSS lêer"
-
-msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr "Ten volle gekwalifiseerde lêernaam van 'n pasgemaakte GUI CSS lêer."
-
-msgid "Select file mode of the custom GUI CSS file."
-msgstr "Selekteer lêer modus van die pasgemaakte GUI CSS lêer."
-
-msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr ""
-"Volledig gekwalifiseerde lêer naam van 'n pasgemaakte navigasie balk CSS "
-"lêer."
-
-msgid "Select file mode of the custom navigation bar CSS file."
-msgstr "Selekteer lêer modus van die pasgemaakte navigasie balk CSS lêer."
-
-msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr ""
-"Volledig gekwalifiseerde lêernaam van 'n pasgemaakte oortjies CSS lêer."
-
-msgid "Select file mode of the custom tabs CSS file."
-msgstr "Selekteer lêermodus van die pasgemaakte oortjies CSS lêer."
-
-msgid "Use toggle button instead of enable/disable buttons."
-msgstr "Gebruik toggle knoppie in plaas van in staat stel/afskakel knoppies."
-
-msgid "Select the display mode of the top-level items in the navigation bar."
-msgstr ""
-"Selekteer die vertoon modus van die top-vlak items in die navigasie balk."
-
-msgid "Show text only"
-msgstr "Wys teks slegs"
-
-msgid "Show symbol only"
-msgstr "Wys simbool slegs"
-
-msgid "Show symbol and text"
-msgstr "Wys simbool en teks"
-
-msgid ""
-"Display disk size values using binary prefixes instead of decimal prefixes."
-msgstr ""
-"Vertoon skyf grootte waardes behulp binêre voorvoegsels in plaas van "
-"desimale voorvoegsels."
-
-msgid "Enable this option if you want to display colorful meter states."
-msgstr "Inskakel hierdie opsie as jy wil kleurvolle meter state te vertoon."
-
-msgid ""
-"Enable this option if you want to edit configuration pages directly without "
-"the need to switch to edit mode."
-msgstr ""
-"Aktiveer hierdie opsie as jy wil wysig opset bladsye direk sonder die "
-"behoefte om oor te skakel na wysig af."
-
-msgid "Please enter a number between 0 and 256 or leave this field empty."
-msgstr "Voer 'n getal in tussen 0 en 256 of laat die veld leeg."
-
-msgid "Limit the maximum number of CPUs to be displayed on the home page."
-msgstr ""
-"Beperk die maksimale aantal verwerkers wat op die sisteemoorsig vertoon mag "
-"word."
-
-msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr ""
-
-msgid "Button Location"
-msgstr "Knoppie Ligging"
-
-msgid "File Chooser"
-msgstr "Lêer Kiezer"
-
-msgid "File Mode"
-msgstr "Lêer Modus"
-
-msgid "GUI"
-msgstr "GUI"
-
-msgid "Navigation Bar"
-msgstr "Navigasie Balk"
-
-msgid "Tabs"
-msgstr "Oortjies"
-
-msgid "Toggle Mode"
-msgstr "Toggle Modus"
-
-msgid "Navbar Style"
-msgstr "Navbar Styl"
-
-msgid "Binary Prefix"
-msgstr "Binêre Voorvoegsel"
-
-msgid "Colorful Meters"
-msgstr "Kleurvolle Meters"
-
-msgid "Skip View Mode"
-msgstr "Slaan Uitsig Modus oor"
-
-msgid "Show Max CPUs"
-msgstr ""
-
-msgid "Diagnostics Information"
-msgstr "Diagnostiese Inligting"
-
-msgid "Do you really want to remove the selected item from the list?"
-msgstr "Wil jy regtig die geselekteerde item van die lys af verwyder?"
-
-msgid "Select item to remove from the list"
-msgstr "Kies 'n item om van die lys af te verwyder"
+msgid "System tuning"
+msgstr "Sisteem instemming"
 
 msgid "Exported"
 msgstr "Uitgevoer"
@@ -15732,119 +15750,6 @@ msgstr "Ongeïnitialiseerd"
 
 msgid "Potentially Active"
 msgstr "Potensieel Aktief"
-
-msgid "System tuning"
-msgstr "Sisteem instemming"
-
-msgid "ZFS Pool Tools"
-msgstr "ZFS Poel Gereedskap"
-
-msgid "Pool Status"
-msgstr "Poel Status"
-
-msgid "Success"
-msgstr "Sukses"
-
-msgid "Command execution was successful"
-msgstr "Bevel uitvoering was suksesvol"
-
-msgid "Invalid command line option"
-msgstr "Ongeldige bevel lyn opsie"
-
-msgid "Test mode, no command execution"
-msgstr "Toets mode, geen bevel uitvoering"
-
-msgid "Missing parameter"
-msgstr "Vermiste parameter"
-
-msgid "An error occured."
-msgstr "'n Fout het voorgekom."
-
-msgid "Return to Command Page"
-msgstr "Terug na Bevel Bladsy"
-
-msgid "Activity"
-msgstr "Aktiwiteit"
-
-msgid "Pool Version"
-msgstr "Poel Weergawe"
-
-msgid "Pool State"
-msgstr "Poel Staat"
-
-msgid "No suitable pools found."
-msgstr "Geen geskikte poele gevind."
-
-msgid "and"
-msgstr "en"
-
-msgid "No pools have been selected"
-msgstr "Geen poele gewees het geselekteerde"
-
-msgid "Pool Devices"
-msgstr "Poel Toestelle"
-
-msgid "missing"
-msgstr "ontbreek"
-
-msgid "No suitable devices found."
-msgstr "Geen gepaste toestelle gevind."
-
-msgid "No pool devices have been selected"
-msgstr "Geen poel toestelle gewees het geselekteerde"
-
-msgid "No suitable virtual devices found."
-msgstr "Geen gepaste virtuele toestelle gevind."
-
-msgid "No virtual devices have been selected"
-msgstr "Geen virtuele toestele gewees het geselekteerde."
-
-msgid "Media Size"
-msgstr "Media Grootte"
-
-msgid "No devices have been selected"
-msgstr "Geen toestelle is geselekteer nie"
-
-msgid "Expand device to use all available space."
-msgstr "Brei die toestel uit om alle beskikbare spasie te gebruik."
-
-msgid "Include GPT labels into scan/import"
-msgstr ""
-
-msgid "Include GPT ID into scan/import"
-msgstr ""
-
-msgid "Include UFS labels into scan/import"
-msgstr "Sluit UFS etikette in by skandeer/invoer"
-
-msgid "Include UFS ID into scan/import"
-msgstr "Sluit UFS ID in by skandeer/invoer"
-
-msgid "Include Disk ID into scan/import"
-msgstr ""
-
-msgid "Include /dev into scan/import"
-msgstr ""
-
-msgid "Import pool in read-only mode"
-msgstr "Inport poel in lees-alleen modus"
-
-msgid "Resize pool to the maximum possible size"
-msgstr "Resize poel om die maksimum moontlike grootte"
-
-msgid "Scan/Import destroyed pools only"
-msgstr ""
-
-msgid "Wait until resilvering has finished before returning."
-msgstr ""
-
-msgid ""
-"Reconstruct the new device sequentially to restore redundancy as quickly as "
-"possible."
-msgstr ""
-
-msgid "Parameter"
-msgstr "Parameter"
 
 msgid "January"
 msgstr "Januarie"
@@ -15993,110 +15898,242 @@ msgstr "Mislukte om skryf lêer tot skyf."
 msgid "File upload stopped by extension."
 msgstr "Lêer oplaai gestop deur uitbreiding"
 
-msgid "Deleting MBR and partition table"
-msgstr "Skrap tans MBR en partisie tabel"
+msgid "ZFS Pool Tools"
+msgstr "ZFS Poel Gereedskap"
 
-msgid "Creating partition"
-msgstr "Skep tans partisie"
+msgid "Pool Status"
+msgstr "Poel Status"
 
-msgid "Creating filesystem with \"Soft Updates\""
-msgstr "Skep 'n leerstelsel met \"Soft Updates\""
+msgid "Success"
+msgstr "Sukses"
 
-#, php-format
-msgid "Using %s bytes fragment size."
-msgstr "Gebruik %s grepe fragmentase grootte."
+msgid "Command execution was successful"
+msgstr "Bevel uitvoering was suksesvol"
 
-msgid "Created UFS file system:"
-msgstr "Het 'n UFS lêersisteem geskep:"
+msgid "Invalid command line option"
+msgstr "Ongeldige bevel lyn opsie"
 
-msgid "Deleting GEOM metadata"
-msgstr "Skrap tans GEOM metadata"
+msgid "Test mode, no command execution"
+msgstr "Toets mode, geen bevel uitvoering"
 
-msgid "Creating filesystem"
-msgstr "Besig om 'n lêersisteem te skep"
+msgid "Missing parameter"
+msgstr "Vermiste parameter"
 
-msgid "Done!"
-msgstr "Gedoen!"
+msgid "An error occured."
+msgstr "'n Fout het voorgekom."
+
+msgid "Return to Command Page"
+msgstr "Terug na Bevel Bladsy"
+
+msgid "Activity"
+msgstr "Aktiwiteit"
+
+msgid "Pool Version"
+msgstr "Poel Weergawe"
+
+msgid "Pool State"
+msgstr "Poel Staat"
+
+msgid "No suitable pools found."
+msgstr "Geen geskikte poele gevind."
+
+msgid "No pools have been selected"
+msgstr "Geen poele gewees het geselekteerde"
+
+msgid "Pool Devices"
+msgstr "Poel Toestelle"
+
+msgid "missing"
+msgstr "ontbreek"
+
+msgid "No suitable devices found."
+msgstr "Geen gepaste toestelle gevind."
+
+msgid "No pool devices have been selected"
+msgstr "Geen poel toestelle gewees het geselekteerde"
+
+msgid "No suitable virtual devices found."
+msgstr "Geen gepaste virtuele toestelle gevind."
+
+msgid "No virtual devices have been selected"
+msgstr "Geen virtuele toestele gewees het geselekteerde."
+
+msgid "Media Size"
+msgstr "Media Grootte"
+
+msgid "No devices have been selected"
+msgstr "Geen toestelle is geselekteer nie"
+
+msgid "Expand device to use all available space."
+msgstr "Brei die toestel uit om alle beskikbare spasie te gebruik."
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
+msgstr "Sluit UFS etikette in by skandeer/invoer"
+
+msgid "Include UFS ID into scan/import"
+msgstr "Sluit UFS ID in by skandeer/invoer"
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Import pool in read-only mode"
+msgstr "Inport poel in lees-alleen modus"
+
+msgid "Resize pool to the maximum possible size"
+msgstr "Resize poel om die maksimum moontlike grootte"
+
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid ""
-"The disk is currently mounted! The mount point will be removed temporarily "
-"to perform selected command."
-msgstr ""
-"Die skyf is huidiglik gemonteer! Die monteer punt moet tydelik verwyder word "
-"om die geselekteerde bevel uit te voer."
-
-msgid "Second"
-msgstr "Tweede"
-
-msgid "Seconds"
-msgstr "Sekondes"
-
-msgid "Minute"
-msgstr "Minuut"
-
-msgid "Hour"
-msgstr "Uur"
-
-msgid "Day"
-msgstr "Dag"
-
-#, php-format
-msgid "%1$s managed, %2$s used, %3$s available"
-msgstr "%1$s bestuurde, %2$s gebruik is, %3$s beskikbaar"
-
-#, php-format
-msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr "Totaal: %1$s | Gebruikde: %2$s | Beskikbaar: %3$s"
-
-#, php-format
-msgid "%2$s used, %3$s available"
-msgstr "%2$s gebruik is, %3$s beskikbaar"
-
-msgid "Communication Error"
-msgstr "Kommunikasie Fout"
-
-msgid "More than a day"
-msgstr "Meer as een dag"
-
-msgid "No data"
-msgstr "Geen data"
-
-#, php-format
-msgid "%u hour"
-msgstr "%u uur"
-
-#, php-format
-msgid "%u hours"
-msgstr "%u ure"
-
-#, php-format
-msgid "%u minute"
-msgstr "%u minuut"
-
-#, php-format
-msgid "%u minutes"
-msgstr "%u minute"
-
-#, php-format
-msgid "%u second"
-msgstr "%u sekonde"
-
-#, php-format
-msgid "%u seconds"
-msgstr "%u sekondes"
-
-#, php-format
-msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr "Totaal: %1$s | Allokeerde: %2$s | Gratis: %3$s"
-
-msgid "Unkown"
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
 
-msgid "Unformated"
-msgstr "Ongeformatteerde"
+msgid "Parameter"
+msgstr "Parameter"
 
-msgid "SoftRaid"
-msgstr "SagteRaid"
+#~ msgid "DLNA/UPnP Fuppes"
+#~ msgstr "DLNA/UPnP Fuppes"
 
-msgid "Encrypted"
-msgstr "Geïnkripteer"
+#~ msgid "Destination email address. Separate email addresses by semi-colon."
+#~ msgstr "Bestemming epos adres. Skei epos adresse met 'n kommapunt."
+
+#~ msgid "Device IP"
+#~ msgstr "Toestel IP"
+
+#~ msgid "Enable transcoding."
+#~ msgstr "Ontsper transdekodering"
+
+#~ msgid "Fuppes"
+#~ msgstr "Fuppes"
+
+#~ msgid "Fuppes Media Server"
+#~ msgstr "Fuppes Media Bediener"
+
+#~ msgid "Fuppes Media Server Administration"
+#~ msgstr "Fuppes Media Bediener Administrasie"
+
+#~ msgid "Import on-disk ZFS config"
+#~ msgstr "Voer in die op-hardeskyf ZFS konfigurasie"
+
+#~ msgid "Media Library"
+#~ msgstr "Media biblioteek"
+
+#~ msgid "Media library"
+#~ msgstr "Media biblioteek"
+
+#~ msgid "Media server name"
+#~ msgstr "Media bediener naam"
+
+#~ msgid ""
+#~ "More than one DLNA/UPnP service is active. This configuration might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "Meer as een DLNA/UPNP diens is aktief. Die konfigurasie mag probleme "
+#~ "veroorsaak."
+
+#, php-format
+#~ msgid "Port number must be in the range between %d and %d."
+#~ msgstr "Poort nommers moet in die strek tussed %d en %d wees."
+
+#, php-format
+#~ msgid ""
+#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
+#~ "through %d). Default port is %d."
+#~ msgstr ""
+#~ "Poort om op te luister. Slegs dinamiese of private poorte kan gebruik word "
+#~ "(van %d tot %d). Standaard poort is %d."
+
+#~ msgid "Profile"
+#~ msgstr "Profiel"
+
+#~ msgid ""
+#~ "Select which interface to use. (Only selectable if your server has more than "
+#~ "one interface)"
+#~ msgstr ""
+#~ "Selekteer watter koppelvlakke om te gebruik. (Dit is sleg kiesbaar as jou "
+#~ "bediener meer as een koppelvlak het)"
+
+#~ msgid "Set the content location(s) to or from the media library."
+#~ msgstr "Stel die inhoud lokasie(s) in vanaf and na die media bibilioteek"
+
+#~ msgid "Temporary directory"
+#~ msgstr "Tydelike lêergids"
+
+#~ msgid "Temporary directory to store transcoded files."
+#~ msgstr "Tydelike lêergids om getranskodeerde lêers te stoor."
+
+#~ msgid "The IP address of the device."
+#~ msgstr "Die IP adres van die toestek=l"
+
+#, php-format
+#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
+#~ msgstr ""
+#~ "Die eienskap 'Poort': poort '%ld' word reeds deur 'n ander diens gebruik."
+
+#~ msgid "Transcoding"
+#~ msgstr "Transkodeer"
+
+#~ msgid "Try to force import."
+#~ msgstr "Propeer om invoer te vorseer."
+
+#~ msgid "UPnP/DLNA - Fuppes"
+#~ msgstr "UPnP/DLNA - Fuppes"
+
+#~ msgid "Allow challenge-response authentication."
+#~ msgstr "Toelaat uitdaging-antwoord ontentisering"
+
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
+#~ "issues."
+#~ msgstr ""
+#~ "Nog 'n DLNA/UPnP-diens is reeds aan hardloop. As jy Fuppes inskakel mag dit "
+#~ "probleme veroorsaak."
+
+#~ msgid "Challenge-Response Authentication"
+#~ msgstr "Uitdaging-Reaksie Ontentisering"
+
+#~ msgid "Compliant profile to be used."
+#~ msgstr "Compliant profiel om wees gebruik."
+
+#~ msgid "Content Locations"
+#~ msgstr "Inhoud Lokasies"
+
+#~ msgid "Database directory"
+#~ msgstr "Databasisgids"
+
+#~ msgid "Give your media library a friendly name."
+#~ msgstr "Gee jou media bibiloteek 'n vriendelike naam."
+
+#~ msgid "Try to import from on-disk ZFS config."
+#~ msgstr "Probeer om die ingevoer vanaf on-skyf ZFS- konfig."
+
+#~ msgid "Transcoding Directory"
+#~ msgstr "Transkodering Directory"
+
+#~ msgid ""
+#~ "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+#~ "can cause problems."
+#~ msgstr ""
+#~ "Verskeie DNLA/UPnP diens word in staat gestel. Hardlooping meervoudige "
+#~ "DLNA/UPnP dienste kan probleme veroorsaak."
+
+#~ msgid ""
+#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+#~ "services can cause problems."
+#~ msgstr ""
+#~ "Nog een DLNA/UPnP diens is reeds in staat gestel. Hardlooping meervoudige "
+#~ "DLNA/UPnP dienste kan probleme veroorsaak."
