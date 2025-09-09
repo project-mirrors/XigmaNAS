@@ -106,7 +106,6 @@ Changes:
 - Upgrade zoneinfo to v2025b.
 - Upgrade smartmontools to v7.5.
 - Upgrade nut to v2025.08.14.
-- Upgrade msmtp to v1.8.30.
 - Upgrade open-vm-tools to v12.5.2.
 - Upgrade pecl-APCu to v5.1.27.
 - Upgrade sudo to v1.9.17p2.
@@ -125,6 +124,7 @@ Changes:
 - Upgrade transmission to 4.1.0-beta.2
 - Upgrade syncthing to v2.0.4.
 - Upgrade wsdd to v0.9.0.
+- Upgrade msmtp to v1.8.31.
 
 New:
 - New SMB use its own log file.
