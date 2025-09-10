@@ -1,5 +1,5 @@
 PORTNAME=		syncthing
-PORTVERSION=	2.0.4
+PORTVERSION=	2.0.8
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
@@ -17,7 +17,7 @@ NO_LICENSES_DIALOGS=	yes
 LICENSE=	MPL20
 #LICENSE_FILE=	${WRKSRC}/${PORTNAME}/LICENSE
 
-USES=		cpe go:modules
+USES=		cpe go:1.24,modules
 BINS=		syncthing stdiscosrv strelaysrv strelaypoolsrv
 
 CONFLICTS_INSTALL=	syncthing1
