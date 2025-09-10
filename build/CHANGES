@@ -6,7 +6,6 @@ Changes:
 - Upgrade rrdtool to v1.9.0.
 - Upgrade exfat to v1.4.0.
 - Upgrade python311 v3.11.10.
-- Upgrade mariadb to v11.4.4.
 - Upgrade samba to v4.19.9.
 - Upgrade libvncserver v0.9.15.
 - Upgrade arconf to vB27147.
@@ -36,6 +35,7 @@ Changes:
 - Upgrade wsdd to v0.9.0.
 - Upgrade msmtp to v1.8.31.
 - Upgrade netatalk to v4.3.2.
+- Upgrade mariadb to v11.8.3.
 
 New:
 - New SMB use its own log file.

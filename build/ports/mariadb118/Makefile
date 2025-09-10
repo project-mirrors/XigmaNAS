@@ -12,11 +12,11 @@ NO_BUILD?=	yes
 NO_PKG_REGISTER?= yes
 DEPENDS_TARGET=	clean build stage
 
-DEP_STAGEDIR=	${PORTSDIR}/databases/mariadb114-server/work/stage
-CLIENT_STAGEDIR= ${PORTSDIR}/databases/mariadb114-client/work/stage
+DEP_STAGEDIR=	${PORTSDIR}/databases/mariadb118-server/work/stage
+CLIENT_STAGEDIR= ${PORTSDIR}/databases/mariadb118-client/work/stage
 
-BUILD_DEPENDS=	${NONEXISTENT}:databases/mariadb114-server
-BUILD_DEPENDS+=	${NONEXISTENT}:databases/mariadb114-client
+BUILD_DEPENDS=	${NONEXISTENT}:databases/mariadb118-server
+BUILD_DEPENDS+=	${NONEXISTENT}:databases/mariadb118-client
 
 do-install:
 # XigmaNAS® install
