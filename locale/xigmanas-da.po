@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-06 19:57+0000\n"
+"X-Launchpad-Export-Date: 2025-09-10 13:45+0000\n"
 "X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: DENMARK\n"
 "Language: \n"
@@ -15154,53 +15154,3 @@ msgstr ""
 
 msgid "Parameter"
 msgstr ""
-
-#~ msgid "Compliant profile to be used."
-#~ msgstr "Overholdelses profil der skal bruges."
-
-#~ msgid "Database directory"
-#~ msgstr "Database mappe"
-
-#~ msgid "Device IP"
-#~ msgstr "Enheds IP"
-
-#~ msgid "Enable transcoding."
-#~ msgstr "Aktiver omkodning"
-
-#~ msgid "Give your media library a friendly name."
-#~ msgstr "Angiv brugervenligt navn for dit medie-bibliotek."
-
-#~ msgid "Import on-disk ZFS config"
-#~ msgstr "Importer on-disk ZFS konfiguration"
-
-#~ msgid "Media library"
-#~ msgstr "Medie bibliotek"
-
-#, php-format
-#~ msgid ""
-#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
-#~ "through %d). Default port is %d."
-#~ msgstr ""
-#~ "Port der skal lyttes til. Kun dynamiske eller private porte kan bruges (fra "
-#~ "%d til og med %d). Standard porten er %d."
-
-#~ msgid "Profile"
-#~ msgstr "Profil"
-
-#~ msgid "Set the content location(s) to or from the media library."
-#~ msgstr "Angiv placering(er) for indhold til og fra medie biblioteket."
-
-#~ msgid "Temporary directory"
-#~ msgstr "Midlertidig mappe"
-
-#~ msgid "Temporary directory to store transcoded files."
-#~ msgstr "Midlertidig mappe hvor omkodede filer skal gemmes."
-
-#~ msgid "Transcoding"
-#~ msgstr "Omkodning"
-
-#~ msgid "Try to force import."
-#~ msgstr "Prøv at gennemtvinge import."
-
-#~ msgid "Try to import from on-disk ZFS config."
-#~ msgstr "Forsøg at importere fra on-disk ZFS konfigurationen."

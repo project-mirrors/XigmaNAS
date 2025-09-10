@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-06 19:56+0000\n"
+"X-Launchpad-Export-Date: 2025-09-10 13:44+0000\n"
 "X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 
 msgid "Active Directory"
@@ -14886,55 +14886,3 @@ msgstr ""
 
 msgid "Parameter"
 msgstr ""
-
-#~ msgid "Compliant profile to be used."
-#~ msgstr "使用符合的設定檔。"
-
-#~ msgid "Database directory"
-#~ msgstr "數據庫目錄"
-
-#~ msgid "Device IP"
-#~ msgstr "裝置 IP"
-
-#~ msgid "Enable transcoding."
-#~ msgstr "啟用轉碼。"
-
-#~ msgid "Give your media library a friendly name."
-#~ msgstr "指定媒體庫的友好名稱。"
-
-#~ msgid "Import on-disk ZFS config"
-#~ msgstr "從硬碟上匯入 ZFS 設定"
-
-#~ msgid "Media library"
-#~ msgstr "媒體庫"
-
-#, php-format
-#~ msgid ""
-#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
-#~ "through %d). Default port is %d."
-#~ msgstr "用來接聽的連接埠。只有動態的或私人的連接埠可以使用(從 %d 到 %d)。預設連接埠是 %d。"
-
-#~ msgid "Profile"
-#~ msgstr "設定檔"
-
-#~ msgid "Set the content location(s) to or from the media library."
-#~ msgstr "設置從或到媒體庫的內容位置。"
-
-#~ msgid "Temporary directory"
-#~ msgstr "暫存目錄"
-
-#~ msgid "Temporary directory to store transcoded files."
-#~ msgstr "用來儲存轉碼檔案的暫存目錄。"
-
-#, php-format
-#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
-#~ msgstr "屬性'連接埠'：'%ld' 連接埠已經被另一項服務採用。"
-
-#~ msgid "Transcoding"
-#~ msgstr "轉碼"
-
-#~ msgid "Try to force import."
-#~ msgstr "嘗試強制匯入。"
-
-#~ msgid "Try to import from on-disk ZFS config."
-#~ msgstr "嘗試從硬碟匯入 ZFS 配置。"

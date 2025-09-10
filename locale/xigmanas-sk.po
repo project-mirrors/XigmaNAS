@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-06 19:56+0000\n"
+"X-Launchpad-Export-Date: 2025-09-10 13:45+0000\n"
 "X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "Language: \n"
@@ -15102,42 +15102,3 @@ msgstr ""
 
 msgid "Parameter"
 msgstr ""
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-#~ "issues."
-#~ msgstr ""
-#~ "Iný DLNA/UPnP servis je už spustený. Povolenie Fuppes preto môže spôsobiť "
-#~ "problémy."
-
-#~ msgid "Compliant profile to be used."
-#~ msgstr "Ktorý zodpovedajúci profil použiť."
-
-#~ msgid "Database directory"
-#~ msgstr "Adresár databázy"
-
-#~ msgid "Device IP"
-#~ msgstr "IP zariadenia"
-
-#~ msgid "Enable transcoding."
-#~ msgstr "Povoliť prekódovanie"
-
-#, php-format
-#~ msgid ""
-#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
-#~ "through %d). Default port is %d."
-#~ msgstr ""
-#~ "Na ktorom porte počúvať. Je možné použiť iba dynamické alebo privátne porty "
-#~ "(od %d do %d). Štandardný port pre iTunes je %d."
-
-#~ msgid "Profile"
-#~ msgstr "Profil"
-
-#~ msgid "Temporary directory"
-#~ msgstr "Dočasný priečinok"
-
-#~ msgid "Temporary directory to store transcoded files."
-#~ msgstr "Dočasný priečinok na uloženie prekódovaných súborov."
-
-#~ msgid "Transcoding"
-#~ msgstr "Prekódovanie"

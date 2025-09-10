@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2025-09-06 21:13+0000\n"
-"PO-Revision-Date: 2024-06-24 03:47+0000\n"
+"PO-Revision-Date: 2025-09-07 05:14+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-06 19:56+0000\n"
+"X-Launchpad-Export-Date: 2025-09-10 13:44+0000\n"
 "X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -432,13 +432,13 @@ msgid "Upper"
 msgstr "Övre"
 
 msgid "No IPMI Sensor data available."
-msgstr ""
+msgstr "Ingen IPMI sensordata tillgänglig."
 
 msgid "FRU Information"
-msgstr ""
+msgstr "FRU Information"
 
 msgid "No IPMI FRU data available."
-msgstr ""
+msgstr "Ingen IPMI FRU data tillgänglig."
 
 msgid "iSCSI Target Information & Status"
 msgstr "iSCSI Mål Information & Status"
@@ -3043,9 +3043,13 @@ msgstr "Ingen pool finns."
 msgid ""
 "No pool was found. Try to force import from on-disk ZFS configuration."
 msgstr ""
+"Ingen pool hittades. Prova att tvinga import från ZFS konfiguration på "
+"hårddisken."
 
 msgid "No pool was found. Try to import from on-disk ZFS configuration."
 msgstr ""
+"Ingen pool hittades. Prova att importera från ZFS konfiguration på "
+"hårddisken."
 
 msgid "Your ZFS system is not healthy."
 msgstr "Ditt ZFS-system mår inte bra."
@@ -3171,10 +3175,10 @@ msgstr ""
 "kommandoraden."
 
 msgid "Import on-disk ZFS configuration"
-msgstr ""
+msgstr "Importera ZFS konfiguration på hårddisken"
 
 msgid "Force import on-disk ZFS configuration"
-msgstr ""
+msgstr "Tvinga import av ZFS konfiguration på hårddisken"
 
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
@@ -8382,6 +8386,7 @@ msgstr "Från E-postadress, för sändning av systemmeddelanden."
 msgid ""
 "Destination email address. Multiple email addresses are separated by a comma."
 msgstr ""
+"Destinations e-postadress. Flera adresser separeras med ett kommatecken."
 
 msgid "Outgoing SMTP mail server address."
 msgstr "Utgående SMTP e-postserveradress."
@@ -9418,7 +9423,7 @@ msgid "Capacity Critical Threshold"
 msgstr "Kritisk utrymmesgräns"
 
 msgid "Extended Destroy"
-msgstr ""
+msgstr "Utökad Förstörelse"
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -9476,12 +9481,14 @@ msgid "Must be a number between 90 and 95."
 msgstr "Måste vara ett nummer mellan 90 och 95."
 
 msgid "Destroy dataset and its dependents."
-msgstr ""
+msgstr "Förstör dataset och dess beroenden."
 
 msgid ""
 "When enabled, destroying a dataset will also destroy all dependents "
 "(datasets, snapshots and clones)."
 msgstr ""
+"När aktiverad kommer förstörelse av dataset också förstöra alla beroenden "
+"(dataset, ögonblicksbilder och kloner)."
 
 msgid "Lifetime"
 msgstr "Livstid"
@@ -15900,133 +15907,3 @@ msgstr ""
 
 msgid "Parameter"
 msgstr "Parameter"
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-#~ "issues."
-#~ msgstr ""
-#~ "En annan DLNA/UPnP tjänst körs redan. Att aktivera Fuppes kan orsaka problem"
-
-#~ msgid "Compliant profile to be used."
-#~ msgstr "Kompatibel profil som skall användas"
-
-#~ msgid "Content Locations"
-#~ msgstr "Innehållsplatser"
-
-#~ msgid "DLNA/UPnP Fuppes"
-#~ msgstr "DLNA/UPnP Fuppes"
-
-#~ msgid "Database directory"
-#~ msgstr "Databaskatalog"
-
-#~ msgid "Destination email address. Separate email addresses by semi-colon."
-#~ msgstr "Måle-postadresser, separera adresser med semikolon."
-
-#~ msgid "Device IP"
-#~ msgstr "Enhetens IP"
-
-#~ msgid "Enable transcoding."
-#~ msgstr "Aktivera omkodning."
-
-#~ msgid "Fuppes"
-#~ msgstr "Fuppes"
-
-#~ msgid "Fuppes Media Server"
-#~ msgstr "Fuppes Media Server"
-
-#~ msgid "Fuppes Media Server Administration"
-#~ msgstr "Fuppes Media Server Administration"
-
-#~ msgid "Give your media library a friendly name."
-#~ msgstr "Ge ditt mediabibliotek ett kortnamn"
-
-#~ msgid "Import on-disk ZFS config"
-#~ msgstr "Importera diskbaserad ZFS konfiguration"
-
-#~ msgid "Media Library"
-#~ msgstr "Mediabibliotek"
-
-#~ msgid "Media library"
-#~ msgstr "Mediebibliotek"
-
-#~ msgid "Media server name"
-#~ msgstr "Mediaservernamn"
-
-#~ msgid ""
-#~ "More than one DLNA/UPnP service is active. This configuration might cause "
-#~ "issues."
-#~ msgstr ""
-#~ "Mer än en DLNA/UPnP tjänst är aktiv. Denna konfiguration kan orsaka problem."
-
-#, php-format
-#~ msgid "Port number must be in the range between %d and %d."
-#~ msgstr "Portnummer måste vara mellan %d och %d."
-
-#, php-format
-#~ msgid ""
-#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
-#~ "through %d). Default port is %d."
-#~ msgstr ""
-#~ "Port att lyssna på. Endast dynamiska eller privata portar kan användas (från "
-#~ "%d med %d). Standardporten är %d."
-
-#~ msgid "Profile"
-#~ msgstr "Profil"
-
-#~ msgid ""
-#~ "Select which interface to use. (Only selectable if your server has more than "
-#~ "one interface)"
-#~ msgstr ""
-#~ "Välj vilket gränssnitt som skall användas. (Endast valbart om det finns fler "
-#~ "än ett)"
-
-#~ msgid "Set the content location(s) to or from the media library."
-#~ msgstr "Sätt innehållets placering till eller från mediabiblioteket."
-
-#~ msgid "Temporary directory"
-#~ msgstr "Temporär katalog"
-
-#~ msgid "Temporary directory to store transcoded files."
-#~ msgstr "Temporär katalog för lagring av omkodade filer."
-
-#~ msgid "The IP address of the device."
-#~ msgstr "Enhetens IP-adress."
-
-#, php-format
-#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
-#~ msgstr "Fältet 'Port': port '%ld' är redan upptagen av en annan tjänst."
-
-#~ msgid "Transcoding"
-#~ msgstr "Omkodning"
-
-#~ msgid "Transcoding Directory"
-#~ msgstr "Omkodningskatalog"
-
-#~ msgid "Try to force import."
-#~ msgstr "Försöker tvinga fram en import."
-
-#~ msgid "Try to import from on-disk ZFS config."
-#~ msgstr "Försök att importera från diskbaserad ZFS konfiguration."
-
-#~ msgid "UPnP/DLNA - Fuppes"
-#~ msgstr "UPnP/DLNA - Fuppes"
-
-#~ msgid "Allow challenge-response authentication."
-#~ msgstr "Tillåt fråga/svar autentisering."
-
-#~ msgid "Challenge-Response Authentication"
-#~ msgstr "Fråga-svar autentisering"
-
-#~ msgid ""
-#~ "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
-#~ "can cause problems."
-#~ msgstr ""
-#~ "Flera DLNA/UPnP tjänstär redan aktiverade. Att köra fler DLNA/UPnP tjänster "
-#~ "samtidigt kan orsaka problem."
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-#~ "services can cause problems."
-#~ msgstr ""
-#~ "En annan DLNA/UPnP tjänstär redan aktiverad. Att köra fler DLNA/UPnP "
-#~ "tjänster samtidigt kan orsaka problem."

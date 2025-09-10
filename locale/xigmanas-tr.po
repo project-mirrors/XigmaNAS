@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-06 19:56+0000\n"
+"X-Launchpad-Export-Date: 2025-09-10 13:44+0000\n"
 "X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
@@ -14933,25 +14933,3 @@ msgstr ""
 
 msgid "Parameter"
 msgstr ""
-
-#~ msgid "Compliant profile to be used."
-#~ msgstr "Compliant Profil kullanılmış."
-
-#~ msgid "Database directory"
-#~ msgstr "Veritabanı Dizini"
-
-#~ msgid "Device IP"
-#~ msgstr "Aygıt IP"
-
-#~ msgid "Profile"
-#~ msgstr "Profile\""
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-#~ "issues."
-#~ msgstr ""
-#~ "Başka bir DLNA/UPnP servisi çalışmakta. Fuppes'i başlatmak hatalara yol "
-#~ "açabilir."
-
-#~ msgid "Content Locations"
-#~ msgstr "İçerik Yerleri"

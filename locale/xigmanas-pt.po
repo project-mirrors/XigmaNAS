@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-06 19:57+0000\n"
+"X-Launchpad-Export-Date: 2025-09-10 13:45+0000\n"
 "X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: PORTUGAL\n"
 "Language: \n"
@@ -15290,67 +15290,3 @@ msgstr ""
 
 msgid "Parameter"
 msgstr ""
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-#~ "issues."
-#~ msgstr ""
-#~ "Outro serviço DLNA/UPnP já está a correr. Activar o Fuppes poderá causar "
-#~ "problemas."
-
-#~ msgid "Compliant profile to be used."
-#~ msgstr "Perfil aderente para ser usado."
-
-#~ msgid "Content Locations"
-#~ msgstr "Localizacao do Conteudo"
-
-#~ msgid "Database directory"
-#~ msgstr "Directoria da base de dados"
-
-#~ msgid "Device IP"
-#~ msgstr "Endereço IP do dispositivo"
-
-#~ msgid "Enable transcoding."
-#~ msgstr "Permitir codificação."
-
-#~ msgid "Import on-disk ZFS config"
-#~ msgstr "Importar configurar de disco ZFS"
-
-#, php-format
-#~ msgid ""
-#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
-#~ "through %d). Default port is %d."
-#~ msgstr ""
-#~ "Porta para escuta. apenas portas dinâmicas ou privadas podem ser usadas "
-#~ "(desde %d até %d). A porta padrão é %d."
-
-#~ msgid "Profile"
-#~ msgstr "Perfil"
-
-#~ msgid "Temporary directory"
-#~ msgstr "Directório temporário"
-
-#~ msgid "Temporary directory to store transcoded files."
-#~ msgstr "Directoria temporária para armazenar ficheiros codificados."
-
-#~ msgid "Transcoding"
-#~ msgstr "Codificação"
-
-#~ msgid "Try to force import."
-#~ msgstr "Tentar forçar a importação."
-
-#~ msgid "Try to import from on-disk ZFS config."
-#~ msgstr "Tentar importar a partir da configuração ZFS no disco."
-
-#~ msgid "UPnP/DLNA - Fuppes"
-#~ msgstr "UPnP/DLNA - Fuppes"
-
-#~ msgid "Allow challenge-response authentication."
-#~ msgstr "Permitir autenticação desafio-resposta"
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-#~ "services can cause problems."
-#~ msgstr ""
-#~ "Outro serviço DNLA/UPnP já está habilitado. Correr múltiplos serviços "
-#~ "DNLA/UPnP pode causar problemas."

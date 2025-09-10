@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2025-09-06 21:13+0000\n"
-"PO-Revision-Date: 2024-06-23 11:09+0000\n"
+"PO-Revision-Date: 2025-09-07 04:01+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-06 19:57+0000\n"
+"X-Launchpad-Export-Date: 2025-09-10 13:45+0000\n"
 "X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
@@ -427,13 +427,13 @@ msgid "Upper"
 msgstr "Supérieur"
 
 msgid "No IPMI Sensor data available."
-msgstr ""
+msgstr "Aucune donnée de capteur IPMI disponible."
 
 msgid "FRU Information"
-msgstr ""
+msgstr "Informations sur les FRU"
 
 msgid "No IPMI FRU data available."
-msgstr ""
+msgstr "Aucune donnée FRU IPMI disponible"
 
 msgid "iSCSI Target Information & Status"
 msgstr "Informations sur la Cible iSCSI et Statut"
@@ -3134,9 +3134,13 @@ msgstr "Aucun pool trouvé."
 msgid ""
 "No pool was found. Try to force import from on-disk ZFS configuration."
 msgstr ""
+"Aucun pool n'a été trouvé. Essayez de forcer l'importation depuis la "
+"configuration ZFS sur disque."
 
 msgid "No pool was found. Try to import from on-disk ZFS configuration."
 msgstr ""
+"Aucun pool n'a été trouvé. Essayez d'importer depuis la configuration ZFS "
+"sur disque."
 
 msgid "Your ZFS system is not healthy."
 msgstr "Votre système ZFS est dégradé."
@@ -3262,10 +3266,10 @@ msgstr ""
 "modifications ont été apportées via la ligne de commande"
 
 msgid "Import on-disk ZFS configuration"
-msgstr ""
+msgstr "Importer la configuration ZFS sur disque"
 
 msgid "Force import on-disk ZFS configuration"
-msgstr ""
+msgstr "Forcer l'importation de la configuration ZFS sur le disque"
 
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
@@ -3309,19 +3313,19 @@ msgstr ""
 "fichier)."
 
 msgid "Add Dataset"
-msgstr "Ajouter un jeu de données"
+msgstr "Ajouter un ensemble de données"
 
 msgid "Edit Dataset"
-msgstr "Modifier le jeu de données"
+msgstr "Modifier l'ensemble de données"
 
 msgid "Dataset is marked for deletion"
-msgstr "Ce jeu de données est marqué pour suppression"
+msgstr "Cet ensemble de données est marqué pour suppression"
 
 msgid "Dataset is locked"
-msgstr "Le jeu de données est verrouillé"
+msgstr "L'ensemble de données est verrouillé"
 
 msgid "Dataset is unlocked"
-msgstr "Le  jeu de données est déprotégé"
+msgstr "L'ensemle de données est déprotégé"
 
 msgid "Delete Selected Datasets"
 msgstr "supprimer les jeux de données sélectionnés"
@@ -3330,7 +3334,7 @@ msgid "Do you want to delete selected datasets?"
 msgstr "Voulez-vous effacer les jeux de données sélectionnés"
 
 msgid "Dataset"
-msgstr "Jeu de données"
+msgstr "Ensemble de données"
 
 msgid "No configured pools."
 msgstr "Pas de pool configuré"
@@ -3414,7 +3418,7 @@ msgid "Mixed"
 msgstr "Mixte"
 
 msgid "Enter a name for this dataset"
-msgstr "Entrez un nom pour ce jeu de données"
+msgstr "Entrez un nom pour cet ensemble de données"
 
 msgid ""
 "Controls the compression algorithm used for this dataset. 'LZ4' is now the "
@@ -3495,7 +3499,7 @@ msgstr ""
 "Si cette propriété est désactivée, le système de fichiers ne peut être monté."
 
 msgid "Controls whether this dataset can be modified."
-msgstr "Controle si ce jeu de données peut être modifié."
+msgstr "Controle si cet ensemble de données peut être modifié."
 
 msgid "Extended attributes"
 msgstr "Attributs étendus"
@@ -3517,8 +3521,8 @@ msgid ""
 "specify the size use the following human-readable suffixes (for example, "
 "'k', 'KB', 'M', 'Gb', etc.)."
 msgstr ""
-"Espace minimum garanti pour un jeu de données (normalement vide).  Pour en "
-"préciser la  taille utiliser les abréviations suivantes en suffixe (EX.:  "
+"Espace minimum garanti pour un ensemble de données (normalement vide).  Pour "
+"en préciser la  taille utiliser les abréviations suivantes en suffixe (EX.:  "
 "'k', 'KB', 'M', 'Gb', etc...)."
 
 msgid ""
@@ -3528,11 +3532,12 @@ msgid ""
 "specify the size use the following human-readable suffixes (for example, "
 "'k', 'KB', 'M', 'Gb', etc.)."
 msgstr ""
-"Limite la quantité d'espace qu'un jeu de données et ses descendants puisse "
-"consommer. Cette propriété donne une limite forte sur la quantité d'espace "
-"utilisée. Ceci inclus tout l'espace consommé par les descendants, incluant "
-"les systèmes de fichiers et les snapshots. Pour spécifier la taille, "
-"utiliser les suffixes usuels (par exemple : 'k', 'KB', 'M', 'Gb', etc...)"
+"Limite la quantité d'espace qu'un ensemble de données et ses descendants "
+"puisse consommer. Cette propriété donne une limite forte sur la quantité "
+"d'espace utilisée. Ceci inclus tout l'espace consommé par les descendants, "
+"incluant les systèmes de fichiers et les instantanés. Pour spécifier la "
+"taille, utiliser les suffixes usuels (par exemple : 'k', 'KB', 'M', 'Gb', "
+"etc...)"
 
 msgid "Enter a description"
 msgstr "Entrez une description"
@@ -3895,8 +3900,8 @@ msgstr "Crée le pool avec un root alternatif."
 
 msgid "Sets an alternate mount point for the root dataset. Default is /mnt."
 msgstr ""
-"Configurer un point de montage alternatif pour le jeu de données racine. La "
-"valeur par défaut est /mnt."
+"Configurer un point de montage alternatif pour l'ensemble de données racine. "
+"La valeur par défaut est /mnt."
 
 msgid "Force Use"
 msgstr "Forcer l'usage"
@@ -8568,6 +8573,8 @@ msgstr "Adresse e-mail pour l'envoi de messages système."
 msgid ""
 "Destination email address. Multiple email addresses are separated by a comma."
 msgstr ""
+"Adresse e-mail de destination. Les adresses e-mail multiples sont séparées "
+"par une virgule."
 
 msgid "Outgoing SMTP mail server address."
 msgstr "Adresse du serveur SMTP d'envoi d'e-mail."
@@ -9626,7 +9633,7 @@ msgid "Capacity Critical Threshold"
 msgstr "Seuil critique de capacité"
 
 msgid "Extended Destroy"
-msgstr ""
+msgstr "Destruction étendue"
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -9689,12 +9696,15 @@ msgid "Must be a number between 90 and 95."
 msgstr "Doit être un nombre entre 90 et 95."
 
 msgid "Destroy dataset and its dependents."
-msgstr ""
+msgstr "Détruire un ensemble de données et ses dépendants."
 
 msgid ""
 "When enabled, destroying a dataset will also destroy all dependents "
 "(datasets, snapshots and clones)."
 msgstr ""
+"Lorsque cette option est activée, la destruction d'un ensemble de données "
+"détruira également tous les éléments dépendants (ensembles de données, "
+"instantanés et clones)."
 
 msgid "Lifetime"
 msgstr "Durée de vie"
@@ -9909,7 +9919,7 @@ msgid "Enter filesystem name"
 msgstr "Entrez le nom du système de fichiers"
 
 msgid "Controls the type of the ZFS dataset."
-msgstr "Contrôle le type de jeu de données ZFS."
+msgstr "Contrôle le type de l'ensemble de données ZFS."
 
 msgid "Pool Name"
 msgstr "Nom du Pool"
@@ -10367,7 +10377,9 @@ msgstr "Refquota défini par l'utilisateur"
 msgid ""
 "Defines the minimum amount of space guaranteed to a dataset, not including "
 "its descendents."
-msgstr "Niveau de compression par défaut"
+msgstr ""
+"Définit la quantité minimale d'espace garantie à un ensemble de données, "
+"sans inclure ses descendants."
 
 msgid "Refreservation type."
 msgstr "Type de Refréservation."
@@ -10507,7 +10519,7 @@ msgid "System attribute based xattrs"
 msgstr "Xattrs basés sur les attributs système"
 
 msgid "Dataset Name"
-msgstr "Nom du Jeu de Données"
+msgstr "Nom de l'Ensemble de Données"
 
 msgid ""
 "File System - can be mounted within the standard system namespace and "
@@ -10532,7 +10544,7 @@ msgid "Bookmark - Creates a bookmark of a given snapshot."
 msgstr "Signet - Crée un signet d'un instantané donné."
 
 msgid "Dataset Type"
-msgstr "Type de jeu de données"
+msgstr "Type d'ensemble de données"
 
 msgid "Clones"
 msgstr "Clones"
@@ -16272,138 +16284,3 @@ msgstr ""
 
 msgid "Parameter"
 msgstr "Paramètre"
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-#~ "issues."
-#~ msgstr ""
-#~ "Un autre service DLNA / UPnP est déjà en cours d'exécution. L'activation de "
-#~ "Fuppes peut provoquer des problèmes."
-
-#~ msgid "Compliant profile to be used."
-#~ msgstr "Profil compatible à utiliser."
-
-#~ msgid "Content Locations"
-#~ msgstr "Emplacements de contenu"
-
-#~ msgid "DLNA/UPnP Fuppes"
-#~ msgstr "DLNA/UPnP Fuppes"
-
-#~ msgid "Database directory"
-#~ msgstr "Répertoire de base de données"
-
-#~ msgid "Destination email address. Separate email addresses by semi-colon."
-#~ msgstr ""
-#~ "Adresse email de destination. Séparer les adresses emails avec des point-"
-#~ "virgules."
-
-#~ msgid "Device IP"
-#~ msgstr "IP du périphérique"
-
-#~ msgid "Enable transcoding."
-#~ msgstr "Activer le transcodage."
-
-#~ msgid "Fuppes"
-#~ msgstr "Fuppes"
-
-#~ msgid "Fuppes Media Server"
-#~ msgstr "Fuppes Media Server"
-
-#~ msgid "Fuppes Media Server Administration"
-#~ msgstr "Administration du serveur de médias Fuppes"
-
-#~ msgid "Give your media library a friendly name."
-#~ msgstr "Nommer votre Bibliotheque"
-
-#~ msgid "Import on-disk ZFS config"
-#~ msgstr "Importer la configuration ZFS du disque"
-
-#~ msgid "Media Library"
-#~ msgstr "Médiathèque"
-
-#~ msgid "Media library"
-#~ msgstr "Librairie média"
-
-#~ msgid "Media server name"
-#~ msgstr "Nom du serveur de médias"
-
-#~ msgid ""
-#~ "More than one DLNA/UPnP service is active. This configuration might cause "
-#~ "issues."
-#~ msgstr ""
-#~ "Plus d'un service DLNA / UPnP est actif. Cette configuration peut provoquer "
-#~ "des problèmes."
-
-#, php-format
-#~ msgid "Port number must be in the range between %d and %d."
-#~ msgstr "Le numéro de port doit être compris entre %d et %d."
-
-#, php-format
-#~ msgid ""
-#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
-#~ "through %d). Default port is %d."
-#~ msgstr ""
-#~ "Port en écoute. Seuls les ports dynamiques ou privés peuvent être utilisés "
-#~ "(de %d à %d). Le port par défaut est %d."
-
-#~ msgid "Profile"
-#~ msgstr "Profil"
-
-#~ msgid ""
-#~ "Select which interface to use. (Only selectable if your server has more than "
-#~ "one interface)"
-#~ msgstr ""
-#~ "Sélectionnez l'interface réseau à utiliser. (Sélectionnable seulement si "
-#~ "votre serveur a plus d'une interface réseau)"
-
-#~ msgid "Set the content location(s) to or from the media library."
-#~ msgstr "Définir l'emplacement de ou depuis la bibliothèque de médias"
-
-#~ msgid "Temporary directory"
-#~ msgstr "Répertoire temporaire"
-
-#~ msgid "Temporary directory to store transcoded files."
-#~ msgstr "Répertoire temporaire de stockage des fichiers transcodés."
-
-#~ msgid "The IP address of the device."
-#~ msgstr "Adresse IP du périphérique."
-
-#, php-format
-#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
-#~ msgstr ""
-#~ "L'attribut «Port»: port '% ld' est déjà utilisé par un autre service."
-
-#~ msgid "Transcoding"
-#~ msgstr "Transcodage"
-
-#~ msgid "Transcoding Directory"
-#~ msgstr "Répertoire Transcodage"
-
-#~ msgid "Try to force import."
-#~ msgstr "Essayer de forcer l'import."
-
-#~ msgid "Try to import from on-disk ZFS config."
-#~ msgstr "Essayer de forcer l'import de la configuration ZFS du disque."
-
-#~ msgid "UPnP/DLNA - Fuppes"
-#~ msgstr "UPnP/DLNA - Fuppes"
-
-#~ msgid "Allow challenge-response authentication."
-#~ msgstr "Autoriser l'authentification défi-réponse."
-
-#~ msgid "Challenge-Response Authentication"
-#~ msgstr "Authentification par réponse"
-
-#~ msgid ""
-#~ "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
-#~ "can cause problems."
-#~ msgstr ""
-#~ "Plusieurs services DLNA / UPnP sont activés. L'exécution de plusieurs "
-#~ "services DLNA / UPnP peut entraîner des problèmes."
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-#~ "services can cause problems."
-#~ msgstr ""
-#~ "Un autre service DLNA / UPnP est déjà activé. L'exécution de plusieurs "
-#~ "services DLNA / UPnP peut entraîner des problèmes."

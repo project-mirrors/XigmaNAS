@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-06 19:56+0000\n"
+"X-Launchpad-Export-Date: 2025-09-10 13:45+0000\n"
 "X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
 "X-Poedit-Country: Brazilian Portuguese\n"
 "Language: \n"
@@ -15475,89 +15475,3 @@ msgstr ""
 
 msgid "Parameter"
 msgstr ""
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
-#~ "issues."
-#~ msgstr ""
-#~ "Outro serviço DLNA / UPnP já está sendo executado. Habilitar Fuppes pode "
-#~ "causar problemas."
-
-#~ msgid "Compliant profile to be used."
-#~ msgstr "Perfil compatível a ser utilizado."
-
-#~ msgid "Content Locations"
-#~ msgstr "Localizações de Conteúdo"
-
-#~ msgid "DLNA/UPnP Fuppes"
-#~ msgstr "DLNA/UPnP Fuppes"
-
-#~ msgid "Database directory"
-#~ msgstr "Diretório de banco de dados"
-
-#~ msgid "Destination email address. Separate email addresses by semi-colon."
-#~ msgstr ""
-#~ "Endereço de e-mail de destino. Separe os endereços de email por ponto e "
-#~ "vírgula."
-
-#~ msgid "Device IP"
-#~ msgstr "Endereço IP do dispositivo"
-
-#~ msgid "Enable transcoding."
-#~ msgstr "Habilitar transcodificação."
-
-#~ msgid "Give your media library a friendly name."
-#~ msgstr "Dê um nome amigável à sua biblioteca de mídia"
-
-#~ msgid "Import on-disk ZFS config"
-#~ msgstr "Importar configuração ZFS em disco (on-disk)"
-
-#~ msgid "Media library"
-#~ msgstr "Biblioteca de mídias"
-
-#, php-format
-#~ msgid ""
-#~ "Port to listen on. Only dynamic or private ports can be used (from %d "
-#~ "through %d). Default port is %d."
-#~ msgstr ""
-#~ "Porta de escuta. Somente portas dinâmicas ou privadas podem ser usadas "
-#~ "(desde %d até %d). A porta padrão é %d."
-
-#~ msgid "Profile"
-#~ msgstr "Perfil"
-
-#~ msgid "Set the content location(s) to or from the media library."
-#~ msgstr "Configura a localização do conteúdo para ou da bilbioteca de mídia."
-
-#~ msgid "Temporary directory"
-#~ msgstr "Diretório temporário"
-
-#~ msgid "Temporary directory to store transcoded files."
-#~ msgstr "Diretório temporário para armazenar arquivos codificados."
-
-#, php-format
-#~ msgid "The attribute 'Port': port '%ld' is already taken by another service."
-#~ msgstr ""
-#~ "O atributo 'Porta': porta '%ld' já está sendo utilizada por outro serviço."
-
-#~ msgid "Transcoding"
-#~ msgstr "Transcodificação"
-
-#~ msgid "Try to force import."
-#~ msgstr "Tentar forçar a importação."
-
-#~ msgid "Try to import from on-disk ZFS config."
-#~ msgstr "Tentar importar a partir da configuração on-disk do ZFS."
-
-#~ msgid "Allow challenge-response authentication."
-#~ msgstr "Permitir autenticação por resposta de desafio."
-
-#~ msgid "Challenge-Response Authentication"
-#~ msgstr "Autenticação por Desafios"
-
-#~ msgid ""
-#~ "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
-#~ "services can cause problems."
-#~ msgstr ""
-#~ "Outro serviço DLNA/UPnP já está ativo. Rodar múltiplos serviços DLNA/UPnP "
-#~ "pode causar problemas."
