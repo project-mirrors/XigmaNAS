@@ -10,7 +10,6 @@ Changes:
 - Upgrade samba to v4.19.9.
 - Upgrade libvncserver v0.9.15.
 - Upgrade arconf to vB27147.
-- Upgrade netatalk to v4.1.2.
 - Upgrade phpmyadmin to v5.2.2.
 - Upgrade rsync to v3.4.1.
 - Upgrade tmux to v3.5a.
@@ -36,6 +35,7 @@ Changes:
 - Upgrade syncthing to v2.0.4.
 - Upgrade wsdd to v0.9.0.
 - Upgrade msmtp to v1.8.31.
+- Upgrade netatalk to v4.3.2.
 
 New:
 - New SMB use its own log file.

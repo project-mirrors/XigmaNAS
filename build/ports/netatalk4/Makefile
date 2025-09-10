@@ -1,5 +1,5 @@
 PORTNAME=	netatalk
-PORTVERSION=	4.1.2
+PORTVERSION=	4.3.2
 PORTREVISION=	0
 CATEGORIES=	net
 MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/netatalk-${PORTVERSION:S/./-/g}/
@@ -13,8 +13,11 @@ WWW=		https://netatalk.io/
 NO_LICENSES_DIALOGS= yes
 LICENSE=	GPLv2
 
+BUILD_DEPENDS=	cmark:textproc/cmark
 LIB_DEPENDS=	libgcrypt.so:security/libgcrypt \
-		libevent.so:devel/libevent
+		libevent.so:devel/libevent \
+		libiniparser.so:devel/iniparser \
+		libbstring.so:devel/bstring
 
 USES=		bdb:18 gettext iconv:wchar_t meson perl5 pkgconfig shebangfix ssl tar:xz
 USE_LDCONFIG=	yes
@@ -28,7 +31,6 @@ MESON_ARGS=		-Dwith-libgcrypt-path=${LOCALBASE} \
 			-Dwith-dtrace=false \
 			-Dwith-init-hooks=false \
 			-Dpkg_config_path=${LOCALBASE}/libdata/pkgconfig \
-			-Dwith-shadow=false \
 			-Dwith-webmin=false \
 			-Dwith-cups=false \
 			-Dwith-testsuite=false \
@@ -67,7 +69,7 @@ LDAP_CFLAGS=		-I${LOCALBASE}/include -L${LOCALBASE}/lib
 LDAP_USES=		ldap
 SENDFILE_MESON_OFF=	-Dwith-sendfile=false
 DBUS_USES=		gnome python
-DBUS_USE=		GNOME=glib20
+DBUS_USE=		GNOME+=glib20
 DBUS_LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib \
 			libdbus-1.so:devel/dbus
 DBUS_RUN_DEPENDS=	${PYTHON_SITELIBDIR}/dbus/_dbus.py:devel/py-dbus@${PY_FLAVOR}
@@ -75,11 +77,12 @@ DBUS_MESON_ON=		-Dwith-dbus-daemon-path=${LOCALBASE}/bin/dbus-daemon \
 			-Dwith-dbus-sysconf-path=${LOCALBASE}/etc/dbus-1/system.d
 DBUS_MESON_OFF=		-Dwith-afpstats=false
 MYSQL_USES=		mysql
-MYSQL_MESON_OFF=	-Dwith-cnid-mysql-backend=false
+MYSQL_MESON_ON=-Dwith-cnid-default-backend=mysql
+MYSQL_MESON_OFF=-Dwith-cnid-default-backend=dbd
 ACL_LIB_DEPENDS=	libsunacl.so:sysutils/libsunacl
 ACL_MESON_OFF=		-Dwith-acls=false
 LIBWRAP_MESON_OFF=-Dwith-tcp-wrappers=false
-SPOTLIGHT_LIB_DEPENDS=	libtracker-sparql-3.0.so:sysutils/tracker3
+SPOTLIGHT_LIB_DEPENDS=	libtinysparql-3.0.so:devel/tinysparql
 SPOTLIGHT_MESON_OFF=	-Dwith-spotlight=false
 
 SHEBANG_GLOB=	afpstats
@@ -100,7 +103,7 @@ post-patch:
 		${WRKSRC}/meson.build
 
 post-install:
-	${INSTALL_SCRIPT} ${BUILD_WRKSRC}/contrib/macusers/macusers \
+	${INSTALL_SCRIPT} ${BUILD_WRKSRC}/contrib/bin_utils/macusers \
 		${STAGEDIR}${PREFIX}/bin/macusers
 
 # XigmaNAS® install
