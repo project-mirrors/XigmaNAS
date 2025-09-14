@@ -118,7 +118,7 @@ post-install:
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/netatalk ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 # lib
 	@${INSTALL_LIB} -v ${STAGEDIR}${PREFIX}/lib/libatalk.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib
-	@${LN} -f -v -s libatalk.so.18 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libatalk.so
+	@${LN} -f -v -s libatalk.so.19 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libatalk.so
 # etc
 	@${INSTALL_DATA} -v ${STAGEDIR}${PREFIX}/etc/extmap.conf.sample ${XIGMANAS_ROOTFS}${PREFIX}/etc/extmap.conf
 # lib
