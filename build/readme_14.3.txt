@@ -113,7 +113,7 @@ Changes:
 - Upgrade msmtp to v1.8.31.
 - Upgrade netatalk to v4.3.2.
 - Upgrade mariadb to v11.8.3.
-- Upgrade syncthing to v2.0.8.
+- Upgrade syncthing to v2.0.9.
 
 New:
 - New SMB use its own log file.
