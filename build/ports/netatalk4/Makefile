@@ -119,6 +119,8 @@ post-install:
 # lib
 	@${INSTALL_LIB} -v ${STAGEDIR}${PREFIX}/lib/libatalk.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib
 	@${LN} -f -v -s libatalk.so.19 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libatalk.so
+	@${LN} -f -v -s /usr/local/lib/mysql/libmariadb.so.3 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libmariadb.so.3
+
 # etc
 	@${INSTALL_DATA} -v ${STAGEDIR}${PREFIX}/etc/extmap.conf.sample ${XIGMANAS_ROOTFS}${PREFIX}/etc/extmap.conf
 # lib
