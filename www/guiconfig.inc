@@ -1000,7 +1000,11 @@ function make_headermenu_extensions(array &$menu) {
 //		wipe menuitems, just to be safe
 		$menu_items = [];
 //		scan through each name
-		while(false !== ($file_found_name = readdir($dir_handle))):
+		while(true):
+			$file_found_name = readdir($dir_handle);
+			if($file_found_name === false):
+				break;
+			endif;
 //			calculate full path of the name
 			$file_found_full_name = $dir_path . $file_found_name;
 			if(($file_found_name === '.') || ($file_found_name === '..')):
