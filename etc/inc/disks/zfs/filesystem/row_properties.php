@@ -521,7 +521,7 @@ class row_properties extends grid_properties {
 		$options = [
 			'' => gettext('Auto mount'),
 			'path' => gettext('User defined mount point'),
-			'none' => gettext ('Do not mount'),
+			'none' => gettext('Do not mount'),
 			'legacy' => gettext('Admin controlled mount')
 		];
 		$property = parent::init_mountpoint_type();
