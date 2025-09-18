@@ -98,7 +98,7 @@ function email_send($address,$subject,$message,&$error) {
 
 	$retval = 0;
 	$msgfilepath = tempnam($g['tmp_path'],'msg');
-	if(false !== $msgfilepath):
+	if($msgfilepath !== false):
 //		get date in RFC 2882 format
 		$rfcdate = date('r');
 //		get the language configured
@@ -130,7 +130,7 @@ function email_send($address,$subject,$message,&$error) {
 		$data .= $message;
 		$data .= "\n";
 //		write message to file
-		if(false !== file_put_contents($msgfilepath,$data)):
+		if(file_put_contents($msgfilepath,$data) !== false):
 //			send email via external SMTP client
 			$cmd = sprintf('/usr/local/bin/msmtp -C /var/etc/msmtp.conf -t < %s',escapeshellarg($msgfilepath));
 			mwexec2($cmd,$output,$retval);
