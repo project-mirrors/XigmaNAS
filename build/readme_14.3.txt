@@ -130,6 +130,15 @@ Fixed:
 - Fix start netatalk.
 - Fix missing markdown module.
 
+
+Note for new user installs
+==========================
+XigmaNAS "embedded" install is recommended for practical all users.
+Embedded is also intended to be resistant to (intentional or accidental) tampering.
+The XigmaNAS "Full" install provide only some flexibility and ease for advanced OS customizations.
+This is intended for some heavy advanced users that test/modify the OS.
+
+
 Default login credentials:
 ==========================
 
