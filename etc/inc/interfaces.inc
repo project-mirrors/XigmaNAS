@@ -35,40 +35,32 @@ require_once 'config.inc';
 
 function interfaces_wireless_get_channellist($if) {
 	$a_chanlist = [];
-
-	exec("/sbin/ifconfig {$if} list chan", $rawdata);
-	foreach ($rawdata as $line) {
+	exec("/sbin/ifconfig {$if} list chan",$rawdata);
+	foreach($rawdata as $line):
 		$line = trim($line);
-
-		foreach (explode("Channel", $line) as $channelv) {
-			if (preg_match("/(\d+)\s+:\s+(\d+)\s+MHz\s+(.+)/", $channelv, $matches)) {
+		foreach(explode('Channel',$line) as $channelv):
+			if(preg_match("/(\d+)\s+:\s+(\d+)\s+MHz\s+(.+)/",$channelv,$matches)):
 				$info = [];
 				$info['channel'] = $matches[1];
 				$info['freq'] = $matches[2];
 				$info['mode'] = trim($matches[3]);
-
 				$a_chanlist[$info['channel']] = $info;
-			}
-		}
-	}
-
-	ksort($a_chanlist, SORT_NUMERIC);
-
+			endif;
+		endforeach;
+	endforeach;
+	ksort($a_chanlist,SORT_NUMERIC);
 	return $a_chanlist;
 }
 
 function interfaces_wireless_get_standards($if) {
 	$a_standards = [];
-
-	exec("/sbin/ifconfig -m {$if}", $rawdata);
-	foreach ($rawdata as $line) {
+	exec("/sbin/ifconfig -m {$if}",$rawdata);
+	foreach($rawdata as $line):
 		$line = trim($line);
-
-		if (preg_match("/media \S+ mode (11\S+)/", $line, $matches)) {
+		if(preg_match("/media \S+ mode (11\S+)/",$line,$matches)):
 			$a_standards[] = $matches[1];
-		}
-	}
-
+		endif;
+	endforeach;
 	return array_unique($a_standards);
 }
 ?>
