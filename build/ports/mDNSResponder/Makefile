@@ -1,5 +1,5 @@
 PORTNAME=		mDNSResponder
-PORTVERSION=	2600.120.12
+PORTVERSION=	2600.140.3
 PORTREVISION=	0
 CATEGORIES=	net dns
 MASTER_SITES=	https://opensource.apple.com/tarballs/mDNSResponder/ \
@@ -24,7 +24,7 @@ USES=		compiler:c11 cpe gmake
 CPE_VENDOR=	apple
 
 # lib/libdns_sd.so.1 sbin/mdnsd
-CONFLICTS_INSTALL?=	avahi-libdns openmdns # lib/libdns_sd.so.1 sbin/mdnsd
+CONFLICTS_INSTALL?=	avahi-libdns openmdns
 
 OPTIONS_DEFINE= IPV6
 

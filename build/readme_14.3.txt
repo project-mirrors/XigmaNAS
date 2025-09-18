@@ -105,7 +105,6 @@ Changes:
 - Upgrade iperf3 to v3.19.1.
 - Upgrade lighttpd to v1.4.81.
 - Upgrade nano to v8.6.
-- Upgrade mDNSResponder to v2600.120.12.
 - Upgrade php8 to v8.4.12.
 - Upgrade proftpd to v1.3.8d.
 - Upgrade transmission to 4.1.0-beta.2
@@ -114,6 +113,7 @@ Changes:
 - Upgrade netatalk to v4.3.2.
 - Upgrade mariadb to v11.8.3.
 - Upgrade syncthing to v2.0.9.
+- Upgrade mDNSResponder to v2600.140.3.
 
 New:
 - New SMB use its own log file.
@@ -127,6 +127,7 @@ Fixed:
 - Fix SATA NCQ error recovery after 25375b1415.
 - Fix characters in sysctl output
 - Fix deprecated command syncthing.
+- Fix start netatalk.
 
 Default login credentials:
 ==========================
