@@ -44,7 +44,7 @@ use common\uuid;
 putenv('PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin');
 
 function is_numericint($arg) {
-	return (preg_match('/[^0-9]/',$arg) ? false : true);
+	return(preg_match('/[^0-9]/',$arg) ? false : true);
 }
 /**
  *	Check if parameter is a valid IPv4 or IPv6 address
@@ -66,7 +66,7 @@ function is_ipaddr($ipaddr) {
  *	@return boolean
  */
 function is_ipv4addr($ipv4addr): bool {
-	return (filter_var($ipv4addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV4) !== false);
+	return(filter_var($ipv4addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV4) !== false);
 }
 /**
  *	Check if parameter is a valid IPv6 address
@@ -74,7 +74,7 @@ function is_ipv4addr($ipv4addr): bool {
  *	@return boolean
  */
 function is_ipv6addr($ipv6addr): bool {
-	return (filter_var($ipv6addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV6) !== false);
+	return(filter_var($ipv6addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV6) !== false);
 }
 /**
  *	Check if parameter is a valid subnet in CIDR format
@@ -1599,7 +1599,7 @@ function unlink_if_exists($fqfn) {
  *	compare two IP addresses
  */
 function ipcmp($a,$b) {
-	return (ip2long($a) <=> ip2long($b));
+	return(ip2long($a) <=> ip2long($b));
 }
 /*
  *	return true if $addr is in $subnet, false if not
@@ -1607,7 +1607,7 @@ function ipcmp($a,$b) {
 function ip_in_subnet($addr,$subnet) {
 	[$ip,$mask] = explode('/',$subnet);
 	$mask = 0xffffffff << (32 - $mask);
-	return ((ip2long($addr) & $mask) == (ip2long($ip) & $mask));
+	return((ip2long($addr) & $mask) == (ip2long($ip) & $mask));
 }
 /*
  *	Get the interface name
@@ -2227,7 +2227,7 @@ function write_console($message) {
  */
 function is_booting() {
 	$val = getenv('BOOTING');
-	return ($val == 1);
+	return($val == 1);
 }
 function get_bootdevice() {
 	$val = getenv('BOOTDEVICE');
