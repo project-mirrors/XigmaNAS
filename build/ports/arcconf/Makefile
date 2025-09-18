@@ -2,7 +2,7 @@ PORTNAME=		arcconf
 DISTVERSION=	4.23.00.${BUILD}
 PORTREVISION=	1
 CATEGORIES=	sysutils
-MASTER_SITES=	https://download.adaptec.com/raid/storage_manager/
+MASTER_SITES=	https://storage.microsemi.com/raid/storage_manager/
 DISTNAME=	arcconf_B${BUILD}
 
 MAINTAINER=	zoon01@xigmanas.com
