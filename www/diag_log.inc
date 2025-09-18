@@ -256,7 +256,7 @@ function log_clear($loginfo) {
 function log_download($loginfo) {
 	$gt_logisempty = gtext('Log file is empty.');
 	if(is_array($loginfo)):
-		switch ($loginfo['type']):
+		switch($loginfo['type']):
 			case 'clog':
 				if(file_exists($loginfo['logfile'])):
 					exec(sprintf('/usr/sbin/clog %s',escapeshellarg($loginfo['logfile'])),$output);
@@ -272,7 +272,8 @@ function log_download($loginfo) {
 				break;
 			case 'plain':
 				if(file_exists($loginfo['logfile'])):
-					if(false === ($content = file_get_contents($loginfo['logfile']))):
+					$content = file_get_contents($loginfo['logfile']);
+					if($content === false):
 						$content = $gt_logisempty;
 					endif;
 				else:
