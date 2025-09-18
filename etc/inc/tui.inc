@@ -48,7 +48,7 @@ require_once 'co_geom_info.inc';
  */
 function tui_display_yesno($text,$width,$height,$defaultyes = true) {
 	$param = '';
-	if ($defaultyes === false):
+	if($defaultyes === false):
 		$param = '--defaultno';
 	endif;
 	passthru("/usr/local/bin/cdialog --clear {$param} --yesno \"{$text}\" {$height} {$width}",$retval);
@@ -125,7 +125,7 @@ function tui_display_menu($title,$menutitle,$width,$height,$menuheight,$amenuite
  *	@param string $message
  */
 function tui_wait_keypress($message = '') {
-	if (!empty($message)):
+	if(!empty($message)):
 		write_console("$message\n");
 	endif;
 	write_console("\nPress ENTER to continue.");
