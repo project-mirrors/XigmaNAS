@@ -727,7 +727,10 @@ post-install-DOCS-on:
 	for file in ldb.cpython-311.so talloc.cpython-311.so tdb.cpython-311.so; do \
 		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.11/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages; \
 	done
+# copy required modules dns markdown
 	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/markdown ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
+# add samba-nsupdate
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}${PREFIX}/bin
 # libexec
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/libexec/samba

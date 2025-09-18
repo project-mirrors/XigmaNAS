@@ -128,6 +128,7 @@ Fixed:
 - Fix characters in sysctl output
 - Fix deprecated command syncthing.
 - Fix start netatalk.
+- Fix missing markdown module.
 
 Default login credentials:
 ==========================
