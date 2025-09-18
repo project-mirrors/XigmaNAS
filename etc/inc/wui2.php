@@ -516,7 +516,7 @@ class HTMLTextArea2 extends HTMLEditBox2 {
 		return $attributes;
 	}
 	function GetClassOfTextarea() {
-		return ($this->GetReadOnly() ? $this->GetClassTextareaRO() : $this->GetClassTextarea());
+		return($this->GetReadOnly() ? $this->GetClassTextareaRO() : $this->GetClassTextarea());
 	}
 	function ComposeInner(&$anchor) {
 		$ctrlname = $this->GetCtrlName();
@@ -719,7 +719,7 @@ class HTMLCheckBox2 extends HTMLBaseControlJS2 {
 		return $attributes;
 	}
 	function GetClassOfCheckbox() {
-		return ($this->GetReadOnly() ? $this->GetClassCheckboxRO() : $this->GetClassCheckbox());
+		return($this->GetReadOnly() ? $this->GetClassCheckboxRO() : $this->GetClassCheckbox());
 	}
 	function ComposeInner(&$anchor) {
 //		helper variables
@@ -1220,7 +1220,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 			'onchange' => sprintf('onchange_%s()',$ctrlname)
 		];
 		$select = $div1->addElement('select',$attributes);
-		foreach ($value as $value_key => $value_val):
+		foreach($value as $value_key => $value_val):
 			$attributes = ['value' => $value_val];
 			$select->addElement('option',$attributes,$value_val);
 		endforeach;
