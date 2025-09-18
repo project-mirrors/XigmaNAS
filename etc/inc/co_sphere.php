@@ -177,7 +177,7 @@ class co_sphere_level2 extends co_sphere_level1 { // for row and grid
 	}
 	public function row_identifier(?string $row_identifier = null) {
 		if(isset($row_identifier)):
-			if(1 === preg_match('/^[a-z]+$/',$row_identifier)):
+			if(preg_match('/^[a-z]+$/',$row_identifier) == 1):
 				$this->x_row_identifier = $row_identifier;
 			endif;
 		endif;
