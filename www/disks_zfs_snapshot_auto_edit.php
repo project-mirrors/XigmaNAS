@@ -37,15 +37,11 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 
-use gui\document;
 use common\arr;
+use common\uuid;
+use gui\document;
 
-if(isset($_GET['uuid'])):
-	$uuid = $_GET['uuid'];
-endif;
-if(isset($_POST['uuid'])):
-	$uuid = $_POST['uuid'];
-endif;
+$uuid = $_POST['uuid'] ?? $_GET['uuid'] ?? null;
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Snapshots'),gtext('Auto Snapshot'), isset($uuid) ? gtext('Edit') : gtext('Add')];
 $a_autosnapshot = &arr::make_branch($config,'zfs','autosnapshots','autosnapshot');
 if(empty($a_autosnapshot)):
@@ -99,7 +95,10 @@ if(!isset($uuid) && (!sizeof($a_pool))):
 	$helpinghand = sprintf($helpinghand, $link);
 	$errormsg = $helpinghand;
 endif;
-if(isset($uuid) && (false !== ($cnid = arr::search_ex($uuid, $a_autosnapshot,'uuid')))):
+if(isset($uuid)):
+	$cnid = arr::search_ex($uuid,$a_autosnapshot,'uuid');
+endif;
+if(isset($uuid) && ($cnid !== false)):
 	$pconfig['uuid'] = $a_autosnapshot[$cnid]['uuid'];
 	$pconfig['type'] = $a_autosnapshot[$cnid]['type'];
 	$pconfig['path'] = $a_autosnapshot[$cnid]['path'];
@@ -112,7 +111,7 @@ if(isset($uuid) && (false !== ($cnid = arr::search_ex($uuid, $a_autosnapshot,'uu
 	$pconfig['timemin'] = $a_autosnapshot[$cnid]['timemin'];
 	$pconfig['lifetime'] = $a_autosnapshot[$cnid]['lifetime'];
 else:
-	$pconfig['uuid'] = uuid();
+	$pconfig['uuid'] = uuid::create_v4();
 	$pconfig['type'] = "daily";
 	$pconfig['path'] = "";
 	//$pconfig['name'] = "auto-%Y%m%d-%H%M%S";
@@ -152,13 +151,13 @@ if($_POST):
 		$autosnapshot['path'] = $_POST['path'];
 		$autosnapshot['name'] = $_POST['name'];
 		$autosnapshot['snapshot'] = $autosnapshot['path'].'@'.$autosnapshot['name'];
-		$autosnapshot['recursive'] = isset($_POST['recursive']) ? true : false;
+		$autosnapshot['recursive'] = isset($_POST['recursive']);
 		$autosnapshot['timeday'] = $_POST['timeday'];
 		$autosnapshot['timewday'] = $_POST['timewday'];
 		$autosnapshot['timehour'] = $_POST['timehour'];
 		$autosnapshot['timemin'] = $_POST['timemin'];
 		$autosnapshot['lifetime'] = $_POST['lifetime'];
-		if(isset($uuid) && (FALSE !== $cnid)):
+		if(isset($uuid) && ($cnid !== false)):
 			$mode = UPDATENOTIFY_MODE_MODIFIED;
 			$a_autosnapshot[$cnid] = $autosnapshot;
 		else:
@@ -173,7 +172,7 @@ if($_POST):
 endif;
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load",function() {
 	$("#iform").submit(function() { spinner(); });
@@ -235,7 +234,7 @@ $document->render();
 			endforeach;
 			html_combobox2('path',gettext('Path'),$pconfig['path'],$a_pathlist,'',true);
 			html_inputbox2('name',gettext('Name'),$pconfig['name'],'',true,40);
-			html_checkbox2('recursive',gettext('Recursive'),!empty($pconfig['recursive']) ? true : false,gettext('Create recursive snapshot.'),'',false);
+			html_checkbox2('recursive',gettext('Recursive'),!empty($pconfig['recursive']),gettext('Create recursive snapshot.'),'',false);
 			html_text2('type',gettext('Type'),$pconfig['type']);
 			html_combobox2('timehour',gettext('Schedule time'),$pconfig['timehour'],$a_timehour,'',true);
 			html_combobox2('lifetime',gettext('Life time'),$pconfig['lifetime'],$a_lifetime,'',true);
@@ -243,7 +242,7 @@ $document->render();
 		</tbody>
 	</table>
 	<div id="submit">
-		<input name="Submit" type="submit" class="formbtn" value="<?=((isset($uuid) && (FALSE !== $cnid))) ? gtext('Save') : gtext('Add');?>" onclick="enable_change(true)" />
+		<input name="Submit" type="submit" class="formbtn" value="<?=((isset($uuid) && ($cnid !== false))) ? gtext('Save') : gtext('Add');?>" onclick="enable_change(true)" />
 		<input name="Cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>" />
 		<input name="uuid" type="hidden" value="<?=$pconfig['uuid'];?>" />
 		<input name="type" type="hidden" value="<?=$pconfig['type'];?>" />
@@ -255,18 +254,18 @@ $document->render();
 	include 'formend.inc';
 ?>
 </td></tr></tbody></table></form>
-<script type="text/javascript">
-<!--
+<script>
+//<![CDATA[
 <?php
-if(isset($uuid) && (FALSE !== $cnid)):
+if(isset($uuid) && ($cnid !== false)):
+//	Disable controls that should not be modified anymore in edit mode.
 ?>
-<!-- Disable controls that should not be modified anymore in edit mode. -->
-enable_change(false);
+	enable_change(false);
 <?php
 endif;
 ?>
 enable_change(false);
-//-->
+//]]>
 </script>
 <?php
 include 'fend.inc';
