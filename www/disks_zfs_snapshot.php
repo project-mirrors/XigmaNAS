@@ -179,13 +179,13 @@ function get_zfs_snapshots_filter(array $snapshots,string $filter_time_id = '0')
 	$filter = get_timestamp_values_from_time_id($filter_time_id);
 	if(!is_null($filter['lo'])):
 		$time_from = strtotime($filter['lo']);
-		if(false === $time_from):
+		if($time_from === false):
 			$filter['lo'] = null;
 		endif;
 	endif;
 	if(!is_null($filter['hi'])):
 		$time_to = strtotime($filter['hi']);
-		if(false === $time_to):
+		if($time_to === false):
 			$filter['hi'] = null;
 		endif;
 	endif;
@@ -289,7 +289,8 @@ if($_POST):
 	if(isset($_POST['delete_selected_rows']) && $_POST['delete_selected_rows']):
 		$checkbox_member_array = isset($_POST[$checkbox_member_name]) ? $_POST[$checkbox_member_name] : [];
 		foreach($checkbox_member_array as $checkbox_member_record):
-			if(false !== ($index = arr::search_ex($checkbox_member_record,$sphere_array,'snapshot'))):
+			$index = arr::search_ex($checkbox_member_record,$sphere_array,'snapshot');
+			if($index !== false):
 				$identifier = serialize(['snapshot' => $checkbox_member_record,'recursive' => false]);
 				if(!isset($sphere_array[$index]['protected'])):
 					$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$identifier);
@@ -316,7 +317,7 @@ endif;
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Snapshots'),gtext('Snapshot')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	// Init action buttons
