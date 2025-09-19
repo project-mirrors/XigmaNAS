@@ -57,15 +57,6 @@ $gt_record_mai = gtext('Maintenance');
 $gt_record_inf = gtext('Information');
 $gt_selection_delete = gtext('Delete Selected RAID Volumes');
 $gt_selection_delete_confirm = gtext('Do you want to delete selected RAID volumes?');
-$img_path = [
-	'add' => 'images/add.png',
-	'mod' => 'images/edit.png',
-	'del' => 'images/delete.png',
-	'loc' => 'images/locked.png',
-	'unl' => 'images/unlocked.png',
-	'mai' => 'images/maintain.png',
-	'inf' => 'images/info.png'
-];
 //	collect GEOM processing information
 $a_process = geomraid_processinfo_get();
 //	count number of active GEOM options
@@ -136,7 +127,7 @@ endif;
 $pgtitle = [gtext('Disks'),gtext('Software RAID'),gtext('GEOM'),gtext('Management')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	// Init action buttons
@@ -247,9 +238,12 @@ function controlactionbuttons(ego, triggerbyname) {
 				foreach($sphere_array as $sphere_record):
 					$size = gtext('Unknown');
 					$status = gtext('Stopped');
-					if(is_array($a_system_sraid) && (false !== ($index = arr::search_ex($sphere_record['name'],$a_system_sraid,'name')))):
-						$size = $a_system_sraid[$index]['size'];
-						$status = $a_system_sraid[$index]['state'];
+					if(is_array($a_system_sraid)):
+						$index = arr::search_ex($sphere_record['name'],$a_system_sraid,'name');
+						if($index !== false):
+							$size = $a_system_sraid[$index]['size'];
+							$status = $a_system_sraid[$index]['state'];
+						endif;
 					endif;
 					$notificationmode = UPDATENOTIFY_MODE_UNKNOWN;
 					foreach($a_process as $r_process):
@@ -305,21 +299,21 @@ function controlactionbuttons(ego, triggerbyname) {
 <?php
 									if($notdirty && $notprotected):
 ?>
-										<a href="<?=$mod_link;?>"><img src="<?=$img_path['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
+										<a href="<?=$mod_link;?>"><img src="<?=$g_img['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
 <?php
 									elseif($notprotected && $notmounted):
 ?>
-										<img src="<?=$img_path['del'];?>" title="<?=$gt_record_del;?>" alt="<?=$gt_record_del;?>"/>
+										<img src="<?=$g_img['del'];?>" title="<?=$gt_record_del;?>" alt="<?=$gt_record_del;?>"/>
 <?php
 									else:
 ?>
-										<img src="<?=$img_path['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>"/>
+										<img src="<?=$g_img['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>"/>
 <?php
 									endif;
 ?>
 								</td>
-								<td><a href="<?=$mai_link;?>"><img src="<?=$img_path['mai'];?>" title="<?=$gt_record_mai;?>" alt="<?=$gt_record_mai;?>" /></a></td>
-								<td><a href="<?=$inf_link;?>"><img src="<?=$img_path['inf'];?>" title="<?=$gt_record_inf?>" alt="<?=$gt_record_inf?>" /></a></td>
+								<td><a href="<?=$mai_link;?>"><img src="<?=$g_img['mai'];?>" title="<?=$gt_record_mai;?>" alt="<?=$gt_record_mai;?>" /></a></td>
+								<td><a href="<?=$inf_link;?>"><img src="<?=$g_img['inf'];?>" title="<?=$gt_record_inf?>" alt="<?=$gt_record_inf?>" /></a></td>
 							</tr></tbody></table>
 						</td>
 					</tr>
@@ -333,7 +327,7 @@ function controlactionbuttons(ego, triggerbyname) {
 				<tfoot>
 					<tr>
 						<th class="lcenl" colspan="6"></th>
-						<th class="lceadd"><a href="<?=$sphere_scriptname_child;?>"><img src="<?=$img_path['add'];?>" title="<?=$gt_record_add;?>" alt="<?=$gt_record_add;?>"/></a></th>
+						<th class="lceadd"><a href="<?=$sphere_scriptname_child;?>"><img src="<?=$g_img['add'];?>" title="<?=$gt_record_add;?>" alt="<?=$gt_record_add;?>"/></a></th>
 					</tr>
 				</tfoot>
 <?php
