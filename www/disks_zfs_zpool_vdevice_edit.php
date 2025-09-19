@@ -513,12 +513,12 @@ $document->render();
 					endif;
 //					search disks
 					$index = arr::search_ex($r_device['name'],$a_device,'name');
-					if(false !== $index):
+					if($index !== false):
 						$r_device = $a_device[$index];
 					else:
 //						search geom provider
 						$index = arr::search_ex($r_device['name'],$a_provider,'name');
-						if(false !== $index):
+						if($index !== false):
 							$r_device['devicespecialfile'] = $config_device;
 							$r_device['partition'] = '';
 							$r_device['model'] = '';
