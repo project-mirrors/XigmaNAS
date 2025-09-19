@@ -31,12 +31,16 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'properties_disks_zfs_dataset.php';
 require_once 'co_sphere.php';
 require_once 'co_request_method.php';
 require_once 'zfs.inc';
+
+use common\arr;
 
 function get_sphere_disks_zfs_dataset() {
 	global $config;
@@ -60,8 +64,8 @@ function get_sphere_disks_zfs_dataset() {
 		setmsg_cbm_delete(gettext('Delete Selected Datasets'))->
 		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected datasets?'));
 //	sphere external content
-	$sphere->grid = &array_make_branch($config,'zfs','datasets','dataset');
-	array_sort_key($sphere->grid,'name');
+	$sphere->grid = &arr::make_branch($config,'zfs','datasets','dataset');
+	arr::sort_key($sphere->grid,'name');
 	return $sphere;
 }
 function zfsdataset_process_updatenotification($mode,$data) {
@@ -70,7 +74,7 @@ function zfsdataset_process_updatenotification($mode,$data) {
 
 	$retval = 0;
 	$sphere = get_sphere_disks_zfs_dataset();
-	switch ($mode):
+	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 			$retval |= zfs_dataset_configure($data);
 			if(isset($config['rrdgraphs']['enable'])):
@@ -85,13 +89,15 @@ function zfsdataset_process_updatenotification($mode,$data) {
 			$retval |= zfs_dataset_properties($data);
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if($sphere->row_id !== false):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
 			endif;
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if($sphere->row_id !== false):
 				$retval |= zfs_dataset_destroy($data);
 				if($retval === 0):
 					unset($sphere->grid[$sphere->row_id]);
@@ -109,7 +115,7 @@ $rmo = new co_request_method();
 $rmo->add('POST','apply',PAGE_MODE_VIEW);
 $rmo->add('POST',$sphere->get_cbm_button_val_delete(),PAGE_MODE_POST);
 $rmo->set_default('GET','view',PAGE_MODE_VIEW);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_action):
 	case 'apply':
 		$retval = 0;
@@ -208,31 +214,21 @@ if($record_exists):
 	foreach($sphere->grid as $sphere->row_id => $sphere->row):
 		$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 		$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-		$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enabled()->get_name()] ?? false) ? $test : true): true;
 		$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
-		if($is_enabled):
-			$src = $g_img['ena'];
-			$title = gettext('Enabled');
-			$dc = '';
-		else:
-			$src = $g_img['dis'];
-			$title = gettext('Disabled');
-			$dc = 'd';
-		endif;
 		$tbody->
 			addTR()->
 				push()->
-				addTDwC('lcelc' . $dc)->
+				addTDwC('lcelc')->
 					ins_cbm_checkbox($sphere,!($is_notdirty && $is_notprotected))->
 				pop()->
-				insTDwC('lcell' . $dc,$sphere->row[$cop->get_pool()->get_name()][0] ?? '')->
-				insTDwC('lcell' . $dc,$sphere->row[$cop->get_name()->get_name()] ?? '')->
-				insTDwC('lcell' . $dc,$sphere->row[$cop->get_compression()->get_name()] ?? '')->
-				insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
+				insTDwC('lcell',$sphere->row[$cop->get_pool()->get_name()][0] ?? '')->
+				insTDwC('lcell',$sphere->row[$cop->get_name()->get_name()] ?? '')->
+				insTDwC('lcell',$sphere->row[$cop->get_compression()->get_name()] ?? '')->
+				insTDwC('lcell',$sphere->row[$cop->get_description()->get_name()] ?? '')->
 				add_toolbox_area()->
-					ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
-					ins_maintainbox($sphere,false)->
-					ins_informbox($sphere,true);
+					ins_toolbox(sphere: $sphere,notprotected: $is_notprotected,notdirty: $is_notdirty)->
+					ins_maintainbox(sphere: $sphere,show_link: false)->
+					ins_informbox(sphere: $sphere,show_link: true);
 	endforeach;
 else:
 	$tbody->ins_no_records_found($n_col_width);
