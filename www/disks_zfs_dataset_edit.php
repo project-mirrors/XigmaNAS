@@ -70,7 +70,11 @@ function disks_zfs_dataset_edit_get_sphere() {
 			'owner' => 'root',
 			'group' => 'wheel',
 			'mode' => '0777'
-		]
+		],
+		'encryption' => 'off',
+		'keyformat' => 'none',
+		'keylocation' => 'none',
+		'pbkdf2iters' => '0'
 	];
 	$sphere->grid = &arr::make_branch($config,'zfs','datasets','dataset');
 	if(!empty($sphere->grid)):
@@ -82,7 +86,8 @@ $sphere = disks_zfs_dataset_edit_get_sphere();
 $input_errors = [];
 $prerequisites_ok = true;
 //	determine page mode
-if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]))):
+$action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+if($action !== false):
 	switch($action):
 		case 'cancel':
 			header($sphere->get_parent()->get_location());
@@ -95,7 +100,7 @@ if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['fla
 			break;
 		case 'save':
 			$id = filter_input(INPUT_POST,$sphere->get_row_identifier(),FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-			if(false === $id):
+			if($id === false):
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
@@ -111,7 +116,9 @@ if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['fla
 			exit;
 			break;
 	endswitch;
-elseif(false !== ($action = filter_input(INPUT_GET,'submit',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]))):
+else:
+	$action = filter_input(INPUT_GET,'submit',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+//	if($action !== false):
 	switch($action):
 		case 'add':
 			$sphere->row[$sphere->get_row_identifier()] = uuid::create_v4();
@@ -119,7 +126,7 @@ elseif(false !== ($action = filter_input(INPUT_GET,'submit',FILTER_UNSAFE_RAW,['
 			break;
 		case 'edit':
 			$id = filter_input(INPUT_GET,$sphere->get_row_identifier(),FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-			if(false === $id):
+			if($id === false):
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
@@ -135,9 +142,10 @@ elseif(false !== ($action = filter_input(INPUT_GET,'submit',FILTER_UNSAFE_RAW,['
 			exit;
 			break;
 	endswitch;
-else:
-	header($sphere->get_parent()->get_location());
-	exit;
+//	else:
+//		header($sphere->get_parent()->get_location());
+//		exit;
+//	endif;
 endif;
 $a_volume = &arr::make_branch($config,'zfs','volumes','volume');
 if(empty($a_volume)):
@@ -203,6 +211,12 @@ switch($mode_page):
 		$sphere->row['reservation'] = $sphere->row_default['reservation'];
 		$sphere->row['desc'] = $sphere->row_default['desc'];
 		$sphere->row['accessrestrictions'] = $sphere->row_default['accessrestrictions'];
+/*
+		$sphere->row['encryption'] = $sphere->row_default['encryption'];
+		$sphere->row['keyformat'] = $sphere->row_default['keyformat'];
+		$sphere->row['keylocation'] = $sphere->row_default['keylocation'];
+		$sphere->row['pbkdf2iters'] = $sphere->row_default['pbkdf2iters'];
+*/
 		break;
 	case PAGE_MODE_CLONE:
 		$sphere->row['name'] = filter_input(INPUT_POST,'name',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['name']]]);
@@ -215,7 +229,7 @@ switch($mode_page):
 		$sphere->row['aclmode'] = filter_input(INPUT_POST,'aclmode',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['aclmode']]]);
 		$sphere->row['casesensitivity'] = filter_input(INPUT_POST,'casesensitivity',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 //		get casesensitivity from physical dataset when no POST information was found
-		if(false === $sphere->row['casesensitivity']):
+		if($sphere->row['casesensitivity'] === false):
 			$cmd = sprintf('zfs get -Hp -o value casesensitivity %s',escapeshellarg(sprintf('%s/%s',$sphere->row['pool'],$sphere->row['name'])));
 			unset($retdat);
 			unset($retval);
@@ -323,7 +337,7 @@ switch($mode_page):
 		do_input_validation($sphere->row,$reqdfields,$reqdfieldsn,$input_errors);
 		do_input_validation_type($sphere->row,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
 		if($prerequisites_ok && empty($input_errors)): // check for a valid name with format name[/name], blanks are excluded.
-			if(false === zfs_is_valid_dataset_name($sphere->row['name'])):
+			if(zfs_is_valid_dataset_name($sphere->row['name']) === false):
 				$input_errors[] = sprintf(gtext("The attribute '%s' contains invalid characters."),gtext('Name'));
 			endif;
 		endif;
@@ -334,14 +348,14 @@ switch($mode_page):
 //
 //		1.
 		if($prerequisites_ok && empty($input_errors)):
-			if($isrecordmodify && (0 !== strcmp($sphere->grid[$sphere->row_id]['pool'][0],$sphere->row['pool']))):
+			if($isrecordmodify && (strcmp($sphere->grid[$sphere->row_id]['pool'][0],$sphere->row['pool']) !== 0)):
 				$input_errors[] = gtext('Pool name cannot be modified.');
 			endif;
 		endif;
 //		2., 3., 4.
 		if ($prerequisites_ok && empty($input_errors)):
 			$poolslashname = escapeshellarg(sprintf('%s/%s',$sphere->row['pool'],$sphere->row['name'])); // create quoted full dataset name
-			if($isrecordnew || (!$isrecordnew && (0 !== strcmp(escapeshellarg(sprintf('%s/%s',$sphere->grid[$sphere->row_id]['pool'][0],$sphere->grid[$sphere->row_id]['name'])),$poolslashname)))):
+			if($isrecordnew || (!$isrecordnew && (strcmp(escapeshellarg(sprintf('%s/%s',$sphere->grid[$sphere->row_id]['pool'][0],$sphere->grid[$sphere->row_id]['name'])),$poolslashname) !== 0))):
 //				throw error when pool/name already exists in live
 				if(empty($input_errors)):
 					$cmd = sprintf("zfs get -H -o value type %s 2>&1",$poolslashname);
@@ -362,7 +376,7 @@ switch($mode_page):
 //				throw error when pool/name exists in configuration file, zfs->volumes->volume[]
 				if(empty($input_errors)):
 					foreach($a_volume as $r_volume):
-						if (0 === strcmp(escapeshellarg(sprintf('%s/%s',$r_volume['pool'][0],$r_volume['name'])),$poolslashname)):
+						if (strcmp(escapeshellarg(sprintf('%s/%s',$r_volume['pool'][0],$r_volume['name'])),$poolslashname) === 0):
 							$input_errors[] = sprintf(gtext('%s is already configured as a volume.'),$poolslashname);
 							break;
 						endif;
@@ -371,7 +385,7 @@ switch($mode_page):
 //				throw error when  pool/name exists in configuration file, zfs->datasets->dataset[]
 				if(empty($input_errors)):
 					foreach($sphere->grid as $r_dataset):
-						if(0 === strcmp(escapeshellarg(sprintf('%s/%s',$r_dataset['pool'][0],$r_dataset['name'])),$poolslashname)):
+						if(strcmp(escapeshellarg(sprintf('%s/%s',$r_dataset['pool'][0],$r_dataset['name'])),$poolslashname) === 0):
 							$input_errors[] = sprintf(gtext('%s is already configured as a filesystem.'),$poolslashname);
 							break;
 						endif;
@@ -474,6 +488,27 @@ $l_groups = [];
 foreach(system_get_group_list() as $r_key => $r_value):
 	$l_groups[$r_key] = $r_key;
 endforeach;
+$l_encryption = [
+	'off' => gettext('No encryption'),
+	'on' => gettext('Use default encryption cipher suite'),
+	'aes-128-ccm' => gettext('Use aes-128-ccm encryption cipher suite'),
+	'aes-192-ccm' => gettext('Use aes-192-ccm encryption cipher suite'),
+	'aes-256-ccm' => gettext('Use aes-256-ccm encryption cipher suite'),
+	'aes-128-gcm' => gettext('Use aes-128-gcm encryption cipher suite'),
+	'aes-192-gcm' => gettext('Use aes-192-gcm encryption cipher suite'),
+	'aes-256-gcm' => gettext('Use aes-256-gcm encryption cipher suite')
+];
+$l_keyformat = [
+	'raw' => gettext('Raw Key'),
+	'hex' => gettext('Hex Key'),
+	'passphrase' => gettext('Passphrase')
+];
+$l_keylocation = [
+	'prompt' => gettext('Prompt'),
+	'file' => gettext('File'),
+	'https' => gettext('HTTPS'),
+	'http' => gettext('HTTP')
+];
 //	Calculate value of access right checkboxes, contains a) 0 for not checked or b) the required bit mask value
 $mode_access = [];
 $helpinghand = octdec($sphere->row['accessrestrictions']['mode']);
