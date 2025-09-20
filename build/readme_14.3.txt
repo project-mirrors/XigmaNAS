@@ -92,7 +92,6 @@ Changes:
 - Upgrade tmux to v3.5a.
 - Upgrade zoneinfo to v2025b.
 - Upgrade smartmontools to v7.5.
-- Upgrade nut to v2025.08.14.
 - Upgrade open-vm-tools to v12.5.2.
 - Upgrade pecl-APCu to v5.1.27.
 - Upgrade sudo to v1.9.17p2.
@@ -114,19 +113,13 @@ Changes:
 - Upgrade mariadb to v11.8.3.
 - Upgrade syncthing to v2.0.9.
 - Upgrade mDNSResponder to v2600.140.3.
+- Upgrade nut to v2025.09.10.
 
 New:
 - New SMB use its own log file.
 - New SMB Server Signing and Server/Client Encryption option settings added WebGUI.
 
 Fixed:
-- Fix starting samba-tool.
-- Fix missing system certs.
-- Fix WebGUI language issue.
-- Fix undefined symbol" bug.
-- Fix SATA NCQ error recovery after 25375b1415.
-- Fix characters in sysctl output
-- Fix deprecated command syncthing.
 - Fix start netatalk.
 - Fix missing markdown module.
 
