@@ -182,8 +182,8 @@ update_sources() {
 
 	# Choose what to do.
 	$DIALOG --ascii-lines --title "$XIGMANAS_PRODUCTNAME - Update Sources" --checklist "Please select what to update." 12 60 5 \
-		"Git_src-source" "Get src source tree" OFF \
-		"Git_src-update" "Update src source tree" OFF \
+		"Git_src-source" "Pull FreeBSD src source tree" OFF \
+		"Git_src-update" "Update FreeBSD src source tree" OFF \
 		"FreeBSD_update" "Fetch and install binary updates" OFF \
 		"Git_port-update" "Update ports collection" OFF \
 		"pkg_upgrade" "Upgrade pkg on host" OFF 2> $tempfile
@@ -1697,22 +1697,23 @@ use_svn() {
 build_system() {
 	while true; do
 echo -n '
-------------------------------
-Compile XigmaNAS® from Scratch
-------------------------------
+-------------------------------------------------------------
+		Build Environment XigmaNAS®
+-------------------------------------------------------------
+Compile Menu:
 
-	Menu Options:
+1) - Update FreeBSD Source Tree and Ports Collections.
+2) - Create Filesystem Structure.
+3) - Build/Install the Kernel.
+4) - Build World.
+5) - Copy Files/Ports to their locations.
+6) - Build Ports.
+7) - Build Bootloader.
+8) - Add Necessary Libraries.
+9) - Modify File Permissions.
+-------------------------------------------------------------
 
-1 - Update FreeBSD Source Tree and Ports Collections.
-2 - Create Filesystem Structure.
-3 - Build/Install the Kernel.
-4 - Build World.
-5 - Copy Files/Ports to their locations.
-6 - Build Ports.
-7 - Build Bootloader.
-8 - Add Necessary Libraries.
-9 - Modify File Permissions.
-* - Exit.
+*) - Exit Compile Menu.
 
 Press # '
 		read choice
@@ -1957,22 +1958,26 @@ main() {
 	cd $XIGMANAS_WORKINGDIR
 
 	echo -n "
----------------------------
-XigmaNAS® Build Environment
----------------------------
+"-------------------------------------------------------------"
+		Build Environment XigmaNAS® 
+"-------------------------------------------------------------"
+Choice Menu:
 
-1  - Update XigmaNAS® Source Files to CURRENT.
-2  - Select Compile Menu.
-10 - Create 'Embedded.img.xz' File. (Firmware Update)
-11 - Create 'LiveUSB.img.gz MBR' File. (Rawrite to USB Key)
-12 - Create 'LiveUSB.img.gz GPT' File. (Rawrite to USB Key)
-13 - Create 'LiveCD' (ISO) File.
-14 - Create 'LiveCD-Tin' (ISO) without 'Embedded' File.
-15 - Create 'Full' (TGZ) Update File.
-16 - Create All Release Files at once.
-"-----------------------------------------------------------"
-17 - Create 'xigmanas.pot' file from Source files.
-*  - Exit.
+1) - Update XIGMANAS_ROOTDIR to latest XigmaNAS Source Files.
+2) - Enter Compile Menu.
+"-------------------------------------------------------------"
+Generate Images:
+10) - Create 'Embedded.img.xz' File.         (Firmware Update)
+11) - Create 'LiveUSB.img.gz MBR' File.   (Rawrite to USB Key)
+12) - Create 'LiveUSB.img.gz GPT' File.   (Rawrite to USB Key)
+13) - Create 'LiveCD' (ISO) File.
+14) - Create 'LiveCD-Tin' (ISO) Without 'Embedded' File.
+15) - Create 'Full' (TGZ) Update File.
+16) - Create All Release images at once.
+"-------------------------------------------------------------"
+17) - Create translations xigmanas.pot file from Source files.
+
+*)  - Exit Menu.
 
 Press # "
 	read choice
