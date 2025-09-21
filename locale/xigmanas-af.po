@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2025-09-06 21:13+0000\n"
-"PO-Revision-Date: 2024-07-16 10:56+0000\n"
+"PO-Revision-Date: 2025-09-20 01:01+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-10 13:45+0000\n"
-"X-Generator: Launchpad (build 3db21b43f675a56d404bb64e0fe1fcfc5dc01a90)\n"
+"X-Launchpad-Export-Date: 2025-09-21 16:45+0000\n"
+"X-Generator: Launchpad (build 299e6cec2b88528c8351aab8852cf896cddc6846)\n"
 
 msgid "Active Directory"
 msgstr "Aktiewe Lêergids"
@@ -4587,7 +4587,7 @@ msgid "Battery Level:"
 msgstr "Battery Vlak:"
 
 msgid "Remaining:"
-msgstr ""
+msgstr "Oorblywend:"
 
 #, php-format
 msgid "Wrong permission on %s."
@@ -9628,7 +9628,7 @@ msgid "Monthly"
 msgstr "Maandeliks"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Jaarliks"
 
 msgid "Custom Setting"
 msgstr "Pasgemaakte Instelling"
@@ -10141,7 +10141,7 @@ msgid "Controls the format of the provided encryption key."
 msgstr "Beheer die formaat van die verskafde enkripsiesleutel."
 
 msgid "Raw"
-msgstr ""
+msgstr "Rou"
 
 msgid "Hex"
 msgstr "Hex"
@@ -10777,7 +10777,7 @@ msgid "Primary Group"
 msgstr "Primêre Groep"
 
 msgid "Timezone"
-msgstr ""
+msgstr "Tydsone"
 
 msgid "File Manager Access"
 msgstr "Lêer Bestuurder Toegang"
@@ -11716,7 +11716,7 @@ msgid "Custom Provider"
 msgstr "Pasgemaakte Verskaffer"
 
 msgid "Record Type"
-msgstr ""
+msgstr "Rekordtipe"
 
 msgid "Provider"
 msgstr "Verskaffer"
@@ -11746,7 +11746,7 @@ msgid "Check IP Command"
 msgstr "Gaan IP Bevel Na"
 
 msgid "User Agent"
-msgstr ""
+msgstr "Gebruikersagent"
 
 msgid "DDNS-Server"
 msgstr "DDNS-Bediener"
