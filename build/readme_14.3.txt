@@ -104,7 +104,6 @@ Changes:
 - Upgrade iperf3 to v3.19.1.
 - Upgrade lighttpd to v1.4.81.
 - Upgrade nano to v8.6.
-- Upgrade php8 to v8.4.12.
 - Upgrade proftpd to v1.3.8d.
 - Upgrade transmission to 4.1.0-beta.2
 - Upgrade wsdd to v0.9.0.
@@ -114,6 +113,7 @@ Changes:
 - Upgrade syncthing to v2.0.9.
 - Upgrade mDNSResponder to v2600.140.3.
 - Upgrade nut to v2025.09.10.
+- Upgrade php8 to v8.4.13.
 
 New:
 - New SMB use its own log file.
