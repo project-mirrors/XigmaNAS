@@ -121,7 +121,7 @@ $document->render();
 			<select id="log" class="formfld" name="log">
 <?php
 				foreach($loginfo as $loginfo_key => $loginfo_val):
-					if(false !== $loginfo_val['visible']):
+					if($loginfo_val['visible'] !== false):
 						echo '<option value="',$loginfo_key,'"';
 						if($loginfo_key == $log):
 							echo ' selected="selected"';
