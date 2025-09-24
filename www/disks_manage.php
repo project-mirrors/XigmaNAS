@@ -64,7 +64,7 @@ function device_process_updatenotification($mode,$data) {
 
 	$retval = 0;
 	$sphere = disks_manage_get_sphere();
-	switch ($mode):
+	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 		case UPDATENOTIFY_MODE_MODIFIED:
 			break;
@@ -147,7 +147,7 @@ if($_POST) {
 					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
 					if($sphere->row_id !== false):
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
-						switch ($mode_updatenotify):
+						switch($mode_updatenotify):
 							case UPDATENOTIFY_MODE_NEW:
 								updatenotify_clear($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 								updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_DIRTY_CONFIG,$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
@@ -249,12 +249,12 @@ $(window).on("load", function() {
 		</thead>
 		<tbody>
 <?php
-			foreach ($sphere->grid as $sphere->row):
+			foreach($sphere->grid as $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
 				$enabled = $sphere->is_enadis_enabled() ? isset($sphere->row['enable']) : true;
 				$notprotected = $sphere->is_lock_enabled() ? !isset($sphere->row['protected']) : true;
-				switch ($notificationmode):
+				switch($notificationmode):
 					case UPDATENOTIFY_MODE_NEW:
 						$status = gtext('Initializing');
 						break;
