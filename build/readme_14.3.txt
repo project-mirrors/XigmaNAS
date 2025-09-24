@@ -84,7 +84,6 @@ Changes:
 - Upgrade rrdtool to v1.9.0.
 - Upgrade exfat to v1.4.0.
 - Upgrade python311 v3.11.10.
-- Upgrade samba to v4.19.9.
 - Upgrade libvncserver v0.9.15.
 - Upgrade arconf to vB27147.
 - Upgrade phpmyadmin to v5.2.2.
@@ -114,6 +113,7 @@ Changes:
 - Upgrade mDNSResponder to v2600.140.3.
 - Upgrade nut to v2025.09.10.
 - Upgrade php8 to v8.4.13.
+- Upgrade samba to v4.20.8.
 
 New:
 - New SMB use its own log file.
