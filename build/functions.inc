@@ -327,9 +327,9 @@ $DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Kernel Patches\" \\
 
 	for patch in $(cat $patches | tr -d '"'); do
 		echo
-		echo "--------------------------------------------------------------"
+		echo "-------------------------------------------------------------------------------";
 		echo ">>> Adding kernel patch: ${patch}"
-		echo "--------------------------------------------------------------"
+		echo "-------------------------------------------------------------------------------";
 		cd $XIGMANAS_SVNDIR/build/kernel-patches/$patch
 		make install
 		[ 0 != $? ] && return 1 # successful?
@@ -358,9 +358,9 @@ compress_kernel() {
 
 install_kernel_modules() {
 	# Installing the modules.
-	echo "--------------------------------------------------------------";
+	echo "-------------------------------------------------------------------------------";
 	echo ">>> Install Kernel Modules";
-	echo "--------------------------------------------------------------";
+	echo "-------------------------------------------------------------------------------";
 
 	[ -f ${XIGMANAS_WORKINGDIR}/modules.files ] && rm -f ${XIGMANAS_WORKINGDIR}/modules.files;
 	cp ${XIGMANAS_SVNDIR}/build/kernel-config/modules.files ${XIGMANAS_WORKINGDIR};
@@ -555,9 +555,9 @@ create_checksum_file() {
 
 #	Creating mdlocal-mini
 create_mdlocal_mini() {
-	echo "--------------------------------------------------------------"
+	echo "-------------------------------------------------------------------------------";
 	echo ">>> Generating MDLOCAL-MINI Filesystem"
-	echo "--------------------------------------------------------------"
+	echo "-------------------------------------------------------------------------------";
 
 	cd $XIGMANAS_WORKINGDIR
 
@@ -643,9 +643,9 @@ create_mdlocal_mini() {
 
 #	Creating msfroot
 create_mfsroot() {
-	echo "--------------------------------------------------------------"
+	echo "-------------------------------------------------------------------------------";
 	echo ">>> Generating MFSROOT Filesystem"
-	echo "--------------------------------------------------------------"
+	echo "-------------------------------------------------------------------------------";
 
 	cd $XIGMANAS_WORKINGDIR
 
@@ -697,9 +697,9 @@ create_mfsroot() {
 }
 
 update_mfsroot() {
-	echo "--------------------------------------------------------------"
+	echo "-------------------------------------------------------------------------------";
 	echo ">>> Generating MFSROOT Filesystem (use existing image)"
-	echo "--------------------------------------------------------------"
+	echo "-------------------------------------------------------------------------------";
 
 	# Check if mfsroot exists.
 	if [ ! -f $XIGMANAS_WORKINGDIR/mfsroot ]; then
@@ -734,9 +734,9 @@ copy_kmod() {
 }
 
 create_image() {
-	echo "------------------------------------------------------------------"
+	echo "-------------------------------------------------------------------------------";
 	echo ">>> Generating ${XIGMANAS_PRODUCTNAME} image File (to be rawrite on CF/USB/HD/SSD)"
-	echo "------------------------------------------------------------------"
+	echo "-------------------------------------------------------------------------------";
 
 	# Check if rootfs (containing OS image) exists.
 	if [ ! -d "$XIGMANAS_ROOTFS" ]; then
@@ -891,7 +891,7 @@ create_image() {
 }
 
 create_iso () {
-	# Check if rootfs (contining OS image) exists.
+	# Check if rootfs (containing OS image) exists.
 	if [ ! -d "$XIGMANAS_ROOTFS" ]; then
 		echo "==> Error: ${XIGMANAS_ROOTFS} does not exist!."
 		return 1
@@ -1681,7 +1681,7 @@ update_svn() {
 }
 
 use_svn() {
-	echo "===> Replacing old code with SVN code"
+	echo "===> Update files, we use latest files from svn directory"
 
 	cd ${XIGMANAS_SVNDIR}/build && cp -pv CHANGES ${XIGMANAS_ROOTFS}/usr/local/www
 	cd ${XIGMANAS_SVNDIR}/build/scripts && cp -pv carp-hast-switch ${XIGMANAS_ROOTFS}/usr/local/sbin
@@ -1690,6 +1690,9 @@ use_svn() {
 	cd ${XIGMANAS_SVNDIR}/etc && find . \! -iregex ".*/\.svn.*" -print | cpio -pdumv ${XIGMANAS_ROOTFS}/etc
 	cd ${XIGMANAS_SVNDIR}/www && find . \! -iregex ".*/\.svn.*" -print | cpio -pdumv ${XIGMANAS_ROOTFS}/usr/local/www
 	cd ${XIGMANAS_SVNDIR}/conf && find . \! -iregex ".*/\.svn.*" -print | cpio -pdumv ${XIGMANAS_ROOTFS}/conf.default
+	# Set file permission.
+	cd $ROOTDIR
+	chmod -R 0555 etc/rc.d/* $XIGMANAS_ROOTFS
 
 	return 0
 }
@@ -1698,7 +1701,7 @@ build_system() {
 	while true; do
 echo -n '
 -------------------------------------------------------------
-		Build Environment XigmaNAS®
+		Build Environment XigmaNAS®                  
 -------------------------------------------------------------
 Compile Menu:
 
@@ -1706,7 +1709,7 @@ Compile Menu:
 2) - Create Filesystem Structure.
 3) - Build/Install the Kernel.
 4) - Build World.
-5) - Copy Files/Ports to their locations.
+5) - Import base-ports to their locations.
 6) - Build Ports.
 7) - Build Bootloader.
 8) - Add Necessary Libraries.
@@ -1722,7 +1725,7 @@ Press # '
 			2)	create_rootfs;;
 			3)	build_kernel_menu;;
 			4)	build_world;;
-			5)	copy_files;;
+			5)	base-ports;;
 			6)	build_ports;;
 			7)	opt="-f";
 					if [ 0 != $OPT_BOOTMENU ]; then
@@ -1743,30 +1746,14 @@ Press # '
 		sleep 1
 	done
 }
-#	Copy files/ports. Copying required files from 'distfiles & base-ports'.
-copy_files() {
-	# Copy required sources to FreeBSD distfiles directory.
-	echo;
-	echo "-------------------------------------------------------------------";
-	echo ">>> Copy needed sources to distfiles directory usr/ports/distfiles.";
-	echo "-------------------------------------------------------------------";
-	echo "===> Start copy sources"
-	mkdir /usr/ports/distfiles
-	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/arcconf_B27147.zip /usr/ports/distfiles
-	echo "===> Copy arcconf_B27147.zip done!"
-	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip /usr/ports/distfiles
-	echo "===> Copy CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip done!"
-	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/isboot-0.3.4.tar.gz /usr/ports/distfiles
-	echo "===> Copy isboot-0.3.4.tar.gz done!"
-	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/istgt-20180521.tar.gz /usr/ports/distfiles
-	echo "===> Copy istgt-20180521.tar.gz done!"
-	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/SAS3IRCU_P16.zip /usr/ports/distfiles
-	echo "===> Copy SAS3IRCU_P16.zip done!"
-	echo;
-	# Delete/Adding base-ports files to FreeBSD ports directory.
-	echo "----------------------------------------------------------";
-	echo ">>> Start adding new files/ports to base directory in FreeBSD usr/ports/*.";
-	echo "----------------------------------------------------------";
+
+#	Import svn base-ports on the host system & install required files to locations. 
+base-ports() {
+	# Install base-ports to the host ports directory usr/ports.
+	echo "-------------------------------------------------------------------------------";
+	echo ">>> Install base-ports to the host ports directory.";
+	echo "-------------------------------------------------------------------------------";
+	echo "===> Start install base-ports to ports directory"
 	echo "===> Delete current libvncserver port from base OS"
 	rm -rf /usr/ports/net/libvncserver
 	echo "===> Delete completed!"
@@ -1838,6 +1825,27 @@ copy_files() {
 	echo "===> Adding new port virtualbox-ose-kmod to ports/emulators/"
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-kmod /usr/ports/emulators
 	echo "===> New port virtualbox-ose-kmod has been created!"
+	echo "===> End install base-ports to ports directory"
+#
+	# Install required sources to the host distfiles directory usr/ports/distfiles.
+	echo;
+	echo "-------------------------------------------------------------------------------";
+	echo ">>> Install required sources to the host distfiles directory.";
+	echo "-------------------------------------------------------------------------------";
+	echo "===> Start install sources to distfiles directory"
+	mkdir /usr/ports/distfiles
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/arcconf_B27147.zip /usr/ports/distfiles
+	echo "arcconf_B27147.zip"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip /usr/ports/distfiles
+	echo "CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/isboot-0.3.4.tar.gz /usr/ports/distfiles
+	echo "isboot-0.3.4.tar.gz"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/istgt-20180521.tar.gz /usr/ports/distfiles
+	echo "istgt-20180521.tar.gz"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/SAS3IRCU_P16.zip /usr/ports/distfiles
+	echo "SAS3IRCU_P16.zip"
+	echo "===> End install sources to distfiles directory"
+
 	return 0
 }
 build_ports() {
@@ -1901,15 +1909,15 @@ $DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 		build|nosel|rebuild)
 			# Set ports options
 			echo;
-			echo "--------------------------------------------------------------";
+			echo "-------------------------------------------------------------------------------";
 			echo ">>> Set Ports Options.";
-			echo "--------------------------------------------------------------";
+			echo "-------------------------------------------------------------------------------";
 			cd ${XIGMANAS_SVNDIR}/build/ports/options && make
 			# Clean ports.
 			echo;
-			echo "--------------------------------------------------------------";
+			echo "-------------------------------------------------------------------------------";
 			echo ">>> Cleaning Ports.";
-			echo "--------------------------------------------------------------";
+			echo "-------------------------------------------------------------------------------";
 			for port in $(cat ${ports} | tr -d '"'); do
 				cd ${XIGMANAS_SVNDIR}/build/ports/${port};
 				make clean;
@@ -1921,9 +1929,9 @@ $DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 			# Build ports.
 			for port in $(cat $ports | tr -d '"'); do
 				echo;
-				echo "--------------------------------------------------------------";
+				echo "-------------------------------------------------------------------------------";
 				echo ">>> Building Port: ${port}";
-				echo "--------------------------------------------------------------";
+				echo "-------------------------------------------------------------------------------";
 				cd ${XIGMANAS_SVNDIR}/build/ports/${port};
 				make build;
 				[ 0 != $? ] && return 1; # successful?
@@ -1935,9 +1943,9 @@ $DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 			fi
 			for port in $(cat ${ports} | tr -d '"'); do
 				echo;
-				echo "--------------------------------------------------------------";
+				echo "-------------------------------------------------------------------------------";
 				echo ">>> Installing Port: ${port}";
-				echo "--------------------------------------------------------------";
+				echo "-------------------------------------------------------------------------------";
 				cd ${XIGMANAS_SVNDIR}/build/ports/${port};
 				# Delete cookie first, otherwise Makefile will skip this step.
 				rm -f ./work/.install_done.* ./work/.stage_done.*;
@@ -1965,6 +1973,7 @@ Choice Menu:
 
 1) - Update XIGMANAS_ROOTDIR to latest XigmaNAS Source Files.
 2) - Enter Compile Menu.
+
 "-------------------------------------------------------------"
 Generate Images:
 10) - Create 'Embedded.img.xz' File.         (Firmware Update)
@@ -1977,7 +1986,7 @@ Generate Images:
 "-------------------------------------------------------------"
 17) - Create translations xigmanas.pot file from Source files.
 
-*)  - Exit Menu.
+*)  - Exit.
 
 Press # "
 	read choice
