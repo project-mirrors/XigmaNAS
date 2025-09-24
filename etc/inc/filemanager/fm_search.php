@@ -44,7 +44,12 @@ trait fm_search {
 
 //	find items
 	public function find_item($dir,$regex,&$list,$recur) {
-		$handle = @opendir($this->get_abs_dir($dir));
+		$abs_dir = $this->get_abs_dir($dir);
+//		exclude folders from scan
+		if(in_array($abs_dir,['/var/run/samba4/fd'])):
+			return;
+		endif;
+		$handle = @opendir($abs_dir);
 //		open dir successful?
 		if($handle !== false):
 			while(($new_item = readdir($handle)) !== false):
