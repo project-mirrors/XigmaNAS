@@ -122,7 +122,7 @@ New:
 Fixed:
 - Fix start netatalk.
 - Fix missing markdown module.
-
+- Fix search function in filemanager to avoid crashes.
 
 Note for new user installs
 ==========================
