@@ -1,5 +1,5 @@
 PORTNAME=	lighttpd
-PORTVERSION=	1.4.81
+PORTVERSION=	1.4.82
 PORTREVISION=	0
 CATEGORIES=	www
 
@@ -10,7 +10,6 @@ MAINTAINER=	zoon01@xigmanas.com
 MASTER_SITES=	https://download.lighttpd.net/lighttpd/releases-1.4.x/
 
 LIB_DEPENDS+=	libpcre2-8.so:devel/pcre2 \
-		libuuid.so:${PORTSDIR}/misc/e2fsprogs-libuuid \
 		libnettle.so:security/nettle \
 		libsqlite3.so:${PORTSDIR}/databases/sqlite3 \
 		libmemcached.so:${PORTSDIR}/databases/libmemcached \
