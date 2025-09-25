@@ -1654,6 +1654,7 @@ create_full() {
 
 create_all_images() {
 	echo "Generating all $XIGMANAS_PRODUCTNAME release images at once...."
+	echo "Build LiveCD-Tin is skipped"
 	echo
 
 	# List of the images to be generated, comment to disable.
@@ -1691,8 +1692,7 @@ use_svn() {
 	cd ${XIGMANAS_SVNDIR}/www && find . \! -iregex ".*/\.svn.*" -print | cpio -pdumv ${XIGMANAS_ROOTFS}/usr/local/www
 	cd ${XIGMANAS_SVNDIR}/conf && find . \! -iregex ".*/\.svn.*" -print | cpio -pdumv ${XIGMANAS_ROOTFS}/conf.default
 	# Set file permission.
-	cd $ROOTDIR
-	chmod -R 0555 etc/rc.d/* $XIGMANAS_ROOTFS
+	chmod -R 0555 ${XIGMANAS_ROOTFS}/etc/rc.d/*
 
 	return 0
 }
@@ -1971,7 +1971,7 @@ main() {
 "-------------------------------------------------------------"
 Choice Menu:
 
-1) - Update XIGMANAS_ROOTDIR to latest XigmaNAS Source Files.
+1) - Update XIGMANAS_SVNDIR to latest XigmaNAS Source Files.
 2) - Enter Compile Menu.
 
 "-------------------------------------------------------------"
