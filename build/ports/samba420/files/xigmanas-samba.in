@@ -597,10 +597,6 @@ sambaad_resolv() {
 }
 
 samba_start_precmd() {
-# 	Make sure we have our RUNDIR, even if it's on a tmpfs
-	if [ -d "${samba_piddir}" ] || [ ! -e "${samba_piddir}" ]; then
-	install -d -m 0755 "${samba_piddir}"
-	fi
 #
 	if ! df -t fdescfs -T "${samba_piddir}/fd" >/dev/null 2>&1; then
 		install -d -m 0555 "${samba_piddir}/fd"
