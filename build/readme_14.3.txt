@@ -101,7 +101,6 @@ Changes:
 - Upgrade e2fsprogs to v1.47.3.
 - Upgrade gzip to v1.14.
 - Upgrade iperf3 to v3.19.1.
-- Upgrade lighttpd to v1.4.81.
 - Upgrade nano to v8.6.
 - Upgrade proftpd to v1.3.8d.
 - Upgrade transmission to 4.1.0-beta.2
@@ -114,6 +113,7 @@ Changes:
 - Upgrade php8 to v8.4.13.
 - Upgrade samba to v4.20.8.
 - Upgrade syncthing to v2.0.10.
+- Upgrade lighttpd to v1.4.82.
 
 New:
 - New SMB use its own log file.
