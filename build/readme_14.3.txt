@@ -123,6 +123,7 @@ Fixed:
 - Fix start netatalk.
 - Fix missing markdown module.
 - Fix search function in filemanager to avoid crashes.
+- fix SATA NCQ error recovery after commit 25375b1415.
 
 Note for new user installs
 ==========================
