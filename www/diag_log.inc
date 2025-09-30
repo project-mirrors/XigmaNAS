@@ -136,17 +136,6 @@ $loginfo = [
 		]],
 	[
 		'visible' => true,
-		'desc' => gtext('SAMBA'),
-		'logfile' => $samba_logfile,
-		'filename' => $samba_logfilename,
-		'type' => 'plain',
-		'pattern' => '/^(?<msg>.*)$/',
-		'test.rfc5424' => false,
-		'columns' => [
-			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
-		]],
-	[
-		'visible' => true,
 		'desc' => gtext('S.M.A.R.T.'),
 		'logfile' => "{$clogdir}/smartd.log",
 		'filename' => 'smartd.log',
@@ -158,6 +147,17 @@ $loginfo = [
 			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
 			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
 			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
+		]],
+	[
+		'visible' => true,
+		'desc' => gtext('SMB'),
+		'logfile' => $samba_logfile,
+		'filename' => $samba_logfilename,
+		'type' => 'plain',
+		'pattern' => '/^(?<msg>.*)$/',
+		'test.rfc5424' => false,
+		'columns' => [
+			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
