@@ -67,7 +67,7 @@ $return_value = 0;
 $cwt_min = 80;
 $cwt_default = 80;
 $cwt_max = 89;
-$cwt = filter_var($sphere['capacity_warning'] ?? $cwt_default,FILTER_VALIDATE_INT,['options' => ['default' => $cwt_default,'min_range' => $cwt_min,'max_range' => $ctw_max]]);
+$cwt = filter_var($sphere['capacity_warning'] ?? $cwt_default,FILTER_VALIDATE_INT,['options' => ['default' => $cwt_default,'min_range' => $cwt_min,'max_range' => $cwt_max]]);
 //	capacity critical threshold
 $cct_min = 90;
 $cct_default = 90;
