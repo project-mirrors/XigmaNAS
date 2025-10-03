@@ -12,8 +12,8 @@ CONFLICTS=	nut-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	8d5e54347 
-NUT_COMMIT_DATE=	2025.09.10
+GH_TAGNAME=	87008cfc7 
+NUT_COMMIT_DATE=	2025.09.23
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build
@@ -42,6 +42,8 @@ CONFIGURE_ARGS+=	--sysconfdir=${NUT_SYSCONFDIR} \
 		--with-altpidpath=${NUT_PIDDIR} \
 		--with-pidpath=${NUT_PIDDIR} \
 		--without-pkgconfig-dir \
+		--without-augeas-lenses-dir \
+		--enable-extapi-enphase=no \
 		--with-serial \
 		--with-usb=auto \
 		--with-snmp \

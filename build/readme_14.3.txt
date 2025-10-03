@@ -109,11 +109,11 @@ Changes:
 - Upgrade netatalk to v4.3.2.
 - Upgrade mariadb to v11.8.3.
 - Upgrade mDNSResponder to v2600.140.3.
-- Upgrade nut to v2025.09.10.
 - Upgrade php8 to v8.4.13.
 - Upgrade syncthing to v2.0.10.
 - Upgrade lighttpd to v1.4.82.
 - Upgrade samba to v4.22.4.
+- Upgrade nut to v2025.09.23.
 
 New:
 - New SMB use its own log file.
