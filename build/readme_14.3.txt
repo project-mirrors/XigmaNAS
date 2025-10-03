@@ -111,9 +111,9 @@ Changes:
 - Upgrade mDNSResponder to v2600.140.3.
 - Upgrade nut to v2025.09.10.
 - Upgrade php8 to v8.4.13.
-- Upgrade samba to v4.20.8.
 - Upgrade syncthing to v2.0.10.
 - Upgrade lighttpd to v1.4.82.
+- Upgrade samba to v4.22.4.
 
 New:
 - New SMB use its own log file.
