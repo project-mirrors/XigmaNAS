@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+#
+# This script is designed to automate the assembly of XigmaNAS® builds.
+#
+# Part of XigmaNAS® (https://www.xigmanas.com).
+# Copyright © 2018-2025 XigmaNAS® <info@xigmanas.com>.
+# All rights reserved.
+#
 set -x # print
 # set -o pipefail # propogate errors in the pipeline
 # set -e # exit on error
