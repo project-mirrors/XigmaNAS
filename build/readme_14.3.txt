@@ -79,7 +79,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 14.3.0.5.10483
 ====================
 Changes:
-- Upgrade underlying OS to 14.3-RELEASE P3.
+- Upgrade underlying OS to 14.3-RELEASE P4.
 - Update translations.
 - Upgrade rrdtool to v1.9.0.
 - Upgrade exfat to v1.4.0.
