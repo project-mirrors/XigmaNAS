@@ -4,7 +4,11 @@
 # Copyright © 2018-2025 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# Set the system\'s hostname
+# hostname
+#
+# XigmaNAS® Checked: stable/14 /libexec/rc/rc.d/hostname		943ad2ce59887a63182e5e26ea6962e978ac59bd
+#
+# Set system hostname
 #
 
 # PROVIDE: hostname

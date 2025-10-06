@@ -4,11 +4,13 @@
 # Copyright © 2018-2025 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# Service remote NFS mount requests
+# mountd
 #
-# XigmaNAS® Checked: 13.1/libexec/rc/rc.d/mountd		commit/1cf8e6339e9add47107a6c9988a0f509225b7ef6
+# XigmaNAS® Checked: stable/14 /libexec/rc/rc.d/mountd		e3d875b79ddc9801b9c9ff738a050a52d8834952
 # XigmaNAS® Changes: - Remove nfsserver quota
 # 		     - Add mkconf command
+#
+# Service remote NFS mount requests
 #
 
 # PROVIDE: mountd

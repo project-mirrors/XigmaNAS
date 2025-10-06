@@ -4,6 +4,10 @@
 # Copyright © 2018-2025 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
+# zfsbe
+#
+# XigmaNAS® Checked: stable/14 /libexec/rc/rc.d/zfsbe		943ad2ce59887a63182e5e26ea6962e978ac59bd
+#
 
 # PROVIDE: zfsbe
 # REQUIRE: mountcritlocal

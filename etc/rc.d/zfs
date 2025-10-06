@@ -4,9 +4,12 @@
 # Copyright © 2018-2025 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# Mount and share ZFS datasets
+# zfs
 #
+# XigmaNAS® Checked: stable/14 /libexec/rc/rc.d/zfs		943ad2ce59887a63182e5e26ea6962e978ac59bd
 # XigmaNAS® Changes: - Add function zfs_init: Import zpool's if necessary
+#
+# Mount and share ZFS datasets
 #
 
 # PROVIDE: zfs

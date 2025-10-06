@@ -4,12 +4,11 @@
 # Copyright © 2018-2025 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# Routing setup
+# routing
 #
-# XigmaNAS®
-#   Changes:
-#       - Remove requirement ppp fib
-#       - Add commands mkconf and delete
+# XigmaNAS® Checked: stable/14 /libexec/rc/rc.d/routing		943ad2ce59887a63182e5e26ea6962e978ac59bd
+# XigmaNAS® Changes: - Remove requirement ppp fib
+# 		     - Add commands mkconf and delete
 #
 #	Configure routing and miscellaneous network tunables
 #

@@ -4,10 +4,13 @@
 # Copyright © 2018-2025 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# Configure the system console
+# syscons
 #
+# XigmaNAS® Checked: stable/14 /libexec/rc/rc.d/syscons		commit/6147dfa9aff7ed7e6d2529e10f83d997a079f651
 # XigmaNAS® Changes: - Reorder code to unload screen saver kernel modules. This is necessary
 #          	     to be able to disable console screen saver.
+#
+# Configure the system console
 #
 
 # PROVIDE: syscons
@@ -82,6 +85,7 @@ syscons_configure_keyboard()
 	if [ -n "${allscreens_kbdflags}" ]; then
 		echo -n ' allscreens_kbd'
 		for ttyv in /dev/ttyv*; do
+			[ "$ttyv" = '/dev/ttyv*' ] && break
 			kbdcontrol ${allscreens_kbdflags} < ${ttyv} > ${ttyv} 2>&1
 		done
 	fi
@@ -206,6 +210,7 @@ syscons_start()
 	if [ -n "${allscreens_flags}" ]; then
 		echo -n ' allscreens'
 		for ttyv in /dev/ttyv*; do
+			[ "$ttyv" = '/dev/ttyv*' ] && break
 			vidcontrol ${allscreens_flags} < ${ttyv} > ${ttyv} 2>&1
 		done
 	fi
@@ -215,4 +220,3 @@ syscons_start()
 
 load_rc_config $name
 run_rc_command $*
-
