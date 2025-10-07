@@ -124,6 +124,7 @@ Fixed:
 - Fix missing markdown module.
 - Fix search function in filemanager to avoid crashes.
 - fix SATA NCQ error recovery after commit 25375b1415.
+- fix error: IANA PEN registry open failed.
 
 Note for new user installs
 ==========================

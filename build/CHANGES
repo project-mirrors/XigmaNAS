@@ -46,6 +46,7 @@ Fixed:
 - Fix missing markdown module.
 - Fix search function in filemanager to avoid crashes.
 - fix SATA NCQ error recovery after commit 25375b1415.
+- fix error: IANA PEN registry open failed.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.

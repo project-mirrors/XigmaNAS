@@ -1,10 +1,10 @@
 PORTNAME=		ipmitool
 PORTVERSION=	1.0
-PORTREVISION=	0
-CATEGORIES=		sysutils
+PORTREVISION=	1
+CATEGORIES=	sysutils
 
-COMMENT=		CLI tool for IPMI-enabled devices
-MAINTAINER=		zoon01@xigmanas.com
+COMMENT=	CLI tool for IPMI-enabled devices
+MAINTAINER=	zoon01@xigmanas.com
 
 DISTFILES=
 NO_BUILD=		yes
@@ -19,6 +19,9 @@ do-install:
 # XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/ipmitool ${XIGMANAS_ROOTFS}/usr/local/bin
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/share/ipmitool
+	${INSTALL_DATA} ${DEP_STAGEDIR}${PREFIX}/share/ipmitool/enterprise-numbers ${XIGMANAS_ROOTFS}${PREFIX}/share/ipmitool
+	${INSTALL_DATA} ${DEP_STAGEDIR}${PREFIX}/share/ipmitool/oem_ibm_sel_map ${XIGMANAS_ROOTFS}${PREFIX}/share/ipmitool
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
