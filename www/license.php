@@ -83,7 +83,7 @@ $software = [
 	]],
 	['FreeBSD',[
 		'The FreeBSD Project (<a href="https://www.freebsd.org" target="_blank" rel="noreferrer">https://www.freebsd.org</a>).',
-		'Copyright © 1995-2024 The FreeBSD Project. All Rights Reserved.'
+		'Copyright © 1995-2025 The FreeBSD Project. All Rights Reserved.'
 	]],
 	['Freenas 7',[
 		'Freenas 7 (<a href="https://github.com/freenas/freenas7" target="_blank" rel="noreferrer">https://github.com/freenas/freenas7</a>).',
@@ -144,7 +144,7 @@ $software = [
 	]],
 	['msmtp',[
 		'A SMTP client with a sendmail compatible interface (<a href="https://marlam.de/msmtp/" target="_blank" rel="noreferrer">http://marlam.de/msmtp/</a>).',
-		'Copyright © 2004-2024 Martin Lambers and others. All Rights Reserved.'
+		'Copyright © 2004-2025 Martin Lambers and others. All Rights Reserved.'
 	]],
 	['mt-daapd',[
 		'Multithread daapd Apple iTunes server (<a href="http://www.fireflymediaserver.org" target="_blank" rel="noreferrer">http://www.fireflymediaserver.org</a>).',
@@ -172,11 +172,11 @@ $software = [
 	]],
 	['PHP',[
 		'A server-side scripting language (<a href="https://www.php.net" target="_blank" rel="noreferrer">https://www.php.net</a>).',
-		'Copyright © 1999-2024 The PHP Group. All Rights Reserved.'
+		'Copyright © 1999-2025 The PHP Group. All Rights Reserved.'
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
-		'Copyright © 2003-2024 phpMyAdmin contributors. All Rights Reserved.'
+		'Copyright © 2003-2025 phpMyAdmin contributors. All Rights Reserved.'
 	]],
 	['phpVirtualBox',[
 		'phpVirtualBox (<a href="https://github.com/phpvirtualbox/phpvirtualbox/" target="_blank" rel="noreferrer">https://github.com/phpvirtualbox/phpvirtualbox</a>).',
@@ -189,7 +189,7 @@ $software = [
 	]],
 	['Python',[
 		'A programming language (<a href="https://www.python.org" target="_blank" rel="noreferrer">https://www.python.org</a>).',
-		'Copyright © 2001-2024 Python Software Foundation. All Rights Reserved.'
+		'Copyright © 2001-2025 Python Software Foundation. All Rights Reserved.'
 	]],
 	['QuiXplorer',[
 		'A Web-based file-management browser (<a href="https://github.com/realtimeprojects/quixplorer" target="_blank" rel="noreferrer">https://github.com/realtimeprojects/quixplorer</a>).',
@@ -242,11 +242,11 @@ $software = [
 	]],
 	['Transmission',[
 		'A fast, easy, and free multi-platform BitTorrent client (<a href="https://transmissionbt.com" target="_blank" rel="noreferrer">https://transmissionbt.com</a>).',
-		'Copyright © 2005-2024 Transmission Project. All Rights Reserved.'
+		'Copyright © 2005-2025 Transmission Project. All Rights Reserved.'
 	]],
 	['VirtualBox',[
 		'Open Source Edition (OSE) & (Guest Additions) (<a href="https://www.virtualbox.org" target="_blank" rel="noreferrer">https://www.virtualbox.org</a>).',
-		'Copyright © 2010-2024, Oracle and/or its affiliates. All Rights Reserved.'
+		'Copyright © 2010-2025, Oracle and/or its affiliates. All Rights Reserved.'
 	]],
 	['VMXNET3',[
 		'A NIC driver for FreeBSD (<a href="https://www.vmware.com" target="_blank" rel="noreferrer">https://www.vmware.com</a>).',
