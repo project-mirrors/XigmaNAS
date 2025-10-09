@@ -1,5 +1,5 @@
 --- endpoints/lib/vboxconnector.php.orig	2025-10-08 03:41:46.325272000 +0200
-+++ endpoints/lib/vboxconnector.php	2025-10-09 04:59:00.000000000 +0200
++++ endpoints/lib/vboxconnector.php	2025-10-09 05:19:57.000000000 +0200
 @@ -113,6 +113,8 @@
  	 */
  	var $dsep = null;
@@ -19,7 +19,22 @@
  		}
  
  		// Get events from each configured event listener
-@@ -3859,6 +3862,9 @@
+@@ -1938,11 +1941,13 @@
+ 			* @remarks This must match GMMR0Init; currently we only support page fusion on
+ 			 *          all 64-bit hosts except Mac OS X */
+ 
++			/* Page Fusion does not work properly in VirtualBox 7.2
++			 * returns "Page fusion is only supported on 64-bit hosts"
+ 			if($this->vbox->host->getProcessorFeature('LongMode')) {
+ 
+ 				$m->pageFusionEnabled = $args['pageFusionEnabled'];
+ 			}
+-
++			*/
+ 			$m->Platform->X86->HPETEnabled = $args['HPETEnabled'];
+ 			$m->setExtraData("VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled", $args['disableHostTimeSync']);
+ 			$m->keyboardHIDType = $args['keyboardHIDType'];
+@@ -3859,6 +3864,9 @@
  
  		// Save and register
  		$m->saveSettings();
@@ -29,3 +44,13 @@
  		$this->vbox->registerMachine($m->handle);
  		$vm = $m->id;
  		$m->releaseRemote();
+@@ -4291,7 +4299,8 @@
+ 			'snapshotFolder' => $m->snapshotFolder,
+ 			'ClipboardMode' => (string)$m->ClipboardMode,
+ 			'monitorCount' => $m->GraphicsAdapter->monitorCount,
+-			'pageFusionEnabled' => $m->pageFusionEnabled,
++			// Page Fusion does not work properly in 7.2
++			//'pageFusionEnabled' => $m->pageFusionEnabled,
+ 			'VRDEServer' => (!$m->VRDEServer ? null : array(
+ 				'enabled' => $m->VRDEServer->enabled,
+ 				'ports' => $m->VRDEServer->getVRDEProperty('TCP/Ports'),
