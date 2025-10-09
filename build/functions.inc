@@ -1802,29 +1802,21 @@ base-ports() {
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/sudo /usr/ports/security
 	echo "===> New port sudo has been created!"
 	echo ""
-	echo "===> Delete current virtualbox-ose from base OS"
-	rm -rf /usr/ports/emulators/virtualbox-ose
+	echo "===> Delete current virtualbox-ose-72 from base OS"
+	rm -rf /usr/ports/emulators/virtualbox-ose-72
 	echo "===> Delete completed!"
 	echo ""
-	echo "===> Adding new port virtualbox-ose to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose /usr/ports/emulators
+	echo "===> Adding new port virtualbox-ose-72 to ports/emulators/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-72 /usr/ports/emulators
 	echo "===> New port virtualbox-ose has been created!"
 	echo ""
-	echo "===> Delete current virtualbox-ose-additions from base OS"
-	rm -rf /usr/ports/emulators/virtualbox-ose-additions
-	echo "===> Delete completed!"
-	echo ""
-	echo "===> Adding new port virtualbox-ose-additions to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-additions /usr/ports/emulators
-	echo "===> New port virtualbox-ose-additions has been created!"
-	echo ""
-	echo "===> Delete current virtualbox-ose-kmod from base OS"
-	rm -rf /usr/ports/emulators/virtualbox-ose-kmod
+	echo "===> Delete current virtualbox-ose-kmod-72 from base OS"
+	rm -rf /usr/ports/emulators/virtualbox-ose-kmod-72
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Adding new port virtualbox-ose-kmod to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-kmod /usr/ports/emulators
-	echo "===> New port virtualbox-ose-kmod has been created!"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-kmod-72 /usr/ports/emulators
+	echo "===> New port virtualbox-ose-kmod-72 has been created!"
 	echo "===> End install base-ports to ports directory"
 #
 	# Install required sources to the host distfiles directory usr/ports/distfiles.
