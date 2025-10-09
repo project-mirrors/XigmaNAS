@@ -46,7 +46,6 @@
     SUBDIR += php84-APCu
     SUBDIR += phpmyadmin
     SUBDIR += phpvirtualbox
-    SUBDIR += phpvirtualbox-72
     SUBDIR += proftpd
     SUBDIR += python311
     SUBDIR += py-wsdd
@@ -68,8 +67,6 @@
     SUBDIR += tw_cli
     SUBDIR += unison
     SUBDIR += vbox
-    SUBDIR += vbox-72
-    SUBDIR += vbox-additions
     SUBDIR += wait_on
     SUBDIR += wol
     SUBDIR += xmlstarlet
