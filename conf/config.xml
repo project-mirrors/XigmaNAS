@@ -16,7 +16,7 @@
 		<language>auto</language>
 		<ntp>
 			<!-- <enable/> -->
-			<timeservers>pool.ntp.org</timeservers>
+			<timeservers>xigmanas.pool.ntp.org</timeservers>
 			<updateinterval>300</updateinterval>
 		</ntp>
 		<webgui>
