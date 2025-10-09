@@ -211,3 +211,7 @@ usr/libexec/sshd-session
 usr/local/www/services_fuppes.php
 # 10366
 usr/local/lib/libupsclient.so.6
+# 10520
+boot/modules/vboxguest.ko
+usr/local/sbin/VBoxControl
+usr/local/sbin/VBoxService
