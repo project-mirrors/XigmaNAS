@@ -85,7 +85,7 @@ XIGMANAS_GIT_BRANCH="releng/14.3"
 #	and XigmaNAS® WebGUI/Scripts. Keep this file very small! This file is unzipped
 #	to a RAM disk at XigmaNAS® startup.
 #	The image must fit on 2GB CF/USB.
-#	Actual size of MDLOCAL is defined in /etc/rc.
+#	Actual size of MDLOCAL is defined in /etc/rc line 38.
 XIGMANAS_MFSROOT_SIZE=132
 XIGMANAS_MDLOCAL_SIZE=1192
 XIGMANAS_MDLOCAL_MINI_SIZE=36
@@ -1133,7 +1133,7 @@ create_usb () {
 	MDLSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal.xz)
 	MDLSIZE2=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz)
 	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
-	USBROOTM=768
+	USBROOTM=776
 	USB_SECTS=63
 	USB_HEADS=255
 
