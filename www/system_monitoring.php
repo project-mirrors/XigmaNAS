@@ -255,7 +255,8 @@ if(empty($pconfig['latency_interface']) && is_array($a_interface)):
 	$pconfig['latency_interface'] = key($a_interface);
 endif;
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Monitoring Setup')];
-include 'fbegin.inc';?>
+include 'fbegin.inc';
+?>
 <script>
 //<![CDATA[
 $(window).on("load", function() {
@@ -452,7 +453,7 @@ $document->render();
 			endforeach;
 			html_combobox2('latency_interface',gettext('Interface Selection'),$s_option,$a_option,gettext('Select the interface (only selectable if your server has more than one) to use for the source IP address in outgoing packets.'));
 			$latency_a_count = [];
-			for($i = 1; $i <= 20; $i++):
+			for($i = 1;$i <= 20;$i++):
 				$latency_a_count[$i] = $i;
 			endfor;
 			html_combobox2('latency_count',gettext('Count'),$pconfig['latency_count'],$latency_a_count,gettext('Stop after sending (and receiving) N packets.'),false);
