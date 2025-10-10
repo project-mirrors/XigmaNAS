@@ -128,7 +128,6 @@ Fixed:
 - Fix SATA NCQ error recovery after commit 25375b1415.
 - Fix error: IANA PEN registry open failed.
 - Fix incomplete speed coverage ixgbe.
-- Fix return bge wol.
 
 Note for new user installs
 ==========================
