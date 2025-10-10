@@ -110,22 +110,22 @@ if($_POST):
 		if(!is_port($_POST['port'])):
 			$input_errors[] = gtext('The TCP Port must be a valid port number.');
 		endif;
-		if((1 > $_POST['numberclients']) || (50 < $_POST['numberclients'])):
+		if(($_POST['numberclients'] < 1) || ($_POST['numberclients'] > 50)):
 			$input_errors[] = gtext('The max. number of clients must be in the range from 1 to 50.');
 		endif;
-		if(0 > $_POST['maxconperip']):
+		if($_POST['maxconperip'] < 0):
 			$input_errors[] = gtext('The max. connections per IP address must be either 0 (unlimited) or greater.');
 		endif;
 		if(!is_numericint($_POST['timeout'])):
 			$input_errors[] = gtext('The maximum idle time must be a number.');
 		endif;
-		if(('0' !== $_POST['pasv_min_port']) && (($_POST['pasv_min_port'] < 1024) || ($_POST['pasv_min_port'] > 65535))):
+		if(($_POST['pasv_min_port'] !== '0') && (($_POST['pasv_min_port'] < 1024) || ($_POST['pasv_min_port'] > 65535))):
 			$input_errors[] = sprintf(gtext('The attribute %s must be in the range from %d to %d.'),gtext('Min. Passive Port'),1024,65535);
 		endif;
-		if(('0' !== $_POST['pasv_max_port']) && (($_POST['pasv_max_port'] < 1024) || ($_POST['pasv_max_port'] > 65535))):
+		if(($_POST['pasv_max_port'] !== '0') && (($_POST['pasv_max_port'] < 1024) || ($_POST['pasv_max_port'] > 65535))):
 			$input_errors[] = sprintf(gtext('The attribute %s must be in the range from %d to %d.'),gtext('Max. Passive Port'),1024,65535);
 		endif;
-		if(('0' !== $_POST['pasv_min_port']) && ('0' !== $_POST['pasv_max_port'])):
+		if(($_POST['pasv_min_port'] !== '0') && ($_POST['pasv_max_port'] !== '0')):
 			if($_POST['pasv_min_port'] >= $_POST['pasv_max_port']):
 				$input_errors[] = sprintf(gtext('The attribute %s must be less than %s.'),gtext('Min. Passive Port'),gtext('Max. Passive Port'));
 			endif;
@@ -312,8 +312,8 @@ $document->render();
 							html_inputbox2('maxloginattempts',gettext('Max. Login Attempts'),$pconfig['maxloginattempts'],gettext('Maximum number of allowed password attempts before disconnection.'),true,3);
 							html_inputbox2('timeout',gettext('Timeout'),$pconfig['timeout'],gettext('Maximum idle time in seconds.'),true,5);
 							html_checkbox2('permitrootlogin',gettext('Permit Root Login'),!empty($pconfig['permitrootlogin']),gettext('Specifies whether it is allowed to login as superuser (root) directly.'),'',false);
-							html_checkbox2('anonymousonly',gettext('Anonymous Users'),!empty($pconfig['anonymousonly']),gettext('Only allow anonymous users. Use this on a public FTP site with no remote FTP access to real accounts.'),'',false,'anonymousonly_change()');
-							html_checkbox2('localusersonly',gettext('Authenticated Users'),!empty($pconfig['localusersonly']),gettext('Only allow authenticated users. Anonymous logins are prohibited.'),'',false,'localusersonly_change()');
+							html_checkbox2('anonymousonly',gettext('Anonymous Users'),!empty($pconfig['anonymousonly']),gettext('Only allow anonymous users. Use this on a public FTP site with no remote FTP access to real accounts.'),'',false,false,'anonymousonly_change()',false);
+							html_checkbox2('localusersonly',gettext('Authenticated Users'),!empty($pconfig['localusersonly']),gettext('Only allow authenticated users. Anonymous logins are prohibited.'),'',false,false,'localusersonly_change()',false);
 							html_inputbox2('allowgroup',gettext('Group Allow'),$pconfig['allowgroup'],gettext('Comma-separated list of group names that are permitted to login to the FTP server. (empty = ftp group).'),false,40);
 							$n_rows = min(64,max(8,1 + substr_count($pconfig['banner'],"\n")));
 							html_textarea2('banner',gettext('Banner'),$pconfig['banner'],gettext('Greeting banner displayed to client when first connection comes in.'),false,65,$n_rows,false,false);
@@ -334,7 +334,7 @@ $document->render();
 							html_inputbox2('userbandwidthdown',gettext('Download Bandwidth'),$pconfig['userbandwidthdown'],gettext('Authenticated user download bandwith in KB/s. An empty field means infinity.'),false,5);
 							html_inputbox2('anonymousbandwidthup',gettext('Upload Bandwidth'),$pconfig['anonymousbandwidthup'],gettext('Anonymous user upload bandwith in KB/s. An empty field means infinity.'),false,5);
 							html_inputbox2('anonymousbandwidthdown',gettext('Download Bandwidth'),$pconfig['anonymousbandwidthdown'],gettext('Anonymous user download bandwith in KB/s. An empty field means infinity.'),false,5);
-							html_checkbox2('tls',gettext('TLS'),!empty($pconfig['tls']),gettext('Enable TLS connections.'),'',false,'tls_change()');
+							html_checkbox2('tls',gettext('TLS'),!empty($pconfig['tls']),gettext('Enable TLS connections.'),'',false,false,'tls_change()',false);
 							html_textarea2('certificate',gettext('Certificate'),$pconfig['certificate'],gettext('Paste a signed certificate in X.509 PEM format here.'),true,65,7,false,false);
 							html_textarea2('privatekey',gettext('Private Key'),$pconfig['privatekey'],gettext('Paste an private key in PEM format here.'),true,65,7,false,false);
 							html_checkbox2('tlsrequired',gettext('TLS Only'),!empty($pconfig['tlsrequired']),gettext('Allow TLS connections only.'),'',false);
