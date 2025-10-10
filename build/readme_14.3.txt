@@ -94,7 +94,6 @@ Changes:
 - Upgrade pecl-APCu to v5.1.27.
 - Upgrade sudo to v1.9.17p2.
 - Upgrade bash to v5.3p3.
-- Upgrade cdialog to v1.3.20250817.
 - Upgrade microcode amd to v20250729.
 - Upgrade microcode intel to v20250812.
 - Upgrade e2fsprogs to v1.47.3.
@@ -116,6 +115,7 @@ Changes:
 - Upgrade virtualbox-ose to 7.2.2.
 - Upgrade phpvirtualbox to 7.2-1.
 - Upgrade phpmyadmin to v5.2.3.
+- Upgrade cdialog to v1.3.20251001.
 
 New:
 - New SMB use its own log file.
