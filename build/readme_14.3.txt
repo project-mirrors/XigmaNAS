@@ -85,7 +85,6 @@ Changes:
 - Upgrade exfat to v1.4.0.
 - Upgrade python311 v3.11.10.
 - Upgrade libvncserver v0.9.15.
-- Upgrade arconf to vB27147.
 - Upgrade rsync to v3.4.1.
 - Upgrade tmux to v3.5a.
 - Upgrade zoneinfo to v2025b.
@@ -116,6 +115,7 @@ Changes:
 - Upgrade phpvirtualbox to 7.2-1.
 - Upgrade phpmyadmin to v5.2.3.
 - Upgrade cdialog to v1.3.20251001.
+- Upgrade arconf to vB27960.
 
 New:
 - New SMB use its own log file.

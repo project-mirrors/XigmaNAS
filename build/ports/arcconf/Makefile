@@ -1,5 +1,5 @@
 PORTNAME=		arcconf
-DISTVERSION=	4.23.00.${BUILD}
+DISTVERSION=	5.03.00.${BUILD}
 PORTREVISION=	1
 CATEGORIES=	sysutils
 MASTER_SITES=	https://storage.microsemi.com/raid/storage_manager/
@@ -23,7 +23,7 @@ LIB_DEPENDS+=    libstdc++.so.6:lang/gcc${GCC_DEFAULT}
 
 USES=		zip
 USE_GCC=        yes
-BUILD=		27147
+BUILD=		27960
 
 .include <bsd.port.pre.mk>
 

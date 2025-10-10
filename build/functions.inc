@@ -1826,8 +1826,8 @@ base-ports() {
 	echo "-------------------------------------------------------------------------------";
 	echo "===> Start install sources to distfiles directory"
 	mkdir /usr/ports/distfiles
-	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/arcconf_B27147.zip /usr/ports/distfiles
-	echo "arcconf_B27147.zip"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/arcconf_B27960.zip /usr/ports/distfiles
+	echo "arcconf_B27960.zip"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip /usr/ports/distfiles
 	echo "CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/isboot-0.3.4.tar.gz /usr/ports/distfiles
@@ -1837,7 +1837,6 @@ base-ports() {
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/SAS3IRCU_P16.zip /usr/ports/distfiles
 	echo "SAS3IRCU_P16.zip"
 	echo "===> End install sources to distfiles directory"
-
 	return 0
 }
 build_ports() {
