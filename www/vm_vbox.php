@@ -190,7 +190,7 @@ $(window).on("load", function() {
 	</div>
 	<div id="remarks">
 <?php
-		html_remark2('note',gettext('Security Warning!'),sprintf("<div id='enumeration'><ul><li>%s</li></ul></div>",gettext('Be careful with turning on above device options in production environments.')));
+		html_remark2('note',gettext('Security Warning!'),sprintf("<div id='enumeration'><ul><li>%s</li></ul></div>",gettext('Be careful when turning on above device options in production environments.')));
 ?>
 	</div>
 <?php
