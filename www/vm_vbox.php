@@ -157,8 +157,6 @@ $(window).on("load", function() {
 			html_checkbox2('allowusb',gettext('Allow USB'),!empty($pconfig['allowusb']),gettext('Enable this option to make host USB available to clients.'));
 			html_checkbox2('allowserial',gettext('Allow Serial Ports'),!empty($pconfig['allowserial']),gettext('Enable this option to make host serial ports available to clients.'));
 			html_checkbox2('allowusbserial',gettext('Allow USB Serial Ports'),!empty($pconfig['allowusbserial']),gettext('Enable this option to make host USB serial ports available to clients.'));
-			$desc = '<strong><font color="red">' . gtext('Security Warning') . '!</font> ' . gtext('Be careful with turning on these options.') . '</strong>';
-			html_text2('warning',gettext('Warning'),$desc);
 ?>
 		</tbody>
 	</table>
@@ -188,7 +186,12 @@ $(window).on("load", function() {
 	endif;
 ?>
 	<div id="submit">
-		<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save');?>"/>
+		<input name="Submit" type="submit" class="formbtn" value="<?=gettext('Save');?>"/>
+	</div>
+	<div id="remarks">
+<?php
+		html_remark2('note',gettext('Security Warning!'),sprintf("<div id='enumeration'><ul><li>%s</li></ul></div>",gettext('Be careful with turning on above device options in production environments.')));
+?>
 	</div>
 <?php
 	include 'formend.inc';?>
