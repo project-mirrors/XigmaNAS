@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2025-09-06 21:13+0000\n"
-"PO-Revision-Date: 2025-09-21 16:43+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"POT-Creation-Date: 2025-10-11 14:47+0000\n"
+"PO-Revision-Date: 2025-10-01 16:25+0000\n"
+"Last-Translator: apollo567 <apollo567@hotmail.de>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-30 12:44+0000\n"
-"X-Generator: Launchpad (build 8f35df7956d277b113de8d286a4ca280c7b8ebdf)\n"
+"X-Launchpad-Export-Date: 2025-10-11 13:16+0000\n"
+"X-Generator: Launchpad (build bff9b0558f8357613643d9a74c009da18fafa917)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -1579,9 +1579,6 @@ msgstr "IP"
 
 msgid "User"
 msgstr "Benutzer"
-
-msgid "SAMBA"
-msgstr "SAMBA"
 
 msgid "RSYNC - Server"
 msgstr "RSYNC - Server"
@@ -3368,6 +3365,48 @@ msgstr "Unempfindlich"
 
 msgid "Mixed"
 msgstr "Gemischt"
+
+msgid "No encryption"
+msgstr ""
+
+msgid "Use default encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-128-ccm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-192-ccm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-256-ccm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-128-gcm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-192-gcm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-256-gcm encryption cipher suite"
+msgstr ""
+
+msgid "Raw Key"
+msgstr ""
+
+msgid "Hex Key"
+msgstr ""
+
+msgid "Prompt"
+msgstr ""
+
+msgid "File"
+msgstr "Datei"
+
+msgid "HTTPS"
+msgstr "HTTPS"
+
+msgid "HTTP"
+msgstr "HTTP"
 
 msgid "Enter a name for this dataset"
 msgstr "Geben Sie die Bezeichnung dieses Datasets an"
@@ -6402,9 +6441,6 @@ msgstr "Extent-Einstellungen"
 msgid "String identifier of the extent."
 msgstr "Zeichenkette zur Identifizierung des Extents."
 
-msgid "File"
-msgstr "Datei"
-
 msgid "Type used as extent."
 msgstr "Verwendeter Extent-Typ"
 
@@ -7708,12 +7744,6 @@ msgstr "Das oberste Dokumentenverzeichnis des Webservers fehlt."
 
 msgid "WebDAV"
 msgstr "WebDAV"
-
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTPS"
-msgstr "HTTPS"
 
 msgid "TCP port to bind the server to."
 msgstr "TCP-Port, an den der Server gebunden wird."
@@ -9477,11 +9507,15 @@ msgstr ""
 "Aktivieren Sie diese Einstellung, um serielle USB Host-Anschlüsse für die "
 "Clienten verfügbar zu machen."
 
-msgid "Be careful with turning on these options."
-msgstr "Seien Sie vorsichtig, wenn Sie diese Optionen einschalten."
-
 msgid "phpVirtualBox"
 msgstr "phpVirtualBox"
+
+msgid "Security Warning!"
+msgstr ""
+
+msgid ""
+"Be careful when turning on above device options in production environments."
+msgstr ""
 
 msgid "No configured bridge interfaces."
 msgstr "Keine konfigurierten Brücken Interfaces"
@@ -9605,289 +9639,593 @@ msgstr "Boot-Parameter"
 msgid "Boot argument (e.g. %s)."
 msgstr "Boot-Parameter (z. B. %s)"
 
-msgid "Show Used/Avail"
-msgstr "Zeige Verwendet/Verfügbar"
+msgid "Search Directory"
+msgstr "Suche im Verzeichnis"
 
-msgid "On-Disk Configuration"
-msgstr "\"On Disk\"-Konfiguration"
+msgid "Search Filter"
+msgstr "Suchfilter"
 
-msgid "Capacity Warning Threshold"
-msgstr "Kapazitäts-Schwellenwert für Warnmeldung"
+msgid "Search subfolder"
+msgstr "Unterordner durchsuchen"
 
-msgid "Capacity Critical Threshold"
-msgstr "Kritischer Kapazitäts-Schwellenwert"
+msgid "Close"
+msgstr "Schließen"
 
-msgid "Extended Destroy"
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Suchergebnis für %1$s"
+
+msgid "Item(s)"
+msgstr "Element(e)"
+
+msgid "No results available."
+msgstr "Keine Ergebnisse verfügbar."
+
+msgid "HOME"
+msgstr "HOME"
+
+msgid "You are not allowed to use this function."
+msgstr "Sie dürfen diese Funktion nicht verwenden."
+
+msgid "This file doesn't exist."
+msgstr "Diese Datei existiert nicht."
+
+msgid "You are not allowed to access this file."
+msgstr "Sie dürfen nicht auf diese Datei zugreifen."
+
+msgid "Permission-change failed."
+msgstr "Berechtigungsänderung fehlgeschlagen."
+
+msgid "Getting permissions failed."
+msgstr "Das Abrufen von Berechtigungen ist fehlgeschlagen."
+
+msgid "Change permissions"
+msgstr "Rechte ändern"
+
+msgid "Public"
+msgstr "Öffentlich"
+
+msgid "This item doesn't exist."
+msgstr "Dieses Element existiert nicht."
+
+msgid "You are not allowed to access this item."
+msgstr "Sie dürfen nicht auf dieses Element zugreifen."
+
+msgid "Deleting failed."
+msgstr "Löschen fehlgeschlagen."
+
+msgid "Unable to open source directory."
+msgstr "Quellverzeichnis kann nicht geöffnet werden."
+
+msgid "Unable to open directory."
+msgstr "Verzeichnis kann nicht geöffnet werden."
+
+msgid "Unable to read directory."
+msgstr "Verzeichnis kann nicht gelesen werden."
+
+msgid "Copy item(s)"
+msgstr "Element(e) kopieren"
+
+msgid "Move item(s)"
+msgstr "Verschiebe Element(e)"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Von /%s nach /%s kopieren "
+
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "Von /%s nach /%s verschieben "
+
+msgid "Copy"
+msgstr "Kopieren"
+
+msgid "Move"
+msgstr "verschieben"
+
+msgid "The target directory doesn't exist."
+msgstr "Das Zielverzeichnis existiert nicht."
+
+msgid "You are not allowed to access the target directory."
+msgstr "Sie dürfen nicht auf das Zielverzeichnis zugreifen."
+
+msgid "The target directory may not be above the home directory."
 msgstr ""
+"Das Zielverzeichnis darf sich nicht über dem Ausgangsverzeichnis befinden."
 
-msgid ""
-"Display Used/Avail information from the filesystem instead of the Alloc/Free "
-"information from the pool."
-msgstr ""
-"Zeige Werte für Verwendet / Verfügbar des Dateisystems, anstelle der Werte "
-"Alloziiert / Frei des Pools an."
+msgid "You must supply a name."
+msgstr "Sie müssen einen Namen angeben."
 
-msgid ""
-"Used/Avail lists storage information after all redundancy is taken into "
-"account but is impacted by compression, deduplication and quotas. Alloc/Free "
-"lists the raw storage information of a pool."
-msgstr ""
-"Verwendet/verfügbar (Used/Avail) zeigt die Speicherplatzinformationen unter "
-"Berücksichtigung aller Redundanzen, ist jedoch abhängig von Kompression, De-"
-"Duplizierung und Quotas. Belegt/frei (Alloc/Free) zeigt die reinen "
-"Speicherplatzinformationen eines Pools an."
+msgid "The target item already exists."
+msgstr "Das Zielelement ist bereits vorhanden."
 
-msgid "Read on-disk configuration."
-msgstr "\"On Disk\"-Konfiguration lesen"
+msgid "Copying failed."
+msgstr "Kopieren Fehlgeschlagen."
 
-msgid ""
-"Reading the configuration from the disks is slower than reading from cache "
-"file."
-msgstr ""
-"Die Konfigurationsdatei von der Festplatte zu laden erfolgt langsamer als "
-"vom Cache"
+msgid "Moving failed."
+msgstr "Verschieben fehlgeschlagen."
 
-msgid "Set the warning threshold to a value between 80 and 89."
-msgstr ""
-"Setzt den Schwellenwert für Warnungen auf einen Wert zwischen 80 und 89."
+msgid "You haven't selected any item(s)."
+msgstr "Sie haben kein(e) Element(e) ausgewählt."
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the warning "
-"threshold."
-msgstr ""
-"Eine Warn-E-mail wird gesendet, falls die Kapazitätsauslastung eines Pools "
-"die Warnschwelle überschreitet."
+msgid "File saving failed."
+msgstr "Das Speichern der Datei ist fehlgeschlagen."
 
-msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr ""
-"Ein Cron-Job muss eingerichtet werden, um das Script /etc/capacitycheck.zfs "
-"geplant auszuführen."
+msgid "This item already exists."
+msgstr "Dieses Element existiert bereits."
 
-msgid "Must be a number between 80 and 89."
-msgstr "Muss eine Zahl zwischen 80 und 89 sein."
+msgid "File opening failed."
+msgstr "Dateiöffnen fehlgeschlagen."
 
-msgid "Set the critical threshold to a value between 90 and 95."
-msgstr "Setzt den kritischen Grenzwert auf einen Wert zwischen 90 und 95."
+msgid "Edit file"
+msgstr "Datei bearbeiten"
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the critical "
-"threshold."
-msgstr ""
-"Eine Warn-E-mail wird gesendet, falls die Kapazitätsauslastung eines Pools "
-"einen kritischen Grenzwert überschreitet."
+msgid "Wrap text:"
+msgstr "Zeilenumbruch:"
 
-msgid "Must be a number between 90 and 95."
-msgstr "Muss eine Zahl zwischen 90 und 95 sein."
+msgid "Reset"
+msgstr "Zurücksetzen"
 
-msgid "Destroy dataset and its dependents."
-msgstr "Dataset zerstören (auch Abhängigkeiten davon)"
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Möchten Sie die ausgewählten Elemente wirklich löschen?"
 
-msgid ""
-"When enabled, destroying a dataset will also destroy all dependents "
-"(datasets, snapshots and clones)."
-msgstr ""
+msgid "CHANGE PERMISSIONS"
+msgstr "BERECHTIGUNGEN ÄNDERN"
 
-msgid "Lifetime"
-msgstr "Lebensdauer"
+msgid "You are not allowed to access this directory."
+msgstr "Sie dürfen nicht auf dieses Verzeichnis zugreifen."
 
-msgid "Second(s)"
-msgstr "Sekunde(n)"
+msgid "Directory"
+msgstr "Verzeichnis"
 
-msgid "Minute(s)"
-msgstr "Minute(n)"
+msgid "UP"
+msgstr "GESTARTET (UP)"
 
-msgid "Hour(s)"
-msgstr "Stunde(n)"
+msgid "RELOAD"
+msgstr "NACHLADEN"
 
-msgid "Day(s)"
-msgstr "Tag(e)"
-
-msgid "Week(s)"
-msgstr "Woche(n)"
-
-msgid "Month(s)"
-msgstr "Monat(e)"
-
-msgid "Year(s)"
-msgstr "Jahr(e)"
-
-msgid "Hourly"
-msgstr "Stündlich"
-
-msgid "Daily"
-msgstr "Täglich"
-
-msgid "Weekly"
-msgstr "Wöchentlich"
-
-msgid "Monthly"
-msgstr "Monatlich"
-
-msgid "Yearly"
-msgstr "Jährlich"
-
-msgid "Custom Setting"
-msgstr "Benutzerdefinierte Einstellung"
-
-msgid "Schedule"
-msgstr "Terminplanung"
-
-msgid "Weekdays"
-msgstr "An Werktagen"
-
-msgid "All Minutes"
-msgstr "Alle Minuten"
-
-msgid "All Hours"
-msgstr "Alle Stunden"
-
-msgid "All Days"
-msgstr "Alle Tage"
-
-msgid "All Months"
-msgstr "Alle Monate"
-
-msgid "All Weekdays"
-msgstr "Alle Wochentage"
-
-msgid "Add Schedule"
-msgstr "Zeitplan hinzufügen"
-
-msgid "Edit Schedule"
-msgstr "Zeitplan bearbeiten"
-
-msgid "Schedule is marked for deletion"
-msgstr "Termin ist zur Löschung vorgemerkt"
-
-msgid "Schedule is locked"
-msgstr "Termin ist blockiert"
-
-msgid "Schedule is unlocked"
-msgstr "Terminplan ist freigegeben"
-
-msgid "Delete Selected Schedules"
-msgstr "Ausgewählte Zeitpläne löschen"
-
-msgid "Do you want to delete selected schedules?"
-msgstr "Möchten Sie die ausgewählten Zeitpläne deaktivieren?"
-
-msgid "Disable Selected Schedules"
-msgstr "Ausgewählte Zeitpläne deaktivieren"
-
-msgid "Do you want to disable selected schedules?"
-msgstr "Möchten Sie die ausgewählten Zeitpläne deaktivieren?"
-
-msgid "Enable Selected Schedules"
-msgstr "Ausgewählte Zeitpläne aktivieren"
-
-msgid "Do you want to enable selected schedules?"
-msgstr "Möchten Sie die ausgewählten Zeitpläne aktivieren?"
-
-msgid "Toggle Selected Schedules"
-msgstr "Umschalten der ausgewählten Zeitpläne"
-
-msgid "Do you want to toggle selected schedules?"
-msgstr "Möchten Sie ausgewählte Zeitpläne umschalten?"
-
-msgid "Invalid"
-msgstr "Ungültig"
-
-msgid "Destroy"
-msgstr "Zerstören"
-
-msgid "Create Snapshot"
-msgstr "Snapshot erstellen"
-
-msgid "Destroy Snapshot"
-msgstr "Snapshot zerstören"
-
-msgid "Scrub Pool"
-msgstr "Führe Scrub (Fehlerüberprüfung) für Pool durch"
-
-msgid "Select Pool, Filesystem or Volume"
-msgstr "Pool, Dateisystem oder Volume auswählen"
-
-msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr "Rekursives Vernichten von Snapshots aller untergeordneten Datasets."
-
-msgid "Lifetime Value"
-msgstr "Lebensdauer-Wert"
-
-msgid "Lifetime Units"
-msgstr "Lebensdauer-Einheit"
-
-msgid ""
-"Commands are executed by the scheduler when the minute, hour, and month of "
-"year fields match the current time, and when at least one of the two day "
-"fields (day of month, or day of week) matches the current time."
-msgstr ""
-"Befehle werden vom Scheduler ausgeführt, wenn die Felder Minute, Stunde und "
-"Monat des Jahres mit der aktuellen Uhrzeit übereinstimmen und wenn "
-"mindestens eines der beiden Tagesfelder (Monatstag oder Wochentag) mit der "
-"aktuellen Uhrzeit übereinstimmt."
-
-msgid "Presets"
-msgstr "Voreinstellungen"
-
-msgid "Recursively create snapshots of all descendent datasets."
-msgstr "Rekursives Erstellen von Snapshots aller untergeordneten Datasets."
+msgid "SEARCH"
+msgstr "SUCHE"
 
 msgid "Create"
 msgstr "Erstellen"
 
-msgid "Scrub"
-msgstr "Schrubben (Scrub)"
+msgid "Modified"
+msgstr "Verändert"
 
-msgid "Select pool."
-msgstr "Pool auswählen."
+msgid "Permissions"
+msgstr "Berechtigungen"
 
-msgid "No ZFS zpool information available."
-msgstr "Keine ZFS-Zpool-Informationen verfügbar."
+msgid "Actions"
+msgstr "Aktionen"
 
-msgid "No ZFS volume information available."
-msgstr "Keine ZFS-Volume-Informationen verfügbar."
+msgid "COPY"
+msgstr "KOPIEREN"
 
-msgid "Add Filesystem"
-msgstr "Dateisystem hinzufügen"
+msgid "MOVE"
+msgstr "VERSCHIEBEN"
 
-msgid "Edit Filesystem"
-msgstr "Dateisystem bearbeiten"
+msgid "DELETE"
+msgstr "LÖSCHEN"
 
-msgid "Filesystem is marked for deletion"
-msgstr "Das Dateisystem ist zum Löschen markiert"
+msgid "EDIT"
+msgstr "BEARBEITEN"
 
-msgid "Filesystem is locked"
-msgstr "Dateisystem ist gesperrt"
+msgid "UNZIP"
+msgstr "UNZIP"
 
-msgid "Filesystem is unlocked"
-msgstr "Dateisystem ist entsperrt"
+msgid "DOWNLOAD"
+msgstr "HERUNTERLADEN"
 
-msgid "Delete Selected Filesystems"
-msgstr "Ausgewählte Dateisysteme löschen"
+msgid "Extracting"
+msgstr "Entpacken"
 
-msgid "Do you want to delete selected filesystems?"
-msgstr "Möchten Sie die ausgewählten Dateisysteme löschen?"
+msgid "Unzip"
+msgstr "Auspacken"
 
-msgid "Do you want to disable selected filesystems?"
-msgstr "Möchten Sie die ausgewählten Dateisysteme deaktivieren?"
+msgid "Failed to extract archive."
+msgstr "Archiv konnte nicht extrahiert werden."
 
-msgid "Do you want to enable selected filesystems?"
-msgstr "Möchten Sie die ausgewählten Dateisysteme aktivieren?"
+msgid "Executable File"
+msgstr "Ausführbare Datei"
 
-msgid "Do you want to toggle selected filesystems?"
-msgstr "Möchten Sie die ausgewählten Dateisysteme umschalten?"
+msgid "Link"
+msgstr "Link"
 
-msgid "Filesystem Name"
-msgstr "Dateisystemname"
+msgid "Text File"
+msgstr "Textdatei"
 
-msgid "unknown"
-msgstr "unbekannt"
+msgid "PHP Script"
+msgstr "PHP Script"
+
+msgid "SQL File"
+msgstr "SQL Datei"
+
+msgid "PERL Script"
+msgstr "PERL Script"
+
+msgid "HTML Page"
+msgstr "HTML Seite"
+
+msgid "XML File"
+msgstr "XML Datei"
+
+msgid "Javascript File"
+msgstr "Javascript Datei"
+
+msgid "CSS File"
+msgstr "CSS-Datei"
+
+msgid "CGI Script"
+msgstr "CGI-Script"
+
+msgid "Python Script"
+msgstr "Python-Skript"
+
+msgid "Shell Script"
+msgstr "Shell Script"
+
+msgid "C File"
+msgstr "C-Datei"
+
+msgid "C++ Source File"
+msgstr "C++-Quelldatei"
+
+msgid "C++ Header File"
+msgstr "C++-Headerdatei"
+
+msgid "Java Source File"
+msgstr "Java-Quelldatei"
+
+msgid "Java Class File"
+msgstr "Java-Klassendatei"
+
+msgid "Pascal File"
+msgstr "Pascal Datei"
+
+msgid "GIF Image"
+msgstr "GIF Bild"
+
+msgid "JPG Image"
+msgstr "JPG Bild"
+
+msgid "BMP Image"
+msgstr "BMP-Bilddatei"
+
+msgid "PNG Image"
+msgstr "PNG Bild"
+
+msgid "TIF Image"
+msgstr "TIF Bild"
+
+msgid "Photoshop File"
+msgstr "Photoshop Datei"
+
+msgid "ZIP Archive"
+msgstr "ZIP Archiv"
+
+msgid "TAR Archive"
+msgstr "TAR Archiv"
+
+msgid "GZIP Archive"
+msgstr "GZIP Archiv"
+
+msgid "BZIP2 Archive"
+msgstr "BZIP2-Archiv"
+
+msgid "RAR Archive"
+msgstr "RAR Archiv"
+
+msgid "MP3 Audio File"
+msgstr "MP3 Audio Datei"
+
+msgid "FLAC Audio File"
+msgstr "FLAC Audio Datei"
+
+msgid "WAV Audio File"
+msgstr "WAV Audio Datei"
+
+msgid "MIDI File"
+msgstr "MIDI Datei"
+
+msgid "RealAudio File"
+msgstr "RealAudio Datei"
+
+msgid "DTS Audio File"
+msgstr "DTS Audio Datei"
+
+msgid "AC3 Audio File"
+msgstr "AC3 Audio-Datei"
+
+msgid "OGG Audio File"
+msgstr "OGG Audio-Datei"
+
+msgid "MP3 Playlist"
+msgstr "MP3 PlayList"
+
+msgid "AVI File"
+msgstr "AVI-Datei"
+
+msgid "MPEG File"
+msgstr "MPEG Datei"
+
+msgid "MOV File"
+msgstr "MOV Datei"
+
+msgid "MKV File"
+msgstr "MKV Datei"
+
+msgid "VOB File"
+msgstr "VOB Datei"
+
+msgid "Flash File"
+msgstr "Flash Datei"
+
+msgid "MP4 File"
+msgstr "MP4 Datei"
+
+msgid "TS File"
+msgstr "TS Datei"
+
+msgid "Word Document"
+msgstr "Word Dokument"
+
+msgid "Excel Sheet"
+msgstr "Excel Arbeitsblatt"
+
+msgid "Powerpoint Presentation"
+msgstr "Powerpoint Präsentation"
+
+msgid "PDF File"
+msgstr "PDF Datei"
+
+msgid "ERROR(S)"
+msgstr "FEHLER"
+
+msgid "Go Back"
+msgstr "Zurück gehen"
+
+msgid "Directory creation failed."
+msgstr "Die Verzeichniserstellung ist fehlgeschlagen."
+
+msgid "File creation failed."
+msgstr "Dateierstellung fehlgeschlagen."
+
+msgid "Dataset Name"
+msgstr "Datensatzname"
+
+msgid ""
+"File System - can be mounted within the standard system namespace and "
+"behaves like other file systems."
+msgstr ""
+"Filesystem - kann im Standard Namensraum des Systems eingebunden werden und "
+"verhält sich wie andere Filesysteme."
+
+msgid "Volume - A logical volume. Can be exported as a raw or block device."
+msgstr ""
+"Volumen - ein logisches Volumen. Kann als Raw- oder Block Device exportiert "
+"werden."
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+"Snapshot – Eine schreibgeschützte Version eines Dateisystems oder Volumes zu "
+"einem bestimmten Zeitpunkt."
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+"Lesezeichen – Erstellt ein Lesezeichen eines bestimmten Schnappschusses."
+
+msgid "Dataset Type"
+msgstr "Dataset-Typ"
+
+msgid "Pool Name"
+msgstr "Poolname"
+
+msgid "Clones"
+msgstr "Klone"
+
+msgid "Compression Ratio"
+msgstr "Kompressionsrate"
+
+msgid "Defer Destroy"
+msgstr "Zerstörung aufschieben"
+
+msgid "Encryption Root"
+msgstr "Verschlüsselungsstamm"
+
+msgid "Filesystem Count"
+msgstr "Anzahl der Dateisysteme"
+
+msgid "GUID"
+msgstr "GUID"
+
+msgid "Key Status"
+msgstr "Schlüsselstatus"
+
+msgid "Logical Referenced"
+msgstr "Logisch referenziert"
+
+msgid "Logical Used"
+msgstr "Logisch verwendet"
+
+msgid "Mounted"
+msgstr "Eingehängt"
+
+msgid "Obj Set ID"
+msgstr "Obj Set ID"
+
+msgid "Receive Resume Token"
+msgstr "Resume-Token erhalten"
+
+msgid "Redact Snaps"
+msgstr "Schnappschüsse redigieren"
+
+msgid "Refcompressratio"
+msgstr "Ref-Kompressionsverhältnis (Refcompressratio)"
+
+msgid "Referenced"
+msgstr "Referenziert"
+
+msgid "Snapshot Count"
+msgstr "Snapshot-Zähler"
+
+msgid "Used by Children"
+msgstr "Wird von Kindern verwendet"
+
+msgid "Used by Dataset"
+msgstr "Wird von Datensatz verwendet"
+
+msgid "Used by Refreservation"
+msgstr "Verwendet von Refreservation"
+
+msgid "Used by Snapshots"
+msgstr "Wird von Schnappschüssen verwendet"
+
+msgid "Userrefs"
+msgstr "Userrefs"
+
+msgid "Written"
+msgstr "Geschrieben"
+
+msgid "Normalization"
+msgstr "Normalisierung"
+
+msgid "UTF-8 File Names"
+msgstr "UTF-8-Dateinamen"
+
+msgid "ACL Type"
+msgstr "ACL Type"
+
+msgid "Access Time"
+msgstr "Zugriffsdauer"
+
+msgid "Can Mount"
+msgstr "Kann eingebunden werden"
+
+msgid "Checksum"
+msgstr "Prüfsumme"
+
+msgid "GZIP Compression Level"
+msgstr "GZIP Komprimierungsstufe"
+
+msgid "Zstandard Compression Level"
+msgstr "ZStandard-Komprimierungsstufe"
+
+msgid "Fast Zstandard Compression Level"
+msgstr "Schnelle Zstandard-Kompressionsstufe"
+
+msgid "Copies"
+msgstr "Kopien"
+
+msgid "Dedup Method"
+msgstr "Deduplikationsmethode"
+
+msgid "Dnode Size"
+msgstr "Dnode-Größe"
+
+msgid "Execute Processes"
+msgstr "Prozesse ausführen"
+
+msgid "Filesystem Limit"
+msgstr "Dateisystemlimit"
+
+msgid "Jailed"
+msgstr "In einer Virtualisierungsumgebung (Jailed)"
+
+msgid "Key Format"
+msgstr "Schlüsselformat"
+
+msgid "Key Location"
+msgstr "Schlüsselposition"
+
+msgid "Logbias"
+msgstr "Logbias"
+
+msgid "Mountpoint Type"
+msgstr "Typ des Einhängepunktes"
+
+msgid "Non-blocking Mandatory Locks"
+msgstr "Nicht blockierende obligatorische Sperren"
+
+msgid "Overlay Mount"
+msgstr "Überlagertes Einhängen"
+
+msgid "PBKDF2 Iterations"
+msgstr "PBKDF2-Iterationen"
+
+msgid "Primary Cache"
+msgstr "Primärer Cache"
+
+msgid "Record Size"
+msgstr "Datensatzgröße"
+
+msgid "Redundant Metadata"
+msgstr "Redundante Metadaten"
+
+msgid "Refquota"
+msgstr "Bezugskontingent (Refqouta)"
+
+msgid "Refquota Type"
+msgstr "Refquota-Typ"
+
+msgid "Refreservation"
+msgstr "Bezugsreservierung (Refreservation)"
+
+msgid "Refreservation Type"
+msgstr "Ref. Reservierungstyp"
+
+msgid "Relatime"
+msgstr "Relatime"
+
+msgid "Reservation Type"
+msgstr "Reservierungstyp"
+
+msgid "Secondary Cache"
+msgstr "Sekundärer Cache"
+
+msgid "Setuid"
+msgstr "Setuid"
+
+msgid "Share NFS Options"
+msgstr "NFS-Optionen teilen"
+
+msgid "Share NFS Type"
+msgstr "NFS-Typ teilen"
+
+msgid "Share SMB Options"
+msgstr "SMB-Optionen teilen"
+
+msgid "Share SMB Type"
+msgstr "SMB-Typ teilen"
+
+msgid "Snapshot Device Visibility"
+msgstr "Sichtbarkeit des Snapshot-Gerätes"
+
+msgid "Snapshot Folder Visibility"
+msgstr "Sichtbarkeit des Snapshot-Ordners"
+
+msgid "Snapshot Limit"
+msgstr "Snapshot-Limit"
+
+msgid "Threshold Small Block Size"
+msgstr "Schwellenwert kleine Blockgröße"
+
+msgid "Synchronous Requests Behaviour"
+msgstr "Verhalten bei synchronen Anfragen"
+
+msgid "Volume Mode"
+msgstr "Datenträgermodus"
+
+msgid "Volume Size"
+msgstr "Datenträgergröße"
+
+msgid "Virus Scan"
+msgstr "Virenscan"
 
 msgid "No ZFS filesystem information available."
 msgstr "Keine Informationen zum ZFS-Dateisystem verfügbar."
-
-msgid "Filesystems"
-msgstr "Dateisysteme"
 
 msgid "The name of the filesystem."
 msgstr "Der Name des Dateisystems."
@@ -9897,9 +10235,6 @@ msgstr "Dateisystemnamen eingeben"
 
 msgid "Controls the type of the ZFS dataset."
 msgstr "Legt den Typ des ZFS-Datasets fest"
-
-msgid "Pool Name"
-msgstr "Poolname"
 
 msgid ""
 "Indicates whether the file name matching algorithm used by the filesystem "
@@ -10488,235 +10823,285 @@ msgstr ""
 msgid "System attribute based xattrs"
 msgstr "Systemattributbasierte xattrs"
 
-msgid "Dataset Name"
-msgstr "Datensatzname"
+msgid "Add Filesystem"
+msgstr "Dateisystem hinzufügen"
+
+msgid "Edit Filesystem"
+msgstr "Dateisystem bearbeiten"
+
+msgid "Filesystem is marked for deletion"
+msgstr "Das Dateisystem ist zum Löschen markiert"
+
+msgid "Filesystem is locked"
+msgstr "Dateisystem ist gesperrt"
+
+msgid "Filesystem is unlocked"
+msgstr "Dateisystem ist entsperrt"
+
+msgid "Delete Selected Filesystems"
+msgstr "Ausgewählte Dateisysteme löschen"
+
+msgid "Do you want to delete selected filesystems?"
+msgstr "Möchten Sie die ausgewählten Dateisysteme löschen?"
+
+msgid "Disable Selected Schedules"
+msgstr "Ausgewählte Zeitpläne deaktivieren"
+
+msgid "Do you want to disable selected filesystems?"
+msgstr "Möchten Sie die ausgewählten Dateisysteme deaktivieren?"
+
+msgid "Enable Selected Schedules"
+msgstr "Ausgewählte Zeitpläne aktivieren"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr "Möchten Sie die ausgewählten Dateisysteme aktivieren?"
+
+msgid "Toggle Selected Schedules"
+msgstr "Umschalten der ausgewählten Zeitpläne"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr "Möchten Sie die ausgewählten Dateisysteme umschalten?"
+
+msgid "Filesystem Name"
+msgstr "Dateisystemname"
+
+msgid "unknown"
+msgstr "unbekannt"
+
+msgid "Filesystems"
+msgstr "Dateisysteme"
+
+msgid "Show Used/Avail"
+msgstr "Zeige Verwendet/Verfügbar"
+
+msgid "On-Disk Configuration"
+msgstr "\"On Disk\"-Konfiguration"
+
+msgid "Capacity Warning Threshold"
+msgstr "Kapazitäts-Schwellenwert für Warnmeldung"
+
+msgid "Capacity Critical Threshold"
+msgstr "Kritischer Kapazitäts-Schwellenwert"
+
+msgid "Extended Destroy"
+msgstr "Komplettes Löschen (Dataset & assozierte Daten)"
 
 msgid ""
-"File System - can be mounted within the standard system namespace and "
-"behaves like other file systems."
+"Display Used/Avail information from the filesystem instead of the Alloc/Free "
+"information from the pool."
 msgstr ""
-"Filesystem - kann im Standard Namensraum des Systems eingebunden werden und "
-"verhält sich wie andere Filesysteme."
-
-msgid "Volume - A logical volume. Can be exported as a raw or block device."
-msgstr ""
-"Volumen - ein logisches Volumen. Kann als Raw- oder Block Device exportiert "
-"werden."
+"Zeige Werte für Verwendet / Verfügbar des Dateisystems, anstelle der Werte "
+"Alloziiert / Frei des Pools an."
 
 msgid ""
-"Snapshot - A read-only version of a file system or volume at a given point "
-"in time."
+"Used/Avail lists storage information after all redundancy is taken into "
+"account but is impacted by compression, deduplication and quotas. Alloc/Free "
+"lists the raw storage information of a pool."
 msgstr ""
-"Snapshot – Eine schreibgeschützte Version eines Dateisystems oder Volumes zu "
-"einem bestimmten Zeitpunkt."
+"Verwendet/verfügbar (Used/Avail) zeigt die Speicherplatzinformationen unter "
+"Berücksichtigung aller Redundanzen, ist jedoch abhängig von Kompression, De-"
+"Duplizierung und Quotas. Belegt/frei (Alloc/Free) zeigt die reinen "
+"Speicherplatzinformationen eines Pools an."
 
-msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgid "Read on-disk configuration."
+msgstr "\"On Disk\"-Konfiguration lesen"
+
+msgid ""
+"Reading the configuration from the disks is slower than reading from cache "
+"file."
 msgstr ""
-"Lesezeichen – Erstellt ein Lesezeichen eines bestimmten Schnappschusses."
+"Die Konfigurationsdatei von der Festplatte zu laden erfolgt langsamer als "
+"vom Cache"
 
-msgid "Dataset Type"
-msgstr "Dataset-Typ"
+msgid "Set the warning threshold to a value between 80 and 89."
+msgstr ""
+"Setzt den Schwellenwert für Warnungen auf einen Wert zwischen 80 und 89."
 
-msgid "Clones"
-msgstr "Klone"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the warning "
+"threshold."
+msgstr ""
+"Eine Warn-E-mail wird gesendet, falls die Kapazitätsauslastung eines Pools "
+"die Warnschwelle überschreitet."
 
-msgid "Compression Ratio"
-msgstr "Kompressionsrate"
+msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
+msgstr ""
+"Ein Cron-Job muss eingerichtet werden, um das Script /etc/capacitycheck.zfs "
+"geplant auszuführen."
 
-msgid "Defer Destroy"
-msgstr "Zerstörung aufschieben"
+msgid "Must be a number between 80 and 89."
+msgstr "Muss eine Zahl zwischen 80 und 89 sein."
 
-msgid "Encryption Root"
-msgstr "Verschlüsselungsstamm"
+msgid "Set the critical threshold to a value between 90 and 95."
+msgstr "Setzt den kritischen Grenzwert auf einen Wert zwischen 90 und 95."
 
-msgid "Filesystem Count"
-msgstr "Anzahl der Dateisysteme"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the critical "
+"threshold."
+msgstr ""
+"Eine Warn-E-mail wird gesendet, falls die Kapazitätsauslastung eines Pools "
+"einen kritischen Grenzwert überschreitet."
 
-msgid "GUID"
-msgstr "GUID"
+msgid "Must be a number between 90 and 95."
+msgstr "Muss eine Zahl zwischen 90 und 95 sein."
 
-msgid "Key Status"
-msgstr "Schlüsselstatus"
+msgid "Destroy dataset and its dependents."
+msgstr "Dataset zerstören (auch Abhängigkeiten davon)"
 
-msgid "Logical Referenced"
-msgstr "Logisch referenziert"
+msgid ""
+"When enabled, destroying a dataset will also destroy all dependents "
+"(datasets, snapshots and clones)."
+msgstr ""
+"Falls aktiviert, werden neben dem Dataset auch alle abhängigen Daten "
+"gelöscht (Dataset, Snapshots und Kopien)"
 
-msgid "Logical Used"
-msgstr "Logisch verwendet"
+msgid "Add Schedule"
+msgstr "Zeitplan hinzufügen"
 
-msgid "Mounted"
-msgstr "Eingehängt"
+msgid "Edit Schedule"
+msgstr "Zeitplan bearbeiten"
 
-msgid "Obj Set ID"
-msgstr "Obj Set ID"
+msgid "Schedule is marked for deletion"
+msgstr "Termin ist zur Löschung vorgemerkt"
 
-msgid "Receive Resume Token"
-msgstr "Resume-Token erhalten"
+msgid "Schedule is locked"
+msgstr "Termin ist blockiert"
 
-msgid "Redact Snaps"
-msgstr "Schnappschüsse redigieren"
+msgid "Schedule is unlocked"
+msgstr "Terminplan ist freigegeben"
 
-msgid "Refcompressratio"
-msgstr "Ref-Kompressionsverhältnis (Refcompressratio)"
+msgid "Delete Selected Schedules"
+msgstr "Ausgewählte Zeitpläne löschen"
 
-msgid "Referenced"
-msgstr "Referenziert"
+msgid "Do you want to delete selected schedules?"
+msgstr "Möchten Sie die ausgewählten Zeitpläne deaktivieren?"
 
-msgid "Snapshot Count"
-msgstr "Snapshot-Zähler"
+msgid "Do you want to disable selected schedules?"
+msgstr "Möchten Sie die ausgewählten Zeitpläne deaktivieren?"
 
-msgid "Used by Children"
-msgstr "Wird von Kindern verwendet"
+msgid "Do you want to enable selected schedules?"
+msgstr "Möchten Sie die ausgewählten Zeitpläne aktivieren?"
 
-msgid "Used by Dataset"
-msgstr "Wird von Datensatz verwendet"
+msgid "Do you want to toggle selected schedules?"
+msgstr "Möchten Sie ausgewählte Zeitpläne umschalten?"
 
-msgid "Used by Refreservation"
-msgstr "Verwendet von Refreservation"
+msgid "Invalid"
+msgstr "Ungültig"
 
-msgid "Used by Snapshots"
-msgstr "Wird von Schnappschüssen verwendet"
+msgid "Destroy"
+msgstr "Zerstören"
 
-msgid "Userrefs"
-msgstr "Userrefs"
+msgid "Create Snapshot"
+msgstr "Snapshot erstellen"
 
-msgid "Written"
-msgstr "Geschrieben"
+msgid "Destroy Snapshot"
+msgstr "Snapshot zerstören"
 
-msgid "Normalization"
-msgstr "Normalisierung"
+msgid "Scrub Pool"
+msgstr "Führe Scrub (Fehlerüberprüfung) für Pool durch"
 
-msgid "UTF-8 File Names"
-msgstr "UTF-8-Dateinamen"
+msgid "Lifetime"
+msgstr "Lebensdauer"
 
-msgid "ACL Type"
-msgstr "ACL Type"
+msgid "Second(s)"
+msgstr "Sekunde(n)"
 
-msgid "Access Time"
-msgstr "Zugriffsdauer"
+msgid "Minute(s)"
+msgstr "Minute(n)"
 
-msgid "Can Mount"
-msgstr "Kann eingebunden werden"
+msgid "Hour(s)"
+msgstr "Stunde(n)"
 
-msgid "Checksum"
-msgstr "Prüfsumme"
+msgid "Day(s)"
+msgstr "Tag(e)"
 
-msgid "GZIP Compression Level"
-msgstr "GZIP Komprimierungsstufe"
+msgid "Week(s)"
+msgstr "Woche(n)"
 
-msgid "Zstandard Compression Level"
-msgstr "ZStandard-Komprimierungsstufe"
+msgid "Month(s)"
+msgstr "Monat(e)"
 
-msgid "Fast Zstandard Compression Level"
-msgstr "Schnelle Zstandard-Kompressionsstufe"
+msgid "Year(s)"
+msgstr "Jahr(e)"
 
-msgid "Copies"
-msgstr "Kopien"
+msgid "Hourly"
+msgstr "Stündlich"
 
-msgid "Dedup Method"
-msgstr "Deduplikationsmethode"
+msgid "Daily"
+msgstr "Täglich"
 
-msgid "Dnode Size"
-msgstr "Dnode-Größe"
+msgid "Weekly"
+msgstr "Wöchentlich"
 
-msgid "Execute Processes"
-msgstr "Prozesse ausführen"
+msgid "Monthly"
+msgstr "Monatlich"
 
-msgid "Filesystem Limit"
-msgstr "Dateisystemlimit"
+msgid "Yearly"
+msgstr "Jährlich"
 
-msgid "Jailed"
-msgstr "In einer Virtualisierungsumgebung (Jailed)"
+msgid "Custom Setting"
+msgstr "Benutzerdefinierte Einstellung"
 
-msgid "Key Format"
-msgstr "Schlüsselformat"
+msgid "Schedule"
+msgstr "Terminplanung"
 
-msgid "Key Location"
-msgstr "Schlüsselposition"
+msgid "Weekdays"
+msgstr "An Werktagen"
 
-msgid "Logbias"
-msgstr "Logbias"
+msgid "All Minutes"
+msgstr "Alle Minuten"
 
-msgid "Mountpoint Type"
-msgstr "Typ des Einhängepunktes"
+msgid "All Hours"
+msgstr "Alle Stunden"
 
-msgid "Non-blocking Mandatory Locks"
-msgstr "Nicht blockierende obligatorische Sperren"
+msgid "All Days"
+msgstr "Alle Tage"
 
-msgid "Overlay Mount"
-msgstr "Überlagertes Einhängen"
+msgid "All Months"
+msgstr "Alle Monate"
 
-msgid "PBKDF2 Iterations"
-msgstr "PBKDF2-Iterationen"
+msgid "All Weekdays"
+msgstr "Alle Wochentage"
 
-msgid "Primary Cache"
-msgstr "Primärer Cache"
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Pool, Dateisystem oder Volume auswählen"
 
-msgid "Record Size"
-msgstr "Datensatzgröße"
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr "Rekursives Vernichten von Snapshots aller untergeordneten Datasets."
 
-msgid "Redundant Metadata"
-msgstr "Redundante Metadaten"
+msgid "Lifetime Value"
+msgstr "Lebensdauer-Wert"
 
-msgid "Refquota"
-msgstr "Bezugskontingent (Refqouta)"
+msgid "Lifetime Units"
+msgstr "Lebensdauer-Einheit"
 
-msgid "Refquota Type"
-msgstr "Refquota-Typ"
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Befehle werden vom Scheduler ausgeführt, wenn die Felder Minute, Stunde und "
+"Monat des Jahres mit der aktuellen Uhrzeit übereinstimmen und wenn "
+"mindestens eines der beiden Tagesfelder (Monatstag oder Wochentag) mit der "
+"aktuellen Uhrzeit übereinstimmt."
 
-msgid "Refreservation"
-msgstr "Bezugsreservierung (Refreservation)"
+msgid "Presets"
+msgstr "Voreinstellungen"
 
-msgid "Refreservation Type"
-msgstr "Ref. Reservierungstyp"
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr "Rekursives Erstellen von Snapshots aller untergeordneten Datasets."
 
-msgid "Relatime"
-msgstr "Relatime"
+msgid "Select pool."
+msgstr "Pool auswählen."
 
-msgid "Reservation Type"
-msgstr "Reservierungstyp"
+msgid "Scrub"
+msgstr "Schrubben (Scrub)"
 
-msgid "Secondary Cache"
-msgstr "Sekundärer Cache"
+msgid "No ZFS zpool information available."
+msgstr "Keine ZFS-Zpool-Informationen verfügbar."
 
-msgid "Setuid"
-msgstr "Setuid"
-
-msgid "Share NFS Options"
-msgstr "NFS-Optionen teilen"
-
-msgid "Share NFS Type"
-msgstr "NFS-Typ teilen"
-
-msgid "Share SMB Options"
-msgstr "SMB-Optionen teilen"
-
-msgid "Share SMB Type"
-msgstr "SMB-Typ teilen"
-
-msgid "Snapshot Device Visibility"
-msgstr "Sichtbarkeit des Snapshot-Gerätes"
-
-msgid "Snapshot Folder Visibility"
-msgstr "Sichtbarkeit des Snapshot-Ordners"
-
-msgid "Snapshot Limit"
-msgstr "Snapshot-Limit"
-
-msgid "Threshold Small Block Size"
-msgstr "Schwellenwert kleine Blockgröße"
-
-msgid "Synchronous Requests Behaviour"
-msgstr "Verhalten bei synchronen Anfragen"
-
-msgid "Volume Mode"
-msgstr "Datenträgermodus"
-
-msgid "Volume Size"
-msgstr "Datenträgergröße"
-
-msgid "Virus Scan"
-msgstr "Virenscan"
+msgid "No ZFS volume information available."
+msgstr "Keine ZFS-Volume-Informationen verfügbar."
 
 msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
@@ -10729,14 +11114,107 @@ msgstr "Identifier eingeben"
 msgid "Enter smartctl pass-through type."
 msgstr "Smartctl pass-through Typ angeben"
 
+msgid "Login Name"
+msgstr "Benutzername"
+
+msgid "Full Name"
+msgstr "Vollständiger Name"
+
+msgid "SHA Password"
+msgstr "SHA Passwort"
+
+msgid "MD4 Password"
+msgstr "MD4 Passwort"
+
+msgid "Shell"
+msgstr "Shell"
+
+msgid "Primary Group"
+msgstr "Primäre Gruppe"
+
+msgid "Groups"
+msgstr "Gruppen"
+
+msgid "Timezone"
+msgstr "Zeitzone"
+
+msgid "File Manager Access"
+msgstr "Zugriff über Datei-Manager"
+
+msgid "Hidden Items"
+msgstr "Versteckte Inhalte"
+
+msgid "Read Permission"
+msgstr "Leseberechtigung"
+
+msgid "Create Permission"
+msgstr "Berechtigung zuweisen"
+
+msgid "Change Permission"
+msgstr "Berechtigung ändern"
+
+msgid "Delete Permission"
+msgstr "Berechtigung löschen"
+
+msgid "Add User Account"
+msgstr "Benutzerkonto hinzufügen"
+
+msgid "Edit User Account"
+msgstr "Benutzerkonto bearbeiten"
+
+msgid "User account is marked for deletion"
+msgstr "Benutzerkonto ist zur Löschung markiert"
+
+msgid "User account is protected"
+msgstr "Benutzerkonto ist geschützt"
+
+msgid "User account is unlocked"
+msgstr "Benutzerkonto ist entsperrt"
+
+msgid "Set password"
+msgstr "Passwort festlegen"
+
+msgid "Delete Selected User Accounts"
+msgstr "Ausgewählte Benutzerkonten löschen"
+
+msgid "Do you want to delete selected user accounts?"
+msgstr "Möchten Sie ausgewählte Benutzerkonten löschen?"
+
+msgid "Disable Selected Users"
+msgstr "Ausgewählte Benutzer abschalten"
+
+msgid "Do you want to disable selected users?"
+msgstr "Möchten Sie die ausgewählten Benutzer abschalten?"
+
+msgid "Enable Selected Users"
+msgstr "Aktiviert die ausgewählten Nutzer"
+
+msgid "Do you want to enable selected users?"
+msgstr "Möchten Sie die ausgewählten Benutzer aktivieren?"
+
+msgid "Toggle Selected Users"
+msgstr "Ausgewählte Benutzer umschalten"
+
+msgid "Do you want to toggle selected users?"
+msgstr "Möchten Sie die ausgewählten Benutzer umschalten?"
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "System User"
+msgstr "Systembenutzer"
+
+msgid "Show System Users"
+msgstr "Systembenutzer anzeigen"
+
+msgid "Hide System Users"
+msgstr "System-Benutzer verbergen"
+
 msgid "Enter login name."
 msgstr "Login Namen eingeben."
 
 msgid "Enter the full user name."
 msgstr "Geben Sie den Vollständigen Nutzernamen ein"
-
-msgid "Full Name"
-msgstr "Vollständiger Name"
 
 msgid "Set user password."
 msgstr "Benutzerpasswort festlegen."
@@ -10824,110 +11302,11 @@ msgstr "Erteile Berechtigung zum Ändern"
 msgid "Grant delete permission"
 msgstr "Erteile Berechtigung zum Löschen"
 
-msgid "Add User Account"
-msgstr "Benutzerkonto hinzufügen"
-
-msgid "Edit User Account"
-msgstr "Benutzerkonto bearbeiten"
-
-msgid "User account is marked for deletion"
-msgstr "Benutzerkonto ist zur Löschung markiert"
-
-msgid "User account is protected"
-msgstr "Benutzerkonto ist geschützt"
-
-msgid "User account is unlocked"
-msgstr "Benutzerkonto ist entsperrt"
-
-msgid "Set password"
-msgstr "Passwort festlegen"
-
-msgid "Delete Selected User Accounts"
-msgstr "Ausgewählte Benutzerkonten löschen"
-
-msgid "Do you want to delete selected user accounts?"
-msgstr "Möchten Sie ausgewählte Benutzerkonten löschen?"
-
-msgid "Disable Selected Users"
-msgstr "Ausgewählte Benutzer abschalten"
-
-msgid "Do you want to disable selected users?"
-msgstr "Möchten Sie die ausgewählten Benutzer abschalten?"
-
-msgid "Enable Selected Users"
-msgstr "Aktiviert die ausgewählten Nutzer"
-
-msgid "Do you want to enable selected users?"
-msgstr "Möchten Sie die ausgewählten Benutzer aktivieren?"
-
-msgid "Toggle Selected Users"
-msgstr "Ausgewählte Benutzer umschalten"
-
-msgid "Do you want to toggle selected users?"
-msgstr "Möchten Sie die ausgewählten Benutzer umschalten?"
-
-msgid "Active"
-msgstr "Aktiv"
-
-msgid "System User"
-msgstr "Systembenutzer"
-
-msgid "Show System Users"
-msgstr "Systembenutzer anzeigen"
-
-msgid "Hide System Users"
-msgstr "System-Benutzer verbergen"
-
 msgid "Users"
 msgstr "Benutzer"
 
 msgid "Public Keys"
 msgstr "Öffentliche Schlüssel"
-
-msgid "Groups"
-msgstr "Gruppen"
-
-msgid "Login Name"
-msgstr "Benutzername"
-
-msgid "SHA Password"
-msgstr "SHA Passwort"
-
-msgid "MD4 Password"
-msgstr "MD4 Passwort"
-
-msgid "Shell"
-msgstr "Shell"
-
-msgid "Primary Group"
-msgstr "Primäre Gruppe"
-
-msgid "Timezone"
-msgstr "Zeitzone"
-
-msgid "File Manager Access"
-msgstr "Zugriff über Datei-Manager"
-
-msgid "Hidden Items"
-msgstr "Versteckte Inhalte"
-
-msgid "Read Permission"
-msgstr "Leseberechtigung"
-
-msgid "Create Permission"
-msgstr "Berechtigung zuweisen"
-
-msgid "Change Permission"
-msgstr "Berechtigung ändern"
-
-msgid "Delete Permission"
-msgstr "Berechtigung löschen"
-
-msgid "Public key information."
-msgstr "Öffentlicher Schlüssel Information."
-
-msgid "Public Key"
-msgstr "Öffentlicher Schlüssel"
 
 msgid "Add Public Key"
 msgstr "Öffentlichen Schlüssel hinzufügen"
@@ -10970,6 +11349,12 @@ msgstr "Möchten Sie die ausgewählten öffentlichen Schlüssel umschalten?"
 
 msgid "Reload"
 msgstr "Neu laden"
+
+msgid "Public Key"
+msgstr "Öffentlicher Schlüssel"
+
+msgid "Public key information."
+msgstr "Öffentlicher Schlüssel Information."
 
 msgid "Add Group"
 msgstr "Gruppe Hinzufügen"
@@ -11032,21 +11417,6 @@ msgid "The recommended range for the group id is between 1000 and 32000."
 msgstr ""
 "Der empfohlene Bereich für die Gruppen-ID liegt zwischen 1000 und 32000."
 
-msgid "Domain Controller Name"
-msgstr "Domänencontroller Name"
-
-msgid "Domain Name (DNS/Realm-Name)"
-msgstr "Domänenname (DNS/ Bereich)"
-
-msgid "Domain Name (NetBIOS-Name)"
-msgstr "Domain Name (NetBIOS-Name)"
-
-msgid "Administrator Name"
-msgstr "Administratoren-Name"
-
-msgid "Administrator Password"
-msgstr "Administrator-Passwort"
-
 msgid "Enter AD or PDC name."
 msgstr "Eingabe des AD- oder PDC-Namen."
 
@@ -11073,6 +11443,21 @@ msgstr "Admin"
 
 msgid "Enter the password of the domain administrator account."
 msgstr "Eingabe Kennwort vom Domänenadministratorkonto."
+
+msgid "Domain Controller Name"
+msgstr "Domänencontroller Name"
+
+msgid "Domain Name (DNS/Realm-Name)"
+msgstr "Domänenname (DNS/ Bereich)"
+
+msgid "Domain Name (NetBIOS-Name)"
+msgstr "Domain Name (NetBIOS-Name)"
+
+msgid "Administrator Name"
+msgstr "Administratoren-Name"
+
+msgid "Administrator Password"
+msgstr "Administrator-Passwort"
 
 msgid "Add Reboot Schedule"
 msgstr "Neustart-Zeitplan hinzufügen"
@@ -11112,27 +11497,6 @@ msgstr "Umschalten der ausgewählten Neustart-Zeitpläne"
 
 msgid "Do you want to toggle selected reboot schedules?"
 msgstr "Möchten Sie ausgewählte Neustartzeitpläne umschalten?"
-
-msgid "Daemon Events"
-msgstr "Ereignismeldungen von Dienstprogrammen"
-
-msgid "Enable Server"
-msgstr "Server aktivieren"
-
-msgid "FTP Events"
-msgstr "FTP Ereignismeldungen"
-
-msgid "RSYNC Events"
-msgstr "RSYNC Ereignisse"
-
-msgid "S.M.A.R.T. Events"
-msgstr "S.M.A.R.T. Ereignisse"
-
-msgid "SSH Events"
-msgstr "SSH Ereignisse"
-
-msgid "System Events"
-msgstr "System-Ereignisse"
 
 msgid "Send daemon event messages."
 msgstr "Sende Ereignismeldungen von Dienstprogrammen."
@@ -11176,6 +11540,27 @@ msgstr "Sende SSH Ereignisse."
 msgid "Send system event messages."
 msgstr "Sende Ereignismeldungen des Systems."
 
+msgid "Daemon Events"
+msgstr "Ereignismeldungen von Dienstprogrammen"
+
+msgid "Enable Server"
+msgstr "Server aktivieren"
+
+msgid "FTP Events"
+msgstr "FTP Ereignismeldungen"
+
+msgid "RSYNC Events"
+msgstr "RSYNC Ereignisse"
+
+msgid "S.M.A.R.T. Events"
+msgstr "S.M.A.R.T. Ereignisse"
+
+msgid "SSH Events"
+msgstr "SSH Ereignisse"
+
+msgid "System Events"
+msgstr "System-Ereignisse"
+
 msgid "Disable the compression of repeating lines."
 msgstr "Sich wiederholende Meldungen nicht unterdrücken."
 
@@ -11208,6 +11593,15 @@ msgstr "Log-Sortierung"
 
 msgid "Facility"
 msgstr "Einrichtung"
+
+msgid "Enter facility name"
+msgstr "Name der Einrichtung angeben"
+
+msgid "Enter level name"
+msgstr "Name des Niveaus (Level) angeben"
+
+msgid "Enter destination"
+msgstr "Ziel eingeben"
 
 msgid "Add Option"
 msgstr "Option Hinzufügen"
@@ -11248,20 +11642,11 @@ msgstr "Ausgewählte Einstellungen umschalten"
 msgid "Do you want to toggle selected options?"
 msgstr "Möchten Sie die ausgewählten Einstellungen umschalten?"
 
-msgid "Enter facility name"
-msgstr "Name der Einrichtung angeben"
-
-msgid "Enter level name"
-msgstr "Name des Niveaus (Level) angeben"
-
-msgid "Enter destination"
-msgstr "Ziel eingeben"
+msgid "Reorder"
+msgstr "Neu anordnen"
 
 msgid "Sort"
 msgstr "Sortieren"
-
-msgid "Reorder"
-msgstr "Neu anordnen"
 
 msgid "Add Command"
 msgstr "Befehl hinzufügen"
@@ -11368,14 +11753,11 @@ msgstr ""
 "Diese sysctl-Variablen werden zu /etc/sysctl.conf hinzugefügt. Hiermit "
 "können Sie Änderungen an einem laufenden System vornehmen."
 
-msgid "The value of the setting."
-msgstr "Der Wert der Einstellung."
-
 msgid "Variable"
 msgstr "Variable"
 
-msgid "Destination Network"
-msgstr "Zielnetz"
+msgid "The value of the setting."
+msgstr "Der Wert der Einstellung."
 
 msgid "Choose which interface this route applies to."
 msgstr ""
@@ -11426,14 +11808,11 @@ msgstr "Ausgewählte Routen umschalten"
 msgid "Do you want to toggle selected routes?"
 msgstr "39/5000 Möchten Sie ausgewählte Routen umschalten?"
 
+msgid "Destination Network"
+msgstr "Zielnetz"
+
 msgid "Running user"
 msgstr "Ausführender Nutzer"
-
-msgid "The name of the variable."
-msgstr "Der Name der Variable."
-
-msgid "The value of the variable."
-msgstr "Der Wert der Variable."
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
@@ -11444,17 +11823,62 @@ msgstr ""
 "Weise können Sie Parameter angeben, die an den Kernel übergeben werden "
 "sollen, und zusätzliche Module, die geladen werden sollen."
 
-msgid "Disabled variable names will be removed from /etc/rc.conf."
-msgstr "Gesperrte Vaiablennamen werden aus /etc/rc.conf entfernt."
+msgid "The name of the variable."
+msgstr "Der Name der Variable."
 
-msgid "Enabled options will be added to /etc/rc.conf."
-msgstr "Erlaubte Optionen weden  /etc/rc.conf hinzugefügt."
+msgid "The value of the variable."
+msgstr "Der Wert der Variable."
 
 msgid "Name of the variable."
 msgstr "Name der Variablen."
 
 msgid "Enter Value"
 msgstr "Wert eingeben"
+
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr "Gesperrte Vaiablennamen werden aus /etc/rc.conf entfernt."
+
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr "Erlaubte Optionen weden  /etc/rc.conf hinzugefügt."
+
+msgid "Button Location"
+msgstr "Knopfleistenanordnung (Button)"
+
+msgid "File Chooser"
+msgstr "Dateiauswahl"
+
+msgid "File Mode"
+msgstr "Dateimodus"
+
+msgid "GUI"
+msgstr "Grafische Benutzeroberfläche"
+
+msgid "Navigation Bar"
+msgstr "Navigationsleiste"
+
+msgid "Tabs"
+msgstr "Reiter"
+
+msgid "Toggle Mode"
+msgstr "Umschaltmodus"
+
+msgid "Navbar Style"
+msgstr "Stil der Navigationsleiste"
+
+msgid "Binary Prefix"
+msgstr "Binäres Präfix"
+
+msgid "Colorful Meters"
+msgstr "Farbenfrohe Anzeigen"
+
+msgid "Skip View Mode"
+msgstr "Ansichtsmodus überspringen"
+
+msgid "Show Max CPUs"
+msgstr "Maximal angezeigte CPUs"
+
+msgid "Diagnostics Information"
+msgstr "Diagnoseinformationen"
 
 msgid ""
 "Display action buttons in the scrollable area instead of the footer area."
@@ -11553,48 +11977,6 @@ msgstr ""
 "Legen Sie die Zielseite (landing page) für das Menü \"Diagnose > "
 "Information\" fest."
 
-msgid "Button Location"
-msgstr "Knopfleistenanordnung (Button)"
-
-msgid "File Chooser"
-msgstr "Dateiauswahl"
-
-msgid "File Mode"
-msgstr "Dateimodus"
-
-msgid "GUI"
-msgstr "Grafische Benutzeroberfläche"
-
-msgid "Navigation Bar"
-msgstr "Navigationsleiste"
-
-msgid "Tabs"
-msgstr "Reiter"
-
-msgid "Toggle Mode"
-msgstr "Umschaltmodus"
-
-msgid "Navbar Style"
-msgstr "Stil der Navigationsleiste"
-
-msgid "Binary Prefix"
-msgstr "Binäres Präfix"
-
-msgid "Colorful Meters"
-msgstr "Farbenfrohe Anzeigen"
-
-msgid "Skip View Mode"
-msgstr "Ansichtsmodus überspringen"
-
-msgid "Show Max CPUs"
-msgstr "Maximal angezeigte CPUs"
-
-msgid "Diagnostics Information"
-msgstr "Diagnoseinformationen"
-
-msgid "Show Interval"
-msgstr "Anzeigeintervall"
-
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
 "configuration. The default is 28 days. A value of 0 disables the reminder."
@@ -11603,44 +11985,16 @@ msgstr ""
 "Systemkonfiguration angezeigt wird. Der Standardwert beträgt 28 Tage. Der "
 "Wert 0 deaktiviert die Erinnerung."
 
-msgid "Network Address"
-msgstr "Netzwerkadresse"
+msgid "Show Interval"
+msgstr "Anzeigeintervall"
 
-msgid "Enter additional parameters"
-msgstr "Geben Sie zusätzliche Parameter ein"
+msgid "Do you really want to remove the selected item from the list?"
+msgstr ""
+"Möchten Sie wirklich den selektierten Eintrag aus der Liste entfernen?"
 
-msgid "No additional parameters"
-msgstr "Keine zusätzlichen Parameter"
-
-msgid "Undefined"
-msgstr "Nicht festgelegt"
-
-msgid "The value is invalid."
-msgstr "Der Wert ist ungültig."
-
-msgid "Enter a description for your reference."
-msgstr "Eine Beschreibung als Referenz eingeben."
-
-msgid "Enable Setting"
-msgstr "Einstellung aktivieren"
-
-msgid "IPv4 Address"
-msgstr "IPv4-Adresse"
-
-msgid "Protect"
-msgstr "Schützen"
-
-msgid "Protect Setting"
-msgstr "Einstellung schützen"
-
-msgid "The UUID of the record."
-msgstr "Die UUID des Eintrages (record)."
-
-msgid "Enter Universally Unique Identifier"
-msgstr "Universally Unique Identifier eingeben"
-
-msgid "Universally Unique Identifier"
-msgstr "Eindeutiger Bezeichner UUID"
+msgid "Select item to remove from the list"
+msgstr ""
+"Wählen Sie das Objekt aus, welches von der Liste entfernt werden soll"
 
 msgid "Delete Selected Records"
 msgstr "Ausgewählte Datensätze löschen"
@@ -11699,8 +12053,155 @@ msgstr "Eintrag bearbeiten"
 msgid "Record is unlocked"
 msgstr "Eintrag ist entsperrt"
 
+msgid "Service"
+msgstr "Service"
+
+msgid "Undefined"
+msgstr "Nicht festgelegt"
+
+msgid "The value is invalid."
+msgstr "Der Wert ist ungültig."
+
+msgid "Enter additional parameters"
+msgstr "Geben Sie zusätzliche Parameter ein"
+
+msgid "No additional parameters"
+msgstr "Keine zusätzlichen Parameter"
+
+msgid "Enter a description for your reference."
+msgstr "Eine Beschreibung als Referenz eingeben."
+
+msgid "Network Address"
+msgstr "Netzwerkadresse"
+
+msgid "Enable Setting"
+msgstr "Einstellung aktivieren"
+
+msgid "IPv4 Address"
+msgstr "IPv4-Adresse"
+
+msgid "The UUID of the record."
+msgstr "Die UUID des Eintrages (record)."
+
+msgid "Enter Universally Unique Identifier"
+msgstr "Universally Unique Identifier eingeben"
+
+msgid "Universally Unique Identifier"
+msgstr "Eindeutiger Bezeichner UUID"
+
+msgid "Protect"
+msgstr "Schützen"
+
+msgid "Protect Setting"
+msgstr "Einstellung schützen"
+
 msgid "Autodetect"
 msgstr "Automatische Erkennung"
+
+msgid "Standard Provider"
+msgstr "Standard Provider"
+
+msgid "Custom Provider"
+msgstr "Benutzerdefinierter Provider"
+
+msgid "Record Type"
+msgstr "Eintragstyp"
+
+msgid "Provider"
+msgstr "Provider"
+
+msgid "Provider Name"
+msgstr "Name des Providers"
+
+msgid "Host Names"
+msgstr "Hostnamen"
+
+msgid "Wildcard Domain"
+msgstr "Wildcard Domäne"
+
+msgid "Use HTTPS"
+msgstr "HTTPS benutzen"
+
+msgid "Check IP Server"
+msgstr "IP-Server prüfen"
+
+msgid "Check IP Path"
+msgstr "IP-Pfad prüfen"
+
+msgid "Check IP using HTTPS"
+msgstr "IP mit HTTPS prüfen"
+
+msgid "Check IP Command"
+msgstr "IP-Befehl prüfen"
+
+msgid "User Agent"
+msgstr "User-Agent"
+
+msgid "DDNS-Server"
+msgstr "DDNS-Server"
+
+msgid "DDNS-Path"
+msgstr "DDNS-Pfad"
+
+msgid "Append my IP"
+msgstr "Meine IP anhängen"
+
+msgid "Add Provider"
+msgstr "Provider hinzufügen"
+
+msgid "Edit Provider"
+msgstr "Provider bearbeiten"
+
+msgid "Provider is marked for deletion"
+msgstr "Anbieter ist zum Löschen vorgemerkt"
+
+msgid "Provider is locked"
+msgstr "Provider ist gesperrt"
+
+msgid "Provider is unlocked"
+msgstr "Provider ist freigeschaltet"
+
+msgid "Delete Selected Providers"
+msgstr "Ausgewählte Provider löschen"
+
+msgid "Disable Selected Providers"
+msgstr "Ausgewählte Provider deaktivieren"
+
+msgid "Enable Selected Providers"
+msgstr "Ausgewählte Provider freigeben"
+
+msgid "Toggle Selected Providers"
+msgstr "Ausgewählte Provider umschalten"
+
+msgid "Do you want to delete selected providers?"
+msgstr "Möchten Sie ausgewählte Anbieter löschen?"
+
+msgid "Do you want to disable selected providers?"
+msgstr "Möchten Sie die ausgewählten Anbieter deaktivieren?"
+
+msgid "Do you want to enable selected providers?"
+msgstr "Möchten Sie ausgewählte Anbieter aktivieren?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "Möchten Sie ausgewählte Anbieter umschalten?"
+
+msgid "Missing Provider"
+msgstr "Fehlender Provider"
+
+msgid "Orphaned Provider"
+msgstr "Verwaister Provider"
+
+msgid "Undefined Type"
+msgstr "Undefinierter Typ"
+
+msgid "Unknown Provider"
+msgstr "Unbekannter Provider"
+
+msgid "Providers"
+msgstr "Anbieter"
+
+msgid "Global Settings"
+msgstr "Globale Einstellungen"
 
 msgid ""
 "Select \"Custom Provider\" for customizing the DDNS update server details "
@@ -11826,111 +12327,6 @@ msgstr ""
 
 msgid "These parameters will be added to this provider configuration"
 msgstr "Diese Parameter werden zu dieser Provider-Konfiguration hinzugefügt"
-
-msgid "Add Provider"
-msgstr "Provider hinzufügen"
-
-msgid "Edit Provider"
-msgstr "Provider bearbeiten"
-
-msgid "Provider is marked for deletion"
-msgstr "Anbieter ist zum Löschen vorgemerkt"
-
-msgid "Provider is locked"
-msgstr "Provider ist gesperrt"
-
-msgid "Provider is unlocked"
-msgstr "Provider ist freigeschaltet"
-
-msgid "Delete Selected Providers"
-msgstr "Ausgewählte Provider löschen"
-
-msgid "Disable Selected Providers"
-msgstr "Ausgewählte Provider deaktivieren"
-
-msgid "Enable Selected Providers"
-msgstr "Ausgewählte Provider freigeben"
-
-msgid "Toggle Selected Providers"
-msgstr "Ausgewählte Provider umschalten"
-
-msgid "Do you want to delete selected providers?"
-msgstr "Möchten Sie ausgewählte Anbieter löschen?"
-
-msgid "Do you want to disable selected providers?"
-msgstr "Möchten Sie die ausgewählten Anbieter deaktivieren?"
-
-msgid "Do you want to enable selected providers?"
-msgstr "Möchten Sie ausgewählte Anbieter aktivieren?"
-
-msgid "Do you want to toggle selected providers?"
-msgstr "Möchten Sie ausgewählte Anbieter umschalten?"
-
-msgid "Missing Provider"
-msgstr "Fehlender Provider"
-
-msgid "Orphaned Provider"
-msgstr "Verwaister Provider"
-
-msgid "Undefined Type"
-msgstr "Undefinierter Typ"
-
-msgid "Unknown Provider"
-msgstr "Unbekannter Provider"
-
-msgid "Standard Provider"
-msgstr "Standard Provider"
-
-msgid "Custom Provider"
-msgstr "Benutzerdefinierter Provider"
-
-msgid "Record Type"
-msgstr "Eintragstyp"
-
-msgid "Provider"
-msgstr "Provider"
-
-msgid "Provider Name"
-msgstr "Name des Providers"
-
-msgid "Host Names"
-msgstr "Hostnamen"
-
-msgid "Wildcard Domain"
-msgstr "Wildcard Domäne"
-
-msgid "Use HTTPS"
-msgstr "HTTPS benutzen"
-
-msgid "Check IP Server"
-msgstr "IP-Server prüfen"
-
-msgid "Check IP Path"
-msgstr "IP-Pfad prüfen"
-
-msgid "Check IP using HTTPS"
-msgstr "IP mit HTTPS prüfen"
-
-msgid "Check IP Command"
-msgstr "IP-Befehl prüfen"
-
-msgid "User Agent"
-msgstr "User-Agent"
-
-msgid "DDNS-Server"
-msgstr "DDNS-Server"
-
-msgid "DDNS-Path"
-msgstr "DDNS-Pfad"
-
-msgid "Append my IP"
-msgstr "Meine IP anhängen"
-
-msgid "Providers"
-msgstr "Anbieter"
-
-msgid "Global Settings"
-msgstr "Globale Einstellungen"
 
 msgid "Verify Address"
 msgstr "Adresse überprüfen"
@@ -12091,6 +12487,15 @@ msgstr "Debug"
 msgid "These parameters are appended to the inadyn.conf file."
 msgstr "Diese Parameter werden an die Datei inadyn.conf angehängt."
 
+msgid "Media Type"
+msgstr "Medientyp"
+
+msgid "Media Folders"
+msgstr "Medien Verzeichnisse"
+
+msgid "Media Folder"
+msgstr "Medienordner"
+
 msgid "Add Media Folder"
 msgstr "Medienverzeichnis hinzufügen"
 
@@ -12150,15 +12555,6 @@ msgstr "Durchsuche Verzeichnis nach Bilddateien."
 
 msgid "Scan folder for video and image files."
 msgstr "Durchsuche Verzeichnis nach Video- und Bilddateien."
-
-msgid "Media Type"
-msgstr "Medientyp"
-
-msgid "Media Folders"
-msgstr "Medien Verzeichnisse"
-
-msgid "Media Folder"
-msgstr "Medienordner"
 
 msgid "Inotify"
 msgstr ""
@@ -12290,6 +12686,18 @@ msgstr "Name der Authentifizierungsgruppe"
 msgid "Auth Type"
 msgstr "Authentifizierungstyp"
 
+msgid "Name of the Auth Group."
+msgstr "Name der Authentifizierungsgruppe"
+
+msgid "Sets the authentication type."
+msgstr "Setzt den Authentifizierungstyp."
+
+msgid "CHAP-Mutual"
+msgstr "CHAP-Gegenseitig (CHAP-Mutual)"
+
+msgid "These parameters will be added to this auth-group."
+msgstr "Diese Parameter werden zu dieser auth-Gruppe hinzugefügt"
+
 msgid "Add Auth Group"
 msgstr "Füge Authentifizierungsgruppe hinzu"
 
@@ -12356,23 +12764,119 @@ msgstr "Initiatorportal"
 msgid "No initiator portals found."
 msgstr "Keine Initiatorportale gefunden."
 
-msgid "Name of the Auth Group."
-msgstr "Name der Authentifizierungsgruppe"
+msgid "LUN Name"
+msgstr "LUN Name"
 
-msgid "Sets the authentication type."
-msgstr "Setzt den Authentifizierungstyp."
+msgid "Backend"
+msgstr "Backend"
 
-msgid "CHAP-Mutual"
-msgstr "CHAP-Gegenseitig (CHAP-Mutual)"
+msgid "CTL LUN"
+msgstr "CTL-LUN"
 
-msgid "These parameters will be added to this auth-group."
-msgstr "Diese Parameter werden zu dieser auth-Gruppe hinzugefügt"
+msgid "Device ID"
+msgstr "Gerätekennung (Device ID)"
+
+msgid "Device Type"
+msgstr "Gerätetyp"
+
+msgid "Passthrough Address"
+msgstr "Passthrough"
+
+msgid "LUN Vendor"
+msgstr "LUN Hersteller"
+
+msgid "LUN Product"
+msgstr "LUN Produkt"
+
+msgid "LUN Revision"
+msgstr "LUN Revision"
+
+msgid "LUN SCSI Name"
+msgstr "LUN SCSI Name"
+
+msgid "LUN EUI-64\tidentifier"
+msgstr "LUN EUI-64\tidentifier"
+
+msgid "LUN NAA Identifier"
+msgstr "LUN NAA Identifier"
+
+msgid "LUN UUID"
+msgstr "LUN UUID"
+
+msgid "HA Role"
+msgstr "HA Rolle"
+
+msgid "Insecure TPC"
+msgstr "Unsicheres TPC"
+
+msgid "Read Cache"
+msgstr "Lese-Zwischenspeicher"
+
+msgid "Read Only"
+msgstr "Nur Lesen"
+
+msgid "Reordering"
+msgstr "Umsortieren"
+
+msgid "Serialize Sequence"
+msgstr "Abfolge serialisieren"
+
+msgid "Physical Block Size"
+msgstr "Physische Block-Größe"
+
+msgid "Physical Block Offset"
+msgstr "Physischer Block-Offset"
+
+msgid "UNMAP Block Size"
+msgstr "UNMAP Block Größe"
+
+msgid "UNMAP Block Offset"
+msgstr "UNMAP Block Offset"
+
+msgid "RPM"
+msgstr "U/min (RPM)"
+
+msgid "Form Factor"
+msgstr "Formfaktor"
+
+msgid "Provisioning Type"
+msgstr "Bevorratungstyp"
+
+msgid "UNMAP"
+msgstr "UNMAP"
+
+msgid "UNMAP Maximum LBA"
+msgstr "UNMAP Maximum LBA"
+
+msgid "UNMAP Maximum Descriptors"
+msgstr "UNMAP Maximum Deskriptoren"
+
+msgid "Write Same Maximum LBA"
+msgstr "Schreibe gleichen maximalen LBA"
+
+msgid "Avail Threshold"
+msgstr "Verfügbare Schwelle"
+
+msgid "Used Threshold"
+msgstr "Verwendeter Schwellwert"
+
+msgid "Pool Avail Threshold"
+msgstr "Pool Schwellwert verfügbar"
+
+msgid "Pool Used Threshold"
+msgstr "Grenzwert für Pool-Auslastung"
+
+msgid "Threads"
+msgstr "Threads"
+
+msgid "Additional Options for Block Backend"
+msgstr "Weitere Optionen für das Block-Backend"
+
+msgid "Additional Options for RAM Disk Backend"
+msgstr "Weitere Optionen für das RAM Disk-Backend"
 
 msgid "Name of the LUN."
 msgstr "Name des LUN"
-
-msgid "LUN Name"
-msgstr "LUN Name"
 
 msgid "The CTL backend to use for a given LUN."
 msgstr ""
@@ -12416,9 +12920,6 @@ msgstr ""
 
 msgid "The SCSI Device Identification string presented to the initiator."
 msgstr "Der SCSI Gerätekennzeichentext der dem Initiator übergeben wird."
-
-msgid "Device ID"
-msgstr "Gerätekennung (Device ID)"
 
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
@@ -12658,12 +13159,6 @@ msgstr ""
 msgid "These parameters will be added to this lun."
 msgstr "Diese Parameter werden zu dieser lun hinzugefügt.Die"
 
-msgid "Additional Options for Block Backend"
-msgstr "Weitere Optionen für das Block-Backend"
-
-msgid "Additional Options for RAM Disk Backend"
-msgstr "Weitere Optionen für das RAM Disk-Backend"
-
 msgid "Add LUN"
 msgstr "LUN hinzufügen"
 
@@ -12703,110 +13198,74 @@ msgstr "Möchten Sie die ausgewählten LUNs aktivieren?"
 msgid "Do you want to toggle selected LUNs?"
 msgstr "Möchten Sie die ausgewählten LUNs umschalten?"
 
-msgid "Backend"
-msgstr "Backend"
+msgid "Listen"
+msgstr "Abhören"
 
-msgid "CTL LUN"
-msgstr "CTL-LUN"
+msgid "No listeners found."
+msgstr "Keine Zuhörer gefunden."
 
-msgid "Device Type"
-msgstr "Gerätetyp"
+msgid "Option"
+msgstr "Einstellung"
 
-msgid "Passthrough Address"
-msgstr "Passthrough"
+msgid "No options found."
+msgstr "Keine Optionen gefunden."
 
-msgid "LUN Vendor"
-msgstr "LUN Hersteller"
+msgid "Add Portal Group"
+msgstr "Portalgruppe hinzufügen"
 
-msgid "LUN Product"
-msgstr "LUN Produkt"
+msgid "Edit Portal Group"
+msgstr "Portalgruppen bearbeiten"
 
-msgid "LUN Revision"
-msgstr "LUN Revision"
+msgid "Portal Group is marked for deletion"
+msgstr "Portalgruppe ist zur Löschung vorgemerkt"
 
-msgid "LUN SCSI Name"
-msgstr "LUN SCSI Name"
+msgid "Portal Group is locked"
+msgstr "Portalgruppe ist gesperrt"
 
-msgid "LUN EUI-64\tidentifier"
-msgstr "LUN EUI-64\tidentifier"
+msgid "Portal Group is unlocked"
+msgstr "Portalgruppe ist entsperrt"
 
-msgid "LUN NAA Identifier"
-msgstr "LUN NAA Identifier"
+msgid "Delete Selected Portal Groups"
+msgstr "Ausgewählte Portalgruppen löschen"
 
-msgid "LUN UUID"
-msgstr "LUN UUID"
+msgid "Disable Selected Portal Groups"
+msgstr "Ausgewählte Portalgruppen deaktivieren"
 
-msgid "HA Role"
-msgstr "HA Rolle"
+msgid "Enable Selected Portal Groups"
+msgstr "Ausgewählte Portalgruppen aktivieren"
 
-msgid "Insecure TPC"
-msgstr "Unsicheres TPC"
+msgid "Toggle Selected Portal Groups"
+msgstr "Ausgewählte Portalgruppen umschalten"
 
-msgid "Read Cache"
-msgstr "Lese-Zwischenspeicher"
+msgid "Do you want to delete selected portal groups?"
+msgstr "Möchten Sie die ausgewählten Portalgruppen löschen?"
 
-msgid "Read Only"
-msgstr "Nur Lesen"
+msgid "Do you want to disable selected portal groups?"
+msgstr "Möchten Sie die ausgewählten Portaufzeichnungen deaktivieren?"
 
-msgid "Reordering"
-msgstr "Umsortieren"
+msgid "Do you want to enable selected portal groups?"
+msgstr "Möchten Sie die ausgewählten Portalgruppen aktivieren?"
 
-msgid "Serialize Sequence"
-msgstr "Abfolge serialisieren"
-
-msgid "Physical Block Size"
-msgstr "Physische Block-Größe"
-
-msgid "Physical Block Offset"
-msgstr "Physischer Block-Offset"
-
-msgid "UNMAP Block Size"
-msgstr "UNMAP Block Größe"
-
-msgid "UNMAP Block Offset"
-msgstr "UNMAP Block Offset"
-
-msgid "RPM"
-msgstr "U/min (RPM)"
-
-msgid "Form Factor"
-msgstr "Formfaktor"
-
-msgid "Provisioning Type"
-msgstr "Bevorratungstyp"
-
-msgid "UNMAP"
-msgstr "UNMAP"
-
-msgid "UNMAP Maximum LBA"
-msgstr "UNMAP Maximum LBA"
-
-msgid "UNMAP Maximum Descriptors"
-msgstr "UNMAP Maximum Deskriptoren"
-
-msgid "Write Same Maximum LBA"
-msgstr "Schreibe gleichen maximalen LBA"
-
-msgid "Avail Threshold"
-msgstr "Verfügbare Schwelle"
-
-msgid "Used Threshold"
-msgstr "Verwendeter Schwellwert"
-
-msgid "Pool Avail Threshold"
-msgstr "Pool Schwellwert verfügbar"
-
-msgid "Pool Used Threshold"
-msgstr "Grenzwert für Pool-Auslastung"
-
-msgid "Threads"
-msgstr "Threads"
-
-msgid "Name of the Portal Group."
-msgstr "Name der Portalgruppe"
+msgid "Do you want to toggle selected portal groups?"
+msgstr "Möchten Sie die ausgewählten Portalgruppen umschalten?"
 
 msgid "Portal Group Name"
 msgstr "Portalgruppenname"
+
+msgid "Discovery Filter"
+msgstr "Entdeckungsfilter"
+
+msgid "Offload"
+msgstr "Abladen"
+
+msgid "Redirect"
+msgstr "Umleiten"
+
+msgid "Foreign"
+msgstr "Auswärtig"
+
+msgid "Name of the Portal Group."
+msgstr "Name der Portalgruppe"
 
 msgid "These parameters will be added to this portal-group."
 msgstr "Diese Parameter werden zu dieser Portal-Gruppe hinzugefügt."
@@ -12887,69 +13346,6 @@ msgstr ""
 "Eindeutiges 16-Bit Kennzeichen dieser Portalgruppe. Falls nicht angegeben "
 "wird es automatisch erzeugt."
 
-msgid "Add Portal Group"
-msgstr "Portalgruppe hinzufügen"
-
-msgid "Edit Portal Group"
-msgstr "Portalgruppen bearbeiten"
-
-msgid "Portal Group is marked for deletion"
-msgstr "Portalgruppe ist zur Löschung vorgemerkt"
-
-msgid "Portal Group is locked"
-msgstr "Portalgruppe ist gesperrt"
-
-msgid "Portal Group is unlocked"
-msgstr "Portalgruppe ist entsperrt"
-
-msgid "Delete Selected Portal Groups"
-msgstr "Ausgewählte Portalgruppen löschen"
-
-msgid "Disable Selected Portal Groups"
-msgstr "Ausgewählte Portalgruppen deaktivieren"
-
-msgid "Enable Selected Portal Groups"
-msgstr "Ausgewählte Portalgruppen aktivieren"
-
-msgid "Toggle Selected Portal Groups"
-msgstr "Ausgewählte Portalgruppen umschalten"
-
-msgid "Do you want to delete selected portal groups?"
-msgstr "Möchten Sie die ausgewählten Portalgruppen löschen?"
-
-msgid "Do you want to disable selected portal groups?"
-msgstr "Möchten Sie die ausgewählten Portaufzeichnungen deaktivieren?"
-
-msgid "Do you want to enable selected portal groups?"
-msgstr "Möchten Sie die ausgewählten Portalgruppen aktivieren?"
-
-msgid "Do you want to toggle selected portal groups?"
-msgstr "Möchten Sie die ausgewählten Portalgruppen umschalten?"
-
-msgid "Discovery Filter"
-msgstr "Entdeckungsfilter"
-
-msgid "Offload"
-msgstr "Abladen"
-
-msgid "Redirect"
-msgstr "Umleiten"
-
-msgid "Foreign"
-msgstr "Auswärtig"
-
-msgid "Listen"
-msgstr "Abhören"
-
-msgid "Option"
-msgstr "Einstellung"
-
-msgid "No listeners found."
-msgstr "Keine Zuhörer gefunden."
-
-msgid "No options found."
-msgstr "Keine Optionen gefunden."
-
 msgid "Enter user name."
 msgstr "Benutzernamen eingeben."
 
@@ -13006,6 +13402,12 @@ msgstr "Möchten Sie die ausgewählten CHAP Benutzer aktivieren?"
 msgid "Do you want to toggle selected CHAP users?"
 msgstr "Möchten Sie die ausgewählten CHAP Benutzer umschalten?"
 
+msgid "Mutual User"
+msgstr "Gegenseitiger Benutzer"
+
+msgid "Mutual Secret"
+msgstr "Gegenseitiges Geheimnis"
+
 msgid "Add Mutual CHAP User"
 msgstr "Gegenseitigen CHAP-Benutzer hinzufügen"
 
@@ -13057,11 +13459,15 @@ msgstr ""
 msgid "Enter mutual user name."
 msgstr "Gegenseitigen Benutzernamen eingeben"
 
-msgid "Mutual User"
-msgstr "Gegenseitiger Benutzer"
+msgid "Enter an iSCSI initiator name."
+msgstr "iSCSI Initiatornamen eingeben."
 
-msgid "Mutual Secret"
-msgstr "Gegenseitiges Geheimnis"
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+"Verknüpfe Initiator-Namen mit den Auth-Gruppen. Ein Initiator mit diesem "
+"Namen darf sind mit den ausgewählten Auth-Gruppen verbinden."
 
 msgid "Add Initiator Name"
 msgstr "Füge Initiator Namen hinzu"
@@ -13102,31 +13508,8 @@ msgstr "Möchten Sie die ausgewählten Initiatornamen aktivieren?"
 msgid "Do you want to toggle selected initiator names?"
 msgstr "Möchten Sie die ausgewählten Initiatornamen umschalten?"
 
-msgid "Enter an iSCSI initiator name."
-msgstr "iSCSI Initiatornamen eingeben."
-
-msgid ""
-"Link initiator-name to auth-groups. An Initiator with this name will be "
-"allowed to connect to the selected auth-groups."
-msgstr ""
-"Verknüpfe Initiator-Namen mit den Auth-Gruppen. Ein Initiator mit diesem "
-"Namen darf sind mit den ausgewählten Auth-Gruppen verbinden."
-
 msgid "IP Address Prefix"
 msgstr "IP-Adressen Prefix"
-
-msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "Eine IPv4- oder IPv6-Adresse eines iSCSI-Initiatorportals."
-
-msgid "Enter IP address prefix length."
-msgstr "Länge des IP-Adressen-Vorsatzes"
-
-msgid ""
-"Link initiator-portal to auth-groups. An Initiator matching this address "
-"will be allowed to connect to the selected auth-groups."
-msgstr ""
-"Verknüpfe Initiator-Portal mit den Auth-Gruppen.  Ein Initiator mit "
-"passender Adresse darf sind mit den ausgewählten Auth-Gruppen verbinden."
 
 msgid "Add Initiator Portal"
 msgstr "Füge Initiator Portal  hinzu"
@@ -13166,6 +13549,19 @@ msgstr "Möchten Sie die ausgewählten Initiatorportale aktivieren?"
 
 msgid "Do you want to toggle selected initiator portals?"
 msgstr "Möchten Sie die ausgewählten Initiatorportale umschalten?"
+
+msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr "Eine IPv4- oder IPv6-Adresse eines iSCSI-Initiatorportals."
+
+msgid "Enter IP address prefix length."
+msgstr "Länge des IP-Adressen-Vorsatzes"
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+"Verknüpfe Initiator-Portal mit den Auth-Gruppen.  Ein Initiator mit "
+"passender Adresse darf sind mit den ausgewählten Auth-Gruppen verbinden."
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr "IPv4 or IPv6 Addresse eines iSNS Servers zum Anmelden."
@@ -13271,9 +13667,6 @@ msgstr "Möchten Sie die ausgewählten Abhöraufzeichnungen aktivieren?"
 msgid "Do you want to toggle selected listen records?"
 msgstr "Möchten Sie die ausgewählten Abhöraufzeichnungen umschalten?"
 
-msgid "Listen (iSER)"
-msgstr "Listen (iSER)"
-
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
@@ -13288,20 +13681,11 @@ msgstr ""
 "Ein Port, an dem eingehende Verbindungen mit dem iSER-Protokoll (iSCSI über "
 "RDMA) überwacht werden sollen."
 
+msgid "Listen (iSER)"
+msgstr "Listen (iSER)"
+
 msgid "LUN Number"
 msgstr "LUN Zahl"
-
-msgid "LUN number"
-msgstr "LUN Zahl"
-
-msgid "No LUNs found."
-msgstr "Keine LUNs gefunden."
-
-msgid "Select targets."
-msgstr "Wählen Sie die Ziele."
-
-msgid "No targets found."
-msgstr "Keine Ziele gefunden."
 
 msgid "Add LUN Record"
 msgstr "LUN-Eintrag hinzufügen"
@@ -13342,14 +13726,23 @@ msgstr "Möchten Sie die ausgewählten LUN Aufzeichnungen aktivieren?"
 msgid "Do you want to toggle selected LUN records?"
 msgstr "Möchten Sie die ausgewählten LUN Einträge umschalten?"
 
-msgid "Name of the option."
+msgid "LUN number"
+msgstr "LUN Zahl"
+
+msgid "No LUNs found."
+msgstr "Keine LUNs gefunden."
+
+msgid "Select targets."
+msgstr "Wählen Sie die Ziele."
+
+msgid "No targets found."
+msgstr "Keine Ziele gefunden."
+
+msgid "Option Name"
 msgstr "Name der Einstellung"
 
-msgid "Value of the option."
-msgstr "Wert der Auswahl."
-
-msgid "Link this option to selected portal-groups."
-msgstr "Verknüpfe diese Option mit den ausgewählten Portalgruppen."
+msgid "Option Value"
+msgstr "Name des Wertes"
 
 msgid "Add Option Record"
 msgstr "Optionseintrag hinzufügen"
@@ -13390,11 +13783,17 @@ msgstr "Möchten Sie die ausgewählten Auswahlaufzeichnungen aktivieren?"
 msgid "Do you want to toggle selected option records?"
 msgstr "Möchten Sie die ausgewählten Auswahlaufzeichnungen umschalten?"
 
-msgid "Option Name"
+msgid "Name of the option."
 msgstr "Name der Einstellung"
 
-msgid "Option Value"
-msgstr "Name des Wertes"
+msgid "Value of the option."
+msgstr "Wert der Auswahl."
+
+msgid "Link this option to selected portal-groups."
+msgstr "Verknüpfe diese Option mit den ausgewählten Portalgruppen."
+
+msgid "Port Name"
+msgstr "Port Name"
 
 msgid "Add Port Record"
 msgstr "Port-Eintrag hinzufügen"
@@ -13438,11 +13837,39 @@ msgstr "Möchten Sie die ausgewählten Portaufzeichnungen umschalten?"
 msgid "Name of the port."
 msgstr "Name des Ports"
 
-msgid "Port Name"
-msgstr "Port Name"
-
 msgid "Alias"
 msgstr "Alias"
+
+msgid "Name of the target."
+msgstr "Name des Ziels."
+
+msgid "These parameters will be added to this target."
+msgstr "Diese Parameter werden zu diesem Ziel hinzugefügt."
+
+msgid "Assign a human-readable description to the target."
+msgstr "Weise eine dem Ziel eine menschenlesbare Beschreibung zu."
+
+msgid "Assign a previously defined authentication group to the target."
+msgstr "Weise eine zuvor definierte Authentifizierungsgruppe dem Ziel zu."
+
+msgid "Permit access without authentication"
+msgstr "Zugriff ohne Authentifizierung zulassen"
+
+msgid "Assign a previously defined portal group to the target."
+msgstr "Weise eine zuvor definierte Portalgruppe dem Ziel zu."
+
+msgid ""
+"IPv4 or IPv6 address to redirect initiators to. When configured, all "
+"initiators attempting to connect to this target will get redirected using "
+"\"Target moved temporarily\" login response."
+msgstr ""
+"Pv4 or IPv6 Addresse um Initiatoren dorthin umzuleiten. Falls konfiguriert, "
+"werden alle Initiatoren, die versuchen, sich zum Ziel zu verbinden, "
+"umgeleitet indem eine \"Ziel temporär verschoben\" Anmeldungsantwort "
+"verwendet wird."
+
+msgid "No ports found."
+msgstr "Keine Ports gefunden."
 
 msgid "Add Target"
 msgstr "Ziel hinzufügen"
@@ -13482,37 +13909,6 @@ msgstr "Möchten Sie die ausgewählten Ziele aktivieren?"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Möchten Sie die ausgewählten Ziele umschalten?"
-
-msgid "No ports found."
-msgstr "Keine Ports gefunden."
-
-msgid "Name of the target."
-msgstr "Name des Ziels."
-
-msgid "These parameters will be added to this target."
-msgstr "Diese Parameter werden zu diesem Ziel hinzugefügt."
-
-msgid "Assign a human-readable description to the target."
-msgstr "Weise eine dem Ziel eine menschenlesbare Beschreibung zu."
-
-msgid "Assign a previously defined authentication group to the target."
-msgstr "Weise eine zuvor definierte Authentifizierungsgruppe dem Ziel zu."
-
-msgid "Permit access without authentication"
-msgstr "Zugriff ohne Authentifizierung zulassen"
-
-msgid "Assign a previously defined portal group to the target."
-msgstr "Weise eine zuvor definierte Portalgruppe dem Ziel zu."
-
-msgid ""
-"IPv4 or IPv6 address to redirect initiators to. When configured, all "
-"initiators attempting to connect to this target will get redirected using "
-"\"Target moved temporarily\" login response."
-msgstr ""
-"Pv4 or IPv6 Addresse um Initiatoren dorthin umzuleiten. Falls konfiguriert, "
-"werden alle Initiatoren, die versuchen, sich zum Ziel zu verbinden, "
-"umgeleitet indem eine \"Ziel temporär verschoben\" Anmeldungsantwort "
-"verwendet wird."
 
 msgid "Max Processes"
 msgstr "Maximale Prozesse"
@@ -13586,45 +13982,6 @@ msgstr "Sitzungszustand"
 
 msgid "Session Type"
 msgstr "Sitzungsart"
-
-msgid "Add iSCSI Initiator"
-msgstr "iSCSI-Initiator hinzufügen"
-
-msgid "Edit iSCSI Initiator"
-msgstr "Bearbeite iSCSI Initiator"
-
-msgid "iSCSI Initiator is marked for deletion"
-msgstr "iSCSI Initiator ist zum Löschen vorgemerkt"
-
-msgid "iSCSI Initiator is locked"
-msgstr "iSCSI Initiator ist gesperrt"
-
-msgid "iSCSI Initiator is unlocked"
-msgstr "iSCSI Initiator ist entsperrt"
-
-msgid "Delete Selected iSCSI Initiators"
-msgstr "Ausgewählte iSCSI Initiatoren löschen."
-
-msgid "Disable Selected iSCSI Initiators"
-msgstr "Ausgewählte iSCSI Initiatoren deaktivieren"
-
-msgid "Enable Selected iSCSI Initiators"
-msgstr "Schalte ausgewählte iSCSI Initiatoren ein"
-
-msgid "Toggle Selected iSCSI Initiators"
-msgstr "Schalte ausgewählte iSCSI Initiatoren um"
-
-msgid "Do you want to delete selected iSCSI initiators?"
-msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren löschen?"
-
-msgid "Do you want to disable selected iSCSI initiators?"
-msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren deaktivieren?"
-
-msgid "Do you want to enable selected iSCSI initiators?"
-msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren aktivieren?"
-
-msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren umschalten?"
 
 msgid "This is a nickname and is for information only."
 msgstr "Das ist ein Spitzname und rein informatorisch."
@@ -13733,6 +14090,45 @@ msgstr ""
 
 msgid "Discovery"
 msgstr "Entdeckung"
+
+msgid "Add iSCSI Initiator"
+msgstr "iSCSI-Initiator hinzufügen"
+
+msgid "Edit iSCSI Initiator"
+msgstr "Bearbeite iSCSI Initiator"
+
+msgid "iSCSI Initiator is marked for deletion"
+msgstr "iSCSI Initiator ist zum Löschen vorgemerkt"
+
+msgid "iSCSI Initiator is locked"
+msgstr "iSCSI Initiator ist gesperrt"
+
+msgid "iSCSI Initiator is unlocked"
+msgstr "iSCSI Initiator ist entsperrt"
+
+msgid "Delete Selected iSCSI Initiators"
+msgstr "Ausgewählte iSCSI Initiatoren löschen."
+
+msgid "Disable Selected iSCSI Initiators"
+msgstr "Ausgewählte iSCSI Initiatoren deaktivieren"
+
+msgid "Enable Selected iSCSI Initiators"
+msgstr "Schalte ausgewählte iSCSI Initiatoren ein"
+
+msgid "Toggle Selected iSCSI Initiators"
+msgstr "Schalte ausgewählte iSCSI Initiatoren um"
+
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren löschen?"
+
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren deaktivieren?"
+
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren aktivieren?"
+
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren umschalten?"
 
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
@@ -14050,6 +14446,51 @@ msgstr "Papierkorb"
 msgid "Hide Dot Files"
 msgstr "Verstecke Dateien/Verzeichnisse mit einem Punkt am Anfang"
 
+msgid "Add Samba Share"
+msgstr "Samba-Share hinzufügen"
+
+msgid "Edit Samba Share"
+msgstr "Samba Freigabe bearbeiten"
+
+msgid "Samba Share is marked for deletion"
+msgstr "Samba Freigabe ist zum Löschen markiert"
+
+msgid "Samba Share is locked"
+msgstr "Samba Share ist gesperrt"
+
+msgid "Samba Share is unlocked"
+msgstr "Samba Freigabe ist entsperrt"
+
+msgid "Delete Selected Samba Shares"
+msgstr "Ausgewählte Samba Freigaben löschen"
+
+msgid "Disable Selected Samba Shares"
+msgstr "Ausgewählte Samba-Freigaben deaktivieren"
+
+msgid "Enable Selected Samba Shares"
+msgstr "Ausgewählte Samba-Freigaben aktivieren"
+
+msgid "Toggle Selected Samba Shares"
+msgstr "Ausgewählte Samba-Freigaben umschalten"
+
+msgid "Do you want to delete selected Samba shares?"
+msgstr "Möchten Sie die ausgewählten Samba Freigaben löschen?"
+
+msgid "Do you want to disable selected Samba shares?"
+msgstr "Möchten Sie ausgewählte Samba-Freigaben deaktivieren?"
+
+msgid "Do you want to enable selected Samba shares?"
+msgstr "Möchten Sie ausgewählte Samba-Freigaben aktivieren?"
+
+msgid "Do you want to toggle selected Samba shares?"
+msgstr "Möchten Sie ausgewählte Samba-Freigaben umschalten?"
+
+msgid "yes"
+msgstr "ja"
+
+msgid "no"
+msgstr "nein"
+
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
 msgstr "Diese Parameter werden dem [Share] Abschnitt  von %s hinzugefügt."
@@ -14282,51 +14723,6 @@ msgstr "Geben Sie einen Kommentar für die Freigabe ein"
 
 msgid "Enter the location of the share"
 msgstr "Geben Sie einen Standort für die Freigabe ein"
-
-msgid "Add Samba Share"
-msgstr "Samba-Share hinzufügen"
-
-msgid "Edit Samba Share"
-msgstr "Samba Freigabe bearbeiten"
-
-msgid "Samba Share is marked for deletion"
-msgstr "Samba Freigabe ist zum Löschen markiert"
-
-msgid "Samba Share is locked"
-msgstr "Samba Share ist gesperrt"
-
-msgid "Samba Share is unlocked"
-msgstr "Samba Freigabe ist entsperrt"
-
-msgid "Delete Selected Samba Shares"
-msgstr "Ausgewählte Samba Freigaben löschen"
-
-msgid "Disable Selected Samba Shares"
-msgstr "Ausgewählte Samba-Freigaben deaktivieren"
-
-msgid "Enable Selected Samba Shares"
-msgstr "Ausgewählte Samba-Freigaben aktivieren"
-
-msgid "Toggle Selected Samba Shares"
-msgstr "Ausgewählte Samba-Freigaben umschalten"
-
-msgid "Do you want to delete selected Samba shares?"
-msgstr "Möchten Sie die ausgewählten Samba Freigaben löschen?"
-
-msgid "Do you want to disable selected Samba shares?"
-msgstr "Möchten Sie ausgewählte Samba-Freigaben deaktivieren?"
-
-msgid "Do you want to enable selected Samba shares?"
-msgstr "Möchten Sie ausgewählte Samba-Freigaben aktivieren?"
-
-msgid "Do you want to toggle selected Samba shares?"
-msgstr "Möchten Sie ausgewählte Samba-Freigaben umschalten?"
-
-msgid "yes"
-msgstr "ja"
-
-msgid "no"
-msgstr "nein"
 
 msgid "Workgroup"
 msgstr "Arbeitsgruppe"
@@ -14822,18 +15218,6 @@ msgstr "Root Login"
 msgid "TCP Forwarding"
 msgstr "TCP Weiterleitung"
 
-msgid "Allow New Files"
-msgstr "Neue Dateien Zulassen"
-
-msgid "Directory"
-msgstr "Verzeichnis"
-
-msgid "Max. Block Size"
-msgstr "Max. Blockgröße"
-
-msgid "Umask"
-msgstr "Unmaskieren (Unix)"
-
 msgid "Allow new files to be created."
 msgstr "Erlaube das Erstellen neuer Dateien."
 
@@ -14904,56 +15288,14 @@ msgstr "000"
 msgid "Specifies the username under which the TFTP service should run."
 msgstr "Gibt den Nutzernamen an, unter dem der TFTP Service laufen soll."
 
-msgid "Peer Port"
-msgstr "Peer Port"
+msgid "Allow New Files"
+msgstr "Neue Dateien Zulassen"
 
-msgid "Configuration Folder"
-msgstr "Konfigurationsordner"
+msgid "Max. Block Size"
+msgstr "Max. Blockgröße"
 
-msgid "Incomplete Folder"
-msgstr "Unvollständiger Ordner"
-
-msgid "Download Folder"
-msgstr "Download-Ordner"
-
-msgid "Watch Folder"
-msgstr "Beobachte Ordner"
-
-msgid "Port Forwarding"
-msgstr "Port-Weiterleitung"
-
-msgid "Peer Exchange"
-msgstr "Austausch von Gegenstellen"
-
-msgid "Distributed Hash Table"
-msgstr "verteilte Hash-Tabelle"
-
-msgid "Local Peer Discovery"
-msgstr "Lokale Peer-Erkennung"
-
-msgid "uTP"
-msgstr "uTP"
-
-msgid "User Mask"
-msgstr "Benutzer Maskierung (Unix)"
-
-msgid "Preallocation"
-msgstr "Vorbelegung"
-
-msgid "Message Level"
-msgstr "Meldungsebene"
-
-msgid "DNS Rebind Protection"
-msgstr "DNS-Rebind-Schutz"
-
-msgid "Domain Names"
-msgstr "Domain-Namen"
-
-msgid "Start Torrents"
-msgstr "Start Torrents"
-
-msgid "Stop Torrents"
-msgstr "Stoppen der Torrents"
+msgid "Umask"
+msgstr "Unmaskieren (Unix)"
 
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
@@ -15088,17 +15430,68 @@ msgstr ""
 msgid "Stop torrents before stopping service."
 msgstr "Stoppen der Torrents, bevor der Dienst beendet wurde."
 
-msgid "Work Directory"
-msgstr "Arbeitsverzeichnis"
+msgid "Peer Port"
+msgstr "Peer Port"
 
-msgid "Create Work Directory"
-msgstr "Arbeitsverzeichnis anlegen"
+msgid "Configuration Folder"
+msgstr "Konfigurationsordner"
+
+msgid "Incomplete Folder"
+msgstr "Unvollständiger Ordner"
+
+msgid "Download Folder"
+msgstr "Download-Ordner"
+
+msgid "Watch Folder"
+msgstr "Beobachte Ordner"
+
+msgid "Port Forwarding"
+msgstr "Port-Weiterleitung"
+
+msgid "Peer Exchange"
+msgstr "Austausch von Gegenstellen"
+
+msgid "Distributed Hash Table"
+msgstr "verteilte Hash-Tabelle"
+
+msgid "Local Peer Discovery"
+msgstr "Lokale Peer-Erkennung"
+
+msgid "uTP"
+msgstr "uTP"
+
+msgid "User Mask"
+msgstr "Benutzer Maskierung (Unix)"
+
+msgid "Preallocation"
+msgstr "Vorbelegung"
+
+msgid "Message Level"
+msgstr "Meldungsebene"
+
+msgid "DNS Rebind Protection"
+msgstr "DNS-Rebind-Schutz"
+
+msgid "Domain Names"
+msgstr "Domain-Namen"
+
+msgid "Start Torrents"
+msgstr "Start Torrents"
+
+msgid "Stop Torrents"
+msgstr "Stoppen der Torrents"
 
 msgid "Location where work files will be stored."
 msgstr "Speicherort der Arbeitsdateien."
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Erzeuge Arbeitsverzeichnis, falls es noch nicht existiert."
+
+msgid "Work Directory"
+msgstr "Arbeitsverzeichnis"
+
+msgid "Create Work Directory"
+msgstr "Arbeitsverzeichnis anlegen"
 
 msgid "Name of the WebDAV Record."
 msgstr "Name des WebDAV Eintrages."
@@ -15125,12 +15518,6 @@ msgstr ""
 
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr "Diese Parameter werden zu dieser WebDAV Konfiguration hinzugefügt."
-
-msgid "Read-Only"
-msgstr "Schreibgeschützt"
-
-msgid "Use Sqlite"
-msgstr "Verwende Sqlite"
 
 msgid "Add WebDAV Record"
 msgstr "WebDAV Eintrag hinzufügen"
@@ -15170,6 +15557,12 @@ msgstr "Möchten Sie die ausgewählten WebDAV Einträge einschalten?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Möchten Sie die ausgewählten WebDAV Einträge umschalten?"
+
+msgid "Read-Only"
+msgstr "Schreibgeschützt"
+
+msgid "Use Sqlite"
+msgstr "Verwende Sqlite"
 
 msgid "IPv4 only"
 msgstr "Nur IPv4"
@@ -15229,17 +15622,6 @@ msgstr "Snap-Verzwichnis (Snapdir)"
 msgid "UTF-8 Only"
 msgstr "Nur UTF-8"
 
-msgid "Service"
-msgstr "Service"
-
-msgid "Do you really want to remove the selected item from the list?"
-msgstr ""
-"Möchten Sie wirklich den selektierten Eintrag aus der Liste entfernen?"
-
-msgid "Select item to remove from the list"
-msgstr ""
-"Wählen Sie das Objekt aus, welches von der Liste entfernt werden soll"
-
 msgid "You may enter a description for your reference."
 msgstr "Sie können eine Beschreibung für ihre Unterlagen eingeben."
 
@@ -15267,352 +15649,6 @@ msgstr "Volumen Namen eingeben"
 
 msgid "The name of the ZFS pool."
 msgstr "Der Name des ZFS Pools."
-
-msgid "You are not allowed to use this function."
-msgstr "Sie dürfen diese Funktion nicht verwenden."
-
-msgid "Copy item(s)"
-msgstr "Element(e) kopieren"
-
-msgid "Move item(s)"
-msgstr "Verschiebe Element(e)"
-
-#, php-format
-msgid "Copy from /%s to /%s "
-msgstr "Von /%s nach /%s kopieren "
-
-#, php-format
-msgid "Move from /%s to /%s "
-msgstr "Von /%s nach /%s verschieben "
-
-msgid "Copy"
-msgstr "Kopieren"
-
-msgid "Move"
-msgstr "verschieben"
-
-msgid "The target directory doesn't exist."
-msgstr "Das Zielverzeichnis existiert nicht."
-
-msgid "You are not allowed to access the target directory."
-msgstr "Sie dürfen nicht auf das Zielverzeichnis zugreifen."
-
-msgid "The target directory may not be above the home directory."
-msgstr ""
-"Das Zielverzeichnis darf sich nicht über dem Ausgangsverzeichnis befinden."
-
-msgid "You must supply a name."
-msgstr "Sie müssen einen Namen angeben."
-
-msgid "This item doesn't exist."
-msgstr "Dieses Element existiert nicht."
-
-msgid "You are not allowed to access this item."
-msgstr "Sie dürfen nicht auf dieses Element zugreifen."
-
-msgid "The target item already exists."
-msgstr "Das Zielelement ist bereits vorhanden."
-
-msgid "Copying failed."
-msgstr "Kopieren Fehlgeschlagen."
-
-msgid "Moving failed."
-msgstr "Verschieben fehlgeschlagen."
-
-msgid "Deleting failed."
-msgstr "Löschen fehlgeschlagen."
-
-msgid "File saving failed."
-msgstr "Das Speichern der Datei ist fehlgeschlagen."
-
-msgid "This file doesn't exist."
-msgstr "Diese Datei existiert nicht."
-
-msgid "You are not allowed to access this file."
-msgstr "Sie dürfen nicht auf diese Datei zugreifen."
-
-msgid "This item already exists."
-msgstr "Dieses Element existiert bereits."
-
-msgid "File opening failed."
-msgstr "Dateiöffnen fehlgeschlagen."
-
-msgid "Edit file"
-msgstr "Datei bearbeiten"
-
-msgid "Wrap text:"
-msgstr "Zeilenumbruch:"
-
-msgid "Reset"
-msgstr "Zurücksetzen"
-
-msgid "Close"
-msgstr "Schließen"
-
-msgid "Unable to open source directory."
-msgstr "Quellverzeichnis kann nicht geöffnet werden."
-
-msgid "Unable to open directory."
-msgstr "Verzeichnis kann nicht geöffnet werden."
-
-msgid "Unable to read directory."
-msgstr "Verzeichnis kann nicht gelesen werden."
-
-msgid "You haven't selected any item(s)."
-msgstr "Sie haben kein(e) Element(e) ausgewählt."
-
-msgid "Are you sure you want to delete selected item(s)?"
-msgstr "Möchten Sie die ausgewählten Elemente wirklich löschen?"
-
-msgid "Executable File"
-msgstr "Ausführbare Datei"
-
-msgid "Link"
-msgstr "Link"
-
-msgid "Text File"
-msgstr "Textdatei"
-
-msgid "PHP Script"
-msgstr "PHP Script"
-
-msgid "SQL File"
-msgstr "SQL Datei"
-
-msgid "PERL Script"
-msgstr "PERL Script"
-
-msgid "HTML Page"
-msgstr "HTML Seite"
-
-msgid "XML File"
-msgstr "XML Datei"
-
-msgid "Javascript File"
-msgstr "Javascript Datei"
-
-msgid "CSS File"
-msgstr "CSS-Datei"
-
-msgid "CGI Script"
-msgstr "CGI-Script"
-
-msgid "Python Script"
-msgstr "Python-Skript"
-
-msgid "Shell Script"
-msgstr "Shell Script"
-
-msgid "C File"
-msgstr "C-Datei"
-
-msgid "C++ Source File"
-msgstr "C++-Quelldatei"
-
-msgid "C++ Header File"
-msgstr "C++-Headerdatei"
-
-msgid "Java Source File"
-msgstr "Java-Quelldatei"
-
-msgid "Java Class File"
-msgstr "Java-Klassendatei"
-
-msgid "Pascal File"
-msgstr "Pascal Datei"
-
-msgid "GIF Image"
-msgstr "GIF Bild"
-
-msgid "JPG Image"
-msgstr "JPG Bild"
-
-msgid "BMP Image"
-msgstr "BMP-Bilddatei"
-
-msgid "PNG Image"
-msgstr "PNG Bild"
-
-msgid "TIF Image"
-msgstr "TIF Bild"
-
-msgid "Photoshop File"
-msgstr "Photoshop Datei"
-
-msgid "ZIP Archive"
-msgstr "ZIP Archiv"
-
-msgid "TAR Archive"
-msgstr "TAR Archiv"
-
-msgid "GZIP Archive"
-msgstr "GZIP Archiv"
-
-msgid "BZIP2 Archive"
-msgstr "BZIP2-Archiv"
-
-msgid "RAR Archive"
-msgstr "RAR Archiv"
-
-msgid "MP3 Audio File"
-msgstr "MP3 Audio Datei"
-
-msgid "FLAC Audio File"
-msgstr "FLAC Audio Datei"
-
-msgid "WAV Audio File"
-msgstr "WAV Audio Datei"
-
-msgid "MIDI File"
-msgstr "MIDI Datei"
-
-msgid "RealAudio File"
-msgstr "RealAudio Datei"
-
-msgid "DTS Audio File"
-msgstr "DTS Audio Datei"
-
-msgid "AC3 Audio File"
-msgstr "AC3 Audio-Datei"
-
-msgid "OGG Audio File"
-msgstr "OGG Audio-Datei"
-
-msgid "MP3 Playlist"
-msgstr "MP3 PlayList"
-
-msgid "AVI File"
-msgstr "AVI-Datei"
-
-msgid "MPEG File"
-msgstr "MPEG Datei"
-
-msgid "MOV File"
-msgstr "MOV Datei"
-
-msgid "MKV File"
-msgstr "MKV Datei"
-
-msgid "VOB File"
-msgstr "VOB Datei"
-
-msgid "Flash File"
-msgstr "Flash Datei"
-
-msgid "MP4 File"
-msgstr "MP4 Datei"
-
-msgid "TS File"
-msgstr "TS Datei"
-
-msgid "Word Document"
-msgstr "Word Dokument"
-
-msgid "Excel Sheet"
-msgstr "Excel Arbeitsblatt"
-
-msgid "Powerpoint Presentation"
-msgstr "Powerpoint Präsentation"
-
-msgid "PDF File"
-msgstr "PDF Datei"
-
-msgid "ERROR(S)"
-msgstr "FEHLER"
-
-msgid "Go Back"
-msgstr "Zurück gehen"
-
-msgid "Extracting"
-msgstr "Entpacken"
-
-msgid "Unzip"
-msgstr "Auspacken"
-
-msgid "Failed to extract archive."
-msgstr "Archiv konnte nicht extrahiert werden."
-
-msgid "Directory creation failed."
-msgstr "Die Verzeichniserstellung ist fehlgeschlagen."
-
-msgid "File creation failed."
-msgstr "Dateierstellung fehlgeschlagen."
-
-msgid "Search Directory"
-msgstr "Suche im Verzeichnis"
-
-msgid "Search Filter"
-msgstr "Suchfilter"
-
-msgid "Search subfolder"
-msgstr "Unterordner durchsuchen"
-
-#, php-format
-msgid "Search Result for %1$s"
-msgstr "Suchergebnis für %1$s"
-
-msgid "Item(s)"
-msgstr "Element(e)"
-
-msgid "No results available."
-msgstr "Keine Ergebnisse verfügbar."
-
-msgid "HOME"
-msgstr "HOME"
-
-msgid "Permission-change failed."
-msgstr "Berechtigungsänderung fehlgeschlagen."
-
-msgid "Getting permissions failed."
-msgstr "Das Abrufen von Berechtigungen ist fehlgeschlagen."
-
-msgid "Change permissions"
-msgstr "Rechte ändern"
-
-msgid "Public"
-msgstr "Öffentlich"
-
-msgid "CHANGE PERMISSIONS"
-msgstr "BERECHTIGUNGEN ÄNDERN"
-
-msgid "You are not allowed to access this directory."
-msgstr "Sie dürfen nicht auf dieses Verzeichnis zugreifen."
-
-msgid "UP"
-msgstr "GESTARTET (UP)"
-
-msgid "RELOAD"
-msgstr "NACHLADEN"
-
-msgid "SEARCH"
-msgstr "SUCHE"
-
-msgid "Modified"
-msgstr "Verändert"
-
-msgid "Permissions"
-msgstr "Berechtigungen"
-
-msgid "Actions"
-msgstr "Aktionen"
-
-msgid "COPY"
-msgstr "KOPIEREN"
-
-msgid "MOVE"
-msgstr "VERSCHIEBEN"
-
-msgid "DELETE"
-msgstr "LÖSCHEN"
-
-msgid "EDIT"
-msgstr "BEARBEITEN"
-
-msgid "UNZIP"
-msgstr "UNZIP"
-
-msgid "DOWNLOAD"
-msgstr "HERUNTERLADEN"
 
 msgid "The following errors were detected"
 msgstr "Die folgenden Fehler wurden erkannt"
@@ -15668,45 +15704,6 @@ msgstr "PCP"
 msgid "Encapsulation Protocol"
 msgstr "Kapselungsprotokoll"
 
-msgid "Add VLAN"
-msgstr "VLAN hinzufügen"
-
-msgid "Edit VLAN"
-msgstr "VLAN bearbeiten"
-
-msgid "VLAN is marked for deletion"
-msgstr "VLAN ist zur Löschung markiert"
-
-msgid "VLAN is locked"
-msgstr "VLAN ist gesperrt"
-
-msgid "VLAN is unlocked"
-msgstr "VLAN ist entsperrt"
-
-msgid "Delete Selected VLANs"
-msgstr "Gewählte VLANs löschen"
-
-msgid "Disable Selected VLANs"
-msgstr "Ausgewählte VLANs deaktivieren"
-
-msgid "Enable Selected VLANs"
-msgstr "Ausgewählte VLANs aktivieren"
-
-msgid "Toggle Selected VLANs"
-msgstr "Ausgewählte VLANs umschalten"
-
-msgid "Do you want to delete selected VLANs?"
-msgstr "Möchten Sie die ausgewählten VLANs löschen?"
-
-msgid "Do you want to disable selected VLANs?"
-msgstr "Möchten Sie die ausgewählten VLANs deaktivieren?"
-
-msgid "Do you want to enable selected VLANs?"
-msgstr "Möchten Sie die ausgewählten VLANs aktivieren?"
-
-msgid "Do you want to toggle selected VLANs?"
-msgstr "Möchten Sie die ausgewählten VLANs umschalten?"
-
 msgid "The name of the VLAN interface"
 msgstr "Der Name der VLAN-Schnittstelle"
 
@@ -15758,6 +15755,45 @@ msgstr "802.1Q (voreingestellt)"
 
 msgid "802.1ad (QinQ)"
 msgstr "802.1ad (QinQ)"
+
+msgid "Add VLAN"
+msgstr "VLAN hinzufügen"
+
+msgid "Edit VLAN"
+msgstr "VLAN bearbeiten"
+
+msgid "VLAN is marked for deletion"
+msgstr "VLAN ist zur Löschung markiert"
+
+msgid "VLAN is locked"
+msgstr "VLAN ist gesperrt"
+
+msgid "VLAN is unlocked"
+msgstr "VLAN ist entsperrt"
+
+msgid "Delete Selected VLANs"
+msgstr "Gewählte VLANs löschen"
+
+msgid "Disable Selected VLANs"
+msgstr "Ausgewählte VLANs deaktivieren"
+
+msgid "Enable Selected VLANs"
+msgstr "Ausgewählte VLANs aktivieren"
+
+msgid "Toggle Selected VLANs"
+msgstr "Ausgewählte VLANs umschalten"
+
+msgid "Do you want to delete selected VLANs?"
+msgstr "Möchten Sie die ausgewählten VLANs löschen?"
+
+msgid "Do you want to disable selected VLANs?"
+msgstr "Möchten Sie die ausgewählten VLANs deaktivieren?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr "Möchten Sie die ausgewählten VLANs aktivieren?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr "Möchten Sie die ausgewählten VLANs umschalten?"
 
 msgid "1"
 msgstr "1"
@@ -15890,6 +15926,18 @@ msgid "The COM port in BIOS has to be enabled before enabling this option."
 msgstr ""
 "Um diese Option zu nutzen, muss der COM-Port im BIOS aktiviert werden"
 
+msgid "Unkown"
+msgstr "Unbekannt"
+
+msgid "Unformated"
+msgstr "Unformatiert"
+
+msgid "SoftRaid"
+msgstr "SoftRaid"
+
+msgid "Encrypted"
+msgstr "Verschlüsselt"
+
 msgid "Second"
 msgstr "Sekunde"
 
@@ -15989,38 +16037,117 @@ msgstr ""
 "Diese Festplatte is momentan gemountet! Der Einhängepunkt  wird kurzzeitig "
 "entfernt um den ausgewählten Befehl auszuführen."
 
-msgid "Unkown"
-msgstr "Unbekannt"
-
-msgid "Unformated"
-msgstr "Unformatiert"
-
-msgid "SoftRaid"
-msgstr "SoftRaid"
-
-msgid "Encrypted"
-msgstr "Verschlüsselt"
-
 msgid "System tuning"
 msgstr "Systemfeineinstellungen"
 
-msgid "Exported"
-msgstr "Exportiert"
+msgid "ZFS Pool Tools"
+msgstr "ZFS-Pool-Werkzeuge"
 
-msgid "Destroyed"
-msgstr "Aufgelöst"
+msgid "Pool Status"
+msgstr "Pool-Status"
 
-msgid "Spare"
-msgstr "Reserve"
+msgid "Success"
+msgstr "Erfolg"
 
-msgid "L2 Cache"
-msgstr "L2 Cache"
+msgid "Command execution was successful"
+msgstr "Befehl wurde erfolgreich ausgeführt."
 
-msgid "Uninitialized"
-msgstr "Uninitialisiert"
+msgid "Invalid command line option"
+msgstr "ungültige Kommandozeilen Option"
 
-msgid "Potentially Active"
-msgstr "möglicherweise aktiv"
+msgid "Test mode, no command execution"
+msgstr "Testmodus, keine Befehlsausführung"
+
+msgid "Missing parameter"
+msgstr "Fehlender Parameter"
+
+msgid "An error occured."
+msgstr "Ein Fehler ist aufgetreten."
+
+msgid "Return to Command Page"
+msgstr "Zurück zur Komandoseite"
+
+msgid "Activity"
+msgstr "Aktivität"
+
+msgid "Pool Version"
+msgstr "Pool-Version"
+
+msgid "Pool State"
+msgstr "Pool-Zustand"
+
+msgid "No suitable pools found."
+msgstr "Es wurden keine passenden Pools gefunden."
+
+msgid "No pools have been selected"
+msgstr "Es wurden keine Pools ausgewählt"
+
+msgid "Pool Devices"
+msgstr "Pool-Geräte"
+
+msgid "missing"
+msgstr "fehlend"
+
+msgid "No suitable devices found."
+msgstr "Es wurden keine passenden Geräte gefunden."
+
+msgid "No pool devices have been selected"
+msgstr "Es wurden keine Pool Geräte ausgewählt"
+
+msgid "No suitable virtual devices found."
+msgstr "Es wurden keine passenden virtuellen Geräte gefunden."
+
+msgid "No virtual devices have been selected"
+msgstr "Es wurden keine virtuellen Geräte ausgewählt"
+
+msgid "Media Size"
+msgstr "Mediengröße"
+
+msgid "No devices have been selected"
+msgstr "Es wurden keine Geräte ausgewählt"
+
+msgid "Expand device to use all available space."
+msgstr "Gerät erweitern, um gesamten verfügbaren Speicher zu nutzen"
+
+msgid "Include GPT labels into scan/import"
+msgstr "Beziehe GPT-Labels in die Suche und den Import ein"
+
+msgid "Include GPT ID into scan/import"
+msgstr "Beziehe GPT-ID in die Suche und den Import ein"
+
+msgid "Include UFS labels into scan/import"
+msgstr "Beziehe UFS-Labels in die Suche und den Import ein"
+
+msgid "Include UFS ID into scan/import"
+msgstr "Beziehe UFS-ID in die Suche und den Import ein"
+
+msgid "Include Disk ID into scan/import"
+msgstr "Beziehe Laufwerk-ID in die Suche und den Import ein"
+
+msgid "Include /dev into scan/import"
+msgstr "Beziehe /dev in die Suche und den Import ein"
+
+msgid "Import pool in read-only mode"
+msgstr "Importiere den Pool im Nur-Lesen-Modus"
+
+msgid "Resize pool to the maximum possible size"
+msgstr "Vergrößere den Pool auf die maximal mögliche Größe"
+
+msgid "Scan/Import destroyed pools only"
+msgstr "Nur zerstörte Pools scannen/importieren"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr "Warten, bis die Wiederherstellung abgeschlossen ist."
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
+"Sequentielle Wiederherstellung des neuen Datenträgers zur schnellstmöglichen "
+"Wiederherstellung der Redundanz."
+
+msgid "Parameter"
+msgstr "Parameter"
 
 msgid "January"
 msgstr "Januar"
@@ -16171,111 +16298,26 @@ msgstr "Die Datei wurde nicht auf die Festplatte geschrieben."
 msgid "File upload stopped by extension."
 msgstr "Dateiupload abgebrochen wegen einer Erweiterung."
 
-msgid "ZFS Pool Tools"
-msgstr "ZFS-Pool-Werkzeuge"
+msgid "Exported"
+msgstr "Exportiert"
 
-msgid "Pool Status"
-msgstr "Pool-Status"
+msgid "Destroyed"
+msgstr "Aufgelöst"
 
-msgid "Success"
-msgstr "Erfolg"
+msgid "Spare"
+msgstr "Reserve"
 
-msgid "Command execution was successful"
-msgstr "Befehl wurde erfolgreich ausgeführt."
+msgid "L2 Cache"
+msgstr "L2 Cache"
 
-msgid "Invalid command line option"
-msgstr "ungültige Kommandozeilen Option"
+msgid "Uninitialized"
+msgstr "Uninitialisiert"
 
-msgid "Test mode, no command execution"
-msgstr "Testmodus, keine Befehlsausführung"
+msgid "Potentially Active"
+msgstr "möglicherweise aktiv"
 
-msgid "Missing parameter"
-msgstr "Fehlender Parameter"
+#~ msgid "Be careful with turning on these options."
+#~ msgstr "Seien Sie vorsichtig, wenn Sie diese Optionen einschalten."
 
-msgid "An error occured."
-msgstr "Ein Fehler ist aufgetreten."
-
-msgid "Return to Command Page"
-msgstr "Zurück zur Komandoseite"
-
-msgid "Activity"
-msgstr "Aktivität"
-
-msgid "Pool Version"
-msgstr "Pool-Version"
-
-msgid "Pool State"
-msgstr "Pool-Zustand"
-
-msgid "No suitable pools found."
-msgstr "Es wurden keine passenden Pools gefunden."
-
-msgid "No pools have been selected"
-msgstr "Es wurden keine Pools ausgewählt"
-
-msgid "Pool Devices"
-msgstr "Pool-Geräte"
-
-msgid "missing"
-msgstr "fehlend"
-
-msgid "No suitable devices found."
-msgstr "Es wurden keine passenden Geräte gefunden."
-
-msgid "No pool devices have been selected"
-msgstr "Es wurden keine Pool Geräte ausgewählt"
-
-msgid "No suitable virtual devices found."
-msgstr "Es wurden keine passenden virtuellen Geräte gefunden."
-
-msgid "No virtual devices have been selected"
-msgstr "Es wurden keine virtuellen Geräte ausgewählt"
-
-msgid "Media Size"
-msgstr "Mediengröße"
-
-msgid "No devices have been selected"
-msgstr "Es wurden keine Geräte ausgewählt"
-
-msgid "Expand device to use all available space."
-msgstr "Gerät erweitern, um gesamten verfügbaren Speicher zu nutzen"
-
-msgid "Include GPT labels into scan/import"
-msgstr "Beziehe GPT-Labels in die Suche und den Import ein"
-
-msgid "Include GPT ID into scan/import"
-msgstr "Beziehe GPT-ID in die Suche und den Import ein"
-
-msgid "Include UFS labels into scan/import"
-msgstr "Beziehe UFS-Labels in die Suche und den Import ein"
-
-msgid "Include UFS ID into scan/import"
-msgstr "Beziehe UFS-ID in die Suche und den Import ein"
-
-msgid "Include Disk ID into scan/import"
-msgstr "Beziehe Laufwerk-ID in die Suche und den Import ein"
-
-msgid "Include /dev into scan/import"
-msgstr "Beziehe /dev in die Suche und den Import ein"
-
-msgid "Import pool in read-only mode"
-msgstr "Importiere den Pool im Nur-Lesen-Modus"
-
-msgid "Resize pool to the maximum possible size"
-msgstr "Vergrößere den Pool auf die maximal mögliche Größe"
-
-msgid "Scan/Import destroyed pools only"
-msgstr "Nur zerstörte Pools scannen/importieren"
-
-msgid "Wait until resilvering has finished before returning."
-msgstr "Warten, bis die Wiederherstellung abgeschlossen ist."
-
-msgid ""
-"Reconstruct the new device sequentially to restore redundancy as quickly as "
-"possible."
-msgstr ""
-"Sequentielle Wiederherstellung des neuen Datenträgers zur schnellstmöglichen "
-"Wiederherstellung der Redundanz."
-
-msgid "Parameter"
-msgstr "Parameter"
+#~ msgid "SAMBA"
+#~ msgstr "SAMBA"

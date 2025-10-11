@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2025-09-06 21:13+0000\n"
+"POT-Creation-Date: 2025-10-11 14:47+0000\n"
 "PO-Revision-Date: 2024-06-23 19:44+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-30 12:44+0000\n"
-"X-Generator: Launchpad (build 8f35df7956d277b113de8d286a4ca280c7b8ebdf)\n"
+"X-Launchpad-Export-Date: 2025-10-11 13:16+0000\n"
+"X-Generator: Launchpad (build bff9b0558f8357613643d9a74c009da18fafa917)\n"
 "Language: ca_ES\n"
 
 msgid "Active Directory"
@@ -1657,9 +1657,6 @@ msgstr "IP"
 
 msgid "User"
 msgstr "Usuari"
-
-msgid "SAMBA"
-msgstr "SAMBA"
 
 msgid "RSYNC - Server"
 msgstr "RSYNC - Servidor"
@@ -3402,6 +3399,48 @@ msgstr "Insensible"
 
 msgid "Mixed"
 msgstr "Barrejat"
+
+msgid "No encryption"
+msgstr ""
+
+msgid "Use default encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-128-ccm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-192-ccm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-256-ccm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-128-gcm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-192-gcm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-256-gcm encryption cipher suite"
+msgstr ""
+
+msgid "Raw Key"
+msgstr ""
+
+msgid "Hex Key"
+msgstr ""
+
+msgid "Prompt"
+msgstr ""
+
+msgid "File"
+msgstr "Fitxer"
+
+msgid "HTTPS"
+msgstr "HTTPS"
+
+msgid "HTTP"
+msgstr "HTTP"
 
 msgid "Enter a name for this dataset"
 msgstr "Introduïu un nom per a aquest conjunt de dades"
@@ -6407,9 +6446,6 @@ msgstr "Ajustos extensions"
 msgid "String identifier of the extent."
 msgstr "Identificador de cadena de la extensió."
 
-msgid "File"
-msgstr "Fitxer"
-
 msgid "Type used as extent."
 msgstr "Tipus fet servir com extensió."
 
@@ -7703,12 +7739,6 @@ msgstr "L'arrel del document al servei web s'ha perdut."
 
 msgid "WebDAV"
 msgstr "WebDAV"
-
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTPS"
-msgstr "HTTPS"
 
 msgid "TCP port to bind the server to."
 msgstr "Port TCP per enllaçar amb el servidor per."
@@ -9459,11 +9489,15 @@ msgstr ""
 "Activeu aquesta opció per fer que els ports de sèrie USB estiguin "
 "disponibles per als clients."
 
-msgid "Be careful with turning on these options."
-msgstr "Aneu amb compte amb activar aquestes opcions."
-
 msgid "phpVirtualBox"
 msgstr "phpVirtualBox"
+
+msgid "Security Warning!"
+msgstr ""
+
+msgid ""
+"Be careful when turning on above device options in production environments."
+msgstr ""
 
 msgid "No configured bridge interfaces."
 msgstr "No s'han configurat interfícies de pont."
@@ -9589,290 +9623,591 @@ msgstr "Arguments d'arrencada"
 msgid "Boot argument (e.g. %s)."
 msgstr "Arguments d'arrencada (ex. %s)."
 
-msgid "Show Used/Avail"
-msgstr "Mostra Utilitzat / Disponible"
+msgid "Search Directory"
+msgstr "Directori de cerca"
 
-msgid "On-Disk Configuration"
-msgstr "Configuració en disc"
+msgid "Search Filter"
+msgstr "Filtre de cerca"
 
-msgid "Capacity Warning Threshold"
-msgstr "Llindar d'advertència de capacitat"
+msgid "Search subfolder"
+msgstr "Cerca sub carpeta"
 
-msgid "Capacity Critical Threshold"
-msgstr "Llindar crític de capacitat"
+msgid "Close"
+msgstr "Tancar"
 
-msgid "Extended Destroy"
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Resultat de la cerca per a %1$s"
+
+msgid "Item(s)"
+msgstr "element(s)"
+
+msgid "No results available."
+msgstr "No hi ha resultats disponibles."
+
+msgid "HOME"
+msgstr "INICI"
+
+msgid "You are not allowed to use this function."
+msgstr "No teniu permès utilitzar aquesta funció."
+
+msgid "This file doesn't exist."
+msgstr "Aquest fitxer no existeix."
+
+msgid "You are not allowed to access this file."
+msgstr "No teniu accés a aquest fitxer."
+
+msgid "Permission-change failed."
+msgstr "Ha fallat el canvi de permís."
+
+msgid "Getting permissions failed."
+msgstr "Ha fallat l'obtenció dels permisos."
+
+msgid "Change permissions"
+msgstr "Canviar permisos"
+
+msgid "Public"
+msgstr "Públic"
+
+msgid "This item doesn't exist."
+msgstr "Aquest element no existeix."
+
+msgid "You are not allowed to access this item."
+msgstr "No teniu accés a aquest element."
+
+msgid "Deleting failed."
+msgstr "S'ha produït un error en suprimir"
+
+msgid "Unable to open source directory."
+msgstr "No es pot obrir el directori font."
+
+msgid "Unable to open directory."
+msgstr "No es pot obrir el directori."
+
+msgid "Unable to read directory."
+msgstr "No es pot llegir el directori."
+
+msgid "Copy item(s)"
+msgstr "Coipar element(s)"
+
+msgid "Move item(s)"
+msgstr "Mou element(s)"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Copiar des de /%s a /%s "
+
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "Mou des de /%s a /%s "
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Move"
+msgstr "Mou"
+
+msgid "The target directory doesn't exist."
+msgstr "El directori objectiu no existeix."
+
+msgid "You are not allowed to access the target directory."
+msgstr "No teniu accés al directori objectiu."
+
+msgid "The target directory may not be above the home directory."
 msgstr ""
+"El directori d’orientació pot no estar per sobre del directori inicial."
 
-msgid ""
-"Display Used/Avail information from the filesystem instead of the Alloc/Free "
-"information from the pool."
-msgstr ""
-"Mostra informació d' úsat / disponible del sistema de fitxers en comptes de "
-"la informació d'asignat / Lliure des de la piscina."
+msgid "You must supply a name."
+msgstr "Heu de proporcionar un nom."
 
-msgid ""
-"Used/Avail lists storage information after all redundancy is taken into "
-"account but is impacted by compression, deduplication and quotas. Alloc/Free "
-"lists the raw storage information of a pool."
-msgstr ""
-"La informació d'emmagatzematge utilitzada / disponible després de tenir en "
-"compte tota la redundància es veu afectada per la compressió, la "
-"deduplicació i les quotes. Asignada / Lliure mostra la informació "
-"d'emmagatzematge en brut d'un grup."
+msgid "The target item already exists."
+msgstr "L’element de destinació ja existeix."
 
-msgid "Read on-disk configuration."
-msgstr "Llegeix la configuració del disc."
+msgid "Copying failed."
+msgstr "Ha fallat la copia."
 
-msgid ""
-"Reading the configuration from the disks is slower than reading from cache "
-"file."
-msgstr ""
-"Llegir la configuració des dels discs és més lent que llegir des del fitxer "
-"de la memòria cau."
+msgid "Moving failed."
+msgstr "Ha fallat al moure"
 
-msgid "Set the warning threshold to a value between 80 and 89."
-msgstr "Estableix el llindar d'advertència en un valor entre 80 i 89."
+msgid "You haven't selected any item(s)."
+msgstr "No heu seleccionat cap element(s)"
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the warning "
-"threshold."
-msgstr ""
-"S'envia un correu electrònic d'alerta quan la capacitat d'un grup excedeix "
-"el llindar d'advertència."
+msgid "File saving failed."
+msgstr "Desat del fitxer ha fallat."
 
-msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr ""
-"Cal configurar un treball cron per programar script /etc/capacitycheck.zfs."
+msgid "This item already exists."
+msgstr "Aquest element ja existeix."
 
-msgid "Must be a number between 80 and 89."
-msgstr "Ha de ser un número entre 80 i 89."
+msgid "File opening failed."
+msgstr "L'obertura del fitxer ha fallat."
 
-msgid "Set the critical threshold to a value between 90 and 95."
-msgstr "Establiu el llindar crític a un valor entre 90 i 95."
+msgid "Edit file"
+msgstr "Edita arxiu"
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the critical "
-"threshold."
-msgstr ""
-"S'envia un correu electrònic d'alerta quan la capacitat de la piscina "
-"excedeix el llindar crític."
+msgid "Wrap text:"
+msgstr "Ajustar el text:"
 
-msgid "Must be a number between 90 and 95."
-msgstr "Ha de ser un número entre 90 i 95."
+msgid "Reset"
+msgstr "Restableix"
 
-msgid "Destroy dataset and its dependents."
-msgstr ""
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Confirmeu que voleu suprimir els articles seleccionats?"
 
-msgid ""
-"When enabled, destroying a dataset will also destroy all dependents "
-"(datasets, snapshots and clones)."
-msgstr ""
+msgid "CHANGE PERMISSIONS"
+msgstr "CANVI DE PERMISOS"
 
-msgid "Lifetime"
-msgstr "Temps de funcionament"
+msgid "You are not allowed to access this directory."
+msgstr "No teniu accés a aquest directori"
 
-msgid "Second(s)"
-msgstr "Segon(s)"
+msgid "Directory"
+msgstr "Directori"
 
-msgid "Minute(s)"
-msgstr "Minut/s"
+msgid "UP"
+msgstr "AMUNT"
 
-msgid "Hour(s)"
-msgstr "Hora/es"
+msgid "RELOAD"
+msgstr "RECARREGA"
 
-msgid "Day(s)"
-msgstr "Dia/es"
-
-msgid "Week(s)"
-msgstr "Setmana(es)"
-
-msgid "Month(s)"
-msgstr "Mes/os"
-
-msgid "Year(s)"
-msgstr "Any(s)"
-
-msgid "Hourly"
-msgstr "Cada hora"
-
-msgid "Daily"
-msgstr "Diàriament"
-
-msgid "Weekly"
-msgstr "Setmanalment"
-
-msgid "Monthly"
-msgstr "Mensualment"
-
-msgid "Yearly"
-msgstr "Anualment"
-
-msgid "Custom Setting"
-msgstr "Configuració personalitzada"
-
-msgid "Schedule"
-msgstr "Planificació"
-
-msgid "Weekdays"
-msgstr "Setmanal"
-
-msgid "All Minutes"
-msgstr "Tots els minuts"
-
-msgid "All Hours"
-msgstr "Totes les hores"
-
-msgid "All Days"
-msgstr "Cada dia"
-
-msgid "All Months"
-msgstr "Tots els mesos"
-
-msgid "All Weekdays"
-msgstr "Tots els dias de la  setmana"
-
-msgid "Add Schedule"
-msgstr "Afegeix una programació"
-
-msgid "Edit Schedule"
-msgstr "Edita la programació"
-
-msgid "Schedule is marked for deletion"
-msgstr "La programació està marcada per esborrar"
-
-msgid "Schedule is locked"
-msgstr "La programació està bloquejada"
-
-msgid "Schedule is unlocked"
-msgstr "La programació està desbloquejada"
-
-msgid "Delete Selected Schedules"
-msgstr "Suprimeix els horaris seleccionats"
-
-msgid "Do you want to delete selected schedules?"
-msgstr "Vols suprimir els horaris seleccionats?"
-
-msgid "Disable Selected Schedules"
-msgstr "Desactiva els horaris seleccionats"
-
-msgid "Do you want to disable selected schedules?"
-msgstr "Vols desactivar els horaris seleccionats?"
-
-msgid "Enable Selected Schedules"
-msgstr "Activa els horaris seleccionats"
-
-msgid "Do you want to enable selected schedules?"
-msgstr "Vols activar els horaris seleccionats?"
-
-msgid "Toggle Selected Schedules"
-msgstr "Commuta els horaris seleccionats"
-
-msgid "Do you want to toggle selected schedules?"
-msgstr "Voleu canviar els horaris seleccionats?"
-
-msgid "Invalid"
-msgstr "Invàlid"
-
-msgid "Destroy"
-msgstr "Destrueix"
-
-msgid "Create Snapshot"
-msgstr "Crea una instantània"
-
-msgid "Destroy Snapshot"
-msgstr "Destrueix Captures"
-
-msgid "Scrub Pool"
-msgstr "Piscina de fregat"
-
-msgid "Select Pool, Filesystem or Volume"
-msgstr "Seleccioneu Agrupació, Sistema de fitxers o Volum"
-
-msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr ""
-"Destruïu recursivament instantànies de tots els conjunts de dades "
-"descendents."
-
-msgid "Lifetime Value"
-msgstr "Valor de temps de funcionament"
-
-msgid "Lifetime Units"
-msgstr "Unitats de temps de funcionament"
-
-msgid ""
-"Commands are executed by the scheduler when the minute, hour, and month of "
-"year fields match the current time, and when at least one of the two day "
-"fields (day of month, or day of week) matches the current time."
-msgstr ""
-"Els comandaments els executa el programador quan els camps de minuts, hores "
-"i mes de l'any coincideixen amb l'hora actual i quan almenys un dels dos "
-"camps de dos dies (dia del mes o dia de la setmana) coincideix amb l'hora "
-"actual."
-
-msgid "Presets"
-msgstr "Prearranjaments"
-
-msgid "Recursively create snapshots of all descendent datasets."
-msgstr ""
-"Creeu recursivament instantànies de tots els conjunts de dades descendents."
+msgid "SEARCH"
+msgstr "CERCA"
 
 msgid "Create"
 msgstr "Crear"
 
-msgid "Scrub"
-msgstr "Fregat"
+msgid "Modified"
+msgstr "Modificat"
 
-msgid "Select pool."
-msgstr "Seleccioneu piscina"
+msgid "Permissions"
+msgstr "Permisos"
 
-msgid "No ZFS zpool information available."
-msgstr "No hi ha informació zpool disponible ZFS."
+msgid "Actions"
+msgstr "Accions"
 
-msgid "No ZFS volume information available."
-msgstr "No hi ha informació de volum ZFS disponible."
+msgid "COPY"
+msgstr "COPIAR"
 
-msgid "Add Filesystem"
-msgstr "Afegeix un sistema de fitxers"
+msgid "MOVE"
+msgstr "MOURE"
 
-msgid "Edit Filesystem"
-msgstr "Edita el sistema de fitxers"
+msgid "DELETE"
+msgstr "ELIMINA"
 
-msgid "Filesystem is marked for deletion"
-msgstr "El sistema de fitxers està marcat per a supressió"
+msgid "EDIT"
+msgstr "EDITAR"
 
-msgid "Filesystem is locked"
-msgstr "El sistema de fitxers està bloquejat"
+msgid "UNZIP"
+msgstr "DESCOMPRIMEIX"
 
-msgid "Filesystem is unlocked"
-msgstr "El sistema de fitxers està desbloquejat"
+msgid "DOWNLOAD"
+msgstr "DESCARREGA"
 
-msgid "Delete Selected Filesystems"
-msgstr "Suprimeix els sistemes de fitxers seleccionats"
+msgid "Extracting"
+msgstr "S'està extraient"
 
-msgid "Do you want to delete selected filesystems?"
-msgstr "Voleu suprimir els sistemes de fitxers seleccionats?"
+msgid "Unzip"
+msgstr "Descomprimeix"
 
-msgid "Do you want to disable selected filesystems?"
-msgstr "Voleu desactivar els sistemes de fitxers seleccionats?"
+msgid "Failed to extract archive."
+msgstr "No s'ha pogut extreure l'arxiu."
 
-msgid "Do you want to enable selected filesystems?"
-msgstr "Voleu activar els sistemes de fitxers seleccionats?"
+msgid "Executable File"
+msgstr "Fitxer executable"
 
-msgid "Do you want to toggle selected filesystems?"
-msgstr "Voleu canviar els sistemes de fitxers seleccionats?"
+msgid "Link"
+msgstr "Enllaç"
 
-msgid "Filesystem Name"
-msgstr "Nom del sistema de fitxers"
+msgid "Text File"
+msgstr "Fitxer de text"
 
-msgid "unknown"
-msgstr "desconegut"
+msgid "PHP Script"
+msgstr "Script PHP"
+
+msgid "SQL File"
+msgstr "Arxiu SQL"
+
+msgid "PERL Script"
+msgstr "Script PERL"
+
+msgid "HTML Page"
+msgstr "Pàgina HTML"
+
+msgid "XML File"
+msgstr "Fitxer XML"
+
+msgid "Javascript File"
+msgstr "Arxiu Javascript"
+
+msgid "CSS File"
+msgstr "Fitxer CSS"
+
+msgid "CGI Script"
+msgstr "Script CGI"
+
+msgid "Python Script"
+msgstr "Script Python"
+
+msgid "Shell Script"
+msgstr "Script Shell"
+
+msgid "C File"
+msgstr "Fitxer C"
+
+msgid "C++ Source File"
+msgstr "Fitxer de codi C++"
+
+msgid "C++ Header File"
+msgstr "Fitxer de capçalera C ++"
+
+msgid "Java Source File"
+msgstr "Fitxer font Java"
+
+msgid "Java Class File"
+msgstr "Fitxer de classe Java"
+
+msgid "Pascal File"
+msgstr "Arxiu Pascal"
+
+msgid "GIF Image"
+msgstr "Imatge GIF"
+
+msgid "JPG Image"
+msgstr "Imatge JPG"
+
+msgid "BMP Image"
+msgstr "Imatge BMP"
+
+msgid "PNG Image"
+msgstr "Imatge PNG"
+
+msgid "TIF Image"
+msgstr "Imatge TAR"
+
+msgid "Photoshop File"
+msgstr "Arxiu Photoshop"
+
+msgid "ZIP Archive"
+msgstr "Fitxer ZIP"
+
+msgid "TAR Archive"
+msgstr "Fitxer TAR"
+
+msgid "GZIP Archive"
+msgstr "Fitxer GZIP"
+
+msgid "BZIP2 Archive"
+msgstr "Fitxer BZIP2"
+
+msgid "RAR Archive"
+msgstr "Arxiu RAR"
+
+msgid "MP3 Audio File"
+msgstr "Fitxer d'Audio MP3"
+
+msgid "FLAC Audio File"
+msgstr "Fitxer d'àudio FLAC"
+
+msgid "WAV Audio File"
+msgstr "Fitxer d'Audio WAV"
+
+msgid "MIDI File"
+msgstr "Arxiu MIDI"
+
+msgid "RealAudio File"
+msgstr "Arxiu RealAudio"
+
+msgid "DTS Audio File"
+msgstr "Fitxer d'àudio DTS"
+
+msgid "AC3 Audio File"
+msgstr "Fitxer d'àudio AC3"
+
+msgid "OGG Audio File"
+msgstr "Fitxer d'Audio OGG"
+
+msgid "MP3 Playlist"
+msgstr "Llista de reproducció MP3"
+
+msgid "AVI File"
+msgstr "Fitxer AVI"
+
+msgid "MPEG File"
+msgstr "Arxiu MPEG"
+
+msgid "MOV File"
+msgstr "Arxiu MOV"
+
+msgid "MKV File"
+msgstr "Arxiu MKV"
+
+msgid "VOB File"
+msgstr "Fitxer VOB"
+
+msgid "Flash File"
+msgstr "Fitxer Flash"
+
+msgid "MP4 File"
+msgstr "Arxiu MP4"
+
+msgid "TS File"
+msgstr "Fitxer TS"
+
+msgid "Word Document"
+msgstr "Document Word"
+
+msgid "Excel Sheet"
+msgstr "Full Excel"
+
+msgid "Powerpoint Presentation"
+msgstr "Presentaçió PowerPoint"
+
+msgid "PDF File"
+msgstr "Fitxer PDF"
+
+msgid "ERROR(S)"
+msgstr "ERROR(S)"
+
+msgid "Go Back"
+msgstr "Torna enrere"
+
+msgid "Directory creation failed."
+msgstr "La creació del directori ha fallat."
+
+msgid "File creation failed."
+msgstr "La creació de fitxer ha falalt"
+
+msgid "Dataset Name"
+msgstr "Nom del conjunt de dades"
+
+msgid ""
+"File System - can be mounted within the standard system namespace and "
+"behaves like other file systems."
+msgstr ""
+"Sistema d'arxius - es pot muntar dins de l'espai de noms de sistema "
+"estàndard i es comporta com altres sistemes d'arxius."
+
+msgid "Volume - A logical volume. Can be exported as a raw or block device."
+msgstr ""
+"Volum - Un volum lògic. Pot ser exportat com un dispositiu en brut o bloc."
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+"Instantània: una versió de només lectura d'un sistema de fitxers o volum en "
+"un moment determinat."
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr "Marcador: crea un marcador d'una instantània determinada"
+
+msgid "Dataset Type"
+msgstr "Tipus de conjunt de dades"
+
+msgid "Pool Name"
+msgstr "Nom de la piscina"
+
+msgid "Clones"
+msgstr "Clons"
+
+msgid "Compression Ratio"
+msgstr "Relació de compressió"
+
+msgid "Defer Destroy"
+msgstr "Destrucció diferida"
+
+msgid "Encryption Root"
+msgstr "Arrel de xifrat"
+
+msgid "Filesystem Count"
+msgstr "Recompte del sistema de fitxers"
+
+msgid "GUID"
+msgstr "GUID"
+
+msgid "Key Status"
+msgstr "Estat clau"
+
+msgid "Logical Referenced"
+msgstr "Referent lògic"
+
+msgid "Logical Used"
+msgstr "Lògica utilitzada"
+
+msgid "Mounted"
+msgstr "Muntat"
+
+msgid "Obj Set ID"
+msgstr "ID del conjunt d'objectes"
+
+msgid "Receive Resume Token"
+msgstr "Rebreu el testimoni de currículum"
+
+msgid "Redact Snaps"
+msgstr "Redacta instantaneas"
+
+msgid "Refcompressratio"
+msgstr "Relació de compressió de referència"
+
+msgid "Referenced"
+msgstr "Referenciat"
+
+msgid "Snapshot Count"
+msgstr "Recompte d'instantània"
+
+msgid "Used by Children"
+msgstr "Utilitzat pels nens"
+
+msgid "Used by Dataset"
+msgstr "Utilitzat per Dataset"
+
+msgid "Used by Refreservation"
+msgstr "Utilitzat per la reserva de referència"
+
+msgid "Used by Snapshots"
+msgstr "Utilitzat per les instantànies"
+
+msgid "Userrefs"
+msgstr "Referències d'usuari"
+
+msgid "Written"
+msgstr "Escrit"
+
+msgid "Normalization"
+msgstr "Normalització"
+
+msgid "UTF-8 File Names"
+msgstr "Noms de fitxers UTF-8"
+
+msgid "ACL Type"
+msgstr "Tipus ACL"
+
+msgid "Access Time"
+msgstr "Temps d'accés"
+
+msgid "Can Mount"
+msgstr "No es pot montar"
+
+msgid "Checksum"
+msgstr "Suma de verificació"
+
+msgid "GZIP Compression Level"
+msgstr "Nivell de compressió GZIP"
+
+msgid "Zstandard Compression Level"
+msgstr "Nivell de compressió estàndard Z"
+
+msgid "Fast Zstandard Compression Level"
+msgstr "Compressió ràpida standard"
+
+msgid "Copies"
+msgstr "Còpies"
+
+msgid "Dedup Method"
+msgstr "Mètode dedup"
+
+msgid "Dnode Size"
+msgstr "Mida del Dnode"
+
+msgid "Execute Processes"
+msgstr "Executar Processos"
+
+msgid "Filesystem Limit"
+msgstr "Límit del sistema de fitxers"
+
+msgid "Jailed"
+msgstr "Engabiat"
+
+msgid "Key Format"
+msgstr "Format de clau"
+
+msgid "Key Location"
+msgstr "Ubicació clau"
+
+msgid "Logbias"
+msgstr "Logbias"
+
+msgid "Mountpoint Type"
+msgstr "Tipus de punt de muntatge"
+
+msgid "Non-blocking Mandatory Locks"
+msgstr "Bloqueigs obligatoris sense bloqueig"
+
+msgid "Overlay Mount"
+msgstr "Muntatge de superposició"
+
+msgid "PBKDF2 Iterations"
+msgstr "Iteracions PBKDF2"
+
+msgid "Primary Cache"
+msgstr "Memòria cau primària"
+
+msgid "Record Size"
+msgstr "Mida del registre"
+
+msgid "Redundant Metadata"
+msgstr "Metadades redundants"
+
+msgid "Refquota"
+msgstr "Refquota"
+
+msgid "Refquota Type"
+msgstr "Tipus de quota de referència"
+
+msgid "Refreservation"
+msgstr "Refreservation"
+
+msgid "Refreservation Type"
+msgstr "Tipus de reserva de referència"
+
+msgid "Relatime"
+msgstr "Temps relatiu"
+
+msgid "Reservation Type"
+msgstr "Tipus de reserva"
+
+msgid "Secondary Cache"
+msgstr "Memòria cau secundària"
+
+msgid "Setuid"
+msgstr "Estableix uid"
+
+msgid "Share NFS Options"
+msgstr "Comparteix les opcions NFS"
+
+msgid "Share NFS Type"
+msgstr "Comparteix els tipus NFS"
+
+msgid "Share SMB Options"
+msgstr "Comparteix les opcions Samba"
+
+msgid "Share SMB Type"
+msgstr "Comparteix els tipus Samba"
+
+msgid "Snapshot Device Visibility"
+msgstr "Visibilitat del dispositiu instantània"
+
+msgid "Snapshot Folder Visibility"
+msgstr "Visibilitat de la carpeta instantània"
+
+msgid "Snapshot Limit"
+msgstr "Llimit d'instantànies"
+
+msgid "Threshold Small Block Size"
+msgstr "Llindar Mida del bloc petit"
+
+msgid "Synchronous Requests Behaviour"
+msgstr "Comportament de les peticions sincròniques"
+
+msgid "Volume Mode"
+msgstr "Mode de volum"
+
+msgid "Volume Size"
+msgstr "Mida de volum"
+
+msgid "Virus Scan"
+msgstr "Escaneig de virus"
 
 msgid "No ZFS filesystem information available."
 msgstr "No hi ha informació del sistema de fitxers ZFS disponible."
-
-msgid "Filesystems"
-msgstr "Sistemes de fitxers"
 
 msgid "The name of the filesystem."
 msgstr "El nom del sistema de fitxers."
@@ -9882,9 +10217,6 @@ msgstr "Introduïu el nom del sistema de fitxers"
 
 msgid "Controls the type of the ZFS dataset."
 msgstr "Defineix el tipus del conjunt de dades ZFS."
-
-msgid "Pool Name"
-msgstr "Nom de la piscina"
 
 msgid ""
 "Indicates whether the file name matching algorithm used by the filesystem "
@@ -10479,233 +10811,284 @@ msgstr ""
 msgid "System attribute based xattrs"
 msgstr "Xattrs basats en atributs del sistema"
 
-msgid "Dataset Name"
-msgstr "Nom del conjunt de dades"
+msgid "Add Filesystem"
+msgstr "Afegeix un sistema de fitxers"
+
+msgid "Edit Filesystem"
+msgstr "Edita el sistema de fitxers"
+
+msgid "Filesystem is marked for deletion"
+msgstr "El sistema de fitxers està marcat per a supressió"
+
+msgid "Filesystem is locked"
+msgstr "El sistema de fitxers està bloquejat"
+
+msgid "Filesystem is unlocked"
+msgstr "El sistema de fitxers està desbloquejat"
+
+msgid "Delete Selected Filesystems"
+msgstr "Suprimeix els sistemes de fitxers seleccionats"
+
+msgid "Do you want to delete selected filesystems?"
+msgstr "Voleu suprimir els sistemes de fitxers seleccionats?"
+
+msgid "Disable Selected Schedules"
+msgstr "Desactiva els horaris seleccionats"
+
+msgid "Do you want to disable selected filesystems?"
+msgstr "Voleu desactivar els sistemes de fitxers seleccionats?"
+
+msgid "Enable Selected Schedules"
+msgstr "Activa els horaris seleccionats"
+
+msgid "Do you want to enable selected filesystems?"
+msgstr "Voleu activar els sistemes de fitxers seleccionats?"
+
+msgid "Toggle Selected Schedules"
+msgstr "Commuta els horaris seleccionats"
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr "Voleu canviar els sistemes de fitxers seleccionats?"
+
+msgid "Filesystem Name"
+msgstr "Nom del sistema de fitxers"
+
+msgid "unknown"
+msgstr "desconegut"
+
+msgid "Filesystems"
+msgstr "Sistemes de fitxers"
+
+msgid "Show Used/Avail"
+msgstr "Mostra Utilitzat / Disponible"
+
+msgid "On-Disk Configuration"
+msgstr "Configuració en disc"
+
+msgid "Capacity Warning Threshold"
+msgstr "Llindar d'advertència de capacitat"
+
+msgid "Capacity Critical Threshold"
+msgstr "Llindar crític de capacitat"
+
+msgid "Extended Destroy"
+msgstr ""
 
 msgid ""
-"File System - can be mounted within the standard system namespace and "
-"behaves like other file systems."
+"Display Used/Avail information from the filesystem instead of the Alloc/Free "
+"information from the pool."
 msgstr ""
-"Sistema d'arxius - es pot muntar dins de l'espai de noms de sistema "
-"estàndard i es comporta com altres sistemes d'arxius."
-
-msgid "Volume - A logical volume. Can be exported as a raw or block device."
-msgstr ""
-"Volum - Un volum lògic. Pot ser exportat com un dispositiu en brut o bloc."
+"Mostra informació d' úsat / disponible del sistema de fitxers en comptes de "
+"la informació d'asignat / Lliure des de la piscina."
 
 msgid ""
-"Snapshot - A read-only version of a file system or volume at a given point "
-"in time."
+"Used/Avail lists storage information after all redundancy is taken into "
+"account but is impacted by compression, deduplication and quotas. Alloc/Free "
+"lists the raw storage information of a pool."
 msgstr ""
-"Instantània: una versió de només lectura d'un sistema de fitxers o volum en "
-"un moment determinat."
+"La informació d'emmagatzematge utilitzada / disponible després de tenir en "
+"compte tota la redundància es veu afectada per la compressió, la "
+"deduplicació i les quotes. Asignada / Lliure mostra la informació "
+"d'emmagatzematge en brut d'un grup."
 
-msgid "Bookmark - Creates a bookmark of a given snapshot."
-msgstr "Marcador: crea un marcador d'una instantània determinada"
+msgid "Read on-disk configuration."
+msgstr "Llegeix la configuració del disc."
 
-msgid "Dataset Type"
-msgstr "Tipus de conjunt de dades"
+msgid ""
+"Reading the configuration from the disks is slower than reading from cache "
+"file."
+msgstr ""
+"Llegir la configuració des dels discs és més lent que llegir des del fitxer "
+"de la memòria cau."
 
-msgid "Clones"
-msgstr "Clons"
+msgid "Set the warning threshold to a value between 80 and 89."
+msgstr "Estableix el llindar d'advertència en un valor entre 80 i 89."
 
-msgid "Compression Ratio"
-msgstr "Relació de compressió"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the warning "
+"threshold."
+msgstr ""
+"S'envia un correu electrònic d'alerta quan la capacitat d'un grup excedeix "
+"el llindar d'advertència."
 
-msgid "Defer Destroy"
-msgstr "Destrucció diferida"
+msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
+msgstr ""
+"Cal configurar un treball cron per programar script /etc/capacitycheck.zfs."
 
-msgid "Encryption Root"
-msgstr "Arrel de xifrat"
+msgid "Must be a number between 80 and 89."
+msgstr "Ha de ser un número entre 80 i 89."
 
-msgid "Filesystem Count"
-msgstr "Recompte del sistema de fitxers"
+msgid "Set the critical threshold to a value between 90 and 95."
+msgstr "Establiu el llindar crític a un valor entre 90 i 95."
 
-msgid "GUID"
-msgstr "GUID"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the critical "
+"threshold."
+msgstr ""
+"S'envia un correu electrònic d'alerta quan la capacitat de la piscina "
+"excedeix el llindar crític."
 
-msgid "Key Status"
-msgstr "Estat clau"
+msgid "Must be a number between 90 and 95."
+msgstr "Ha de ser un número entre 90 i 95."
 
-msgid "Logical Referenced"
-msgstr "Referent lògic"
+msgid "Destroy dataset and its dependents."
+msgstr ""
 
-msgid "Logical Used"
-msgstr "Lògica utilitzada"
+msgid ""
+"When enabled, destroying a dataset will also destroy all dependents "
+"(datasets, snapshots and clones)."
+msgstr ""
 
-msgid "Mounted"
-msgstr "Muntat"
+msgid "Add Schedule"
+msgstr "Afegeix una programació"
 
-msgid "Obj Set ID"
-msgstr "ID del conjunt d'objectes"
+msgid "Edit Schedule"
+msgstr "Edita la programació"
 
-msgid "Receive Resume Token"
-msgstr "Rebreu el testimoni de currículum"
+msgid "Schedule is marked for deletion"
+msgstr "La programació està marcada per esborrar"
 
-msgid "Redact Snaps"
-msgstr "Redacta instantaneas"
+msgid "Schedule is locked"
+msgstr "La programació està bloquejada"
 
-msgid "Refcompressratio"
-msgstr "Relació de compressió de referència"
+msgid "Schedule is unlocked"
+msgstr "La programació està desbloquejada"
 
-msgid "Referenced"
-msgstr "Referenciat"
+msgid "Delete Selected Schedules"
+msgstr "Suprimeix els horaris seleccionats"
 
-msgid "Snapshot Count"
-msgstr "Recompte d'instantània"
+msgid "Do you want to delete selected schedules?"
+msgstr "Vols suprimir els horaris seleccionats?"
 
-msgid "Used by Children"
-msgstr "Utilitzat pels nens"
+msgid "Do you want to disable selected schedules?"
+msgstr "Vols desactivar els horaris seleccionats?"
 
-msgid "Used by Dataset"
-msgstr "Utilitzat per Dataset"
+msgid "Do you want to enable selected schedules?"
+msgstr "Vols activar els horaris seleccionats?"
 
-msgid "Used by Refreservation"
-msgstr "Utilitzat per la reserva de referència"
+msgid "Do you want to toggle selected schedules?"
+msgstr "Voleu canviar els horaris seleccionats?"
 
-msgid "Used by Snapshots"
-msgstr "Utilitzat per les instantànies"
+msgid "Invalid"
+msgstr "Invàlid"
 
-msgid "Userrefs"
-msgstr "Referències d'usuari"
+msgid "Destroy"
+msgstr "Destrueix"
 
-msgid "Written"
-msgstr "Escrit"
+msgid "Create Snapshot"
+msgstr "Crea una instantània"
 
-msgid "Normalization"
-msgstr "Normalització"
+msgid "Destroy Snapshot"
+msgstr "Destrueix Captures"
 
-msgid "UTF-8 File Names"
-msgstr "Noms de fitxers UTF-8"
+msgid "Scrub Pool"
+msgstr "Piscina de fregat"
 
-msgid "ACL Type"
-msgstr "Tipus ACL"
+msgid "Lifetime"
+msgstr "Temps de funcionament"
 
-msgid "Access Time"
-msgstr "Temps d'accés"
+msgid "Second(s)"
+msgstr "Segon(s)"
 
-msgid "Can Mount"
-msgstr "No es pot montar"
+msgid "Minute(s)"
+msgstr "Minut/s"
 
-msgid "Checksum"
-msgstr "Suma de verificació"
+msgid "Hour(s)"
+msgstr "Hora/es"
 
-msgid "GZIP Compression Level"
-msgstr "Nivell de compressió GZIP"
+msgid "Day(s)"
+msgstr "Dia/es"
 
-msgid "Zstandard Compression Level"
-msgstr "Nivell de compressió estàndard Z"
+msgid "Week(s)"
+msgstr "Setmana(es)"
 
-msgid "Fast Zstandard Compression Level"
-msgstr "Compressió ràpida standard"
+msgid "Month(s)"
+msgstr "Mes/os"
 
-msgid "Copies"
-msgstr "Còpies"
+msgid "Year(s)"
+msgstr "Any(s)"
 
-msgid "Dedup Method"
-msgstr "Mètode dedup"
+msgid "Hourly"
+msgstr "Cada hora"
 
-msgid "Dnode Size"
-msgstr "Mida del Dnode"
+msgid "Daily"
+msgstr "Diàriament"
 
-msgid "Execute Processes"
-msgstr "Executar Processos"
+msgid "Weekly"
+msgstr "Setmanalment"
 
-msgid "Filesystem Limit"
-msgstr "Límit del sistema de fitxers"
+msgid "Monthly"
+msgstr "Mensualment"
 
-msgid "Jailed"
-msgstr "Engabiat"
+msgid "Yearly"
+msgstr "Anualment"
 
-msgid "Key Format"
-msgstr "Format de clau"
+msgid "Custom Setting"
+msgstr "Configuració personalitzada"
 
-msgid "Key Location"
-msgstr "Ubicació clau"
+msgid "Schedule"
+msgstr "Planificació"
 
-msgid "Logbias"
-msgstr "Logbias"
+msgid "Weekdays"
+msgstr "Setmanal"
 
-msgid "Mountpoint Type"
-msgstr "Tipus de punt de muntatge"
+msgid "All Minutes"
+msgstr "Tots els minuts"
 
-msgid "Non-blocking Mandatory Locks"
-msgstr "Bloqueigs obligatoris sense bloqueig"
+msgid "All Hours"
+msgstr "Totes les hores"
 
-msgid "Overlay Mount"
-msgstr "Muntatge de superposició"
+msgid "All Days"
+msgstr "Cada dia"
 
-msgid "PBKDF2 Iterations"
-msgstr "Iteracions PBKDF2"
+msgid "All Months"
+msgstr "Tots els mesos"
 
-msgid "Primary Cache"
-msgstr "Memòria cau primària"
+msgid "All Weekdays"
+msgstr "Tots els dias de la  setmana"
 
-msgid "Record Size"
-msgstr "Mida del registre"
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Seleccioneu Agrupació, Sistema de fitxers o Volum"
 
-msgid "Redundant Metadata"
-msgstr "Metadades redundants"
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr ""
+"Destruïu recursivament instantànies de tots els conjunts de dades "
+"descendents."
 
-msgid "Refquota"
-msgstr "Refquota"
+msgid "Lifetime Value"
+msgstr "Valor de temps de funcionament"
 
-msgid "Refquota Type"
-msgstr "Tipus de quota de referència"
+msgid "Lifetime Units"
+msgstr "Unitats de temps de funcionament"
 
-msgid "Refreservation"
-msgstr "Refreservation"
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Els comandaments els executa el programador quan els camps de minuts, hores "
+"i mes de l'any coincideixen amb l'hora actual i quan almenys un dels dos "
+"camps de dos dies (dia del mes o dia de la setmana) coincideix amb l'hora "
+"actual."
 
-msgid "Refreservation Type"
-msgstr "Tipus de reserva de referència"
+msgid "Presets"
+msgstr "Prearranjaments"
 
-msgid "Relatime"
-msgstr "Temps relatiu"
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+"Creeu recursivament instantànies de tots els conjunts de dades descendents."
 
-msgid "Reservation Type"
-msgstr "Tipus de reserva"
+msgid "Select pool."
+msgstr "Seleccioneu piscina"
 
-msgid "Secondary Cache"
-msgstr "Memòria cau secundària"
+msgid "Scrub"
+msgstr "Fregat"
 
-msgid "Setuid"
-msgstr "Estableix uid"
+msgid "No ZFS zpool information available."
+msgstr "No hi ha informació zpool disponible ZFS."
 
-msgid "Share NFS Options"
-msgstr "Comparteix les opcions NFS"
-
-msgid "Share NFS Type"
-msgstr "Comparteix els tipus NFS"
-
-msgid "Share SMB Options"
-msgstr "Comparteix les opcions Samba"
-
-msgid "Share SMB Type"
-msgstr "Comparteix els tipus Samba"
-
-msgid "Snapshot Device Visibility"
-msgstr "Visibilitat del dispositiu instantània"
-
-msgid "Snapshot Folder Visibility"
-msgstr "Visibilitat de la carpeta instantània"
-
-msgid "Snapshot Limit"
-msgstr "Llimit d'instantànies"
-
-msgid "Threshold Small Block Size"
-msgstr "Llindar Mida del bloc petit"
-
-msgid "Synchronous Requests Behaviour"
-msgstr "Comportament de les peticions sincròniques"
-
-msgid "Volume Mode"
-msgstr "Mode de volum"
-
-msgid "Volume Size"
-msgstr "Mida de volum"
-
-msgid "Virus Scan"
-msgstr "Escaneig de virus"
+msgid "No ZFS volume information available."
+msgstr "No hi ha informació de volum ZFS disponible."
 
 msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
@@ -10718,14 +11101,107 @@ msgstr "Introduïu l'identificador"
 msgid "Enter smartctl pass-through type."
 msgstr "Introduïu el tipus de passarel·la smartctl."
 
+msgid "Login Name"
+msgstr "Nom d'usuari"
+
+msgid "Full Name"
+msgstr "Nom complet"
+
+msgid "SHA Password"
+msgstr "Contrasenya SHA"
+
+msgid "MD4 Password"
+msgstr "Contrasenya MD4"
+
+msgid "Shell"
+msgstr "Intèrpret de comandaments"
+
+msgid "Primary Group"
+msgstr "Grup primari"
+
+msgid "Groups"
+msgstr "Grups"
+
+msgid "Timezone"
+msgstr "Zona horària"
+
+msgid "File Manager Access"
+msgstr "Access al gestor d'arxius"
+
+msgid "Hidden Items"
+msgstr "Elements ocults"
+
+msgid "Read Permission"
+msgstr "Permís de lectura"
+
+msgid "Create Permission"
+msgstr "Crea permisos"
+
+msgid "Change Permission"
+msgstr "Canvia permisos"
+
+msgid "Delete Permission"
+msgstr "Elimina permisos"
+
+msgid "Add User Account"
+msgstr "Afegeix un compte d'usuari"
+
+msgid "Edit User Account"
+msgstr "Edita compte d'usuari"
+
+msgid "User account is marked for deletion"
+msgstr "El compte del usuari està marcat per ser esborrat"
+
+msgid "User account is protected"
+msgstr "El compte d'usuari està protegit"
+
+msgid "User account is unlocked"
+msgstr "El compte d'usuari està desbloquejat"
+
+msgid "Set password"
+msgstr "Definiu la contrasenya"
+
+msgid "Delete Selected User Accounts"
+msgstr "Suprimeix comptes d'usuari seleccionades"
+
+msgid "Do you want to delete selected user accounts?"
+msgstr "Vols eliminar comptes d'usuari seleccionades?"
+
+msgid "Disable Selected Users"
+msgstr "Desactiva els usuaris seleccionats"
+
+msgid "Do you want to disable selected users?"
+msgstr "Voleu desactivar els usuaris seleccionats?"
+
+msgid "Enable Selected Users"
+msgstr "Activeu usuaris seleccionats"
+
+msgid "Do you want to enable selected users?"
+msgstr "Voleu habilitar els usuaris seleccionats?"
+
+msgid "Toggle Selected Users"
+msgstr "Commuta els usuaris seleccionats"
+
+msgid "Do you want to toggle selected users?"
+msgstr "Voleu canviar els usuaris seleccionats?"
+
+msgid "Active"
+msgstr "Actiu"
+
+msgid "System User"
+msgstr "Usuari de sistema"
+
+msgid "Show System Users"
+msgstr "Mostra els usuaris del sistema"
+
+msgid "Hide System Users"
+msgstr "Amaga els usuaris del sistema"
+
 msgid "Enter login name."
 msgstr "Introduïu nom de usuari"
 
 msgid "Enter the full user name."
 msgstr "Introduïu el nom d'usuari sencer"
-
-msgid "Full Name"
-msgstr "Nom complet"
 
 msgid "Set user password."
 msgstr "Definiu la contrasenya de l’usuari."
@@ -10813,110 +11289,11 @@ msgstr "Concedir permís per modificar"
 msgid "Grant delete permission"
 msgstr "Concediu permís per eliminar"
 
-msgid "Add User Account"
-msgstr "Afegeix un compte d'usuari"
-
-msgid "Edit User Account"
-msgstr "Edita compte d'usuari"
-
-msgid "User account is marked for deletion"
-msgstr "El compte del usuari està marcat per ser esborrat"
-
-msgid "User account is protected"
-msgstr "El compte d'usuari està protegit"
-
-msgid "User account is unlocked"
-msgstr "El compte d'usuari està desbloquejat"
-
-msgid "Set password"
-msgstr "Definiu la contrasenya"
-
-msgid "Delete Selected User Accounts"
-msgstr "Suprimeix comptes d'usuari seleccionades"
-
-msgid "Do you want to delete selected user accounts?"
-msgstr "Vols eliminar comptes d'usuari seleccionades?"
-
-msgid "Disable Selected Users"
-msgstr "Desactiva els usuaris seleccionats"
-
-msgid "Do you want to disable selected users?"
-msgstr "Voleu desactivar els usuaris seleccionats?"
-
-msgid "Enable Selected Users"
-msgstr "Activeu usuaris seleccionats"
-
-msgid "Do you want to enable selected users?"
-msgstr "Voleu habilitar els usuaris seleccionats?"
-
-msgid "Toggle Selected Users"
-msgstr "Commuta els usuaris seleccionats"
-
-msgid "Do you want to toggle selected users?"
-msgstr "Voleu canviar els usuaris seleccionats?"
-
-msgid "Active"
-msgstr "Actiu"
-
-msgid "System User"
-msgstr "Usuari de sistema"
-
-msgid "Show System Users"
-msgstr "Mostra els usuaris del sistema"
-
-msgid "Hide System Users"
-msgstr "Amaga els usuaris del sistema"
-
 msgid "Users"
 msgstr "Usuaris"
 
 msgid "Public Keys"
 msgstr "Claus públiques"
-
-msgid "Groups"
-msgstr "Grups"
-
-msgid "Login Name"
-msgstr "Nom d'usuari"
-
-msgid "SHA Password"
-msgstr "Contrasenya SHA"
-
-msgid "MD4 Password"
-msgstr "Contrasenya MD4"
-
-msgid "Shell"
-msgstr "Intèrpret de comandaments"
-
-msgid "Primary Group"
-msgstr "Grup primari"
-
-msgid "Timezone"
-msgstr "Zona horària"
-
-msgid "File Manager Access"
-msgstr "Access al gestor d'arxius"
-
-msgid "Hidden Items"
-msgstr "Elements ocults"
-
-msgid "Read Permission"
-msgstr "Permís de lectura"
-
-msgid "Create Permission"
-msgstr "Crea permisos"
-
-msgid "Change Permission"
-msgstr "Canvia permisos"
-
-msgid "Delete Permission"
-msgstr "Elimina permisos"
-
-msgid "Public key information."
-msgstr "Informació de clau pública."
-
-msgid "Public Key"
-msgstr "Clau pública"
 
 msgid "Add Public Key"
 msgstr "Afegeix una clau pública"
@@ -10959,6 +11336,12 @@ msgstr "Voleu canviar les claus públiques seleccionades?"
 
 msgid "Reload"
 msgstr "Recarrega"
+
+msgid "Public Key"
+msgstr "Clau pública"
+
+msgid "Public key information."
+msgstr "Informació de clau pública."
 
 msgid "Add Group"
 msgstr "Afegeix grup"
@@ -11021,21 +11404,6 @@ msgid "The recommended range for the group id is between 1000 and 32000."
 msgstr ""
 "L’interval recomanat per al grup d’identificació es troba entre 1000 i 32000."
 
-msgid "Domain Controller Name"
-msgstr "Nom de controlador de domini"
-
-msgid "Domain Name (DNS/Realm-Name)"
-msgstr "Nom de domini (DNS/Nom real)"
-
-msgid "Domain Name (NetBIOS-Name)"
-msgstr "Nom de domini (Nom NetBIOS)"
-
-msgid "Administrator Name"
-msgstr "Nom de l'administrador"
-
-msgid "Administrator Password"
-msgstr "Contrasenya de l'administrador"
-
 msgid "Enter AD or PDC name."
 msgstr "Introduïu el nom d'AD o PDC."
 
@@ -11062,6 +11430,21 @@ msgstr "Administrador"
 
 msgid "Enter the password of the domain administrator account."
 msgstr "Introduïu la contrasenya del compte d'administrador del domini."
+
+msgid "Domain Controller Name"
+msgstr "Nom de controlador de domini"
+
+msgid "Domain Name (DNS/Realm-Name)"
+msgstr "Nom de domini (DNS/Nom real)"
+
+msgid "Domain Name (NetBIOS-Name)"
+msgstr "Nom de domini (Nom NetBIOS)"
+
+msgid "Administrator Name"
+msgstr "Nom de l'administrador"
+
+msgid "Administrator Password"
+msgstr "Contrasenya de l'administrador"
 
 msgid "Add Reboot Schedule"
 msgstr "Afegiu una programació de reinici"
@@ -11101,27 +11484,6 @@ msgstr "Commuta les planificacions de reinici seleccionats"
 
 msgid "Do you want to toggle selected reboot schedules?"
 msgstr "Voleu canviar les planificacions de reinici seleccionades?"
-
-msgid "Daemon Events"
-msgstr "Esdeveniments del dimoni"
-
-msgid "Enable Server"
-msgstr "Activa el servidor"
-
-msgid "FTP Events"
-msgstr "Esdeveniments FTP"
-
-msgid "RSYNC Events"
-msgstr "Esdeveniments de RSYNC"
-
-msgid "S.M.A.R.T. Events"
-msgstr "Esdeveniments S.M.A.R.T."
-
-msgid "SSH Events"
-msgstr "Esdeveniments SSH"
-
-msgid "System Events"
-msgstr "Esdeveniments del sistema"
 
 msgid "Send daemon event messages."
 msgstr "Enviar missatges d'esdeveniments del dimoni."
@@ -11166,6 +11528,27 @@ msgstr "Enviar missatges d'esdeveniments SSH."
 msgid "Send system event messages."
 msgstr "Enviar missatges d'esdeveniments de sistema."
 
+msgid "Daemon Events"
+msgstr "Esdeveniments del dimoni"
+
+msgid "Enable Server"
+msgstr "Activa el servidor"
+
+msgid "FTP Events"
+msgstr "Esdeveniments FTP"
+
+msgid "RSYNC Events"
+msgstr "Esdeveniments de RSYNC"
+
+msgid "S.M.A.R.T. Events"
+msgstr "Esdeveniments S.M.A.R.T."
+
+msgid "SSH Events"
+msgstr "Esdeveniments SSH"
+
+msgid "System Events"
+msgstr "Esdeveniments del sistema"
+
 msgid "Disable the compression of repeating lines."
 msgstr "Desactiva la compressió de línies repetides."
 
@@ -11199,6 +11582,15 @@ msgstr "Sentit del registre"
 
 msgid "Facility"
 msgstr "Ubicació"
+
+msgid "Enter facility name"
+msgstr "Introduïu el nom de la ubicació"
+
+msgid "Enter level name"
+msgstr "Introduïu el nom del nivell"
+
+msgid "Enter destination"
+msgstr "Introduïu la destinació"
 
 msgid "Add Option"
 msgstr "Afegir Opció"
@@ -11239,20 +11631,11 @@ msgstr "Commuta les opcions seleccionades"
 msgid "Do you want to toggle selected options?"
 msgstr "Vols mostrar les opcions seleccionats?"
 
-msgid "Enter facility name"
-msgstr "Introduïu el nom de la ubicació"
-
-msgid "Enter level name"
-msgstr "Introduïu el nom del nivell"
-
-msgid "Enter destination"
-msgstr "Introduïu la destinació"
+msgid "Reorder"
+msgstr "Torna a ordenar"
 
 msgid "Sort"
 msgstr "Ordena"
-
-msgid "Reorder"
-msgstr "Torna a ordenar"
 
 msgid "Add Command"
 msgstr "Afegeix ordre"
@@ -11358,14 +11741,11 @@ msgstr ""
 "Aquestes variables sysctl s’afegiran a /etc/sysctl.conf. Permet fer canvis "
 "en un sistema en funcionament."
 
-msgid "The value of the setting."
-msgstr "El valor de la configuració."
-
 msgid "Variable"
 msgstr "Variable"
 
-msgid "Destination Network"
-msgstr "Xarxa de destí"
+msgid "The value of the setting."
+msgstr "El valor de la configuració."
 
 msgid "Choose which interface this route applies to."
 msgstr "Trieu a quin interfície s'aplica aquesta regla"
@@ -11415,14 +11795,11 @@ msgstr "Commuta les rutes seleccionades"
 msgid "Do you want to toggle selected routes?"
 msgstr "Voleu alternar les rutes seleccionades?"
 
+msgid "Destination Network"
+msgstr "Xarxa de destí"
+
 msgid "Running user"
 msgstr "Usuari en execució"
-
-msgid "The name of the variable."
-msgstr "El nom de la variable."
-
-msgid "The value of the variable."
-msgstr "El valor de la variable."
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
@@ -11433,6 +11810,18 @@ msgstr ""
 "especificar els paràmetres que s'han de passar al nucli i els mòduls "
 "addicionals que es carregaran."
 
+msgid "The name of the variable."
+msgstr "El nom de la variable."
+
+msgid "The value of the variable."
+msgstr "El valor de la variable."
+
+msgid "Name of the variable."
+msgstr "Nom de la variable."
+
+msgid "Enter Value"
+msgstr "Introduïu el valor"
+
 msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr ""
 "Els noms de les variables deshabilitats s’eliminaran del fitxer /etc/rc.conf."
@@ -11440,11 +11829,44 @@ msgstr ""
 msgid "Enabled options will be added to /etc/rc.conf."
 msgstr "Les opcions habilitades s’afegiran a /etc/rc.conf."
 
-msgid "Name of the variable."
-msgstr "Nom de la variable."
+msgid "Button Location"
+msgstr "Ubicació del botó"
 
-msgid "Enter Value"
-msgstr "Introduïu el valor"
+msgid "File Chooser"
+msgstr "Selector de fitxers"
+
+msgid "File Mode"
+msgstr "Mode fitxer"
+
+msgid "GUI"
+msgstr "Interfície gràfica"
+
+msgid "Navigation Bar"
+msgstr "Barra de navegació"
+
+msgid "Tabs"
+msgstr "Pestanyes"
+
+msgid "Toggle Mode"
+msgstr "Mode de commutació"
+
+msgid "Navbar Style"
+msgstr "Estil de barra de navegació"
+
+msgid "Binary Prefix"
+msgstr "Prefix binari"
+
+msgid "Colorful Meters"
+msgstr "Medidors de colors"
+
+msgid "Skip View Mode"
+msgstr "Saltar mode de visualització"
+
+msgid "Show Max CPUs"
+msgstr "Mostra les CPU màximes"
+
+msgid "Diagnostics Information"
+msgstr "Informació de diagnòstic"
 
 msgid ""
 "Display action buttons in the scrollable area instead of the footer area."
@@ -11537,48 +11959,6 @@ msgstr "Limiteu el nombre màxim de CPU que es mostraran a la pàgina inicial."
 msgid "Set the landing page for the Diagnostics > Information menu."
 msgstr "Definiu la pàgina de destinació del menú Diagnòstic> Informació."
 
-msgid "Button Location"
-msgstr "Ubicació del botó"
-
-msgid "File Chooser"
-msgstr "Selector de fitxers"
-
-msgid "File Mode"
-msgstr "Mode fitxer"
-
-msgid "GUI"
-msgstr "Interfície gràfica"
-
-msgid "Navigation Bar"
-msgstr "Barra de navegació"
-
-msgid "Tabs"
-msgstr "Pestanyes"
-
-msgid "Toggle Mode"
-msgstr "Mode de commutació"
-
-msgid "Navbar Style"
-msgstr "Estil de barra de navegació"
-
-msgid "Binary Prefix"
-msgstr "Prefix binari"
-
-msgid "Colorful Meters"
-msgstr "Medidors de colors"
-
-msgid "Skip View Mode"
-msgstr "Saltar mode de visualització"
-
-msgid "Show Max CPUs"
-msgstr "Mostra les CPU màximes"
-
-msgid "Diagnostics Information"
-msgstr "Informació de diagnòstic"
-
-msgid "Show Interval"
-msgstr "Mostra l'interval"
-
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
 "configuration. The default is 28 days. A value of 0 disables the reminder."
@@ -11587,44 +11967,14 @@ msgstr ""
 "configuració del sistema de còpia de seguretat. El valor per defecte és de "
 "28 dies. Un valor de 0 inhabilita el recordatori."
 
-msgid "Network Address"
-msgstr "Adreça de xarxa"
+msgid "Show Interval"
+msgstr "Mostra l'interval"
 
-msgid "Enter additional parameters"
-msgstr "Introduïu paràmetres addicionals"
+msgid "Do you really want to remove the selected item from the list?"
+msgstr "Realment voleu eliminar l'element seleccionat de la llista?"
 
-msgid "No additional parameters"
-msgstr "No hi ha paràmetres addicionals"
-
-msgid "Undefined"
-msgstr "No s'ha definit"
-
-msgid "The value is invalid."
-msgstr "El valor no és vàlid."
-
-msgid "Enter a description for your reference."
-msgstr "Introduïu una descripció per la teva referència."
-
-msgid "Enable Setting"
-msgstr "Activa els ajustos."
-
-msgid "IPv4 Address"
-msgstr "Adreça IPv4"
-
-msgid "Protect"
-msgstr "Protegeix"
-
-msgid "Protect Setting"
-msgstr "Protegeix els ajustos"
-
-msgid "The UUID of the record."
-msgstr "El UUID del registre."
-
-msgid "Enter Universally Unique Identifier"
-msgstr "Introduïu l'identificador únic universal"
-
-msgid "Universally Unique Identifier"
-msgstr "Identificador únic universal"
+msgid "Select item to remove from the list"
+msgstr "Seleccionar element per eliminar-lo de la llista"
 
 msgid "Delete Selected Records"
 msgstr "Suprimeix registres seleccionats"
@@ -11683,8 +12033,155 @@ msgstr "Edita registre"
 msgid "Record is unlocked"
 msgstr "El registre està desbloquejat"
 
+msgid "Service"
+msgstr "Servei"
+
+msgid "Undefined"
+msgstr "No s'ha definit"
+
+msgid "The value is invalid."
+msgstr "El valor no és vàlid."
+
+msgid "Enter additional parameters"
+msgstr "Introduïu paràmetres addicionals"
+
+msgid "No additional parameters"
+msgstr "No hi ha paràmetres addicionals"
+
+msgid "Enter a description for your reference."
+msgstr "Introduïu una descripció per la teva referència."
+
+msgid "Network Address"
+msgstr "Adreça de xarxa"
+
+msgid "Enable Setting"
+msgstr "Activa els ajustos."
+
+msgid "IPv4 Address"
+msgstr "Adreça IPv4"
+
+msgid "The UUID of the record."
+msgstr "El UUID del registre."
+
+msgid "Enter Universally Unique Identifier"
+msgstr "Introduïu l'identificador únic universal"
+
+msgid "Universally Unique Identifier"
+msgstr "Identificador únic universal"
+
+msgid "Protect"
+msgstr "Protegeix"
+
+msgid "Protect Setting"
+msgstr "Protegeix els ajustos"
+
 msgid "Autodetect"
 msgstr "Autodetecta"
+
+msgid "Standard Provider"
+msgstr "Proveïdor estàndard"
+
+msgid "Custom Provider"
+msgstr "Proveïdor personalitzat"
+
+msgid "Record Type"
+msgstr "Tipus de registre"
+
+msgid "Provider"
+msgstr "Proveïdor"
+
+msgid "Provider Name"
+msgstr "Nom del proveïdor"
+
+msgid "Host Names"
+msgstr "Noms d'amfitrió"
+
+msgid "Wildcard Domain"
+msgstr "Domini comodí"
+
+msgid "Use HTTPS"
+msgstr "Usa HTTPS"
+
+msgid "Check IP Server"
+msgstr "Comproveu servidor de IP's"
+
+msgid "Check IP Path"
+msgstr "Comproveu la senda IP"
+
+msgid "Check IP using HTTPS"
+msgstr "Comproveu IP fent servir HHTPS"
+
+msgid "Check IP Command"
+msgstr "Comproveu l'ordre IP"
+
+msgid "User Agent"
+msgstr "Agent d'usuari"
+
+msgid "DDNS-Server"
+msgstr "Servidor DDNS"
+
+msgid "DDNS-Path"
+msgstr "Senda DDNS"
+
+msgid "Append my IP"
+msgstr "Afegeix la meva IP"
+
+msgid "Add Provider"
+msgstr "Afegeix un proveïdor"
+
+msgid "Edit Provider"
+msgstr "Edita el proveïdor"
+
+msgid "Provider is marked for deletion"
+msgstr "El proveïdor està marcat per suprimir-lo"
+
+msgid "Provider is locked"
+msgstr "El proveïdor està bloquejat"
+
+msgid "Provider is unlocked"
+msgstr "El proveïdor està desbloquejat"
+
+msgid "Delete Selected Providers"
+msgstr "Suprimeix els proveïdors seleccionats"
+
+msgid "Disable Selected Providers"
+msgstr "Desactiveu els proveïdors seleccionats"
+
+msgid "Enable Selected Providers"
+msgstr "Activa els proveïdors seleccionats"
+
+msgid "Toggle Selected Providers"
+msgstr "Commuta els proveïdors seleccionats"
+
+msgid "Do you want to delete selected providers?"
+msgstr "Voleu suprimir els proveïdors seleccionats?"
+
+msgid "Do you want to disable selected providers?"
+msgstr "Voleu desactivar els proveïdors seleccionats?"
+
+msgid "Do you want to enable selected providers?"
+msgstr "Voleu permetre els proveïdors seleccionats?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "Voleu canviar entre els proveïdors seleccionats?"
+
+msgid "Missing Provider"
+msgstr "Proveïdor desaparegut"
+
+msgid "Orphaned Provider"
+msgstr "Proveïdor orfe"
+
+msgid "Undefined Type"
+msgstr "Tipus sense definir"
+
+msgid "Unknown Provider"
+msgstr "Proveïdor desconegut"
+
+msgid "Providers"
+msgstr "Proveïdors"
+
+msgid "Global Settings"
+msgstr "Ajustos globals"
 
 msgid ""
 "Select \"Custom Provider\" for customizing the DDNS update server details "
@@ -11803,111 +12300,6 @@ msgstr ""
 
 msgid "These parameters will be added to this provider configuration"
 msgstr "Aquests paràmetres s'afegiran a la configuració d'aquest proveïdor"
-
-msgid "Add Provider"
-msgstr "Afegeix un proveïdor"
-
-msgid "Edit Provider"
-msgstr "Edita el proveïdor"
-
-msgid "Provider is marked for deletion"
-msgstr "El proveïdor està marcat per suprimir-lo"
-
-msgid "Provider is locked"
-msgstr "El proveïdor està bloquejat"
-
-msgid "Provider is unlocked"
-msgstr "El proveïdor està desbloquejat"
-
-msgid "Delete Selected Providers"
-msgstr "Suprimeix els proveïdors seleccionats"
-
-msgid "Disable Selected Providers"
-msgstr "Desactiveu els proveïdors seleccionats"
-
-msgid "Enable Selected Providers"
-msgstr "Activa els proveïdors seleccionats"
-
-msgid "Toggle Selected Providers"
-msgstr "Commuta els proveïdors seleccionats"
-
-msgid "Do you want to delete selected providers?"
-msgstr "Voleu suprimir els proveïdors seleccionats?"
-
-msgid "Do you want to disable selected providers?"
-msgstr "Voleu desactivar els proveïdors seleccionats?"
-
-msgid "Do you want to enable selected providers?"
-msgstr "Voleu permetre els proveïdors seleccionats?"
-
-msgid "Do you want to toggle selected providers?"
-msgstr "Voleu canviar entre els proveïdors seleccionats?"
-
-msgid "Missing Provider"
-msgstr "Proveïdor desaparegut"
-
-msgid "Orphaned Provider"
-msgstr "Proveïdor orfe"
-
-msgid "Undefined Type"
-msgstr "Tipus sense definir"
-
-msgid "Unknown Provider"
-msgstr "Proveïdor desconegut"
-
-msgid "Standard Provider"
-msgstr "Proveïdor estàndard"
-
-msgid "Custom Provider"
-msgstr "Proveïdor personalitzat"
-
-msgid "Record Type"
-msgstr "Tipus de registre"
-
-msgid "Provider"
-msgstr "Proveïdor"
-
-msgid "Provider Name"
-msgstr "Nom del proveïdor"
-
-msgid "Host Names"
-msgstr "Noms d'amfitrió"
-
-msgid "Wildcard Domain"
-msgstr "Domini comodí"
-
-msgid "Use HTTPS"
-msgstr "Usa HTTPS"
-
-msgid "Check IP Server"
-msgstr "Comproveu servidor de IP's"
-
-msgid "Check IP Path"
-msgstr "Comproveu la senda IP"
-
-msgid "Check IP using HTTPS"
-msgstr "Comproveu IP fent servir HHTPS"
-
-msgid "Check IP Command"
-msgstr "Comproveu l'ordre IP"
-
-msgid "User Agent"
-msgstr "Agent d'usuari"
-
-msgid "DDNS-Server"
-msgstr "Servidor DDNS"
-
-msgid "DDNS-Path"
-msgstr "Senda DDNS"
-
-msgid "Append my IP"
-msgstr "Afegeix la meva IP"
-
-msgid "Providers"
-msgstr "Proveïdors"
-
-msgid "Global Settings"
-msgstr "Ajustos globals"
 
 msgid "Verify Address"
 msgstr "Verifiqueu l'adreça"
@@ -12064,6 +12456,15 @@ msgstr "Depura"
 msgid "These parameters are appended to the inadyn.conf file."
 msgstr "Aquests paràmetres s’afegeixen al fitxer inadyn.conf."
 
+msgid "Media Type"
+msgstr "Tipus de mitjà"
+
+msgid "Media Folders"
+msgstr "Carpetes multimèdia"
+
+msgid "Media Folder"
+msgstr "Carpete de mitjans"
+
 msgid "Add Media Folder"
 msgstr "Afegeix una carpeta de suports"
 
@@ -12123,15 +12524,6 @@ msgstr "Escaneja la carpeta dels fitxers d'imatge."
 
 msgid "Scan folder for video and image files."
 msgstr "Escaneja la carpeta per a fitxers de vídeo i imatge."
-
-msgid "Media Type"
-msgstr "Tipus de mitjà"
-
-msgid "Media Folders"
-msgstr "Carpetes multimèdia"
-
-msgid "Media Folder"
-msgstr "Carpete de mitjans"
 
 msgid "Inotify"
 msgstr "Inotify"
@@ -12259,6 +12651,18 @@ msgstr "Nom del grup d'autenticació"
 msgid "Auth Type"
 msgstr "Tipus d'autenticació"
 
+msgid "Name of the Auth Group."
+msgstr "Nom del grup d'autenticació"
+
+msgid "Sets the authentication type."
+msgstr "Estableix el tipus d'autenticació."
+
+msgid "CHAP-Mutual"
+msgstr "CHAP-Mutu"
+
+msgid "These parameters will be added to this auth-group."
+msgstr "Aquests paràmetres s'afegiran a aquest grup d'autenticació."
+
 msgid "Add Auth Group"
 msgstr "Afegir grup autenticat"
 
@@ -12325,23 +12729,119 @@ msgstr "Portal iniciador"
 msgid "No initiator portals found."
 msgstr "No s’han trobat portals d’iniciadors."
 
-msgid "Name of the Auth Group."
-msgstr "Nom del grup d'autenticació"
+msgid "LUN Name"
+msgstr "Nom LUN"
 
-msgid "Sets the authentication type."
-msgstr "Estableix el tipus d'autenticació."
+msgid "Backend"
+msgstr "Backend"
 
-msgid "CHAP-Mutual"
-msgstr "CHAP-Mutu"
+msgid "CTL LUN"
+msgstr "CTL LUN"
 
-msgid "These parameters will be added to this auth-group."
-msgstr "Aquests paràmetres s'afegiran a aquest grup d'autenticació."
+msgid "Device ID"
+msgstr "Id. de dispositiu"
+
+msgid "Device Type"
+msgstr "Tipus de dispositiu"
+
+msgid "Passthrough Address"
+msgstr "Adreça de pas"
+
+msgid "LUN Vendor"
+msgstr "Venedor LUN"
+
+msgid "LUN Product"
+msgstr "Producte LUN"
+
+msgid "LUN Revision"
+msgstr "Revisió LUN"
+
+msgid "LUN SCSI Name"
+msgstr "Nom LUN SCSI"
+
+msgid "LUN EUI-64\tidentifier"
+msgstr "Identificador LUN EUI-64"
+
+msgid "LUN NAA Identifier"
+msgstr "Identificador LUN NAA"
+
+msgid "LUN UUID"
+msgstr "LUN UUID"
+
+msgid "HA Role"
+msgstr "Rol HA"
+
+msgid "Insecure TPC"
+msgstr "TPC insegur"
+
+msgid "Read Cache"
+msgstr "Llegeix la memòria cau"
+
+msgid "Read Only"
+msgstr "Només lectura"
+
+msgid "Reordering"
+msgstr "Reordenant"
+
+msgid "Serialize Sequence"
+msgstr "Seqüència de serialització"
+
+msgid "Physical Block Size"
+msgstr "Mida del bloc físic"
+
+msgid "Physical Block Offset"
+msgstr "Desplaçament de blocs físics"
+
+msgid "UNMAP Block Size"
+msgstr "Mida de bloc UNMAP"
+
+msgid "UNMAP Block Offset"
+msgstr "Offset de bloc UNMAP"
+
+msgid "RPM"
+msgstr "RPM"
+
+msgid "Form Factor"
+msgstr "Factor de forma"
+
+msgid "Provisioning Type"
+msgstr "Tipus de subministrament"
+
+msgid "UNMAP"
+msgstr "UNMAP"
+
+msgid "UNMAP Maximum LBA"
+msgstr "LBA màxim UNMAP"
+
+msgid "UNMAP Maximum Descriptors"
+msgstr "Descriptors UNMAP màxims"
+
+msgid "Write Same Maximum LBA"
+msgstr "Escriviu el mateix LBA màxim"
+
+msgid "Avail Threshold"
+msgstr "Disponibilitat de llindar"
+
+msgid "Used Threshold"
+msgstr "Llindar utilitzat"
+
+msgid "Pool Avail Threshold"
+msgstr "Llindar d'disponibilitat de la piscina"
+
+msgid "Pool Used Threshold"
+msgstr "Llindar utilitzat en la piscina"
+
+msgid "Threads"
+msgstr "Fils"
+
+msgid "Additional Options for Block Backend"
+msgstr "Opcions addicionals per bloc de Backend"
+
+msgid "Additional Options for RAM Disk Backend"
+msgstr "Opcions addicionals per Disc RAM de Backend"
 
 msgid "Name of the LUN."
 msgstr "Nom del LUN"
-
-msgid "LUN Name"
-msgstr "Nom LUN"
 
 msgid "The CTL backend to use for a given LUN."
 msgstr "El motor CTL que s'utilitzarà per a un LUN determinat."
@@ -12384,9 +12884,6 @@ msgstr ""
 msgid "The SCSI Device Identification string presented to the initiator."
 msgstr ""
 "La cadena d'identificació del dispositiu SCSI es va presentar a l'iniciador."
-
-msgid "Device ID"
-msgstr "Id. de dispositiu"
 
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
@@ -12621,12 +13118,6 @@ msgstr ""
 msgid "These parameters will be added to this lun."
 msgstr "Aquests paràmetres s'afegiran a aquest LUN."
 
-msgid "Additional Options for Block Backend"
-msgstr "Opcions addicionals per bloc de Backend"
-
-msgid "Additional Options for RAM Disk Backend"
-msgstr "Opcions addicionals per Disc RAM de Backend"
-
 msgid "Add LUN"
 msgstr "Afegir LUN"
 
@@ -12666,110 +13157,74 @@ msgstr "Voleu activar LUN seleccionats?"
 msgid "Do you want to toggle selected LUNs?"
 msgstr "Voleu canviar els LUN seleccionats?"
 
-msgid "Backend"
-msgstr "Backend"
+msgid "Listen"
+msgstr "Escolta"
 
-msgid "CTL LUN"
-msgstr "CTL LUN"
+msgid "No listeners found."
+msgstr "No s’ha trobat cap receptor."
 
-msgid "Device Type"
-msgstr "Tipus de dispositiu"
+msgid "Option"
+msgstr "Opció"
 
-msgid "Passthrough Address"
-msgstr "Adreça de pas"
+msgid "No options found."
+msgstr "No s’ha trobat cap opció."
 
-msgid "LUN Vendor"
-msgstr "Venedor LUN"
+msgid "Add Portal Group"
+msgstr "Afegeix grup de Portal"
 
-msgid "LUN Product"
-msgstr "Producte LUN"
+msgid "Edit Portal Group"
+msgstr "Editar Grup de portal"
 
-msgid "LUN Revision"
-msgstr "Revisió LUN"
+msgid "Portal Group is marked for deletion"
+msgstr "El grup portal està marcat per esborrar"
 
-msgid "LUN SCSI Name"
-msgstr "Nom LUN SCSI"
+msgid "Portal Group is locked"
+msgstr "Grup de portal està bloquejat"
 
-msgid "LUN EUI-64\tidentifier"
-msgstr "Identificador LUN EUI-64"
+msgid "Portal Group is unlocked"
+msgstr "Grup portal està desbloquejat"
 
-msgid "LUN NAA Identifier"
-msgstr "Identificador LUN NAA"
+msgid "Delete Selected Portal Groups"
+msgstr "Suprimeix grups de Portal seleccionats"
 
-msgid "LUN UUID"
-msgstr "LUN UUID"
+msgid "Disable Selected Portal Groups"
+msgstr "Desactiveu els grups de portal seleccionats"
 
-msgid "HA Role"
-msgstr "Rol HA"
+msgid "Enable Selected Portal Groups"
+msgstr "Activar els grups de portal seleccionats?"
 
-msgid "Insecure TPC"
-msgstr "TPC insegur"
+msgid "Toggle Selected Portal Groups"
+msgstr "Commuta els grups de portal seleccionats"
 
-msgid "Read Cache"
-msgstr "Llegeix la memòria cau"
+msgid "Do you want to delete selected portal groups?"
+msgstr "Voleu eliminar els grups de portal seleccionats?"
 
-msgid "Read Only"
-msgstr "Només lectura"
+msgid "Do you want to disable selected portal groups?"
+msgstr "Voleu desactivar els grups de portal seleccionats?"
 
-msgid "Reordering"
-msgstr "Reordenant"
+msgid "Do you want to enable selected portal groups?"
+msgstr "Voleu activar els grups de portal seleccionats?"
 
-msgid "Serialize Sequence"
-msgstr "Seqüència de serialització"
-
-msgid "Physical Block Size"
-msgstr "Mida del bloc físic"
-
-msgid "Physical Block Offset"
-msgstr "Desplaçament de blocs físics"
-
-msgid "UNMAP Block Size"
-msgstr "Mida de bloc UNMAP"
-
-msgid "UNMAP Block Offset"
-msgstr "Offset de bloc UNMAP"
-
-msgid "RPM"
-msgstr "RPM"
-
-msgid "Form Factor"
-msgstr "Factor de forma"
-
-msgid "Provisioning Type"
-msgstr "Tipus de subministrament"
-
-msgid "UNMAP"
-msgstr "UNMAP"
-
-msgid "UNMAP Maximum LBA"
-msgstr "LBA màxim UNMAP"
-
-msgid "UNMAP Maximum Descriptors"
-msgstr "Descriptors UNMAP màxims"
-
-msgid "Write Same Maximum LBA"
-msgstr "Escriviu el mateix LBA màxim"
-
-msgid "Avail Threshold"
-msgstr "Disponibilitat de llindar"
-
-msgid "Used Threshold"
-msgstr "Llindar utilitzat"
-
-msgid "Pool Avail Threshold"
-msgstr "Llindar d'disponibilitat de la piscina"
-
-msgid "Pool Used Threshold"
-msgstr "Llindar utilitzat en la piscina"
-
-msgid "Threads"
-msgstr "Fils"
-
-msgid "Name of the Portal Group."
-msgstr "Nom del grup de portal"
+msgid "Do you want to toggle selected portal groups?"
+msgstr "Voleu canviar els grups de portal seleccionats?"
 
 msgid "Portal Group Name"
 msgstr "Nom del grup del portal"
+
+msgid "Discovery Filter"
+msgstr "Filtre de descobriment"
+
+msgid "Offload"
+msgstr "Descàrrega"
+
+msgid "Redirect"
+msgstr "Redirecciona"
+
+msgid "Foreign"
+msgstr "Extern"
+
+msgid "Name of the Portal Group."
+msgstr "Nom del grup de portal"
 
 msgid "These parameters will be added to this portal-group."
 msgstr "Aquests paràmetres s'afegiran a aquest grup de portal."
@@ -12846,69 +13301,6 @@ msgstr ""
 "Únic valor d'etiqueta de 16 bits d'aquest grup de portal. Si no "
 "s'especifica, el valor es genera automàticament."
 
-msgid "Add Portal Group"
-msgstr "Afegeix grup de Portal"
-
-msgid "Edit Portal Group"
-msgstr "Editar Grup de portal"
-
-msgid "Portal Group is marked for deletion"
-msgstr "El grup portal està marcat per esborrar"
-
-msgid "Portal Group is locked"
-msgstr "Grup de portal està bloquejat"
-
-msgid "Portal Group is unlocked"
-msgstr "Grup portal està desbloquejat"
-
-msgid "Delete Selected Portal Groups"
-msgstr "Suprimeix grups de Portal seleccionats"
-
-msgid "Disable Selected Portal Groups"
-msgstr "Desactiveu els grups de portal seleccionats"
-
-msgid "Enable Selected Portal Groups"
-msgstr "Activar els grups de portal seleccionats?"
-
-msgid "Toggle Selected Portal Groups"
-msgstr "Commuta els grups de portal seleccionats"
-
-msgid "Do you want to delete selected portal groups?"
-msgstr "Voleu eliminar els grups de portal seleccionats?"
-
-msgid "Do you want to disable selected portal groups?"
-msgstr "Voleu desactivar els grups de portal seleccionats?"
-
-msgid "Do you want to enable selected portal groups?"
-msgstr "Voleu activar els grups de portal seleccionats?"
-
-msgid "Do you want to toggle selected portal groups?"
-msgstr "Voleu canviar els grups de portal seleccionats?"
-
-msgid "Discovery Filter"
-msgstr "Filtre de descobriment"
-
-msgid "Offload"
-msgstr "Descàrrega"
-
-msgid "Redirect"
-msgstr "Redirecciona"
-
-msgid "Foreign"
-msgstr "Extern"
-
-msgid "Listen"
-msgstr "Escolta"
-
-msgid "Option"
-msgstr "Opció"
-
-msgid "No listeners found."
-msgstr "No s’ha trobat cap receptor."
-
-msgid "No options found."
-msgstr "No s’ha trobat cap opció."
-
 msgid "Enter user name."
 msgstr "Introduïu el nom d'usuari."
 
@@ -12964,6 +13356,12 @@ msgstr "Voleu habilitar els usuaris CHAP seleccionats?"
 msgid "Do you want to toggle selected CHAP users?"
 msgstr "Voleu canviar els usuaris CHAP seleccionats?"
 
+msgid "Mutual User"
+msgstr "Usuari mutu"
+
+msgid "Mutual Secret"
+msgstr "Secret mutu"
+
 msgid "Add Mutual CHAP User"
 msgstr "Afegeix un usuari de CHAP mutu"
 
@@ -13014,11 +13412,15 @@ msgstr ""
 msgid "Enter mutual user name."
 msgstr "Introduïu el nom d'usuari mutu."
 
-msgid "Mutual User"
-msgstr "Usuari mutu"
+msgid "Enter an iSCSI initiator name."
+msgstr "Introduïu un nom de iniciador iSCSI."
 
-msgid "Mutual Secret"
-msgstr "Secret mutu"
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+"Inicieu el nom d'iniciador a grups d'autenticació. Es permetrà que un "
+"iniciador amb aquest nom es connecti als grups d'autenticació seleccionats."
 
 msgid "Add Initiator Name"
 msgstr "Afegeix el nom de l'iniciador"
@@ -13059,32 +13461,8 @@ msgstr "Voleu activar els noms d'iniciador seleccionats?"
 msgid "Do you want to toggle selected initiator names?"
 msgstr "Voleu canviar els noms d'iniciador seleccionats?"
 
-msgid "Enter an iSCSI initiator name."
-msgstr "Introduïu un nom de iniciador iSCSI."
-
-msgid ""
-"Link initiator-name to auth-groups. An Initiator with this name will be "
-"allowed to connect to the selected auth-groups."
-msgstr ""
-"Inicieu el nom d'iniciador a grups d'autenticació. Es permetrà que un "
-"iniciador amb aquest nom es connecti als grups d'autenticació seleccionats."
-
 msgid "IP Address Prefix"
 msgstr "Prefix d'adreça IP"
-
-msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "Una adreça IPv4 o IPv6 d'un portal iniciador iSCSI."
-
-msgid "Enter IP address prefix length."
-msgstr "Introduïu la longitud de prefix de l'adreça IP."
-
-msgid ""
-"Link initiator-portal to auth-groups. An Initiator matching this address "
-"will be allowed to connect to the selected auth-groups."
-msgstr ""
-"Enllaç iniciador-portal a grups d'autenticació. Es permetrà que un iniciador "
-"que coincideixi amb aquesta adreça es connecti als grups d'autenticació "
-"seleccionats."
 
 msgid "Add Initiator Portal"
 msgstr "Afegeix Portal iniciador"
@@ -13124,6 +13502,20 @@ msgstr "Voleu activar els portals d'iniciador seleccionats?"
 
 msgid "Do you want to toggle selected initiator portals?"
 msgstr "Voleu canviar els noms d'iniciador de portals seleccionats?"
+
+msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr "Una adreça IPv4 o IPv6 d'un portal iniciador iSCSI."
+
+msgid "Enter IP address prefix length."
+msgstr "Introduïu la longitud de prefix de l'adreça IP."
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+"Enllaç iniciador-portal a grups d'autenticació. Es permetrà que un iniciador "
+"que coincideixi amb aquesta adreça es connecti als grups d'autenticació "
+"seleccionats."
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr "Adreça IPv4 o IPv6 d'un servidor iSNS per registrar-se."
@@ -13228,9 +13620,6 @@ msgstr "Voleu activar els registres d'escolta seleccionats?"
 msgid "Do you want to toggle selected listen records?"
 msgstr "Voleu canviar els registres d'escolta seleccionats?"
 
-msgid "Listen (iSER)"
-msgstr "Escoltant (iSER)"
-
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
@@ -13245,20 +13634,11 @@ msgstr ""
 "Un port per escoltar les connexions entrants mitjançant el protocol iSER "
 "(iSCSI sobre RDMA)."
 
+msgid "Listen (iSER)"
+msgstr "Escoltant (iSER)"
+
 msgid "LUN Number"
 msgstr "Número de LUN"
-
-msgid "LUN number"
-msgstr "Número de LUN"
-
-msgid "No LUNs found."
-msgstr "No s'ha trobat cap LUN."
-
-msgid "Select targets."
-msgstr "Seleccioneu objectius."
-
-msgid "No targets found."
-msgstr "No s'ha trobat cap objectiu."
 
 msgid "Add LUN Record"
 msgstr "Afegeix registre LUN"
@@ -13299,14 +13679,23 @@ msgstr "Voleu activar els registres LUN seleccionats?"
 msgid "Do you want to toggle selected LUN records?"
 msgstr "Voleu canviar els registres LUN seleccionats?"
 
-msgid "Name of the option."
+msgid "LUN number"
+msgstr "Número de LUN"
+
+msgid "No LUNs found."
+msgstr "No s'ha trobat cap LUN."
+
+msgid "Select targets."
+msgstr "Seleccioneu objectius."
+
+msgid "No targets found."
+msgstr "No s'ha trobat cap objectiu."
+
+msgid "Option Name"
 msgstr "Nom de l'opció."
 
-msgid "Value of the option."
-msgstr "Valor de l'opció."
-
-msgid "Link this option to selected portal-groups."
-msgstr "Enllaç aquesta opció als grups de portal seleccionats."
+msgid "Option Value"
+msgstr "Valor de l'opció"
 
 msgid "Add Option Record"
 msgstr "Afegeix opció de registre"
@@ -13347,11 +13736,17 @@ msgstr "Voleu activar els registres d'opcions seleccionats?"
 msgid "Do you want to toggle selected option records?"
 msgstr "Voleu canviar els registres d'opcions seleccionats?"
 
-msgid "Option Name"
+msgid "Name of the option."
 msgstr "Nom de l'opció."
 
-msgid "Option Value"
-msgstr "Valor de l'opció"
+msgid "Value of the option."
+msgstr "Valor de l'opció."
+
+msgid "Link this option to selected portal-groups."
+msgstr "Enllaç aquesta opció als grups de portal seleccionats."
+
+msgid "Port Name"
+msgstr "Nom del port"
 
 msgid "Add Port Record"
 msgstr "Afegeix port de registre"
@@ -13395,11 +13790,39 @@ msgstr "Voleu canviar els registres de ports seleccionats?"
 msgid "Name of the port."
 msgstr "Nom del port."
 
-msgid "Port Name"
-msgstr "Nom del port"
-
 msgid "Alias"
 msgstr "Àlies"
+
+msgid "Name of the target."
+msgstr "Nom del objectiu"
+
+msgid "These parameters will be added to this target."
+msgstr "Aquests paràmetres s'afegiran a aquest objetiu."
+
+msgid "Assign a human-readable description to the target."
+msgstr "Assigneu una descripció llegible per humans a l'objectiu."
+
+msgid "Assign a previously defined authentication group to the target."
+msgstr "Assigneu un grup d'autenticació prèviament definit a l'objectiu."
+
+msgid "Permit access without authentication"
+msgstr "Permet l'accés sense autenticació"
+
+msgid "Assign a previously defined portal group to the target."
+msgstr "Assigneu un grup de portal definit prèviament a l'objectiu."
+
+msgid ""
+"IPv4 or IPv6 address to redirect initiators to. When configured, all "
+"initiators attempting to connect to this target will get redirected using "
+"\"Target moved temporarily\" login response."
+msgstr ""
+"Adreça IPv4 o IPv6 per redirigir els iniciadors envers. Quan estigui "
+"configurat, tots els iniciadors que intenten connectar-se a aquest objectiu "
+"seran redirigits mitjançant la resposta a l'inici de sessió \"Objectiu mogut "
+"temporalment\"."
+
+msgid "No ports found."
+msgstr "No s’ha trobat cap port."
 
 msgid "Add Target"
 msgstr "Afegeix objectiu"
@@ -13439,37 +13862,6 @@ msgstr "Voleu activar els objectius seleccionats?"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Voleu canviar els objectius seleccionats?"
-
-msgid "No ports found."
-msgstr "No s’ha trobat cap port."
-
-msgid "Name of the target."
-msgstr "Nom del objectiu"
-
-msgid "These parameters will be added to this target."
-msgstr "Aquests paràmetres s'afegiran a aquest objetiu."
-
-msgid "Assign a human-readable description to the target."
-msgstr "Assigneu una descripció llegible per humans a l'objectiu."
-
-msgid "Assign a previously defined authentication group to the target."
-msgstr "Assigneu un grup d'autenticació prèviament definit a l'objectiu."
-
-msgid "Permit access without authentication"
-msgstr "Permet l'accés sense autenticació"
-
-msgid "Assign a previously defined portal group to the target."
-msgstr "Assigneu un grup de portal definit prèviament a l'objectiu."
-
-msgid ""
-"IPv4 or IPv6 address to redirect initiators to. When configured, all "
-"initiators attempting to connect to this target will get redirected using "
-"\"Target moved temporarily\" login response."
-msgstr ""
-"Adreça IPv4 o IPv6 per redirigir els iniciadors envers. Quan estigui "
-"configurat, tots els iniciadors que intenten connectar-se a aquest objectiu "
-"seran redirigits mitjançant la resposta a l'inici de sessió \"Objectiu mogut "
-"temporalment\"."
 
 msgid "Max Processes"
 msgstr "Processos màxims"
@@ -13542,45 +13934,6 @@ msgstr "Estat de la sessió"
 
 msgid "Session Type"
 msgstr "Tipus de sessió"
-
-msgid "Add iSCSI Initiator"
-msgstr "Afegeix iniciador iSCSI"
-
-msgid "Edit iSCSI Initiator"
-msgstr "Editar el iniciadors iSCSI"
-
-msgid "iSCSI Initiator is marked for deletion"
-msgstr "El iniciador iSCSI està marcat per a la seva eliminació"
-
-msgid "iSCSI Initiator is locked"
-msgstr "Iniciador iSCSI està bloquejat"
-
-msgid "iSCSI Initiator is unlocked"
-msgstr "Iniciador iSCSI està desbloquejat"
-
-msgid "Delete Selected iSCSI Initiators"
-msgstr "Elimineu els iniciadors iSCSI seleccionats"
-
-msgid "Disable Selected iSCSI Initiators"
-msgstr "Deshabiliteu els iniciadors iSCSI seleccionats"
-
-msgid "Enable Selected iSCSI Initiators"
-msgstr "Habilitar els iniciadors iSCSI seleccionats"
-
-msgid "Toggle Selected iSCSI Initiators"
-msgstr "Commuta els iniciadors iSCSI seleccionats"
-
-msgid "Do you want to delete selected iSCSI initiators?"
-msgstr "Voleu eliminar els iniciadors seleccionats d'iSCSI?"
-
-msgid "Do you want to disable selected iSCSI initiators?"
-msgstr "Voleu desactivar els iniciadors seleccionats d'iSCSI?"
-
-msgid "Do you want to enable selected iSCSI initiators?"
-msgstr "Voleu activar els iniciadors seleccionats iSCSI?"
-
-msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Voleu canviar els iniciadors seleccionats de l'iSCSI?"
 
 msgid "This is a nickname and is for information only."
 msgstr "Aquest és un sobrenom i només es pot obtenir informació."
@@ -13688,6 +14041,45 @@ msgstr ""
 
 msgid "Discovery"
 msgstr "Descobriment"
+
+msgid "Add iSCSI Initiator"
+msgstr "Afegeix iniciador iSCSI"
+
+msgid "Edit iSCSI Initiator"
+msgstr "Editar el iniciadors iSCSI"
+
+msgid "iSCSI Initiator is marked for deletion"
+msgstr "El iniciador iSCSI està marcat per a la seva eliminació"
+
+msgid "iSCSI Initiator is locked"
+msgstr "Iniciador iSCSI està bloquejat"
+
+msgid "iSCSI Initiator is unlocked"
+msgstr "Iniciador iSCSI està desbloquejat"
+
+msgid "Delete Selected iSCSI Initiators"
+msgstr "Elimineu els iniciadors iSCSI seleccionats"
+
+msgid "Disable Selected iSCSI Initiators"
+msgstr "Deshabiliteu els iniciadors iSCSI seleccionats"
+
+msgid "Enable Selected iSCSI Initiators"
+msgstr "Habilitar els iniciadors iSCSI seleccionats"
+
+msgid "Toggle Selected iSCSI Initiators"
+msgstr "Commuta els iniciadors iSCSI seleccionats"
+
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr "Voleu eliminar els iniciadors seleccionats d'iSCSI?"
+
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr "Voleu desactivar els iniciadors seleccionats d'iSCSI?"
+
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr "Voleu activar els iniciadors seleccionats iSCSI?"
+
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr "Voleu canviar els iniciadors seleccionats de l'iSCSI?"
 
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
@@ -14000,6 +14392,51 @@ msgstr "Paperera de reciclatge"
 msgid "Hide Dot Files"
 msgstr "ocultar arxius amb punt"
 
+msgid "Add Samba Share"
+msgstr "Afegir recurs Samba"
+
+msgid "Edit Samba Share"
+msgstr "Editar recurs Samba"
+
+msgid "Samba Share is marked for deletion"
+msgstr "El recurs Samba està marcat per esborrar"
+
+msgid "Samba Share is locked"
+msgstr "Samba share està bloquejada"
+
+msgid "Samba Share is unlocked"
+msgstr "El recurs Samba està desbloquejat"
+
+msgid "Delete Selected Samba Shares"
+msgstr "Suprimeix recursos seleccionats Samba"
+
+msgid "Disable Selected Samba Shares"
+msgstr "Desactiva les accions de Samba seleccionades"
+
+msgid "Enable Selected Samba Shares"
+msgstr "Activa les accions de Samba seleccionades"
+
+msgid "Toggle Selected Samba Shares"
+msgstr "Activeu les accions de Samba seleccionades"
+
+msgid "Do you want to delete selected Samba shares?"
+msgstr "Vols eliminar els recursos Samba seleccionats?"
+
+msgid "Do you want to disable selected Samba shares?"
+msgstr "Voleu desactivar les accions de Samba seleccionades?"
+
+msgid "Do you want to enable selected Samba shares?"
+msgstr "Voleu activar les accions de Samba seleccionades?"
+
+msgid "Do you want to toggle selected Samba shares?"
+msgstr "Voleu canviar les accions de Samba seleccionades?"
+
+msgid "yes"
+msgstr "sí"
+
+msgid "no"
+msgstr "no"
+
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
 msgstr "Aquests paràmetres s'afegeixen a la secció [Compartir] de%s."
@@ -14226,51 +14663,6 @@ msgstr "Introduïu el comentari per el compartit"
 
 msgid "Enter the location of the share"
 msgstr "Introduïu la localització del compartit"
-
-msgid "Add Samba Share"
-msgstr "Afegir recurs Samba"
-
-msgid "Edit Samba Share"
-msgstr "Editar recurs Samba"
-
-msgid "Samba Share is marked for deletion"
-msgstr "El recurs Samba està marcat per esborrar"
-
-msgid "Samba Share is locked"
-msgstr "Samba share està bloquejada"
-
-msgid "Samba Share is unlocked"
-msgstr "El recurs Samba està desbloquejat"
-
-msgid "Delete Selected Samba Shares"
-msgstr "Suprimeix recursos seleccionats Samba"
-
-msgid "Disable Selected Samba Shares"
-msgstr "Desactiva les accions de Samba seleccionades"
-
-msgid "Enable Selected Samba Shares"
-msgstr "Activa les accions de Samba seleccionades"
-
-msgid "Toggle Selected Samba Shares"
-msgstr "Activeu les accions de Samba seleccionades"
-
-msgid "Do you want to delete selected Samba shares?"
-msgstr "Vols eliminar els recursos Samba seleccionats?"
-
-msgid "Do you want to disable selected Samba shares?"
-msgstr "Voleu desactivar les accions de Samba seleccionades?"
-
-msgid "Do you want to enable selected Samba shares?"
-msgstr "Voleu activar les accions de Samba seleccionades?"
-
-msgid "Do you want to toggle selected Samba shares?"
-msgstr "Voleu canviar les accions de Samba seleccionades?"
-
-msgid "yes"
-msgstr "sí"
-
-msgid "no"
-msgstr "no"
 
 msgid "Workgroup"
 msgstr "Grup de treball"
@@ -14762,18 +15154,6 @@ msgstr "Iniciar sessió Root"
 msgid "TCP Forwarding"
 msgstr "Redirecionament TCP"
 
-msgid "Allow New Files"
-msgstr "Permetre nous arxius"
-
-msgid "Directory"
-msgstr "Directori"
-
-msgid "Max. Block Size"
-msgstr "Mida del bloc max."
-
-msgid "Umask"
-msgstr "Umask"
-
 msgid "Allow new files to be created."
 msgstr "Permet que nous arxius pugin ser creats"
 
@@ -14843,56 +15223,14 @@ msgid "Specifies the username under which the TFTP service should run."
 msgstr ""
 "Especifica el nom d'usuari sota el qual s'ha d'executar el servei TFTP."
 
-msgid "Peer Port"
-msgstr "Port de parells"
+msgid "Allow New Files"
+msgstr "Permetre nous arxius"
 
-msgid "Configuration Folder"
-msgstr "Carpeta de configuració"
+msgid "Max. Block Size"
+msgstr "Mida del bloc max."
 
-msgid "Incomplete Folder"
-msgstr "Carpeta incomplerta"
-
-msgid "Download Folder"
-msgstr "Carpeta de baixada"
-
-msgid "Watch Folder"
-msgstr "Carpeta de visualització"
-
-msgid "Port Forwarding"
-msgstr "Redireccionament de ports"
-
-msgid "Peer Exchange"
-msgstr "Intercanvi de parells"
-
-msgid "Distributed Hash Table"
-msgstr "Tabla hash distribuida"
-
-msgid "Local Peer Discovery"
-msgstr "Descobriment local de parells"
-
-msgid "uTP"
-msgstr "uTP"
-
-msgid "User Mask"
-msgstr "Màscara d'usuari"
-
-msgid "Preallocation"
-msgstr "Preassignació"
-
-msgid "Message Level"
-msgstr "Nivell de missatge"
-
-msgid "DNS Rebind Protection"
-msgstr "Protecció de reconnexió de DNS"
-
-msgid "Domain Names"
-msgstr "Noms de domini"
-
-msgid "Start Torrents"
-msgstr "Inicia Torrents"
-
-msgid "Stop Torrents"
-msgstr "Aturar Torrents"
+msgid "Umask"
+msgstr "Umask"
 
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
@@ -15027,17 +15365,68 @@ msgstr ""
 msgid "Stop torrents before stopping service."
 msgstr "Atureu els torrents abans d’aturar el servei."
 
-msgid "Work Directory"
-msgstr "Directori de treball"
+msgid "Peer Port"
+msgstr "Port de parells"
 
-msgid "Create Work Directory"
-msgstr "Crea un directori de treball"
+msgid "Configuration Folder"
+msgstr "Carpeta de configuració"
+
+msgid "Incomplete Folder"
+msgstr "Carpeta incomplerta"
+
+msgid "Download Folder"
+msgstr "Carpeta de baixada"
+
+msgid "Watch Folder"
+msgstr "Carpeta de visualització"
+
+msgid "Port Forwarding"
+msgstr "Redireccionament de ports"
+
+msgid "Peer Exchange"
+msgstr "Intercanvi de parells"
+
+msgid "Distributed Hash Table"
+msgstr "Tabla hash distribuida"
+
+msgid "Local Peer Discovery"
+msgstr "Descobriment local de parells"
+
+msgid "uTP"
+msgstr "uTP"
+
+msgid "User Mask"
+msgstr "Màscara d'usuari"
+
+msgid "Preallocation"
+msgstr "Preassignació"
+
+msgid "Message Level"
+msgstr "Nivell de missatge"
+
+msgid "DNS Rebind Protection"
+msgstr "Protecció de reconnexió de DNS"
+
+msgid "Domain Names"
+msgstr "Noms de domini"
+
+msgid "Start Torrents"
+msgstr "Inicia Torrents"
+
+msgid "Stop Torrents"
+msgstr "Aturar Torrents"
 
 msgid "Location where work files will be stored."
 msgstr "Ubicació on s’emmagatzemaran els fitxers de treball."
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Crea directori de treball si no existia."
+
+msgid "Work Directory"
+msgstr "Directori de treball"
+
+msgid "Create Work Directory"
+msgstr "Crea un directori de treball"
 
 msgid "Name of the WebDAV Record."
 msgstr "Nom del registre WebDAV."
@@ -15062,12 +15451,6 @@ msgstr "Utilitzeu Sqlite per a bloquejos i propietats."
 
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr "Aquests paràmetres s'afegiran a aquesta configuració de WebDAV."
-
-msgid "Read-Only"
-msgstr "Només lectura"
-
-msgid "Use Sqlite"
-msgstr "Utilitzeu Sqlite"
 
 msgid "Add WebDAV Record"
 msgstr "Afegiu un registre WebDAV"
@@ -15107,6 +15490,12 @@ msgstr "Voleu activar els registres seleccionats WebDAV?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Voleu canviar els registres seleccionats de WebDAV?"
+
+msgid "Read-Only"
+msgstr "Només lectura"
+
+msgid "Use Sqlite"
+msgstr "Utilitzeu Sqlite"
 
 msgid "IPv4 only"
 msgstr "Només l’IPv4"
@@ -15165,15 +15554,6 @@ msgstr "Snapdir"
 msgid "UTF-8 Only"
 msgstr "UTF-8 només"
 
-msgid "Service"
-msgstr "Servei"
-
-msgid "Do you really want to remove the selected item from the list?"
-msgstr "Realment voleu eliminar l'element seleccionat de la llista?"
-
-msgid "Select item to remove from the list"
-msgstr "Seleccionar element per eliminar-lo de la llista"
-
 msgid "You may enter a description for your reference."
 msgstr "Podeu introduir una descripció per a la vostra referència."
 
@@ -15200,352 +15580,6 @@ msgstr "Introduïu el nom del volum"
 
 msgid "The name of the ZFS pool."
 msgstr "El nom del grup ZFS."
-
-msgid "You are not allowed to use this function."
-msgstr "No teniu permès utilitzar aquesta funció."
-
-msgid "Copy item(s)"
-msgstr "Coipar element(s)"
-
-msgid "Move item(s)"
-msgstr "Mou element(s)"
-
-#, php-format
-msgid "Copy from /%s to /%s "
-msgstr "Copiar des de /%s a /%s "
-
-#, php-format
-msgid "Move from /%s to /%s "
-msgstr "Mou des de /%s a /%s "
-
-msgid "Copy"
-msgstr "Copiar"
-
-msgid "Move"
-msgstr "Mou"
-
-msgid "The target directory doesn't exist."
-msgstr "El directori objectiu no existeix."
-
-msgid "You are not allowed to access the target directory."
-msgstr "No teniu accés al directori objectiu."
-
-msgid "The target directory may not be above the home directory."
-msgstr ""
-"El directori d’orientació pot no estar per sobre del directori inicial."
-
-msgid "You must supply a name."
-msgstr "Heu de proporcionar un nom."
-
-msgid "This item doesn't exist."
-msgstr "Aquest element no existeix."
-
-msgid "You are not allowed to access this item."
-msgstr "No teniu accés a aquest element."
-
-msgid "The target item already exists."
-msgstr "L’element de destinació ja existeix."
-
-msgid "Copying failed."
-msgstr "Ha fallat la copia."
-
-msgid "Moving failed."
-msgstr "Ha fallat al moure"
-
-msgid "Deleting failed."
-msgstr "S'ha produït un error en suprimir"
-
-msgid "File saving failed."
-msgstr "Desat del fitxer ha fallat."
-
-msgid "This file doesn't exist."
-msgstr "Aquest fitxer no existeix."
-
-msgid "You are not allowed to access this file."
-msgstr "No teniu accés a aquest fitxer."
-
-msgid "This item already exists."
-msgstr "Aquest element ja existeix."
-
-msgid "File opening failed."
-msgstr "L'obertura del fitxer ha fallat."
-
-msgid "Edit file"
-msgstr "Edita arxiu"
-
-msgid "Wrap text:"
-msgstr "Ajustar el text:"
-
-msgid "Reset"
-msgstr "Restableix"
-
-msgid "Close"
-msgstr "Tancar"
-
-msgid "Unable to open source directory."
-msgstr "No es pot obrir el directori font."
-
-msgid "Unable to open directory."
-msgstr "No es pot obrir el directori."
-
-msgid "Unable to read directory."
-msgstr "No es pot llegir el directori."
-
-msgid "You haven't selected any item(s)."
-msgstr "No heu seleccionat cap element(s)"
-
-msgid "Are you sure you want to delete selected item(s)?"
-msgstr "Confirmeu que voleu suprimir els articles seleccionats?"
-
-msgid "Executable File"
-msgstr "Fitxer executable"
-
-msgid "Link"
-msgstr "Enllaç"
-
-msgid "Text File"
-msgstr "Fitxer de text"
-
-msgid "PHP Script"
-msgstr "Script PHP"
-
-msgid "SQL File"
-msgstr "Arxiu SQL"
-
-msgid "PERL Script"
-msgstr "Script PERL"
-
-msgid "HTML Page"
-msgstr "Pàgina HTML"
-
-msgid "XML File"
-msgstr "Fitxer XML"
-
-msgid "Javascript File"
-msgstr "Arxiu Javascript"
-
-msgid "CSS File"
-msgstr "Fitxer CSS"
-
-msgid "CGI Script"
-msgstr "Script CGI"
-
-msgid "Python Script"
-msgstr "Script Python"
-
-msgid "Shell Script"
-msgstr "Script Shell"
-
-msgid "C File"
-msgstr "Fitxer C"
-
-msgid "C++ Source File"
-msgstr "Fitxer de codi C++"
-
-msgid "C++ Header File"
-msgstr "Fitxer de capçalera C ++"
-
-msgid "Java Source File"
-msgstr "Fitxer font Java"
-
-msgid "Java Class File"
-msgstr "Fitxer de classe Java"
-
-msgid "Pascal File"
-msgstr "Arxiu Pascal"
-
-msgid "GIF Image"
-msgstr "Imatge GIF"
-
-msgid "JPG Image"
-msgstr "Imatge JPG"
-
-msgid "BMP Image"
-msgstr "Imatge BMP"
-
-msgid "PNG Image"
-msgstr "Imatge PNG"
-
-msgid "TIF Image"
-msgstr "Imatge TAR"
-
-msgid "Photoshop File"
-msgstr "Arxiu Photoshop"
-
-msgid "ZIP Archive"
-msgstr "Fitxer ZIP"
-
-msgid "TAR Archive"
-msgstr "Fitxer TAR"
-
-msgid "GZIP Archive"
-msgstr "Fitxer GZIP"
-
-msgid "BZIP2 Archive"
-msgstr "Fitxer BZIP2"
-
-msgid "RAR Archive"
-msgstr "Arxiu RAR"
-
-msgid "MP3 Audio File"
-msgstr "Fitxer d'Audio MP3"
-
-msgid "FLAC Audio File"
-msgstr "Fitxer d'àudio FLAC"
-
-msgid "WAV Audio File"
-msgstr "Fitxer d'Audio WAV"
-
-msgid "MIDI File"
-msgstr "Arxiu MIDI"
-
-msgid "RealAudio File"
-msgstr "Arxiu RealAudio"
-
-msgid "DTS Audio File"
-msgstr "Fitxer d'àudio DTS"
-
-msgid "AC3 Audio File"
-msgstr "Fitxer d'àudio AC3"
-
-msgid "OGG Audio File"
-msgstr "Fitxer d'Audio OGG"
-
-msgid "MP3 Playlist"
-msgstr "Llista de reproducció MP3"
-
-msgid "AVI File"
-msgstr "Fitxer AVI"
-
-msgid "MPEG File"
-msgstr "Arxiu MPEG"
-
-msgid "MOV File"
-msgstr "Arxiu MOV"
-
-msgid "MKV File"
-msgstr "Arxiu MKV"
-
-msgid "VOB File"
-msgstr "Fitxer VOB"
-
-msgid "Flash File"
-msgstr "Fitxer Flash"
-
-msgid "MP4 File"
-msgstr "Arxiu MP4"
-
-msgid "TS File"
-msgstr "Fitxer TS"
-
-msgid "Word Document"
-msgstr "Document Word"
-
-msgid "Excel Sheet"
-msgstr "Full Excel"
-
-msgid "Powerpoint Presentation"
-msgstr "Presentaçió PowerPoint"
-
-msgid "PDF File"
-msgstr "Fitxer PDF"
-
-msgid "ERROR(S)"
-msgstr "ERROR(S)"
-
-msgid "Go Back"
-msgstr "Torna enrere"
-
-msgid "Extracting"
-msgstr "S'està extraient"
-
-msgid "Unzip"
-msgstr "Descomprimeix"
-
-msgid "Failed to extract archive."
-msgstr "No s'ha pogut extreure l'arxiu."
-
-msgid "Directory creation failed."
-msgstr "La creació del directori ha fallat."
-
-msgid "File creation failed."
-msgstr "La creació de fitxer ha falalt"
-
-msgid "Search Directory"
-msgstr "Directori de cerca"
-
-msgid "Search Filter"
-msgstr "Filtre de cerca"
-
-msgid "Search subfolder"
-msgstr "Cerca sub carpeta"
-
-#, php-format
-msgid "Search Result for %1$s"
-msgstr "Resultat de la cerca per a %1$s"
-
-msgid "Item(s)"
-msgstr "element(s)"
-
-msgid "No results available."
-msgstr "No hi ha resultats disponibles."
-
-msgid "HOME"
-msgstr "INICI"
-
-msgid "Permission-change failed."
-msgstr "Ha fallat el canvi de permís."
-
-msgid "Getting permissions failed."
-msgstr "Ha fallat l'obtenció dels permisos."
-
-msgid "Change permissions"
-msgstr "Canviar permisos"
-
-msgid "Public"
-msgstr "Públic"
-
-msgid "CHANGE PERMISSIONS"
-msgstr "CANVI DE PERMISOS"
-
-msgid "You are not allowed to access this directory."
-msgstr "No teniu accés a aquest directori"
-
-msgid "UP"
-msgstr "AMUNT"
-
-msgid "RELOAD"
-msgstr "RECARREGA"
-
-msgid "SEARCH"
-msgstr "CERCA"
-
-msgid "Modified"
-msgstr "Modificat"
-
-msgid "Permissions"
-msgstr "Permisos"
-
-msgid "Actions"
-msgstr "Accions"
-
-msgid "COPY"
-msgstr "COPIAR"
-
-msgid "MOVE"
-msgstr "MOURE"
-
-msgid "DELETE"
-msgstr "ELIMINA"
-
-msgid "EDIT"
-msgstr "EDITAR"
-
-msgid "UNZIP"
-msgstr "DESCOMPRIMEIX"
-
-msgid "DOWNLOAD"
-msgstr "DESCARREGA"
 
 msgid "The following errors were detected"
 msgstr "Es van detectar els errors següents"
@@ -15601,45 +15635,6 @@ msgstr "PCP"
 msgid "Encapsulation Protocol"
 msgstr "Protocol encapsulat"
 
-msgid "Add VLAN"
-msgstr "Afegir VLAN"
-
-msgid "Edit VLAN"
-msgstr "Edita VLAN"
-
-msgid "VLAN is marked for deletion"
-msgstr "VLAN està marcat per ser esborrat"
-
-msgid "VLAN is locked"
-msgstr "La VLAN està bloquejada"
-
-msgid "VLAN is unlocked"
-msgstr "VLAN està desbloquejat"
-
-msgid "Delete Selected VLANs"
-msgstr "Suprimeix VLAN's seleccionats"
-
-msgid "Disable Selected VLANs"
-msgstr "Deshabiltar les VLAN's seleccionades"
-
-msgid "Enable Selected VLANs"
-msgstr "Habilitar les VLAN's seleccionades"
-
-msgid "Toggle Selected VLANs"
-msgstr "Commuta les VLAN seleccionades"
-
-msgid "Do you want to delete selected VLANs?"
-msgstr "Voleu eliminar les VLAN's seleccionats?"
-
-msgid "Do you want to disable selected VLANs?"
-msgstr "Vols deshabilitar les VLANS's seleccionades?"
-
-msgid "Do you want to enable selected VLANs?"
-msgstr "Vols habilitar les VLAN's seleccionades?"
-
-msgid "Do you want to toggle selected VLANs?"
-msgstr "Vols canviar les VLAN's sleccionades?"
-
 msgid "The name of the VLAN interface"
 msgstr "El nom de la interfície VLAN"
 
@@ -15691,6 +15686,45 @@ msgstr "802.1Q (defecte)"
 
 msgid "802.1ad (QinQ)"
 msgstr "802.1ad (QinQ)"
+
+msgid "Add VLAN"
+msgstr "Afegir VLAN"
+
+msgid "Edit VLAN"
+msgstr "Edita VLAN"
+
+msgid "VLAN is marked for deletion"
+msgstr "VLAN està marcat per ser esborrat"
+
+msgid "VLAN is locked"
+msgstr "La VLAN està bloquejada"
+
+msgid "VLAN is unlocked"
+msgstr "VLAN està desbloquejat"
+
+msgid "Delete Selected VLANs"
+msgstr "Suprimeix VLAN's seleccionats"
+
+msgid "Disable Selected VLANs"
+msgstr "Deshabiltar les VLAN's seleccionades"
+
+msgid "Enable Selected VLANs"
+msgstr "Habilitar les VLAN's seleccionades"
+
+msgid "Toggle Selected VLANs"
+msgstr "Commuta les VLAN seleccionades"
+
+msgid "Do you want to delete selected VLANs?"
+msgstr "Voleu eliminar les VLAN's seleccionats?"
+
+msgid "Do you want to disable selected VLANs?"
+msgstr "Vols deshabilitar les VLANS's seleccionades?"
+
+msgid "Do you want to enable selected VLANs?"
+msgstr "Vols habilitar les VLAN's seleccionades?"
+
+msgid "Do you want to toggle selected VLANs?"
+msgstr "Vols canviar les VLAN's sleccionades?"
 
 msgid "1"
 msgstr "1"
@@ -15826,6 +15860,18 @@ msgid "The COM port in BIOS has to be enabled before enabling this option."
 msgstr ""
 "El port COM a la BIOS ha de ser activat abans d'activar aquesta opció."
 
+msgid "Unkown"
+msgstr "Desconegut"
+
+msgid "Unformated"
+msgstr "Sense formatar"
+
+msgid "SoftRaid"
+msgstr "SoftRaid"
+
+msgid "Encrypted"
+msgstr "Encriptat"
+
 msgid "Second"
 msgstr "Segon"
 
@@ -15925,38 +15971,117 @@ msgstr ""
 "El disc ès muntat actualment! El punt de muntatge es retira temporalment per "
 "realitzar comandament seleccionat."
 
-msgid "Unkown"
-msgstr "Desconegut"
-
-msgid "Unformated"
-msgstr "Sense formatar"
-
-msgid "SoftRaid"
-msgstr "SoftRaid"
-
-msgid "Encrypted"
-msgstr "Encriptat"
-
 msgid "System tuning"
 msgstr "Ajustos fins del sistema"
 
-msgid "Exported"
-msgstr "Exportat"
+msgid "ZFS Pool Tools"
+msgstr "Eines de la piscina ZFS"
 
-msgid "Destroyed"
-msgstr "Destruït"
+msgid "Pool Status"
+msgstr "Estat de la piscina"
 
-msgid "Spare"
-msgstr "Recanvi"
+msgid "Success"
+msgstr "Èxit"
 
-msgid "L2 Cache"
-msgstr "Memòria cau L2"
+msgid "Command execution was successful"
+msgstr "Execució d'ordre s'ha realitzat correctament"
 
-msgid "Uninitialized"
-msgstr "Sense inicialitzar"
+msgid "Invalid command line option"
+msgstr "Opció de línia de comanda no vàlid"
 
-msgid "Potentially Active"
-msgstr "Potencialment activa"
+msgid "Test mode, no command execution"
+msgstr "Mode de prova, sense execució d'ordres"
+
+msgid "Missing parameter"
+msgstr "Paràmetre que falta"
+
+msgid "An error occured."
+msgstr "S'ha produït un error."
+
+msgid "Return to Command Page"
+msgstr "Tornar a la pàgina d'ordres."
+
+msgid "Activity"
+msgstr "Activitat"
+
+msgid "Pool Version"
+msgstr "Versió piscina"
+
+msgid "Pool State"
+msgstr "Estat de la piscina"
+
+msgid "No suitable pools found."
+msgstr "No es van trobar piscines adequades."
+
+msgid "No pools have been selected"
+msgstr "No s'han seleccionat piscines"
+
+msgid "Pool Devices"
+msgstr "Dispositius de la piscina"
+
+msgid "missing"
+msgstr "no s'ha trobat"
+
+msgid "No suitable devices found."
+msgstr "No es van trobar dispositius adequats."
+
+msgid "No pool devices have been selected"
+msgstr "No s'han seleccionat dispositius de la piscina"
+
+msgid "No suitable virtual devices found."
+msgstr "No s'han trobat dispositius virtuals adequats."
+
+msgid "No virtual devices have been selected"
+msgstr "No s'han seleccionat dispositius virtuals"
+
+msgid "Media Size"
+msgstr "Mida del mitjà"
+
+msgid "No devices have been selected"
+msgstr "No s'han seleccionat dispositius"
+
+msgid "Expand device to use all available space."
+msgstr "Ampliar dispositiu per fer servir tot l'espai disponible."
+
+msgid "Include GPT labels into scan/import"
+msgstr "Incloeu l'etiqueta del GPT a la cerca/import"
+
+msgid "Include GPT ID into scan/import"
+msgstr "Incloeu la ID del GPT del disc a la cerca/import"
+
+msgid "Include UFS labels into scan/import"
+msgstr "Incloeu l'etiqueta UFS a la cerca/import"
+
+msgid "Include UFS ID into scan/import"
+msgstr "Incloeu l'ID UFS a la cerca/import"
+
+msgid "Include Disk ID into scan/import"
+msgstr "Incloeu l’identificador de disc a la cerca/import"
+
+msgid "Include /dev into scan/import"
+msgstr "Inclou /dev a la cerca /import"
+
+msgid "Import pool in read-only mode"
+msgstr "Importar grup en mode de només lectura"
+
+msgid "Resize pool to the maximum possible size"
+msgstr "Canvieu la mida del grup a la mida màxima possible"
+
+msgid "Scan/Import destroyed pools only"
+msgstr "Escanejar/importar només agrupacions destruïdes"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr "Espereu fins que s'acabi el 'Resilvering' abans de tornar."
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
+"Reconstrueix el nou dispositiu seqüencialment per restaurar la redundància "
+"el més aviat possible."
+
+msgid "Parameter"
+msgstr "Paràmetre"
 
 msgid "January"
 msgstr "Gener"
@@ -16105,111 +16230,26 @@ msgstr "No s'ha pogut escriure el fitxer al disc."
 msgid "File upload stopped by extension."
 msgstr "S'ha aturat la càrrega a causa de l'extensió del fitxer."
 
-msgid "ZFS Pool Tools"
-msgstr "Eines de la piscina ZFS"
+msgid "Exported"
+msgstr "Exportat"
 
-msgid "Pool Status"
-msgstr "Estat de la piscina"
+msgid "Destroyed"
+msgstr "Destruït"
 
-msgid "Success"
-msgstr "Èxit"
+msgid "Spare"
+msgstr "Recanvi"
 
-msgid "Command execution was successful"
-msgstr "Execució d'ordre s'ha realitzat correctament"
+msgid "L2 Cache"
+msgstr "Memòria cau L2"
 
-msgid "Invalid command line option"
-msgstr "Opció de línia de comanda no vàlid"
+msgid "Uninitialized"
+msgstr "Sense inicialitzar"
 
-msgid "Test mode, no command execution"
-msgstr "Mode de prova, sense execució d'ordres"
+msgid "Potentially Active"
+msgstr "Potencialment activa"
 
-msgid "Missing parameter"
-msgstr "Paràmetre que falta"
+#~ msgid "Be careful with turning on these options."
+#~ msgstr "Aneu amb compte amb activar aquestes opcions."
 
-msgid "An error occured."
-msgstr "S'ha produït un error."
-
-msgid "Return to Command Page"
-msgstr "Tornar a la pàgina d'ordres."
-
-msgid "Activity"
-msgstr "Activitat"
-
-msgid "Pool Version"
-msgstr "Versió piscina"
-
-msgid "Pool State"
-msgstr "Estat de la piscina"
-
-msgid "No suitable pools found."
-msgstr "No es van trobar piscines adequades."
-
-msgid "No pools have been selected"
-msgstr "No s'han seleccionat piscines"
-
-msgid "Pool Devices"
-msgstr "Dispositius de la piscina"
-
-msgid "missing"
-msgstr "no s'ha trobat"
-
-msgid "No suitable devices found."
-msgstr "No es van trobar dispositius adequats."
-
-msgid "No pool devices have been selected"
-msgstr "No s'han seleccionat dispositius de la piscina"
-
-msgid "No suitable virtual devices found."
-msgstr "No s'han trobat dispositius virtuals adequats."
-
-msgid "No virtual devices have been selected"
-msgstr "No s'han seleccionat dispositius virtuals"
-
-msgid "Media Size"
-msgstr "Mida del mitjà"
-
-msgid "No devices have been selected"
-msgstr "No s'han seleccionat dispositius"
-
-msgid "Expand device to use all available space."
-msgstr "Ampliar dispositiu per fer servir tot l'espai disponible."
-
-msgid "Include GPT labels into scan/import"
-msgstr "Incloeu l'etiqueta del GPT a la cerca/import"
-
-msgid "Include GPT ID into scan/import"
-msgstr "Incloeu la ID del GPT del disc a la cerca/import"
-
-msgid "Include UFS labels into scan/import"
-msgstr "Incloeu l'etiqueta UFS a la cerca/import"
-
-msgid "Include UFS ID into scan/import"
-msgstr "Incloeu l'ID UFS a la cerca/import"
-
-msgid "Include Disk ID into scan/import"
-msgstr "Incloeu l’identificador de disc a la cerca/import"
-
-msgid "Include /dev into scan/import"
-msgstr "Inclou /dev a la cerca /import"
-
-msgid "Import pool in read-only mode"
-msgstr "Importar grup en mode de només lectura"
-
-msgid "Resize pool to the maximum possible size"
-msgstr "Canvieu la mida del grup a la mida màxima possible"
-
-msgid "Scan/Import destroyed pools only"
-msgstr "Escanejar/importar només agrupacions destruïdes"
-
-msgid "Wait until resilvering has finished before returning."
-msgstr "Espereu fins que s'acabi el 'Resilvering' abans de tornar."
-
-msgid ""
-"Reconstruct the new device sequentially to restore redundancy as quickly as "
-"possible."
-msgstr ""
-"Reconstrueix el nou dispositiu seqüencialment per restaurar la redundància "
-"el més aviat possible."
-
-msgid "Parameter"
-msgstr "Paràmetre"
+#~ msgid "SAMBA"
+#~ msgstr "SAMBA"

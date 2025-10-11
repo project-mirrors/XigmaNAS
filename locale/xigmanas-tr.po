@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2025-09-06 21:13+0000\n"
+"POT-Creation-Date: 2025-10-11 14:47+0000\n"
 "PO-Revision-Date: 2025-06-21 19:12+0000\n"
 "Last-Translator: kidalabama <n_alp@hotmail.com>\n"
 "Language-Team: XigmaNAS <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-09-30 12:45+0000\n"
-"X-Generator: Launchpad (build 8f35df7956d277b113de8d286a4ca280c7b8ebdf)\n"
+"X-Launchpad-Export-Date: 2025-10-11 13:17+0000\n"
+"X-Generator: Launchpad (build bff9b0558f8357613643d9a74c009da18fafa917)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1436,9 +1436,6 @@ msgstr "IP"
 
 msgid "User"
 msgstr "Kullanıcı"
-
-msgid "SAMBA"
-msgstr ""
 
 msgid "RSYNC - Server"
 msgstr "RSYNC - Sunucusu"
@@ -3095,6 +3092,48 @@ msgid "Insensitive"
 msgstr ""
 
 msgid "Mixed"
+msgstr ""
+
+msgid "No encryption"
+msgstr ""
+
+msgid "Use default encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-128-ccm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-192-ccm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-256-ccm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-128-gcm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-192-gcm encryption cipher suite"
+msgstr ""
+
+msgid "Use aes-256-gcm encryption cipher suite"
+msgstr ""
+
+msgid "Raw Key"
+msgstr ""
+
+msgid "Hex Key"
+msgstr ""
+
+msgid "Prompt"
+msgstr ""
+
+msgid "File"
+msgstr "Dosya"
+
+msgid "HTTPS"
+msgstr ""
+
+msgid "HTTP"
 msgstr ""
 
 msgid "Enter a name for this dataset"
@@ -5902,9 +5941,6 @@ msgstr ""
 msgid "String identifier of the extent."
 msgstr ""
 
-msgid "File"
-msgstr "Dosya"
-
 msgid "Type used as extent."
 msgstr ""
 
@@ -7076,12 +7112,6 @@ msgid "Webserver document root is missing."
 msgstr ""
 
 msgid "WebDAV"
-msgstr ""
-
-msgid "HTTP"
-msgstr ""
-
-msgid "HTTPS"
 msgstr ""
 
 msgid "TCP port to bind the server to."
@@ -8712,11 +8742,15 @@ msgid ""
 "Enable this option to make host USB serial ports available to clients."
 msgstr ""
 
-msgid "Be careful with turning on these options."
-msgstr "Bu ayarları aktif ederken dikkatli olun."
-
 msgid "phpVirtualBox"
 msgstr "phpVirtualBox"
+
+msgid "Security Warning!"
+msgstr ""
+
+msgid ""
+"Be careful when turning on above device options in production environments."
+msgstr ""
 
 msgid "No configured bridge interfaces."
 msgstr ""
@@ -8839,273 +8873,584 @@ msgstr "Önyükleme Değişkenleri"
 msgid "Boot argument (e.g. %s)."
 msgstr "Önyükleme değişkeni (örn: %s)."
 
-msgid "Show Used/Avail"
+msgid "Search Directory"
 msgstr ""
 
-msgid "On-Disk Configuration"
+msgid "Search Filter"
 msgstr ""
 
-msgid "Capacity Warning Threshold"
-msgstr "Kapasite Uyarı Eşiği"
-
-msgid "Capacity Critical Threshold"
-msgstr "Kritik Kapasite Eşiği"
-
-msgid "Extended Destroy"
+msgid "Search subfolder"
 msgstr ""
 
-msgid ""
-"Display Used/Avail information from the filesystem instead of the Alloc/Free "
-"information from the pool."
+msgid "Close"
+msgstr "Kapat"
+
+#, php-format
+msgid "Search Result for %1$s"
 msgstr ""
 
-msgid ""
-"Used/Avail lists storage information after all redundancy is taken into "
-"account but is impacted by compression, deduplication and quotas. Alloc/Free "
-"lists the raw storage information of a pool."
+msgid "Item(s)"
 msgstr ""
 
-msgid "Read on-disk configuration."
+msgid "No results available."
 msgstr ""
 
-msgid ""
-"Reading the configuration from the disks is slower than reading from cache "
-"file."
+msgid "HOME"
 msgstr ""
 
-msgid "Set the warning threshold to a value between 80 and 89."
+msgid "You are not allowed to use this function."
 msgstr ""
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the warning "
-"threshold."
-msgstr ""
-"Bir havuz kapasitesi uyarı eşiğini aştığında bir uyarı e-postası gönderilir."
-
-msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr ""
-"Bir cron işi, /etc/capacitycheck.zfs komut dosyasını programlamak için "
-"ayarlanmalıdır."
-
-msgid "Must be a number between 80 and 89."
+msgid "This file doesn't exist."
 msgstr ""
 
-msgid "Set the critical threshold to a value between 90 and 95."
+msgid "You are not allowed to access this file."
 msgstr ""
 
-msgid ""
-"An alert email is sent when the capacity of a pool exceeds the critical "
-"threshold."
-msgstr ""
-"Bir havuzun kapasitesi kritik eşiği aştığında bir uyarı e-postası gönderilir."
-
-msgid "Must be a number between 90 and 95."
+msgid "Permission-change failed."
 msgstr ""
 
-msgid "Destroy dataset and its dependents."
+msgid "Getting permissions failed."
 msgstr ""
 
-msgid ""
-"When enabled, destroying a dataset will also destroy all dependents "
-"(datasets, snapshots and clones)."
+msgid "Change permissions"
+msgstr "İzinleri değiştir"
+
+msgid "Public"
 msgstr ""
 
-msgid "Lifetime"
+msgid "This item doesn't exist."
 msgstr ""
 
-msgid "Second(s)"
+msgid "You are not allowed to access this item."
 msgstr ""
 
-msgid "Minute(s)"
+msgid "Deleting failed."
 msgstr ""
 
-msgid "Hour(s)"
+msgid "Unable to open source directory."
 msgstr ""
 
-msgid "Day(s)"
+msgid "Unable to open directory."
 msgstr ""
 
-msgid "Week(s)"
+msgid "Unable to read directory."
 msgstr ""
 
-msgid "Month(s)"
+msgid "Copy item(s)"
+msgstr "Nesne(leri) kopyala"
+
+msgid "Move item(s)"
 msgstr ""
 
-msgid "Year(s)"
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Kopyala %s - %s "
+
+#, php-format
+msgid "Move from /%s to /%s "
 msgstr ""
 
-msgid "Hourly"
+msgid "Copy"
+msgstr "Kopya"
+
+msgid "Move"
 msgstr ""
 
-msgid "Daily"
+msgid "The target directory doesn't exist."
 msgstr ""
 
-msgid "Weekly"
+msgid "You are not allowed to access the target directory."
 msgstr ""
 
-msgid "Monthly"
+msgid "The target directory may not be above the home directory."
 msgstr ""
 
-msgid "Yearly"
+msgid "You must supply a name."
 msgstr ""
 
-msgid "Custom Setting"
+msgid "The target item already exists."
 msgstr ""
 
-msgid "Schedule"
+msgid "Copying failed."
+msgstr "Kopyalama uygulanamadı."
+
+msgid "Moving failed."
 msgstr ""
 
-msgid "Weekdays"
+msgid "You haven't selected any item(s)."
 msgstr ""
 
-msgid "All Minutes"
-msgstr "Tüm Dakikalar"
-
-msgid "All Hours"
-msgstr "Tüm Saatler"
-
-msgid "All Days"
-msgstr "Her Gün"
-
-msgid "All Months"
-msgstr "Tüm Aylar"
-
-msgid "All Weekdays"
-msgstr "Haftanın Tüm Günleri"
-
-msgid "Add Schedule"
-msgstr "Zamanlama Ekle"
-
-msgid "Edit Schedule"
+msgid "File saving failed."
 msgstr ""
 
-msgid "Schedule is marked for deletion"
+msgid "This item already exists."
 msgstr ""
 
-msgid "Schedule is locked"
+msgid "File opening failed."
 msgstr ""
 
-msgid "Schedule is unlocked"
+msgid "Edit file"
 msgstr ""
 
-msgid "Delete Selected Schedules"
+msgid "Wrap text:"
 msgstr ""
 
-msgid "Do you want to delete selected schedules?"
+msgid "Reset"
 msgstr ""
 
-msgid "Disable Selected Schedules"
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Seçili seçin silmek için emin misiniz?"
+
+msgid "CHANGE PERMISSIONS"
+msgstr "YETKİLERİ DEĞİŞTİR"
+
+msgid "You are not allowed to access this directory."
 msgstr ""
 
-msgid "Do you want to disable selected schedules?"
+msgid "Directory"
+msgstr "Dizin"
+
+msgid "UP"
 msgstr ""
 
-msgid "Enable Selected Schedules"
+msgid "RELOAD"
 msgstr ""
 
-msgid "Do you want to enable selected schedules?"
-msgstr ""
-
-msgid "Toggle Selected Schedules"
-msgstr ""
-
-msgid "Do you want to toggle selected schedules?"
-msgstr ""
-
-msgid "Invalid"
-msgstr ""
-
-msgid "Destroy"
-msgstr ""
-
-msgid "Create Snapshot"
-msgstr ""
-
-msgid "Destroy Snapshot"
-msgstr ""
-
-msgid "Scrub Pool"
-msgstr ""
-
-msgid "Select Pool, Filesystem or Volume"
-msgstr ""
-
-msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr ""
-
-msgid "Lifetime Value"
-msgstr ""
-
-msgid "Lifetime Units"
-msgstr ""
-
-msgid ""
-"Commands are executed by the scheduler when the minute, hour, and month of "
-"year fields match the current time, and when at least one of the two day "
-"fields (day of month, or day of week) matches the current time."
-msgstr ""
-
-msgid "Presets"
-msgstr ""
-
-msgid "Recursively create snapshots of all descendent datasets."
+msgid "SEARCH"
 msgstr ""
 
 msgid "Create"
 msgstr ""
 
-msgid "Scrub"
+msgid "Modified"
 msgstr ""
 
-msgid "Select pool."
+msgid "Permissions"
 msgstr ""
 
-msgid "No ZFS zpool information available."
+msgid "Actions"
+msgstr "Eylemler"
+
+msgid "COPY"
+msgstr "KOPYALA"
+
+msgid "MOVE"
 msgstr ""
 
-msgid "No ZFS volume information available."
+msgid "DELETE"
+msgstr "SİL"
+
+msgid "EDIT"
 msgstr ""
 
-msgid "Add Filesystem"
+msgid "UNZIP"
 msgstr ""
 
-msgid "Edit Filesystem"
+msgid "DOWNLOAD"
 msgstr ""
 
-msgid "Filesystem is marked for deletion"
+msgid "Extracting"
 msgstr ""
 
-msgid "Filesystem is locked"
+msgid "Unzip"
 msgstr ""
 
-msgid "Filesystem is unlocked"
+msgid "Failed to extract archive."
 msgstr ""
 
-msgid "Delete Selected Filesystems"
+msgid "Executable File"
 msgstr ""
 
-msgid "Do you want to delete selected filesystems?"
+msgid "Link"
 msgstr ""
 
-msgid "Do you want to disable selected filesystems?"
+msgid "Text File"
 msgstr ""
 
-msgid "Do you want to enable selected filesystems?"
+msgid "PHP Script"
 msgstr ""
 
-msgid "Do you want to toggle selected filesystems?"
+msgid "SQL File"
 msgstr ""
 
-msgid "Filesystem Name"
+msgid "PERL Script"
 msgstr ""
 
-msgid "unknown"
-msgstr "Bilinmeyen"
+msgid "HTML Page"
+msgstr ""
+
+msgid "XML File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
+
+msgid "CSS File"
+msgstr "CSS Dosyası"
+
+msgid "CGI Script"
+msgstr ""
+
+msgid "Python Script"
+msgstr ""
+
+msgid "Shell Script"
+msgstr ""
+
+msgid "C File"
+msgstr "C Dosyası"
+
+msgid "C++ Source File"
+msgstr "C++ Kaynak Dosyası"
+
+msgid "C++ Header File"
+msgstr "C++ Başlık Dosyası"
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Pascal File"
+msgstr ""
+
+msgid "GIF Image"
+msgstr ""
+
+msgid "JPG Image"
+msgstr ""
+
+msgid "BMP Image"
+msgstr "BMP Resmi"
+
+msgid "PNG Image"
+msgstr ""
+
+msgid "TIF Image"
+msgstr ""
+
+msgid "Photoshop File"
+msgstr ""
+
+msgid "ZIP Archive"
+msgstr ""
+
+msgid "TAR Archive"
+msgstr ""
+
+msgid "GZIP Archive"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr "BZIP2 sıkıştırılmış dosyası"
+
+msgid "RAR Archive"
+msgstr ""
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "FLAC Audio File"
+msgstr ""
+
+msgid "WAV Audio File"
+msgstr ""
+
+msgid "MIDI File"
+msgstr ""
+
+msgid "RealAudio File"
+msgstr ""
+
+msgid "DTS Audio File"
+msgstr ""
+
+msgid "AC3 Audio File"
+msgstr "AC3 Ses Dosyası"
+
+msgid "OGG Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "AVI File"
+msgstr "AVI Dosyası"
+
+msgid "MPEG File"
+msgstr ""
+
+msgid "MOV File"
+msgstr ""
+
+msgid "MKV File"
+msgstr ""
+
+msgid "VOB File"
+msgstr ""
+
+msgid "Flash File"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "TS File"
+msgstr ""
+
+msgid "Word Document"
+msgstr ""
+
+msgid "Excel Sheet"
+msgstr ""
+
+msgid "Powerpoint Presentation"
+msgstr ""
+
+msgid "PDF File"
+msgstr ""
+
+msgid "ERROR(S)"
+msgstr ""
+
+msgid "Go Back"
+msgstr ""
+
+msgid "Directory creation failed."
+msgstr ""
+
+msgid "File creation failed."
+msgstr ""
+
+msgid "Dataset Name"
+msgstr ""
+
+msgid ""
+"File System - can be mounted within the standard system namespace and "
+"behaves like other file systems."
+msgstr ""
+
+msgid "Volume - A logical volume. Can be exported as a raw or block device."
+msgstr ""
+
+msgid ""
+"Snapshot - A read-only version of a file system or volume at a given point "
+"in time."
+msgstr ""
+
+msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgstr ""
+
+msgid "Dataset Type"
+msgstr ""
+
+msgid "Pool Name"
+msgstr ""
+
+msgid "Clones"
+msgstr ""
+
+msgid "Compression Ratio"
+msgstr ""
+
+msgid "Defer Destroy"
+msgstr ""
+
+msgid "Encryption Root"
+msgstr ""
+
+msgid "Filesystem Count"
+msgstr ""
+
+msgid "GUID"
+msgstr ""
+
+msgid "Key Status"
+msgstr ""
+
+msgid "Logical Referenced"
+msgstr ""
+
+msgid "Logical Used"
+msgstr ""
+
+msgid "Mounted"
+msgstr ""
+
+msgid "Obj Set ID"
+msgstr ""
+
+msgid "Receive Resume Token"
+msgstr ""
+
+msgid "Redact Snaps"
+msgstr ""
+
+msgid "Refcompressratio"
+msgstr ""
+
+msgid "Referenced"
+msgstr ""
+
+msgid "Snapshot Count"
+msgstr ""
+
+msgid "Used by Children"
+msgstr ""
+
+msgid "Used by Dataset"
+msgstr ""
+
+msgid "Used by Refreservation"
+msgstr ""
+
+msgid "Used by Snapshots"
+msgstr ""
+
+msgid "Userrefs"
+msgstr ""
+
+msgid "Written"
+msgstr ""
+
+msgid "Normalization"
+msgstr ""
+
+msgid "UTF-8 File Names"
+msgstr ""
+
+msgid "ACL Type"
+msgstr ""
+
+msgid "Access Time"
+msgstr "Erişim Zamanı"
+
+msgid "Can Mount"
+msgstr ""
+
+msgid "Checksum"
+msgstr "Doğrulama"
+
+msgid "GZIP Compression Level"
+msgstr ""
+
+msgid "Zstandard Compression Level"
+msgstr ""
+
+msgid "Fast Zstandard Compression Level"
+msgstr ""
+
+msgid "Copies"
+msgstr "Kopya(lar)"
+
+msgid "Dedup Method"
+msgstr ""
+
+msgid "Dnode Size"
+msgstr ""
+
+msgid "Execute Processes"
+msgstr ""
+
+msgid "Filesystem Limit"
+msgstr ""
+
+msgid "Jailed"
+msgstr ""
+
+msgid "Key Format"
+msgstr ""
+
+msgid "Key Location"
+msgstr ""
+
+msgid "Logbias"
+msgstr ""
+
+msgid "Mountpoint Type"
+msgstr ""
+
+msgid "Non-blocking Mandatory Locks"
+msgstr ""
+
+msgid "Overlay Mount"
+msgstr ""
+
+msgid "PBKDF2 Iterations"
+msgstr ""
+
+msgid "Primary Cache"
+msgstr ""
+
+msgid "Record Size"
+msgstr ""
+
+msgid "Redundant Metadata"
+msgstr ""
+
+msgid "Refquota"
+msgstr ""
+
+msgid "Refquota Type"
+msgstr ""
+
+msgid "Refreservation"
+msgstr ""
+
+msgid "Refreservation Type"
+msgstr ""
+
+msgid "Relatime"
+msgstr ""
+
+msgid "Reservation Type"
+msgstr ""
+
+msgid "Secondary Cache"
+msgstr ""
+
+msgid "Setuid"
+msgstr ""
+
+msgid "Share NFS Options"
+msgstr ""
+
+msgid "Share NFS Type"
+msgstr ""
+
+msgid "Share SMB Options"
+msgstr ""
+
+msgid "Share SMB Type"
+msgstr ""
+
+msgid "Snapshot Device Visibility"
+msgstr ""
+
+msgid "Snapshot Folder Visibility"
+msgstr ""
+
+msgid "Snapshot Limit"
+msgstr ""
+
+msgid "Threshold Small Block Size"
+msgstr ""
+
+msgid "Synchronous Requests Behaviour"
+msgstr ""
+
+msgid "Volume Mode"
+msgstr ""
+
+msgid "Volume Size"
+msgstr ""
+
+msgid "Virus Scan"
+msgstr ""
 
 msgid "No ZFS filesystem information available."
-msgstr ""
-
-msgid "Filesystems"
 msgstr ""
 
 msgid "The name of the filesystem."
@@ -9115,9 +9460,6 @@ msgid "Enter filesystem name"
 msgstr ""
 
 msgid "Controls the type of the ZFS dataset."
-msgstr ""
-
-msgid "Pool Name"
 msgstr ""
 
 msgid ""
@@ -9632,227 +9974,267 @@ msgstr ""
 msgid "System attribute based xattrs"
 msgstr ""
 
-msgid "Dataset Name"
+msgid "Add Filesystem"
+msgstr ""
+
+msgid "Edit Filesystem"
+msgstr ""
+
+msgid "Filesystem is marked for deletion"
+msgstr ""
+
+msgid "Filesystem is locked"
+msgstr ""
+
+msgid "Filesystem is unlocked"
+msgstr ""
+
+msgid "Delete Selected Filesystems"
+msgstr ""
+
+msgid "Do you want to delete selected filesystems?"
+msgstr ""
+
+msgid "Disable Selected Schedules"
+msgstr ""
+
+msgid "Do you want to disable selected filesystems?"
+msgstr ""
+
+msgid "Enable Selected Schedules"
+msgstr ""
+
+msgid "Do you want to enable selected filesystems?"
+msgstr ""
+
+msgid "Toggle Selected Schedules"
+msgstr ""
+
+msgid "Do you want to toggle selected filesystems?"
+msgstr ""
+
+msgid "Filesystem Name"
+msgstr ""
+
+msgid "unknown"
+msgstr "Bilinmeyen"
+
+msgid "Filesystems"
+msgstr ""
+
+msgid "Show Used/Avail"
+msgstr ""
+
+msgid "On-Disk Configuration"
+msgstr ""
+
+msgid "Capacity Warning Threshold"
+msgstr "Kapasite Uyarı Eşiği"
+
+msgid "Capacity Critical Threshold"
+msgstr "Kritik Kapasite Eşiği"
+
+msgid "Extended Destroy"
 msgstr ""
 
 msgid ""
-"File System - can be mounted within the standard system namespace and "
-"behaves like other file systems."
-msgstr ""
-
-msgid "Volume - A logical volume. Can be exported as a raw or block device."
+"Display Used/Avail information from the filesystem instead of the Alloc/Free "
+"information from the pool."
 msgstr ""
 
 msgid ""
-"Snapshot - A read-only version of a file system or volume at a given point "
-"in time."
+"Used/Avail lists storage information after all redundancy is taken into "
+"account but is impacted by compression, deduplication and quotas. Alloc/Free "
+"lists the raw storage information of a pool."
 msgstr ""
 
-msgid "Bookmark - Creates a bookmark of a given snapshot."
+msgid "Read on-disk configuration."
 msgstr ""
 
-msgid "Dataset Type"
+msgid ""
+"Reading the configuration from the disks is slower than reading from cache "
+"file."
 msgstr ""
 
-msgid "Clones"
+msgid "Set the warning threshold to a value between 80 and 89."
 msgstr ""
 
-msgid "Compression Ratio"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the warning "
+"threshold."
 msgstr ""
+"Bir havuz kapasitesi uyarı eşiğini aştığında bir uyarı e-postası gönderilir."
 
-msgid "Defer Destroy"
+msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
+"Bir cron işi, /etc/capacitycheck.zfs komut dosyasını programlamak için "
+"ayarlanmalıdır."
 
-msgid "Encryption Root"
+msgid "Must be a number between 80 and 89."
 msgstr ""
 
-msgid "Filesystem Count"
+msgid "Set the critical threshold to a value between 90 and 95."
 msgstr ""
 
-msgid "GUID"
+msgid ""
+"An alert email is sent when the capacity of a pool exceeds the critical "
+"threshold."
 msgstr ""
+"Bir havuzun kapasitesi kritik eşiği aştığında bir uyarı e-postası gönderilir."
 
-msgid "Key Status"
+msgid "Must be a number between 90 and 95."
 msgstr ""
 
-msgid "Logical Referenced"
+msgid "Destroy dataset and its dependents."
 msgstr ""
 
-msgid "Logical Used"
+msgid ""
+"When enabled, destroying a dataset will also destroy all dependents "
+"(datasets, snapshots and clones)."
 msgstr ""
 
-msgid "Mounted"
-msgstr ""
-
-msgid "Obj Set ID"
-msgstr ""
-
-msgid "Receive Resume Token"
-msgstr ""
-
-msgid "Redact Snaps"
-msgstr ""
-
-msgid "Refcompressratio"
-msgstr ""
-
-msgid "Referenced"
-msgstr ""
-
-msgid "Snapshot Count"
-msgstr ""
-
-msgid "Used by Children"
-msgstr ""
+msgid "Add Schedule"
+msgstr "Zamanlama Ekle"
 
-msgid "Used by Dataset"
+msgid "Edit Schedule"
 msgstr ""
 
-msgid "Used by Refreservation"
+msgid "Schedule is marked for deletion"
 msgstr ""
 
-msgid "Used by Snapshots"
+msgid "Schedule is locked"
 msgstr ""
 
-msgid "Userrefs"
+msgid "Schedule is unlocked"
 msgstr ""
 
-msgid "Written"
+msgid "Delete Selected Schedules"
 msgstr ""
 
-msgid "Normalization"
+msgid "Do you want to delete selected schedules?"
 msgstr ""
 
-msgid "UTF-8 File Names"
+msgid "Do you want to disable selected schedules?"
 msgstr ""
-
-msgid "ACL Type"
-msgstr ""
-
-msgid "Access Time"
-msgstr "Erişim Zamanı"
 
-msgid "Can Mount"
+msgid "Do you want to enable selected schedules?"
 msgstr ""
 
-msgid "Checksum"
-msgstr "Doğrulama"
-
-msgid "GZIP Compression Level"
+msgid "Do you want to toggle selected schedules?"
 msgstr ""
 
-msgid "Zstandard Compression Level"
+msgid "Invalid"
 msgstr ""
 
-msgid "Fast Zstandard Compression Level"
+msgid "Destroy"
 msgstr ""
 
-msgid "Copies"
-msgstr "Kopya(lar)"
-
-msgid "Dedup Method"
+msgid "Create Snapshot"
 msgstr ""
 
-msgid "Dnode Size"
+msgid "Destroy Snapshot"
 msgstr ""
 
-msgid "Execute Processes"
+msgid "Scrub Pool"
 msgstr ""
 
-msgid "Filesystem Limit"
+msgid "Lifetime"
 msgstr ""
 
-msgid "Jailed"
+msgid "Second(s)"
 msgstr ""
 
-msgid "Key Format"
+msgid "Minute(s)"
 msgstr ""
 
-msgid "Key Location"
+msgid "Hour(s)"
 msgstr ""
 
-msgid "Logbias"
+msgid "Day(s)"
 msgstr ""
 
-msgid "Mountpoint Type"
+msgid "Week(s)"
 msgstr ""
 
-msgid "Non-blocking Mandatory Locks"
+msgid "Month(s)"
 msgstr ""
 
-msgid "Overlay Mount"
+msgid "Year(s)"
 msgstr ""
 
-msgid "PBKDF2 Iterations"
+msgid "Hourly"
 msgstr ""
 
-msgid "Primary Cache"
+msgid "Daily"
 msgstr ""
 
-msgid "Record Size"
+msgid "Weekly"
 msgstr ""
 
-msgid "Redundant Metadata"
+msgid "Monthly"
 msgstr ""
 
-msgid "Refquota"
+msgid "Yearly"
 msgstr ""
 
-msgid "Refquota Type"
+msgid "Custom Setting"
 msgstr ""
 
-msgid "Refreservation"
+msgid "Schedule"
 msgstr ""
 
-msgid "Refreservation Type"
+msgid "Weekdays"
 msgstr ""
 
-msgid "Relatime"
-msgstr ""
+msgid "All Minutes"
+msgstr "Tüm Dakikalar"
 
-msgid "Reservation Type"
-msgstr ""
+msgid "All Hours"
+msgstr "Tüm Saatler"
 
-msgid "Secondary Cache"
-msgstr ""
+msgid "All Days"
+msgstr "Her Gün"
 
-msgid "Setuid"
-msgstr ""
+msgid "All Months"
+msgstr "Tüm Aylar"
 
-msgid "Share NFS Options"
-msgstr ""
+msgid "All Weekdays"
+msgstr "Haftanın Tüm Günleri"
 
-msgid "Share NFS Type"
+msgid "Select Pool, Filesystem or Volume"
 msgstr ""
 
-msgid "Share SMB Options"
+msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
 
-msgid "Share SMB Type"
+msgid "Lifetime Value"
 msgstr ""
 
-msgid "Snapshot Device Visibility"
+msgid "Lifetime Units"
 msgstr ""
 
-msgid "Snapshot Folder Visibility"
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
 msgstr ""
 
-msgid "Snapshot Limit"
+msgid "Presets"
 msgstr ""
 
-msgid "Threshold Small Block Size"
+msgid "Recursively create snapshots of all descendent datasets."
 msgstr ""
 
-msgid "Synchronous Requests Behaviour"
+msgid "Select pool."
 msgstr ""
 
-msgid "Volume Mode"
+msgid "Scrub"
 msgstr ""
 
-msgid "Volume Size"
+msgid "No ZFS zpool information available."
 msgstr ""
 
-msgid "Virus Scan"
+msgid "No ZFS volume information available."
 msgstr ""
 
 msgid "The identifier reported as unknown by smartctl, including brackets."
@@ -9864,14 +10246,107 @@ msgstr ""
 msgid "Enter smartctl pass-through type."
 msgstr ""
 
+msgid "Login Name"
+msgstr ""
+
+msgid "Full Name"
+msgstr "Tam Adı"
+
+msgid "SHA Password"
+msgstr ""
+
+msgid "MD4 Password"
+msgstr ""
+
+msgid "Shell"
+msgstr ""
+
+msgid "Primary Group"
+msgstr "Öncelikli Grup"
+
+msgid "Groups"
+msgstr "Gruplar"
+
+msgid "Timezone"
+msgstr ""
+
+msgid "File Manager Access"
+msgstr ""
+
+msgid "Hidden Items"
+msgstr ""
+
+msgid "Read Permission"
+msgstr ""
+
+msgid "Create Permission"
+msgstr "İzin Yarat"
+
+msgid "Change Permission"
+msgstr "İzin Değiştir"
+
+msgid "Delete Permission"
+msgstr ""
+
+msgid "Add User Account"
+msgstr "Kullanıcı Hesabı Ekle"
+
+msgid "Edit User Account"
+msgstr ""
+
+msgid "User account is marked for deletion"
+msgstr ""
+
+msgid "User account is protected"
+msgstr ""
+
+msgid "User account is unlocked"
+msgstr ""
+
+msgid "Set password"
+msgstr ""
+
+msgid "Delete Selected User Accounts"
+msgstr ""
+
+msgid "Do you want to delete selected user accounts?"
+msgstr ""
+
+msgid "Disable Selected Users"
+msgstr ""
+
+msgid "Do you want to disable selected users?"
+msgstr ""
+
+msgid "Enable Selected Users"
+msgstr ""
+
+msgid "Do you want to enable selected users?"
+msgstr ""
+
+msgid "Toggle Selected Users"
+msgstr ""
+
+msgid "Do you want to toggle selected users?"
+msgstr ""
+
+msgid "Active"
+msgstr "Aktif"
+
+msgid "System User"
+msgstr ""
+
+msgid "Show System Users"
+msgstr ""
+
+msgid "Hide System Users"
+msgstr ""
+
 msgid "Enter login name."
 msgstr ""
 
 msgid "Enter the full user name."
 msgstr ""
-
-msgid "Full Name"
-msgstr "Tam Adı"
 
 msgid "Set user password."
 msgstr ""
@@ -9956,109 +10431,10 @@ msgstr ""
 msgid "Grant delete permission"
 msgstr ""
 
-msgid "Add User Account"
-msgstr "Kullanıcı Hesabı Ekle"
-
-msgid "Edit User Account"
-msgstr ""
-
-msgid "User account is marked for deletion"
-msgstr ""
-
-msgid "User account is protected"
-msgstr ""
-
-msgid "User account is unlocked"
-msgstr ""
-
-msgid "Set password"
-msgstr ""
-
-msgid "Delete Selected User Accounts"
-msgstr ""
-
-msgid "Do you want to delete selected user accounts?"
-msgstr ""
-
-msgid "Disable Selected Users"
-msgstr ""
-
-msgid "Do you want to disable selected users?"
-msgstr ""
-
-msgid "Enable Selected Users"
-msgstr ""
-
-msgid "Do you want to enable selected users?"
-msgstr ""
-
-msgid "Toggle Selected Users"
-msgstr ""
-
-msgid "Do you want to toggle selected users?"
-msgstr ""
-
-msgid "Active"
-msgstr "Aktif"
-
-msgid "System User"
-msgstr ""
-
-msgid "Show System Users"
-msgstr ""
-
-msgid "Hide System Users"
-msgstr ""
-
 msgid "Users"
 msgstr "Kullanıcılar"
 
 msgid "Public Keys"
-msgstr ""
-
-msgid "Groups"
-msgstr "Gruplar"
-
-msgid "Login Name"
-msgstr ""
-
-msgid "SHA Password"
-msgstr ""
-
-msgid "MD4 Password"
-msgstr ""
-
-msgid "Shell"
-msgstr ""
-
-msgid "Primary Group"
-msgstr "Öncelikli Grup"
-
-msgid "Timezone"
-msgstr ""
-
-msgid "File Manager Access"
-msgstr ""
-
-msgid "Hidden Items"
-msgstr ""
-
-msgid "Read Permission"
-msgstr ""
-
-msgid "Create Permission"
-msgstr "İzin Yarat"
-
-msgid "Change Permission"
-msgstr "İzin Değiştir"
-
-msgid "Delete Permission"
-msgstr ""
-
-msgid "Public key information."
-msgstr ""
-
-msgid "Public Key"
 msgstr ""
 
 msgid "Add Public Key"
@@ -10101,6 +10477,12 @@ msgid "Do you want to toggle selected public keys?"
 msgstr ""
 
 msgid "Reload"
+msgstr ""
+
+msgid "Public Key"
+msgstr ""
+
+msgid "Public key information."
 msgstr ""
 
 msgid "Add Group"
@@ -10163,21 +10545,6 @@ msgstr ""
 msgid "The recommended range for the group id is between 1000 and 32000."
 msgstr ""
 
-msgid "Domain Controller Name"
-msgstr ""
-
-msgid "Domain Name (DNS/Realm-Name)"
-msgstr ""
-
-msgid "Domain Name (NetBIOS-Name)"
-msgstr ""
-
-msgid "Administrator Name"
-msgstr "Yönetici Adı"
-
-msgid "Administrator Password"
-msgstr "Yönetici Parolası"
-
 msgid "Enter AD or PDC name."
 msgstr ""
 
@@ -10204,6 +10571,21 @@ msgstr "Yönetici"
 
 msgid "Enter the password of the domain administrator account."
 msgstr ""
+
+msgid "Domain Controller Name"
+msgstr ""
+
+msgid "Domain Name (DNS/Realm-Name)"
+msgstr ""
+
+msgid "Domain Name (NetBIOS-Name)"
+msgstr ""
+
+msgid "Administrator Name"
+msgstr "Yönetici Adı"
+
+msgid "Administrator Password"
+msgstr "Yönetici Parolası"
 
 msgid "Add Reboot Schedule"
 msgstr "Yeniden Başlama Zamanlayıcısı Ekle"
@@ -10244,27 +10626,6 @@ msgstr ""
 msgid "Do you want to toggle selected reboot schedules?"
 msgstr ""
 
-msgid "Daemon Events"
-msgstr ""
-
-msgid "Enable Server"
-msgstr ""
-
-msgid "FTP Events"
-msgstr ""
-
-msgid "RSYNC Events"
-msgstr ""
-
-msgid "S.M.A.R.T. Events"
-msgstr ""
-
-msgid "SSH Events"
-msgstr ""
-
-msgid "System Events"
-msgstr ""
-
 msgid "Send daemon event messages."
 msgstr ""
 
@@ -10302,6 +10663,27 @@ msgstr ""
 msgid "Send system event messages."
 msgstr ""
 
+msgid "Daemon Events"
+msgstr ""
+
+msgid "Enable Server"
+msgstr ""
+
+msgid "FTP Events"
+msgstr ""
+
+msgid "RSYNC Events"
+msgstr ""
+
+msgid "S.M.A.R.T. Events"
+msgstr ""
+
+msgid "SSH Events"
+msgstr ""
+
+msgid "System Events"
+msgstr ""
+
 msgid "Disable the compression of repeating lines."
 msgstr ""
 
@@ -10329,6 +10711,15 @@ msgid "Log Order"
 msgstr ""
 
 msgid "Facility"
+msgstr ""
+
+msgid "Enter facility name"
+msgstr ""
+
+msgid "Enter level name"
+msgstr ""
+
+msgid "Enter destination"
 msgstr ""
 
 msgid "Add Option"
@@ -10370,19 +10761,10 @@ msgstr ""
 msgid "Do you want to toggle selected options?"
 msgstr ""
 
-msgid "Enter facility name"
-msgstr ""
-
-msgid "Enter level name"
-msgstr ""
-
-msgid "Enter destination"
+msgid "Reorder"
 msgstr ""
 
 msgid "Sort"
-msgstr ""
-
-msgid "Reorder"
 msgstr ""
 
 msgid "Add Command"
@@ -10485,13 +10867,10 @@ msgid ""
 "make changes to a running system."
 msgstr ""
 
-msgid "The value of the setting."
-msgstr ""
-
 msgid "Variable"
 msgstr "Değişken"
 
-msgid "Destination Network"
+msgid "The value of the setting."
 msgstr ""
 
 msgid "Choose which interface this route applies to."
@@ -10542,7 +10921,16 @@ msgstr ""
 msgid "Do you want to toggle selected routes?"
 msgstr ""
 
+msgid "Destination Network"
+msgstr ""
+
 msgid "Running user"
+msgstr ""
+
+msgid ""
+"These option(s) will be added to /boot/loader.conf.local. This allows you to "
+"specify parameters to be passed to the kernel and additional modules to be "
+"loaded."
 msgstr ""
 
 msgid "The name of the variable."
@@ -10551,10 +10939,10 @@ msgstr ""
 msgid "The value of the variable."
 msgstr "Değişkenin değeri"
 
-msgid ""
-"These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to the kernel and additional modules to be "
-"loaded."
+msgid "Name of the variable."
+msgstr "Değişken ismi"
+
+msgid "Enter Value"
 msgstr ""
 
 msgid "Disabled variable names will be removed from /etc/rc.conf."
@@ -10563,10 +10951,43 @@ msgstr ""
 msgid "Enabled options will be added to /etc/rc.conf."
 msgstr ""
 
-msgid "Name of the variable."
-msgstr "Değişken ismi"
+msgid "Button Location"
+msgstr "Tuş yeri"
 
-msgid "Enter Value"
+msgid "File Chooser"
+msgstr ""
+
+msgid "File Mode"
+msgstr ""
+
+msgid "GUI"
+msgstr ""
+
+msgid "Navigation Bar"
+msgstr ""
+
+msgid "Tabs"
+msgstr ""
+
+msgid "Toggle Mode"
+msgstr ""
+
+msgid "Navbar Style"
+msgstr ""
+
+msgid "Binary Prefix"
+msgstr "İkili öneki"
+
+msgid "Colorful Meters"
+msgstr "Renkli Ölçekler"
+
+msgid "Skip View Mode"
+msgstr ""
+
+msgid "Show Max CPUs"
+msgstr ""
+
+msgid "Diagnostics Information"
 msgstr ""
 
 msgid ""
@@ -10639,90 +11060,18 @@ msgstr ""
 msgid "Set the landing page for the Diagnostics > Information menu."
 msgstr ""
 
-msgid "Button Location"
-msgstr "Tuş yeri"
-
-msgid "File Chooser"
-msgstr ""
-
-msgid "File Mode"
-msgstr ""
-
-msgid "GUI"
-msgstr ""
-
-msgid "Navigation Bar"
-msgstr ""
-
-msgid "Tabs"
-msgstr ""
-
-msgid "Toggle Mode"
-msgstr ""
-
-msgid "Navbar Style"
-msgstr ""
-
-msgid "Binary Prefix"
-msgstr "İkili öneki"
-
-msgid "Colorful Meters"
-msgstr "Renkli Ölçekler"
-
-msgid "Skip View Mode"
-msgstr ""
-
-msgid "Show Max CPUs"
-msgstr ""
-
-msgid "Diagnostics Information"
-msgstr ""
-
-msgid "Show Interval"
-msgstr ""
-
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
 "configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
 
-msgid "Network Address"
+msgid "Show Interval"
 msgstr ""
 
-msgid "Enter additional parameters"
-msgstr ""
+msgid "Do you really want to remove the selected item from the list?"
+msgstr "Seçilen öğeyi listeden kaldırmak istediğinden emin misin?"
 
-msgid "No additional parameters"
-msgstr ""
-
-msgid "Undefined"
-msgstr ""
-
-msgid "The value is invalid."
-msgstr ""
-
-msgid "Enter a description for your reference."
-msgstr ""
-
-msgid "Enable Setting"
-msgstr ""
-
-msgid "IPv4 Address"
-msgstr ""
-
-msgid "Protect"
-msgstr ""
-
-msgid "Protect Setting"
-msgstr ""
-
-msgid "The UUID of the record."
-msgstr ""
-
-msgid "Enter Universally Unique Identifier"
-msgstr ""
-
-msgid "Universally Unique Identifier"
+msgid "Select item to remove from the list"
 msgstr ""
 
 msgid "Delete Selected Records"
@@ -10782,8 +11131,155 @@ msgstr ""
 msgid "Record is unlocked"
 msgstr ""
 
+msgid "Service"
+msgstr "Hizmet"
+
+msgid "Undefined"
+msgstr ""
+
+msgid "The value is invalid."
+msgstr ""
+
+msgid "Enter additional parameters"
+msgstr ""
+
+msgid "No additional parameters"
+msgstr ""
+
+msgid "Enter a description for your reference."
+msgstr ""
+
+msgid "Network Address"
+msgstr ""
+
+msgid "Enable Setting"
+msgstr ""
+
+msgid "IPv4 Address"
+msgstr ""
+
+msgid "The UUID of the record."
+msgstr ""
+
+msgid "Enter Universally Unique Identifier"
+msgstr ""
+
+msgid "Universally Unique Identifier"
+msgstr ""
+
+msgid "Protect"
+msgstr ""
+
+msgid "Protect Setting"
+msgstr ""
+
 msgid "Autodetect"
 msgstr "Otomatik Algıla"
+
+msgid "Standard Provider"
+msgstr ""
+
+msgid "Custom Provider"
+msgstr ""
+
+msgid "Record Type"
+msgstr ""
+
+msgid "Provider"
+msgstr "Sağlayıcı"
+
+msgid "Provider Name"
+msgstr ""
+
+msgid "Host Names"
+msgstr ""
+
+msgid "Wildcard Domain"
+msgstr ""
+
+msgid "Use HTTPS"
+msgstr ""
+
+msgid "Check IP Server"
+msgstr ""
+
+msgid "Check IP Path"
+msgstr ""
+
+msgid "Check IP using HTTPS"
+msgstr ""
+
+msgid "Check IP Command"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "DDNS-Server"
+msgstr ""
+
+msgid "DDNS-Path"
+msgstr ""
+
+msgid "Append my IP"
+msgstr ""
+
+msgid "Add Provider"
+msgstr "Sağlayıcı Ekle"
+
+msgid "Edit Provider"
+msgstr ""
+
+msgid "Provider is marked for deletion"
+msgstr ""
+
+msgid "Provider is locked"
+msgstr ""
+
+msgid "Provider is unlocked"
+msgstr ""
+
+msgid "Delete Selected Providers"
+msgstr ""
+
+msgid "Disable Selected Providers"
+msgstr ""
+
+msgid "Enable Selected Providers"
+msgstr ""
+
+msgid "Toggle Selected Providers"
+msgstr ""
+
+msgid "Do you want to delete selected providers?"
+msgstr ""
+
+msgid "Do you want to disable selected providers?"
+msgstr ""
+
+msgid "Do you want to enable selected providers?"
+msgstr ""
+
+msgid "Do you want to toggle selected providers?"
+msgstr ""
+
+msgid "Missing Provider"
+msgstr ""
+
+msgid "Orphaned Provider"
+msgstr ""
+
+msgid "Undefined Type"
+msgstr ""
+
+msgid "Unknown Provider"
+msgstr ""
+
+msgid "Providers"
+msgstr ""
+
+msgid "Global Settings"
+msgstr ""
 
 msgid ""
 "Select \"Custom Provider\" for customizing the DDNS update server details "
@@ -10878,111 +11374,6 @@ msgid ""
 msgstr ""
 
 msgid "These parameters will be added to this provider configuration"
-msgstr ""
-
-msgid "Add Provider"
-msgstr "Sağlayıcı Ekle"
-
-msgid "Edit Provider"
-msgstr ""
-
-msgid "Provider is marked for deletion"
-msgstr ""
-
-msgid "Provider is locked"
-msgstr ""
-
-msgid "Provider is unlocked"
-msgstr ""
-
-msgid "Delete Selected Providers"
-msgstr ""
-
-msgid "Disable Selected Providers"
-msgstr ""
-
-msgid "Enable Selected Providers"
-msgstr ""
-
-msgid "Toggle Selected Providers"
-msgstr ""
-
-msgid "Do you want to delete selected providers?"
-msgstr ""
-
-msgid "Do you want to disable selected providers?"
-msgstr ""
-
-msgid "Do you want to enable selected providers?"
-msgstr ""
-
-msgid "Do you want to toggle selected providers?"
-msgstr ""
-
-msgid "Missing Provider"
-msgstr ""
-
-msgid "Orphaned Provider"
-msgstr ""
-
-msgid "Undefined Type"
-msgstr ""
-
-msgid "Unknown Provider"
-msgstr ""
-
-msgid "Standard Provider"
-msgstr ""
-
-msgid "Custom Provider"
-msgstr ""
-
-msgid "Record Type"
-msgstr ""
-
-msgid "Provider"
-msgstr "Sağlayıcı"
-
-msgid "Provider Name"
-msgstr ""
-
-msgid "Host Names"
-msgstr ""
-
-msgid "Wildcard Domain"
-msgstr ""
-
-msgid "Use HTTPS"
-msgstr ""
-
-msgid "Check IP Server"
-msgstr ""
-
-msgid "Check IP Path"
-msgstr ""
-
-msgid "Check IP using HTTPS"
-msgstr ""
-
-msgid "Check IP Command"
-msgstr ""
-
-msgid "User Agent"
-msgstr ""
-
-msgid "DDNS-Server"
-msgstr ""
-
-msgid "DDNS-Path"
-msgstr ""
-
-msgid "Append my IP"
-msgstr ""
-
-msgid "Providers"
-msgstr ""
-
-msgid "Global Settings"
 msgstr ""
 
 msgid "Verify Address"
@@ -11111,6 +11502,15 @@ msgstr "Hata ayıklama"
 msgid "These parameters are appended to the inadyn.conf file."
 msgstr ""
 
+msgid "Media Type"
+msgstr ""
+
+msgid "Media Folders"
+msgstr ""
+
+msgid "Media Folder"
+msgstr ""
+
 msgid "Add Media Folder"
 msgstr "Medya Klasörü Ekle"
 
@@ -11169,15 +11569,6 @@ msgid "Scan folder for image files."
 msgstr ""
 
 msgid "Scan folder for video and image files."
-msgstr ""
-
-msgid "Media Type"
-msgstr ""
-
-msgid "Media Folders"
-msgstr ""
-
-msgid "Media Folder"
 msgstr ""
 
 msgid "Inotify"
@@ -11292,6 +11683,18 @@ msgstr "Auth Grup Adı"
 msgid "Auth Type"
 msgstr "Auth Tipi"
 
+msgid "Name of the Auth Group."
+msgstr ""
+
+msgid "Sets the authentication type."
+msgstr ""
+
+msgid "CHAP-Mutual"
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
 msgid "Add Auth Group"
 msgstr "Yetki Groubu ekle"
 
@@ -11358,22 +11761,118 @@ msgstr ""
 msgid "No initiator portals found."
 msgstr ""
 
-msgid "Name of the Auth Group."
+msgid "LUN Name"
 msgstr ""
 
-msgid "Sets the authentication type."
+msgid "Backend"
+msgstr "Arkayüz"
+
+msgid "CTL LUN"
 msgstr ""
 
-msgid "CHAP-Mutual"
+msgid "Device ID"
 msgstr ""
 
-msgid "These parameters will be added to this auth-group."
+msgid "Device Type"
 msgstr ""
+
+msgid "Passthrough Address"
+msgstr ""
+
+msgid "LUN Vendor"
+msgstr ""
+
+msgid "LUN Product"
+msgstr ""
+
+msgid "LUN Revision"
+msgstr ""
+
+msgid "LUN SCSI Name"
+msgstr ""
+
+msgid "LUN EUI-64\tidentifier"
+msgstr ""
+
+msgid "LUN NAA Identifier"
+msgstr ""
+
+msgid "LUN UUID"
+msgstr ""
+
+msgid "HA Role"
+msgstr ""
+
+msgid "Insecure TPC"
+msgstr ""
+
+msgid "Read Cache"
+msgstr ""
+
+msgid "Read Only"
+msgstr ""
+
+msgid "Reordering"
+msgstr ""
+
+msgid "Serialize Sequence"
+msgstr ""
+
+msgid "Physical Block Size"
+msgstr ""
+
+msgid "Physical Block Offset"
+msgstr ""
+
+msgid "UNMAP Block Size"
+msgstr ""
+
+msgid "UNMAP Block Offset"
+msgstr ""
+
+msgid "RPM"
+msgstr ""
+
+msgid "Form Factor"
+msgstr ""
+
+msgid "Provisioning Type"
+msgstr ""
+
+msgid "UNMAP"
+msgstr ""
+
+msgid "UNMAP Maximum LBA"
+msgstr ""
+
+msgid "UNMAP Maximum Descriptors"
+msgstr ""
+
+msgid "Write Same Maximum LBA"
+msgstr ""
+
+msgid "Avail Threshold"
+msgstr "Fayda eşiği"
+
+msgid "Used Threshold"
+msgstr ""
+
+msgid "Pool Avail Threshold"
+msgstr ""
+
+msgid "Pool Used Threshold"
+msgstr ""
+
+msgid "Threads"
+msgstr ""
+
+msgid "Additional Options for Block Backend"
+msgstr "Block Arkaplanı ek ayarları"
+
+msgid "Additional Options for RAM Disk Backend"
+msgstr "RAM Disk Arkaplanı ek ayarları"
 
 msgid "Name of the LUN."
-msgstr ""
-
-msgid "LUN Name"
 msgstr ""
 
 msgid "The CTL backend to use for a given LUN."
@@ -11413,9 +11912,6 @@ msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 
 msgid "The SCSI Device Identification string presented to the initiator."
-msgstr ""
-
-msgid "Device ID"
 msgstr ""
 
 msgid "Specify the SCSI device type to use when creating the LUN."
@@ -11617,12 +12113,6 @@ msgstr ""
 msgid "These parameters will be added to this lun."
 msgstr ""
 
-msgid "Additional Options for Block Backend"
-msgstr "Block Arkaplanı ek ayarları"
-
-msgid "Additional Options for RAM Disk Backend"
-msgstr "RAM Disk Arkaplanı ek ayarları"
-
 msgid "Add LUN"
 msgstr "LUN Ekle"
 
@@ -11662,109 +12152,73 @@ msgstr ""
 msgid "Do you want to toggle selected LUNs?"
 msgstr ""
 
-msgid "Backend"
-msgstr "Arkayüz"
-
-msgid "CTL LUN"
+msgid "Listen"
 msgstr ""
 
-msgid "Device Type"
+msgid "No listeners found."
 msgstr ""
 
-msgid "Passthrough Address"
+msgid "Option"
 msgstr ""
 
-msgid "LUN Vendor"
+msgid "No options found."
 msgstr ""
 
-msgid "LUN Product"
+msgid "Add Portal Group"
+msgstr "Portal Groubu Ekle"
+
+msgid "Edit Portal Group"
 msgstr ""
 
-msgid "LUN Revision"
+msgid "Portal Group is marked for deletion"
 msgstr ""
 
-msgid "LUN SCSI Name"
+msgid "Portal Group is locked"
 msgstr ""
 
-msgid "LUN EUI-64\tidentifier"
+msgid "Portal Group is unlocked"
 msgstr ""
 
-msgid "LUN NAA Identifier"
+msgid "Delete Selected Portal Groups"
 msgstr ""
 
-msgid "LUN UUID"
+msgid "Disable Selected Portal Groups"
 msgstr ""
 
-msgid "HA Role"
+msgid "Enable Selected Portal Groups"
 msgstr ""
 
-msgid "Insecure TPC"
+msgid "Toggle Selected Portal Groups"
 msgstr ""
 
-msgid "Read Cache"
+msgid "Do you want to delete selected portal groups?"
 msgstr ""
 
-msgid "Read Only"
+msgid "Do you want to disable selected portal groups?"
 msgstr ""
 
-msgid "Reordering"
+msgid "Do you want to enable selected portal groups?"
 msgstr ""
 
-msgid "Serialize Sequence"
-msgstr ""
-
-msgid "Physical Block Size"
-msgstr ""
-
-msgid "Physical Block Offset"
-msgstr ""
-
-msgid "UNMAP Block Size"
-msgstr ""
-
-msgid "UNMAP Block Offset"
-msgstr ""
-
-msgid "RPM"
-msgstr ""
-
-msgid "Form Factor"
-msgstr ""
-
-msgid "Provisioning Type"
-msgstr ""
-
-msgid "UNMAP"
-msgstr ""
-
-msgid "UNMAP Maximum LBA"
-msgstr ""
-
-msgid "UNMAP Maximum Descriptors"
-msgstr ""
-
-msgid "Write Same Maximum LBA"
-msgstr ""
-
-msgid "Avail Threshold"
-msgstr "Fayda eşiği"
-
-msgid "Used Threshold"
-msgstr ""
-
-msgid "Pool Avail Threshold"
-msgstr ""
-
-msgid "Pool Used Threshold"
-msgstr ""
-
-msgid "Threads"
-msgstr ""
-
-msgid "Name of the Portal Group."
+msgid "Do you want to toggle selected portal groups?"
 msgstr ""
 
 msgid "Portal Group Name"
+msgstr ""
+
+msgid "Discovery Filter"
+msgstr ""
+
+msgid "Offload"
+msgstr ""
+
+msgid "Redirect"
+msgstr ""
+
+msgid "Foreign"
+msgstr ""
+
+msgid "Name of the Portal Group."
 msgstr ""
 
 msgid "These parameters will be added to this portal-group."
@@ -11825,69 +12279,6 @@ msgid ""
 "generated automatically."
 msgstr ""
 
-msgid "Add Portal Group"
-msgstr "Portal Groubu Ekle"
-
-msgid "Edit Portal Group"
-msgstr ""
-
-msgid "Portal Group is marked for deletion"
-msgstr ""
-
-msgid "Portal Group is locked"
-msgstr ""
-
-msgid "Portal Group is unlocked"
-msgstr ""
-
-msgid "Delete Selected Portal Groups"
-msgstr ""
-
-msgid "Disable Selected Portal Groups"
-msgstr ""
-
-msgid "Enable Selected Portal Groups"
-msgstr ""
-
-msgid "Toggle Selected Portal Groups"
-msgstr ""
-
-msgid "Do you want to delete selected portal groups?"
-msgstr ""
-
-msgid "Do you want to disable selected portal groups?"
-msgstr ""
-
-msgid "Do you want to enable selected portal groups?"
-msgstr ""
-
-msgid "Do you want to toggle selected portal groups?"
-msgstr ""
-
-msgid "Discovery Filter"
-msgstr ""
-
-msgid "Offload"
-msgstr ""
-
-msgid "Redirect"
-msgstr ""
-
-msgid "Foreign"
-msgstr ""
-
-msgid "Listen"
-msgstr ""
-
-msgid "Option"
-msgstr ""
-
-msgid "No listeners found."
-msgstr ""
-
-msgid "No options found."
-msgstr ""
-
 msgid "Enter user name."
 msgstr ""
 
@@ -11941,6 +12332,12 @@ msgstr ""
 msgid "Do you want to toggle selected CHAP users?"
 msgstr ""
 
+msgid "Mutual User"
+msgstr ""
+
+msgid "Mutual Secret"
+msgstr ""
+
 msgid "Add Mutual CHAP User"
 msgstr "Karşılıklı CHAP Kullanıcısı Ekle"
 
@@ -11988,10 +12385,12 @@ msgstr ""
 msgid "Enter mutual user name."
 msgstr ""
 
-msgid "Mutual User"
+msgid "Enter an iSCSI initiator name."
 msgstr ""
 
-msgid "Mutual Secret"
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
 msgstr ""
 
 msgid "Add Initiator Name"
@@ -12033,26 +12432,7 @@ msgstr ""
 msgid "Do you want to toggle selected initiator names?"
 msgstr ""
 
-msgid "Enter an iSCSI initiator name."
-msgstr ""
-
-msgid ""
-"Link initiator-name to auth-groups. An Initiator with this name will be "
-"allowed to connect to the selected auth-groups."
-msgstr ""
-
 msgid "IP Address Prefix"
-msgstr ""
-
-msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "Bir iSCSI başlatıcı portalının IPv4 veya IPv6 adresi."
-
-msgid "Enter IP address prefix length."
-msgstr ""
-
-msgid ""
-"Link initiator-portal to auth-groups. An Initiator matching this address "
-"will be allowed to connect to the selected auth-groups."
 msgstr ""
 
 msgid "Add Initiator Portal"
@@ -12092,6 +12472,17 @@ msgid "Do you want to enable selected initiator portals?"
 msgstr ""
 
 msgid "Do you want to toggle selected initiator portals?"
+msgstr ""
+
+msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr "Bir iSCSI başlatıcı portalının IPv4 veya IPv6 adresi."
+
+msgid "Enter IP address prefix length."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
 msgstr ""
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
@@ -12195,9 +12586,6 @@ msgstr ""
 msgid "Do you want to toggle selected listen records?"
 msgstr ""
 
-msgid "Listen (iSER)"
-msgstr ""
-
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
@@ -12208,19 +12596,10 @@ msgid ""
 "protocol."
 msgstr ""
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "LUN Number"
-msgstr ""
-
-msgid "LUN number"
-msgstr ""
-
-msgid "No LUNs found."
-msgstr ""
-
-msgid "Select targets."
-msgstr ""
-
-msgid "No targets found."
 msgstr ""
 
 msgid "Add LUN Record"
@@ -12262,13 +12641,22 @@ msgstr ""
 msgid "Do you want to toggle selected LUN records?"
 msgstr ""
 
-msgid "Name of the option."
+msgid "LUN number"
 msgstr ""
 
-msgid "Value of the option."
+msgid "No LUNs found."
 msgstr ""
 
-msgid "Link this option to selected portal-groups."
+msgid "Select targets."
+msgstr ""
+
+msgid "No targets found."
+msgstr ""
+
+msgid "Option Name"
+msgstr ""
+
+msgid "Option Value"
 msgstr ""
 
 msgid "Add Option Record"
@@ -12310,10 +12698,16 @@ msgstr ""
 msgid "Do you want to toggle selected option records?"
 msgstr ""
 
-msgid "Option Name"
+msgid "Name of the option."
 msgstr ""
 
-msgid "Option Value"
+msgid "Value of the option."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
+
+msgid "Port Name"
 msgstr ""
 
 msgid "Add Port Record"
@@ -12358,11 +12752,35 @@ msgstr ""
 msgid "Name of the port."
 msgstr ""
 
-msgid "Port Name"
-msgstr ""
-
 msgid "Alias"
 msgstr "Takma ad"
+
+msgid "Name of the target."
+msgstr ""
+
+msgid "These parameters will be added to this target."
+msgstr ""
+
+msgid "Assign a human-readable description to the target."
+msgstr ""
+
+msgid "Assign a previously defined authentication group to the target."
+msgstr "Hedefe önceden tanımlanmış bir kimlik doğrulama grubu atayın."
+
+msgid "Permit access without authentication"
+msgstr ""
+
+msgid "Assign a previously defined portal group to the target."
+msgstr "Hedefe önceden tanımlanmış bir portal grubu atayın."
+
+msgid ""
+"IPv4 or IPv6 address to redirect initiators to. When configured, all "
+"initiators attempting to connect to this target will get redirected using "
+"\"Target moved temporarily\" login response."
+msgstr ""
+
+msgid "No ports found."
+msgstr ""
 
 msgid "Add Target"
 msgstr "Hedef Ekle"
@@ -12401,33 +12819,6 @@ msgid "Do you want to enable selected targets?"
 msgstr ""
 
 msgid "Do you want to toggle selected targets?"
-msgstr ""
-
-msgid "No ports found."
-msgstr ""
-
-msgid "Name of the target."
-msgstr ""
-
-msgid "These parameters will be added to this target."
-msgstr ""
-
-msgid "Assign a human-readable description to the target."
-msgstr ""
-
-msgid "Assign a previously defined authentication group to the target."
-msgstr "Hedefe önceden tanımlanmış bir kimlik doğrulama grubu atayın."
-
-msgid "Permit access without authentication"
-msgstr ""
-
-msgid "Assign a previously defined portal group to the target."
-msgstr "Hedefe önceden tanımlanmış bir portal grubu atayın."
-
-msgid ""
-"IPv4 or IPv6 address to redirect initiators to. When configured, all "
-"initiators attempting to connect to this target will get redirected using "
-"\"Target moved temporarily\" login response."
 msgstr ""
 
 msgid "Max Processes"
@@ -12491,45 +12882,6 @@ msgid "Session State"
 msgstr ""
 
 msgid "Session Type"
-msgstr ""
-
-msgid "Add iSCSI Initiator"
-msgstr "İSCSI Başlatıcı Ekle"
-
-msgid "Edit iSCSI Initiator"
-msgstr ""
-
-msgid "iSCSI Initiator is marked for deletion"
-msgstr ""
-
-msgid "iSCSI Initiator is locked"
-msgstr ""
-
-msgid "iSCSI Initiator is unlocked"
-msgstr ""
-
-msgid "Delete Selected iSCSI Initiators"
-msgstr ""
-
-msgid "Disable Selected iSCSI Initiators"
-msgstr ""
-
-msgid "Enable Selected iSCSI Initiators"
-msgstr ""
-
-msgid "Toggle Selected iSCSI Initiators"
-msgstr ""
-
-msgid "Do you want to delete selected iSCSI initiators?"
-msgstr ""
-
-msgid "Do you want to disable selected iSCSI initiators?"
-msgstr ""
-
-msgid "Do you want to enable selected iSCSI initiators?"
-msgstr ""
-
-msgid "Do you want to toggle selected iSCSI initiators?"
 msgstr ""
 
 msgid "This is a nickname and is for information only."
@@ -12614,6 +12966,45 @@ msgid ""
 msgstr ""
 
 msgid "Discovery"
+msgstr ""
+
+msgid "Add iSCSI Initiator"
+msgstr "İSCSI Başlatıcı Ekle"
+
+msgid "Edit iSCSI Initiator"
+msgstr ""
+
+msgid "iSCSI Initiator is marked for deletion"
+msgstr ""
+
+msgid "iSCSI Initiator is locked"
+msgstr ""
+
+msgid "iSCSI Initiator is unlocked"
+msgstr ""
+
+msgid "Delete Selected iSCSI Initiators"
+msgstr ""
+
+msgid "Disable Selected iSCSI Initiators"
+msgstr ""
+
+msgid "Enable Selected iSCSI Initiators"
+msgstr ""
+
+msgid "Toggle Selected iSCSI Initiators"
+msgstr ""
+
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr ""
+
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr ""
+
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr ""
+
+msgid "Do you want to toggle selected iSCSI initiators?"
 msgstr ""
 
 msgid ""
@@ -12905,6 +13296,51 @@ msgstr ""
 msgid "Hide Dot Files"
 msgstr ""
 
+msgid "Add Samba Share"
+msgstr "Samba paylaşımı ekle"
+
+msgid "Edit Samba Share"
+msgstr ""
+
+msgid "Samba Share is marked for deletion"
+msgstr ""
+
+msgid "Samba Share is locked"
+msgstr ""
+
+msgid "Samba Share is unlocked"
+msgstr ""
+
+msgid "Delete Selected Samba Shares"
+msgstr ""
+
+msgid "Disable Selected Samba Shares"
+msgstr ""
+
+msgid "Enable Selected Samba Shares"
+msgstr ""
+
+msgid "Toggle Selected Samba Shares"
+msgstr ""
+
+msgid "Do you want to delete selected Samba shares?"
+msgstr ""
+
+msgid "Do you want to disable selected Samba shares?"
+msgstr ""
+
+msgid "Do you want to enable selected Samba shares?"
+msgstr ""
+
+msgid "Do you want to toggle selected Samba shares?"
+msgstr ""
+
+msgid "yes"
+msgstr "evet"
+
+msgid "no"
+msgstr "hayır"
+
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
 msgstr ""
@@ -13080,51 +13516,6 @@ msgstr ""
 
 msgid "Enter the location of the share"
 msgstr ""
-
-msgid "Add Samba Share"
-msgstr "Samba paylaşımı ekle"
-
-msgid "Edit Samba Share"
-msgstr ""
-
-msgid "Samba Share is marked for deletion"
-msgstr ""
-
-msgid "Samba Share is locked"
-msgstr ""
-
-msgid "Samba Share is unlocked"
-msgstr ""
-
-msgid "Delete Selected Samba Shares"
-msgstr ""
-
-msgid "Disable Selected Samba Shares"
-msgstr ""
-
-msgid "Enable Selected Samba Shares"
-msgstr ""
-
-msgid "Toggle Selected Samba Shares"
-msgstr ""
-
-msgid "Do you want to delete selected Samba shares?"
-msgstr ""
-
-msgid "Do you want to disable selected Samba shares?"
-msgstr ""
-
-msgid "Do you want to enable selected Samba shares?"
-msgstr ""
-
-msgid "Do you want to toggle selected Samba shares?"
-msgstr ""
-
-msgid "yes"
-msgstr "evet"
-
-msgid "no"
-msgstr "hayır"
 
 msgid "Workgroup"
 msgstr ""
@@ -13548,18 +13939,6 @@ msgstr ""
 msgid "TCP Forwarding"
 msgstr ""
 
-msgid "Allow New Files"
-msgstr "Yeni dosyalara izin ver"
-
-msgid "Directory"
-msgstr "Dizin"
-
-msgid "Max. Block Size"
-msgstr ""
-
-msgid "Umask"
-msgstr ""
-
 msgid "Allow new files to be created."
 msgstr "Yeni dosyalar oluşturulmasına izin ver."
 
@@ -13618,55 +13997,13 @@ msgstr "000"
 msgid "Specifies the username under which the TFTP service should run."
 msgstr ""
 
-msgid "Peer Port"
+msgid "Allow New Files"
+msgstr "Yeni dosyalara izin ver"
+
+msgid "Max. Block Size"
 msgstr ""
 
-msgid "Configuration Folder"
-msgstr ""
-
-msgid "Incomplete Folder"
-msgstr ""
-
-msgid "Download Folder"
-msgstr ""
-
-msgid "Watch Folder"
-msgstr ""
-
-msgid "Port Forwarding"
-msgstr ""
-
-msgid "Peer Exchange"
-msgstr ""
-
-msgid "Distributed Hash Table"
-msgstr ""
-
-msgid "Local Peer Discovery"
-msgstr ""
-
-msgid "uTP"
-msgstr "uTP"
-
-msgid "User Mask"
-msgstr ""
-
-msgid "Preallocation"
-msgstr ""
-
-msgid "Message Level"
-msgstr ""
-
-msgid "DNS Rebind Protection"
-msgstr ""
-
-msgid "Domain Names"
-msgstr ""
-
-msgid "Start Torrents"
-msgstr ""
-
-msgid "Stop Torrents"
+msgid "Umask"
 msgstr ""
 
 #, php-format
@@ -13784,10 +14121,55 @@ msgstr ""
 msgid "Stop torrents before stopping service."
 msgstr ""
 
-msgid "Work Directory"
+msgid "Peer Port"
 msgstr ""
 
-msgid "Create Work Directory"
+msgid "Configuration Folder"
+msgstr ""
+
+msgid "Incomplete Folder"
+msgstr ""
+
+msgid "Download Folder"
+msgstr ""
+
+msgid "Watch Folder"
+msgstr ""
+
+msgid "Port Forwarding"
+msgstr ""
+
+msgid "Peer Exchange"
+msgstr ""
+
+msgid "Distributed Hash Table"
+msgstr ""
+
+msgid "Local Peer Discovery"
+msgstr ""
+
+msgid "uTP"
+msgstr "uTP"
+
+msgid "User Mask"
+msgstr ""
+
+msgid "Preallocation"
+msgstr ""
+
+msgid "Message Level"
+msgstr ""
+
+msgid "DNS Rebind Protection"
+msgstr ""
+
+msgid "Domain Names"
+msgstr ""
+
+msgid "Start Torrents"
+msgstr ""
+
+msgid "Stop Torrents"
 msgstr ""
 
 msgid "Location where work files will be stored."
@@ -13795,6 +14177,12 @@ msgstr ""
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Çalışma dizini yoksa oluştur."
+
+msgid "Work Directory"
+msgstr ""
+
+msgid "Create Work Directory"
+msgstr ""
 
 msgid "Name of the WebDAV Record."
 msgstr ""
@@ -13816,12 +14204,6 @@ msgid "Use Sqlite for lockings and properties."
 msgstr ""
 
 msgid "These parameters will be added to this WebDAV configuration."
-msgstr ""
-
-msgid "Read-Only"
-msgstr ""
-
-msgid "Use Sqlite"
 msgstr ""
 
 msgid "Add WebDAV Record"
@@ -13861,6 +14243,12 @@ msgid "Do you want to enable selected WebDAV records?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
+msgstr ""
+
+msgid "Read-Only"
+msgstr ""
+
+msgid "Use Sqlite"
 msgstr ""
 
 msgid "IPv4 only"
@@ -13918,15 +14306,6 @@ msgstr ""
 msgid "UTF-8 Only"
 msgstr ""
 
-msgid "Service"
-msgstr "Hizmet"
-
-msgid "Do you really want to remove the selected item from the list?"
-msgstr "Seçilen öğeyi listeden kaldırmak istediğinden emin misin?"
-
-msgid "Select item to remove from the list"
-msgstr ""
-
 msgid "You may enter a description for your reference."
 msgstr ""
 
@@ -13946,351 +14325,6 @@ msgid "Enter Volume Name"
 msgstr ""
 
 msgid "The name of the ZFS pool."
-msgstr ""
-
-msgid "You are not allowed to use this function."
-msgstr ""
-
-msgid "Copy item(s)"
-msgstr "Nesne(leri) kopyala"
-
-msgid "Move item(s)"
-msgstr ""
-
-#, php-format
-msgid "Copy from /%s to /%s "
-msgstr "Kopyala %s - %s "
-
-#, php-format
-msgid "Move from /%s to /%s "
-msgstr ""
-
-msgid "Copy"
-msgstr "Kopya"
-
-msgid "Move"
-msgstr ""
-
-msgid "The target directory doesn't exist."
-msgstr ""
-
-msgid "You are not allowed to access the target directory."
-msgstr ""
-
-msgid "The target directory may not be above the home directory."
-msgstr ""
-
-msgid "You must supply a name."
-msgstr ""
-
-msgid "This item doesn't exist."
-msgstr ""
-
-msgid "You are not allowed to access this item."
-msgstr ""
-
-msgid "The target item already exists."
-msgstr ""
-
-msgid "Copying failed."
-msgstr "Kopyalama uygulanamadı."
-
-msgid "Moving failed."
-msgstr ""
-
-msgid "Deleting failed."
-msgstr ""
-
-msgid "File saving failed."
-msgstr ""
-
-msgid "This file doesn't exist."
-msgstr ""
-
-msgid "You are not allowed to access this file."
-msgstr ""
-
-msgid "This item already exists."
-msgstr ""
-
-msgid "File opening failed."
-msgstr ""
-
-msgid "Edit file"
-msgstr ""
-
-msgid "Wrap text:"
-msgstr ""
-
-msgid "Reset"
-msgstr ""
-
-msgid "Close"
-msgstr "Kapat"
-
-msgid "Unable to open source directory."
-msgstr ""
-
-msgid "Unable to open directory."
-msgstr ""
-
-msgid "Unable to read directory."
-msgstr ""
-
-msgid "You haven't selected any item(s)."
-msgstr ""
-
-msgid "Are you sure you want to delete selected item(s)?"
-msgstr "Seçili seçin silmek için emin misiniz?"
-
-msgid "Executable File"
-msgstr ""
-
-msgid "Link"
-msgstr ""
-
-msgid "Text File"
-msgstr ""
-
-msgid "PHP Script"
-msgstr ""
-
-msgid "SQL File"
-msgstr ""
-
-msgid "PERL Script"
-msgstr ""
-
-msgid "HTML Page"
-msgstr ""
-
-msgid "XML File"
-msgstr ""
-
-msgid "Javascript File"
-msgstr ""
-
-msgid "CSS File"
-msgstr "CSS Dosyası"
-
-msgid "CGI Script"
-msgstr ""
-
-msgid "Python Script"
-msgstr ""
-
-msgid "Shell Script"
-msgstr ""
-
-msgid "C File"
-msgstr "C Dosyası"
-
-msgid "C++ Source File"
-msgstr "C++ Kaynak Dosyası"
-
-msgid "C++ Header File"
-msgstr "C++ Başlık Dosyası"
-
-msgid "Java Source File"
-msgstr ""
-
-msgid "Java Class File"
-msgstr ""
-
-msgid "Pascal File"
-msgstr ""
-
-msgid "GIF Image"
-msgstr ""
-
-msgid "JPG Image"
-msgstr ""
-
-msgid "BMP Image"
-msgstr "BMP Resmi"
-
-msgid "PNG Image"
-msgstr ""
-
-msgid "TIF Image"
-msgstr ""
-
-msgid "Photoshop File"
-msgstr ""
-
-msgid "ZIP Archive"
-msgstr ""
-
-msgid "TAR Archive"
-msgstr ""
-
-msgid "GZIP Archive"
-msgstr ""
-
-msgid "BZIP2 Archive"
-msgstr "BZIP2 sıkıştırılmış dosyası"
-
-msgid "RAR Archive"
-msgstr ""
-
-msgid "MP3 Audio File"
-msgstr ""
-
-msgid "FLAC Audio File"
-msgstr ""
-
-msgid "WAV Audio File"
-msgstr ""
-
-msgid "MIDI File"
-msgstr ""
-
-msgid "RealAudio File"
-msgstr ""
-
-msgid "DTS Audio File"
-msgstr ""
-
-msgid "AC3 Audio File"
-msgstr "AC3 Ses Dosyası"
-
-msgid "OGG Audio File"
-msgstr ""
-
-msgid "MP3 Playlist"
-msgstr ""
-
-msgid "AVI File"
-msgstr "AVI Dosyası"
-
-msgid "MPEG File"
-msgstr ""
-
-msgid "MOV File"
-msgstr ""
-
-msgid "MKV File"
-msgstr ""
-
-msgid "VOB File"
-msgstr ""
-
-msgid "Flash File"
-msgstr ""
-
-msgid "MP4 File"
-msgstr ""
-
-msgid "TS File"
-msgstr ""
-
-msgid "Word Document"
-msgstr ""
-
-msgid "Excel Sheet"
-msgstr ""
-
-msgid "Powerpoint Presentation"
-msgstr ""
-
-msgid "PDF File"
-msgstr ""
-
-msgid "ERROR(S)"
-msgstr ""
-
-msgid "Go Back"
-msgstr ""
-
-msgid "Extracting"
-msgstr ""
-
-msgid "Unzip"
-msgstr ""
-
-msgid "Failed to extract archive."
-msgstr ""
-
-msgid "Directory creation failed."
-msgstr ""
-
-msgid "File creation failed."
-msgstr ""
-
-msgid "Search Directory"
-msgstr ""
-
-msgid "Search Filter"
-msgstr ""
-
-msgid "Search subfolder"
-msgstr ""
-
-#, php-format
-msgid "Search Result for %1$s"
-msgstr ""
-
-msgid "Item(s)"
-msgstr ""
-
-msgid "No results available."
-msgstr ""
-
-msgid "HOME"
-msgstr ""
-
-msgid "Permission-change failed."
-msgstr ""
-
-msgid "Getting permissions failed."
-msgstr ""
-
-msgid "Change permissions"
-msgstr "İzinleri değiştir"
-
-msgid "Public"
-msgstr ""
-
-msgid "CHANGE PERMISSIONS"
-msgstr "YETKİLERİ DEĞİŞTİR"
-
-msgid "You are not allowed to access this directory."
-msgstr ""
-
-msgid "UP"
-msgstr ""
-
-msgid "RELOAD"
-msgstr ""
-
-msgid "SEARCH"
-msgstr ""
-
-msgid "Modified"
-msgstr ""
-
-msgid "Permissions"
-msgstr ""
-
-msgid "Actions"
-msgstr "Eylemler"
-
-msgid "COPY"
-msgstr "KOPYALA"
-
-msgid "MOVE"
-msgstr ""
-
-msgid "DELETE"
-msgstr "SİL"
-
-msgid "EDIT"
-msgstr ""
-
-msgid "UNZIP"
-msgstr ""
-
-msgid "DOWNLOAD"
 msgstr ""
 
 msgid "The following errors were detected"
@@ -14345,45 +14379,6 @@ msgstr ""
 msgid "Encapsulation Protocol"
 msgstr ""
 
-msgid "Add VLAN"
-msgstr "VLAN ekle"
-
-msgid "Edit VLAN"
-msgstr ""
-
-msgid "VLAN is marked for deletion"
-msgstr ""
-
-msgid "VLAN is locked"
-msgstr ""
-
-msgid "VLAN is unlocked"
-msgstr ""
-
-msgid "Delete Selected VLANs"
-msgstr ""
-
-msgid "Disable Selected VLANs"
-msgstr ""
-
-msgid "Enable Selected VLANs"
-msgstr ""
-
-msgid "Toggle Selected VLANs"
-msgstr ""
-
-msgid "Do you want to delete selected VLANs?"
-msgstr ""
-
-msgid "Do you want to disable selected VLANs?"
-msgstr ""
-
-msgid "Do you want to enable selected VLANs?"
-msgstr ""
-
-msgid "Do you want to toggle selected VLANs?"
-msgstr ""
-
 msgid "The name of the VLAN interface"
 msgstr ""
 
@@ -14432,6 +14427,45 @@ msgid "802.1Q (default)"
 msgstr ""
 
 msgid "802.1ad (QinQ)"
+msgstr ""
+
+msgid "Add VLAN"
+msgstr "VLAN ekle"
+
+msgid "Edit VLAN"
+msgstr ""
+
+msgid "VLAN is marked for deletion"
+msgstr ""
+
+msgid "VLAN is locked"
+msgstr ""
+
+msgid "VLAN is unlocked"
+msgstr ""
+
+msgid "Delete Selected VLANs"
+msgstr ""
+
+msgid "Disable Selected VLANs"
+msgstr ""
+
+msgid "Enable Selected VLANs"
+msgstr ""
+
+msgid "Toggle Selected VLANs"
+msgstr ""
+
+msgid "Do you want to delete selected VLANs?"
+msgstr ""
+
+msgid "Do you want to disable selected VLANs?"
+msgstr ""
+
+msgid "Do you want to enable selected VLANs?"
+msgstr ""
+
+msgid "Do you want to toggle selected VLANs?"
 msgstr ""
 
 msgid "1"
@@ -14553,6 +14587,18 @@ msgstr ""
 msgid "The COM port in BIOS has to be enabled before enabling this option."
 msgstr ""
 
+msgid "Unkown"
+msgstr ""
+
+msgid "Unformated"
+msgstr ""
+
+msgid "SoftRaid"
+msgstr ""
+
+msgid "Encrypted"
+msgstr "Şifreli"
+
 msgid "Second"
 msgstr ""
 
@@ -14650,37 +14696,114 @@ msgid ""
 "to perform selected command."
 msgstr ""
 
-msgid "Unkown"
-msgstr ""
-
-msgid "Unformated"
-msgstr ""
-
-msgid "SoftRaid"
-msgstr ""
-
-msgid "Encrypted"
-msgstr "Şifreli"
-
 msgid "System tuning"
 msgstr ""
 
-msgid "Exported"
+msgid "ZFS Pool Tools"
 msgstr ""
 
-msgid "Destroyed"
+msgid "Pool Status"
 msgstr ""
 
-msgid "Spare"
+msgid "Success"
 msgstr ""
 
-msgid "L2 Cache"
+msgid "Command execution was successful"
+msgstr "Komut çalıştırma başarıyla gerçekleşti"
+
+msgid "Invalid command line option"
 msgstr ""
 
-msgid "Uninitialized"
+msgid "Test mode, no command execution"
 msgstr ""
 
-msgid "Potentially Active"
+msgid "Missing parameter"
+msgstr ""
+
+msgid "An error occured."
+msgstr "Bir hata oluştu"
+
+msgid "Return to Command Page"
+msgstr ""
+
+msgid "Activity"
+msgstr "Etkinllik"
+
+msgid "Pool Version"
+msgstr ""
+
+msgid "Pool State"
+msgstr ""
+
+msgid "No suitable pools found."
+msgstr ""
+
+msgid "No pools have been selected"
+msgstr ""
+
+msgid "Pool Devices"
+msgstr ""
+
+msgid "missing"
+msgstr "eksik"
+
+msgid "No suitable devices found."
+msgstr ""
+
+msgid "No pool devices have been selected"
+msgstr ""
+
+msgid "No suitable virtual devices found."
+msgstr ""
+
+msgid "No virtual devices have been selected"
+msgstr ""
+
+msgid "Media Size"
+msgstr ""
+
+msgid "No devices have been selected"
+msgstr ""
+
+msgid "Expand device to use all available space."
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Import pool in read-only mode"
+msgstr ""
+
+msgid "Resize pool to the maximum possible size"
+msgstr ""
+
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
+
+msgid "Parameter"
 msgstr ""
 
 msgid "January"
@@ -14827,109 +14950,23 @@ msgstr ""
 msgid "File upload stopped by extension."
 msgstr "Dosya gönderimi uzantısı sebebiyle durduruldu."
 
-msgid "ZFS Pool Tools"
+msgid "Exported"
 msgstr ""
 
-msgid "Pool Status"
+msgid "Destroyed"
 msgstr ""
 
-msgid "Success"
+msgid "Spare"
 msgstr ""
 
-msgid "Command execution was successful"
-msgstr "Komut çalıştırma başarıyla gerçekleşti"
-
-msgid "Invalid command line option"
+msgid "L2 Cache"
 msgstr ""
 
-msgid "Test mode, no command execution"
+msgid "Uninitialized"
 msgstr ""
 
-msgid "Missing parameter"
+msgid "Potentially Active"
 msgstr ""
 
-msgid "An error occured."
-msgstr "Bir hata oluştu"
-
-msgid "Return to Command Page"
-msgstr ""
-
-msgid "Activity"
-msgstr "Etkinllik"
-
-msgid "Pool Version"
-msgstr ""
-
-msgid "Pool State"
-msgstr ""
-
-msgid "No suitable pools found."
-msgstr ""
-
-msgid "No pools have been selected"
-msgstr ""
-
-msgid "Pool Devices"
-msgstr ""
-
-msgid "missing"
-msgstr "eksik"
-
-msgid "No suitable devices found."
-msgstr ""
-
-msgid "No pool devices have been selected"
-msgstr ""
-
-msgid "No suitable virtual devices found."
-msgstr ""
-
-msgid "No virtual devices have been selected"
-msgstr ""
-
-msgid "Media Size"
-msgstr ""
-
-msgid "No devices have been selected"
-msgstr ""
-
-msgid "Expand device to use all available space."
-msgstr ""
-
-msgid "Include GPT labels into scan/import"
-msgstr ""
-
-msgid "Include GPT ID into scan/import"
-msgstr ""
-
-msgid "Include UFS labels into scan/import"
-msgstr ""
-
-msgid "Include UFS ID into scan/import"
-msgstr ""
-
-msgid "Include Disk ID into scan/import"
-msgstr ""
-
-msgid "Include /dev into scan/import"
-msgstr ""
-
-msgid "Import pool in read-only mode"
-msgstr ""
-
-msgid "Resize pool to the maximum possible size"
-msgstr ""
-
-msgid "Scan/Import destroyed pools only"
-msgstr ""
-
-msgid "Wait until resilvering has finished before returning."
-msgstr ""
-
-msgid ""
-"Reconstruct the new device sequentially to restore redundancy as quickly as "
-"possible."
-msgstr ""
-
-msgid "Parameter"
-msgstr ""
+#~ msgid "Be careful with turning on these options."
+#~ msgstr "Bu ayarları aktif ederken dikkatli olun."
