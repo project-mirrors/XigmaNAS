@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2025-10-11 14:47+0000\n"
-"PO-Revision-Date: 2025-10-11 17:33+0000\n"
-"Last-Translator: apollo567 <apollo567@hotmail.de>\n"
+"PO-Revision-Date: 2025-10-12 22:38+0000\n"
+"Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-10-11 17:36+0000\n"
+"X-Launchpad-Export-Date: 2025-10-12 22:40+0000\n"
 "X-Generator: Launchpad (build bff9b0558f8357613643d9a74c009da18fafa917)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -37,7 +37,7 @@ msgid "Group Settings"
 msgstr "Gruppeneinstellungen"
 
 msgid "URI"
-msgstr "URI"
+msgstr "Webadresse"
 
 msgid "Base DN"
 msgstr "Base-DN"
@@ -3376,25 +3376,25 @@ msgid "Use aes-128-ccm encryption cipher suite"
 msgstr "Verwende 128-bit AES Verschlüsselung"
 
 msgid "Use aes-192-ccm encryption cipher suite"
-msgstr ""
+msgstr "Benutze das AES-192-CCM Verschlüsselungsverfahren"
 
 msgid "Use aes-256-ccm encryption cipher suite"
-msgstr ""
+msgstr "Benutze das AES-256-CCM Verschlüsselungsverfahren"
 
 msgid "Use aes-128-gcm encryption cipher suite"
-msgstr ""
+msgstr "Benutze das AES-128-GCM Verschlüsselungsverfahren"
 
 msgid "Use aes-192-gcm encryption cipher suite"
-msgstr ""
+msgstr "Benutze das AES-192-GCM Verschlüsselungsverfahren"
 
 msgid "Use aes-256-gcm encryption cipher suite"
-msgstr ""
+msgstr "Benutze das AES-256-GCM Verschlüsselungsverfahren"
 
 msgid "Raw Key"
-msgstr ""
+msgstr "Rohschlüssel"
 
 msgid "Hex Key"
-msgstr "Hexadezimaler Schllüssel"
+msgstr "Hexadezimaler Schlüssel"
 
 msgid "Prompt"
 msgstr "Prompt"
@@ -16316,9 +16316,3 @@ msgstr "Uninitialisiert"
 
 msgid "Potentially Active"
 msgstr "möglicherweise aktiv"
-
-#~ msgid "Be careful with turning on these options."
-#~ msgstr "Seien Sie vorsichtig, wenn Sie diese Optionen einschalten."
-
-#~ msgid "SAMBA"
-#~ msgstr "SAMBA"
