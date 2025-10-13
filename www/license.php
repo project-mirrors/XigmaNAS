@@ -208,8 +208,8 @@ $software = [
 		'Copyright © 2003 Simon Ekstrand. All Rights Reserved.'
 	]],
 	['smartmontools',[
-		'Utility programs (smartctl, smartd) to control/monitor storage systems (<a href="https://sourceforge.net/projects/smartmontools/" target="_blank" rel="noreferrer">https://sourceforge.net/projects/smartmontools</a>).',
-		'Copyright © 2002-2009 Bruce Allen, 2004-2022 Christian Franke. All Rights Reserved.',
+		'Utility programs (smartctl, smartd) to control/monitor storage systems (<a href="https://github.com/smartmontools/smartmontools/" target="_blank" rel="noreferrer">https://github.com/smartmontools/smartmontools</a>).',
+		'Copyright © 2002-2009 Bruce Allen, 2004-2025 Christian Franke. All Rights Reserved.',
 	]],
 	['Spinner.js',[
 		'A spinning activity indicator (<a href="https://github.com/fgnass/spin.js" target="_blank" rel="noreferrer">https://github.com/fgnass/spin.js</a>).',
