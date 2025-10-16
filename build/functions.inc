@@ -92,7 +92,7 @@ XIGMANAS_MDLOCAL_MINI_SIZE=36
 #	Now image size is less than 500MB (up to 476MiB - alignment)
 XIGMANAS_IMG_SIZE=460
 if [ "amd64" = ${XIGMANAS_ARCH} ]; then
-	XIGMANAS_MFSROOT_SIZE=136
+	XIGMANAS_MFSROOT_SIZE=144
 	XIGMANAS_MDLOCAL_SIZE=1324
 	XIGMANAS_MDLOCAL_MINI_SIZE=52
 	XIGMANAS_IMG_SIZE=500
@@ -804,6 +804,7 @@ create_image() {
 	mkdir -p $XIGMANAS_TMPDIR/boot/defaults
 	mkdir -p $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
+	mkdir -p $XIGMANAS_TMPDIR/boot/modules
 
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
@@ -860,6 +861,8 @@ create_image() {
 	# preload kernel drivers
 	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
 	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	# Ignore error: /boot/modules/openzfs.ko: No such file or directory when build by make.sh.
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/modules/openzfs.ko $XIGMANAS_TMPDIR/boot/modules
 	# copy kernel modules
 	copy_kmod
 
@@ -954,6 +957,7 @@ create_iso () {
 	mkdir -p $XIGMANAS_TMPDIR/boot/lua
 	mkdir -p $XIGMANAS_TMPDIR/boot/defaults
 	mkdir -p $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/modules
 
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
 	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
@@ -1010,6 +1014,8 @@ create_iso () {
 	# preload kernel drivers
 	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
 	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/kernel/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	# Ignore error: /boot/modules/openzfs.ko: No such file or directory when build by make.sh.
+	install -v -o root -g wheel -m 555 ${XIGMANAS_WORLD}/boot/modules/openzfs.ko $XIGMANAS_TMPDIR/boot/modules
 	# copy kernel modules
 	copy_kmod
 

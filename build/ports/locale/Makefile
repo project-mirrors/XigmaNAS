@@ -6,6 +6,7 @@ COMMENT=	Language packages for XigmaNAS®
 MAINTAINER=	zoon01@xigmanas.com
 
 DISTFILES?=
+USES+=  gettext
 
 .include <../xigmanas.mk>
 

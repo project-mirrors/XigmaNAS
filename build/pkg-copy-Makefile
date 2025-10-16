@@ -25,7 +25,7 @@ XZ_CMD = xz
 TAR = tar
 WRKSRC = /tmp/work-zone
 
-all: pkg-copy phpmyadmin php84-mods mariadb114 vbox vbox-additions py-wsdd minidlna python311 gettext opie
+all: pkg-copy phpmyadmin php84-mods mariadb118 vbox py-wsdd minidlna python311 gettext opie openzfs
 pkg-copy:
 
 ### bash/Makefile
@@ -341,9 +341,9 @@ pkg-copy:
 	@${INSTALL_PROGRAM} -v ${NUT_DRVDIR}/usbhid-ups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${NUT_DRVDIR}/victronups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 
-	@${INSTALL_PROGRAM} -v /usr/local/lib/libupsclient.so.6.0.1 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${LN} -f -v -s /usr/local/lib/libupsclient.so.6.0.1 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so.6
-	@${LN} -f -v -s /usr/local/lib/libupsclient.so.6.0.1 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
+	@${INSTALL_PROGRAM} -v /usr/local/lib/libupsclient.so.7.0.0 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${LN} -f -v -s /usr/local/lib/libupsclient.so.7.0.0 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so.7
+	@${LN} -f -v -s /usr/local/lib/libupsclient.so.7.0.0 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
 #	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
 #	@${LN} -f -v -s /usr/local/lib/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
 
@@ -413,6 +413,7 @@ pkg-copy:
 	@${INSTALL_PROGRAM} -v /usr/local/sbin/sshd ${XIGMANAS_ROOTFS}/usr/sbin
 	@${INSTALL_PROGRAM} -v /usr/local/bin/ssh ${XIGMANAS_ROOTFS}/usr/bin
 	@${INSTALL_PROGRAM} -v /usr/local/libexec/sshd-session ${XIGMANAS_ROOTFS}/usr/local/libexec
+	@${INSTALL_PROGRAM} -v /usr/local/libexec/sshd-auth ${XIGMANAS_ROOTFS}/usr/local/libexec
 	@${INSTALL_PROGRAM} -v /usr/local/libexec/sftp-server ${XIGMANAS_ROOTFS}/usr/local/libexec
 	@${CP} -pv ${PREFIX}/etc/ssh/moduli.sample ${XIGMANAS_ROOTFS}/etc/ssh/moduli
 
@@ -466,12 +467,9 @@ pkg-copy:
 ### phpvirtualbox/Makefile
 
 	@echo "Start install phpvirtualbox to ${XIGMANAS_ROOTFS}"
-	${CP} -Rpv ${WWWDIR} ${XIGMANAS_ROOTFS}${PREFIX}/www
+	${CP} -Rpv /usr/local/www/phpvirtualbox-72 ${XIGMANAS_ROOTFS}${PREFIX}/www/phpvirtualbox
 	${RM} -f ${XIGMANAS_ROOTFS}${PREFIX}/www/*.txt
 	${RM} -f ${XIGMANAS_ROOTFS}${PREFIX}/www/*.bak
-	# XigmaNAS patch-js_utils.js add icon
-	mkdir -p ${XIGMANAS_ROOTFS}/usr/local/www/phpvirtualbox/images/vbox
-	@${INSTALL_DATA} -v ${XIGMANAS_PORTS}/phpvirtualbox/files/os_win11_64.png ${XIGMANAS_ROOTFS}/usr/local/www/phpvirtualbox/images/vbox
 
 
 ### proftpd/Makefile
@@ -525,9 +523,9 @@ pkg-copy:
 	@${LN} -fsv /usr/local/lib/librrd.so.8.3.0 ${XIGMANAS_ROOTFS}/usr/local/lib/librrd.so.8
 # bindings
 
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${SITE_PERL}/mach/5.36/auto/RRDs
-	@${CP} -pv ${SITE_PERL}/mach/5.36/auto/RRDs/RRDs.so ${XIGMANAS_ROOTFS}${SITE_PERL}/mach/5.36/auto/RRDs/
-	@${CP} -pv ${SITE_PERL}/mach/5.36/RRDs.pm ${XIGMANAS_ROOTFS}${SITE_PERL}/mach/5.36
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${SITE_PERL}/mach/5.42/auto/RRDs
+	@${CP} -pv ${SITE_PERL}/mach/5.42/auto/RRDs/RRDs.so ${XIGMANAS_ROOTFS}${SITE_PERL}/mach/5.42/auto/RRDs/
+	@${CP} -pv ${SITE_PERL}/mach/5.42/RRDs.pm ${XIGMANAS_ROOTFS}${SITE_PERL}/mach/5.42
 	@${CP} -pv ${SITE_PERL}/RRDp.pm ${XIGMANAS_ROOTFS}${SITE_PERL}
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}
 
@@ -558,9 +556,9 @@ pkg-copy:
 	@echo "Start install rsync to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v /usr/local/bin/rsync ${XIGMANAS_ROOTFS}/usr/local/bin
 
-### samba419/Makefile
-	@echo "Start install samba419 to ${XIGMANAS_ROOTFS}"
-	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/samba419/files/xigmanas-samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
+### samba420/Makefile
+	@echo "Start install samba420 to ${XIGMANAS_ROOTFS}"
+	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/samba42?/files/xigmanas-samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
 # rc/link
 	@${LN} -fsv /var/etc/smb4.conf ${XIGMANAS_ROOTFS}${PREFIX}/etc/smb4.conf
 # sbin
@@ -591,7 +589,7 @@ pkg-copy:
 	@${LN} -f -v -s nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so
 	@${LN} -f -v -s nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_wins.so
 # share
-	@${CP} -Rpv ${PREFIX}/share/samba419 ${XIGMANAS_ROOTFS}${PREFIX}/share
+	@${CP} -Rpv ${PREFIX}/share/samba420 ${XIGMANAS_ROOTFS}${PREFIX}/share
 # include
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/include
 	@${CP} -Rpv ${PREFIX}/include/samba4 ${XIGMANAS_ROOTFS}${PREFIX}/include/
@@ -727,25 +725,25 @@ phpmyadmin:
 	@${CP} -Rpv ${WWWDIR} ${XIGMANAS_ROOTFS}${PREFIX}/www
 
 
-### mariadb114
-mariadb114:
-	@echo "Start install mariadb114 to ${XIGMANAS_ROOTFS}"
-	mkdir -p ${XIGMANAS_PKG_STAGE}/mariadb114/
-	tar xpf $$(ls -t /var/cache/pkg/mariadb114-server*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/mariadb114/
-	tar xpf $$(ls -t /var/cache/pkg/mariadb114-client*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/mariadb114/
-#	@${CP} -Rpv ${XIGMANAS_PKG_STAGE}/mariadb114/${PREFIX}/share/mariadb114 ${XIGMANAS_ROOTFS}${PREFIX}/share
+### mariadb118
+mariadb118:
+	@echo "Start install mariadb118 to ${XIGMANAS_ROOTFS}"
+	mkdir -p ${XIGMANAS_PKG_STAGE}/mariadb118/
+	tar xpf $$(ls -t /var/cache/pkg/mariadb118-server*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/mariadb118/
+	tar xpf $$(ls -t /var/cache/pkg/mariadb118-client*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/mariadb118/
+#	@${CP} -Rpv ${XIGMANAS_PKG_STAGE}/mariadb118/${PREFIX}/share/mariadb118 ${XIGMANAS_ROOTFS}${PREFIX}/share
 # rc
-	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/mariadb114/files/mysqldb.in ${XIGMANAS_ROOTFS}/etc/rc.d/mysqldb
-	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/mariadb114/files/mysql-server.in ${XIGMANAS_ROOTFS}${PREFIX}/etc/rc.d/mysql-server
+	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/mariadb118/files/mysqldb.in ${XIGMANAS_ROOTFS}/etc/rc.d/mysqldb
+	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/mariadb118/files/mysql-server.in ${XIGMANAS_ROOTFS}${PREFIX}/etc/rc.d/mysql-server
 # bin
-	@${CP} -Rpv ${XIGMANAS_PKG_STAGE}/mariadb114/${PREFIX}/bin ${XIGMANAS_ROOTFS}${PREFIX}
+	@${CP} -Rpv ${XIGMANAS_PKG_STAGE}/mariadb118/${PREFIX}/bin ${XIGMANAS_ROOTFS}${PREFIX}
 # share
 	@${RM} -rf  ${XIGMANAS_ROOTFS}${PREFIX}/share/mysql
-	@${CP} -Rpv ${XIGMANAS_PKG_STAGE}/mariadb114/${PREFIX}/share/mysql ${XIGMANAS_ROOTFS}${PREFIX}/share
+	@${CP} -Rpv ${XIGMANAS_PKG_STAGE}/mariadb118/${PREFIX}/share/mysql ${XIGMANAS_ROOTFS}${PREFIX}/share
 # lib
 	@${RM} -rf  ${XIGMANAS_ROOTFS}${PREFIX}/lib/mysql
-	@${CP} -Rpv ${XIGMANAS_PKG_STAGE}/mariadb114/${PREFIX}/lib/mysql ${XIGMANAS_ROOTFS}${PREFIX}/lib
-	@${INSTALL_PROGRAM} -v ${XIGMANAS_PKG_STAGE}/mariadb114/${PREFIX}/libexec/mariadbd ${XIGMANAS_ROOTFS}${PREFIX}/libexec
+	@${CP} -Rpv ${XIGMANAS_PKG_STAGE}/mariadb118/${PREFIX}/lib/mysql ${XIGMANAS_ROOTFS}${PREFIX}/lib
+	@${INSTALL_PROGRAM} -v ${XIGMANAS_PKG_STAGE}/mariadb118/${PREFIX}/libexec/mariadbd ${XIGMANAS_ROOTFS}${PREFIX}/libexec
 	@${LN} -fsv /usr/local/libexec/mariadbd ${XIGMANAS_ROOTFS}${PREFIX}/libexec/mysqld
 
 ### vbox/Makefile
@@ -753,12 +751,12 @@ vbox:
 	@echo "Start install vbox ${XIGMANAS_ROOTFS}"
 	mkdir -p ${XIGMANAS_PKG_STAGE}/vbox/
 
-	tar xpf $$(ls -t /var/cache/pkg/virtualbox-ose-nox11-*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/vbox/
-	tar xpf $$(ls -t /var/cache/pkg/virtualbox-ose-kmod-*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/vbox/
-	tar xpf $$(ls -t /var/cache/pkg/virtualbox-ose-additions-nox11-*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/vbox/
+	tar xpf $$(ls -t /var/cache/pkg/virtualbox-ose-nox11-72*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/vbox/
+	tar xpf $$(ls -t /var/cache/pkg/virtualbox-ose-kmod-72*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/vbox/
+#	tar xpf $$(ls -t /var/cache/pkg/virtualbox-ose-additions-nox11-*~*.pkg|head -n1) -C ${XIGMANAS_PKG_STAGE}/vbox/
 
 # kmod
-.for file in vboxdrv.ko vboxnetadp.ko vboxnetflt.ko vboxguest.ko
+.for file in vboxdrv.ko vboxnetadp.ko vboxnetflt.ko
 	@${INSTALL_KLD} -v ${XIGMANAS_PKG_STAGE}/vbox/boot/modules/${file} ${XIGMANAS_ROOTFS}/boot/modules
 .endfor
 # rc
@@ -768,7 +766,7 @@ vbox:
 .endfor
 	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/vbox/files/vbox.in ${XIGMANAS_ROOTFS}/etc/rc.d/vbox
 # bin
-.for file in VBoxAutostart VBoxBalloonCtrl VBoxHeadless VBoxManage VBoxVRDP vboxautostart vboxballoonctrl vboxheadless vboxmanage vboxwebsrv
+.for file in VBoxAutostart VBoxBalloonCtrl VBoxBugReport VBoxHeadless VBoxManage VBoxVRDP vboxautostart vboxballoonctrl vboxbugreport vboxheadless vboximg-mount vboxmanage vboxwebsrv
 	@${LN} -fsv /usr/local/lib/virtualbox/VBox.sh ${XIGMANAS_ROOTFS}/usr/local/bin/${file}
 .endfor
 # lib
@@ -887,6 +885,7 @@ python311:
 	@${LN} -f -v -s libpython3.11.so.1.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libpython3.11.so
 	@${LN} -f -v -s libpython3.11.so.1.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libpython3.11.so.1
 	${CP} -Rpv ${PREFIX}/lib/python3.11 ${XIGMANAS_ROOTFS}/usr/local/lib
+	${RM} -rfv ${XIGMANAS_ROOTFS}/usr/local/lib/python3*/test
 
 ### opie
 opie:
@@ -894,6 +893,54 @@ opie:
 	@${INSTALL_DATA} -v ${PREFIX}/lib/libopie.so* ${XIGMANAS_ROOTFS}${PREFIX}/lib/
 	@${INSTALL_DATA} -v ${PREFIX}/lib/pam_opie.so* ${XIGMANAS_ROOTFS}${PREFIX}/lib/
 	@${INSTALL_DATA} -v ${PREFIX}/lib/pam_opieaccess.so* ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+
+### openzfs
+openzfs: 
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
+	@${INSTALL_PROGRAM} -v ${PREFIX}/sbin/zfs ${XIGMANAS_ROOTFS}/sbin/
+	@${INSTALL_PROGRAM} -v ${PREFIX}/sbin/zpool ${XIGMANAS_ROOTFS}/sbin/
+	@${INSTALL_PROGRAM} -v ${PREFIX}/sbin/zdb ${XIGMANAS_ROOTFS}/usr/bin/
+	@${INSTALL_PROGRAM} -v ${PREFIX}/sbin/zfs_ids_to_path ${XIGMANAS_ROOTFS}${PREFIX}/sbin/
+	@${INSTALL_PROGRAM} -v ${PREFIX}/sbin/zinject ${XIGMANAS_ROOTFS}/usr/bin/
+	@${INSTALL_PROGRAM} -v ${PREFIX}/sbin/zstream ${XIGMANAS_ROOTFS}/usr/bin/
+	@${INSTALL_PROGRAM} -v ${PREFIX}/sbin/zstreamdump ${XIGMANAS_ROOTFS}/usr/bin/
+	@${INSTALL_PROGRAM} -v ${PREFIX}/sbin/ztest ${XIGMANAS_ROOTFS}/usr/bin/
+
+	#@${INSTALL_DATA} -vd ${PREFIX}/libexec/zfs ${XIGMANAS_ROOTFS}${PREFIX}/libexec/
+	@cp -vrp ${PREFIX}/libexec/zfs ${XIGMANAS_ROOTFS}${PREFIX}/libexec/
+
+	@${INSTALL_DATA} -v ${PREFIX}/libdata/pkgconfig/libzfs*.pc ${XIGMANAS_ROOTFS}${PREFIX}/libdata/pkgconfig/
+
+	@${INSTALL_DATA} -v ${PREFIX}/lib/libnvpair.so.3.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+	@${LN} -fsv libnvpair.so.3.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libnvpair.so.3
+	@${LN} -fsv libnvpair.so.3.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libnvpair.so.3
+
+	@${INSTALL_DATA} -v ${PREFIX}/lib/libuutil.so.3.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+	@${LN} -fsv libuutil.so.3.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libuutil.so.3
+	@${LN} -fsv libuutil.so.3.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libuutil.so
+
+	@${INSTALL_DATA} -v ${PREFIX}/lib/libzfs.so.6.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+	@${LN} -fsv libzfs.so.6.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libzfs.so.6
+	@${LN} -fsv libzfs.so.6.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libzfs.so
+
+	@${INSTALL_DATA} -v ${PREFIX}/lib/libzfs_core.so.3.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+	@${LN} -fsv libzfs_core.so.3.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libzfs_core.so.3
+	@${LN} -fsv libzfs_core.so.3.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libzfs_core.so
+
+	@${INSTALL_DATA} -v ${PREFIX}/lib/libzfsbootenv.so.1.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+	@${LN} -fsv libzfsbootenv.so.1.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libzfsbootenv.so.1
+	@${LN} -fsv libzfsbootenv.so.1.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libzfsbootenv.so
+
+	@${INSTALL_DATA} -v ${PREFIX}/lib/libzpool.so.6.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+	@${LN} -fsv libzpool.so.6.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libzpool.so.6
+	@${LN} -fsv libzpool.so.6.0.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libzpool.so
+
+	#@${INSTALL_DATA} -v ${PREFIX}/etc/zfs ${XIGMANAS_ROOTFS}${PREFIX}/etc/
+	@cp -vrp ${PREFIX}/etc/zfs ${XIGMANAS_ROOTFS}${PREFIX}/etc/
+
+	@${INSTALL_DATA} -v ${PREFIX}/lib/security/pam_zfs_key.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+
+	@${INSTALL_DATA} -v /boot/modules/openzfs.ko ${XIGMANAS_ROOTFS}/boot/modules/
 
 
 
