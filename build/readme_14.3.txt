@@ -102,7 +102,6 @@ Changes:
 - Upgrade proftpd to v1.3.8d.
 - Upgrade transmission to 4.1.0-beta.2
 - Upgrade wsdd to v0.9.0.
-- Upgrade msmtp to v1.8.31.
 - Upgrade netatalk to v4.3.2.
 - Upgrade mariadb to v11.8.3.
 - Upgrade mDNSResponder to v2600.140.3.
@@ -116,6 +115,7 @@ Changes:
 - Upgrade phpmyadmin to v5.2.3.
 - Upgrade cdialog to v1.3.20251001.
 - Upgrade arconf to vB27960.
+- Upgrade msmtp to v1.8.32.
 
 New:
 - New SMB use its own log file.
