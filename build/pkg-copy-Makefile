@@ -556,9 +556,9 @@ pkg-copy:
 	@echo "Start install rsync to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v /usr/local/bin/rsync ${XIGMANAS_ROOTFS}/usr/local/bin
 
-### samba420/Makefile
-	@echo "Start install samba420 to ${XIGMANAS_ROOTFS}"
-	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/samba42?/files/xigmanas-samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
+### samba422/Makefile
+	@echo "Start install samba422 to ${XIGMANAS_ROOTFS}"
+	@${INSTALL_SCRIPT} -v ${XIGMANAS_PORTS}/samba422/files/xigmanas-samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
 # rc/link
 	@${LN} -fsv /var/etc/smb4.conf ${XIGMANAS_ROOTFS}${PREFIX}/etc/smb4.conf
 # sbin
@@ -569,7 +569,7 @@ pkg-copy:
 	@${INSTALL_SCRIPT} -v ${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 .endfor
 # bin
-.for file in cifsdd dbwrap_tool dumpmscat gentest locktest masktest mdsearch mvxattr ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree testparm vfstest vlp wbinfo
+.for file in cifsdd dbwrap_tool dumpmscat gentest ldbadd ldbdel ldbedit ldbmodify ldbrename ldbsearch locktest masktest mdsearch mvxattr ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree tdbbackup tdbdump tdbrestore tdbtool testparm vfstest wbinfo wspsearch
 	@${INSTALL_PROGRAM} -v ${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin
 .endfor
 .for file in samba-log-parser samba-tool smbtar
@@ -589,7 +589,7 @@ pkg-copy:
 	@${LN} -f -v -s nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so
 	@${LN} -f -v -s nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_wins.so
 # share
-	@${CP} -Rpv ${PREFIX}/share/samba420 ${XIGMANAS_ROOTFS}${PREFIX}/share
+	@${CP} -Rpv ${PREFIX}/share/samba422 ${XIGMANAS_ROOTFS}${PREFIX}/share
 # include
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/include
 	@${CP} -Rpv ${PREFIX}/include/samba4 ${XIGMANAS_ROOTFS}${PREFIX}/include/
@@ -600,7 +600,9 @@ pkg-copy:
 		${CP} -pv ${PREFIX}/lib/python3.11/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages; \
 	done
 	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
-
+# copy required modules dns markdown
+	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/markdown ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
 ### samba-nsupdate	
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}${PREFIX}/bin
 # libexec
