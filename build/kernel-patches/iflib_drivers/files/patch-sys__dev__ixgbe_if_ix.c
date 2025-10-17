@@ -1,5 +1,5 @@
---- sys/dev/ixgbe/if_ix.c.orig	2025-10-04 23:10:30.995718000 +0200
-+++ sys/dev/ixgbe/if_ix.c	2025-10-06 16:30:48.000000000 +0200
+--- dev/ixgbe/if_ix.c.orig	2025-10-17 07:47:25.000000000 +0200
++++ dev/ixgbe/if_ix.c	2025-10-17 21:55:11.000000000 +0200
 @@ -174,6 +174,7 @@
     int);
  static void ixgbe_if_queues_free(if_ctx_t);
@@ -8,7 +8,16 @@
  static void ixgbe_if_update_admin_status(if_ctx_t);
  static void ixgbe_if_vlan_register(if_ctx_t, u16);
  static void ixgbe_if_vlan_unregister(if_ctx_t, u16);
-@@ -3858,6 +3859,33 @@
+@@ -1296,8 +1297,6 @@
+ 		return (0);
+ 	case IFCOUNTER_IQDROPS:
+ 		return (sc->iqdrops);
+-	case IFCOUNTER_OQDROPS:
+-		return (0);
+ 	case IFCOUNTER_IERRORS:
+ 		return (sc->ierrors);
+ 	default:
+@@ -3858,6 +3857,35 @@
  } /* ixgbe_if_stop */
  
  /************************************************************************
@@ -36,7 +45,9 @@
 +    default:
 +        return "Unknown";
 +    }
-+} /* ixgbe_link_speed_to_str */
++}
++
++ /* ixgbe_link_speed_to_str */
 +
 +/************************************************************************
   * ixgbe_update_link_status - Update OS on link state
