@@ -1,5 +1,5 @@
---- endpoints/lib/vboxconnector.php.orig	2025-10-08 03:41:46.325272000 +0200
-+++ endpoints/lib/vboxconnector.php	2025-10-09 05:19:57.000000000 +0200
+--- endpoints/lib/vboxconnector.php.orig	2025-10-18 00:06:34.803513000 +0200
++++ endpoints/lib/vboxconnector.php	2025-10-19 11:47:16.000000000 +0200
 @@ -113,6 +113,8 @@
  	 */
  	var $dsep = null;
@@ -19,6 +19,30 @@
  		}
  
  		// Get events from each configured event listener
+@@ -1875,8 +1878,8 @@
+ 			$m->Platform->X86->setCPUProperty('LongMode', ($guestOS->is64Bit ? 1 : 0));
+ 		}
+ 
+-		/* secureBootEnabled reported incorrectly by vboxwebsrv
+ 		$oldFirmware = (string)$m->FirmwareSettings->firmwareType;
++		/* secureBootEnabled reported incorrectly by vboxwebsrv
+ 		$oldSecureBoot = ($oldFirmware != 'BIOS' && $m->nonVolatileStore->uefiVariableStore != null ? $m->nonVolatileStore->uefiVariableStore->secureBootEnabled : false);
+ 		*/
+ 	
+@@ -1891,12 +1894,12 @@
+ 		$m->Platform->X86->setCPUProperty('LongMode', (strpos($args['OSTypeId'],'_64') > - 1 ? 1 : 0));
+ 		$m->trustedPlatformModule->type = $args['trustedPlatformModule']['type'];
+ 
+-		/* secureBootEnabled reported incorrectly by vboxwebsrv
+ 		if($oldFirmware == 'BIOS' && $args['firmwareType'] == 'EFI') {
+ 			$m->nonVolatileStore->initUefiVariableStore(0);
+ 			$m->nonVolatileStore->uefiVariableStore->enrollOraclePlatformKey();
+ 			$m->nonVolatileStore->uefiVariableStore->enrollDefaultMsSignatures();
+ 		}
++		/* secureBootEnabled reported incorrectly by vboxwebsrv
+ 		if($args['firmwareType'] != 'BIOS' && $oldSecureBoot != (bool)$args['secureBootEnabled']) {
+ 			$m->nonVolatileStore->uefiVariableStore->secureBootEnabled = (bool)$args['secureBootEnabled'];
+ 		}
 @@ -1938,11 +1941,13 @@
  			* @remarks This must match GMMR0Init; currently we only support page fusion on
  			 *          all 64-bit hosts except Mac OS X */
