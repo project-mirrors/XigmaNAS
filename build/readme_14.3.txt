@@ -109,13 +109,13 @@ Changes:
 - Upgrade syncthing to v2.0.10.
 - Upgrade lighttpd to v1.4.82.
 - Upgrade nut to v2025.09.23.
-- Upgrade virtualbox-ose to 7.2.2.
 - Upgrade phpvirtualbox to 7.2-1.
 - Upgrade phpmyadmin to v5.2.3.
 - Upgrade cdialog to v1.3.20251001.
 - Upgrade arconf to vB27960.
 - Upgrade msmtp to v1.8.32.
 - Upgrade samba to v4.22.5.
+- Upgrade virtualbox-ose to 7.2.4.
 
 New:
 - New SMB use its own log file.
