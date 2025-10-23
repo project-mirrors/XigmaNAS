@@ -1,5 +1,5 @@
---- endpoints/lib/vboxconnector.php.orig	2025-10-18 00:06:34.803513000 +0200
-+++ endpoints/lib/vboxconnector.php	2025-10-19 11:47:16.000000000 +0200
+--- endpoints/lib/vboxconnector.php.orig	2025-10-23 21:28:24.441160000 +0200
++++ endpoints/lib/vboxconnector.php	2025-10-23 22:36:44.000000000 +0200
 @@ -113,6 +113,8 @@
  	 */
  	var $dsep = null;
@@ -19,7 +19,15 @@
  		}
  
  		// Get events from each configured event listener
-@@ -1875,8 +1878,8 @@
+@@ -500,6 +503,7 @@
+ 								'enabled' => $vrde->enabled,
+ 								'ports' => $vrde->getVRDEProperty('TCP/Ports'),
+ 								'netAddress' => $vrde->getVRDEProperty('TCP/Address'),
++								'SecurityMethod' => $vrde->getVRDEProperty('Security/Method'),
+ 								'VNCPassword' => $vrde->getVRDEProperty('VNCPassword'),
+ 								'authType' => (string)$vrde->authType,
+ 								'authTimeout' => $vrde->authTimeout
+@@ -1875,8 +1879,8 @@
  			$m->Platform->X86->setCPUProperty('LongMode', ($guestOS->is64Bit ? 1 : 0));
  		}
  
@@ -29,7 +37,7 @@
  		$oldSecureBoot = ($oldFirmware != 'BIOS' && $m->nonVolatileStore->uefiVariableStore != null ? $m->nonVolatileStore->uefiVariableStore->secureBootEnabled : false);
  		*/
  	
-@@ -1891,12 +1894,12 @@
+@@ -1891,12 +1895,12 @@
  		$m->Platform->X86->setCPUProperty('LongMode', (strpos($args['OSTypeId'],'_64') > - 1 ? 1 : 0));
  		$m->trustedPlatformModule->type = $args['trustedPlatformModule']['type'];
  
@@ -43,7 +51,7 @@
  		if($args['firmwareType'] != 'BIOS' && $oldSecureBoot != (bool)$args['secureBootEnabled']) {
  			$m->nonVolatileStore->uefiVariableStore->secureBootEnabled = (bool)$args['secureBootEnabled'];
  		}
-@@ -1938,11 +1941,13 @@
+@@ -1938,11 +1942,13 @@
  			* @remarks This must match GMMR0Init; currently we only support page fusion on
  			 *          all 64-bit hosts except Mac OS X */
  
@@ -58,7 +66,23 @@
  			$m->Platform->X86->HPETEnabled = $args['HPETEnabled'];
  			$m->setExtraData("VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled", $args['disableHostTimeSync']);
  			$m->keyboardHIDType = $args['keyboardHIDType'];
-@@ -3859,6 +3864,9 @@
+@@ -1970,6 +1976,7 @@
+ 				$m->VRDEServer->setVRDEProperty('TCP/Ports',$args['VRDEServer']['ports']);
+ 				if(@$this->settings->enableAdvancedConfig)
+ 					$m->VRDEServer->setVRDEProperty('TCP/Address',$args['VRDEServer']['netAddress']);
++				$m->VRDEServer->setVRDEProperty('Security/Method',$args['VRDEServer']['SecurityMethod']);
+ 				$m->VRDEServer->setVRDEProperty('VNCPassword',$args['VRDEServer']['VNCPassword'] ? $args['VRDEServer']['VNCPassword'] : null);
+ 				$m->VRDEServer->authType = ($args['VRDEServer']['authType'] ? $args['VRDEServer']['authType'] : 'Null');
+ 				$m->VRDEServer->authTimeout = $args['VRDEServer']['authTimeout'];
+@@ -3713,6 +3720,7 @@
+ 					'enabled' => $vrde->enabled,
+ 					'ports' => $vrde->getVRDEProperty('TCP/Ports'),
+ 					'netAddress' => $vrde->getVRDEProperty('TCP/Address'),
++					'SecurityMethod' => $vrde->getVRDEProperty('Security/Method'),
+ 					'VNCPassword' => $vrde->getVRDEProperty('VNCPassword'),
+ 					'authType' => (string)$vrde->authType,
+ 					'authTimeout' => $vrde->authTimeout,
+@@ -3859,6 +3867,9 @@
  
  		// Save and register
  		$m->saveSettings();
@@ -68,7 +92,7 @@
  		$this->vbox->registerMachine($m->handle);
  		$vm = $m->id;
  		$m->releaseRemote();
-@@ -4291,7 +4299,8 @@
+@@ -4291,11 +4302,13 @@
  			'snapshotFolder' => $m->snapshotFolder,
  			'ClipboardMode' => (string)$m->ClipboardMode,
  			'monitorCount' => $m->GraphicsAdapter->monitorCount,
@@ -78,3 +102,8 @@
  			'VRDEServer' => (!$m->VRDEServer ? null : array(
  				'enabled' => $m->VRDEServer->enabled,
  				'ports' => $m->VRDEServer->getVRDEProperty('TCP/Ports'),
+ 				'netAddress' => $m->VRDEServer->getVRDEProperty('TCP/Address'),
++				'SecurityMethod' => $m->VRDEServer->getVRDEProperty('Security/Method'),
+ 				'VNCPassword' => $m->VRDEServer->getVRDEProperty('VNCPassword'),
+ 				'authType' => (string)$m->VRDEServer->authType,
+ 				'authTimeout' => $m->VRDEServer->authTimeout,
