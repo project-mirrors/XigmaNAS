@@ -149,6 +149,7 @@ mkdir -m 0555 proc ;
 # !!! For optional ports add the required links in the port Makefile. !!!
 ln -s cf/conf conf
 ln -s /var/run/.htpasswd usr/local/www/.htpasswd
+ln -s /var/run/motd etc/motd
 ln -s /var/etc/resolv.conf etc/resolv.conf
 ln -s /var/etc/exports etc/exports
 ln -s /var/etc/hast.conf etc/hast.conf
