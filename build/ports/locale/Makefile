@@ -1,6 +1,6 @@
 PORTNAME=		locale
 PORTVERSION=	1.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	lang
 COMMENT=	Language packages for XigmaNAS®
 MAINTAINER=	zoon01@xigmanas.com
@@ -36,6 +36,7 @@ do-install:
 	@${CP} -vp -r ${WRKSRC}/it ${XIGMANAS_ROOTFS}/usr/local/share/locale
 	@${CP} -vp -r ${WRKSRC}/ja ${XIGMANAS_ROOTFS}/usr/local/share/locale
 	@${CP} -vp -r ${WRKSRC}/ko ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/lo ${XIGMANAS_ROOTFS}/usr/local/share/locale
 	@${CP} -vp -r ${WRKSRC}/nl ${XIGMANAS_ROOTFS}/usr/local/share/locale
 	@${CP} -vp -r ${WRKSRC}/pt_BR ${XIGMANAS_ROOTFS}/usr/local/share/locale
 	@${CP} -vp -r ${WRKSRC}/ro ${XIGMANAS_ROOTFS}/usr/local/share/locale
