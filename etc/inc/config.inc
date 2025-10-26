@@ -1762,7 +1762,7 @@ function config_upgrade_50() {
 	endif;
 }
 /**
- *	Upgrade configuration from 50
+ *	Upgrade configuration from 51
  *	@global array $config
  */
 function config_upgrade_51() {
@@ -1779,6 +1779,40 @@ function config_upgrade_51() {
 	$index = arr::search_ex($rcconf_name,$rcconf,'name');
 	if($index !== false):
 		unset($rcconf[$index]);
+	endif;
+}
+/**
+ *	Upgrade configuration from version 52
+ *	@global array $config
+ */
+function config_upgrade_52() {
+	global $config;
+
+	$user = [
+		'uuid' => uuid::create_v4(),
+		'name' => 'plex',
+		'id' => '972',
+		'primarygroup' => '972',
+		'extraoptions' => '-c "Plex Media Server" -d /nonexistent -s /usr/sbin/nologin'
+	];
+	arr::make_branch($config,'system','usermanagement','user');
+	$index = arr::search_ex('plex',$config['system']['usermanagement']['user'],'name');
+	if($index !== false):
+		$config['system']['usermanagement']['user'][$index] = $user;
+	else:
+		$config['system']['usermanagement']['user'][] = $user;
+	endif;
+	$group = [
+		'uuid' => uuid::create_v4(),
+		'name' => 'plex',
+		'id' => '972'
+	];
+	arr::make_branch($config,'system','usermanagement','group');
+	$index = arr::search_ex('plex',$config['system']['usermanagement']['group'],'name');
+	if($index !== false):
+		$config['system']['usermanagement']['group'][$index] = $group;
+	else:
+		$config['system']['usermanagement']['group'][] = $group;
 	endif;
 }
 /**
@@ -1837,7 +1871,8 @@ function config_upgrade() {
 		'49' => [$kf => 'config_upgrade_49',$kv => '50'],
 		'50' => [$kf => 'config_upgrade_50',$kv => '51'],
 		'51' => [$kf => 'config_upgrade_51',$kv => '52'],
-		'52' => [$kf => null,$kv => null]
+		'52' => [$kf => 'config_upgrade_52',$kv => '53'],
+		'53' => [$kf => null,$kv => null]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;

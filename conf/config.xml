@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XigmaNAS default system configuration -->
 <xigmanas>
-	<version>52</version>
+	<version>53</version>
 	<lastchange></lastchange>
 	<system>
 		<hostname>xigmanas</hostname>
@@ -483,6 +483,13 @@
 				<primarygroup>888</primarygroup>
 				<extraoptions>-c &quot;WSD user&quot; -d /nonexistent -s /usr/sbin/nologin</extraoptions>
 			</user>
+			<user>
+				<uuid>c1a2deb5-2262-469d-8c0b-09a08b9d1ab6</uuid>
+				<name>plex</name>
+				<id>972</id>
+				<primarygroup>972</primarygroup>
+				<extraoptions>-c &quot;Plex Media Server&quot; -d /nonexistent -s /usr/sbin/nologin</extraoptions>
+			</user>
 			<group>
 				<uuid>e8cc78b8-7c3d-46de-a34c-11b1c260a37e</uuid>
 				<id>999</id>
@@ -517,6 +524,11 @@
 				<uuid>839cd65c-f1f1-4694-8f01-2db1f88e66d8</uuid>
 				<id>888</id>
 				<name>_wsdd</name>
+			</group>
+			<group>
+				<uuid>6d4c0f85-14de-48ea-954b-09b411b1a1b0</uuid>
+				<id>972</id>
+				<name>plex</name>
 			</group>
 		</usermanagement>
 		<firewall>
