@@ -150,12 +150,12 @@ prereq() {
     date; ls -l /boot/kernel/kernel
     sys_upgrade 2>&1 | tee ${XIGMANAS_LOGDIR}/prereq-sys_upgrade.log
 
-    # install kernel source
-    pkg install -yr base FreeBSD-src-sys 2>&1 | tee ${XIGMANAS_LOGDIR}/prereq-sys_upgrade-src.log &
+    # install kernel source (for isboot)
+    pkg install -yr base FreeBSD-src-sys 2>&1 | tee ${XIGMANAS_LOGDIR}/prereq-sys_upgrade-src-sys.log &
 
     # install FreeBSD source (for clog/syslogd)
-    pkg install -yr base FreeBSD-src 2>&1 | tee ${XIGMANAS_LOGDIR}/prereq-sys_upgrade-src.log &
- 
+    pkg install -yr base FreeBSD-src 2>&1 | tee ${XIGMANAS_LOGDIR}/prereq-sys_upgrade-src.log
+
 
     cd /usr/local/xigmanas/
     #svn co https://svn.code.sf.net/p/xigmanas/code/trunk svn 2>&1 | tee ${XIGMANAS_LOGDIR}/prereq-svn.log
