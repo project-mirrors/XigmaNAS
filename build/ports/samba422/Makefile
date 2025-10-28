@@ -47,7 +47,7 @@ EXTRA_PATCHES=			\
 
 SAMBA4_BASENAME=		samba
 SAMBA4_PORTNAME=		${SAMBA4_BASENAME}4
-SAMBA4_VERSION=			4.22.5
+SAMBA4_VERSION=			4.22.6
 SAMBA4_DISTNAME=		${SAMBA4_BASENAME}-${SAMBA4_VERSION:S|.p|pre|:S|.r|rc|:S|.t|tp|:S|.a|alpha|}
 
 WRKSRC?=			${WRKDIR}/${DISTNAME}
@@ -63,7 +63,8 @@ SAMBA4_LOGDIR=			${VARDIR}/log/${SAMBA4_PORTNAME}
 SAMBA4_LOCKDIR=			${VARDIR}/db/${SAMBA4_PORTNAME}
 SAMBA4_BINDDNSDIR=		${SAMBA4_LOCKDIR}/bind-dns
 SAMBA4_PRIVATEDIR=		${SAMBA4_LOCKDIR}/private
-SAMBA4_LIBDIR=			${PREFIX}/lib
+SAMBA4_PAMDIR=			${PREFIX}/lib
+SAMBA4_LIBDIR=			${PREFIX}/lib/${SAMBA4_PORTNAME}
 SAMBA4_INCLUDEDIR=		${PREFIX}/include/${SAMBA4_PORTNAME}
 SAMBA4_CONFDIR=			${PREFIX}/etc
 SAMBA4_CONFIG=			smb4.conf
@@ -75,8 +76,8 @@ CONFIGURE_ARGS=			--mandir="${PREFIX}/share/man" \
 				--includedir="${SAMBA4_INCLUDEDIR}" \
 				--datadir="${DATADIR}" \
 				--libdir="${SAMBA4_LIBDIR}" \
-				--with-privatelibdir="${SAMBA4_LIBDIR}/samba" \
-				--with-pammodulesdir="${SAMBA4_LIBDIR}" \
+				--with-privatelibdir="${SAMBA4_LIBDIR}/private" \
+				--with-pammodulesdir="${SAMBA4_PAMDIR}" \
 				--with-modulesdir="${SAMBA4_MODULEDIR}" \
 				--with-pkgconfigdir="${PKGCONFIGDIR}" \
 				--localstatedir="${VARDIR}" \
@@ -130,7 +131,7 @@ OPTIONS_SINGLE_ZEROCONF=	ZEROCONF_NONE AVAHI MDNSRESPONDER
 OPTIONS_DEFAULT+=		NSUPDATE
 
 OPTIONS_RADIO=			DNS
-OPTIONS_RADIO_DNS=		NSUPDATE BIND918 BIND920
+OPTIONS_RADIO_DNS=		NSUPDATE
 
 # Make those default options
 OPTIONS_DEFAULT=		AD_DC ADS DOCS FAM LDAP MANPAGES \
@@ -161,8 +162,6 @@ ZEROCONF_DESC=			Zero configuration networking
 ZEROCONF_NONE_DESC=		Zeroconf support is absent
 
 DNS_DESC=			DNS frontend
-BIND918_DESC=			Use Bind 9.18 as AD DC DNS server frontend
-BIND920_DESC=			Use Bind 9.20 as AD DC DNS server frontend
 NSUPDATE_DESC=			Use samba NSUPDATE utility for AD DC
 ##############################################################################
 # XXX: Unconditional dependencies which can't be switched off(if present in
@@ -203,11 +202,14 @@ BUILD_DEPENDS+=			libarchive>=3.1.2:archivers/libarchive
 RUN_DEPENDS+=			libarchive>=3.1.2:archivers/libarchive
 
 ### Bundled libraries
+#CMOCKA_STAGEDIR=		${PORTSDIR}/sysutils/cmocka/work/stage
+#TALLOC_STAGEDIR=		${PORTSDIR}/devel/talloc243/work/stage
+#TEVENT_STAGEDIR=		${PORTSDIR}/devel/tevent017/work/stage
+#TDB_STAGEDIR=			${PORTSDIR}/databases/tdb1413/work/stage
 SAMBA4_BUNDLED_CMOCKA?=		yes
 SAMBA4_BUNDLED_TALLOC?=		yes
 SAMBA4_BUNDLED_TEVENT?=		yes
 SAMBA4_BUNDLED_TDB?=		yes
-SAMBA4_BUNDLED_LDB?=		yes
 # cmocka
 .if defined(SAMBA4_BUNDLED_CMOCKA) && ${SAMBA4_BUNDLED_CMOCKA} == yes
 SAMBA4_BUNDLED_LIBS+=		cmocka
@@ -259,31 +261,21 @@ RUN_DEPENDS+=			tdb1413>=1.4.13:databases/tdb1413
 PLIST_SUB+=			SAMBA4_BUNDLED_TDB="@comment "
 SUB_LIST+=			SAMBA4_BUNDLED_TDB="@comment "
 .endif
-# ldb
-.if defined(SAMBA4_BUNDLED_LDB) && ${SAMBA4_BUNDLED_LDB} == yes
-SAMBA4_BUNDLED_LDB=		yes
-SAMBA4_BUNDLED_LIBS+=		ldb
-CONFLICTS_INSTALL+=		ldb-* ldb2-*
-PLIST_SUB+=			SAMBA4_BUNDLED_LDB=""
-SUB_LIST+=			SAMBA4_BUNDLED_LDB=""
-SAMBA4_MODULEDIR=		${SAMBA4_LIBDIR}/modules
-.else
-SAMBA4_BUNDLED_LIBS+=		!ldb
-BUILD_DEPENDS+=			ldb29>=2.9.1:databases/ldb29
-RUN_DEPENDS+=			ldb29>=2.9.1:databases/ldb29
-PLIST_SUB+=			SAMBA4_BUNDLED_LDB="@comment "
-SUB_LIST+=			SAMBA4_BUNDLED_LDB="@comment "
-SAMBA4_MODULEDIR=		${PREFIX}/lib/shared-modules
-.endif
 
 .if (defined(SAMBA4_BUNDLED_TALLOC) && ${SAMBA4_BUNDLED_TALLOC} == yes) \
 	|| (defined(SAMBA4_BUNDLED_TDB) && ${SAMBA4_BUNDLED_TDB} == yes) \
-	|| (defined(SAMBA4_BUNDLED_LDB) && ${SAMBA4_BUNDLED_LDB} == yes) \
 	|| (defined(SAMBA4_BUNDLED_TEVENT) && ${SAMBA4_BUNDLED_TEVENT} == yes)
 SAMBA4_BUNDLED_LIBS+=		replace
 .endif
 # Don't use external libcom_err
 SAMBA4_BUNDLED_LIBS+=		com_err
+
+### Public libraries
+# ldb
+SAMBA4_PRIVATE_LIBS+=		!ldb
+CONFLICTS_INSTALL+=		ldb-* ldb2[0-9]-*
+SAMBA4_MODULEDIR=		${SAMBA4_LIBDIR}/modules
+
 # Set the test environment variables
 TEST_USES=			python
 TEST_ENV=			PYTHON="${PYTHON_CMD}" \
@@ -301,6 +293,7 @@ TEST_RUN_DEPENDS=		${PYTHON_PKGNAMEPREFIX}iso8601>=0.1.11:devel/py-iso8601@${PY_
 CONFIGURE_ARGS+=		\
 				--with-pam \
 				--with-iconv \
+				--with-libiconv="${ICONV_PREFIX}" \
 				--with-winbind \
 				--with-regedit \
 				--disable-rpath \
@@ -334,8 +327,6 @@ MDNSRESPONDER_CONFIGURE_ENABLE=	dnssd
 MDNSRESPONDER_LIB_DEPENDS=	libdns_sd.so:net/mDNSResponder
 MDNSRESPONDER_VARS=		SAMBA4_SERVICES+=mdnsd
 ##############################################################################
-BIND918_RUN_DEPENDS=		bind918>=9.18.0.0:dns/bind918
-BIND920_RUN_DEPENDS=		bind920>=9.20.0.0:dns/bind920
 NSUPDATE_RUN_DEPENDS=		samba-nsupdate:dns/samba-nsupdate
 ##############################################################################
 MEMORY_DEBUG_IMPLIES=		DEBUG
@@ -356,7 +347,7 @@ DEVELOPER_TEST_DEPENDS=		${GDB_CMD}:devel/gdb
 DEVELOPER_VARS_OFF=		GDB_CMD=true
 ##############################################################################
 AD_DC_IMPLIES=			PYTHON3
-AD_DC_CONFIGURE_OFF=		--without-ad-dc
+AD_DC_CONFIGURE_OFF=		--without-ad-dc --without-ldb-lmdb
 AD_DC_BUILD_DEPENDS=		${SAMBA4_LMDB_DEPENDS}
 AD_DC_RUN_DEPENDS=		${SAMBA4_LMDB_DEPENDS}
 AD_DC_VARS=			PLIST+=${PKGDIR}/pkg-plist.ad_dc
@@ -479,7 +470,7 @@ SAMBA4_BUNDLED_LIBS+=		!pytalloc-util
 .	endif
 
 .	if defined(SAMBA4_BUNDLED_TEVENT) && ${SAMBA4_BUNDLED_TEVENT} == yes
-SAMBA4_BUNDLED_LIBS+=		pytevenockbuf_add_io() and LDAP_OPT_SOCKBUF for SASL and TLS support
+SAMBA4_BUNDLED_LIBS+=		pytevent
 .	else
 SAMBA4_BUNDLED_LIBS+=		!pytevent
 .	endif
@@ -490,15 +481,15 @@ SAMBA4_BUNDLED_LIBS+=		pytdb
 SAMBA4_BUNDLED_LIBS+=		!pytdb
 .	endif
 
-.	if defined(SAMBA4_BUNDLED_LDB) && ${SAMBA4_BUNDLED_LDB} == yes
 SAMBA4_BUNDLED_LIBS+=		pyldb pyldb-util
-.	else
-SAMBA4_BUNDLED_LIBS+=		!pyldb !pyldb-util
-.	endif
 .endif
 
 .if defined(WANT_EXP_MODULES) && !empty(WANT_EXP_MODULES)
 SAMBA4_MODULES+=		${WANT_EXP_MODULES}
+.endif
+
+.if defined(SAMBA4_PRIVATE_LIBS) && !empty(SAMBA4_PRIVATE_LIBS)
+CONFIGURE_ARGS+=		--private-libraries="${SAMBA4_PRIVATE_LIBS:Q:C|(\\\\ )+|,|g:S|\\||g}"
 .endif
 
 .if defined(SAMBA4_BUNDLED_LIBS) && !empty(SAMBA4_BUNDLED_LIBS)
@@ -530,10 +521,10 @@ DEBUG_FLAGS?=			-g -ggdb3 -O0
 ##############################################################################
 # Only for 64-bit architectures
 .if ${ARCH} != armv6 && ${ARCH} != armv7 && ${ARCH} != i386 && ${ARCH} != mips && ${ARCH} != powerpc && ${ARCH} != powerpcspe
-.	if defined(SAMBA4_BUNDLED_LDB) && ${SAMBA4_BUNDLED_LDB} == yes && (${PORT_OPTIONS:MAD_DC} || ${PORT_OPTIONS:MDEVELOPER})
+.	if (${PORT_OPTIONS:MAD_DC} || ${PORT_OPTIONS:MDEVELOPER})
 # LMDB
 SAMBA4_LMDB_DEPENDS=		lmdb>=0.9.16:databases/lmdb
-PLIST_FILES+=			${SAMBA4_LIBDIR}/samba/libldb-mdb-int-private-samba.so \
+PLIST_FILES+=			${SAMBA4_LIBDIR}/private/libldb-mdb-int-private-samba.so \
 				${SAMBA4_MODULEDIR}/ldb/mdb.so
 .	endif
 .endif
@@ -627,11 +618,6 @@ post-install-fix-manpages:
 .for f in vfs_aio_linux.8 vfs_btrfs.8 vfs_ceph.8 vfs_gpfs.8
 				${RM} ${STAGEDIR}${PREFIX}/share/man/man8/${f}
 .endfor
-.if defined(SAMBA4_BUNDLED_LDB) && ${SAMBA4_BUNDLED_LDB} == yes
-.	for f in ldbadd.1 ldbdel.1 ldbedit.1 ldbmodify.1 ldbrename.1 ldbsearch.1
-				${MV} ${STAGEDIR}${PREFIX}/share/man/man1/${f} ${STAGEDIR}${PREFIX}/share/man/man1/samba-${f}
-.	endfor
-.endif
 
 .if defined(SAMBA4_BUNDLED_TALLOC) && ${SAMBA4_BUNDLED_TALLOC} == yes
 .	for f in talloc.3
@@ -668,59 +654,56 @@ post-install: post-install-rm-junk post-install-fix-manpages
 
 # XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
-	@${INSTALL_SCRIPT} -v ${FILESDIR}/xigmanas-samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
+	${INSTALL_SCRIPT} -v ${FILESDIR}/xigmanas-samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
 # rc/link
-	@${LN} -fsv /var/etc/smb4.conf ${XIGMANAS_ROOTFS}${PREFIX}/etc/smb4.conf
-# sbin
-.for file in eventlogadm nmbd samba smbd winbindd
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/sbin
-.endfor
-.for file in samba_dnsupdate samba_downgrade_db samba_kcc samba_spnupdate samba_upgradedns samba-gpupdate
-	@${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/sbin
-.endfor
+	${LN} -fsv /var/etc/smb4.conf ${XIGMANAS_ROOTFS}${PREFIX}/etc/smb4.conf
 # bin
 .for file in cifsdd dbwrap_tool dumpmscat gentest ldbadd ldbdel ldbedit ldbmodify ldbrename ldbsearch locktest masktest mdsearch mvxattr ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree tdbbackup tdbdump tdbrestore tdbtool testparm vfstest wbinfo wspsearch
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin
 .endfor
 .for file in samba-log-parser samba-tool smbtar
-	@${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin
+	${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin
 .endfor
-# lib
-	for file in ${STAGEDIR}${PREFIX}/lib/*; do \
-		[ -h "$${file}" ] && continue; \
-		[ -f "$${file}" ] && ${CP} -pv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib; \
-		[ -d "$${file}" ] && ${CP} -Rpv $${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib; \
-	done
-	@echo "End install lib for file in ${STAGEDIR}${PREFIX}/lib/*"
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so.1
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_wins.so.1
-	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/pam_winbind.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/pam_winbind.so
-	@${LN} -f -v -s nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so
-	@${LN} -f -v -s nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_wins.so
-# share
-	@${CP} -Rpv ${STAGEDIR}${PREFIX}/share/${SAMBA4_PORTNAME}22 ${XIGMANAS_ROOTFS}${PREFIX}/share
 # include
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/include
-	@${CP} -Rpv ${STAGEDIR}${PREFIX}/include/samba4 ${XIGMANAS_ROOTFS}${PREFIX}/include/
-
-# python3.11
+	${CP} -Rpv ${STAGEDIR}${PREFIX}/include/samba4 ${XIGMANAS_ROOTFS}${PREFIX}/include/
+# lib
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/lib
+	${CP} -Rpv ${STAGEDIR}${PREFIX}/lib/samba4 ${XIGMANAS_ROOTFS}${PREFIX}/lib/
+	${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so.1
+	${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_wins.so.1
+	${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/lib/pam_winbind.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/pam_winbind.so
+	${LN} -f -v -s nss_winbind.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_winbind.so
+	${LN} -f -v -s nss_wins.so.1 ${XIGMANAS_ROOTFS}${PREFIX}/lib/nss_wins.so
+# libdata
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/libdata
+	${CP} -Rpv ${STAGEDIR}${PREFIX}/libdata/ldconfig ${XIGMANAS_ROOTFS}${PREFIX}/libdata/
+	${CP} -Rpv ${STAGEDIR}${PREFIX}/libdata/pkgconfig ${XIGMANAS_ROOTFS}${PREFIX}/libdata/
+# share
+	${CP} -Rpv ${STAGEDIR}${PREFIX}/share/${SAMBA4_PORTNAME}22 ${XIGMANAS_ROOTFS}${PREFIX}/share
+# libexec
+	${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/libexec/samba
+	${CP} -Rpv ${STAGEDIR}${PREFIX}/libexec/samba ${XIGMANAS_ROOTFS}${PREFIX}/libexec/
+# sbin
+.for file in eventlogadm nmbd samba smbd winbindd
+	${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/sbin
+.endfor
+.for file in samba_dnsupdate samba_downgrade_db samba_kcc samba_spnupdate samba_upgradedns samba-gpupdate
+	${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/sbin
+.endfor
+# add samba-nsupdate
+	${CP} -Rpv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}${PREFIX}/bin
+# python
 	${CP} -Rpv ${STAGEDIR}${PREFIX}/lib/python3.11/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages; \
 	for file in ldb.cpython-311.so talloc.cpython-311.so tdb.cpython-311.so; do \
 		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.11/site-packages/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages; \
 	done
-# copy required modules dns markdown
-	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
-	@${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/markdown ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
-# add samba-nsupdate
-	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}${PREFIX}/bin
-# libexec
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/libexec/samba
-	@${CP} -Rpv ${STAGEDIR}${PREFIX}/libexec/samba ${XIGMANAS_ROOTFS}${PREFIX}/libexec/
-# lib modules
-# ldb/tdb
-	for file in ldbadd ldbdel ldbedit ldbmodify ldbrename ldbsearch; do \
-		${CP} -pv ${STAGEDIR}${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin; \
-	done
+# add cryptography cffi dns markdown
+	${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/cryptography ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
+	${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/cffi ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
+	${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/_cffi_backend.cpython-311.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
+	${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/dns ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
+	${CP} -Rpv ${PREFIX}/lib/python3.11/site-packages/markdown ${XIGMANAS_ROOTFS}${PREFIX}/lib/python3.11/site-packages
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 

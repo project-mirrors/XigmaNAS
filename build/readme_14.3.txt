@@ -113,9 +113,9 @@ Changes:
 - Upgrade cdialog to v1.3.20251001.
 - Upgrade arconf to vB27960.
 - Upgrade msmtp to v1.8.32.
-- Upgrade samba to v4.22.5.
 - Upgrade virtualbox-ose to 7.2.4.
 - Upgrade php8 to v8.4.14.
+- Upgrade samba to v4.22.6.
 
 New:
 - New SMB use its own log file.
