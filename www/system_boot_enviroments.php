@@ -66,7 +66,7 @@ function get_zfs_be() {
 			$r['name'] = $name;
 		endif;
 		$r['active'] = $a[1];
-		$r['mount'] = $a[2];	
+		$r['mount'] = $a[2];
 		$r['size'] = $a[3];
 		$r['created'] = $a[4];
 		$r['epoch'] = strtotime($r['created']);
@@ -150,7 +150,7 @@ endif;
 $pgtitle = [gtext("System"), gtext('Boot Environments')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	// Init action buttons.

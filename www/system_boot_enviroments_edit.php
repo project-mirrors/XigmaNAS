@@ -2,8 +2,8 @@
 /*
 	system_boot_enviroments_edit.php
 
-	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2025 XigmaNAS® <info@xigmanas.com>.
+	Part of XigmaNASÂ® (https://www.xigmanas.com).
+	Copyright Â© 2018-2025 XigmaNASÂ® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS®, either expressed or implied.
+	of XigmaNASÂ®, either expressed or implied.
 */
 
 require_once 'auth.inc';
@@ -205,7 +205,7 @@ if($_POST):
 endif;
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load",function() {
 	$("#iform").submit(function() { spinner(); });
@@ -303,4 +303,3 @@ action_change();
 </script>
 <?php
 include 'fend.inc';
-?>

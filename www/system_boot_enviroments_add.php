@@ -2,8 +2,8 @@
 /*
 	system_boot_enviroments_add.php
 
-	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2025 XigmaNAS® <info@xigmanas.com>.
+	Part of XigmaNASÂ® (https://www.xigmanas.com).
+	Copyright Â© 2018-2025 XigmaNASÂ® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS®, either expressed or implied.
+	of XigmaNASÂ®, either expressed or implied.
 */
 
 require_once 'auth.inc';
@@ -91,7 +91,7 @@ endif;
 
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load",function() {
 	$("#iform").submit(function() { spinner(); });
@@ -143,7 +143,7 @@ $document->render();
 	<div id="submit">
 		<input name="create_new_be" type="submit" class="formbtn" value="<?=gtext('Add');?>"/>
 		<input name="Cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>" />
-		
+
 	</div>
 <?php
 	include 'formend.inc';
@@ -151,4 +151,3 @@ $document->render();
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
