@@ -235,10 +235,10 @@ class setting_properties extends grid_properties {
 	public function init_if(): myp\property_list {
 		$description = '';
 		$options = [
-			'' => gettext("All Interfaces"),
-			'lan' => gettext("LAN Only"),
-			'opt' => gettext("OPT Only"),
-			'carp' => gettext("CARP only")
+			'' => gettext('All Interfaces'),
+			'lan' => gettext('LAN Only'),
+			'opt' => gettext('OPT Only'),
+			'carp' => gettext('CARP only')
 		];
 		$property = parent::init_if();
 		$property->
