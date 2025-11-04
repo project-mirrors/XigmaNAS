@@ -82,7 +82,8 @@ if($_POST):
 	endif;
 endif;
 $pgtitle = [gtext('System'),gtext('Reboot'),gtext('Scheduled')];
-include 'fbegin.inc';?>
+include 'fbegin.inc';
+?>
 <script>
 //<![CDATA[
 $(window).on("load", function() {
