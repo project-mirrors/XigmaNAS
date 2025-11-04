@@ -102,7 +102,7 @@ if($_POST):
 		if(isset($_POST['SendReportNow']) && $_POST['SendReportNow']):
 //			send an email status report now.
 			$retval = @report_send_mail();
-			if(0 == $retval):
+			if($retval == 0):
 				$savemsg = gtext('Status report successfully sent.');
 			else:
 				$failmsg = gtext('Failed to send status report.') . ' ' . '<a href="diag_log.php">' . gtext('Please check the log files') . '.</a>';
