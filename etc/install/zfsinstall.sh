@@ -819,6 +819,9 @@ hint.acpi_throttle.0.disabled="0"
 hint.p4tcc.0.disabled="0"
 loader_brand="${PRDNAME}"
 autoboot_delay="3"
+hostuuid_load="YES"
+hostuuid_name="/etc/hostid"
+hostuuid_type="hostuuid"
 isboot_load="YES"
 zfs_load="YES"
 EOF
@@ -1096,7 +1099,7 @@ menu_swap()
 {
 	swap_size=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize Swap size" \
-	--form "Enter a desired SWAP size, default size is 2G, leave empty for none." 0 0 0 \
+	--form "Enter a desired SWAP size, default size is 2G, leave empty for none and continue." 0 0 0 \
 	"Enter swap size:" 1 1 "2G" 1 25 25 25 \
 	2>${tmpfile}
 	if [ 0 -ne $? ]; then
@@ -1134,8 +1137,8 @@ menu_zrootsize()
 	root_size=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize zroot pool partition" \
 	--radiolist "Would you like to customize the ${ZROOT} partition size?" 10 60 4 \
-	1 "Yes, I want to customize." off \
-	2 "No, leave the defaults." on \
+	1 "Yes, customize zroot partition." off \
+	2 "No, continue with defaults." on \
 	2>${tmpfile}
 	if [ 0 -ne $? ]; then
 		exit 0
@@ -1144,7 +1147,7 @@ menu_zrootsize()
 	CUSTOM_ROOT=$(cat ${tmpfile})
 	if [ "${CUSTOM_ROOT}" = 1 ]; then
 		cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize zroot pool size" \
-		--form "Enter a desired zroot pool size, for example 10G, or leave empty to use all remaining disk space (default empty)." 0 0 0 \
+		--form "Enter a desired zroot pool size, for example 20G, or leave empty to use all remaining disk space and continue." 0 0 0 \
 		"Enter zroot pool size:" 1 1 "" 1 25 25 25 \
 		2>${tmpfile}
 		if [ 0 -ne $? ]; then
@@ -1170,9 +1173,9 @@ menu_dataset()
 {
 	dataset_name=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Create user Dataset" \
-	--radiolist "Would you like to create a ZFS Dataset for data store?" 10 60 4 \
-	1 "Yes, I want a Dataset." off \
-	2 "No, leave the defaults." on \
+	--radiolist "Would you like the installer to create a ZFS Dataset for data store?" 10 60 4 \
+	1 "Yes, create a Dataset." off \
+	2 "No, continue with defaults." on \
 	2>${tmpfile}
 	if [ 0 -ne $? ]; then
 		exit 0
@@ -1181,7 +1184,7 @@ menu_dataset()
 	dataset=$(cat ${tmpfile})
 	if [ "${dataset}" = 1 ]; then
 		cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Enter Dataset name" \
-		--form "Enter a desired Dataset name, or leave empty to cancel Dataset creation (default empty)." 0 0 0 \
+		--form "Enter a desired Dataset name, leave empty to cancel Dataset creation and continue with the installation." 0 0 0 \
 		"Enter Dataset name:" 1 1 "" 1 25 25 25 \
 		2>${tmpfile}
 		if [ 0 -ne $? ]; then
@@ -1251,7 +1254,7 @@ menu_encryption()
 	PASS1=
 	PASS2=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Encryption option menu" \
-	--checklist "Select the desired items to be encrypted (optional), if you're inexperienced with GELI/Encryption, please disregard this and press Enter to continue." 12 55 8 \
+	--checklist "Select the desired items to be encrypted (optional), if not experienced with GELI/Encryption, please disregard and press Enter to continue." 12 60 8 \
 	"DISK+GELI" "Encrypt Disks?" off \
 	"SWAP+GELI" "Encrypt Swap?" off \
 	2>${tmpfile}
