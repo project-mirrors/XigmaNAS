@@ -103,7 +103,6 @@ Changes:
 - Upgrade mariadb to v11.8.3.
 - Upgrade mDNSResponder to v2600.140.3.
 - Upgrade lighttpd to v1.4.82.
-- Upgrade nut to v2025.09.23.
 - Upgrade phpvirtualbox to 7.2-1.
 - Upgrade phpmyadmin to v5.2.3.
 - Upgrade cdialog to v1.3.20251001.
@@ -116,6 +115,7 @@ Changes:
 - Upgrade nano to v8.7.
 - Upgrade open-vm-tools to v13.0.5.
 - Upgrade iperf3 to v3.20.
+- Upgrade nut to v2025.11.17.
 
 New:
 - New SMB use its own log file.
