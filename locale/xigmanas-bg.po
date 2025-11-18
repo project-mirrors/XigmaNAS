@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2025-11-11 18:59+0000\n"
-"PO-Revision-Date: 2025-11-13 11:48+0000\n"
+"PO-Revision-Date: 2025-11-18 13:13+0000\n"
 "Last-Translator: RD <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-11-13 11:48+0000\n"
+"X-Launchpad-Export-Date: 2025-11-18 15:52+0000\n"
 "X-Generator: Launchpad (build 1d08ffb47b836b8a4c9a0f11318dfdea7420ab6d)\n"
 "X-Poedit-Country: BULGARIA\n"
 "Language: \n"
@@ -675,6 +675,10 @@ msgid ""
 "attribute that trips once the drive detects that the internal environment is "
 "out of specification."
 msgstr ""
+"Специфично за MG07+ дискове от Toshiba. Тази стойност измерва най високото "
+"ниво на хелий вътре в диска, специфично за този производител. Това е атрибут "
+"за предшестваща повреда, който се задейства, когато дискът открие, че "
+"вътрешната среда е извън спецификацията."
 
 msgid ""
 "Counts the number of SATA PHY errors. This value includes all PHY error "
@@ -686,19 +690,26 @@ msgstr ""
 "Value clears upon system power-down."
 
 msgid "See attribute E8."
-msgstr ""
+msgstr "Консултирайте атрибут  E8."
 
 msgid ""
 "(Kingston)Counts the number of flash program failures. This Attribute "
 "returns the total number of Flash program operation failures since the drive "
 "was deployed. This attribute is identical to attribute 181."
 msgstr ""
+"(Kingston)Брои броя на неуспешните операции на флаш програмата. Този атрибут "
+"връща общия брой неуспешни операции на флаш програмата от момента на "
+"инсталирането на устройството. Този атрибут е идентичен с атрибут 181."
 
 msgid ""
 "(Kingston)Counts the number of flash erase failures. This Attribute returns "
 "the total number of Flash erase operation failures since the drive was "
 "deployed. This Attribute is identical to Attribute 182."
 msgstr ""
+"(Kingston)Брои броя на неуспешните опити за изтриване на флаш паметта. Този "
+"атрибут връща общия брой неуспешни операции по изтриване на флаш паметта от "
+"момента на инсталиране на устройството. Този атрибут е идентичен с атрибут "
+"182."
 
 msgid "Counts the maximum worst erase count on any block."
 msgstr "Counts the maximum worst erase count on any block."
@@ -727,32 +738,55 @@ msgid ""
 "Normalized value is set to one on test failure or 11 if the capacitor has "
 "been tested in an excessive temperature condition, otherwise 100."
 msgstr ""
+"Последният резултат от теста в микросекунди до разтоварването на капацитета, "
+"наситен при максималната си стойност. Записва също минутите от последния "
+"тест и броя на тестовете за целия живот. Необработената стойност съдържа "
+"следните данни: Байтове 0-1: Последният резултат от теста в микросекунди до "
+"разтоварването на капацитета, наситен при максималната си стойност. "
+"Очакваният резултат от теста е в диапазона 25 <= резултат <= 5000000, по-"
+"ниската стойност показва конкретен код на грешка. Байтове 2-3: Минути от "
+"последния тест, наситен при максимална стойност. Байтове 4-5: Брой тестове "
+"за целия експлоатационен срок, не се увеличава при цикъл на захранване, "
+"наситен при максимална стойност. Нормализираната стойност се задава на "
+"единица при неуспешен тест или на 11, ако кондензаторът е тестван при "
+"прекомерна температура, в противен случай е 100."
 
 msgid ""
 "Erase Fail Count (chip). This parameter indicates a number of flash erase "
 "command failures."
 msgstr ""
+"Брой неуспешни изтривания (чип). Този параметър показва броя на неуспешните "
+"команди за изтриване на флаш паметта."
 
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
 msgstr ""
+"Delta между най-износените и най-малко износените Flash блокове. Описва "
+"колко добре/зле работи изравняването на износването на SSD по по-технически "
+"начин."
 
 msgid "Pre-Fail' Attribute used at least in Samsung devices."
 msgstr ""
+"Атрибут знак за скорошен провал, използван поне в устройствата на Samsung."
 
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr ""
+"Атрибут знак за скорошен провал, използван поне в устройствата на HP."
 
 msgid ""
 "Total number of Flash program operation failures since the drive was "
 "deployed."
 msgstr ""
+"Общ брой на неуспешните операции на Flash програмата от момента на "
+"въвеждането на устройството."
 
 msgid ""
 "Western Digital, Samsung or Seagate attribute: Total number of data blocks "
 "with detected, uncorrectable errors encountered during normal operation."
 msgstr ""
+"Western Digital, Samsung или Seagate атрибут: Общ брой на блокове данни с "
+"разкрити, непоправими грешки, възникнали по време на нормална работа."
 
 msgid ""
 "This attribute is a part of Hewlett-Packard's SMART IV technology, as well "
@@ -760,14 +794,20 @@ msgid ""
 "contains a count of parity errors which occur in the data path to the media "
 "via the drive's cache RAM."
 msgstr ""
+"Този атрибут е част от технологията SMART IV на Hewlett-Packard, както и "
+"част от схемите за разкриване и коригиране на IO грешки на други "
+"производители, и съдържа брой на грешките в четността, които възникват в "
+"пътя на данните към медията чрез кеш RAM паметта на устройството."
 
 msgid "Western Digital attribute."
-msgstr ""
+msgstr "Атрибут на Western Digital."
 
 msgid ""
 "The count of errors that could not be recovered using hardware ECC (see "
 "attribute 195)."
 msgstr ""
+"Броят на грешките, които не могат да бъдат възстановени с помощта на "
+"хардуерен ECC (виж атрибут 195)."
 
 msgid ""
 "The count of aborted operations due to HDD timeout. Normally this attribute "
@@ -775,6 +815,10 @@ msgid ""
 "likely there will be some serious problems with power supply or an oxidized "
 "data cable."
 msgstr ""
+"Броят на прекъснатите операции поради изтичане на времето за HDD. Обикновено "
+"стойността на този атрибут трябва да е равна на нула и ако стойността е "
+"много по висока от нула, най-вероятно ще има сериозни проблеми с "
+"захранването или ръждясал кабел за данни."
 
 msgid ""
 "HDD producers implement a Fly Height Monitor that attempts to provide "
@@ -785,6 +829,14 @@ msgid ""
 "attribute indicates the count of these errors detected over the lifetime of "
 "the drive. This feature is implemented in most modern Seagate drives."
 msgstr ""
+"Производителите на HDD устройства използват Fly Height Monitor (монитор за "
+"височина на полет), който се опитва да осигури допълнителна защита при "
+"операции по запис, като открива кога записващата глава излиза извън "
+"нормалния си работен диапазон. Ако се установи опасно състояние на височина "
+"на полет, процесът на запис се спира и информацията се презаписва или "
+"преразпределя в безопасна област на твърдия диск. Този атрибут показва броя "
+"на тези грешки, открити през целия живот на устройството. Тази функция е "
+"внедрена в повечето съвременни устройства на Seagate."
 
 msgid ""
 "Airflow temperature on Western Digital HDs (Same as temp. , but current "
@@ -797,10 +849,12 @@ msgid ""
 "Value is equal to (100-temp. Celsius), allowing manufacturer to set a "
 "minimum threshold which corresponds to a maximum temperature."
 msgstr ""
+"Стойността е равна на (100 градуса Целзий), което позволява на производителя "
+"да зададе минимален праг, който съответства на максималната температура."
 
 msgid ""
 "The count of errors resulting from externally induced shock & vibration."
-msgstr ""
+msgstr "Броят на грешките, причинени от външни удари и вибрации."
 
 msgid ""
 "Count of times the heads are loaded off the media. Heads can be unloaded "
@@ -819,6 +873,9 @@ msgid ""
 "(Vendor-specific raw value.) The raw value has different structure for "
 "different vendors and is often not meaningful as a decimal number."
 msgstr ""
+"(Необработена стойност, специфична за производителя.) Необработената "
+"стойност има различна структура за различните производители и често не е "
+"значима като десетично число."
 
 msgid ""
 "Count of remap operations. The raw value of this attribute shows the total "
@@ -867,6 +924,9 @@ msgid ""
 "rise in the value of this attribute indicates defects of the disk surface "
 "and/or problems in the mechanical subsystem."
 msgstr ""
+"Общият брой на непоправими грешки при четене/запис на сектор. Повишението на "
+"стойността на този атрибут показва дефекти на повърхността на диска и/или "
+"проблеми в механичната подсистема."
 
 msgid "Check and replace cable"
 msgstr "Проверете и сменете кабела"
@@ -875,11 +935,15 @@ msgid ""
 "The count of errors in data transfer via the interface cable as determined "
 "by ICRC (Interface Cyclic Redundancy Check)."
 msgstr ""
+"Броят на грешките при пренос на данни чрез интерфейсен кабел, определен от "
+"ICRC (Interface Cyclic Redundancy Check)."
 
 msgid ""
 "The count of errors found when writing a sector. The higher the value, the "
 "worse the disk's mechanical condition is."
 msgstr ""
+"Броят на грешките, открити при записване на сектор. Колкото по-висока е "
+"стойността, толкова по-лошо е механичното състояние на диска."
 
 msgid "The total count of errors when writing a sector."
 msgstr ""
@@ -893,7 +957,7 @@ msgstr "Count of Data Address Mark errors (or vendor-specific)."
 msgid ""
 "The number of errors caused by incorrect checksum during the error "
 "correction."
-msgstr ""
+msgstr "Общият брой грешки при записване на сектор."
 
 msgid "Count of errors corrected by software ECC."
 msgstr "Преброяване на грешки коригирани чрез софтуер ECC."
@@ -906,6 +970,9 @@ msgid ""
 "increases the chances of a head crash while a flying height that's too high "
 "increases the chances of a read/write error."
 msgstr ""
+"Височина на главите над повърхността на диска. Прекалено ниската височина на "
+"полет увеличава вероятността от сблъсък на главите, докато прекалено "
+"високата височина на полет увеличава вероятността от грешка при четене/запис."
 
 msgid "Amount of surge current used to spin up the drive."
 msgstr "Размер на тока, използван да се върти диска."
@@ -918,15 +985,16 @@ msgstr ""
 
 msgid "Drive's seek performance during its internal tests."
 msgstr ""
+"Производителност на търсенето на диска по време на вътрешните тестове."
 
 msgid "(Found in a Maxtor 6B200M0 200GB and Maxtor 2R015H1 15GB disks)."
 msgstr "(Намерено в  Maxtor 6B200M0 200GB и в Maxtor 2R015H1 15GB дискове)."
 
 msgid "Vibration During Write."
-msgstr ""
+msgstr "Вибрации по време на запис."
 
 msgid "Shock During Write."
-msgstr ""
+msgstr "Удари по време на запис."
 
 msgid ""
 "CRC Error Count. Counts the number of CRC error (read/write data FIS CRC "
@@ -939,24 +1007,31 @@ msgid ""
 "Distance the disk has shifted relative to the spindle (usually due to shock "
 "or temperature). Unit of measure is unknown."
 msgstr ""
+"Разстояние, с което дискът се е изместил спрямо вретеното (обикновено поради "
+"удар или температура). Единицата за измерване е неизвестна."
 
 msgid ""
 "Time spent operating under data load (movement of magnetic head armature)."
 msgstr ""
+"Време, прекарано в работа при зареждане на данни (движение на арматурата на "
+"магнитната глава)."
 
 msgid "Count of times head changes position."
 msgstr "Брои колко пъти главата си е сменила позицията."
 
 msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr ""
+"Съпротивление, причинено от триене в механичните части по време на работа."
 
 msgid "Total count of load cycles."
-msgstr ""
+msgstr "Общ брой на циклите на зареждане."
 
 msgid ""
 "Total time of loading on the magnetic heads actuator (time not spent in "
 "parking area)."
 msgstr ""
+"Общо време на зареждане на актуатора на магнитните глави (време, което не е "
+"прекарано в зоната за паркиране)."
 
 msgid "Count of attempts to compensate for platter speed variations."
 msgstr ""
@@ -966,6 +1041,8 @@ msgid ""
 "The count of times the magnetic armature was retracted automatically as a "
 "result of cutting power."
 msgstr ""
+"Броят пъти, през които магнитната арматура е била автоматично прибрана в "
+"резултат на прекъсване на захранването."
 
 msgid ""
 "Amplitude of 'thrashing' (distance of repetitive forward/reverse head "
@@ -984,66 +1061,90 @@ msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
 "Flash blocks currently available for use."
 msgstr ""
+"Показва приблизителния остатъчен живот на SSD, изразен в цикли на "
+"запис/изтриване или Flash блокове, които са налични за използване в момента."
 
 msgid ""
 "Number of physical erase cycles completed on the drive as a percentage of "
 "the maximum physical erase cycles the drive is designed to endure."
 msgstr ""
+"Брой физически цикли на изтриване, изпълнени на устройството, като процент "
+"от максималния брой физически цикли на изтриване, за които устройството е "
+"проектирано да издържи."
 
 msgid ""
 "Intel SSD reports the number of available reserved space as a percentage of "
 "reserved space in a brand new SSD."
 msgstr ""
+"Intel SSD отчита броя на наличните запазени пространства като процент от "
+"запазеното пространство в чисто нов SSD."
 
 msgid "Number of hours elapsed in the power-on state."
-msgstr ""
+msgstr "Брой изминали часове в състояние на включено захранване."
 
 msgid ""
 "Intel SSD reports a normalized value of 100 (when the SSD is new) and "
 "declines to a minimum value of 1. It decreases while the NAND erase cycles "
 "increase from 0 to the maximum-rated cycles."
 msgstr ""
+"Intel SSD отчита нормализирана стойност от 100 (когато SSD е нов) и спада до "
+"минимална стойност от 1. Тя намалява, докато циклите на изтриване на NAND се "
+"увеличават от 0 до максималния брой цикли."
 
 msgid ""
 "Decoded as: byte 0-1-2 = average erase count (big endian) and byte 3-4-5 = "
 "max erase count (big endian)."
 msgstr ""
+"Декодирано като: байт 0-1-2 = средно число изтривания (big endian) и байт 3-"
+"4-5 = максимално число изтривания (big endian)."
 
 msgid ""
 "decoded as: byte 0-1-2 = good block count (big endian) and byte 3-4 = "
 "system(free) block count."
 msgstr ""
+"декодирано като: байт 0-1-2 = брой добри блокове (big endian) и байт 3-4 = "
+"брой системни (свободни) блокове."
 
 msgid "Time spent during the positioning of the drive heads."
-msgstr ""
+msgstr "Време, прекарано при позиционирането на  главите на диска."
 
 msgid "Count of times the link is reset during a data transfer."
 msgstr "Count of times the link is reset during a data transfer."
 
 msgid "Total count of LBAs written."
-msgstr ""
+msgstr "Общ брой на написаните LBA."
 
 msgid ""
 "Total count of LBAs read. Some S.M.A.R.T. utilities will report a negative "
 "number for the raw value since in reality it has 48 bits rather than 32."
 msgstr ""
+"Общ брой прочетени LBA. Някои S.M.A.R.T. програми ще отчетат отрицателно "
+"число за необработената стойност, тъй като в действителност тя е 48 бита, а "
+"не 32."
 
 msgid ""
 "Total LBAs Written Expanded. The upper 5 bytes of the 12-byte total number "
 "of LBAs written to the device. The lower 7 byte value is located at "
 "attribute 0xF1."
 msgstr ""
+"Общо записани LBA. Горните 5 байта от общо 12-байтовия брой LBA, записани на "
+"устройството. Долната 7-байтова стойност се намира в атрибут 0xF1."
 
 msgid ""
 "Total LBAs Read Expanded. The upper 5 bytes of the 12-byte total number of "
 "LBAs read from the device. The lower 7 byte value is located at attribute "
 "0xF2."
 msgstr ""
+"Разширено общо прочетени LBA . Горните 5 байта от общо 12-байтовия брой LBA, "
+"прочетени от устройството. Долната 7-байтова стойност се намира в атрибут "
+"0xF2."
 
 msgid ""
 "Total NAND Writes. Raw value reports the number of writes to NAND in 1GB "
 "increments."
 msgstr ""
+"Общо записвания в NAND. Необработената стойност отразява броя на "
+"записванията в NAND с увеличение от 1 GB."
 
 msgid "Count of errors while reading from a disk."
 msgstr "Преброяване на грешките докато се чете от диск."
@@ -1052,93 +1153,99 @@ msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
 msgstr ""
+"Атрибутът „Минимален брой останали резервни блокове“ показва броя на "
+"останалите резервни блокове като процент от общия брой налични резервни "
+"блокове."
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
 "flash blocks the drive detected since it was first initialized in "
 "manufacturing."
 msgstr ""
+"Новодобавеният атрибут „Bad Flash Block” (Дефектни флаш блокове) показва "
+"общия брой дефектни флаш блокове, открити от устройството от момента на "
+"първоначалната му инициализация при производството."
 
 msgid "Count of 'Free Fall Events' detected."
 msgstr "Брой на засечените \"Free Fall Events\""
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Attribute Name"
-msgstr ""
+msgstr "Име на атрибут"
 
 msgid "Raw Value"
-msgstr ""
+msgstr "Необработена Стойност"
 
 msgid "Unknown or undocumented attribute."
-msgstr ""
+msgstr "Непознат или недокументиран атрибут."
 
 msgid "Sockstat"
-msgstr ""
+msgstr "Sockstat"
 
 msgid "Space Usage"
-msgstr ""
+msgstr "Използване на пространството"
 
 msgid "Swap is disabled."
-msgstr ""
+msgstr "SWAP е деактивирано."
 
 msgid "Swap Information & Status"
-msgstr ""
+msgstr "Информация и статус на SWAP"
 
 msgid "UPS Information & Status"
-msgstr ""
+msgstr "Информация и статус на UPS"
 
 msgid "UPS is disabled."
-msgstr ""
+msgstr "UPS е деактивирано."
 
 msgid "Selected UPS"
-msgstr ""
+msgstr "Избран UPS"
 
 msgid "ERROR:"
 msgstr "ГРЕШКА:"
 
 msgid "Manufacturer"
-msgstr ""
+msgstr "Производител"
 
 msgid "Model"
-msgstr ""
+msgstr "Модел"
 
 msgid "Type"
 msgstr "Тип:"
 
 msgid "Serial number"
-msgstr ""
+msgstr "Сериен номер"
 
 msgid "Firmware version"
-msgstr ""
+msgstr "Firmware версия"
 
 msgid "UPS Waiting"
-msgstr ""
+msgstr "UPS в очакване"
 
 msgid "UPS Off Line"
-msgstr ""
+msgstr "UPS \"Оff Line\""
 
 msgid "UPS On Line"
-msgstr ""
+msgstr "UPS \"Оn Line\""
 
 msgid "UPS On Battery"
-msgstr ""
+msgstr "UPS точи батерия"
 
 msgid "SmartTrim"
-msgstr ""
+msgstr "SmartTrim"
 
 msgid "SmartBoost"
-msgstr ""
+msgstr "SmartBoost"
 
 msgid "Overload"
-msgstr ""
+msgstr "Претоварване"
 
 msgid "Battery Low"
 msgstr "Ниско ниво на батерията"
 
 msgid "Replace Battery UPS"
-msgstr ""
+msgstr "Заменете батерията на UPS"
 
 msgid "Calibration Battery"
 msgstr "Калибровка на батерията"
@@ -1156,224 +1263,226 @@ msgid "Battery voltage"
 msgstr "Напрежение на батерията"
 
 msgid "Input voltage"
-msgstr ""
+msgstr "Входно напрежение"
 
 msgid "Input frequency"
-msgstr ""
+msgstr "Входно честота"
 
 msgid "Output voltage"
-msgstr ""
+msgstr "Изходящо напрежение"
 
 msgid "Remaining battery runtime"
-msgstr ""
+msgstr "Оставащо време на работа на батерията"
 
 msgid "UPS Unit General Information"
-msgstr ""
+msgstr "Обща информация за UPS устройството"
 
 msgid "UPS status"
-msgstr ""
+msgstr "Състояние на UPS"
 
 msgid "UPS alarms"
-msgstr ""
+msgstr "UPS аларми"
 
 msgid "Internal UPS clock time"
-msgstr ""
+msgstr "Вътрешно UPS часовниково време"
 
 msgid "Internal UPS clock date"
-msgstr ""
+msgstr "Дата на  вътрешения часовник на UPS"
 
 msgid "UPS model"
-msgstr ""
+msgstr "Модел на UPS"
 
 msgid "Manufacturing date"
-msgstr ""
+msgstr "Дата на произвеждане"
 
 msgid "Vendor ID"
-msgstr ""
+msgstr "Идентификатор на производител"
 
 msgid "Product ID"
-msgstr ""
+msgstr "Идентификатор на продукт"
 
 msgid "UPS firmware"
-msgstr ""
+msgstr "UPS firmware"
 
 msgid "Auxiliary device firmware"
 msgstr "Помощен firmware на устройство"
 
 msgid "UPS temperature"
-msgstr ""
+msgstr "Температура на UPS"
 
 msgid "UPS load"
-msgstr ""
+msgstr "Натовареност на UPS"
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr ""
+"Натоварване, когато UPS преминава в състояние на претоварване („OVER“)"
 
 msgid "UPS system identifier"
-msgstr ""
+msgstr "Идентификатор на UPS системата"
 
 msgid "Interval to wait before restarting the load"
-msgstr ""
+msgstr "Интервал за изчакване преди рестартиране на товара"
 
 msgid "Interval to wait before rebooting the UPS)"
-msgstr ""
+msgstr "Интервал за изчакване преди рестартиране на UPS)"
 
 msgid "Interval to wait after shutdown with delay command"
-msgstr ""
+msgstr "Интервал за изчакване след изключване със забавяща команда"
 
 msgid "Time before the load will be started"
-msgstr ""
+msgstr "Време преди стартиране на товаренето"
 
 msgid "Time before the load will be rebooted"
-msgstr ""
+msgstr "Време преди презареждането на натоварването"
 
 msgid "Time before the load will be shutdown"
 msgstr ""
 
 msgid "Interval between self tests"
-msgstr ""
+msgstr "Интервал между самотестовете"
 
 msgid "Results of last self test"
-msgstr ""
+msgstr "Резултати от последния самотест"
 
 msgid "Language to use on front panel"
-msgstr ""
+msgstr "Език, който да се използва на фронтовия панел"
 
 msgid "UPS external contact sensors"
-msgstr ""
+msgstr "Външни сензори за контакт на UPS"
 
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
-msgstr ""
+msgstr "Ефективност на UPS (съотношение на изходния ток към входния ток)"
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "Настояща стойност на пълната мощност (Volt-Amps)"
 
 msgid "Nominal value of apparent power (Volt-Amps)"
-msgstr ""
+msgstr "Номинална стойност на видимата мощност (волт-ампери)"
 
 msgid "Current value of real power (Watts)"
 msgstr "Текуща стойност на истинската мощност(Ватове)"
 
 msgid "Nominal value of real power (Watts)"
-msgstr ""
+msgstr "Номинална стойност на реалната мощност (Ватове)"
 
 msgid "Percentage of apparent power related to maximum load"
-msgstr ""
+msgstr "Процент от видимата мощност, свързана с максималното натоварване"
 
 msgid "UPS beeper status"
-msgstr ""
+msgstr "Статус на звуковия сигнализатор на UPS"
 
 msgid "UPS type"
-msgstr ""
+msgstr "Тип UPS"
 
 msgid "UPS watchdog status"
-msgstr ""
+msgstr "Статус на UPS стражата"
 
 msgid "UPS starts when mains is (re)applied"
 msgstr ""
+"UPS се стартира, когато се възстанови захранването от електрическата мрежа."
 
 msgid "Allow to start UPS from battery"
 msgstr "Разреши UPS-а да запали на батерии."
 
 msgid "UPS coldstarts from battery"
-msgstr ""
+msgstr "UPS стартира на студено от батерията"
 
 msgid "Incoming Line/Power Information"
-msgstr ""
+msgstr "Входяща линия/Информация за захранването"
 
 msgid "Maximum incoming voltage seen"
-msgstr ""
+msgstr "Максимално наблюдавано входящо напрежение"
 
 msgid "Minimum incoming voltage seen"
-msgstr ""
+msgstr "Минимално наблюдавано входящо напрежение"
 
 msgid "Nominal input voltage"
-msgstr ""
+msgstr "Номинално входно напрежение"
 
 msgid "Extended input voltage range"
-msgstr ""
+msgstr "Разширен интервал на входното напрежение"
 
 msgid "Reason for last transfer to battery (* opaque)"
-msgstr ""
+msgstr "Причина за последното прехвърляне към батерия (* непрозрачно)"
 
 msgid "Low voltage transfer point"
-msgstr ""
+msgstr "Точка на прехвърляне на ниско напрежение"
 
 msgid "High voltage transfer point"
-msgstr ""
+msgstr "Точка на прехвърляне на високо напрежение"
 
 msgid "smallest settable low voltage transfer point"
-msgstr ""
+msgstr "най-малката настройваема точка на прехвърляне при ниско напрежение"
 
 msgid "greatest settable low voltage transfer point"
-msgstr ""
+msgstr "най-голямата настройваема точка на прехвърляне при ниско напрежение"
 
 msgid "smallest settable high voltage transfer point"
-msgstr ""
+msgstr "най-малката настройваема точка на прехвърляне на високо напрежение"
 
 msgid "greatest settable high voltage transfer point"
-msgstr ""
+msgstr "най-високата настройваема точка на прехвърляне на високо напрежение"
 
 msgid "Input power sensitivity"
-msgstr ""
+msgstr "Чувствителност на входната мощност"
 
 msgid "Input power quality (* opaque)"
-msgstr ""
+msgstr "Качество на входната мощност (* непрозрачно)"
 
 msgid "Input current (A)"
-msgstr ""
+msgstr "Входен ток (A)"
 
 msgid "Nominal input current (A)"
-msgstr ""
+msgstr "Номинален Входен ток (A)"
 
 msgid "Input line frequency (Hz)"
-msgstr ""
+msgstr "Честота на входния сигнал (Hz)"
 
 msgid "Nominal input line frequency (Hz)"
-msgstr ""
+msgstr "Номинална честота на входния сигнал (Hz)"
 
 msgid "Input line frequency low (Hz)"
-msgstr ""
+msgstr "Честота на входния сигнал (под) (Hz)"
 
 msgid "Input line frequency high (Hz)"
-msgstr ""
+msgstr "Честота на входния сигнал (таван) (Hz)"
 
 msgid "Extended input frequency range"
-msgstr ""
+msgstr "Разширен диапазон на входната честота"
 
 msgid "Low voltage boosting transfer point"
-msgstr ""
+msgstr "Точка на прехвърляне за повишаване на ниското напрежение"
 
 msgid "High voltage boosting transfer point"
-msgstr ""
+msgstr "Точка на прехвърляне с повишаване на високо напрежение"
 
 msgid "Low voltage trimming transfer point"
-msgstr ""
+msgstr "Точка на прехвърляне при ниско напрежение"
 
 msgid "High voltage trimming transfer point"
-msgstr ""
+msgstr "Точка на прехвърляне на високоволтово подрязване"
 
 msgid "Outgoing Power/Inverter Information"
-msgstr ""
+msgstr "Информация за изходяща мощност/инвертор"
 
 msgid "Output voltage (V)"
-msgstr ""
+msgstr "Изходно напрежение (V)"
 
 msgid "Nominal output voltage (V)"
-msgstr ""
+msgstr "Номинално изходно напрежение (V)"
 
 msgid "Output frequency (Hz)"
-msgstr ""
+msgstr "Изходна честота (Hz)"
 
 msgid "Nominal output frequency (Hz)"
-msgstr ""
+msgstr "Номинална изходна честота (Hz)"
 
 msgid "Output current (A)"
-msgstr ""
+msgstr "Изходен ток (A)"
 
 msgid "Nominal output current (A)"
-msgstr ""
+msgstr "Номинален изходен ток (A)"
 
 msgid "Battery Details"
 msgstr "Подробности за  батерията"
@@ -1385,7 +1494,7 @@ msgstr ""
 "ниво на батерията)"
 
 msgid "Minimum battery level for UPS restart after power-off"
-msgstr ""
+msgstr "Минимално ниво на батерията за рестартиране на UPS след изключване"
 
 msgid "Battery level when UPS switches to \"Warning\" state"
 msgstr ""
@@ -1401,10 +1510,10 @@ msgid "Battery temperature"
 msgstr "Температура на батерията"
 
 msgid "Nominal battery voltage"
-msgstr ""
+msgstr "Номинално напрежение на батерията"
 
 msgid "When UPS switches to Low Battery"
-msgstr ""
+msgstr "Когато UPS превключи на режим „Ниско ниво на батерията“"
 
 msgid "Battery alarm threshold"
 msgstr "Праг за аларма на батерията"
@@ -1416,19 +1525,19 @@ msgid "Battery manufacturing date"
 msgstr "Дата на производство на батерията"
 
 msgid "Number of battery packs"
-msgstr ""
+msgstr "Брой батерийни комплекти"
 
 msgid "Number of bad battery packs"
-msgstr ""
+msgstr "Брой дефектни батерийни комплекти"
 
 msgid "Battery chemistry"
 msgstr "Химичен състав на батерията"
 
 msgid "Prevent deep discharge of battery"
-msgstr ""
+msgstr "Предотвратяване на дълбоко разреждане на батерията"
 
 msgid "Switch off when running on battery and no/low load"
-msgstr ""
+msgstr "Изключете, когато работи на батерия и няма/има ниско натоварване"
 
 msgid "Ambient Conditions From External Probe Equipment"
 msgstr "Условия на околната среда от външна сондираща техника"
@@ -1437,40 +1546,40 @@ msgid "Ambient temperature (degrees C)"
 msgstr "Температура на околната среда (градуси C)"
 
 msgid "Temperature alarm (enabled/disabled)"
-msgstr ""
+msgstr "Аларма за температура (активирана/деактивирана)"
 
 msgid "Temperature threshold high (degrees C)"
-msgstr ""
+msgstr "Висок температурен праг (градуси С)"
 
 msgid "Temperature threshold low (degrees C)"
-msgstr ""
+msgstr "Ниска температурна граница (градуси С)"
 
 msgid "Maximum temperature seen (degrees C)"
-msgstr ""
+msgstr "Максимална наблюдавана температура (градуси С)"
 
 msgid "Minimum temperature seen (degrees C)"
-msgstr ""
+msgstr "Минимална наблюдавана температура (градуси С)"
 
 msgid "Ambient relative humidity (percent)"
 msgstr "Относителна влажност на околната среда (процента)"
 
 msgid "Relative humidity alarm (enabled/disabled)"
-msgstr ""
+msgstr "Аларма за относителна влажност (активирана/деактивирана)"
 
 msgid "Relative humidity threshold high (percent)"
-msgstr ""
+msgstr "Висок праг на относителна влажност (процент)"
 
 msgid "Maximum relative humidity seen (percent)"
-msgstr ""
+msgstr "Максимална относителна влажност (проценти)"
 
 msgid "Minimum relative humidity seen (percent)"
-msgstr ""
+msgstr "Минимална относителна влажност (проценти)"
 
 msgid "Smart Outlet Management"
-msgstr ""
+msgstr "Интелигентно управление на контактите"
 
 msgid "NUT Internal Driver Information"
-msgstr ""
+msgstr "Вътрешна информация за драйвера на NUT"
 
 msgid "Driver used"
 msgstr "Използван драйвер"
@@ -1479,28 +1588,28 @@ msgid "Driver version"
 msgstr "Версия на драйвера"
 
 msgid "Driver version internal"
-msgstr ""
+msgstr "Вътрешна версия на драйвера"
 
 msgid "Parameter xxx (ups.conf or cmdline -x) setting"
-msgstr ""
+msgstr "Настройка на параметър xxx (ups.conf или cmdline -x)"
 
 msgid "Flag xxx (ups.conf or cmdline -x) status"
-msgstr ""
+msgstr "Статус на флага xxx (ups.conf или cmdline -x)"
 
 msgid "Internal Server Information"
-msgstr ""
+msgstr "Вътрешна информация за сървъра"
 
 msgid "Server information"
-msgstr ""
+msgstr "Информация за сървъра"
 
 msgid "Server version"
-msgstr ""
+msgstr "Сървър версия"
 
 msgid "Show RAW UPS Info"
-msgstr ""
+msgstr "Покажи Необработена UPS информация"
 
 msgid "RAW info"
-msgstr ""
+msgstr "Необработена  информация"
 
 msgid "System"
 msgstr "Системен"
@@ -1512,58 +1621,58 @@ msgid "Host"
 msgstr "хост"
 
 msgid "Event"
-msgstr ""
+msgstr "Събитиe"
 
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 msgid "Daemon"
 msgstr "Демон"
 
 msgid "FTP - Ban Module"
-msgstr ""
+msgstr "FTP - Модул За Банване"
 
 msgid "FTP - File Transfer"
-msgstr ""
+msgstr "FTP - Прехвърляне на файлове"
 
 msgid "IP"
-msgstr ""
+msgstr "IP Мрежов адрес"
 
 msgid "User"
 msgstr "потребител"
 
 msgid "RSYNC - Server"
-msgstr ""
+msgstr "RSYNC - Сървър"
 
 msgid "RSYNC - Client"
-msgstr ""
+msgstr "RSYNC - Клиент"
 
 msgid "RSYNC - Local"
-msgstr ""
+msgstr "RSYNC - Локално"
 
 msgid "UPnP/DLNA - MiniDLNA"
-msgstr ""
+msgstr "UPnP/DLNA - MiniDLNA"
 
 msgid "Who"
-msgstr ""
+msgstr "Кой"
 
 msgid "iTunes/DAAP"
-msgstr ""
+msgstr "iTunes/DAAP"
 
 msgid "Log file is empty."
-msgstr ""
+msgstr "Дневник файла е празен."
 
 msgid "Log"
-msgstr ""
+msgstr "Дневник"
 
 msgid "Settings"
 msgstr "Натройки"
 
 msgid "Remote Syslog Server"
-msgstr ""
+msgstr "Далечен Syslog Сървър"
 
 msgid "Log Filter"
-msgstr ""
+msgstr "Филтер на Дневника"
 
 msgid "Clear"
 msgstr "Изчисти"
@@ -1572,55 +1681,55 @@ msgid "Download"
 msgstr "Изтегляне"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Обнови"
 
 msgid "Search event"
-msgstr ""
+msgstr "Търсене на събитие"
 
 msgid "Search"
-msgstr ""
+msgstr "Търсене"
 
 msgid "Log Settings"
-msgstr ""
+msgstr "Настройки на Дневника"
 
 msgid "Target"
-msgstr ""
+msgstr "Насока (Тarget)"
 
 msgid "Count"
 msgstr "Броене"
 
 msgid "Ping"
-msgstr ""
+msgstr "Ping"
 
 msgid "Traceroute"
-msgstr ""
+msgstr "Traceroute"
 
 msgid "Ping Host"
-msgstr ""
+msgstr "Ping Host"
 
 msgid "Enter hostname or IP address."
-msgstr ""
+msgstr "Въведете името или IP адреса на машината"
 
 msgid "Select which interface to use."
-msgstr ""
+msgstr "Изберете кой интерфейс да използвате."
 
 msgid "Select number of ICMP ECHO REQUEST packets."
-msgstr ""
+msgstr "Изберете броя на ICMP ECHO REQUEST пакетите."
 
 msgid "Ping may take a while, please be patient."
-msgstr ""
+msgstr "Ping може да отнеме известно време, моля, бъдете търпеливи."
 
 msgid "Ping Output"
-msgstr ""
+msgstr "Резултат от Ping"
 
 msgid "Output"
-msgstr ""
+msgstr "Резултат"
 
 msgid "Routing Tables"
-msgstr ""
+msgstr "Таблици за Routing"
 
 msgid "IPv4 Routes"
-msgstr ""
+msgstr "IPv4 Routes"
 
 msgid "Destination"
 msgstr "Дестинация"
@@ -1629,113 +1738,115 @@ msgid "Gateway"
 msgstr "Шлюз"
 
 msgid "Flags"
-msgstr ""
+msgstr "Flags"
 
 msgid "Use"
-msgstr ""
+msgstr "Употреба"
 
 msgid "MTU"
 msgstr "MTU"
 
 msgid "NetIf"
-msgstr ""
+msgstr "NetIf"
 
 msgid "Expire"
-msgstr ""
+msgstr "Изтича"
 
 msgid "No IPv4 routing information found."
-msgstr ""
+msgstr "Без информация за IPv4 routing"
 
 msgid "IPv6 Routes"
-msgstr ""
+msgstr "IPv6 Routes"
 
 msgid "No IPv6 routing information found."
-msgstr ""
+msgstr "Без информация за IPv6 routing"
 
 msgid "Traceroute Host"
-msgstr ""
+msgstr "Traceroute до машина"
 
 msgid "Resolve IP"
-msgstr ""
+msgstr "Превод IP"
 
 msgid ""
 "Select max time-to-live (max number of hops) used in outgoing probe packets."
 msgstr ""
+"Изберете максималното TTL време на живот (максимален брой скокове), "
+"използвано в изходящите проучващи пакети."
 
 msgid "Traceroute may take a while, please be patient."
-msgstr ""
+msgstr "Traceroute може да отнеме известно време, моля, бъдете търпеливи."
 
 msgid "Traceroute Output"
-msgstr ""
+msgstr "Резултат от Traceroute"
 
 msgid "Delete Selected Notifier"
-msgstr ""
+msgstr "Изтриване на избрания известител"
 
 msgid "Do you want to delete selected notifier?"
-msgstr ""
+msgstr "Искате ли да изтриете избрания известител?"
 
 msgid "Updatenotifier"
-msgstr ""
+msgstr "Известител за  обновяване"
 
 msgid "Overview"
-msgstr ""
+msgstr "Общ преглед"
 
 msgid "Key"
 msgstr "Ключ"
 
 msgid "Time Stamp"
-msgstr ""
+msgstr "Времева марка"
 
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 msgid "Data"
-msgstr ""
+msgstr "Данни"
 
 msgid "Processor"
-msgstr ""
+msgstr "Процесор"
 
 msgid "New"
-msgstr ""
+msgstr "Нов"
 
 msgid "Modify"
-msgstr ""
+msgstr "Редактиране"
 
 msgid "Delete"
 msgstr "Премахни"
 
 msgid "Remove"
-msgstr ""
+msgstr "Премахни"
 
 msgid "Add Encrypted Volume"
 msgstr "Добавяне на шифрован дял"
 
 msgid "Edit Encrypted Volume"
-msgstr ""
+msgstr "Преработка на криптиран том"
 
 msgid "Encrypted volume is marked for deletion"
-msgstr ""
+msgstr "Криптираният дял е маркиран за изтриване"
 
 msgid "Encrypted volume is protected"
-msgstr ""
+msgstr "Криптираният дял е защитен"
 
 msgid "Encrypted volume is unlocked"
-msgstr ""
+msgstr "Криптираният дял е отключен"
 
 msgid "Delete Selected Encrypted Volumes"
-msgstr ""
+msgstr "Изтриване на избрани криптирани делове"
 
 msgid "Do you want to delete selected encrypted volumes?"
-msgstr ""
+msgstr "Искате ли да изтриете избраните криптирани делове?"
 
 msgid "No new encrypted disks have been found."
-msgstr ""
+msgstr "Не са открити нови криптирани дискове."
 
 msgid "All encrypted disks have been imported."
-msgstr ""
+msgstr "Всички криптирани дискове са внесени."
 
 msgid "Errors have been detected during import."
-msgstr ""
+msgstr "Бяха открити грешки по време на вноса."
 
 msgid "Encryption"
 msgstr "Криптиране"
@@ -1747,13 +1858,13 @@ msgid "Tools"
 msgstr "Инструменти"
 
 msgid "Encryption Management"
-msgstr ""
+msgstr "Управление на криптирането"
 
 msgid "Disk"
 msgstr "Диск"
 
 msgid "Data Integrity"
-msgstr ""
+msgstr "Цялост на данните"
 
 msgid "Configuring"
 msgstr "Настройване"
@@ -1770,17 +1881,21 @@ msgstr "Прикачен"
 msgid ""
 "Do you really want to import?\\nThe existing config may be overwritten."
 msgstr ""
+"Наистина ли искате да внесете?\\nСъществуващата конфигурация може да бъде "
+"презаписана."
 
 msgid "Import Disks"
-msgstr ""
+msgstr "Внеси Дискове"
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
 "cleared and overwritten."
 msgstr ""
+"Наистина ли искате да изчистите и внесете?\\nСъществуващата конфигурация ще "
+"бъде изчистена и презаписана."
 
 msgid "Clear Config And Import Disks"
-msgstr ""
+msgstr "Изчистване на конфигурацията и импортиране на дискове"
 
 msgid "You must add disks first."
 msgstr "трябва първо да добавите диск"
@@ -1796,7 +1911,7 @@ msgid "Passphrase"
 msgstr "Парола"
 
 msgid "Passphrase Confirmation"
-msgstr ""
+msgstr "Потвърждение на паролата"
 
 msgid "This disk already exists in the disk list."
 msgstr "харддиска вече съществува в списъка с дисковете"
@@ -1805,31 +1920,33 @@ msgid "Passphrase don't match."
 msgstr "секретната фраза не съвпаде."
 
 msgid "Unmount this disk first before proceeding."
-msgstr ""
+msgstr "Първо размонтирайте този диск, преди да продължите."
 
 msgid "The disk is currently mounted!"
-msgstr ""
+msgstr "Дискът е монтиран в момента!"
 
 msgid "Encryption Settings"
-msgstr ""
+msgstr "Настройки за криптиране"
 
 msgid "Must choose one"
-msgstr ""
+msgstr "Трябва да изберете едно"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Алгоритъм"
 
 msgid "Select an encryption algorithm to use."
-msgstr ""
+msgstr "Изберете алгоритъм за криптиране, който да използвате."
 
 msgid "Default"
 msgstr "По подразбиране"
 
 msgid "Key Length"
-msgstr ""
+msgstr "Дължина на ключа"
 
 msgid "Select which key length to use for given cryptographic algorithm."
 msgstr ""
+"Изберете коя дължина на ключа да се използва за даден криптографски "
+"алгоритъм."
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -1842,12 +1959,14 @@ msgid "Initialize"
 msgstr "инициализирай"
 
 msgid "Initialize and encrypt disk."
-msgstr ""
+msgstr "Инициализирайте и криптирайте диска."
 
 msgid ""
 "This will erase ALL data on your disk! Do not use this option if you want to "
 "add an existing encrypted disk."
 msgstr ""
+"Това ще изтрие ВСИЧКИ данни на вашия диск! Не използвайте тази опция, ако "
+"искате да добавите съществуващ криптиран диск."
 
 msgid "Cancel"
 msgstr "Откажи"
@@ -1857,7 +1976,7 @@ msgstr "Изходни данни на команда:"
 
 #, php-format
 msgid "Encrypting '%s'... Please wait"
-msgstr ""
+msgstr "Криптиране на „%s“... Моля, изчакайте"
 
 #, php-format
 msgid "Attaching provider '%s'."
@@ -1867,67 +1986,67 @@ msgid "Command"
 msgstr "Команда"
 
 msgid "The encrypted device is currently mounted!"
-msgstr ""
+msgstr "Криптираното устройство е монтирано в момента!"
 
 msgid "Failed to upload file."
-msgstr ""
+msgstr "Не е възможно да се качи файлът."
 
 msgid "Encryption Tools"
-msgstr ""
+msgstr "Инструменти за криптиране"
 
 msgid "Attach"
-msgstr ""
+msgstr "Закачи"
 
 msgid "Detach"
-msgstr ""
+msgstr "Отделяне"
 
 msgid "Setkey"
-msgstr ""
+msgstr "Setkey"
 
 msgid "List"
-msgstr ""
+msgstr "Списък"
 
 msgid "Backup"
-msgstr ""
+msgstr "Резервно копие"
 
 msgid "Restore"
-msgstr ""
+msgstr "Въстановяване"
 
 msgid "Old Passphrase"
-msgstr ""
+msgstr "Стара Парола"
 
 msgid "Backup File"
-msgstr ""
+msgstr "Файл със Резервно Копие"
 
 msgid "Restore metadata from the given file to the given provider."
-msgstr ""
+msgstr "Възстановяване на метаданни от дадения файл към дадения доставчик."
 
 msgid "Execute"
-msgstr ""
+msgstr "Изпълни"
 
 msgid "Command Output:"
-msgstr ""
+msgstr "Резултат от командата"
 
 msgid "Mounting device."
-msgstr ""
+msgstr "Устройство за монтаж."
 
 msgid "Successful."
-msgstr ""
+msgstr "Успешен."
 
 msgid "Failed."
-msgstr ""
+msgstr "Неуспех."
 
 msgid "Done."
 msgstr "Готово."
 
 msgid "Failed to upload metadata backup file."
-msgstr ""
+msgstr "Неуспешно качване на файла с резервно копие на метаданните."
 
 msgid "Record is locked"
-msgstr ""
+msgstr "Записът е заключен"
 
 msgid "Next"
-msgstr ""
+msgstr "Напред"
 
 msgid "Back"
 msgstr "Назад"
@@ -1939,16 +2058,16 @@ msgid "OK"
 msgstr "Да"
 
 msgid "UFS (GPT and Soft Updates)"
-msgstr ""
+msgstr "UFS (GPT и Soft Updates)"
 
 msgid "FAT32"
-msgstr ""
+msgstr "FAT32"
 
 msgid "ZFS Storage Pool"
-msgstr ""
+msgstr "ZFS Storage Pool"
 
 msgid "Unknown size"
-msgstr ""
+msgstr "Неизвестен размер"
 
 msgid "Device not found"
 msgstr "Устройството не е открито"
@@ -1963,88 +2082,98 @@ msgstr "Устройството съдържа boot дял"
 msgid ""
 "The attribute '%s' may only consist of the characters [a-z], [A-Z] and [0-9]."
 msgstr ""
+"Атрибутът '%s'  може да се състои само от символите [a-z], [A-Z] и [0-9]."
 
 msgid "Volume Label"
-msgstr ""
+msgstr "Етикет на обема"
 
 #, php-format
 msgid ""
 "The attribute '%s' may only consist of the characters [a-z], [A-Z], [0-9] "
 "and [._-]."
 msgstr ""
+"Атрибутът '%s'  може да се състои само от символите [a-z], [A-Z] и [0-9] и "
+"[._-]."
 
 msgid "HDD Format"
-msgstr ""
+msgstr "Формат на твърдия диск"
 
 msgid "Step"
-msgstr ""
+msgstr "Стъпка"
 
 msgid "HDD Management"
-msgstr ""
+msgstr "Управление на твърдия диск"
 
 msgid "Format Options"
-msgstr ""
+msgstr "Опции за форматиране"
 
 msgid "File System"
-msgstr ""
+msgstr "Файлова система"
 
 msgid "Select file system format."
-msgstr ""
+msgstr "Изберете формат на файловата система."
 
 msgid ""
 "Volume label of the new file system. Use % for a counter or %n for a counter "
 "starting at number n, Use [n for the rightmost n characters of the device "
 "serial number."
 msgstr ""
+"Етикет на обема на новата файлова система. Използвайте % за брояч или %n за "
+"брояч, започващ от номер n. Използвайте [n за най-десните n символа от "
+"серийния номер на устройството."
 
 msgid "Minimum Free Space"
-msgstr ""
+msgstr "Минимално свободно пространство"
 
 msgid ""
 "Specifiy the percentage of disk space to be held back from normal usage. "
 "Lowering this threshold can adversely affect performance and auto-"
 "defragmentation!"
 msgstr ""
+"Посочете процента от дисковото пространство, който да бъде запазен за "
+"нормална употреба. Намаляването на този праг може да повлияе неблагоприятно "
+"на производителността и автоматичната дефрагментация!"
 
 msgid "Advanced Format"
 msgstr "Форма за напреднали"
 
 msgid "Enable Advanced Format (4KB Sector Size)."
-msgstr ""
+msgstr "Активиране на разширен формат (размер на сектора 4 KB)."
 
 msgid "GPT Partition"
-msgstr ""
+msgstr "GPT дял"
 
 msgid "Create ZFS on a GPT partition."
 msgstr "Създай ZFS на GPT дял."
 
 msgid "Keep MBR"
-msgstr ""
+msgstr "Запази MBR"
 
 msgid ""
 "Do not erase the Master Boot Record (useful for some RAID controller cards)."
 msgstr ""
+"Не изтривайте Master Boot Record (полезен за някои RAID контролни карти)."
 
 msgid "Disk Selection"
 msgstr "Избор на Диск"
 
 msgid "Invert Selection"
-msgstr ""
+msgstr "Преобръщане на избраното"
 
 msgid "Path"
-msgstr ""
+msgstr "Път"
 
 msgid "Filesystem"
-msgstr ""
+msgstr "Файлова система"
 
 msgid "Reason Code"
-msgstr ""
+msgstr "Код на причината"
 
 msgid "Unknown or Unformatted"
-msgstr ""
+msgstr "Непознат или неформатиран"
 
 msgid "N/A"
-msgstr ""
+msgstr "Няма"
 
 msgid "Command output"
 msgstr "Резултат от командата"
@@ -2053,37 +2182,39 @@ msgid "Add Disk"
 msgstr "Добавяне на Диск"
 
 msgid "Edit Disk"
-msgstr ""
+msgstr "Преработка на диск"
 
 msgid "Disk is marked for deletion"
-msgstr ""
+msgstr "Дискът е маркиран за изтриване"
 
 msgid "Disk is locked"
-msgstr ""
+msgstr "Дискът е заключен"
 
 msgid "Disk is unlocked"
-msgstr ""
+msgstr "Дискът е отключен"
 
 msgid "Delete Selected Disks"
-msgstr ""
+msgstr "Изтриване на избраните дискове"
 
 msgid "Do you want to delete selected disks?"
-msgstr ""
+msgstr "Искате ли да изтриете избраните дискове?"
 
 msgid "Any service using these disks might become invalid or inaccessible!"
 msgstr ""
+"Всяка услуга, която използва тези дискове, може да стане невалидна или "
+"недостъпна!"
 
 msgid "Do you want to import disks?"
-msgstr ""
+msgstr "Искате ли да внасяте дискове?"
 
 msgid "The existing configuration may be overwritten."
-msgstr ""
+msgstr "Съществуващата настройка може да бъде презаписана."
 
 msgid "Do you want to import software RAID disks?"
-msgstr ""
+msgstr "Искате ли да импортирате софтуерни RAID дискове?"
 
 msgid "No new disk found."
-msgstr ""
+msgstr "Не е намерен нов диск."
 
 msgid "All disks are imported."
 msgstr "Всички дискове са внесени."
@@ -2092,28 +2223,32 @@ msgid "Detected an error while importing."
 msgstr "Засечена греша докато се внася."
 
 msgid "No new software RAID disk found."
-msgstr ""
+msgstr "Не е открит нов софтуерен RAID диск."
 
 msgid "All software RAID disks are imported."
-msgstr ""
+msgstr "Всички софтуерни RAID дискове са внесени."
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
 "Please remove those devices and re-add them or run import disks with clear "
 "configuration option enabled."
 msgstr ""
+"Информацията за конфигурацията на устройствата е различна от физическите "
+"устройства. Моля, премахнете тези устройства и ги добавете отново или "
+"стартирайте внос на дискове с активирана опция за изчистване на "
+"конфигурацията."
 
 msgid "Standby"
-msgstr ""
+msgstr "Режим на готовност"
 
 msgid "Initializing"
-msgstr ""
+msgstr "Инициализиране"
 
 msgid "Modifying"
-msgstr ""
+msgstr "Променя се"
 
 msgid "MOVED TO"
-msgstr ""
+msgstr "ПРЕМЕСТЕНО В"
 
 msgid "CHANGED"
 msgstr "ПРОМЕНЕН"
@@ -2131,224 +2266,259 @@ msgid "Unknown or unformatted"
 msgstr "непознат и неформатиран"
 
 msgid "Rescan Busses"
-msgstr ""
+msgstr "Пресканиране на бусове"
 
 msgid "Clear Configuration"
-msgstr ""
+msgstr "Изчисти настройката"
 
 msgid "Clear configuration information before importing disks."
-msgstr ""
+msgstr "Изчистете информацията за настройките преди да импортирате дискове."
 
 msgid "Import"
-msgstr ""
+msgstr "Внасяне"
 
 msgid "Import Software RAID Disks"
-msgstr ""
+msgstr "Внасяне на софтуерни RAID дискове"
 
 msgid "Clear configuration information before importing software RAID disks."
 msgstr ""
+"Изчистете информацията за настройката преди да внесете софтуерни RAID "
+"дискове."
 
 msgid "Disk Settings"
-msgstr ""
+msgstr "Настройки на диска"
 
 msgid "You may enter a description here for your reference."
 msgstr "You may enter a description here for your reference."
 
 msgid "Transfer mode"
-msgstr ""
+msgstr "Режим на прехвърляне"
 
 msgid ""
 "This allows you to set the transfer mode for ATA/IDE disks. You can set "
 "'Automatic' to enable the automatic mode for all SATA/ATA/IDE disks."
 msgstr ""
+"Това ви позволява да настроите режима на трансфер за ATA/IDE дискове. Можете "
+"да настроите „Автоматично“, за да активирате автоматичния режим за всички "
+"SATA/ATA/IDE дискове."
 
 msgid "Minutes"
-msgstr ""
+msgstr "Минути"
 
 msgid "HDD standby time"
-msgstr ""
+msgstr "Време в режим на готовност на твърдия диск"
 
 msgid ""
 "Puts the disk into standby mode when the selected amount of time after the "
 "last disk access has been elapsed."
 msgstr ""
+"Преминава диска в режим на готовност, когато изтече избраното време след "
+"последния достъп до диска."
 
 msgid "Level 1 - Minimum Power Usage with Standby (Spindown)"
 msgstr ""
+"Ниво 1 – Минимална консумация на енергия в режим на готовност (Spindown)"
 
 msgid "Level 64 - Intermediate Power Usage with Standby"
-msgstr ""
+msgstr "Ниво 64 – Средно потребление на енергия в режим на готовност"
 
 msgid "Level 127 - Intermediate Power Usage with Standby"
-msgstr ""
+msgstr "Ниво 127 – Средно потребление на енергия в режим на готовност"
 
 msgid "Level 128 - Minimum Power Usage without Standby (No Spindown)"
 msgstr ""
+"Ниво 128 – Минимална консумация на енергия без режим на готовност (без "
+"спиране на въртенето)"
 
 msgid "Level 192 - Intermediate Power Usage without Standby"
-msgstr ""
+msgstr "Ниво 192 - Средно ниво на енергопотребление без режим на готовност"
 
 msgid "Level 254 - Maximum Performance, Maximum Power Usage"
 msgstr ""
+"Ниво 254 - Максимална производителност, максимално потребление на енергия"
 
 msgid "Power management"
-msgstr ""
+msgstr "Управление на захранването"
 
 msgid ""
 "This allows you to lower the power consumption of the disk, at the expense "
 "of performance."
 msgstr ""
+"Това ви позволява да намалите консумацията на енергия на диска, за сметка на "
+"производителността."
 
 msgid "Minimum Performance, Minimum Acoustic Output"
-msgstr ""
+msgstr "Минимална производителност, минимална акустична емисия"
 
 msgid "Medium Acoustic Output"
-msgstr ""
+msgstr "Средна акустична емисия"
 
 msgid "Maximum Performance, Maximum Acoustic Output"
-msgstr ""
+msgstr "Максимална производителност, максимална акустична емисия"
 
 msgid "Acoustic Level"
-msgstr ""
+msgstr "Акустично ниво"
 
 msgid "This allows you to set how loud the drive is while it's operating."
-msgstr ""
+msgstr "Това ви позволява да настроите колко шумно да работи дискът."
 
 msgid "Activate S.M.A.R.T. monitoring for this device."
 msgstr "Активиране на S.M.A.R.T. мониторинга на това устройство."
 
 msgid "Extra options (usually empty)."
-msgstr ""
+msgstr "Допълнителни опции (обикновено празни)."
 
 msgid "Please check the documentation."
-msgstr ""
+msgstr "Моля, разгледайте документацията."
 
 msgid "S.M.A.R.T. Options"
-msgstr ""
+msgstr "S.M.A.R.T.  опции"
 
 msgid ""
 "This option allows you to set the file system of already formatted disks "
 "containing data."
 msgstr ""
+"Тази опция ви позволява да настроите файловата система на вече форматирани "
+"дискове, съдържащи данни."
 
 msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr ""
+"Изберете опцията „Неформатирани“ за неформатирани дискове и ги форматирайте с"
 
 msgid "Format Program"
-msgstr ""
+msgstr "Програма за форматиране"
 
 msgid "Preformatted file system"
-msgstr ""
+msgstr "Преформатирана файлова система"
 
 msgid "iSCSI Initiator Settings"
-msgstr ""
+msgstr "Настройки за iSCSI Initiator"
 
 msgid "Interval"
-msgstr ""
+msgstr "Интервал"
 
 msgid "Power Mode"
-msgstr ""
+msgstr "Профил за захранване"
 
 msgid "Difference"
 msgstr "Разлика"
 
 msgid "Informal"
-msgstr ""
+msgstr "Неформален"
 
 msgid "To Email Address"
-msgstr ""
+msgstr "До Елеткронна Поща Адрес"
 
 msgid "Interval must be greater or equal than 10 seconds."
-msgstr ""
+msgstr "Интервалът трябва да е по-голям или равен на 10 секунди."
 
 msgid "Short Self-Test"
-msgstr ""
+msgstr "Кратък себетест"
 
 msgid "Long Self-Test"
-msgstr ""
+msgstr "Дълъг себетест"
 
 msgid "Conveyance Self-Test"
-msgstr ""
+msgstr "¿Conveyance? ¿Traнспорт? ¿Клониране? себетест"
 
 msgid "Offline Immediate Test"
-msgstr ""
+msgstr "Офлайн незабавно тестване"
 
 msgid "Reload Page"
-msgstr ""
+msgstr "Презареждане на страницата"
 
 msgid "USB Mass Storage Devices"
-msgstr ""
+msgstr "USB устройства за масово съхранение"
 
 msgid "Make sure you have already configured your email settings"
 msgstr ""
+"Уверете се, че вече сте конфигурирали настройките на електронната си поща."
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
-msgstr ""
+msgstr "Уверете се, че сте активирали S.M.A.R.T. за вашите устройства."
 
 msgid "Self-Monitoring, Analysis & Reporting Technology"
-msgstr ""
+msgstr "Технология за самоконтрол, анализ и отчитане  (S.M.A.R.T)"
 
 msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
 msgstr ""
+"Настройте интервала между проверките на диска на N секунди. Минималната "
+"допустима стойност е 10."
 
 msgid ""
 "Never - Poll (check) the device regardless of its power mode. This may cause "
 "a disk which is spun-down to be spun-up when it is checked."
 msgstr ""
+"Никога - Проверявайте устройството (проверка) независимо от неговия режим на "
+"захранване. Това може да доведе до задействане на диск, който е в режим на "
+"спиране, когато се проверява."
 
 msgid "Sleep - Check the device unless it is in SLEEP mode."
-msgstr ""
+msgstr "Сън - Проверете устройството, освен ако не е в режим SLEEP (Сън)."
 
 msgid ""
 "Standby - Check the device unless it is in SLEEP or STANDBY mode. In these "
 "modes most disks are not spinning, so if you want to prevent a laptop disk "
 "from spinning up each poll, this is probably what you want."
 msgstr ""
+"Standby (Режим на готовност) – Проверете устройството, освен ако не е в "
+"режим SLEEP (Сън) или STANDBY (Режим на готовност). В тези режими повечето "
+"дискове не се въртят, така че ако искате да предотвратите въртенето на диска "
+"на лаптопа при всяко запитване, вероятно това е, което ви трябва."
 
 msgid ""
 "Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the "
 "IDLE state, most disks are still spinning, so this is probably not what you "
 "want."
 msgstr ""
+"Idle (Бездействие) – Проверете устройството, освен ако не е в режим SLEEP "
+"(Сън), STANDBY (Очакване) или IDLE (Бездействие). В състояние IDLE повечето "
+"дискове все още се въртят, така че вероятно това не е желаното от вас."
 
 msgid "Default Device Settings"
-msgstr ""
+msgstr "Настройки по подразбиране на устройството"
 
 msgid "S.M.A.R.T. Monitoring"
-msgstr ""
+msgstr "S.M.A.R.T. наблюдение"
 
 msgid ""
 "Enable S.M.A.R.T. monitoring of S.M.A.R.T. capable devices when they are "
 "added to the configuration."
 msgstr ""
+"Активирайте S.M.A.R.T. мониторинг на устройствата, способни да работят с "
+"S.M.A.R.T., когато те бъдат добавени към конфигурацията."
 
 msgid "Temperature Monitoring"
-msgstr ""
+msgstr "Наблюдение на температурата"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
 msgstr ""
+"Докладвайте, ако температурата се е променила с поне N градуса по Целзий от "
+"последния доклад. Настройте на 0, за да деактивирате този доклад."
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to "
 "0 to disable this report."
 msgstr ""
+"Докладвайте, ако температурата е по-висока или равна на N градуса по Целзий. "
+"Настройте на 0, за да деактивирате този доклад."
 
 msgid "Self-Test Schedules"
-msgstr ""
+msgstr "Разписания за самотестване"
 
 msgid "Scheduled Tests"
-msgstr ""
+msgstr "Планирани тестове"
 
 msgid "Edit self-test"
-msgstr ""
+msgstr "Преработване на самотеста"
 
 msgid "Do you really want to delete this scheduled self-test?"
-msgstr ""
+msgstr "Наистина ли искате да изтриете този планиран самотест?"
 
 msgid "Delete self-test"
 msgstr "Изтрий само-тест"
@@ -2357,7 +2527,7 @@ msgid "Add self-test"
 msgstr "Добави само-тест"
 
 msgid "Do you really want to delete all scheduled self-tests?"
-msgstr ""
+msgstr "Наистина ли искате да изтриете всички планирани самотестове?"
 
 msgid "Delete all self-tests"
 msgstr "Изтрий всички тестове"
@@ -2375,16 +2545,16 @@ msgid "Destination email address."
 msgstr "Целеви e-mail адрес."
 
 msgid "Separate email addresses by semi-colon."
-msgstr ""
+msgstr "Разделете имейл адресите със запетая."
 
 msgid "Test Email"
-msgstr ""
+msgstr "Тестова електронна поща"
 
 msgid "Send a TEST warning email on startup."
-msgstr ""
+msgstr "Изпратете TEST предупредителен имейл при стартиране."
 
 msgid "Save and Restart"
-msgstr ""
+msgstr "Записване и рестартиране"
 
 msgid ""
 "Activate email report if you want to be notified if a failure or a new error "
@@ -2394,22 +2564,22 @@ msgstr ""
 "или нова грешка , или ако S.M.A.R.T. команда на диска се провали."
 
 msgid "Scheduled Self-Test"
-msgstr ""
+msgstr "Планирано самотестване"
 
 msgid "Scheduled Self-Test Settings"
-msgstr ""
+msgstr "Настройки за планирано самотестване"
 
 msgid "Select a disk that is enabled for S.M.A.R.T. monitoring."
-msgstr ""
+msgstr "Изберете диск, който е активиран за S.M.A.R.T. наблюдение."
 
 msgid "Schedule Time"
-msgstr ""
+msgstr "График на времето"
 
 msgid "Mount Point"
 msgstr "Място за монтиране"
 
 msgid "Fsck"
-msgstr ""
+msgstr "Fsck"
 
 msgid "Mount Point Management"
 msgstr ""
@@ -2424,7 +2594,7 @@ msgid "Retry"
 msgstr "Нов опит"
 
 msgid "Edit mount point"
-msgstr ""
+msgstr "Управление на точките за монтиране"
 
 msgid ""
 "Do you really want to delete this mount point? All elements that still use "
@@ -2434,7 +2604,7 @@ msgstr ""
 "it will become invalid (e.g. share)!"
 
 msgid "Delete mount point"
-msgstr ""
+msgstr "Изтриване на точка на монтиране"
 
 msgid "Add mount point"
 msgstr "Добави mount point"
@@ -2448,24 +2618,27 @@ msgid ""
 "filesystems such as EXT2, EXT3, EXT4, FAT, FAT32, or NTFS can result in "
 "unpredictable results, file corruption and the loss of data!"
 msgstr ""
+"UFS и ZFS са НАТИВНИ файлови системи на %s. Опитът да се използват други "
+"файлови системи като EXT2, EXT3, EXT4, FAT, FAT32 или NTFS може да доведе до "
+"непредвидими резултати, повреждане на файлове и загуба на данни!"
 
 msgid "Partition type"
-msgstr ""
+msgstr "Тип дял"
 
 msgid "File system"
 msgstr "Файлова система"
 
 msgid "Mount point name"
-msgstr ""
+msgstr "Име на точката на монтиране"
 
 msgid "Partition number"
-msgstr ""
+msgstr "Номер на дял"
 
 msgid "HAST volume"
-msgstr ""
+msgstr "HAST обем"
 
 msgid "Filename"
-msgstr ""
+msgstr "Име на файл"
 
 msgid "Device / Label"
 msgstr "Устройство / Етикет"
@@ -2474,66 +2647,69 @@ msgstr "Устройство / Етикет"
 msgid ""
 "The attribute '%s' may only consist of the characters a-z, A-Z, 0-9, _ , -."
 msgstr ""
+"Атрибутът '%s' може да се състои само от символите a-z, A-Z, 0-9, _ , -."
 
 #, php-format
 msgid "The attribute '%s' contains invalid characters."
 msgstr "The attribute '%s' contains invalid characters."
 
 msgid "EFI/GPT partition can be use with UFS only."
-msgstr ""
+msgstr "EFI/GPT дял може да се използва само с UFS."
 
 msgid "Can't mount the system partition 1, the DATA partition is the 2."
 msgstr "Не може да монтира системен дял 1, ДАННИ дяла е 2."
 
 msgid "Wrong partition type or partition number."
-msgstr ""
+msgstr "Неправилен тип дял или номер на дял."
 
 msgid "Can't get UFS ID."
 msgstr "Не може да се намери UFS ID"
 
 msgid "HAST volume can be use with GPT/UFS only."
-msgstr ""
+msgstr "HAST обемът може да се използва само с GPT/UFS."
 
 msgid "Selected file isn't an valid ISO file."
-msgstr ""
+msgstr "Избраният файл не е валиден ISO файл."
 
 msgid "Selected device or label does not exist."
-msgstr ""
+msgstr "Избраното устройство или етикет не съществува."
 
 msgid "The disk/partition is already configured."
-msgstr ""
+msgstr "Дискът/партицията вече е конфигуриран/а."
 
 msgid "Duplicate mount point name."
-msgstr ""
+msgstr "Повторено име на точка за монтиране."
 
 msgid "Custom device"
 msgstr "Перснализирано устройство"
 
 msgid "You may enter a device file or label path."
-msgstr ""
+msgstr "Можете да въведете файл на устройство или път към етикет."
 
 msgid "GPT partition"
-msgstr ""
+msgstr "GPT дял"
 
 msgid "MBR partition"
-msgstr ""
+msgstr "MBR дял"
 
 msgid "CD/DVD"
 msgstr "CD/DVD"
 
 msgid "Select 'GPT partition' if you want to mount a GPT formatted drive"
-msgstr ""
+msgstr "Изберете „GPT дял“, ако искате да монтирате диск с GPT формат."
 
 msgid ""
 "Select 'MBR partition' default partition if you want to mount a UFS "
 "formatted drive or if you want to import disks from other OS."
 msgstr ""
+"Изберете стандартната партиция „MBR partition“, ако искате да монтирате диск "
+"с UFS формат или да импортирате дискове от друга операционна система."
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
-msgstr ""
+msgstr "Изберете „CD/DVD”, ако искате да монтирате CD/DVD обем."
 
 msgid "ISO file to be mounted."
-msgstr ""
+msgstr "ISO файл за монтиране."
 
 msgid "Read only"
 msgstr "Само за четене"
@@ -2541,42 +2717,48 @@ msgstr "Само за четене"
 msgid ""
 "Mount the file system read-only (even the super-user may not write it)."
 msgstr ""
+"Mount the file system read-only (even the super-user may not write it)."
 
 msgid "File system check"
-msgstr ""
+msgstr "Проверка на файловата система"
 
 msgid ""
 "Enable foreground/background file system consistency check during boot "
 "process."
 msgstr ""
+"Активиране на проверка за съгласуваност на файловата система на първи "
+"план/на заден план по време на процеса на стартиране."
 
 msgid "Access Restrictions"
 msgstr "Ограничения за достъп"
 
 msgid "Owner"
-msgstr ""
+msgstr "Собственик"
 
 msgid "Group"
 msgstr "Група"
 
 msgid "Read"
-msgstr ""
+msgstr "Прочети"
 
 msgid "Write"
-msgstr ""
+msgstr "Пиши"
 
 msgid "Others"
-msgstr ""
+msgstr "Други"
 
 #, php-format
 msgid "You can not mount partition '%s' where the config file is stored."
 msgstr ""
+"Не можете да монтирате дял '%s', където е съхранен конфигурационният файл."
 
 #, php-format
 msgid ""
 "UFS and variants are the NATIVE file format for FreeBSD (the underlying OS "
 "of %s)."
 msgstr ""
+"UFS и вариантите му са НАТИВНИЯТ файлов формат за FreeBSD (основната "
+"операционна система на %s)."
 
 msgid ""
 "Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, EXT4 or "
@@ -2598,12 +2780,15 @@ msgid ""
 "Users will notice a service disruption when trying to access this mount "
 "while the file system check is running."
 msgstr ""
+"Потребителите ще забележат прекъсване на услугата, когато се опитат да "
+"получат достъп до това монтиране, докато се изпълнява проверката на "
+"файловата система."
 
 msgid "Mount Point Fsck"
-msgstr ""
+msgstr "Fsck Монтажна точка"
 
 msgid "Unmount Disk/Partition"
-msgstr ""
+msgstr "Размонтиране на диск/партиция"
 
 msgid "Successful"
 msgstr "Успешно"
@@ -2615,15 +2800,17 @@ msgid ""
 "You can't unmount a drive which is used by swap file, a iSCSI-target file or "
 "any other running process!"
 msgstr ""
+"Не можете да откачите устройство, което се използва от SWAP файл, iSCSI-"
+"target файл или друг изпълняем процес!"
 
 msgid "Mount Point Tools"
-msgstr ""
+msgstr "Инструменти за монтиране"
 
 msgid "mount"
-msgstr ""
+msgstr "монтиране"
 
 msgid "umount"
-msgstr ""
+msgstr "Демонтиране"
 
 msgid "Mounting..."
 msgstr "Монтиране..."
@@ -2632,47 +2819,47 @@ msgid "Unmounting..."
 msgstr "Демонтиране..."
 
 msgid "GEOM not found."
-msgstr ""
+msgstr "GEOM не е намерен."
 
 msgid "GEOM details not available."
-msgstr ""
+msgstr "Данни за GEOM не са налични."
 
 msgid "JBOD"
 msgstr "JBOD"
 
 msgid "GEOM"
-msgstr ""
+msgstr "GEOM"
 
 msgid "RAID 0/1/5"
-msgstr ""
+msgstr "RAID 0/1/5"
 
 msgid "Maintenance"
-msgstr ""
+msgstr "Поддръжка"
 
 msgid "JBOD Status"
-msgstr ""
+msgstr "JBOD Статус"
 
 msgid "JBOD Details"
-msgstr ""
+msgstr "JBOD Детайли"
 
 msgid "Details"
-msgstr ""
+msgstr "Детайли"
 
 msgid "Volume Name"
 msgstr "Име на диск"
 
 msgid "JBOD Maintenance"
-msgstr ""
+msgstr "Поддръжка на JBOD"
 
 msgid "Send Command!"
 msgstr "Изпрати командата"
 
 msgid "Use these specials actions for debugging only!"
-msgstr ""
+msgstr "Използвайте тези специални действия само за дебъгване!"
 
 msgid ""
 "There is no need to start a RAID volume from here (It starts automatically)."
-msgstr ""
+msgstr "Няма нужда да стартирате RAID обем оттук (той стартира автоматично)."
 
 msgid "Add RAID"
 msgstr "Добави RAID"
@@ -2681,13 +2868,13 @@ msgid "Edit RAID"
 msgstr "Промени RAID-а"
 
 msgid "RAID is marked for removal"
-msgstr ""
+msgstr "RAID е маркиран за премахване"
 
 msgid "RAID is protected"
-msgstr ""
+msgstr "RAID е защитен"
 
 msgid "RAID is unlocked"
-msgstr ""
+msgstr "RAID е отключен"
 
 msgid "Delete Selected RAID Volumes"
 msgstr "Изтрий Избраните RAID Томове"
@@ -2696,33 +2883,33 @@ msgid "Do you want to delete selected RAID volumes?"
 msgstr "Искате ли да изтриете избраните RAID томове?"
 
 msgid "Stopped"
-msgstr ""
+msgstr "Спрян"
 
 msgid "Message Board"
-msgstr ""
+msgstr "Дъска за съобщения"
 
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s е използвано за създаването на %2$s дялове."
 
 msgid "mount point"
-msgstr ""
+msgstr "Точка на монтиране"
 
 msgid "A mounted RAID volume cannot be deleted."
 msgstr "Монтиран RAID том не може да бъде изтрит"
 
 #, php-format
 msgid "Remove the %s first before proceeding."
-msgstr ""
+msgstr "Първо премахнете %s, преди да продължите."
 
 msgid "RAID device is already in use."
-msgstr ""
+msgstr "RAID устройството вече се използва."
 
 msgid "RAID device can be removed."
-msgstr ""
+msgstr "RAID устройството може да бъде премахнато."
 
 msgid "Do you want to create a RAID-1 from selected disks?"
 msgstr "Искате ли да създадете RAID-1 от избраните дискове?"
@@ -2734,20 +2921,20 @@ msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Искате ли да създадете JBOD от избраните дискове?"
 
 msgid "No softraid-formatted disks available."
-msgstr ""
+msgstr "Няма налични дискове, форматирани в SoftRaid."
 
 msgid "RAID Name"
-msgstr ""
+msgstr "RAID Име"
 
 msgid ""
 "The name of the RAID may only consist of the characters a-z, A-Z, 0-9."
-msgstr ""
+msgstr "Името на RAID може да се състои само от символите a-z, A-Z, 0-9."
 
 msgid "The name of the RAID is already in use."
-msgstr ""
+msgstr "Името на RAID вече се използва."
 
 msgid "The name of the RAID cannot be changed."
-msgstr ""
+msgstr "Името на RAID не може да бъде променено."
 
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr "1 или повече диска се изискват, за да се създаде JBOD том."
@@ -2759,37 +2946,37 @@ msgid "2 or more disks are required to build a RAID-0 volume."
 msgstr "2 или повече диска са необходими, за да се създаде RAID-0 том."
 
 msgid "GEOM Software RAID"
-msgstr ""
+msgstr "GEOM Software RAID"
 
 msgid "Entire Device"
-msgstr ""
+msgstr "Цялото устройство"
 
 msgid "Round-robin read"
-msgstr ""
+msgstr "Round-robin четене"
 
 msgid "Split request"
-msgstr ""
+msgstr "Разделена молба"
 
 msgid "Read from lowest load"
-msgstr ""
+msgstr "Четете от най-ниското натоварване"
 
 msgid "Read from biggest priority"
-msgstr ""
+msgstr "Прочетете от най-голям приоритет"
 
 msgid "RAID Type"
-msgstr ""
+msgstr "RAID вид"
 
 msgid "Select read balance algorithm."
-msgstr ""
+msgstr "Изберете алгоритъм за балансиране на четенето."
 
 msgid "This option applies to GEOM RAID-1 only."
-msgstr ""
+msgstr "Тази опция се отнася само за GEOM RAID-1."
 
 msgid "Balance Algorithm"
 msgstr "алгоритъм за баланс"
 
 msgid "Do not activate this option if you want to add an existing RAID."
-msgstr ""
+msgstr "Не активирайте тази опция, ако искате да добавите съществуващ RAID."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Всички данни ще бъдат загубени, когато активирате тази опция!"
@@ -2801,94 +2988,94 @@ msgid "Device List"
 msgstr "Списък на устройства"
 
 msgid "Partition"
-msgstr ""
+msgstr "Дял"
 
 msgid "RAID1"
-msgstr ""
+msgstr "RAID1"
 
 msgid "RAID1 Status"
-msgstr ""
+msgstr "RAID1 Статус"
 
 msgid "RAID1 Details"
-msgstr ""
+msgstr "RAID1 Детайли"
 
 msgid "Rebuild the selected device forcibly."
-msgstr ""
+msgstr "Принудително преизграждане на избраното устройство."
 
 msgid "Print detailed information."
-msgstr ""
+msgstr "Отпечатай подробна информация."
 
 msgid "Print general information."
-msgstr ""
+msgstr "Отпечатай обща информация."
 
 msgid "Remove the selected device from the mirror."
-msgstr ""
+msgstr "Премахнете избраното устройство от огледалото."
 
 msgid "Activate the selected device."
 msgstr "Активиране на избраното устройтво"
 
 msgid "Mark the selected device as inactive."
-msgstr ""
+msgstr "Маркирайте избраното устройство като неактивно."
 
 msgid "Forget about devices which are not connected."
-msgstr ""
+msgstr "Забравете за устройствата, които не са свързани."
 
 msgid "Add the selected device to the existing mirror."
-msgstr ""
+msgstr "Добавете избраното устройство към съществуващото огледало."
 
 msgid "Clear metadata on the selected device."
-msgstr ""
+msgstr "Изчисти metadata на избраното устройство."
 
 msgid "Stop the selected mirror."
-msgstr ""
+msgstr "Спрете избраното огледало."
 
 msgid "RAID-1"
-msgstr ""
+msgstr "RAID-1"
 
 msgid "RAID-1 Maintenance"
-msgstr ""
+msgstr "Поддръжка на RAID-1"
 
 msgid "Submit Command"
-msgstr ""
+msgstr "Подай команда"
 
 msgid "Command Output"
-msgstr ""
+msgstr "Резултат от командата"
 
 msgid "RAID5"
-msgstr ""
+msgstr "RAID5"
 
 msgid "RAID5 Status"
-msgstr ""
+msgstr "RAID5 Статус"
 
 msgid "RAID5 Details"
-msgstr ""
+msgstr "RAID5 Детайли"
 
 msgid "RAID-5"
-msgstr ""
+msgstr "RAID-5"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID-5 Maintenance"
-msgstr ""
+msgstr "Поддръжка на RAID-5"
 
 msgid "RAID0"
-msgstr ""
+msgstr "RAID0"
 
 msgid "RAID0 Status"
-msgstr ""
+msgstr "RAID0 Статус"
 
 msgid "RAID0 Details"
-msgstr ""
+msgstr "RAID0 Детайли"
 
 msgid "RAID-0"
-msgstr ""
+msgstr "RAID-0"
 
 msgid "RAID-0 Maintenance"
-msgstr ""
+msgstr "Поддръжка на RAID-0"
 
 msgid "Unix Command"
-msgstr ""
+msgstr "Unix команда"
 
 msgid "Do you want to create a RAID-5 from selected disks?"
 msgstr "Искате ли да създадете RAID-5 от избраните дискове?"
@@ -2900,38 +3087,41 @@ msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "3 или повече диска са необходими, за да се създаде RAID-5 том."
 
 msgid "GEOM VINUM Software RAID"
-msgstr ""
+msgstr "GEOM VINUM Software RAID"
 
 msgid "No GEOM vinum information found."
-msgstr ""
+msgstr "Няма намерена информация за GEOM vinum."
 
 msgid "GEOM vinum"
-msgstr ""
+msgstr "GEOM vinum"
 
 msgid "RAID 0/1/5 Information & Status"
-msgstr ""
+msgstr "Информация и статус за RAID 0/1/5"
 
 msgid "Object name"
 msgstr "Име на обекта"
 
 msgid "RAID 0/1/5 Maintenance"
-msgstr ""
+msgstr "Поддръжка на RAID 0/1/5"
 
 msgid "No pool was found."
-msgstr ""
+msgstr "Не беше намерен \"pool\" ."
 
 msgid ""
 "No pool was found. Try to force import from on-disk ZFS configuration."
 msgstr ""
+"Не беше намерен \"pool\". Опитайте да принудите вноса от конфигурацията на "
+"ZFS на диска."
 
 msgid "No pool was found. Try to import from on-disk ZFS configuration."
 msgstr ""
+"Не беше намерен пул. Опитайте да внесете от конфигурацията на ZFS на диска."
 
 msgid "Your ZFS system is not healthy."
-msgstr ""
+msgstr "Вашата ZFS система не е в добро здравословно състояние."
 
 msgid "ZFS"
-msgstr ""
+msgstr "ZFS"
 
 msgid "Configuration"
 msgstr "Настройка"
@@ -2940,28 +3130,28 @@ msgid "Detected"
 msgstr "Засечен"
 
 msgid "Pools"
-msgstr ""
+msgstr "\"Pool(s)\""
 
 msgid "Datasets"
 msgstr "Masiwite от данни"
 
 msgid "Volumes"
-msgstr ""
+msgstr "Обеми"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Snapshots"
 
 msgid "Scheduler"
-msgstr ""
+msgstr "Планировчик"
 
 msgid "Current"
 msgstr "Текущ"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Синхронизиране"
 
 msgid "Used"
-msgstr ""
+msgstr "Използван"
 
 msgid "Avail"
 msgstr "Налично"
@@ -2970,28 +3160,28 @@ msgid "Alloc"
 msgstr "Alloc"
 
 msgid "Free"
-msgstr ""
+msgstr "Свободно"
 
 msgid "Expandsz"
-msgstr ""
+msgstr "Expandsz"
 
 msgid "Frag"
-msgstr ""
+msgstr "Frag"
 
 msgid "Dedup"
 msgstr "Премахни дупликатите"
 
 msgid "Health"
-msgstr ""
+msgstr "Здраве"
 
 msgid "AltRoot"
 msgstr "AltRoot"
 
 msgid "Virtual Devices"
-msgstr ""
+msgstr "Виртуални устройства"
 
 msgid "Pool"
-msgstr ""
+msgstr "Pool"
 
 msgid "Devices"
 msgstr "Устройства"
@@ -3000,7 +3190,7 @@ msgid "Compression"
 msgstr "Компресия"
 
 msgid "Sync"
-msgstr ""
+msgstr "Синхронизиране"
 
 msgid "ACL Inherit"
 msgstr "ACL наследство"
@@ -3012,122 +3202,129 @@ msgid "Canmount"
 msgstr "Canmount"
 
 msgid "Quota"
-msgstr ""
+msgstr "Квота"
 
 msgid "Readonly"
-msgstr ""
+msgstr "Само за четене"
 
 msgid "Snapshot Visibility"
-msgstr ""
+msgstr "Видимост на Snapshot(и)"
 
 msgid "on"
-msgstr ""
+msgstr "включен"
 
 msgid "none"
-msgstr ""
+msgstr "няма"
 
 msgid "off"
-msgstr ""
+msgstr "изключен"
 
 msgid "hidden"
-msgstr ""
+msgstr "скрито"
 
 msgid "visible"
-msgstr ""
+msgstr "видимо"
 
 msgid "Blocksize"
 msgstr "Размер на блока"
 
 msgid "Sparse"
-msgstr ""
+msgstr "Разпръснато"
 
 msgid ""
 "This page reflects the current system configuration. It may be different to "
 "the configuration which has been created with the WebGUI if changes has been "
 "done via command line"
 msgstr ""
+"Тази страница отразява текущата конфигурация на системата. Тя може да се "
+"различава от конфигурацията, създадена с WebGUI, ако са направени промени "
+"чрез командния интерфейс."
 
 msgid "Import on-disk ZFS configuration"
-msgstr ""
+msgstr "Импортиране на конфигурацията на ZFS на диска"
 
 msgid "Force import on-disk ZFS configuration"
-msgstr ""
+msgstr "Принудително внасяне на конфигурацията на ZFS на диска"
 
 msgid ""
 "This page reflects the configuration that has been created with the WebGUI."
-msgstr ""
+msgstr "Тази страница отразява конфигурацията, която е създадена с WebGUI."
 
 msgid ""
 "It is not recommanded to import non healthy pools nor virtual devices that "
 "are part of a non healthy pool."
 msgstr ""
+"Не се препоръчва да се внасят неработещи купове (pools), нито виртуални "
+"устройства, които са част от неработещ куп (pool)."
 
 msgid "Nothing to synchronize"
-msgstr ""
+msgstr "Няма нищо за синхронизиране"
 
 msgid "Extended Attributes"
-msgstr ""
+msgstr "Разширени атрибути"
 
 msgid "Options"
-msgstr ""
+msgstr "Опции"
 
 msgid "Leave auto snapshot configuration"
-msgstr ""
+msgstr "Оставете автоматичната конфигурация на Snapshots"
 
 msgid "Leave already configured auto snapshots."
-msgstr ""
+msgstr "Оставете вече конфигурираните автоматични Snapshots.."
 
 msgid "Import disks"
-msgstr ""
+msgstr "Внасяне на дискове"
 
 msgid "Import disks used in configuration."
-msgstr ""
+msgstr "Внасяне на дискове, използвани в конфигурацията."
 
 msgid "Overwrite disks configuration"
-msgstr ""
+msgstr "Презаписване на конфигурацията на дисковете"
 
 msgid "Overwrite already configured disks (only affects filesystem value)."
 msgstr ""
+"Презаписване на вече конфигурирани дискове (засяга само стойността на "
+"файловата система)."
 
 msgid "Add Dataset"
 msgstr "Добави Dataset"
 
 msgid "Edit Dataset"
-msgstr ""
+msgstr "Преработка на набор от данни (Dataset)"
 
 msgid "Dataset is marked for deletion"
-msgstr ""
+msgstr "Наборът от данни (Dataset)  е маркиран за изтриване"
 
 msgid "Dataset is locked"
-msgstr ""
+msgstr "Наборът от данни  (Dataset)  е заключен."
 
 msgid "Dataset is unlocked"
-msgstr ""
+msgstr "Наборът от данни  (Dataset)  е отключен."
 
 msgid "Delete Selected Datasets"
-msgstr ""
+msgstr "Изтрий избраните набори от данни (Datasets)"
 
 msgid "Do you want to delete selected datasets?"
-msgstr ""
+msgstr "Искате ли да изтриете избраните набори от данни (datasets)?"
 
 msgid "Dataset"
 msgstr "Масив от данни"
 
 msgid "No configured pools."
-msgstr ""
+msgstr "Няма конфигурирани купове (pools)."
 
 msgid "Please add a pool first."
-msgstr ""
+msgstr "Моля, първо добавете куп (pool)."
 
 msgid "Pool name cannot be modified."
-msgstr ""
+msgstr "Името на купа (pool) не може да бъде променено."
 
 #, php-format
 msgid "%s already exists as a %s."
 msgstr "%s вече съществува като %s"
 
 msgid "Failed to execute command zfs."
-msgstr ""
+msgstr "Неуспешно изпълнение на командата zfs."
 
 #, php-format
 msgid "%s is already configured as a volume."
@@ -3138,103 +3335,107 @@ msgid "%s is already configured as a filesystem."
 msgstr "%s вече е конфигурирано като файлова система."
 
 msgid "On"
-msgstr ""
+msgstr "Включено"
 
 msgid "Off"
-msgstr ""
+msgstr "Изключено"
 
 msgid "Verify"
-msgstr ""
+msgstr "Провери"
 
 msgid "SHA256, Verify"
-msgstr ""
+msgstr "SHA256, Провери"
 
 msgid "Standard"
-msgstr ""
+msgstr "Стандартен"
 
 msgid "Always"
 msgstr "Винаги"
 
 msgid "Discard - Do not inherit entries"
-msgstr ""
+msgstr "(Discard) Изхвърляне - Не наследявайте записи"
 
 msgid "Noallow - Only inherit deny entries"
-msgstr ""
+msgstr "Noallow - Наследява само записите за отказ"
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr ""
+"(Restricted) Ограничено - Наследява всичко освен „записване на ACL“ (\"write "
+"ACL\" )  и „промяна на собственик“ (\"change owner\")"
 
 msgid "Passthrough - Inherit all entries"
-msgstr ""
+msgstr "(Passthrough) Пропускане - Наследява всички записи"
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
 msgstr ""
+"Passthrough-X - Наследява всичко освен „изпълнение“( \"execute\" ), когато "
+"не е посочено"
 
 msgid "Discard - Discard ACL"
-msgstr ""
+msgstr "(Discard)Отхвърляне - Отхвърляне на ACL"
 
 msgid "Groupmask - Mask ACL with mode"
-msgstr ""
+msgstr "\"Groupmask\" - Маска ACL с \"mode\" (режим)"
 
 msgid "Passthrough - Do not change ACL"
-msgstr ""
+msgstr "Passthrough - Не променяй ACL"
 
 msgid "Restricted"
-msgstr ""
+msgstr "Ограничен"
 
 msgid "Sensitive"
-msgstr ""
+msgstr "Чувствително"
 
 msgid "Insensitive"
-msgstr ""
+msgstr "Нечувствителен"
 
 msgid "Mixed"
-msgstr ""
+msgstr "Смесено"
 
 msgid "No encryption"
-msgstr ""
+msgstr "Без криптиране"
 
 msgid "Use default encryption cipher suite"
-msgstr ""
+msgstr "Използвайте стандартен набор от шифровъчни алгоритми"
 
 msgid "Use aes-128-ccm encryption cipher suite"
-msgstr ""
+msgstr "Използвайте набор от криптиращи алгоритми aes-128-ccm"
 
 msgid "Use aes-192-ccm encryption cipher suite"
-msgstr ""
+msgstr "Използвайте набор от криптиращи алгоритми aes-192-ccm"
 
 msgid "Use aes-256-ccm encryption cipher suite"
-msgstr ""
+msgstr "Използвайте набор от криптиращи алгоритми aes-256-ccm"
 
 msgid "Use aes-128-gcm encryption cipher suite"
-msgstr ""
+msgstr "Използвайте набор от криптиращи алгоритми aes-128-gcm"
 
 msgid "Use aes-192-gcm encryption cipher suite"
-msgstr ""
+msgstr "Използвайте набор от криптиращи алгоритми aes-192-gcm"
 
 msgid "Use aes-256-gcm encryption cipher suite"
-msgstr ""
+msgstr "Използвайте набор от криптиращи алгоритми aes-256-gcm"
 
 msgid "Raw Key"
-msgstr ""
+msgstr "Необработен ключ"
 
 msgid "Hex Key"
-msgstr ""
+msgstr "Шестограмен (HEX) ключ"
 
 msgid "Prompt"
-msgstr ""
+msgstr "Питане"
 
 msgid "File"
-msgstr ""
+msgstr "Файл"
 
 msgid "HTTPS"
-msgstr ""
+msgstr "HTTPS"
 
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 msgid "Enter a name for this dataset"
-msgstr ""
+msgstr "Въведете име за този набор от данни (dataset)"
 
 msgid ""
 "Controls the compression algorithm used for this dataset. 'LZ4' is now the "
@@ -3244,16 +3445,25 @@ msgid ""
 "where N is an integer from 1 (fastest) to 9 (best compression ratio). "
 "Currently, 'GZIP' is equivalent to 'GZIP-6'."
 msgstr ""
+"Контролира алгоритъма за компресиране, използван за този набор от данни. "
+"„LZ4“ е препоръчителният алгоритъм за компресиране. Настройката на "
+"компресирането на „Включено“ използва алгоритъма за компресиране LZ4, ако "
+"флагът lz4_compress е активен, в противен случай се използва LZJB. Можете да "
+"зададете нивото „GZIP“, като използвате стойността „GZIP-N“, където N е цяло "
+"число от 1 (най-бързо) до 9 (най-добро съотношение на компресиране). "
+"Понастоящем „GZIP“ е равностойно на „GZIP-6“."
 
 msgid "Controls the dedup method."
 msgstr "Controls the dedup method."
 
 msgid "WARNING"
-msgstr ""
+msgstr "ВНИМАНИЕ"
 
 msgid ""
 "See ZFS datasets & deduplication wiki article BEFORE using this feature."
 msgstr ""
+"ПРЕДИ ДА  използвате тази функция, прочетете статията в Уики за ZFS набори "
+"от данни (datasets) и дедупликация."
 
 msgid "Controls the behavior of synchronous requests."
 msgstr "Контролира поведението на синхронни искания."
@@ -3266,6 +3476,10 @@ msgid ""
 "Turning this Off avoids producing write traffic when reading files and can "
 "result in significant performance gains."
 msgstr ""
+"Контролира дали времето за достъп до файловете се актуализира при четенето "
+"им. Изключването на тази опция предотвратява генерирането на трафик при "
+"запис при четене на файлове и може да доведе до значително повишаване на "
+"производителността."
 
 msgid "ACL inherit"
 msgstr "ACL наследство"
@@ -3273,6 +3487,8 @@ msgstr "ACL наследство"
 msgid ""
 "This attribute determines the behavior of Access Control List inheritance."
 msgstr ""
+"Този атрибут определя поведението на наследяването на (ACL)  списъка за "
+"контрол на достъпа ."
 
 msgid "ACL mode"
 msgstr "ACL режим"
@@ -3281,6 +3497,8 @@ msgid ""
 "This attribute controls the ACL behavior when a file is created or whenever "
 "the mode of a file or a directory is modified."
 msgstr ""
+"Този атрибут контролира поведението на ACL при създаване на файл или при "
+"промяна на режима на файл или директория."
 
 msgid "Case Sensitivity"
 msgstr "Case Sensitivity"
@@ -3290,31 +3508,40 @@ msgid ""
 "file system should be casesensitive, caseinsensitive, or allow a combination "
 "of both styles of matching"
 msgstr ""
+"Този параметър показва дали алгоритъмът за съвпадение на имена на файлове, "
+"използван от файловата система, трябва да е (casesensitive) чувствителен към "
+"главни и малки букви, да  е (caseinsensitive) нечувствителен към главни и "
+"малки букви или да позволява комбинация от двата стила на съвпадение."
 
 msgid "If this property is disabled, the file system cannot be mounted."
 msgstr ""
+"Ако тази опция е деактивирана, файловата система не може да бъде монтирана."
 
 msgid "Controls whether this dataset can be modified."
 msgstr "Определя дали този набор от данни може да бъде модифициран."
 
 msgid "Extended attributes"
-msgstr ""
+msgstr "Разширени атрибути"
 
 msgid "Enable extended attributes for this file system."
-msgstr ""
+msgstr "Активирайте разширените атрибути за тази файлова система."
 
 msgid ""
 "If this property is enabled, the snapshots are displayed into .zfs directory."
 msgstr ""
+"Ако тази опция е активирана, snapshot(и) се показват в директорията .zfs."
 
 msgid "Reservation"
-msgstr ""
+msgstr "Резервация"
 
 msgid ""
 "The minimum amount of space guaranteed to a dataset (usually empty). To "
 "specify the size use the following human-readable suffixes (for example, "
 "'k', 'KB', 'M', 'Gb', etc.)."
 msgstr ""
+"Минималното пространство, гарантирано за даден (dataset)  набор от данни "
+"(обикновено празно). За да определите размера, използвайте следните "
+"лесноразбираеми суфикси (например „k“, „KB“, „M“, „Gb“ и т.н.)."
 
 msgid ""
 "Limits the amount of space a dataset and its descendants can consume. This "
@@ -3323,117 +3550,123 @@ msgid ""
 "specify the size use the following human-readable suffixes (for example, "
 "'k', 'KB', 'M', 'Gb', etc.)."
 msgstr ""
+"Ограничава количеството пространство, което може да заемат даден (dataset) "
+"набор от данни и неговите наследници. Това свойство налага строго "
+"ограничение на използваното пространство. То включва цялото пространство, "
+"заемано от наследниците, включително файлови системи и моментални снимки. За "
+"да зададете размера, използвайте следните лесноразбираеми суфикси (например "
+"„k“, „KB“, „M“, „Gb“ и т.н.)."
 
 msgid "Enter a description"
-msgstr ""
+msgstr "Въведете описание"
 
 msgid "Clone Configuration"
-msgstr ""
+msgstr "Клонирай Настройки"
 
 msgid "ZFS filesystem not found."
-msgstr ""
+msgstr "Не е открита файлова система ZFS."
 
 msgid "ZFS filesystem properties not available."
-msgstr ""
+msgstr "Свойствата на файловата система ZFS не са налични."
 
 msgid "ZFS Filesystem Information & Status"
-msgstr ""
+msgstr "Информация и статус на файловата система ZFS"
 
 msgid "Information & Status"
-msgstr ""
+msgstr "Информация и Статус"
 
 msgid "ZFS Filesystem Properties"
-msgstr ""
+msgstr "Свойства на файловата система ZFS"
 
 msgid "Properties"
-msgstr ""
+msgstr "Свойства"
 
 msgid "ZFS Settings"
-msgstr ""
+msgstr "Настройки на ZFS"
 
 msgid "Maintenance Tool Settings"
-msgstr ""
+msgstr "Настройки на инструмента за поддръжка"
 
 msgid "Capacity Alert Thresholds"
-msgstr ""
+msgstr "Прагове за предупреждение за капацитет"
 
 msgid "Add Snapshot"
 msgstr "Добави Snapshot"
 
 msgid "Edit Snapshot"
-msgstr ""
+msgstr "Промени Snapshot"
 
 msgid "Snapshot is marked for deletion"
-msgstr ""
+msgstr "Snapshot е маркиран за изтриване"
 
 msgid "Snapshot is locked"
-msgstr ""
+msgstr "Snapshot е заключен"
 
 msgid "Snapshot is unlocked"
-msgstr ""
+msgstr "Snapshot е отключен"
 
 msgid "Delete Selected Snapshots"
 msgstr "Изтрий Избраните Snapshots"
 
 msgid "Do you want to delete selected snapshots?"
-msgstr ""
+msgstr "Искате ли да изтриете избраните snapshot(и)?"
 
 msgid "All"
 msgstr "Всички"
 
 msgid "Today"
-msgstr ""
+msgstr "Днес"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Вчера"
 
 msgid "Older than yesterday"
-msgstr ""
+msgstr "По-стар от вчера"
 
 msgid "This week"
-msgstr ""
+msgstr "Тази седмица"
 
 msgid "Last week"
-msgstr ""
+msgstr "Миналата седмица"
 
 msgid "Older than last week"
-msgstr ""
+msgstr "По-стар от миналата седмица"
 
 msgid "This month"
-msgstr ""
+msgstr "Този месец"
 
 msgid "Last month"
-msgstr ""
+msgstr "Миналия месец"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "Текущ и предходен месец"
 
 msgid "Older than last month"
-msgstr ""
+msgstr "По-стар от миналия месец"
 
 msgid "Current quarter"
-msgstr ""
+msgstr "Текущо тримесечие"
 
 msgid "Previous quarter"
-msgstr ""
+msgstr "Предишно тримесечие"
 
 msgid "Older than previous quarter"
-msgstr ""
+msgstr "По старо от предишно тримесечие"
 
 msgid "Current year"
-msgstr ""
+msgstr "Текуща година"
 
 msgid "Previous year"
-msgstr ""
+msgstr "Предишна година"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "Текуща и предишна година"
 
 msgid "Older than previous year"
-msgstr ""
+msgstr "По старо от предишна година"
 
 msgid "Snapshot"
-msgstr ""
+msgstr "Снимка (Snapshot)"
 
 msgid "Clone"
 msgstr "Клониране"
@@ -3442,7 +3675,7 @@ msgid "Auto Snapshot"
 msgstr "Авто Snapshot"
 
 msgid "Filter"
-msgstr ""
+msgstr "Филтър"
 
 msgid "Display"
 msgstr "Монитор"
@@ -3458,16 +3691,16 @@ msgstr "pools"
 
 #, php-format
 msgid "Please add new %s first."
-msgstr ""
+msgstr "Моля, първо добавете нов %s."
 
 msgid "Recursive"
-msgstr ""
+msgstr "Рекурсивно"
 
 msgid "Create recursive snapshot."
-msgstr ""
+msgstr "Създаване на рекурсивен snapshot."
 
 msgid "infinity"
-msgstr ""
+msgstr "безкрайност"
 
 #, php-format
 msgid "%d week"
@@ -3490,13 +3723,13 @@ msgid "%d years"
 msgstr "%d години"
 
 msgid "Life Time"
-msgstr ""
+msgstr "Живот"
 
 msgid "Edit auto snapshot"
-msgstr ""
+msgstr "Промени Автоматичен Snapshot"
 
 msgid "Do you really want to delete this auto snapshot?"
-msgstr ""
+msgstr "Наистина ли искате да изтриете тoзи Автоматичен Snapshot?"
 
 msgid "Delete auto snapshot"
 msgstr "Изтрий авто snapshot"
@@ -3505,22 +3738,22 @@ msgid "Add auto snapshot"
 msgstr "Добави авто snapshot"
 
 msgid "Auto Snapshot Settings"
-msgstr ""
+msgstr "Настройки на Автоматичен Snapshot"
 
 msgid "Schedule time"
-msgstr ""
+msgstr "График на времето"
 
 msgid "Life time"
-msgstr ""
+msgstr "Живот"
 
 msgid "Origin"
-msgstr ""
+msgstr "Произход"
 
 msgid "Creation"
 msgstr "Създаване"
 
 msgid "Do you really want to delete this clone?"
-msgstr ""
+msgstr "Наистина ли искате да изтриете този (клон)екземпляр?"
 
 msgid "Delete clone"
 msgstr "Изтрий клонинг"
@@ -3534,29 +3767,30 @@ msgstr "Действие"
 
 #, php-format
 msgid "The attribute '%s' is invalid."
-msgstr ""
+msgstr "Атрибутът  '%s'  е невалиден."
 
 msgid "Rollback"
-msgstr ""
+msgstr "Връщане"
 
 msgid "Deletes the recursive snapshot."
-msgstr ""
+msgstr "Изтрива този рекурсивен snapshot."
 
 msgid "Force Delete"
-msgstr ""
+msgstr "Принудително изтриване"
 
 msgid ""
 "Destroy any snapshots and bookmarks more recent than the one specified."
 msgstr ""
+"Изтрийте всички snapshot(и) и отметки, които са по-нови от посочените."
 
 msgid "No snapshot information available."
-msgstr ""
+msgstr "Няма налична информация за snapshot(и)."
 
 msgid "ZFS Snapshot Information & Status"
-msgstr ""
+msgstr "Информация и статус на ZFS Snapshot"
 
 msgid "ZFS Snapshot Properties"
-msgstr ""
+msgstr "Свойства на ZFS Snapshot"
 
 msgid "Add Volume"
 msgstr "Добави Том"
@@ -3565,13 +3799,13 @@ msgid "Edit Volume"
 msgstr "Редактирай Том"
 
 msgid "Volume is marked for deletion"
-msgstr ""
+msgstr "Обемът е маркиран за изтриване"
 
 msgid "Volume is locked"
-msgstr ""
+msgstr "Обемът е заключен."
 
 msgid "Volume is unlocked"
-msgstr ""
+msgstr "Обемът е отключен."
 
 msgid "Delete Selected Volumes"
 msgstr "Изтрий Избраните Томове"
@@ -3580,136 +3814,140 @@ msgid "Do you want to delete selected volumes?"
 msgstr "Искате ли да изтриете избраните томове?"
 
 msgid "Volume"
-msgstr ""
+msgstr "Обем"
 
 msgid "Please add new pools first."
-msgstr ""
+msgstr "Моля, първо добавете нови купове (pools)."
 
 msgid "Orphaned"
-msgstr ""
+msgstr "Сираче"
 
 msgid "Pool cannot be changed."
-msgstr ""
+msgstr "Купът (pool)  не може да бъде променен."
 
 msgid "Enter a name for this volume"
-msgstr ""
+msgstr "Въведете име за този обем"
 
 msgid "Sparse Volume"
-msgstr ""
+msgstr "Oскъден (Sparse) Обем"
 
 msgid "Use as sparse volume (thin provisioning)."
-msgstr ""
+msgstr "Използвайте като оскъден (sparse) обем (фино провизиониране)."
 
 msgid "Apply"
-msgstr ""
+msgstr "Приложи"
 
 msgid "ZFS volume not found."
-msgstr ""
+msgstr "ZFS обемът не е намерен."
 
 msgid "ZFS volume properties not available."
-msgstr ""
+msgstr "Свойствата на ZFS обема не са налични."
 
 msgid "ZFS Volume Information & Status"
-msgstr ""
+msgstr "ZFS Обем Информация и Статус"
 
 msgid "ZFS Volume Properties"
 msgstr ""
 
 msgid "Add Pool"
-msgstr ""
+msgstr "Добави Куп (Pool)"
 
 msgid "Edit Pool"
-msgstr ""
+msgstr "Промени Куп (Pool)"
 
 msgid "Pool Information"
-msgstr ""
+msgstr "Информация за Куп (Pool)"
 
 msgid "Pool is marked for deletion"
-msgstr ""
+msgstr "Купът (Pool) е маркиран за изтриване"
 
 msgid "Pool is protected"
-msgstr ""
+msgstr "Купът (Pool) е защитен"
 
 msgid "Pool is unlocked"
-msgstr ""
+msgstr "Купът (Pool) е отключен"
 
 msgid "Delete Selected Pools"
 msgstr "Изтрий Избраните Pools"
 
 msgid "Do you want to delete selected pools?"
-msgstr ""
+msgstr "Искате ли да изтриете избраните купове  (pools)?"
 
 msgid "Virtual Device"
-msgstr ""
+msgstr "Виртуално устройство"
 
 msgid "I/O Statistics"
-msgstr ""
+msgstr "I/O  Статистики"
 
 msgid "Capacity"
 msgstr "Капацитет"
 
 msgid "Virtual device is already in use."
-msgstr ""
+msgstr "Виртуалното устройство вече се използва."
 
 msgid "Virtual device can be removed."
-msgstr ""
+msgstr "Виртуалното устройство може да бъде премахнато."
 
 msgid "No configured virtual devices."
-msgstr ""
+msgstr "Няма конфигурирани виртуални устройства."
 
 msgid "Please add a virtual device first."
-msgstr ""
+msgstr "Моля, първо добавете виртуално устройство."
 
 #, php-format
 msgid "%s already exists."
 msgstr "%s вече съществува."
 
 msgid "Failed to execute command zpool."
-msgstr ""
+msgstr "Неуспешно изпълнение на командата zpool."
 
 msgid "This pool name already exists."
-msgstr ""
+msgstr "Това име на купа (pool) вече съществува."
 
 msgid "The name of the pool cannot be changed."
-msgstr ""
+msgstr "Това име на купа (pool) не може да бъде променено."
 
 msgid "Virtual devices"
-msgstr ""
+msgstr "виртуални устройства"
 
 msgid "Root"
-msgstr ""
+msgstr "Корен (Root)"
 
 msgid "Creates the pool with an alternate root."
 msgstr "Създава pool с алтернативен корен."
 
 msgid "Sets an alternate mount point for the root dataset. Default is /mnt."
 msgstr ""
+"Задава алтернативна точка за монтиране на основния набор от данни(dataset). "
+"По подразбиране е /mnt."
 
 msgid "Force Use"
-msgstr ""
+msgstr "Принуди Употреба"
 
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
 msgstr ""
+"Принудително използване на vdevs, дори ако изглеждат в употреба или са "
+"зададени с различен размер. (Това не се препоръчва.)"
 
 msgid "Virtual Device List"
-msgstr ""
+msgstr "Списък с виртуални устройства"
 
 msgid "ZFS pool not found."
-msgstr ""
+msgstr "ZFS куп (pool) не е намерен."
 
 msgid "ZFS pool properties not available."
-msgstr ""
+msgstr "Свойствата на ZFS купа (pool) не са налични."
 
 msgid "ZFS Pool Information & Status"
-msgstr ""
+msgstr "ZFS куп (pool)  Информация и Статус"
 
 msgid "ZFS Pool Properties"
-msgstr ""
+msgstr "ZFS куп (pool) Свойства"
 
 msgid "ZFS Pool I/O Statistics"
-msgstr ""
+msgstr "ZFS куп (pool) I/O  Статистики"
 
 msgid "Add a virtual device to a pool"
 msgstr "Добави виртуално устройство към pool"
@@ -3736,79 +3974,81 @@ msgid "Destroy a pool"
 msgstr "Унищожи pool"
 
 msgid "Detach a data device from a mirror"
-msgstr ""
+msgstr "Откачете устройство за данни от огледало"
 
 msgid "Detach a log device from a mirrored log"
-msgstr ""
+msgstr "Отделете устройство за дневник от отразен дневник"
 
 msgid "Export a pool from the system"
-msgstr ""
+msgstr "Износ на куп (pool) от системата"
 
 msgid "Display ZFS command history"
 msgstr "Покажи историята на ZFS командите"
 
 msgid "Import pools"
-msgstr ""
+msgstr "Внос на купове (pools)"
 
 msgid "List pools available to import"
-msgstr ""
+msgstr "Списък с налични за импортиране купове (pools)"
 
 msgid "Remove ZFS label information from a device"
-msgstr ""
+msgstr "Премахване на информацията за етикета ZFS от устройство"
 
 msgid "Take a device offline"
-msgstr ""
+msgstr "Изключете устройство"
 
 msgid "Bring a device online"
 msgstr "Покажи устройство онлайн"
 
 msgid "Generate a new unique identifier for a pool"
-msgstr ""
+msgstr "Създаване на нов уникален идентификатор за куп (pool)"
 
 msgid "Remove a cache device from a pool"
-msgstr ""
+msgstr "Премахване на кеш устройство от куп (pool)"
 
 msgid "Remove a log device from a pool"
-msgstr ""
+msgstr "Премахване на дневническо устройство от куп (pool)"
 
 msgid "Remove a spare device from a pool"
-msgstr ""
+msgstr "Премахване на резервно устройство от  куп (pool)"
 
 msgid "Replace a device"
-msgstr ""
+msgstr "Замяна на устройство"
 
 msgid "Scrub a pool"
-msgstr ""
+msgstr "Изтъркайте купа (pool)"
 
 msgid "Initiate TRIM of free space in a pool"
-msgstr ""
+msgstr "Започнете TRIM на свободното пространство в един куп (pool)"
 
 msgid "Upgrade ZFS and add all supported feature flags on a pool"
 msgstr ""
+"Актуализирайте ZFS и добавете всички налични функционални флагове в купа "
+"(pool)"
 
 msgid "Activate encryption feature"
-msgstr ""
+msgstr "Активиране на характеристиката за криптиране"
 
 msgid "Temporary Device"
-msgstr ""
+msgstr "Временно устройство"
 
 msgid "Start"
-msgstr ""
+msgstr "Започни"
 
 msgid "Stop"
-msgstr ""
+msgstr "Спри"
 
 msgid "Force Operation"
-msgstr ""
+msgstr "Принуди Операция"
 
 msgid "Test Mode"
-msgstr ""
+msgstr "Тестов режим"
 
 msgid "Unknown Activity"
-msgstr ""
+msgstr "Неизвестна дейност"
 
 msgid "Select Pool"
-msgstr ""
+msgstr "Избери Куп (Pool)"
 
 msgid "Select Cache Device"
 msgstr ""

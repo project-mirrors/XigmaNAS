@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: comunio\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2025-11-11 18:59+0000\n"
-"PO-Revision-Date: 2025-10-11 17:32+0000\n"
+"PO-Revision-Date: 2025-11-18 12:38+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2025-11-13 11:49+0000\n"
+"X-Launchpad-Export-Date: 2025-11-18 15:53+0000\n"
 "X-Generator: Launchpad (build 1d08ffb47b836b8a4c9a0f11318dfdea7420ab6d)\n"
 "Language: en_GB\n"
 
@@ -3971,7 +3971,7 @@ msgid "Upgrade ZFS and add all supported feature flags on a pool"
 msgstr "Upgrade ZFS and add all supported feature flags on a pool"
 
 msgid "Activate encryption feature"
-msgstr ""
+msgstr "Activate encryption feature"
 
 msgid "Temporary Device"
 msgstr "Temporary Device"
@@ -4387,7 +4387,7 @@ msgid "Firmware Update"
 msgstr "Firmware Update"
 
 msgid "Boot Environments"
-msgstr ""
+msgstr "Boot Environments"
 
 msgid "Packages"
 msgstr "Packages"
@@ -8291,100 +8291,105 @@ msgid "Reminder Settings"
 msgstr "Reminder Settings"
 
 msgid "Locked"
-msgstr ""
+msgstr "Locked"
 
 msgid "Delete Selected Boot Environments"
-msgstr ""
+msgstr "Delete Selected Boot Environments"
 
 msgid "Do you really want to delete selected boot environments?"
-msgstr ""
+msgstr "Do you really want to delete selected boot environments?"
 
 msgid "Failed to delete Boot Environment(s)."
-msgstr ""
+msgstr "Failed to delete Boot Environment(s)."
 
 msgid "Age"
-msgstr ""
+msgstr "Age"
 
 msgid "Select"
-msgstr ""
+msgstr "Select"
 
 msgid "Boot Environment"
-msgstr ""
+msgstr "Boot Environment"
 
 msgid "Active"
 msgstr "Active"
 
 msgid "Mountpoint"
-msgstr ""
+msgstr "Mountpoint"
 
 msgid "Created"
-msgstr ""
+msgstr "Created"
 
 msgid "Failed to create and/or activate Boot Environment."
-msgstr ""
+msgstr "Failed to create and/or activate Boot Environment."
 
 msgid "Failed to create Boot Environment."
-msgstr ""
+msgstr "Failed to create Boot Environment."
 
 msgid ""
 "Activate Boot Environment after creation, note that system reboot is "
 "required for this boot environment to take place."
 msgstr ""
+"Activate Boot Environment after creation, note that system reboot is "
+"required for this boot environment to take place."
 
 msgid ""
 "Append the date in the following format: YYYY-MM-DD-HHMMSS, if the name "
 "field is empty, the date will always be used as the boot environment name."
 msgstr ""
+"Append the date in the following format: YYYY-MM-DD-HHMMSS, if the name "
+"field is empty, the date will always be used as the boot environment name."
 
 #, php-format
 msgid "For additional information about boot environments and %s,"
-msgstr ""
+msgstr "For additional information about boot environments and %s,"
 
 msgid "Failed to activate Boot Environment."
-msgstr ""
+msgstr "Failed to activate Boot Environment."
 
 msgid "Failed to rename Boot Environment."
-msgstr ""
+msgstr "Failed to rename Boot Environment."
 
 msgid "Failed to mount Boot Environment."
-msgstr ""
+msgstr "Failed to mount Boot Environment."
 
 msgid "Failed to unmount Boot Environment."
-msgstr ""
+msgstr "Failed to unmount Boot Environment."
 
 msgid "Failed to delete Boot Environment."
-msgstr ""
+msgstr "Failed to delete Boot Environment."
 
 msgid "Edit Boot Environment"
-msgstr ""
+msgstr "Edit Boot Environment"
 
 msgid "Rename"
-msgstr ""
+msgstr "Rename"
 
 msgid "Mount"
-msgstr ""
+msgstr "Mount"
 
 msgid "Unmount"
-msgstr ""
+msgstr "Unmount"
 
 msgid "Append the date in the following format: YYYY-MM-DD-HHMMSS."
-msgstr ""
+msgstr "Append the date in the following format: YYYY-MM-DD-HHMMSS."
 
 msgid "Force"
-msgstr ""
+msgstr "Force"
 
 msgid ""
 "Destroy the boot environment and its origin if any, without confirmation."
 msgstr ""
+"Destroy the boot environment and its origin if any, without confirmation."
 
 msgid "No boot environmen information available."
-msgstr ""
+msgstr "No boot environmen information available."
 
 msgid "Boot Environment List"
-msgstr ""
+msgstr "Boot Environment List"
 
 msgid "Boot Environment Snapshots"
-msgstr ""
+msgstr "Boot Environment Snapshots"
 
 msgid "Add job"
 msgstr "Add job"
