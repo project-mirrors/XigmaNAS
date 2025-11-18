@@ -18,7 +18,6 @@ Changes:
 - Upgrade microcode intel to v20250812.
 - Upgrade e2fsprogs to v1.47.3.
 - Upgrade gzip to v1.14.
-- Upgrade iperf3 to v3.19.1.
 - Upgrade proftpd to v1.3.8d.
 - Upgrade transmission to 4.1.0-beta.2
 - Upgrade wsdd to v0.9.0.
@@ -39,6 +38,7 @@ Changes:
 - Upgrade syncthing to v2.0.11.
 - Upgrade nano to v8.7.
 - Upgrade open-vm-tools to v13.0.5.
+- Upgrade iperf3 to v3.20.
 
 New:
 - New SMB use its own log file.
