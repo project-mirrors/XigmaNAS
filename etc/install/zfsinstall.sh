@@ -1109,9 +1109,9 @@ menu_swap()
 	swap_size=$(cat ${tmpfile})
 	if [ ! -z "${swap_size}" ]; then
 		# Perform some input validation.
-		if [ ! $(echo "${swap_size}" | egrep -o '^[1-9][0-9]*[kmgKMG]$') ]; then
+		if [ ! $(echo "${swap_size}" | egrep -o '^[1-9][0-9]*[gG]$') ]; then
 			echo ""
-			echo "ERROR: Invalid swap size specified, allowed suffixes are K,M,G."
+			echo "ERROR: Invalid swap size specified, allowed suffix is G as in Gigabytes."
 			read -p "Press Enter to retry." RETRY
 			menu_swap
 		fi
@@ -1136,7 +1136,8 @@ menu_zrootsize()
 {
 	root_size=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize zroot pool partition" \
-	--radiolist "Would you like to customize the ${ZROOT} partition size?" 10 60 4 \
+	--radiolist "Would you like to customize the ${ZROOT} partition size?, \
+	this is only useful if you plan to use the OS disk for L2ARC or any other filesystem other than ZFS, generally not recommended." 14 68 6 \
 	1 "Yes, customize zroot partition." off \
 	2 "No, continue with defaults." on \
 	2>${tmpfile}
@@ -1157,12 +1158,21 @@ menu_zrootsize()
 		root_size=$(cat ${tmpfile})
 		if [ ! -z "${root_size}" ]; then
 			# Perform some input validation.
-			if [ ! $(echo "${root_size}" | egrep -o '^[1-9][0-9]*[kmgKMG]$') ]; then
+			if [ ! $(echo "${root_size}" | egrep -o '^[1-9][0-9]*[gG]$') ]; then
 				echo ""
-				echo "ERROR: Invalid zroot size specified, allowed suffixes are K,M,G."
+				echo "ERROR: Invalid zroot size specified, allowed suffix is G as in Gigabytes."
 				read -p "Press Enter to retry." RETRY
 				menu_zrootsize
 			fi
+
+		root_size_min=$(echo ${root_size} | sed 's/[Gg]//')
+		# The minimum allowed zroot size is 20G.
+		if [ ! "${root_size_min}" -ge 20 ]; then
+				echo ""
+				echo "ERROR: Invalid zroot size specified, minimum allowed size is 20G."
+				read -p "Press Enter to retry." RETRY
+				menu_zrootsize
+		fi
 
 			ZROOT_SIZE="-s ${root_size}"
 		fi
@@ -1173,7 +1183,8 @@ menu_dataset()
 {
 	dataset_name=
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Create user Dataset" \
-	--radiolist "Would you like the installer to create a ZFS Dataset for data store?" 10 60 4 \
+	--radiolist "Would you like the installer to create a ZFS Dataset?, this is useful if \
+	you plan to use the OS disk for storing extensions, jails etc. on a dedicated dataset, this is highly recommended." 14 68 6 \
 	1 "Yes, create a Dataset." off \
 	2 "No, continue with defaults." on \
 	2>${tmpfile}
