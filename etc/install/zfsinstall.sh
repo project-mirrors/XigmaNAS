@@ -219,11 +219,11 @@ gptpart_init()
 
 		if [ ! -z "${SWAP_SIZE}" ]; then
 			# Add swap partition to selected drives.
-			gpart add -a 4m -s ${SWAP_SIZE} -t freebsd-swap -l swap${NUM} ${DISK} > /dev/null
+			gpart add -a 4k -s ${SWAP_SIZE} -t freebsd-swap -l swap${NUM} ${DISK} > /dev/null
 			# Generate swap device list.
 			echo "/dev/gpt/swap${NUM}" >> ${swapdevlist}
 		fi
-		gpart add -a 4m ${ZROOT_SIZE} -t freebsd-zfs -l sysdisk${NUM} ${DISK} > /dev/null
+		gpart add -a 4k ${ZROOT_SIZE} -t freebsd-zfs -l sysdisk${NUM} ${DISK} > /dev/null
 		# Generate the glabel device list.
 		echo "/dev/gpt/sysdisk${NUM}" >> ${tmpfile}
 
@@ -287,7 +287,7 @@ mbrpart_init()
 		fi
 
 		# Create zfs os partition.
-		gpart add -a 4m ${ZROOT_SIZE} -i 4 -t freebsd-zfs "${DISK}s1" > /dev/null
+		gpart add -a 4k ${ZROOT_SIZE} -i 4 -t freebsd-zfs "${DISK}s1" > /dev/null
 
 		# Write bootcode for ZFS on BIOS
 		dd if="/boot/zfsboot" of="/dev/${DISK}s1" count=1 > /dev/null 2>&1
